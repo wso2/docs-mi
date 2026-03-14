@@ -6,7 +6,7 @@ In this tutorial, you will learn how to create an AI chatbot using WSO2 MI, enab
 
 In this tutorial, you will implement a chatbot, which will serve customer requests. The chatbot will be deployed as the `Chat` API in the WSO2 Integrator: MI, enabling seamless integration and hassle-free deployment.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png" alt="Create New Project" width="60%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/what_you_will_build.png" alt="Create New Project" width="60%"></a>
 
 ## What you will learn
 
@@ -32,11 +32,11 @@ To develop the above scenario, let us get started with creating an integration p
 
 2. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
 3. Click **Create New Project** on **Design View**. For more options for creating a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png" alt="Create New Project" width="80%"></a>
 
 4. In the **Project Creation Form**, enter `BankIntegration` as the **Project Name**.
 
@@ -44,7 +44,7 @@ To develop the above scenario, let us get started with creating an integration p
 
 6. Provide a location for the integration project under **Project Directory**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project.png" alt="Create New Project" width="80%"></a>
 
 7. Click **Create**.
 
@@ -60,7 +60,7 @@ To develop the above scenario, let us get started with creating an integration p
 
     1. Click **Download Java & MI** to download and set up Java and MI runtime.
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
 
         !!! info
             If a different JDK or WSO2 MI version is installed on your local machine, you'll be prompted to download the required versions. 
@@ -72,7 +72,7 @@ To develop the above scenario, let us get started with creating an integration p
 
         Once the process is complete, a window reload will be required, and you will be prompted with the following message:
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
 
     2. Click **Reload Window**.
 
@@ -82,11 +82,11 @@ Now the integration project is ready to add an API. In this scenario, the API re
 
 1. In the **Add Artifact** interface, under **Create an Integration**, click on **API**. This opens the **API Form**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png" alt="Create New Project" width="80%"></a>
 
 2. Enter `ChatAPI` as the API **Name**. The API **Context** field will be automatically populated with the same value.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_bank_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/create_chat_api.png" alt="Create Chat API" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_bank_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/create_chat_api.png" alt="Create Chat API" width="80%"></a>
 
 3. Click **Create**.
 
@@ -102,11 +102,11 @@ Now it is time to design your API. This is the underlying logic that's executed 
 
 1. Change the method of the default resource to `POST` by clicking the three dots icon in the resource.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/change_resource_method.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/change_resource_method.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/change_resource_method.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/change_resource_method.gif" alt="Create New Project" width="80%"></a>
 
 2. Open the **Resource View** of the API resource by clicking the `POST` resource under **Available resources** on **Service Designer**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_post_resource.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_post_resource.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_post_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_post_resource.png" alt="Create New Project" width="80%"></a>
 
 3. Define the expected payload in the start node to streamline the development process.
 
@@ -120,38 +120,38 @@ Now it is time to design your API. This is the underlying logic that's executed 
         "query":"Hi!"
     }
     ```
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/set_chat_resource_payload.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/set_chat_resource_payload.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/set_chat_resource_payload.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/set_chat_resource_payload.gif" alt="Create New Project" width="80%"></a>
 
 4. Once you open the **Resource View**, click on the **+** icon on the canvas to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_add_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_add_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_add_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click_add_mediator.png" alt="Create New Project" width="80%"></a>
 
 5. Under **Mediators**, select the **+ Add Module**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click-add-module.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click-add-module.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click-add-module.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/click-add-module.png" alt="Create New Project" width="80%"></a>
 
 6. In the **Add Modules** pane, type `AI` in the **Search** field to locate the **AI Module**. Click **Download** to install the module.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/download_ai_module.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/download_ai_module.gif" alt="Download AI Module" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/download_ai_module.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/download_ai_module.gif" alt="Download AI Module" width="30%"></a>
 
 7. Select the `chat` operation from the mediator panel.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_chat_operation.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_chat_operation.png" alt="Add Chat Operation" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_chat_operation.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_chat_operation.png" alt="Add Chat Operation" width="80%"></a>
 
 8. Select the **+ Add new connection** in the **LLM Connection** field.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_new_llm_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_new_llm_connection.png" alt="Add Chat Operation" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_new_llm_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_new_llm_connection.png" alt="Add Chat Operation" width="30%"></a>
 
 9. On the **Add New Connection** page, choose your desired `LLM Provider`. For this tutorial, we will be using `OpenAI` as the provider.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_llm_provider.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_llm_provider.png" alt="Add Chat Operation" width="40%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_llm_provider.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_llm_provider.png" alt="Add Chat Operation" width="40%"></a>
 
 10. Complete the connection form by entering `OPENAI_CONN` as the **Connection Name** and providing your API key in the **OpenAI Key** field.
 
     !!! note
         Refer to the [OpenAI API Documentation](https://platform.openai.com/docs/api-reference) to obtain your API key.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/create_openai_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/create_openai_connection.png" alt="OpenAI Connection Form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/create_openai_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/create_openai_connection.png" alt="OpenAI Connection Form" width="80%"></a>
 
 11. For this tutorial, we will use file-based memory to store conversation history. 
 
@@ -166,7 +166,7 @@ Now it is time to design your API. This is the underlying logic that's executed 
     3. Enter `FILE_MEMORY_CONN` as the **Connection Name**.
     4. Submit the form.  
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif" alt="Set Chat Operation Payload" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
 12. Now, we shall complete the **Chat** operation configuration by filling the `User Query/Prompt` field with the payload value.  
 
@@ -179,7 +179,7 @@ Now it is time to design your API. This is the underlying logic that's executed 
 13. Next, enable the **Overwrite Body** option to ensure the API response body is replaced with the AI's output.  
     Otherwise, we need to manually set the response body using the [Payload Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/).
       
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/complete_chat_operation.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/complete_chat_operation.gif" alt="Set Chat Operation Payload" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/complete_chat_operation.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/complete_chat_operation.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
     Next, add a [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to send the AI's response back to the client.
 
@@ -187,7 +187,7 @@ Now it is time to design your API. This is the underlying logic that's executed 
 
 15. Select the **Respond** mediator from the **Mediator Palette**, and click **Add** to add it to the integration flow.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_respond_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_respond_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_respond_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/select_respond_mediator.png" alt="Create New Project" width="80%"></a>
 
 You may refer to the following API configuration for reference,
 
@@ -197,7 +197,7 @@ You may refer to the following API configuration for reference,
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/chat_api_completed.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/chat_api_completed.png" alt="Create New Project" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/chat_api_completed.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/chat_api_completed.png" alt="Create New Project" width="70%"></a>
 
     === "Source View"
         ```xml
@@ -236,7 +236,7 @@ After developing the integration using the WSO2 Integrator: MI extension for Vis
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/build_and_run.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/build_and_run.png" alt="Create New Project" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/build_and_run.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/build_and_run.png" alt="Create New Project" width="80%"></a>
 
 ## Step 5 - Test the Integration API
 
@@ -256,7 +256,7 @@ When you run the integration as in [Step 4](#step-4-run-the-integration-api), th
     ```
 4. Click **Execute** to send the request to the API.  
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout_chat.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout_chat.gif" alt="Test API" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout_chat.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/tryout_chat.gif" alt="Test API" width="80%"></a>
 
 Here is the response returned by the Chat API:
 ```json

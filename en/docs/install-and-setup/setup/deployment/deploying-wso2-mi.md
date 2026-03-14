@@ -5,7 +5,7 @@ See the instructions on how to set up a cluster of WSO2 Integrator: MI nodes in 
 
 This deployment scenario is a two-node WSO2 Integrator: MI deployment. That is, two WSO2 Integrator: MI nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
 
-<a href="{{base_path}}/assets/img/integrate/mi-deployment.png"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="WSO2 Integrator: MI deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/integrate/mi-deployment.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="WSO2 Integrator: MI deployment" width="60%"></a>
 
 ## Install the WSO2 Integrator: MI
 

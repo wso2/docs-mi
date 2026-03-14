@@ -45,6 +45,6 @@ Synapse expressions can be used in the following places:
 
 In places where the Synapse Expressions can be used, the tooling support is provided to assist the user in writing the expressions. 
 
-<a href="{{base_path}}/assets/img/reference/VSCode_expression_support.gif"><img src="{{base_path}}/assets/img/reference/VSCode_expression_support.gif" alt="Expression Syntax" width="80%"></a>
+<a href="{{base_path}}/assets/img/reference/VSCode_expression_support.gif" class="glightbox"><img src="{{base_path}}/assets/img/reference/VSCode_expression_support.gif" alt="Expression Syntax" width="80%"></a>
 
 ```

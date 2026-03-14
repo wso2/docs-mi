@@ -12,7 +12,7 @@ Follow these instructions to create an [Inbound Endpoint]({{base_path}}/referenc
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. On the **Add artifact** pane, click **Event Integration** under **Create an Integration** to open the **Event Integration Form**.
 
@@ -59,7 +59,7 @@ Follow the below steps to design the error sequence:
 
 2. On the inbound endpoint view, click the edit (pen) icon next to the inbound endpoint name to edit the inbound endpoint.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-view-edit.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-view-edit.png" alt="Edit inbound endpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-view-edit.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/inbound-endpoint-view-edit.png" alt="Edit inbound endpoint" width="80%"></a>
 
     This will open the **Event Integration** form.
 
@@ -81,7 +81,7 @@ See the following links for the list of parameters for each inbound endpoint typ
 
 Click the **Show Source** (**</>**) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the inbound endpoint. You can update the inbound endpoint using this view.
 
-<a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/source-view.png" alt="Edit inbound endpoint" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/source-view.png" alt="Edit inbound endpoint" width="80%"></a>
 
 ## Tutorials
 

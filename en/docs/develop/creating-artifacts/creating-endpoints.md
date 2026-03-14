@@ -13,7 +13,7 @@ Follow the instructions below to create a new [Endpoint]({{base_path}}/reference
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click **+ View More** under **Create an Integration**.
 
@@ -21,7 +21,7 @@ Follow the instructions below to create a new [Endpoint]({{base_path}}/reference
 
 7. Select the endpoint type you want from the **Endpoint Form**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" alt="Endpoint form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" alt="Endpoint form" width="80%"></a>
 
 8. Enter a unique name for the endpoint.
 
@@ -43,14 +43,14 @@ Follow the below steps to add the created endpoint to the integration flow:
 1.	Open the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 2.  Add the **Call Endpoint** mediator from the palette under **All Mediators** > **Generic** section to the relevant position in the mediation sequence:
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" alt="Select call endpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" alt="Select call endpoint" width="80%"></a>
 
     !!! Tip
         Similarly, you can use the Send Mediator instead of the Call Mediator.
 
 3. In the **Call Endpoint** form, select the endpoint you need to invoke under **Select Endpoint**. You can also select **Create New** to create a new endpoint artifact.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" alt="Call endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" alt="Call endpoint" width="30%"></a>
 
 The endpoint artifact is now linked to your integration sequence.
 
@@ -71,11 +71,11 @@ You can use the **Form** view or the **Source** view to update endpoint properti
 2. Under **Other Artifacts** > **Endpoints**, select the endpoint that you need to update the properties.
 3. Click on the **Show Source** (**<b>&lt;/&gt;</b>**) icon located in the top right corner of the VS Code. 
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/show-source.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/show-source.png" alt="Show source" width="50%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/show-source.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/show-source.png" alt="Show source" width="50%"></a>
 
     This will open the source view of the endpoint artifact.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-source-view.png" alt="Endpoint source view" width="50%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-source-view.png" alt="Endpoint source view" width="50%"></a>
 
 To learn more about all available endpoint properties, see the [endpoint properties]({{base_path}}/reference/synapse-properties/endpoint-properties) documentation.
 

@@ -102,7 +102,7 @@ length($.orders[?(@.customerID == vars.customerId && @.total > params.queryParam
 ```
 Breaking down the expression:
 
-<a href="{{base_path}}/assets/img/reference/complex_expression.png"><img src="{{base_path}}/assets/img/reference/complex_expression.png" alt="Expression Breakdown" width="100%"></a>
+<a href="{{base_path}}/assets/img/reference/complex_expression.png" class="glightbox"><img src="{{base_path}}/assets/img/reference/complex_expression.png" alt="Expression Breakdown" width="100%"></a>
 
 In the second resource, we are using JSONPath expressions to achieve the same functionality.
 
@@ -116,6 +116,6 @@ We conducted a performance test to compare the execution time of the two resourc
 
 The following chart shows the performance comparison between the two cases.
 
-<a href="{{base_path}}/assets/img/reference/performance_chart.png"><img src="{{base_path}}/assets/img/reference/performance_chart.png" alt="Performance" width="60%"></a>
+<a href="{{base_path}}/assets/img/reference/performance_chart.png" class="glightbox"><img src="{{base_path}}/assets/img/reference/performance_chart.png" alt="Performance" width="60%"></a>
 
 You can download the performance test artifacts from <a href="{{base_path}}/assets/attachments/reference/performance-test-artifacts.zip">here</a>, to reproduce the test results.

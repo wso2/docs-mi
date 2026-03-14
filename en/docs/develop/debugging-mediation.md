@@ -29,7 +29,7 @@
     2. Select **MI: Add MI server** from the list of available commands.
     3. Select the folder where `<MI_HOME>` is located.
    
-      <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
+      <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
       
     !!! Note
          Mediation debugging with the MI for VSCode extension is supported on Windows starting from MI server version 4.3.0. 

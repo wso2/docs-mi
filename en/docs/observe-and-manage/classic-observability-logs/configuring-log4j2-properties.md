@@ -612,7 +612,7 @@ Update the [log configurations]({{base_path}}/observe-and-manage/classic-observa
 2.  Click <b>Log Configs</b> on the left-hand navigator to open the <b>Log Configs</b> window.
 3.  Click the <b>Add Logging Configuration</b> button and define the new logger.
 
-     <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/add-logger.png"><img alt="add new loggers using ICP" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/add-logger.png" width="80%"></a>
+     <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/add-logger.png" class="glightbox"><img alt="add new loggers using ICP" src="{{base_path}}/assets/img/integrate/monitoring-dashboard/add-logger.png" width="80%"></a>
 
     <table>
         <tr>

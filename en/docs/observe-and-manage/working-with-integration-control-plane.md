@@ -247,7 +247,7 @@ Once you have [set up and started the ICP server](#using-the-integration-control
 
 You are redirected to the home page of the Integration Control Plane. 
      
-<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000"></a>
+<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-home.png" width="1000"></a>
 
 ### Step 6 - Monitor MI artifacts and logs
 
@@ -255,17 +255,17 @@ Follow the steps given below.
 
 1.  Select the group ID that you want to view from the upper left menu.  
     
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png" width="1000"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-select-group.png" width="1000"></a>
 
     You can see the list of server nodes in each group, as shown in the above diagram.
 
 2.  Click a node ID, and a side navigational panel opens to display the server information.
     
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png" width="1000"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-server-sidepanal.png" width="1000"></a>
 
 Now you can view details of artifacts, update artifacts, and perform various other administration tasks. Select the required option from the left-hand navigator.
 
-<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300"></a>
+<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-artifact-list.png" width="300"></a>
 
 ## Monitoring health of ICP server
 

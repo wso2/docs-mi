@@ -5,7 +5,7 @@ In the previous tutorial, you learned how to build a knowledge base. In this tut
 ## What you'll build
 PineValley Bank needs to develop a chatbot powered by Retrieval-Augmented Generation (RAG) to assist customers in understanding the bank's offerings and products. This chatbot leverages a knowledge base built from the bank's documents, stored in a vector database, and integrates with a Large Language Model (LLM). By combining these technologies, the chatbot can retrieve relevant information and generate accurate, context-aware responses to customer queries, providing instant and personalized assistance.  
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/what_you_will_build.png" alt="Create New Project" width="60%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/what_you_will_build.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/what_you_will_build.png" alt="Create New Project" width="60%"></a>
 
 Now, it's time to design the RAG flow. Follow the steps below to create the RAG integration.
 
@@ -30,21 +30,21 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 1. Click on the add new API (`+`) icon in the `APIs` in the **WSO2 Integrator: MI Project Explorer** to create a new API.
 
-    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/rag/create_new_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/rag/create_new_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
 
 2. Create a new API named `RAGChatAPI` by giving the name in the **Create API** form. Click **Create** to create the API.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_rag_chat_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_rag_chat_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_rag_chat_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_rag_chat_api.png" alt="Create New Project" width="80%"></a>
 
 3. In the **Service Designer** pane, modify the `Resource Path` to `\chat` and the `Method` to `POST`. 
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/edit_resource.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/edit_resource.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/edit_resource.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/edit_resource.gif" alt="Create New Project" width="80%"></a>
 
 ## Step 2 - Design the integration
 
 1. Open the **Resource View** of the newly created API resource by clicking the `POST /chat` resource under **Available resources** in the **Service Designer**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/open_resource_view.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/open_resource_view.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/open_resource_view.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/open_resource_view.png" alt="Create New Project" width="80%"></a>
 
 2. After opening the **Resource View**, click on the **Start** node on the canvas to set an input payload for the integration flow.
 
@@ -60,15 +60,15 @@ To develop the above scenario, let's get started with creating a new API in the 
     }
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/set_start_payload.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/set_start_payload.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/set_start_payload.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/set_start_payload.gif" alt="Create New Project" width="80%"></a>
 
 3. Click on the **+** icon on the canvas to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_new_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_new_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_new_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_new_mediator.png" alt="Create New Project" width="80%"></a>
 
 6. Select `RAG Chat` operation from the **AI** category in the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_rag_chat.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_rag_chat.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_rag_chat.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_rag_chat.png" alt="Create New Project" width="80%"></a>
 
 7. Fill the form with the following details and click **Add** to add the RAG Chat operation to the integration flow.
 
@@ -82,13 +82,13 @@ To develop the above scenario, let's get started with creating a new API in the 
     **User Query/Prompt**: `${payload.query}`  
     **Overwrite Message Body**: `true`  
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_rag_chat.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_rag_chat.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_rag_chat.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_rag_chat.gif" alt="Create New Project" width="80%"></a>
 
     Now let's add the respond mediator to respond to the client.
 
 8. Click on the **+** icon located just after the **RAG Chat** operation to open the **Mediator Palette** to add a `Respond` mediator.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_respond_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_respond_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_respond_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/add_respond_mediator.png" alt="Create New Project" width="80%"></a>
 
 You have successfully updated the integration flow to implement Retrieval-Augmented Generation (RAG) functionality.  
 For reference, you can review the configured API.
@@ -99,7 +99,7 @@ For reference, you can review the configured API.
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/rag_chat_completed.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/rag_chat_completed.png" alt="ai datamapping api" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/rag_chat_completed.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/rag_chat_completed.png" alt="ai datamapping api" width="70%"></a>
 
     === "Source View"
         ```xml
@@ -143,7 +143,7 @@ Now that you have updated the integration, it's time to deploy the integration t
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/build_and_run.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/build_and_run.png" alt="Create New Project" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/build_and_run.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/build_and_run.png" alt="Create New Project" width="80%"></a>
 
 ## Step 4 - Test the integration service
 
@@ -151,7 +151,7 @@ Let us test a scenario where a customer wants to know about the interest rate, m
 
 1. Once the **Runtime Services** interface is open, select the `RAGChatAPI`, and click the **Try It** button.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_tryout.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_tryout.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_tryout.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/select_tryout.png" alt="Create New Project" width="80%"></a>
 
 2. Select the `/chat` resource and click **Try it Out** to test the API.  
 
@@ -164,7 +164,7 @@ Let us test a scenario where a customer wants to know about the interest rate, m
     }
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragChat.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragChat.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragChat.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/tryout_ragChat.gif" alt="Create New Project" width="80%"></a>
     
 3. Review the following response to identify the sources retrieved from the vector database. The AI-generated response is available in the `content` section, while the relevant sources are listed in the `sources` section of the response.
 

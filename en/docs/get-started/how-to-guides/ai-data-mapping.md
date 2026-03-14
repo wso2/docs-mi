@@ -24,7 +24,7 @@ You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://
 
 5. Provide a location under the **Project Directory**.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-project.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-project.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -38,13 +38,13 @@ You will now see the projects listed in the **Project Explorer**.
 2. Select **API** under **Create an Integration**.
 3. Enter `Weather` as the API **Name**. The API **Context** field will be automatically populated with the same value.                                                         
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-api.png" alt="create API artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-create-api.png" alt="create API artifact" width="80%"></a>
 
 4. Click **Create**.
 
 5. On the Service Designer, click on the three dots (**⋮**) and then **edit** to access the **Properties** of the default API resource.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-resource-edit.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-resource-edit.png" alt="edit API resource" width="70%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-resource-edit.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-resource-edit.png" alt="edit API resource" width="70%"></a>
 
 6. Click **+ Add Query Param**, provide `city` as the query parameter and click **Add**.
 
@@ -58,7 +58,7 @@ You can now start configuring the API resource.
 
 2. Click on the **+** icon in the diagram to open the **Mediator Palette**. 
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-first-mediator.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-first-mediator.png" alt="open palette" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-first-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-first-mediator.png" alt="open palette" width="80%"></a>
 
 3. Select **Variable** mediator under **Mediators**.
 
@@ -88,15 +88,15 @@ You can now start configuring the API resource.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png" alt="API key variable" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-apikey-var.png" alt="API key variable" width="30%"></a>
 
 5. Click on the **+** icon and search for `get` in the **Mediator Palette** to add the HTTP GET operation for retrieving the coordinates of a location.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-get.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-get.png" alt="search get in palette" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-get.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-get.png" alt="search get in palette" width="80%"></a>
 
 6. Click **+ Add new connection** to create a new connection.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png" alt="add new connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-new-http-conn.png" alt="add new connection" width="80%"></a>
 
 7. Select `HTTPS` and fill in the following details to create a connection to OpenWeather API. Finally, click **Add** in the **Add New Connection** form to create the connection.
 
@@ -105,14 +105,14 @@ You can now start configuring the API resource.
     | **Connection Name** | `OpenWeather`        |
     | **Base URL**        | `https://api.openweathermap.org/` |
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png" alt="create connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-connection.png" alt="create connection" width="80%"></a>
 
 8. Provide `/geo/1.0/direct` as the **Relative Path**, and click **+ Add Query Param** to add the following query parameters.
 
     !!! Note
         To add an expression as the query parameter value, make sure the **EX** button is checked as follows,
 
-        <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-query-expression.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-query-expression.png" alt="query expression editor" width="30%"></a>
+        <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-query-expression.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-query-expression.png" alt="query expression editor" width="30%"></a>
 
     <table>
         <tr>
@@ -139,7 +139,7 @@ You can now start configuring the API resource.
 
 9. Click **Submit** to add the operation to the integration flow.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-geo-request.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-geo-request.png" alt="geo http request" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-geo-request.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-geo-request.png" alt="geo http request" width="30%"></a>
 
 10. Next, click on the **+** icon in the diagram and search for `get` in the **Mediator Palette** to add the HTTP GET operation for retrieving the weather details using the coordinates.
 
@@ -168,25 +168,25 @@ You can now start configuring the API resource.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png" alt="weather http request" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png" alt="weather http request" width="30%"></a>
 
 12. Click on the **+** icon in the diagram and search for for the **Datamapper** mediator in the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper.png" alt="search data mapper" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper.png" alt="search data mapper" width="80%"></a>
 
 13. Click **+ Add new**, provide `weatherDataMapper` as the name and click **Create** in the **Create New Datamapper** form.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png" alt="create new mapping" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png" alt="create new mapping" width="30%"></a>
 
 14. Click **Add** to add the data mapper to the integration flow.
 
 15. Click on the name of the newly added Data Mapper mediator to open the input and output mapping window.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-open-src.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-open-src.png" alt="open mapping file" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-open-src.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-open-src.png" alt="open mapping file" width="80%"></a>
 
 16. Click on the **Import input schema** to import the input schema. Since this scenario involves JSON to JSON mapping, you can import from either a JSON sample or a JSON schema. In this guide, we will be using the **Import from JSON** option.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-import-json.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-import-json.png" alt="input output mapping" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-import-json.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-import-json.png" alt="input output mapping" width="80%"></a>
 
     ??? "Sample Input JSON"
         Here’s a sample response received from the OpenWeatherMap API. You can copy and paste this as your input schema in this scenario.
@@ -274,11 +274,11 @@ You can now start configuring the API resource.
 
 18. Click on the **Map** button. 
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map-btn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map-btn.png" alt="map schemas" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map-btn.png" alt="map schemas" width="80%"></a>
 
     The WSO2 Integrator: MI Data Mapper leverages AI to generate various types of mappings. With a simple button click, you'll find that all of your mappings have been automatically completed.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map.png" alt="mapped schemas" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-map.png" alt="mapped schemas" width="80%"></a>
 
     The AI Data Mapper is capable of handling complex mapping scenarios as well.
 
@@ -286,7 +286,7 @@ You can now start configuring the API resource.
 
     - In our output schema, `daylight_hours` is calculated from the formula `(sunset - sunrise) / 3600` based on the input data. 
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-daylight.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-daylight.png" alt="daylight mapping" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-daylight.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-daylight.png" alt="daylight mapping" width="80%"></a>
 
     - The `humidity` field in the input data is a percentage value and must be displayed accurately to the user.
 
@@ -296,7 +296,7 @@ You can now start configuring the API resource.
 
     - Display the weather description in upper-case letters
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-uppercase.gif"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-uppercase.gif" alt="convert to uppercase" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-uppercase.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-uppercase.gif" alt="convert to uppercase" width="80%"></a>
 
     !!! Tip
         You can learn further about the Expression Editor and other features from our [documentation]({{base_path}}/reference/mediators/data-mapper-mediator/#expression-editor).
@@ -308,7 +308,7 @@ You can now start configuring the API resource.
     ??? "Weather API"
 
         === "Design View"
-            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png" alt="ai datamapping api" width="70%"></a>
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-api.png" alt="ai datamapping api" width="70%"></a>
 
         === "Source View"
             ```yaml
@@ -348,7 +348,7 @@ You can now start configuring the API resource.
 
     ??? "HTTP Connection"
         === "Design View"
-            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" alt="http connection config" width="40%"></a>
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" alt="http connection config" width="40%"></a>
 		    
         === "Source View"
 		    ```yaml
@@ -473,22 +473,22 @@ You can now start configuring the API resource.
 
 1. Click on the **Build and Run** button to build and deploy the integration.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-build.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-build.png" alt="build and run" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-build.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-build.png" alt="build and run" width="80%"></a>
 
 2. **Runtime Services** will open after the server is up and running, and from that panel, select the API that you need to try out using the **Try It** button.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-tryit.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-tryit.png" alt="try it out" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-tryit.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-tryit.png" alt="try it out" width="80%"></a>
 
 3. Click the **Try it Out** button to provide the required query parameters.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-operation-tryit.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-operation-tryit.png" alt="try it out operation" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-operation-tryit.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-operation-tryit.png" alt="try it out operation" width="80%"></a>
 
 4. Provide the required parameters and click the **Execute** button to invoke the API.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-request.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-request.png" alt="execute request" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-request.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-request.png" alt="execute request" width="80%"></a>
 
 5. Check the response received from the server and confirm that the weather details for the specified city have been mapped to the output data schema you provided.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-response.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-response.png" alt="response" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-response.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-response.png" alt="response" width="80%"></a>
 
 Try this feature along with our other exciting AI capabilities and discover how much simpler integration development can be.

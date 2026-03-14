@@ -234,8 +234,8 @@ Build your custom inbound endpoint using **Maven** to create the required inboun
 
 ### Step 4: Create an inbound endpoint
 1. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
-   <a href="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" alt="Create New Project" width="80%"></a>
+   <a href="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" alt="Create New Project" width="80%"></a>
 2. In the Add Artifact interface, under Create an Integration, click Event Integration. This will open the list of event integrations available in WSO2 Integrator: MI.
-   <a href="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png" alt="Create New Project" width="80%"></a>
+   <a href="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png" alt="Create New Project" width="80%"></a>
 3. Select your custom inbound from the list. 
 4. In the Create Event Integration form, provide the required details for your inbound endpoint and click `Create`.

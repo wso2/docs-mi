@@ -44,7 +44,7 @@ Example: Adding a JDBC driver JAR or keystores that will be used by all integrat
 Each integration project contains a `Dockerfile` used when building the Docker image. This file is located at the `<PROJECT_HOME>/deployment/docker` directory.  
 You can edit this file to apply any required customizations, such as copying additional JARs or configuration files into the image.
 
-<a href="{{base_path}}/assets/img/setup-and-install/vscode_docker_file.png"><img src="{{base_path}}/assets/img/setup-and-install/vscode_docker_file.png" alt="VS Code Docker" width="80%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/vscode_docker_file.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/vscode_docker_file.png" alt="VS Code Docker" width="80%"></a>
 
 ### Manually using a Dockerfile
 
