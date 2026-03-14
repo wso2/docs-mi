@@ -8,19 +8,19 @@ Now that you have developed an integration using the WSO2 Integrator: MI Visual 
 2.  Follow these steps to add the server to the VS Code extension if it has not been added yet.
     1. Open the command palette by pressing `Ctrl+Shift+P` and select the command `Add MI Server`.
     2. In the file selector that opens, select the WSO2 Integrator: MI server directory.<br>
-       <a href="{{base_path}}/assets/img/develop/add-server.png"><img src="{{base_path}}/assets/img/develop/add-server.png" alt="addServer" width="700"></a>
+       <a href="{{base_path}}/assets/img/develop/add-server.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/add-server.png" alt="addServer" width="700"></a>
     
 3.  Open the **Project Overview** page by clicking on the **Project Overview** icon.
 
-    <a href="{{base_path}}/assets/img/develop/open-project-overview.png"><img src="{{base_path}}/assets/img/develop/open-project-overview.png" alt="projectOverview" width="700"></a>
+    <a href="{{base_path}}/assets/img/develop/open-project-overview.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/open-project-overview.png" alt="projectOverview" width="700"></a>
 
 4.  Click on the **Build and Run** button on top right corner of the **Project Overview** page.
 
-    <a href="{{base_path}}/assets/img/develop/build-and-run.png"><img src="{{base_path}}/assets/img/develop/build-and-run.png" alt="buildAndRun" width="300"></a>
+    <a href="{{base_path}}/assets/img/develop/build-and-run.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/build-and-run.png" alt="buildAndRun" width="300"></a>
 
 5.  Then the artifacts will get deployed in the WSO2 Integrator: MI server and you can see the deployment logs in the **Console**.
 
-    <a href="{{base_path}}/assets/img/develop/run-overview.png"><img src="{{base_path}}/assets/img/develop/run-overview.png" alt="deploymentLogs" width="700"></a>
+    <a href="{{base_path}}/assets/img/develop/run-overview.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/run-overview.png" alt="deploymentLogs" width="700"></a>
 
 ## Build and Export the Carbon Application
 
@@ -29,12 +29,12 @@ If we are deploying the Carbon Application in some remote server which we cannot
 - Click on the **Build** button on the top right corner of the **Project Overview** page to build the Carbon Application.
   Once the build is finished, you can switch to VS Code default file explorer view and get the Carbon Application file from the target directory. 
 
-    <a href="{{base_path}}/assets/img/develop/build-capp.png"><img src="{{base_path}}/assets/img/develop/build-capp.png" alt="build" width="700"></a>
+    <a href="{{base_path}}/assets/img/develop/build-capp.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/build-capp.png" alt="build" width="700"></a>
 
 - To build and export in a single step, click on the **Export** button on the top right corner of the **Project Overview** page to export the Carbon Application.
   Select a directory to save the exported Carbon Application file.
 
-    <a href="{{base_path}}/assets/img/develop/export-capp.png"><img src="{{base_path}}/assets/img/develop/export-capp.png" alt="export" width="700"></a>
+    <a href="{{base_path}}/assets/img/develop/export-capp.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/export-capp.png" alt="export" width="700"></a>
 
 Once the Carbon Application is exported, we can copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory manually and start the server.
 
@@ -45,7 +45,7 @@ We can use the WSO2 Integrator: MI VS Code extension to build a Docker image of 
 1.  Make sure the Docker is installed on your local machine and the Docker daemon is running.
 2.  Click on the **Build** button on the top right corner of the **Project Overview** page and select the Docker option to build the Docker image.
 
-    <a href="{{base_path}}/assets/img/develop/build-docker.png"><img src="{{base_path}}/assets/img/develop/build-docker.png" alt="dokcer" width="700"></a>
+    <a href="{{base_path}}/assets/img/develop/build-docker.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/build-docker.png" alt="dokcer" width="700"></a>
 
 3. Run the `docker images` command to verify the Docker image is built correctly.
 4. Run the Docker image using the following command.

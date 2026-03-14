@@ -12,7 +12,7 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. On the **Add artifact** pane, click **API** under **Create an Integration** to open the **API Form**.
 
@@ -61,7 +61,7 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
 
     - If you selected **None** under **Generate API From**, you can start creating an API from scratch.
 
-        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api.png" alt="generate API from wsdl file" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api.png" alt="generate API from wsdl file" width="80%"></a>
 
     -  If you selected **From OpenAPI definition** under **Generate API From**, enter the details of your custom Swagger file:
 
@@ -92,7 +92,7 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
             </tr>
         </table>
 
-        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-openapi-definition.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-openapi-definition.png" alt="generate API from openAPI definition" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-openapi-definition.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-openapi-definition.png" alt="generate API from openAPI definition" width="80%"></a>
 
     - If you selected **From WSDL file** under **Generate API From**, enter the following information:
 
@@ -121,7 +121,7 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
         </tbody>
         </table>
 
-        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-wsdl-file.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-wsdl-file.png" alt="generate API from wsdl file" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-wsdl-file.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/generate-api-from-wsdl-file.png" alt="generate API from wsdl file" width="80%"></a>
 
         !!! Note
             - The current SOAP to REST generation has some limitations.
@@ -139,7 +139,7 @@ Follow these instructions to create an [API]({{base_path}}/reference/synapse-pro
 
 - The created APIs will be displayed in **Project Overview**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-apis.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-apis.png" alt="available-apis" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-apis.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-apis.png" alt="available-apis" width="80%"></a>
 
 ## Add new API resources
 
@@ -151,7 +151,7 @@ When you create the API, an API resource is created by default. If you want to a
 
 3. Click **Create**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/add-resource.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/add-resource.png" alt="add new API resource" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/add-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/add-resource.png" alt="add new API resource" width="80%"></a>
 
 !!! Info "Default API resource"
 
@@ -179,7 +179,7 @@ When you create the API, an API resource is created by default. If you want to a
 
 The created API resources will be available in **Service Designer** under **Available Resources** for each created API.
 
-<a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png" alt="available-resources" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/available-resources.png" alt="available-resources" width="80%"></a>
 
 <!--
 
@@ -190,7 +190,7 @@ When you create the API artifact from MI for VS Code extension, the metadata fil
 !!! note
     You can view the below folder structure by [switching]({{base_path}}/develop/mi-for-vscode/mi-for-vscode-overview/#mi-project-explorer) to the VS Code default **Explorer** view.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png" alt="Metadata folder" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/metadata-folder.png" alt="Metadata folder" width="30%"></a>
 
 The service's metadata is used by the API management runtime to generate the API proxy for the integration service (which is this API).
 
@@ -247,7 +247,7 @@ The service's metadata is used by the API management runtime to generate the API
 
 2. Click on the **+** icon below the API resource to open the palette.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-palette.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-palette.png" alt="open-palette" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-palette.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-palette.png" alt="open-palette" width="80%"></a>
 
 3. Add the required mediators and connectors to the API resource and design the integration flow.
 
@@ -261,7 +261,7 @@ The service's metadata is used by the API management runtime to generate the API
 
 3. On the **Service Designer**, click the **Edit** icon to edit the API. 
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-interface.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-interface.png" alt="available-apis" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-interface.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-interface.png" alt="available-apis" width="80%"></a>
 
     This will open the **Edit API** pane.
 
@@ -279,7 +279,7 @@ The service's metadata is used by the API management runtime to generate the API
 
 4. Click the **Edit** icon to edit the API resource.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png" alt="available-apis" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/edit-api-resource-interface.png" alt="available-apis" width="80%"></a>
 
     This will open the **Edit API Resource** pane.
 
@@ -291,11 +291,11 @@ The service's metadata is used by the API management runtime to generate the API
 
 Click the **Show Source** (**</>**) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the API.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show source view" width="30%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show source view" width="30%"></a>
 
 You can update the API using this view.
 
-<a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png" alt="source view" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/source-view.png" alt="source view" width="80%"></a>
 
 ## Swagger view
 
@@ -303,7 +303,7 @@ You can update the API using this view.
 
 2. Click **OpenAPI Spec** to view the API definition of your API.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-api-spec.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-api-spec.png" alt="OpenAPI spec" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-api-spec.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/open-api-spec.png" alt="OpenAPI spec" width="80%"></a>
 
 You can interact with the API using the **Swagger View**.
 
@@ -324,7 +324,7 @@ To enable CORS for your API, follow these steps:
 
 5. Enable CORS by toggling the checkbox.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/cors-enabled.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/cors-enabled.png" alt="CORS enabled" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/cors-enabled.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/cors-enabled.png" alt="CORS enabled" width="80%"></a>
 
 6. Configure the allowed origins, methods, and headers as per your requirements.
 

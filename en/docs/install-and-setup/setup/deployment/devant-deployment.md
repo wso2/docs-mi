@@ -25,7 +25,7 @@ This guide walks you through deploying WSO2 Integrator: MI on Devant. For this g
 10. Once the integration is deployed, a notification would pop up in the bottom right corner to **Open in Devant**. It will be needed to confirm this again.
 11. Once opened, you will be able to view the integration in the Devant console. 
 
-    <a href="{{base_path}}/assets/img/deploy/devant-deploy.gif"><img src="{{base_path}}/assets/img/deploy/devant-deploy.gif" alt="Deploy on Devant" width="900"></a>
+    <a href="{{base_path}}/assets/img/deploy/devant-deploy.gif" class="glightbox"><img src="{{base_path}}/assets/img/deploy/devant-deploy.gif" alt="Deploy on Devant" width="900"></a>
 
 ## Test the API on Devant
 

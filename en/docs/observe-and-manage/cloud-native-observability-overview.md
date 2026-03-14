@@ -30,7 +30,7 @@ Once you set up the basic deployment, you can integrate message tracing capabili
 
 There are two Grafana based observability solutions for the WSO2 Integrator: MI; The Kubernetes based deployment and the VM based deployment.
 
-<a href="{{base_path}}/assets/img/integrate/observability/observability-mi.png"><img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="50%" alt="Observability Solution"/></a>
+<a href="{{base_path}}/assets/img/integrate/observability/observability-mi.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/observability/observability-mi.png" title="Observability Solution" width="50%" alt="Observability Solution"/></a>
 
 These solutions are suitable for the following combination of operations.
 

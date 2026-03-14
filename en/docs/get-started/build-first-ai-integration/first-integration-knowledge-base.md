@@ -14,7 +14,7 @@ In this tutorial, you will build two API resources to interact with the vector d
 
 These resources will form the foundation of your knowledge base API, enabling seamless data storage and retrieval.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/what_you_will_build.png" alt="Create New Project" width="60%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/what_you_will_build.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/what_you_will_build.png" alt="Create New Project" width="60%"></a>
 
 ## What you'll learn
 
@@ -38,11 +38,11 @@ Let's create these APIs step by step.
 
 1. In the **Add Artifact** interface, under **Create an Integration**, click on **API**. This opens the **API Form**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_artifact_api.png" alt="Create New Project" width="80%"></a>
 
 2. Enter `KnowledgeBaseAPI` as the API **Name**. The API **Context** field will be automatically populated with the same value.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_api.png" alt="Create Chat API" width="60%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_api.png" alt="Create Chat API" width="60%"></a>
 
 3. Click **Create**.
 
@@ -56,17 +56,17 @@ Follow the steps below to design these operations.
 
 1. Edit the default resource to `POST` and change resource path to `addToStore` by clicking the three dots icon in the resource.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_addToStore_resource.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_addToStore_resource.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_addToStore_resource.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_addToStore_resource.gif" alt="Create New Project" width="80%"></a>
     
 2. Create a new resource with `POST` and set the resource path to `getFromStore` by clicking on the **+ Resource** button.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_getFromStore_resource.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_getFromStore_resource.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_getFromStore_resource.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_getFromStore_resource.gif" alt="Create New Project" width="80%"></a>
 
     Let's design the `addToStore` resource first.
 
 3. Open the **Resource View** of the `addToStore` API resource by clicking the `POST` resource under **Available resources** on **Service Designer**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToStore_resource.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToStore_resource.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToStore_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToStore_resource.png" alt="Create New Project" width="80%"></a>
 
 4. Define the expected payload in the start node to streamline the development process.
 
@@ -79,19 +79,19 @@ Follow the steps below to design these operations.
         "content" : "This is a sample content"
     }
     ```
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_addToResource_payload.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_addToResource_payload.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_addToResource_payload.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_addToResource_payload.gif" alt="Create New Project" width="80%"></a>
 
 5. Once you open the **Resource View**, click on the **+** icon on the canvas to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/click_add_mediator.png" alt="Create New Project" width="80%"></a>
 
 6. Under **Mediators**, go to **AI** section and select the **Add to Knowledge** operation.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToKnowledgeBase_operation.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToKnowledgeBase_operation.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToKnowledgeBase_operation.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_addToKnowledgeBase_operation.png" alt="Create New Project" width="80%"></a>
 
 7. Select the **+ Add new connection** in the **Vector Store Connection** field.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/vector_add_new_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/vector_add_new_connection.png" alt="Add Chat Operation" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/vector_add_new_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/vector_add_new_connection.png" alt="Add Chat Operation" width="30%"></a>
 
 8. On the **Add New Connection** page, choose your desired `Vector Database`. For this tutorial, we will be using `MI_VECTOR_STORE` as the database.
 
@@ -101,15 +101,15 @@ Follow the steps below to design these operations.
     !!! Warning
         The `MI_VECTOR_STORE` is not recommended for production use. For production, you can use any of the supported vector stores such as `Pinecone`, `Chroma DB`, `Postgres DB`, `Weaviate`, `Milvus`.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_vector_store_type.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_vector_store_type.png" alt="Add Chat Operation" width="40%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_vector_store_type.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_vector_store_type.png" alt="Add Chat Operation" width="40%"></a>
 
 9. Complete the connection form by entering `KB_CONN` as the **Connection Name**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_vector_store_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_vector_store_connection.png" alt="Add Chat Operation" width="50%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_vector_store_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/create_vector_store_connection.png" alt="Add Chat Operation" width="50%"></a>
 
 10. Next, add the embedding model connection. You can reuse the existing OpenAI connection (`OPENAI_CONN`) created for the LLM in the previous tutorial as the embedding model connection.  
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_embedding_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_embedding_connection.png" alt="OpenAI Connection Form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_embedding_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_embedding_connection.png" alt="OpenAI Connection Form" width="80%"></a>
 
     If you don't have an existing connection, you can create a new one by following these steps:
 
@@ -124,7 +124,7 @@ Follow the steps below to design these operations.
     !!! note
         Enable parsing only when the input is an encoded string. If you are sending plain text content, you can safely disable the `Parse` option.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_addToKnowledge_operation.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_addToKnowledge_operation.gif" alt="Set Chat Operation Payload" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_addToKnowledge_operation.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_addToKnowledge_operation.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
     Now let's add a [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to respond the message to the client.
 
@@ -132,13 +132,13 @@ Follow the steps below to design these operations.
 
 13. Select the **Respond** mediator from the **Mediator Palette**, and click **Add** to add it to the integration flow.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_addToKnowledge.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_addToKnowledge.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_addToKnowledge.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_addToKnowledge.png" alt="Create New Project" width="80%"></a>
 
     Now we have completed the `addToStore` resource. Let's move on to the `getFromStore` resource.
 
 14. Open the **Resource View** of the `getFromStore` API resource from the project explorer on the left side.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/go_to_getFromStore_resource.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/go_to_getFromStore_resource.png" alt="Create New Project" width="20%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/go_to_getFromStore_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/go_to_getFromStore_resource.png" alt="Create New Project" width="20%"></a>
 
 15. Define the expected payload in the start node to streamline the development process.
 
@@ -148,11 +148,11 @@ Follow the steps below to design these operations.
         "content" : "This is a sample content"
     }
     ```
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_getFromKnowledge_payload.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_getFromKnowledge_payload.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_getFromKnowledge_payload.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/set_getFromKnowledge_payload.gif" alt="Create New Project" width="80%"></a>
 
 16. Select the `Get from Knowledge` operation from the mediator panel.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_getFromKnowledge_operation.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_getFromKnowledge_operation.png" alt="Add Chat Operation" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_getFromKnowledge_operation.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/select_getFromKnowledge_operation.png" alt="Add Chat Operation" width="80%"></a>
 
 17. Complete the form with the following values.
 
@@ -161,7 +161,7 @@ Follow the steps below to design these operations.
     **Input**: `payload.content` (with `EX` enabled)  
     **Overwrite Message Body**: `true`
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_getFromKnowledge_operation.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_getFromKnowledge_operation.gif" alt="Add Chat Operation" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_getFromKnowledge_operation.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_getFromKnowledge_operation.gif" alt="Add Chat Operation" width="80%"></a>
 
     Now let's add a [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to respond the message to the client.
 
@@ -169,7 +169,7 @@ Follow the steps below to design these operations.
 
 19. Select the **Respond** mediator from the **Mediator Palette**, and click **Add** to add it to the integration flow.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_getFromKnowledge.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_getFromKnowledge.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_getFromKnowledge.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/add_respond_mediator_getFromKnowledge.png" alt="Create New Project" width="80%"></a>
 
 You may refer to the following API configuration for reference,
 
@@ -179,10 +179,10 @@ You may refer to the following API configuration for reference,
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View (Add to Knowledge Base Resource)"
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/addToStore_resource_completed.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/addToStore_resource_completed.png" alt="Create New Project" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/addToStore_resource_completed.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/addToStore_resource_completed.png" alt="Create New Project" width="70%"></a>
 
     === "Design View (Get from Knowledge Base Resource)"
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/getFromStore_resource_completed.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/getFromStore_resource_completed.png" alt="Create New Project" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/getFromStore_resource_completed.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/getFromStore_resource_completed.png" alt="Create New Project" width="70%"></a>
 
     === "Source View"
         ```xml
@@ -240,7 +240,7 @@ Now that you have developed an integration using the WSO2 Integrator: MI for the
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/build_and_run.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/build_and_run.png" alt="Create New Project" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/build_and_run.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/build_and_run.png" alt="Create New Project" width="80%"></a>
 
 ## Step 5 - Test the Integration API
 
@@ -293,7 +293,7 @@ When you run the integration as in [Step 4](#step-4-run-the-integration-api), th
 
 5. Click on the **Execute** button to execute the request.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_addToStore.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_addToStore.gif" alt="Test API" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_addToStore.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_addToStore.gif" alt="Test API" width="80%"></a>
 
 Now that we have added some knowledge to the knowledge base, let's proceed to retrieve it using the `getFromStore` resource.  
 Let us retrieve the information available in the knowledge base about the savings account products offered by PineValley Bank.
@@ -313,7 +313,7 @@ Let us retrieve the information available in the knowledge base about the saving
 
 4. Click on the **Execute** button to execute the request.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_getFromStore.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_getFromStore.gif" alt="Test API" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_getFromStore.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/knowledge-base/tryout_getFromStore.gif" alt="Test API" width="80%"></a>
 
 Congratulations!  
 You have successfully created your first Knowledge Base Integration API, enabling seamless interaction with a knowledge base.

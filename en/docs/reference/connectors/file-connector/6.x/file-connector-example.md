@@ -206,7 +206,7 @@ You can further refer to the application deployed through the CLI tool. See the 
     }
     ```
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/file-5.x/file-con-execute.png" alt="Test Create Operation" width="900"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/file-5.x/file-con-execute.png" class="glightbox" alt="Test Create Operation" width="900"></a>
 
 4. Check the success response received from the server, and verify that the file should be created in the specified location in the above payload.
 

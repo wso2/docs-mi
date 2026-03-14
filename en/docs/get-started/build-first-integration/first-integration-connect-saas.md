@@ -8,7 +8,7 @@ Let's consider a scenario where a client sends a loan request to the `Bank` API 
 
 In this example, you will use <a target="_blank" href="https://developers.google.com/gmail/imap/imap-smtp">Gmail's SMTP service</a> as the email provider.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png" alt="Create New Project" width="60%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/what_you_will_build_saas.png" alt="Create New Project" width="60%"></a>
 
 ## What you'll learn
 
@@ -31,15 +31,15 @@ To develop the above scenario, let's get started with creating a new API resourc
 
 1. Click on the Service Designer (<img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon.png" alt="inline expression editor" class="inline-icon">) icon of the `Bank` API in the **WSO2 Integrator: MI Project Explorer** to open the Service Designer.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png" alt="Create New Project" width="80%"></a>
 
 2. In the Service Designer, click the **+ Resource** button to add a new API resource.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_resource_btn_3.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_resource_btn_3.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_resource_btn_3.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_resource_btn_3.png" alt="Create New Project" width="80%"></a>
 
 3. In the **Add API Resource** pane, set `/loan-review` as the **Resource Path** and select the `POST` method.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_api_resource_pane_loan_review_post.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_api_resource_pane_loan_review_post.png" alt="Create New Project" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_api_resource_pane_loan_review_post.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_api_resource_pane_loan_review_post.png" alt="Create New Project" width="30%"></a>
 
 4. Finally, click **Create** to add the new API resource.
 
@@ -47,14 +47,14 @@ To develop the above scenario, let's get started with creating a new API resourc
 
 1. Open the **Resource View** of the newly created API resource by clicking the `POST /loan-review` resource under **Available resources** in the **Service Designer**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_loan_review_post_resource.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_loan_review_post_resource.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_loan_review_post_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_loan_review_post_resource.png" alt="Create New Project" width="80%"></a>
 
 2. After opening the **Resource View**, click on the **Start** node on the canvas to set an input payload for the integration flow.
 
     !!! Note
         Setting an input payload for the integration flow is not mandatory. However, it is recommended, as it will be used to enable expression suggestions, which you will explore in later steps of this tutorial.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/click_start_node_3.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/click_start_node_3.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/click_start_node_3.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/click_start_node_3.png" alt="Create New Project" width="80%"></a>
 
 3. Click **Add Request**, provide the following JSON payload, then click **Add**. Finally, click **Save** to complete the input payload setup.
 
@@ -67,11 +67,11 @@ To develop the above scenario, let's get started with creating a new API resourc
     }
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_start_payload_saas.gif"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_start_payload_saas.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_start_payload_saas.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_start_payload_saas.gif" alt="Create New Project" width="80%"></a>
 
 4. Click on the **+** icon on the canvas to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_new_mediator_loan_review_1.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_new_mediator_loan_review_1.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_new_mediator_loan_review_1.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_new_mediator_loan_review_1.png" alt="Create New Project" width="80%"></a>
 
 5. Search for `email` in the **Mediator Palette**, then click the download (<img src="{{base_path}}/assets/img/get-started/build-first-integration/connector_download_icon.png" alt="inline expression editor" class="inline-icon">) icon to add the [Email connector]({{base_path}}/reference/connectors/email-connector/email-connector-overview/) to the project. In the confirmation pane, select **Yes** to add the required dependencies.
 
@@ -79,15 +79,15 @@ To develop the above scenario, let's get started with creating a new API resourc
         - Connectors in WSO2 Integrator:  MI enable seamless integration with external systems, cloud platforms, and messaging services without the need for custom implementations. They provide a standardized way to send, receive, and process data from third-party applications like Salesforce, Kafka, and AWS services. To explore connectors in detail, see the [Connector documentation]({{base_path}}/reference/connectors/connectors-overview/).
         - In VS Code, you can view all available connectors by clicking **Add Module** under the **Mediators** tab in the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/download_email_connector.png" alt="Create New Project" width="80%"></a>
 
 6. Once the connector is downloaded, select the `Send` operation from the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_email_send.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_email_send.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_email_send.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_email_send.png" alt="Create New Project" width="80%"></a>
 
 7. Click **+ Add new connection** to create a new connection.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_add_new_connection_btn.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_add_new_connection_btn.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_add_new_connection_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_add_new_connection_btn.png" alt="Create New Project" width="80%"></a>
 
 8. Select `SMTPS` and fill in the following details to create a connection to Gmail's SMTP service. Finally, click **Add** in the **Add New Connection** form to create the connection.
 
@@ -105,24 +105,24 @@ To develop the above scenario, let's get started with creating a new API resourc
     !!! Note
         It is recommended to use secure vault to store credentials. For more information, refer to <a href="{{base_path}}/install-and-setup/setup/security/encrypting-plain-text/">Encrypting Secrets</a>.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_create_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_create_connection.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_create_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_create_connection.png" alt="Create New Project" width="80%"></a>
 
 
 9. After creating the connection, enter your email address in the **From** field and set `Loan Application Received` as the **Subject** in the **Add Send** form.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_set_subject.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_set_subject.png" alt="Create New Project" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_set_subject.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_set_subject.png" alt="Create New Project" width="30%"></a>
 
     In the next step, you will extract the recipient's email address from the incoming payload and assign it to the **To** field using an expression.
 
 10. Click on the expression (<img src="{{base_path}}/assets/img/get-started/build-first-integration/enable_expression_icon.png" alt="inline expression editor" class="inline-icon">) icon to enable expression mode for the **To** field.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/enable_expression_to.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/enable_expression_to.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/enable_expression_to.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/enable_expression_to.png" alt="Create New Project" width="80%"></a>
 
 11. Once expressions are enabled, click on the expression editor (<img src="{{base_path}}/assets/img/get-started/build-first-integration/expression_editor_icon.png" alt="inline expression editor" class="inline-icon">) icon to open the editor.
 
 12. Select **Payload** → **email** to extract the recipient's email address from the payload.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_set_to.gif">
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_set_to.gif" class="glightbox">
         <img src="{{base_path}}/assets/img/get-started/build-first-integration/email_set_to.gif" width="50%" alt="Add inline expression">
     </a>
 
@@ -155,17 +155,17 @@ To develop the above scenario, let's get started with creating a new API resourc
 
 15. Repeat the same steps to insert the loan **amount** after the `$` symbol in the template.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_inline_expressions_email_body.gif">
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_inline_expressions_email_body.gif" class="glightbox">
         <img src="{{base_path}}/assets/img/get-started/build-first-integration/add_inline_expressions_email_body.gif" width="50%" alt="Add inline expression">
     </a>
 
 16. Ensure that **Overwrite Message Body** is checked, then click **Submit** to add the email operation to the integration flow.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_send_configs.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_send_configs.png" alt="Create New Project" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_send_configs.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_send_configs.png" alt="Create New Project" width="30%"></a>
 
 17. Click on the **+** icon located just after the **Send** operation to open the **Mediator Palette** to add a [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator) to respond to the client request.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_respond_loan_request_flow.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_respond_loan_request_flow.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/add_respond_loan_request_flow.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/add_respond_loan_request_flow.png" alt="Create New Project" width="80%"></a>
 
 18. Select **Respond** mediator under **Mediators**, and click **Add** to insert it to the integration flow.
 
@@ -177,7 +177,7 @@ You have successfully updated the integration flow to send an email with the loa
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_api.png" alt="ai datamapping api" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-integration/email_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/email_api.png" alt="ai datamapping api" width="70%"></a>
 
     === "Source View"
         ```yaml
@@ -272,7 +272,7 @@ You have successfully updated the integration flow to send an email with the loa
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/build-first-integration/gmail_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/gmail_connection.png" alt="http connection config" width="40%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-integration/gmail_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/gmail_connection.png" alt="http connection config" width="40%"></a>
         
     === "Source View"
         ```yaml
@@ -295,17 +295,17 @@ Now that you have updated the integration, it's time to deploy the integration t
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-integration/build_and_run_btn_email.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/build_and_run_btn_email.png" alt="Create New Project" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-integration/build_and_run_btn_email.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/build_and_run_btn_email.png" alt="Create New Project" width="80%"></a>
 
 ## Step 4 - Test the integration service
 
 1. Once the **Runtime Services** interface is open, select the `BankAPI`, and click the **Try It** button.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_bank_api_email.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_bank_api_email.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_bank_api_email.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_bank_api_email.png" alt="Create New Project" width="80%"></a>
 
 2. Select the `/loan-review` resource and click **Try it Out** to test the API.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_email_resource.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_email_resource.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_email_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/swagger_select_email_resource.png" alt="Create New Project" width="80%"></a>
 
 3. Provide a JSON payload and click the **Execute** button to invoke the API. You may use the following sample payload to test the API. Make sure to update the `name` and `email` fields with the actual recipient's information.
 
@@ -318,7 +318,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
     }
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/swagger_execute_email.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/swagger_execute_email.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/swagger_execute_email.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/swagger_execute_email.png" alt="Create New Project" width="80%"></a>
 
 4. Check the response received from the server, and verify that the loan request status email has been successfully delivered by checking the recipient’s inbox.
 

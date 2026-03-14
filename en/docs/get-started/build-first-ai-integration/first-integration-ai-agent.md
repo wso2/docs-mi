@@ -10,7 +10,7 @@ PineValley Bank is introducing an AI-powered agent designed to assist users in m
 2. **CustomerInfoTool**: Retrieves customer information from PineValley Bank's internal database.
 3. **InvestmentCreationTool**: Facilitates the creation of new investment accounts.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/what_you_will_build.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/what_you_will_build.png" alt="Create New Project" width="60%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/what_you_will_build.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/what_you_will_build.png" alt="Create New Project" width="60%"></a>
 
 Now, it's time to design the AI agent flow. Follow the steps below to create the agent integration.
 
@@ -35,21 +35,21 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 1. Click on the add new API (`+`) icon in the `APIs` in the **WSO2 Integrator: MI Project Explorer** to create a new API.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
 
 2. Create a new API named `CustomerServiceAPI` by giving the name in the **Create API** form. Click **Create** to create the API.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_api.png" alt="Create New Project" width="80%"></a>
 
 3. In the **Service Designer** pane, modify the resource `Method` to `POST`. 
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/edit_resource.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/edit_resource.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/edit_resource.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/edit_resource.gif" alt="Create New Project" width="80%"></a>
 
 ## Step 2 - Design the integration
 
 1. Open the **Resource View** of the newly created API resource by clicking the `POST /chat` resource under **Available resources** in the **Service Designer**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_resource.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_resource.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_resource.png" alt="Create New Project" width="80%"></a>
 
 2. After opening the **Resource View**, click on the **Start** node on the canvas to set an input payload for the integration flow.
 
@@ -65,15 +65,15 @@ To develop the above scenario, let's get started with creating a new API in the 
     }
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/set_start_payload.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/set_start_payload.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/set_start_payload.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/set_start_payload.gif" alt="Create New Project" width="80%"></a>
 
 3. Click on the **+** icon on the canvas to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_mediator.png" alt="Create New Project" width="80%"></a>
 
 4. Select `Agent` operation from the **AI** category in the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_agent_operation.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_agent_operation.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_agent_operation.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_agent_operation.png" alt="Create New Project" width="80%"></a>
 
 5. Fill the form with the following details and click **Add** to add the RAG Chat operation to the integration flow.
 
@@ -102,7 +102,7 @@ To develop the above scenario, let's get started with creating a new API in the 
     **User Query/Prompt**: `${payload}`  *(Tip: Click the `fx` icon next to the `User Query/Prompt` field, select **Payload** from the expression panel, choose `payload`, and click **Add** to insert this expression.)*  
     **Overwrite Message Body**: `true`
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_agent_operation.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_agent_operation.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_agent_operation.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_agent_operation.gif" alt="Create New Project" width="80%"></a>
 
     Now that we added the `Agent` operation, we need to add tools to the agent.    
     
@@ -110,7 +110,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
     1. Click on the **+** icon located just after the **APIs** to add a new API.
 
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
 
     2. Create a new API named `BankMockAPI` by giving the name in the **Create API** form. Click **Create** to create the API.
 
@@ -134,13 +134,13 @@ To develop the above scenario, let's get started with creating a new API in the 
         Click **Add** to add the payload to the integration flow.  
         Now, we need to add a **Respond** mediator to respond to the client.
 
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_mock_customer_info_api.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_mock_customer_info_api.gif" alt="Create New Project" width="80%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_mock_customer_info_api.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/create_mock_customer_info_api.gif" alt="Create New Project" width="80%"></a>
 
         Now that we have created the mock API to retrieve customer information, let's proceed to create another mock API for handling investment account creation.
 
     7. Go to **Service Designer**  of the `BankMockAPI`.  
 
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/goto_mockAPI_serviceDesigner.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/goto_mockAPI_serviceDesigner.png" alt="Create New Project" width="80%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/goto_mockAPI_serviceDesigner.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/goto_mockAPI_serviceDesigner.png" alt="Create New Project" width="80%"></a>
 
     8. In the **Service Designer** pane, select the **+ Resource** icon to add a new resource.  
         Set the following details in the **Create Resource** form.  
@@ -171,11 +171,11 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 8. Click on the **+** icon located inside the **Agent** operation to open the **Mediator Palette** to add a `Tool`.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/click_add_tool.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/click_add_tool.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/click_add_tool.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/click_add_tool.png" alt="Create New Project" width="80%"></a>
 
 9. Select `POST` from the **HTTP** category in the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_http_post.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_http_post.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_http_post.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_http_post.png" alt="Create New Project" width="80%"></a>
 
 10. Let's configure the tool with the following details.
 
@@ -184,7 +184,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 11. Once you have filled the above details, we need to create a connection to the `MockCustomerInfoAPI` we created earlier.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_create_mock_api_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_create_mock_api_connection.png" alt="Create New Project" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_create_mock_api_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_create_mock_api_connection.png" alt="Create New Project" width="30%"></a>
 
 12. Select `HTTP` from the **Add New Connection** page.
 
@@ -193,7 +193,7 @@ To develop the above scenario, let's get started with creating a new API in the 
     **Connection Name**: `BankMockAPI_CONN`  
     **Base URL**: `http://localhost:8290/bankmockapi`
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mock_api_connection.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mock_api_connection.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mock_api_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mock_api_connection.png" alt="Create New Project" width="80%"></a>
 
     Click **Add** to add the connection.
 
@@ -215,7 +215,7 @@ To develop the above scenario, let's get started with creating a new API in the 
     ```  
     Click **Add** to add the tool.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getCustomerInfo_tool.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getCustomerInfo_tool.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getCustomerInfo_tool.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getCustomerInfo_tool.gif" alt="Create New Project" width="80%"></a>
 
     Next, let's add another tool to get the bank documents from the knowledge base.
 
@@ -223,7 +223,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 17. Select `Get From Knowledge` from the **AI** category in the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_getFromKnowledge_tool.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_getFromKnowledge_tool.png" alt="Create New Project" width="80%"></a>  
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_getFromKnowledge_tool.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_getFromKnowledge_tool.png" alt="Create New Project" width="80%"></a>  
 
 18. Let's configure the tool with the following details.
 
@@ -235,7 +235,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 19. Click on the magic (<img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/ai_button.png" alt="Value from AI button" class="inline-icon">) in the `Input` field.  
     We can leave the default description as it is.  
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getFromKnowledge_tool.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getFromKnowledge_tool.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getFromKnowledge_tool.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/fill_getFromKnowledge_tool.gif" alt="Create New Project" width="80%"></a>
 
     Next, let's add the final tool to create the investment account.
 
@@ -258,7 +258,7 @@ To develop the above scenario, let's get started with creating a new API in the 
     ```text
     Provide the investment account details in the following format: {"userID":"C567", "investmentType":"HISA", "initialDeposit":5000, "investmentGoal":"Long-term growth"}
     ```
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_createInvestment_tool.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_createInvestment_tool.png" alt="Create New Project" width="25%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_createInvestment_tool.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_createInvestment_tool.png" alt="Create New Project" width="25%"></a>
 
     Finally, click **Add** to add the tool.  
 
@@ -266,7 +266,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 20. Click on the **+** icon located just after the **Agent** operation to open the **Mediator Palette** to add a `Respond` mediator.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_respond_mediator.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_respond_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_respond_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_respond_mediator.png" alt="Create New Project" width="80%"></a>
 
 You have successfully updated the integration flow to implement the customer assistance agent.  
 For reference, you can review the configured API.
@@ -277,7 +277,7 @@ For reference, you can review the configured API.
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/agent_completed.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/agent_completed.png" alt="ai datamapping api" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/agent_completed.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/agent_completed.png" alt="ai datamapping api" width="70%"></a>
 
     === "Source View"
         ```xml
@@ -332,13 +332,13 @@ Now that you have updated the integration, it's time to deploy the integration t
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/build_and_run.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/build_and_run.png" alt="Create New Project" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/build_and_run.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/build_and_run.png" alt="Create New Project" width="80%"></a>
 
 ## Step 4 - Test the integration service
 
 1. Once the **Runtime Services** interface is open, select the `CustomerServiceAPI`, and click the **Try It** button.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_tryout.png"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_tryout.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_tryout.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_tryout.png" alt="Create New Project" width="80%"></a>
 
 2. Select the `/` resource and click **Try it Out** to test the API.   
 
@@ -352,7 +352,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
     ```
     Give the above payload in the **Request Body** and click **Execute**.  
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_1.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_1.gif" alt="Create New Project" width="80%"></a>  
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_1.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_1.gif" alt="Create New Project" width="80%"></a>  
 
     You should see a response similar to the one below.
 
@@ -390,7 +390,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
     ```
     Give the above payload in the **Request Body** and click **Execute**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_2.gif"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_2.gif" alt="Create New Project" width="80%"></a>  
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_2.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/tryout_agent_2.gif" alt="Create New Project" width="80%"></a>  
 
     You should see a response similar to the one below.
 
@@ -438,25 +438,25 @@ You have now learned how to create an AI agent to enhance your integration flow 
 
 2. Click on **Add MCP Tools** on the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_tools.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_tools.jpeg" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_tools.jpeg" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_tools.jpeg" alt="Create New Project" width="80%"></a>
 
 3. If a `MCP Connection` already exists in your project, you can select it from the **Connection** dropdown. If not, click on **+ Add New Connection**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_connection_mcp.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_connection_mcp.jpeg" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_connection_mcp.jpeg" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_new_connection_mcp.jpeg" alt="Create New Project" width="80%"></a>
 
 4. Choose **MCP** as the `Connection Type`.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/connection_type_mcp.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/connection_type_mcp.jpeg" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/connection_type_mcp.jpeg" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/connection_type_mcp.jpeg" alt="Create New Project" width="80%"></a>
 
 5. Fill in the required parameters including the Connection Name, URL of the MCP Server and Auth Configurations(if exists). Click on **Add**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_connection.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_connection.jpeg" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_connection.jpeg" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/add_mcp_connection.jpeg" alt="Create New Project" width="80%"></a>
 
 6. Select the connection you just created from the `Connection` dropdown. Given that all parameters of the connection are correct, the palette should list all available tools in the selected MCP Server.
 
 7. Click the checkboxes of the tools you wish to add to the agent and click on **Add**.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_mcp_tools.jpeg"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_mcp_tools.jpeg" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_mcp_tools.jpeg" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_mcp_tools.jpeg" alt="Create New Project" width="80%"></a>
 
 ## What's Next?  
 

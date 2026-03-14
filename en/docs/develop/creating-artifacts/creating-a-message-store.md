@@ -12,7 +12,7 @@ Follow the instructions below to create a new [Message Store]({{base_path}}/refe
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click **+ View More** under **Create an Integration**.
 
@@ -20,7 +20,7 @@ Follow the instructions below to create a new [Message Store]({{base_path}}/refe
 
 7. Select the type of message store you are creating.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/message-store-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/message-store-form.png" alt="create-message-store" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/message-store-form.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/message-store-form.png" alt="create-message-store" width="80%"></a>
 
 8. Enter a unique name for the message store.
 
@@ -48,15 +48,15 @@ To add a message store to the integration sequence, use the [Store Mediator]({{b
 
 2. Add **Store Message** from the **Palette** under **Mediators** > **Generic** to the relevant position in the mediation sequence.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message.png" alt="Store message" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message.png" alt="Store message" width="80%"></a>
 
 3. Select the name of the message store artifact you previously created from the dropdown.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message-details.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message-details.png" alt="Store message details" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message-details.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-message-details.png" alt="Store message details" width="30%"></a>
 
 The message store is now linked to your integration sequence.
 
-<a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-mediator.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-mediator.png" alt="store mediator" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-store/store-mediator.png" alt="store mediator" width="80%"></a>
 
 ### Update the properties
 

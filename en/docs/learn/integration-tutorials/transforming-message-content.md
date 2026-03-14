@@ -62,7 +62,7 @@ The client message format must be transformed into the back-end service message 
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -72,7 +72,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 1. In the **Add Artifact** interface, under **Create an Integration**, click on **API**. This opens the API Form.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png" alt="create new project" width="80%"></a>
 
 2. Enter the details given below to create a new REST API.
 
@@ -98,7 +98,7 @@ Now let's start designing the integration by adding the necessary artifacts.
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/synapse-api-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/synapse-api-artifact.png" alt="synapse API artifact" width="80%"></a>      
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/synapse-api-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/synapse-api-artifact.png" alt="synapse API artifact" width="80%"></a>      
 
 4.  Click **Create**. This will open the **Service Designer** interface.
 
@@ -106,7 +106,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 5. On the Service Designer, click on the three dots (**⋮**) and then **Edit** to access the **Properties** of the default API resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png" alt="Edit API resource" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png" alt="Edit API resource" width="80%"></a>
 
 6. Enter the following details:
 
@@ -134,7 +134,7 @@ Now let's start designing the integration by adding the necessary artifacts.
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png" alt="Edit API resource properties" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png" alt="Edit API resource properties" width="30%"></a>
 
 7. Click **Update**.
 
@@ -145,23 +145,23 @@ Let's configure the API resource with the data transformation logic.
 
 1. Open the **Resource View** of the API resource by clicking the `POST` resource under **Available resources** on **Service Designer**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/resource_select.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/resource_select.png" alt="Select API resource" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/resource_select.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/resource_select.png" alt="Select API resource" width="80%"></a>
 
 2. Once you open the **Resource View**, click on the **+** icon on the canvas to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/first_mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/first_mediator.png" alt="First mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/first_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/first_mediator.png" alt="First mediator" width="80%"></a>
 
 3.  Under **Mediators**, select the **Data Mapper** mediator.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-data-mapper.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-data-mapper.png" alt="add data mapper" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-data-mapper.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add-data-mapper.png" alt="add data mapper" width="80%"></a>
 
 4. In the pane that appears, click **+ Add New**, enter `RequestMapping` as the name, and click **Create** in the **Create New Data Mapper** form.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png" alt="create new mapping" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper-new.png" alt="create new mapping" width="30%"></a>
 
 5. Click **Add** to insert the Data Mapper into the integration flow. You will then be directed to the Data Mapping Editor.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/data-mapper-canvas.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/data-mapper-canvas.png" alt="data mapper canvas" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/data-mapper-canvas.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/data-mapper-canvas.png" alt="data mapper canvas" width="80%"></a>
 
 6. Click on the **Import input schema** to import the input schema. Since this scenario involves JSON to JSON mapping, you can import from either a JSON sample or a JSON schema. In this guide, we will be using the **Import from JSON** option.
 
@@ -183,7 +183,7 @@ Let's configure the API resource with the data transformation logic.
     }
     ```
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_input_json.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_input_json.png" alt="Add input JSON" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_input_json.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_input_json.png" alt="Add input JSON" width="80%"></a>
 
 8.  Next, to set the output JSON, click **Import Output Schema** and then click **Import from JSON**.  
 Copy the following sample request message expected by the back-end service, paste it into the editor, and click **Save**.
@@ -212,21 +212,21 @@ Copy the following sample request message expected by the back-end service, past
 
     The completed mapping will appear as follows:
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/mapping-data-input-output.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/mapping-data-input-output.png" alt="Mapping" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/mapping-data-input-output.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/mapping-data-input-output.png" alt="Mapping" width="80%"></a>
 
 10. Click on **/categories/{category}/reserve** in the **MI Project Explorer** to open the **HealthcareAPI** resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/select_resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/select_resource.png" alt="Select resource" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/select_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/select_resource.png" alt="Select resource" width="80%"></a>
 
     Now that we have the message formatted as expected by the back-end service, let's use the <a target="_blank" href="{{base_path}}/reference/connectors/http-connector/http-connector-overview/">HTTP connector</a> to send a POST request to the hospital services backend.
 
 11. Click on the **+** icon after the **Data Mapper** mediator and search for `post` in the **Mediator Palette** to add the **HTTP POST** operation for invoking the hospital services backend.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_http_post.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_http_post.png" alt="Add post" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_http_post.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_http_post.png" alt="Add post" width="80%"></a>
 
 12. Click **+ Add new connection** to create a new connection.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/new_http_conn.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/new_http_conn.png" alt="add new connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/new_http_conn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/new_http_conn.png" alt="add new connection" width="80%"></a>
 
 13. Select `HTTP` and fill in the following details to create a connection to the Hospital service. Finally, click **Add** in the **Add New Connection** form to create the connection.
 
@@ -235,14 +235,14 @@ Copy the following sample request message expected by the back-end service, past
     | **Connection Name** | `HospitalConnection`    | The name of the connection. |
     | **Base URL**        | `http://localhost:9090` | The base URL for the back-end service.<br>In the next step, we will see how to construct the full URL using the **Relative Path**. |
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_new_http_conn.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_new_http_conn.png" alt="new connection form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_new_http_conn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_new_http_conn.png" alt="new connection form" width="80%"></a>
 
 14. Provide `/${payload.hospital_id}/categories/${params.pathParams.category}/reserve` as the **Relative Path**, and click **Submit** to add the operation to the integration flow.
 
     !!! Note
         We will leave the rest of the configurations as defaults: **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png" alt="HTTP operation" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png" alt="HTTP operation" width="30%"></a>
 
 15. Click on the **+** icon after the **HTTP POST** operation and select the **Respond** mediator from the **Mediator Palette** to send the response back to the client.
     
@@ -254,7 +254,7 @@ Now that you have developed an integration using the WSO2 Integrator: MI for the
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/build_and_run_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
 
 ### Step 4: Test the use case
 
@@ -309,7 +309,7 @@ Select the `HealthcareAPI` you have developed and test the resource using the fo
     </tr>
 </table>
 
-<a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/try_out.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/try_out.png" alt="Try Out" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/try_out.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/try_out.png" alt="Try Out" width="80%"></a>
 
 Optionally, you can use [Postman](https://www.postman.com/downloads/) or [cURL](https://curl.haxx.se/) to send the request. You can refer to the following request information.
 

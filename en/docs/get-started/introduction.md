@@ -39,7 +39,7 @@ The WSO2 Integrator: MI for Visual Studio Code (MI for VS Code) extension empowe
 Visual Studio Code editor for integration development, elevating the integration experience to new heights. This AI-assisted 
 development environment delivers a faster, more customizable, easier-to-learn, and highly productive development experience.
 
-<a href="{{base_path}}/assets/img/get-started/mi-for-vscode.png"><img src="{{base_path}}/assets/img/get-started/mi-for-vscode.png" alt="MI for VS Code" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/mi-for-vscode.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/mi-for-vscode.png" alt="MI for VS Code" width="80%"></a>
 
 ## Flexible deployment options
 

@@ -12,7 +12,7 @@ Follow the instructions below to create a new Endpoint Template in the WSO2 Inte
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click **+ View More** under **Create an Integration**.
 
@@ -20,7 +20,7 @@ Follow the instructions below to create a new Endpoint Template in the WSO2 Inte
 
 7. This will open the **Template Form** shown below, where you can select the **Template Artifact**. Select an endpoint template type.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png" alt="Template form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/template-form.png" alt="Template form" width="80%"></a>
 
     !!! note
         There are four Endpoint Templates available: 
@@ -58,13 +58,13 @@ Follow the steps below to add the already-created endpoint template to your medi
 
 3. Select **Template Endpoint** from the set of available endpoints on the **Endpoint Form**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" alt="Endpoint form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/endpoint-form.png" alt="Endpoint form" width="80%"></a>
 
 4. In the **Template Endpoint Form**, specify the values for the required properties.
 
 5. From the **Template** dropdown, select the endpoint template you created [earlier](#create-the-endpoint-template-artifact).
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/created-endpoint-template.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/created-endpoint-template.png" alt="created endpoint template" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/created-endpoint-template.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint-template/created-endpoint-template.png" alt="created endpoint template" width="80%"></a>
 
 6. Click **Create**.
 
@@ -75,14 +75,14 @@ Follow the steps below to add the already-created endpoint template to your medi
 1.	Open the **Design View** of your [mediation sequence]({{base_path}}/reference/mediation-sequences).
 2.  Add the **Call Endpoint** mediator from the palette under **All Mediators** > **Generic** section to the relevant position in the mediation sequence:
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" alt="Select call endpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/select-call-endpoint.png" alt="Select call endpoint" width="80%"></a>
 
     !!! Tip
         Similarly, you can use the Send Mediator instead of the Call Mediator.
 
 3. In the **Call Endpoint** form, select the endpoint you need to invoke under **Select Endpoint**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" alt="Call endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-endpoint/call-endpoint.png" alt="Call endpoint" width="30%"></a>
 
 The endpoint template artifact is now linked to your integration sequence.
 

@@ -24,7 +24,7 @@ Follow the instructions below to create a **WS-Policy** resource in your integra
     - **WS-Policy Type**: Select `Sign and Encrypt - X509 Authentication`.
     - **Resource Path**: Provide the resource path where the resource should be saved. 
     
-    <a href="{{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png"><img src="{{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png" width="60%" alt="Create Resource"></a>
+    <a href="{{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/add-ws-policy/create-resource.png" width="60%" alt="Create Resource"></a>
 
 6. The created policy file will be listed in the project explorer.  
    [![Resource in Project Explorer]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)]({{base_path}}/assets/img/integrate/apply-security/119130870/119130883.png)  
@@ -148,22 +148,22 @@ Create a Soap UI project with the relevant security settings and then send the r
 
     - **Adding a Signature**  
     
-         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg" width="60%" alt="Adding a Signature"></a>
+         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-signature-entry.jpg" width="60%" alt="Adding a Signature"></a>
     
     - **Adding a Timestamp**
     
-         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg" width="60%" alt="Adding a Timestamp"></a>
+         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-timestamp-entry.jpg" width="60%" alt="Adding a Timestamp"></a>
     
     - **Adding an Encryption**
     
-         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" width="60%" alt="Adding an Encryption"></a>
+         <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-encryption-entry.jpg" width="60%" alt="Adding an Encryption"></a>
     
     !!! Note
         The order of the WS entries matters. So always add the above one after the other. If you are adding only two sections, you need to maintain the order.
         
 6.  Specify the created WS-policy under **Outgoing WSS** at the request **Authorization**.
 
-    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg" alt="Specify the created WS-policy"></a>
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-policy.jpg" alt="Specify the created WS-policy"></a>
    
 7.  Invoke the Proxy Service.
 
@@ -177,12 +177,12 @@ Create a Soap UI project with the relevant security settings and then send the r
         - A Confidentiality policy needs all three: Timestamp, Signature and Encryption.
         - You do not need to provide an Outgoing WS-Security Configuration for a Username Token policy. Providing the basic auth configuration is enough.
     
-        <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"></a>
+        <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-username-token.jpg"></a>
 
 8.  To decrypt the response, add the Incoming WSS configuration similar to the Outgoing WSS configuration.
 
-    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png" width="60%" alt="Adding Decryption"></a>
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/adding-decryption-entry.png" width="60%" alt="Adding Decryption"></a>
 
 9.  Invoke the Proxy Service with Incoming & Outgoing WSS Configuration.
 
-    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png" width="60%" alt="In and Out Policy"></a>
+    <a href="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/apply-security/soapui/invoking-with-out-in-policy.png" width="60%" alt="In and Out Policy"></a>

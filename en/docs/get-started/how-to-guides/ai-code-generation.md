@@ -22,7 +22,7 @@ You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://
 
 5. Provide a location under the **Project Directory**.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-project-creation.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-project-creation.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-project-creation.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-project-creation.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -32,11 +32,11 @@ You will now see the projects listed in the **Project Explorer**.
 
 1. Click on the **Open AI Panel** button in the top left corner.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" alt="open ai panel" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" alt="open ai panel" width="80%"></a>
 
 2. Sign in to MI Copilot via the MI extension.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png" alt="sign in to mi copilot" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png" alt="sign in to mi copilot" width="80%"></a>
 
 ### Step 3: Generate the mediation using MI Copilot
 
@@ -47,26 +47,26 @@ You will now see the projects listed in the **Project Explorer**.
         Generate a service to fetch weather data from a city name and email the weather details to the given email in the request. Refer to the attached OpenAPI Specifications for more details about the geolocation endpoint and weather endpoint.
         ```
 
-2. Add any supporting files that are required to generate this integration such as OpenAPI specifications, schemas, etc., by clicking on the **Add Files** <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" alt="attach files" width="30px"></a> button. In this guide, we are using the [GeoLocationOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/GeoLocationOAS.yaml) and [OpenWeatherOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/OpenWeatherOAS.yaml) OpenAPI specifications.
+2. Add any supporting files that are required to generate this integration such as OpenAPI specifications, schemas, etc., by clicking on the **Add Files** <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" alt="attach files" width="30px"></a> button. In this guide, we are using the [GeoLocationOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/GeoLocationOAS.yaml) and [OpenWeatherOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/OpenWeatherOAS.yaml) OpenAPI specifications.
 
 3. Click on the **Generate** button and wait for the MI copilot to generate the necessary synapse configurations to work the scenario.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" alt="generate code" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" alt="generate code" width="80%"></a>
 
 4. Once the configurations are generated, add them to the project using the **Add to Project** button, which is in line with the artifact name.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" alt="add artifacts" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" alt="add artifacts" width="80%"></a>
 
     The API will resemble the following structure once all the generated artifacts have been added.
 
     !!! Note 
         The generated view may differ from ours, as AI-generated designs can vary. For example, AI may create separate sequences for the Weather API calls and email operation.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="add artifacts" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="add artifacts" width="80%"></a>
 
     ??? "WeatherEmailService API"
         === "Design View"
-            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="ai-code-gen-api" width="70%"></a>
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="ai-code-gen-api" width="70%"></a>
 		    
         === "Source View"
             ```yaml
@@ -117,7 +117,7 @@ You will now see the projects listed in the **Project Explorer**.
 
     ??? "Email Connection"
         === "Design View"
-            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png" alt="http connection config" width="40%"></a>
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png" alt="http connection config" width="40%"></a>
 		    
         === "Source View"
             ```yaml
@@ -136,7 +136,7 @@ You will now see the projects listed in the **Project Explorer**.
     
     ??? "HTTP Connection"
         === "Design View"
-            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" alt="http connection config" width="40%"></a>
+            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" alt="http connection config" width="40%"></a>
 		    
         === "Source View"
             ```yaml
@@ -166,22 +166,22 @@ You will now see the projects listed in the **Project Explorer**.
 
 1. Click on the **Build and Run** button to build and deploy the integration.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" alt="build and run" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" alt="build and run" width="80%"></a>
 
 2. **Runtime Services** will open after the server is up and running, and from that panel, select the API that you need to try out using the **Try It** button.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-try.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-try.png" alt="try out swagger" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-try.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-try.png" alt="try out swagger" width="80%"></a>
 
 3. Click the **Try it Out** button to provide the required query parameters.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-op-try.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-op-try.png" alt="try out operation" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-op-try.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-op-try.png" alt="try out operation" width="80%"></a>
 
 4. Provide the required parameters and click the **Execute** button to invoke the API.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-exec.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-exec.png" alt="execute request" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-exec.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-exec.png" alt="execute request" width="80%"></a>
 
 5. Check the response received from the server and confirm that the weather details for the specified city have been successfully sent to the email address provided as a query parameter in the API request.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" alt="response" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" alt="response" width="80%"></a>
 
 Automating complex integrations has never been easier. Why spend time doing all this manually when the WSO2 Integrator: MI Copilot can do it for you? Try it out today and save yourself hours of effort!

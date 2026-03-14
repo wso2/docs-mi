@@ -20,7 +20,7 @@ The inbound endpoint acts as a message receiver and injects events into an integ
 
 In this example, we will use the **Account** object in Salesforce to demonstrate the PushTopic functionality. When an **Account** record is created, updated, deleted, or undeleted, the WSO2 Inbound Endpoint will receive notifications and process them accordingly. For a visual representation of the integration, refer to the diagram below:
 
-<a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png" title="Salesforce Inbound Endpoint" alt="Salesforce Inbound Endpoint"/></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png" title="Salesforce Inbound Endpoint" alt="Salesforce Inbound Endpoint"/></a>
 
 ## Step 1: Creating a PushTopic
 

@@ -320,13 +320,13 @@ Follow these steps from your terminal to invoke the integration and access the I
 
     Open <a target="_blank" href="https://icp.wso2.com/login">https://icp.wso2.com/login</a> in your browser and sign in using `admin` for both the username and password.
 
-     <a href="{{base_path}}/assets/img/setup-and-install/icp_login.png"><img src="{{base_path}}/assets/img/setup-and-install/icp_login.png" alt="ICP Login page" width="80%"></a>
+     <a href="{{base_path}}/assets/img/setup-and-install/icp_login.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/icp_login.png" alt="ICP Login page" width="80%"></a>
 
 5. Verify MI nodes.
 
     In the Nodes view of the Integration Control Plane (ICP), you should see both MI pods grouped under the configured release name, each identified by its respective pod name.
 
-    <a href="{{base_path}}/assets/img/setup-and-install/icp_mi_nodes.png"><img src="{{base_path}}/assets/img/setup-and-install/icp_mi_nodes.png" alt="MI Nodes" width="80%"></a>
+    <a href="{{base_path}}/assets/img/setup-and-install/icp_mi_nodes.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/icp_mi_nodes.png" alt="MI Nodes" width="80%"></a>
 
 #### Invoke without Ingress controller
 
