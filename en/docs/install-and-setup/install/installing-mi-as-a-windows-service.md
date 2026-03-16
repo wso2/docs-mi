@@ -51,9 +51,7 @@ Navigate to the `<YAJSW_HOME>/bat/` directory in the Windows command prompt with
 startService.bat
 ```
 
-After starting the service, go to the Windows Services list and verify that WSO2 Integrator: MI 4.6.0 is listed and its status shows as **Running**.
-
-<a href="{{base_path}}/assets/img/setup-and-install/Windows_service_List.png"><img src="{{base_path}}/assets/img/setup-and-install/Windows_service_List.png" alt="Windows Service List" width="80%"></a>
+After starting the service, go to the Windows Services list and verify that WSO2 Integrator: MI is listed and its status shows as **Running**.
 
 ## Stopping the service
 
