@@ -302,6 +302,7 @@ nav:
                     - How to Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
                     - How to Retry Failed Messages with a Delay: learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq.md
                     - How to Requeue a Message Preserving the Order: learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq.md
+                    - How to Manage Guaranteed Delivery with Non Blocking Client Acknowledgement: learn/examples/rabbitmq-examples/rabbitmq-nonblocking-client-ack.md
                     - How to Publish Unacked Messages to Dead Letter Exchange: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
                 - How to Implement Dual Channel Scenario with RabbitMQ: learn/examples/rabbitmq-examples/request-response-rabbitmq.md
             - JMS examples:
