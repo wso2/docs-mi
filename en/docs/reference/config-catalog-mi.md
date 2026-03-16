@@ -10934,6 +10934,27 @@ inbound.max_threads = 100</code></pre>
                                         <p>Set this property to true and enable tracing for the required integration artifact to record the following information:&lt;ul&gt;&lt;li&gt;Message context properties.&lt;/li&gt;&lt;li&gt;Message transport-scope properties.&lt;/li&gt;&lt;/ul&gt;</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>synapse.disable_thread_switch_on_blocking_call</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>By default, Axis2 spawns a new thread to handle each outgoing message. This is done to enable non-blocking message processing behaviour. But this might exhaust the thread pool and cause erroneous behaviour in guaranteed transaction scenarios. You can use this configuration to disable this behaviour when dealing with queuing transports like JMS. This thread-switching behaviour can also be disabled at the mediation level with the use of a <a href="{{base_path}}/reference/mediators/property-reference/generic-properties/#clientapinonblocking">property.</a></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
