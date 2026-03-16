@@ -215,8 +215,8 @@ Open the `<MI_HOME>/conf` directory and edit the `log4j2.properties` file follow
     ``` log
     appender.ELK_ANALYTICS_APPENDER.type = RollingFile
     appender.ELK_ANALYTICS_APPENDER.name = ELK_ANALYTICS_APPENDER
-    appender.ELK_ANALYTICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/synapse-analytics.log
-    appender.ELK_ANALYTICS_APPENDER.filePattern = ${sys:carbon.home}/repository/logs/synapse-analytics-%d{MM-dd-yyyy}-%i.log
+    appender.ELK_ANALYTICS_APPENDER.fileName = ${sys:logfiles.home}/synapse-analytics.log
+    appender.ELK_ANALYTICS_APPENDER.filePattern = ${sys:logfiles.home}/synapse-analytics-%d{MM-dd-yyyy}-%i.log
     appender.ELK_ANALYTICS_APPENDER.layout.type = PatternLayout
     appender.ELK_ANALYTICS_APPENDER.layout.pattern = %d{HH:mm:ss,SSS} [%X{ip}-%X{host}] [%t] %5p %c{1} %m%n
     appender.ELK_ANALYTICS_APPENDER.policies.type = Policies
