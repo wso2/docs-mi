@@ -337,6 +337,7 @@ nav:
             - How to Expose an RDBMS Datasource: learn/examples/data-integration/rdbms-data-service.md
             - How to Expose other Datasources:
                   - CSV Datasource: learn/examples/data-integration/csv-data-service.md
+                  - Excel Datasource: learn/examples/data-integration/excel-data-service.md
                   - Mongo Datasource: learn/examples/data-integration/mongo-data-service.md
                   - Carbon Datasource: learn/examples/data-integration/carbon-data-service.md
             - How to Expose Data in JSON Format: learn/examples/data-integration/json-with-data-service.md
