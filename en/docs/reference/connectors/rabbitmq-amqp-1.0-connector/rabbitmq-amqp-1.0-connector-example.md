@@ -80,7 +80,7 @@ In this operation, we are going to receive the following inputs from the user.
 1. Now we will add the `publishMessage` operation of the RabbitMQ Connector to the integration flow. To do this, we need to add the RabbitMQ Connector to the integration project first.
    For that, open the **Resource View**, click on the **+** icon on the canvas to open the **Mediator Palette** and search for `RabbitMQ` in the **Mediators** section. Then, select the **RabbitMQ** connector and click on the **Download** button.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectPublishMessageOperation.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectPublishMessageOperation.png" title="Adding RabbitMQ Connector" width="80%" alt="Adding RabbitMQ Connector"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/DownloadRabbitMQConnector.png"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/DownloadRabbitMQConnector.png" title="Adding RabbitMQ Connector" width="80%" alt="Adding RabbitMQ Connector"/></a>
 
 2. Click on the `publishMessage` operation to add that operation to the integration flow.
 
