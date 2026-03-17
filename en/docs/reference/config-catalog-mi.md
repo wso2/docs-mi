@@ -10952,7 +10952,7 @@ inbound.max_threads = 100</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>By default, Axis2 spawns a new thread to handle each outgoing message. This is done to enable non-blocking message processing behaviour. But this might exhaust the thread pool and cause erroneous behaviour in guaranteed transaction scenarios. You can use this configuration to disable this behaviour when dealing with queuing transports like JMS. This thread-switching behaviour can also be disabled at the mediation level with the use of a <a href="{{base_path}}/reference/mediators/property-reference/generic-properties/#clientapinonblocking">property.</a></p>
+                                        <p>By default, Axis2 spawns a new thread to handle each outgoing message. This is done to enable non-blocking message processing behaviour. But this might exhaust the thread pool and cause erroneous behaviour in guaranteed transaction scenarios. You can use this configuration to disable this behaviour when dealing with queuing transports like JMS. This thread-switching behaviour can also be disabled at the mediation level with the use of a <a href="{{base_path}}/reference/mediators/property-reference/generic-properties/#clientapinonblocking">property</a>.</p>
                                     </div>
                                 </div>
                             </div>
