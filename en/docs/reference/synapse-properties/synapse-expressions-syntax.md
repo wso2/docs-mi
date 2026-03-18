@@ -28,6 +28,9 @@ Literals are constant values that are directly used in the expression.
 
 The following types of literals are supported in Synapse expressions.
 
+!!! Note
+    String literals can be enclosed in either single quotes (`'`) or double quotes (`"`). The examples in this documentation use single quotes for better readability in the source files.
+
 <table>
 <thead>
 <tr class="header">
@@ -38,7 +41,7 @@ The following types of literals are supported in Synapse expressions.
 <tbody>
 <tr class="odd">
 <td>String</td>
-<td><pre><code>"Hello World"</code></pre></td>
+<td><pre><code>'Hello World'</code></pre></td>
 </tr>
 <tr class="even">
 <td>Number</td>
@@ -192,8 +195,8 @@ Here, true expression will be evaluated if the conditional expression is true, o
 Example usage:
 
 ```
-vars.age > 18 ? "Adult" : "Child"
-vars.num1 > vars.num2 ? vars.num1 : vars.num2  
+vars.age > 18 ? 'Adult' : 'Child'
+vars.num1 > vars.num2 ? vars.num1 : vars.num2
 ```
 
 !!! Note
@@ -227,6 +230,9 @@ payload.users[?(@.age >= vars.minAge)]
 
 Synapse Expressions support a wide range of functions that are essential for integration use cases.
 
+!!! Note
+    When passing string arguments to functions in Synapse expressions, you can use either single quotes or double quotes. The examples in this documentation use single quotes for better readability in the source files, but double quotes work equally well.
+
 ### String functions
 
 The following functions are applicable when the value is a string.
@@ -242,75 +248,75 @@ The following functions are applicable when the value is a string.
 <tbody>
 <tr class="odd">
 <td><pre><code>length</code></pre></td>
-<td><pre><code>length("text")
+<td><pre><code>length('text')
 length(payload.array)</code></pre></td>
 <td>Returns the length of the string if the input is a string. Returns the length of the array if the input is a JSON array.</td>
 </tr>
 <tr class="even">
 <td><pre><code>toUpper</code></pre></td>
-<td><pre><code>toUpper("text")
+<td><pre><code>toUpper('text')
 toUpper(payload.value)</code></pre></td>
 <td>Converts the provided string to uppercase.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>toLower</code></pre></td>
-<td><pre><code>toLower("TEXT")
+<td><pre><code>toLower('TEXT')
 toLower(payload.value)</code></pre></td>
 <td>Converts the provided string to lowercase.</td>
 </tr>
 <tr class="even">
 <td><pre><code>subString</code></pre></td>
 <td><pre><code>subString(payload.value, 2)
-subString("text", 0, 2)</code></pre></td>
+subString('text', 0, 2)</code></pre></td>
 <td>Extracts a substring from the input string starting from the specified index.
 Specify an end index as third parameter to extract up to that position.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>startsWith</code></pre></td>
-<td><pre><code>startsWith("text", "te")
-startsWith(payload.value, "start")</code></pre></td>
+<td><pre><code>startsWith('text', 'te')
+startsWith(payload.value, 'start')</code></pre></td>
 <td>Checks if the string starts with the specified prefix.</td>
 </tr>
 <tr class="even">
 <td><pre><code>endsWith</code></pre></td>
-<td><pre><code>endsWith("text", "xt")
-endsWith(payload.value, "end")</code></pre></td>
+<td><pre><code>endsWith('text', 'xt')
+endsWith(payload.value, 'end')</code></pre></td>
 <td>Checks if the string ends with the specified suffix.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>contains</code></pre></td>
-<td><pre><code>contains("text", "e")
-contains(payload.value, "substring")</code></pre></td>
+<td><pre><code>contains('text', 'e')
+contains(payload.value, 'substring')</code></pre></td>
 <td>Checks if the string contains the specified substring.</td>
 </tr>
 <tr class="even">
 <td><pre><code>trim</code></pre></td>
-<td><pre><code>trim("  text  ")
+<td><pre><code>trim('  text  ')
 trim(payload.value)</code></pre></td>
 <td>Removes leading and trailing whitespace from the string.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>replace</code></pre></td>
-<td><pre><code>replace("text", "t", "r")
-replace(payload.value, "old", "new")</code></pre></td>
+<td><pre><code>replace('text', 't', 'r')
+replace(payload.value, 'old', 'new')</code></pre></td>
 <td>Replaces all occurrences of the specified old value with the new value in the string.</td>
 </tr>
 <tr class="even">
 <td><pre><code>split</code></pre></td>
-<td><pre><code>split("a,b,c", ",")
-split(payload.value, ";")</code></pre></td>
+<td><pre><code>split('a,b,c', ',')
+split(payload.value, ';')</code></pre></td>
 <td>Splits the string into an array using the specified delimiter.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>charAt</code></pre></td>
-<td><pre><code>charAt("text", 1)
+<td><pre><code>charAt('text', 1)
 charAt(payload.value, 3)</code></pre></td>
 <td>Returns the character at the specified index in the string.</td>
 </tr>
 <tr class="even">
 <td><pre><code>indexOf</code></pre></td>
-<td><pre><code>indexOf("text", "e")
-indexOf(payload.value, "text", 5)</code></pre></td>
+<td><pre><code>indexOf('text', 'e')
+indexOf(payload.value, 'text', 5)</code></pre></td>
 <td>Returns the position of the first occurrence of the specified input in the string.
 Specify a starting index as the third parameter (indexOf search begins after this position).</td>
 </tr>
@@ -392,26 +398,26 @@ Synapse expressions provide XPath functions to encode and decode strings.
 <tbody>
 <tr class="odd">
 <td><pre><code>base64encode</code></pre></td>
-<td><pre><code>base64encode("text")
-base64encode(payload.value, "ISO-8859-1")</code></pre></td>
+<td><pre><code>base64encode('text')
+base64encode(payload.value, 'ISO-8859-1')</code></pre></td>
 <td>Encodes the input value using Base64 encoding.
 Encodes the input value using Base64 encoding with the specified character set.</td>
 </tr>
 <tr class="even">
 <td><pre><code>base64decode</code></pre></td>
-<td><pre><code>base64decode("dGV4dA==")
+<td><pre><code>base64decode('dGV4dA==')
 base64decode(payload.encodedValue)</code></pre></td>
 <td>Decodes a Base64-encoded value to its original form.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>urlEncode</code></pre></td>
-<td><pre><code>urlEncode("text with spaces")
+<td><pre><code>urlEncode('text with spaces')
 urlEncode(payload.value)</code></pre></td>
 <td>Encodes a string to make it safe for inclusion in a URL.</td>
 </tr>
 <tr class="even">
 <td><pre><code>urlDecode</code></pre></td>
-<td><pre><code>urlDecode("text%20with%20spaces")
+<td><pre><code>urlDecode('text%20with%20spaces')
 urlDecode(payload.value)</code></pre></td>
 <td>Decodes a URL-encoded string to its original form.</td>
 </tr>
@@ -516,17 +522,17 @@ Synapse expressions include the following functions to access registry content a
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre><code>registry("gov:/config/service")
+<td><pre><code>registry('gov:/config/service')
 registry(payload.path)</code></pre></td>
 <td>Accesses the registry value at the specified path.</td>
 </tr>
 <tr class="even">
-<td><pre><code>registry("gov:/config/service").property("key")
-registry(payload.path).property("key")</code></pre></td>
+<td><pre><code>registry('gov:/config/service').property('key')
+registry(payload.path).property('key')</code></pre></td>
 <td>Accesses the registry property at the specified path with the provided key.</td>
 </tr>
 <tr class="odd">
-<td><pre><code>registry("gov:/config/resource").student.name
+<td><pre><code>registry('gov:/config/resource').student.name
 registry(payload.path).student.name</code></pre></td>
 <td>Accesses the JSON payload inside the registry resource at the specified path.
 Supported only for JSON resources in registry.</td>
@@ -554,8 +560,8 @@ Synapse expressions include the following functions to work with date and time.
 </tr>
 <tr class="even">
 <td><pre><code>formatDateTime</code></pre></td>
-<td><pre><code>formatDateTime("29-09-1988", "dd-MM-yyyy", "yyyy MMM dd")
-formatDateTime(now(), "yyyy-MM-dd")</code></pre></td>
+<td><pre><code>formatDateTime('29-09-1988', 'dd-MM-yyyy', 'yyyy MMM dd')
+formatDateTime(now(), 'yyyy-MM-dd')</code></pre></td>
 <td>Transforms the input date/time from the specified old format to the new format.
 Accepts string inputs or results from <code>now()</code>.</td>
 </tr>
@@ -686,7 +692,7 @@ When accessing values from a JSON payload, it is important to check for null val
 
 ```
 vars.num1 == null ? vars.num2 : vars.num1
-"Hello " +  ( exists($.student.lastName) ? $.student.firstName + " " +  $.student.lastName : $.student.firstName )
+'Hello ' +  ( exists($.student.lastName) ? $.student.firstName + ' ' +  $.student.lastName : $.student.firstName )
 ```
 
 ### Use brackets for complex expressions
