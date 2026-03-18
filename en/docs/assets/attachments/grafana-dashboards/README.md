@@ -11,14 +11,15 @@ When updating a dashboard:
 
 ## Latest revisions
 
-| Grafana Labs ID | Dashboard name               | Revision | Updated     |
-| --------------: | ---------------------------- | -------- | ------------ |
-|           12783 | Integration Cluster Metrics  | rev2     | 2026-03-05   |
-|           12887 | Integration Node Metrics     | rev3     | 2026-03-05   |
-|           12888 | API Metrics                  | rev3     | 2026-03-05   |
-|           12889 | Proxy Service Metrics        | rev2     | 2026-03-05   |
-|           12890 | Inbound Endpoint Metrics     | rev2     | 2026-03-05   |
+| Grafana Labs ID | Dashboard name               | Revision | Updated    |
+| --------------: | ---------------------------- |----------|------------|
+|           12783 | Integration Cluster Metrics  | rev2     | 2026-03-05 |
+|           12887 | Integration Node Metrics     | rev3     | 2026-03-05 |
+|           12888 | API Metrics                  | rev5     | 2026-03-18 |
+|           12889 | Proxy Service Metrics        | rev3     | 2026-03-18 |
+|           12890 | Inbound Endpoint Metrics     | rev3     | 2026-03-18 |
 
 ## Change log
 
 - 2026-03-05: Added initial versions from Grafana Labs.
+- 2026-03-18: Updated API, Proxy Service and Inbound Endpoint Metrics dashboards with bug fixes.
