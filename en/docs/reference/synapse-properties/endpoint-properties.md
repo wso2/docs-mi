@@ -619,9 +619,9 @@ The following is an HTTP endpoint configured with refresh token grant type.
         <authentication>
             <oauth>
                 <authorizationCode>
-                    <clientId>K2RbnGP7VS</clientId>
-                    <clientSecret>9zLrZAYR5b</clientSecret>
-                    <refreshToken>y2Ne4Fccrj</refreshToken>
+                    <clientId>ADD_CLIENT_ID_HERE</clientId>
+                    <clientSecret>ADD_CLIENT_SECRET_HERE</clientSecret>
+                    <refreshToken>ADD_REFRESH_TOKEN_HERE</refreshToken>
                     <tokenUrl>http://localhost:8678/token</tokenUrl>
                 </authorizationCode>
             </oauth>
@@ -686,8 +686,8 @@ The following is an HTTP endpoint configured with the client credentials grant t
         <authentication>
             <oauth>
                 <clientCredentials>
-                    <clientId>K2RbnGP7VS</clientId>
-                    <clientSecret>9zLrZAYR5b</clientSecret>
+                    <clientId>ADD_CLIENT_ID_HERE</clientId>
+                    <clientSecret>ADD_CLIENT_SECRET_HERE</clientSecret>
                     <tokenUrl>http://localhost:8678/token</tokenUrl>
                 </clientCredentials>
             </oauth>
@@ -770,8 +770,8 @@ The following is an HTTP endpoint configured with the password grant type.
         <authentication>
             <oauth>
                 <passwordCredentials>
-                    <clientId>K2RbnGP7VS</clientId>
-                    <clientSecret>9zLrZAYR5b</clientSecret>
+                    <clientId>ADD_CLIENT_ID_HERE</clientId>
+                    <clientSecret>ADD_CLIENT_SECRET_HERE</clientSecret>
                     <username>internal-user</username>
                     <password>abc@123</password>
                     <tokenUrl>http://localhost:8678/token</tokenUrl>
@@ -792,8 +792,8 @@ By default the `grant_type`, `client_id`, and `client_secret` parameters are sen
         <authentication>
             <oauth>
                 <clientCredentials>
-                    <clientId>K2RbnGP7VS</clientId>
-                    <clientSecret>9zLrZAYR5b</clientSecret>
+                    <clientId>ADD_CLIENT_ID_HERE</clientId>
+                    <clientSecret>ADD_CLIENT_SECRET_HERE</clientSecret>
                     <tokenUrl>http://localhost:8678/token</tokenUrl>
                     <requestParameters>
                         <parameter name="scope">read_only</parameter>
@@ -816,12 +816,88 @@ You can use dynamic values for OAuth configurations such as XPATH, JSON expressi
         <authentication>
             <oauth>
                 <clientCredentials>
-                    <clientId>K2RbnGP7VS</clientId>
+                    <clientId>ADD_CLIENT_ID_HERE</clientId>
                     <clientSecret>{hashicorp:vault-lookup('secret/hello', 'clientSecret')}</clientSecret>
                     <tokenUrl>http://localhost:8678/token</tokenUrl>
                     <requestParameters>
                         <parameter name="scope">{ctx:oauth_scope}</parameter>
                     </requestParameters>
+                </clientCredentials>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
+#### Token endpoint timeouts
+
+You can configure timeout values for the OAuth token endpoint request using following parameters:
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    <tr>
+        <td>connectionTimeout</td>
+        <td>
+            Maximum time (in milliseconds) allowed to establish a connection to the OAuth token endpoint.
+        </td>
+        <td>Optional</td>
+    </tr>
+    <tr>
+        <td>connectionRequestTimeout</td>
+        <td>
+            Maximum time (in milliseconds) to wait when obtaining a connection from the connection pool before making the token request.
+        </td>
+        <td>Optional</td>
+    </tr>
+    <tr>
+        <td>socketTimeout</td>
+        <td>
+            Maximum time (in milliseconds) to wait for data after the connection to the token endpoint is established.
+        </td>
+        <td>Optional</td>
+    </tr>
+    <tr>
+        <td>useGlobalConnectionTimeoutConfigs</td>
+        <td>
+            Specifies whether to use the global HTTP connection timeout configurations defined in the server configuration.
+            You can define these values in the <code>deployment.toml</code> file as Synapse properties as shown below:
+            
+            ```
+            [synapse_properties]
+            'synapse.endpoint.http.oauth.token.endpoint.global.connection.timeout'=5000
+            'synapse.endpoint.http.oauth.token.endpoint.global.connection.request.timeout'=5000
+            'synapse.endpoint.http.oauth.token.endpoint.global.socket.timeout'=10000
+            'synapse.endpoint.http.oauth.enable.global.timeout.configs'=true
+            ```
+
+            You can use <strong>synapse.endpoint.http.oauth.enable.global.timeout.configs</strong> to enable or disable the use of global timeout configurations.<br><br>
+            This parameter is available in MI 4.4.0.45 onwards.<br><br>
+            <strong>Note:</strong> When enabled, these global configurations will apply if the following conditions are met:<br>
+                1. useGlobalConnectionTimeoutConfigs parameter is set to true or not configurred.<br>
+                2. timconfig parameters (connectionTimeout, connectionRequestTimeout, socketTimeout) are not configured at the endpoint level. (local values gets precedence over global values).
+
+        </td>
+        <td>Optional</td>
+    </tr>
+</table>
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <oauth>
+                <clientCredentials>
+                    <clientId>ADD_CLIENT_ID_HERE</clientId>
+                    <clientSecret>ADD_CLIENT_SECRET_HERE</clientSecret>
+                    <tokenUrl>https://localhost:9445/oauth2/token</tokenUrl>
+                    <authMode>header</authMode>
+                    <connectionTimeout>10000</connectionTimeout>
+                    <connectionRequestTimeout>10000</connectionRequestTimeout>
+                    <socketTimeout>15000</socketTimeout>
                 </clientCredentials>
             </oauth>
         </authentication>
