@@ -35,7 +35,7 @@ To develop the above scenario, let's get started with creating a new API resourc
     !!! Note
         The **Service Designer** icon will appear when you hover over the API name in the Project Explorer.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/service_designer_icon_bank_api_3.png" alt="Create New Project" width="80%"></a>
 
 2. In the Service Designer, click the **+ Resource** button to add a new API resource.
 
