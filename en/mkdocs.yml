@@ -366,7 +366,9 @@ nav:
             - How to Handle Non-matching Resources: learn/examples/rest-api-examples/handling-non-matching-resources.md
             - How to Handle HTTP Status Codes: learn/examples/rest-api-examples/setting-https-status-codes.md
             - How to Transform Content Types: learn/examples/rest-api-examples/transforming-content-type.md
-            - How to Secure a REST API: learn/examples/rest-api-examples/securing-rest-apis.md
+            - How to Secure a REST API:
+                - How to Secure a REST API with Basic Authentication: learn/examples/rest-api-examples/securing-rest-apis-with-basic-authentication.md
+                - How to Secure a REST API with OAuth2: learn/examples/rest-api-examples/securing-rest-apis-with-jwt-access-tokens.md
             - How to Publish a Custom Swagger Document: learn/examples/rest-api-examples/publishing-a-swagger-api.md
             - How to Handle Special Cases: learn/examples/rest-api-examples/special-cases.md
       - Proxy Services:
