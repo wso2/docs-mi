@@ -1,9 +1,12 @@
 # How to Secure a REST API
-In most of the real-world use cases of REST, when a consumer attempts to access a privileged resource, access will be denied unless the consumer's credentials are provided in an Authorization header. By default, the WSO2 Integrator: MI validates the credentials of the consumer (that is provided in the Authorization header) against the credentials of users that are registered in the [user store connected to the server]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/). 
+In most real-world REST scenarios, accessing a privileged resource requires the consumer to provide credentials in an Authorization header. WSO2 Integrator: MI provides flexible options for validating these credentials to ensure only authorized users can reach your services.
+
+**Authentication Options**
+
+One common approach is to validate a consumer's **Basic Auth** credentials against the users registered in the [user store connected to the server]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/).
 
 !!! Info
-    The WSO2 Integrator: MI uses a <b>Basic Auth handler</b> for this purpose. If required, you can use a custom basic auth handler or other security implementations. Find out more about [applying security to REST APIs]({{base_path}}/develop/advanced-development/applying-security-to-an-api).
-
+The WSO2 Integrator: MI includes a Basic Auth handler that can be enabled for this purpose. If your requirements are more complex, you can also implement a custom basic auth handler or use other security mechanisms like OAuth2. Find out more about [applying security to REST APIs]({{base_path}}/develop/advanced-development/applying-security-to-an-api).
 ## Synapse configuration
 
 Following is a sample REST API configuration that we can use to implement this scenario. See the instructions on how to [build and run](#build-and-run) this example.

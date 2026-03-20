@@ -341,6 +341,7 @@ Follow our examples on APIs:
 - [Handling Non Matching Resources]({{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources)
 - [Handling HTTP Status Codes]({{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes)
 - [Manipulating Content Types]({{base_path}}/learn/examples/rest-api-examples/transforming-content-type)
-- [Securing a REST API]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis)
+- [Securing a REST API with JWT (Self Contained) Access Tokens]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis-with-jwt-access-tokens)
+- [Securing a REST API with Basic Auth]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis)
 - [Special Cases]({{base_path}}/learn/examples/rest-api-examples/special-cases)
     
