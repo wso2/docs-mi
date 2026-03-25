@@ -111,7 +111,7 @@ Follow the steps given below to connect the WSO2 Integrator: MI to your LDAP use
 
 See the [complete list of parameters]({{base_path}}/reference/config-catalog-mi/#external-user-store) you can configure for the ldap user store.
 
-If hybrid role support is required, configure a Carbon datasource as in the following example (to create the datasource, use the relevant `DB_TYPE_user.sql` scripts in `<MI_HOME>/dbscripts/` directory).
+If hybrid role support is required, configure a Carbon datasource as shown in the following example. To create the datasource, use the database-specific user script from the `<MI_HOME>/dbscripts/` directory (for example, `mysql/mysql_user.sql` or `oracle/oracle_user.sql`).
 
 ```toml
 [[datasource]]
