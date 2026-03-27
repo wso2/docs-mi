@@ -548,8 +548,11 @@ The following properties <b>only</b> apply to HTTP endpoint.
 
 
 !!! Tip
-      You can configure the OAuth cache timeout (in seconds) by setting the following property in the `<MI_HOME>/conf/synapse.properties` file. The default timeout will be 3000 seconds.
-      `synapse.endpoint.http.oauth.cache.timeout=500`
+      You can configure the OAuth cache timeout (in seconds) by setting the following Synapse property in the `<MI_HOME>/conf/deployment.toml` file. The default value is 3000 seconds.
+      ```
+      [synapse_properties]
+      'synapse.endpoint.http.oauth.cache.timeout'=500
+      ```
 
 #### Authorization Code/Refresh Token grant type
 
