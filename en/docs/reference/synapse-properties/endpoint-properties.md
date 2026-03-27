@@ -829,6 +829,71 @@ You can use dynamic values for OAuth configurations such as XPATH, JSON expressi
 </endpoint>
 ```
 
+#### Token endpoint timeouts
+
+You can configure timeout values for the OAuth token endpoint request using the following parameters:
+
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Description</th>
+        <th>Required</th>
+    </tr>
+    <tr>
+        <td>connectionTimeout</td>
+        <td>
+            Maximum time (in milliseconds) allowed to establish a connection to the OAuth token endpoint.
+        </td>
+        <td>Optional</td>
+    </tr>
+    <tr>
+        <td>connectionRequestTimeout</td>
+        <td>
+            Maximum time (in milliseconds) to wait when obtaining a connection from the connection pool before making the token request.
+        </td>
+        <td>Optional</td>
+    </tr>
+    <tr>
+        <td>socketTimeout</td>
+        <td>
+            Maximum time (in milliseconds) to wait for data after the connection to the token endpoint is established.
+        </td>
+        <td>Optional</td>
+    </tr>
+</table>
+
+```xml
+<endpoint name="FoodEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="get" uri-template="http://localhost:9192/service/foodservice">
+        <authentication>
+            <oauth>
+                <clientCredentials>
+                    <clientId>ADD_CLIENT_ID_HERE</clientId>
+                    <clientSecret>ADD_CLIENT_SECRET_HERE</clientSecret>
+                    <tokenUrl>https://localhost:9445/oauth2/token</tokenUrl>
+                    <authMode>header</authMode>
+                    <connectionTimeout>10000</connectionTimeout>
+                    <connectionRequestTimeout>10000</connectionRequestTimeout>
+                    <socketTimeout>15000</socketTimeout>
+                </clientCredentials>
+            </oauth>
+        </authentication>
+    </http>
+</endpoint>
+```
+
+!!! Note
+        You can also set these timeout parameters globally. To do so, add the following configuration to your `deployment.toml` file.
+
+        If you set the timeout values both globally and locally, the local values will take precedence over the global values.
+        ```
+        [synapse_properties]
+        'synapse.endpoint.http.oauth.token.endpoint.global.connection.timeout'=5000
+        'synapse.endpoint.http.oauth.token.endpoint.global.connection.request.timeout'=5000
+        'synapse.endpoint.http.oauth.token.endpoint.global.socket.timeout'=10000
+        'synapse.endpoint.http.oauth.enable.global.timeout.configs'=true
+        ```
+
 ### Quality of Service Properties
 
 QoS (Quality of Service) aspects such as WS-Security and WS-Addressing may be enabled on messages sent to an endpoint using `enableSec` and `enableAddressing` elements. Optionally, the WS-Security policies could be specified using the `policy` attribute.
