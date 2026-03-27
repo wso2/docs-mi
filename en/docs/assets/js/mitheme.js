@@ -87,14 +87,18 @@ var docSetLang = pageHeader.getAttribute('data-lang');
     docSetLang = docSetLang + '/';
 
 var docSetUrl = window.location.origin + '/' + docSetLang;
+var langRoot = window.location.origin + '/' + docSetLang;
+var activeRoot = window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf('/', 4) + 1);
 
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     docSetUrl = window.location.origin + '/en/latest/';
+    activeRoot = window.location.origin + '/en/latest/';
+    langRoot = window.location.origin + '/en/';
 }
 
 var request = new XMLHttpRequest();
 
-request.open('GET', docSetUrl +
+request.open('GET', activeRoot +
     'versions/assets/versions.json', true);
 
 request.onload = function () {
@@ -107,8 +111,20 @@ request.onload = function () {
 
         // Appending versions to the version selector dropdown
 
+        function compareSemVer(a, b) {
+            // implement a compareSemVer function that splits version strings by '.' and compares each numeric segment
+            var partsA = a.split('.').map(Number);
+            var partsB = b.split('.').map(Number);
+            for (var i = 0; i < Math.max(partsA.length, partsB.length); i++) {
+                var valA = partsA[i] || 0;
+                var valB = partsB[i] || 0;
+                if (valA !== valB) return valA - valB; // Ascending like default sort()
+            }
+            return a.localeCompare(b);
+        }
+
         if (dropdown) {
-            data.list.sort().forEach(function (key, index) {
+            data.list.sort(compareSemVer).forEach(function (key, index) {
                 var versionData = data.all[key];
 
                 if (versionData) {
@@ -127,7 +143,7 @@ request.onload = function () {
                         url = data.all[key].doc.replace(/\/$/, "") + pathWithoutVersion;
                     } else {
                         // For relative internal branches (like 'latest')
-                        var baseDocUrl = docSetUrl;
+                        var baseDocUrl = langRoot;
                         if (baseDocUrl.endsWith('latest/')) {
                             // Trim trailing 'latest/' so we can properly append relative paths from versions.json
                             baseDocUrl = baseDocUrl.substring(0, baseDocUrl.length - 7);
@@ -144,7 +160,7 @@ request.onload = function () {
             });
 
             document.getElementById('show-all-versions-link')
-                .setAttribute('href', docSetUrl + 'versions');
+                .setAttribute('href', activeRoot + 'versions');
         }
 
 
@@ -184,13 +200,13 @@ request.onload = function () {
             document.getElementById('current-version-number').innerHTML =
                 data.current;
             document.getElementById('current-version-documentation-link')
-                .setAttribute('href', docSetUrl + data.all[data.current].doc);
+                .setAttribute('href', langRoot + data.all[data.current].doc);
             document.getElementById('current-version-release-notes-link')
-                .setAttribute('href', docSetUrl + data.all[data.current].notes);
+                .setAttribute('href', langRoot + data.all[data.current].notes);
 
             // Pre-release version update
             document.getElementById('pre-release-version-documentation-link')
-                .setAttribute('href', docSetUrl + 'next/');
+                .setAttribute('href', langRoot + 'next/');
         }
 
     } else {
