@@ -31,42 +31,39 @@ copyright: "WSO2 Integrator: MI - Documentation"
 
 # Configuration
 theme:
-  name: material
-  custom_dir: theme/material
-  logo: images/logo.svg
-  favicon: images/favicon.png
-  features:
-    - content.code.copy
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - content.action.edit
-    - content.action.view
-    - navigation.indexes
-    - content.code.annotate
-  #highlightjs: true
-  feature:
-    tabs: true
-  language: 'en'
-  palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to dark mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: octicons/moon-16
-        name: Switch to system preference
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: octicons/sun-16
-        name: Switch to light mode
+    name: material
+    custom_dir: theme/material
+    font: false
+    toc: false
+    palette:
+      # Palette toggle for light mode
+       - media: "(prefers-color-scheme: light)"
+         scheme: default 
+         toggle:
+          icon: material/brightness-4
+          name: Switch to dark mode
+      # Palette toggle for dark mode
+       - media: "(prefers-color-scheme: dark)"
+         scheme: slate
+         toggle:
+           icon: material/brightness-7
+           name: Switch to light mode
+    logo: assets/img/logo-for-light.svg
+    logo_light: assets/img/logo.svg
+    favicon: assets/img/favicon.png
+    features:
+       - navigation.indexes
+       - navigation.path
+       - navigation.top
+       - navigation.footer
+       - navigation.instant.progress
+       - content.code.copy
+       - content.action.edit
+       - content.action.view
+       - content.tabs.link
+       - search.suggest
+       - search.share
+    language: 'en'
 #Breaks build if there's a warning
 strict: false
 # Navigation
@@ -136,6 +133,7 @@ nav:
                   - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
                   - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
               - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
+              - Configure the Crypto Provider: install-and-setup/setup/security/configuring-the-crypto-provider.md
           - Message Brokers:
               - AMQP (RabbitMQ):
                   - Deploy RabbitMQ: install-and-setup/setup/brokers/deploy-rabbitmq.md
@@ -1079,6 +1077,7 @@ nav:
                   - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
                   - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
                   - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
+                  - OpenTelemetry Based Logs: observe-and-manage/classic-observability-logs/opentelemetry-logs.md
               - Traces:
                   - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
               - Metrics:
@@ -1087,6 +1086,7 @@ nav:
                       - Moesif Dashboards: observe-and-manage/classic-observability-metrics/moesif-metrics/dashboards.md
                   - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
                   - SNMP Monitoring with SNMP: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+                  - OpenTelemetry Based Metrics: observe-and-manage/classic-observability-metrics/opentelemetry-metrics.md
               - TCP Messages:
                   - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
                   - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
@@ -1095,6 +1095,7 @@ nav:
               - Overview: observe-and-manage/cloud-native-observability-overview.md
               - Configure for VM based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
               - Configure for K8s based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
+              - Configure with OpenTelemetry: observe-and-manage/setting-up-opentelemetry-observability.md
               - Access the Dashboard: observe-and-manage/viewing-cloud-native-observability-statistics.md
       - Analytics:
           - ELK Based Analytics:
@@ -1221,36 +1222,131 @@ plugins:
               'reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/file-inbound/file-inbound-overview'
   # Extra
 extra_css:
-  # You can select a different theme for syntax highlighting by simply
-  # selecting a different css file file bellow from the available list.
-  # assets/lib/highlightjs/styles/vs.min.css
   - assets/lib/highlightjs/styles/custom-highlight-styles.css
-  # Make sure to activate only one palette at a time.
-  # If all the palettes are commented out, the default material theme palette will take over
-  - assets/css/blue-palette-alt1.css
-  # - assets/css/blue-palette-alt2.css
-  # - assets/css/blue-palette.css
-  # - assets/css/green-palette.css
-  # - assets/css/orange-palette.css
-  - assets/css/mitheme.css
+  - assets/css/theme.css
+  - assets/css/copy-page.css
   - assets/lib/json-formatter/json-formatter.css
   - assets/css/config-catalog.css
   - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
   - assets/css/redoc.css
 extra_javascript:
-  - assets/lib/highlightjs/highlight.min.js
   - assets/lib/json-formatter/json-formatter.umd.js
-  - assets/js/mitheme.js
-  # - assets/lib/backtotop/js/util.js
-  # - assets/lib/backtotop/js/main.js
+  - assets/lib/highlightjs/highlight.min.js
+  - assets/js/theme.js
+  - assets/js/copy-page.js
 extra:
+  material:
+    jinja2content: true
+  generator: false
+  expanded_navs:
+    - title: Get Started
+      options: [verticle-line]
+    - title: Install and Setup
+      options: [verticle-line]
+  home_page_cards:
+    - section:
+        - title: Get Started
+          icon: octicons/rocket-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Introduction
+              url: Get Started|Introduction
+            - title: Key Concepts
+              url: Get Started|Key Concepts
+            - title: Build your first Integration
+              url: Get Started|Build your first Integration|Build your first Integration
+            - title: Build your first AI Integration
+              url: Get Started|Build your first AI Integration|Build your first AI Integration
+            - title: What's New
+              url: Get Started|About this Release
+        - title: Community & Support
+          icon: octicons/light-bulb-16
+          icon_color: icon-color-2
+          list_items:
+            - title: GitHub
+              url: https://github.com/wso2/product-micro-integrator/issues
+            - title: Discord
+              url: https://discord.com/invite/wso2
+            - title: Enterprise Support
+              url: https://wso2.com/subscription/
+    - section:
+        - title: Install & Setup
+          icon: octicons/download-16
+          icon_color: icon-color-3
+          list_items:
+            - title: "Install WSO2 Integrator: MI"
+              url: "Install and Setup|Install|Install the WSO2 Integrator: MI|Install MI"
+            - title: VS Code extension for MI
+              url: "Develop|WSO2 MI for VSCode|WSO2 Integrator: MI for VSCode Overview"
+            - title: Integration Control Plane
+              url: Install and Setup|Install|Install the Integration Control Plane|Install the Integration Control Plane
+        - title: References
+          icon: octicons/gear-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Product Configurations
+              url: References|Product Configurations|MI Configuration Catalog
+            - title: Integration Properties
+              url: /en/latest/reference/mediators/property-reference/generic-properties/
+            - title: Mediators
+              url: /en/latest/reference/mediators/about-mediators/
+            - title: Connectors
+              url: References|Connectors|Connectors Overview
+    - section:
+        - title: Tutorials
+          icon: octicons/book-16
+          icon_color: icon-color-4
+          list_items:
+            - title: Routing and Transformation
+              url: Learn|Message Routing|What is Message Routing
+            - title: Service Orchestration
+              url: Learn|Service Orchestration|What is Service Orchestration
+            - title: Asynchronous Messaging
+              url: Learn|Asynchronous Message Processing|What is Asynchronous Message Processing
+            - title: File Processing
+              url: Learn|File Processing|What is File Processing
+            - title: Data Integration
+              url: Learn|Data Integration|What is Data Integration
+            - title: SaaS and B2B Integration
+              url: Learn|SaaS and B2B Connectivity|What is SaaS and B2B Connectivity
+            - title: Enterprise Integration Patterns
+              url: Learn|Enterprise Integration Patterns|Overview
+            - title: View all
+              url: Learn|Overview
+  nav_icons:
+    Home:
+      icon: octicons/home-16
+      level: 1
+    Get Started:
+      icon: octicons/rocket-16
+      level: 1
+    Install and Setup:
+      icon: octicons/gear-16
+      level: 1
+    Develop:
+      icon: octicons/browser-16
+      level: 1
+    Learn:
+      icon: octicons/book-16
+      level: 1
+    References:
+      icon: octicons/book-16
+      level: 1
+    Observe and Manage:
+      icon: octicons/graph-16
+      level: 1
   social:
-    - type: github
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/wso2
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/wso2
-    - type: linkedin
+    - icon: fontawesome/brands/linkedin-in
       link: https://www.linkedin.com/company/wso2
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/WSO2TechFlicks
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/intent/follow?screen_name=wso2
+
   choreo_connect: # not applied in "includes" section, update "includes" separately
     version: 1.2.0
     envoy_version: v1.24.1 # for GA release
@@ -1261,3 +1357,4 @@ extra:
   #base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.6.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+

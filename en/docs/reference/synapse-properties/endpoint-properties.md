@@ -893,7 +893,6 @@ You can configure timeout values for the OAuth token endpoint request using the 
         'synapse.endpoint.http.oauth.token.endpoint.global.socket.timeout'=10000
         'synapse.endpoint.http.oauth.enable.global.timeout.configs'=true
         ```
-      This feature is available from MI 4.5.0.13 onwards.
 
 ### Quality of Service Properties
 
