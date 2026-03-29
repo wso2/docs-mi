@@ -1,0 +1,341 @@
+/**
+ * Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+:root,
+[data-md-color-scheme=default] {
+  --md-header-box-shadow: none;
+  --md-header-min-height: 62px;
+  --md-header-link-font-size: .7rem;
+  --md-header-link-font-weight: 400;
+  --md-header-link-opacity: 1;
+  --md-header-link-icon-size: 20px;
+  --md-header-tabs-mobile-breakpoint: 70.1875em;
+  --md-header-links-vertical-spacing: 2px;
+}
+
+.md-header {
+  border-bottom: 1px solid var(--md-divider-color);
+  box-shadow: var(--md-header-box-shadow);
+}
+
+.md-header__inner {
+  padding: 0 1rem;
+  min-height: var(--md-header-min-height);
+}
+
+.md-header__topic {
+  font-size: .8rem;
+  position: relative;
+  top: -2px;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.md-header__topic:first-child {
+  font-weight: 400;
+  display: block !important;
+  position: relative !important;
+}
+
+/* Hide the page title topic to keep site name always visible */
+.md-header__topic:last-child {
+  display: none !important;
+}
+
+.md-header__ellipsis {
+  overflow: visible !important;
+}
+
+.md-header__title {
+  margin-left: 0;
+}
+
+/* Search */
+.md-header .md-search {
+  margin: 0 0;
+}
+
+/* Links  */
+.md-header .md-tabs {
+  position: relative;
+  overflow: visible;
+  height: 48px;
+  z-index: 1;
+}
+
+[data-md-color-scheme=default] .md-header,
+[data-md-color-scheme=default] .md-tabs {
+  background-color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+}
+
+[data-md-color-scheme=slate] .md-header,
+[data-md-color-scheme=slate] .md-tabs {
+  background-color: var(--md-default-bg-color);
+}
+
+.md-header .md-tabs .md-tabs__list {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:focus,
+.md-tabs__link:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.md-tabs__link {
+  font-size: var(--md-header-link-font-size);
+  font-weight: var(--md-header-link-font-weight);
+  opacity: var(--md-header-link-opacity);
+  -webkit-font-smoothing: auto;
+}
+
+@media screen and (min-width: 100em) {
+  .md-header .md-tabs {
+    position: relative;
+    overflow: visible;
+    height: 53px;
+  }
+}
+
+/* Buttons */
+.md-header__button {
+  margin-right: var(--md-header-links-vertical-spacing);
+}
+
+/* Logo */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.4rem;
+  padding: .1rem 0;
+}
+
+/* Theme Toggle */
+.md-header .md-header__button.md-icon svg {
+  height: var(--md-header-link-icon-size);
+  width: var(--md-header-link-icon-size);
+}
+
+.md-header .md-header__button.md-icon.md-theme-switch svg path {
+  fill: var(--md-default-fg-color);
+}
+
+[data-md-toggle=search]:checked~.md-header .md-header__option {
+  opacity: 1;
+  max-width: none;
+}
+
+/* Header Extras */
+
+.md-header__extra {
+  display: flex;
+}
+
+.md-header__extra .md-header__links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.md-header__extra:before {
+  width: 1px;
+  background-color: var(--md-divider-color);
+  content: "";
+}
+
+.md-header__extra button {
+  margin-right: var(--md-header-links-vertical-spacing);
+}
+
+/* Always use mini icon buttons for social links */
+.md-button.md-button--asgardeo,
+.md-button.md-button--discord,
+.md-button.md-button--linkedin,
+.md-button.md-button--youtube,
+.md-button.md-button--twitter {
+  display: none;
+}
+
+.md-icon.md-button--asgardeo-mini,
+.md-icon.md-button--discord-mini,
+.md-header__button.md-button--asgardeo-mini {
+  display: block;
+}
+
+/* Custom dropdown specific styles */
+
+.md-header__version-select {
+  overflow: visible;
+  width: 3.5rem;
+  margin-left: 1.5rem;
+}
+
+.md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
+  font-size: 0.8rem;
+}
+
+.md-header__version-select .md-tabs__link.md-tabs__dropdown-link i {
+  font-size: 14px;
+  margin-left: 3px;
+}
+
+.mb-tabs__dropdown {
+  position: relative;
+  text-align: center;
+}
+
+.md-tabs__dropdown-link {
+  display: contents;
+}
+
+.mb-tabs__dropdown.group-select {
+  background-color: #737373;
+}
+
+.mb-tabs__dropdown .mb-tabs__dropdown-content {
+  position: absolute;
+  left: 0;
+  top: 3.5em;
+  -webkit-transition: all .2s cubic-bezier(.680, 0, .265, 1);
+  transition: all .2s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 0 0;
+  transform-origin: top left;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .16), 0 2px 8px 0 rgba(0, 0, 0, .12);
+  background: #fff;
+  font-size: 1.4rem;
+  color: #242424;
+  padding: 0;
+  z-index: 1;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mb-tabs__dropdown.open .mb-tabs__dropdown-content {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mb-tabs__dropdown .mb-tabs__dropdown-content .md-tabs__item {
+  padding: 2px;
+}
+
+.mb-tabs__dropdown .mb-tabs__dropdown-content .md-tabs__item a:hover {
+  background-color: #a4a4a44d;
+  border-radius: 5px;
+}
+
+.mb-tabs__dropdown .mb-tabs__dropdown-content li {
+  display: block;
+  width: 100%;
+  opacity: 0;
+  transform: translate(-20px, 0);
+}
+
+.mb-tabs__dropdown.open .mb-tabs__dropdown-content li {
+  display: block;
+  transition: all .4s;
+  opacity: 1;
+  transform: translate(0, 0);
+  height: auto;
+}
+
+.mb-tabs__dropdown ul li a {
+  width: 100%;
+  padding: .5rem;
+  white-space: pre;
+  box-sizing: border-box;
+  display: block;
+  font-size: .7rem;
+  text-transform: capitalize;
+}
+
+.mb-tabs__dropdown ul li a:hover {
+  background: #ebebeb;
+}
+
+.mb-tabs__dropdown.open .mb-tabs__dropdown-content {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  transition-timing-function: cubic-bezier(.680, 0, .265, 1);
+}
+
+.md-header__version-select .md-tabs__link {
+  color: var(--md-primary-fg-color-header-text-active);
+}
+
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
+.md-header__distribution-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+  border-radius: 5px;
+  background: var(--md-primary-bg-color);
+  color: var(--md-primary-fg-color-header-text);
+  opacity: 1;
+  border: 1px solid #e0e0e040;
+}
+
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+  top: 0rem;
+}
+
+/* End of custom dropdown specific styles */
+
+@media screen and (max-width: 768px) {
+
+  /* Reduce spacing variables so icons fit on narrow screens */
+  :root {
+    --md-header-links-vertical-spacing: 4px;
+  }
+
+  .md-header__topic {
+    left: 0;
+    top: 0;
+  }
+
+  /* Tighten overall header padding */
+  .md-header__inner {
+    padding: 0 0.25rem;
+  }
+
+  /* Reduce per-button right margin */
+  .md-header__button {
+    margin-right: 2px;
+  }
+
+  /* Let the title shrink so right-side icons have room */
+  .md-header__title {
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Compact the logo */
+  .md-header__button.md-logo img,
+  .md-header__button.md-logo svg {
+    height: 1.2rem;
+  }
+
+  /* Keep the search label tightly spaced */
+  .md-header__button.md-icon[for="__search"],
+  label[for="__search"].md-header__button {
+    margin-right: 0;
+  }
+}

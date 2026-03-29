@@ -196,7 +196,7 @@ header>.md-grid {
 
 .md-search__form:hover {
     background: #9b9b9b42;
-    border: 1px solid #ff7300;;
+    border: 1px solid #ff7300;
 }
 
 .md-search__form .md-search__icon {
@@ -244,17 +244,23 @@ header>.md-grid {
 }
 
 .md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
-    font-size: 0.8rem;
+    display: inline-block;
+    padding: .45rem;
+    margin-top: .35rem;
+    border-radius: .1rem;
 }
 
-.md-header__version-select .md-tabs__link.md-tabs__dropdown-link i {
-    font-size: 14px;
-    margin-left: 3px;
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
+.md-header__distribution-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+    background: #e2e2e2;
+    opacity: 1;
 }
 
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+    top: .6rem;
+}
 .mb-tabs__dropdown {
     position: relative;
-    text-align: center;
 }
 
 .md-tabs__dropdown-link {
@@ -283,12 +289,7 @@ header>.md-grid {
 }
 
 .mb-tabs__dropdown .mb-tabs__dropdown-content .md-tabs__item {
-    padding: 2px;
-}
-
-.mb-tabs__dropdown .mb-tabs__dropdown-content .md-tabs__item a:hover {
-    background-color: #a4a4a44d;
-    border-radius: 5px;
+    padding: 0;
 }
 
 .mb-tabs__dropdown .mb-tabs__dropdown-content li {
@@ -325,6 +326,12 @@ header>.md-grid {
     transform: scale(1);
     transition-timing-function: cubic-bezier(.680, 0, .265, 1);
 }
+.md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
+    display: inline-block;
+    padding: .45rem;
+    margin-top: .35rem;
+    border-radius: .1rem;
+}
 
 .md-header__version-select .md-tabs__link {
     color: var(--md-primary-fg-color-header-text-active);
@@ -332,15 +339,12 @@ header>.md-grid {
 
 .md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
 .md-header__distribution-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
-    border-radius: 5px;
-    background: var(--md-primary-bg-color);
-    color: var(--md-primary-fg-color-header-text);
+    background: #e2e2e2;
     opacity: 1;
-    border: 1px solid #e0e0e040;
 }
 
 .md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
-    top: 0rem;
+    top: .6rem;
 }
 /* End of custom dropdown specific styles */
 
@@ -357,97 +361,4 @@ header>.md-grid {
 .md-typeset h6 {
     color: var(--md-default-fg-color);
     font-size: 0.80rem;
-}
-
-.md-content img {
-    outline: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
-}
-
-.md-feedback {
-    border-top: #7a7a7aa3 1px solid;
-    padding-top: 20px;
-}
-
-.md-feedback__title {
-    font-weight: 600;
-}
-
-.md-feedback__icon {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border: 1px solid var(--md-feedback-button-color);
-    color: var(--md-feedback-button-color);
-    background: none;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 4px;
-}
-
-.md-feedback__icon:hover {
-    border: 1px solid var(--md-accent-fg-color);
-}
-
-.md-feedback__icon svg {
-    width: 18px;
-    height: 18px;
-}
-
-.md-feedback__icon:disabled {
-    border: 1px solid var(--md-default-fg-color--lightest);
-}
-
-.md-tag {
-    display: none !important;
-}
-
-.md-button {
-    padding: 5px 15px 5px 15px!important;
-}
-
-.inline-icon {
-    vertical-align: middle;
-    outline: none !important;
-    box-shadow: none !important;
-    max-height: 28px;
-}
-
-/* Target only "Build your first integration" list */
-.custom-integration-list li {
-    display: flex;
-    align-items: center;
-    margin-left: -15px;
-}
-
-/* Make the link a flex container */
-.custom-integration-list li a {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Ensures proper spacing between icon and text */
-    color: var(--md-primary-fg-color-header-text-active);
-}
-
-/* Default empty circle (not completed) */
-.custom-integration-list .custom-number {
-    content: ""; 
-    font-weight: 700;
-    color: #fff;
-
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #8a7d6f;
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    /* border: 1px solid #f57c00; */
-    border-radius: 50%;
-    text-align: center;
-    flex-shrink: 0;
-    padding: 5px;
-}
-
-.custom-integration-list .md-nav__link--completed .custom-number {
-    background-color: #f57c00;
 }

@@ -18,7 +18,7 @@
 site_name: "WSO2 Integrator: MI Documentation 4.5.0"
 site_description: "Documentation for WSO2 Integrator: MI"
 site_author: WSO2
-site_url: https://mi.docs.wso2.com/en/latest/
+site_url: https://mi.docs.wso2.com/en/4.5.0/
 
 # Repository
 repo_name: wso2/docs-mi
@@ -31,42 +31,39 @@ copyright: "WSO2 Integrator: MI - Documentation"
 
 # Configuration
 theme:
-  name: material
-  custom_dir: theme/material
-  logo: images/logo.svg
-  favicon: images/favicon.png
-  features:
-    - content.code.copy
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - content.action.edit
-    - content.action.view
-    - navigation.indexes
-    - content.code.annotate
-  #highlightjs: true
-  feature:
-    tabs: true
-  language: 'en'
-  palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to dark mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: octicons/moon-16
-        name: Switch to system preference
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: octicons/sun-16
-        name: Switch to light mode
+    name: material
+    custom_dir: theme/material
+    font: false
+    toc: false
+    palette:
+      # Palette toggle for light mode
+       - media: "(prefers-color-scheme: light)"
+         scheme: default 
+         toggle:
+          icon: material/brightness-4
+          name: Switch to dark mode
+      # Palette toggle for dark mode
+       - media: "(prefers-color-scheme: dark)"
+         scheme: slate
+         toggle:
+           icon: material/brightness-7
+           name: Switch to light mode
+    logo: assets/img/logo-for-light.svg
+    logo_light: assets/img/logo.svg
+    favicon: assets/img/favicon.png
+    features:
+       - navigation.indexes
+       - navigation.path
+       - navigation.top
+       - navigation.footer
+       - navigation.instant.progress
+       - content.code.copy
+       - content.action.edit
+       - content.action.view
+       - content.tabs.link
+       - search.suggest
+       - search.share
+    language: 'en'
 #Breaks build if there's a warning
 strict: false
 # Navigation
@@ -136,6 +133,7 @@ nav:
                   - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
                   - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
               - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
+              - Configure the Crypto Provider: install-and-setup/setup/security/configuring-the-crypto-provider.md
           - Message Brokers:
               - AMQP (RabbitMQ):
                   - Deploy RabbitMQ: install-and-setup/setup/brokers/deploy-rabbitmq.md
@@ -822,6 +820,10 @@ nav:
               - 1.x:
                   # - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
+          - DB Connector:
+              - DB Connector Overview: reference/connectors/db-connector/db-connector-overview.md
+              - DB Connector Example: reference/connectors/db-connector/db-connector-example.md
+              - DB Connector Reference: reference/connectors/db-connector/db-connector-config.md
           - MongoDB Connector:
               - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
               - 3.x:
@@ -830,6 +832,11 @@ nav:
               - 2.x:
                 - MongoDB Connector Example: reference/connectors/mongodb-connector/2.x/mongodb-connector-example.md
                 - MongoDB Connector Reference: reference/connectors/mongodb-connector/2.x/mongodb-connector-config.md
+          - RabbitMQ (AMQP 1.0) Connector:
+              - RabbitMQ (AMQP 1.0) Connector Overview: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-overview.md
+              - Set up RabbitMQ Broker: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-setup.md
+              - RabbitMQ (AMQP 1.0) Connector Example: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-example.md
+              - RabbitMQ (AMQP 1.0) Connector Reference: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-reference.md
           - Redis Connector:
               - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
               - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -933,6 +940,9 @@ nav:
           - Google Pub/Sub Inbound Endpoint:
                 - Google Pub/Sub Inbound Endpoint Example: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-example.md
                 - Google Pub/Sub Inbound Endpoint Reference: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-reference.md
+          - RabbitMQ (AMQP 1.0) Inbound Endpoint:
+              - RabbitMQ (AMQP 1.0) Inbound Endpoint Example: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example.md
+              - RabbitMQ (AMQP 1.0) Inbound Endpoint Reference: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-reference.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
@@ -1067,11 +1077,16 @@ nav:
                   - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
                   - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
                   - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
+                  - OpenTelemetry Based Logs: observe-and-manage/classic-observability-logs/opentelemetry-logs.md
               - Traces:
                   - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
               - Metrics:
+                  - Moesif Based Metrics:
+                      - Set up: observe-and-manage/classic-observability-metrics/moesif-metrics/setup.md
+                      - Moesif Dashboards: observe-and-manage/classic-observability-metrics/moesif-metrics/dashboards.md
                   - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
-                  - SNMP Monitoring with SNMO: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+                  - SNMP Monitoring with SNMP: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
+                  - OpenTelemetry Based Metrics: observe-and-manage/classic-observability-metrics/opentelemetry-metrics.md
               - TCP Messages:
                   - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
                   - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
@@ -1080,6 +1095,7 @@ nav:
               - Overview: observe-and-manage/cloud-native-observability-overview.md
               - Configure for VM based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
               - Configure for K8s based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
+              - Configure with OpenTelemetry: observe-and-manage/setting-up-opentelemetry-observability.md
               - Access the Dashboard: observe-and-manage/viewing-cloud-native-observability-statistics.md
       - Analytics:
           - ELK Based Analytics:
@@ -1143,99 +1159,195 @@ plugins:
   - redirects:
       redirect_maps:
               'observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md': 'https://mi.docs.wso2.com/en/latest/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/'
-              'install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md': 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/setup/deployment/sample-k8s-deployment/'
-              'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.5.0/get-started/build-first-integration'
-              'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/mediation-sequences'
-              'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.5.0/get-started/development-kickstart/'
-              'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/creating-artifacts/data-services/creating-data-services/'
-              'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/creating-artifacts/data-services/creating-datasources/'
-              'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.5.0/observe-and-manage/managing-integrations-with-micli/'
-              'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/deploy-artifacts/'
-              'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/opening-projects/'
-              'develop/importing-artifacts.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/opening-artifacts/'
-              'learn/examples/protocol-switching/switching-from-fix-to-amqp.md': 'https://mi.docs.wso2.com/en/4.5.0/learn/examples/protocol-switching/switching-from-fix-to-jms'
-              'install-and-setup/install/installing-mi-dashboard.md': 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/install/installing-integration-control-plane'
-              'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/config-catalog-integration-control-plane/'
-              'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/exporting-artifacts/'
-              'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/deploy-artifacts/#build-docker-image'
-              'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/deploy-artifacts/#build-docker-image/'
-              'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.5.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
-              'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.5.0/learn/integration-tutorials/service-catalog-tutorial/'
-              'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.5.0/develop/using-remote-micro-integrator'
-              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.5.0/mi-analytics/mi-elk-installation-guide/'
-              'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.5.0/mi-analytics/mi-elk-installation-guide/'
-              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/setup/deployment/kubernetes-deployment'
-              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/setup/deployment/kubernetes-deployment'
-              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/setup/deployment/kubernetes-deployment'
-              'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/synapse-properties/xpath-expressions'
-              'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference'
-              'reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example'
-              'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.5.0/develop/customizations/creating-new-connector/'
-              'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/mediators/data-mapper-mediator'
-              'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
-              'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.5.0/observe-and-manage/working-with-integration-control-plane/'
-              'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/install-and-setup-overview/'
-              'get-started/development-kickstart.md' : 'https://mi.docs.wso2.com/en/4.5.0/get-started/quick-start-guide/'
-              'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
-              'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.5.0/learn/integration-tutorials/file-processing/'
-              'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.5.0/learn/integration-tutorials/storing-and-forwarding-messages/'
-              'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/install/installation-prerequisites/'
-              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
-              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
-              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
-              'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
-              'develop/injecting-parameters.md': 'https://mi.docs.wso2.com/en/4.5.0/develop/externalized-configuration'
-              'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': 'https://mi.docs.wso2.com/en/4.5.0/install-and-setup/setup/deployment-best-practices/performance-test-results-mi/'
-              'develop/integration-development-kickstart.md': 'https://mi.docs.wso2.com/en/4.5.0/get-started/quick-start-guide/'
-              'learn/examples/routing-examples/routing-based-on-payloads.md': 'https://mi.docs.wso2.com/en/4.5.0/learn/integration-tutorials/routing-requests-based-on-message-content/'
-              'learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md': 'https://mi.docs.wso2.com/en/4.5.0/get-started/event-driven-integrations/'
-              'reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/get-started/event-driven-integrations/'
-              'reference/connectors/file-connector/file-connector-example.md' : 'reference/connectors/file-connector/5.x/file-connector-example.md'
-              'reference/connectors/file-connector/file-connector-config.md' : 'reference/connectors/file-connector/5.x/file-connector-config.md'
-              'reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic'
-              'reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic'
-              'reference/connectors/mongodb-connector/mongodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-example'
-              'reference/connectors/mongodb-connector/mongodb-connector-config.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-config'
-              'reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-example'
-              'reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-config'
-              'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example'
-              'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-reference'
-              'reference/connectors/csv-module/csv-module-config.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/csv-module/2.x/csv-module-config.md'
-              'reference/connectors/amazons3-connector/amazons3-connector-example.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-example'
-              'reference/connectors/amazons3-connector/amazons3-connector-reference.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
-              'reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.5.0/reference/connectors/file-inbound/file-inbound-overview.md'
+              'install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/sample-k8s-deployment/'
+              'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.6.0/get-started/build-first-integration'
+              'reference/synapse-properties/sequence-properties.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/mediation-sequences'
+              'develop/mi-for-vscode/quick-start-guide-mi-for-vscode.md': 'https://mi.docs.wso2.com/en/4.6.0/get-started/development-kickstart/'
+              'develop/create-data-services-configs.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/creating-artifacts/data-services/creating-data-services/'
+              'develop/create-datasources.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/creating-artifacts/data-services/creating-datasources/'
+              'observe-and-manage/managing-integrations-with-apictl.md': 'https://mi.docs.wso2.com/en/4.6.0/observe-and-manage/managing-integrations-with-micli/'
+              'develop/packaging-artifacts.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/deploy-artifacts/'
+              'develop/importing-projects.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/opening-projects/'
+              'develop/importing-artifacts.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/opening-artifacts/'
+              'learn/examples/protocol-switching/switching-from-fix-to-amqp.md': 'https://mi.docs.wso2.com/en/4.6.0/learn/examples/protocol-switching/switching-from-fix-to-jms'
+              'install-and-setup/install/installing-mi-dashboard.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/install/installing-integration-control-plane'
+              'reference/config-catalog-mi-dashboard.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/config-catalog-integration-control-plane/'
+              'develop/export-project.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/exporting-artifacts/'
+              'develop/create-docker-project.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/deploy-artifacts/#build-docker-image'
+              'develop/create-kubernetes-project.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/deploy-artifacts/#build-docker-image/'
+              'develop/exporting-artifacts.md' : 'https://mi.docs.wso2.com/en/4.6.0/develop/deploy-artifacts/#build-and-export-the-carbon-application'
+              'develop/working-with-service-catalog.md' : 'https://mi.docs.wso2.com/en/4.6.0/learn/integration-tutorials/service-catalog-tutorial/'
+              'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.6.0/develop/using-remote-micro-integrator'
+              'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.6.0/mi-analytics/mi-elk-installation-guide/'
+              'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.6.0/mi-analytics/mi-elk-installation-guide/'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
+              'reference/mediators/property-reference/accessing-properties-with-xpath.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/synapse-properties/xpath-expressions'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-reference'
+              'reference/connectors/amazonsqs-connector/amazonsqs-connector-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazonsqs-connector/2.x/amazonsqs-connector-2.x-example'
+              'reference/connectors/develop-connectors.md': 'https://mi.docs.wso2.com/en/4.6.0/develop/customizations/creating-new-connector/'
+              'reference/mediators/data-mapper-json-schema-specification.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/mediators/data-mapper-mediator'
+              'reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference/'
+              'observe-and-manage/working-with-monitoring-dashboard.md' : 'https://mi.docs.wso2.com/en/4.6.0/observe-and-manage/working-with-integration-control-plane/'
+              'install-and-setup/setup/deployment-best-practices/monitoring-transaction-counts.md' : 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/install-and-setup-overview/'
+              'get-started/development-kickstart.md' : 'https://mi.docs.wso2.com/en/4.6.0/get-started/quick-start-guide/'
+              'install-and-setup/setup/user-stores/setting-up-a-userstore.md' : 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/'
+              'learn/examples/file-processing/vfs-transport-examples.md' : 'https://mi.docs.wso2.com/en/4.6.0/learn/integration-tutorials/file-processing/'
+              'learn/examples/rabbitmq-examples/store-forward-rabbitmq.md' : 'https://mi.docs.wso2.com/en/4.6.0/learn/integration-tutorials/storing-and-forwarding-messages/'
+              'install-and-setup/setup/reference/product-compatibility.md' : 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/install/installation-prerequisites/'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-overview.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
+              'reference/connectors/db-event-inbound-endpoint/db-event-inbound-endpoint-config.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/cdc-inbound-endpoint/cdc-inbound-endpoint-overview/'
+              'includes/reference/connectors/salesforce-connectors/sf-access-token-generation.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/salesforce-connectors/sf-access-token-generation'
+              'develop/injecting-parameters.md': 'https://mi.docs.wso2.com/en/4.6.0/develop/externalized-configuration'
+              'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment-best-practices/performance-test-results-mi/'
+              'develop/integration-development-kickstart.md': 'https://mi.docs.wso2.com/en/4.6.0/get-started/quick-start-guide/'
+              'learn/examples/routing-examples/routing-based-on-payloads.md': 'https://mi.docs.wso2.com/en/4.6.0/learn/integration-tutorials/routing-requests-based-on-message-content/'
+              'learn/examples/inbound-endpoint-examples/inbound-endpoint-kafka.md': 'https://mi.docs.wso2.com/en/4.6.0/get-started/event-driven-integrations/'
+              'reference/connectors/kafka-connector/kafka-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/get-started/event-driven-integrations/'
+              'reference/connectors/file-connector/file-connector-example.md' : 'reference/connectors/file-connector/5.x/file-connector-example'
+              'reference/connectors/file-connector/file-connector-config.md' : 'reference/connectors/file-connector/5.x/file-connector-config'
+              'reference/connectors/salesforce-connectors/sf-inbound-endpoint-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic'
+              'reference/connectors/salesforce-connectors/sf-inbound-endpoint-reference-configuration.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic'
+              'reference/connectors/mongodb-connector/mongodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-example'
+              'reference/connectors/mongodb-connector/mongodb-connector-config.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/mongodb-connector/3.x/mongodb-connector-config'
+              'reference/connectors/amazonlambda-connector/amazonlambda-connector-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-example'
+              'reference/connectors/amazonlambda-connector/amazonlambda-connector-config.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazonlambda-connector/2.x/amazonlambda-connector-config'
+              'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-example.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-example'
+              'reference/connectors/amazondynamodb-connector/amazondynamodb-connector-reference.md' : 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazondynamodb-connector/2.x/amazondynamodb-connector-reference'
+              'reference/connectors/csv-module/csv-module-config.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/csv-module/2.x/csv-module-config'
+              'reference/connectors/amazons3-connector/amazons3-connector-example.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-example'
+              'reference/connectors/amazons3-connector/amazons3-connector-reference.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
+              'reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/file-inbound/file-inbound-overview'
   # Extra
 extra_css:
-  # You can select a different theme for syntax highlighting by simply
-  # selecting a different css file file bellow from the available list.
-  # assets/lib/highlightjs/styles/vs.min.css
   - assets/lib/highlightjs/styles/custom-highlight-styles.css
-  # Make sure to activate only one palette at a time.
-  # If all the palettes are commented out, the default material theme palette will take over
-  - assets/css/blue-palette-alt1.css
-  # - assets/css/blue-palette-alt2.css
-  # - assets/css/blue-palette.css
-  # - assets/css/green-palette.css
-  # - assets/css/orange-palette.css
-  - assets/css/mitheme.css
+  - assets/css/theme.css
+  - assets/css/copy-page.css
   - assets/lib/json-formatter/json-formatter.css
   - assets/css/config-catalog.css
   - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
   - assets/css/redoc.css
 extra_javascript:
-  - assets/lib/highlightjs/highlight.min.js
   - assets/lib/json-formatter/json-formatter.umd.js
+  - assets/lib/highlightjs/highlight.min.js
+  - assets/js/theme.js
+  - assets/js/copy-page.js
   - assets/js/mitheme.js
-  # - assets/lib/backtotop/js/util.js
-  # - assets/lib/backtotop/js/main.js
 extra:
+  material:
+    jinja2content: true
+  generator: false
+  expanded_navs:
+    - title: Get Started
+      options: [verticle-line]
+    - title: Install and Setup
+      options: [verticle-line]
+  home_page_cards:
+    - section:
+        - title: Get Started
+          icon: octicons/rocket-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Introduction
+              url: Get Started|Introduction
+            - title: Key Concepts
+              url: Get Started|Key Concepts
+            - title: Build your first Integration
+              url: Get Started|Build your first Integration|Build your first Integration
+            - title: Build your first AI Integration
+              url: Get Started|Build your first AI Integration|Build your first AI Integration
+            - title: What's New
+              url: Get Started|About this Release
+        - title: Community & Support
+          icon: octicons/light-bulb-16
+          icon_color: icon-color-2
+          list_items:
+            - title: GitHub
+              url: https://github.com/wso2/product-micro-integrator/issues
+            - title: Discord
+              url: https://discord.com/invite/wso2
+            - title: Enterprise Support
+              url: https://wso2.com/subscription/
+    - section:
+        - title: Install & Setup
+          icon: octicons/download-16
+          icon_color: icon-color-3
+          list_items:
+            - title: "Install WSO2 Integrator: MI"
+              url: "Install and Setup|Install|Install the WSO2 Integrator: MI|Install MI"
+            - title: VS Code extension for MI
+              url: "Develop|WSO2 MI for VSCode|WSO2 Integrator: MI for VSCode Overview"
+            - title: Integration Control Plane
+              url: Install and Setup|Install|Install the Integration Control Plane|Install the Integration Control Plane
+        - title: References
+          icon: octicons/gear-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Product Configurations
+              url: References|Product Configurations|MI Configuration Catalog
+            - title: Integration Properties
+              url: /en/latest/reference/mediators/property-reference/generic-properties/
+            - title: Mediators
+              url: /en/latest/reference/mediators/about-mediators/
+            - title: Connectors
+              url: References|Connectors|Connectors Overview
+    - section:
+        - title: Tutorials
+          icon: octicons/book-16
+          icon_color: icon-color-4
+          list_items:
+            - title: Routing and Transformation
+              url: Learn|Message Routing|What is Message Routing
+            - title: Service Orchestration
+              url: Learn|Service Orchestration|What is Service Orchestration
+            - title: Asynchronous Messaging
+              url: Learn|Asynchronous Message Processing|What is Asynchronous Message Processing
+            - title: File Processing
+              url: Learn|File Processing|What is File Processing
+            - title: Data Integration
+              url: Learn|Data Integration|What is Data Integration
+            - title: SaaS and B2B Integration
+              url: Learn|SaaS and B2B Connectivity|What is SaaS and B2B Connectivity
+            - title: Enterprise Integration Patterns
+              url: Learn|Enterprise Integration Patterns|Overview
+            - title: View all
+              url: Learn|Overview
+  nav_icons:
+    Home:
+      icon: octicons/home-16
+      level: 1
+    Get Started:
+      icon: octicons/rocket-16
+      level: 1
+    Install and Setup:
+      icon: octicons/gear-16
+      level: 1
+    Develop:
+      icon: octicons/browser-16
+      level: 1
+    Learn:
+      icon: octicons/book-16
+      level: 1
+    References:
+      icon: octicons/book-16
+      level: 1
+    Observe and Manage:
+      icon: octicons/graph-16
+      level: 1
   social:
-    - type: github
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/wso2
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/wso2
-    - type: linkedin
+    - icon: fontawesome/brands/linkedin-in
       link: https://www.linkedin.com/company/wso2
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/WSO2TechFlicks
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/intent/follow?screen_name=wso2
+
   choreo_connect: # not applied in "includes" section, update "includes" separately
     version: 1.2.0
     envoy_version: v1.24.1 # for GA release
@@ -1246,3 +1358,4 @@ extra:
   #base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.5.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+
