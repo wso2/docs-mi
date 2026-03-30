@@ -64,7 +64,7 @@
 .md-typeset ul,
 .md-typeset ol {
   margin: 0 0 1em 0;
-  padding-left: 0;
+  padding-left: 2em;
 }
 
 .md-typeset ul li,
