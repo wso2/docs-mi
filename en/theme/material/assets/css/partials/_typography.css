@@ -63,14 +63,14 @@
 /* List indentation and spacing */
 .md-typeset ul,
 .md-typeset ol {
-  margin-left: 0.625em;
+  margin: 0 0 1em 0;
   padding-left: 0;
 }
 
 .md-typeset ul li,
 .md-typeset ol li {
   margin-bottom: 0.5em;
-  margin-left: 1.25em;
+  margin-left: 0;
 }
 
 .md-typeset ul li:last-child,
