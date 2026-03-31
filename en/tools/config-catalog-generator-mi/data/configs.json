@@ -1793,7 +1793,7 @@
                             "required": true,
                             "default": "-",
                             "possible": "60000",
-                            "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
+                            "description": "The socket timeout in milliseconds for the HTTP/HTTPS sender. This defines the maximum period of inactivity between two consecutive data packets."
                         },
                         {
                             "name": "sender.proxy_host",
