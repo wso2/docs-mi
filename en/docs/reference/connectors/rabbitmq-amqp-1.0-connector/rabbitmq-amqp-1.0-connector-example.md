@@ -180,7 +180,12 @@ In this operation, we are going to receive the following inputs from the user.
 
 13. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response of the `publishMessage` operation as shown below.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddRespondMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" title="Adding the respond mediator." width="80%" alt="Adding the respond mediator."/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" class="glightbox">
+    <img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png"
+       title="Adding the respond mediator."
+       width="80%"
+       alt="Adding the respond mediator."/>
+    </a>
 
 ??? "RabbitMQ Publish Message API"
 
