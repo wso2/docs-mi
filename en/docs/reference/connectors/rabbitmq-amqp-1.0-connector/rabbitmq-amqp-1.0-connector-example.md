@@ -82,6 +82,7 @@ In this operation, we are going to receive the following inputs from the user.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectPublishMessageOperation.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectPublishMessageOperation.png" title="Adding RabbitMQ Connector" width="80%" alt="Adding RabbitMQ Connector"/></a>
 
+
 2. Click on the `publishMessage` operation to add that operation to the integration flow.
 
 #### Create Connection

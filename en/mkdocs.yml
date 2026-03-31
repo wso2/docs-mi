@@ -48,8 +48,8 @@ theme:
          toggle:
            icon: material/brightness-7
            name: Switch to light mode
-    logo: assets/img/logo-for-light.svg
-    logo_light: assets/img/logo.svg
+    logo: assets/img/WSO2-logo-black.svg
+    logo_light: assets/img/WSO2-logo-white.svg
     favicon: assets/img/favicon.png
     features:
        - navigation.indexes
@@ -302,6 +302,7 @@ nav:
                     - How to Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
                     - How to Retry Failed Messages with a Delay: learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq.md
                     - How to Requeue a Message Preserving the Order: learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq.md
+                    - How to Manage Guaranteed Delivery with Non Blocking Client Acknowledgement: learn/examples/rabbitmq-examples/rabbitmq-nonblocking-client-ack.md
                     - How to Publish Unacked Messages to Dead Letter Exchange: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
                 - How to Implement Dual Channel Scenario with RabbitMQ: learn/examples/rabbitmq-examples/request-response-rabbitmq.md
             - JMS examples:
@@ -336,6 +337,7 @@ nav:
             - How to Expose an RDBMS Datasource: learn/examples/data-integration/rdbms-data-service.md
             - How to Expose other Datasources:
                   - CSV Datasource: learn/examples/data-integration/csv-data-service.md
+                  - Excel Datasource: learn/examples/data-integration/excel-data-service.md
                   - Mongo Datasource: learn/examples/data-integration/mongo-data-service.md
                   - Carbon Datasource: learn/examples/data-integration/carbon-data-service.md
             - How to Expose Data in JSON Format: learn/examples/data-integration/json-with-data-service.md
@@ -608,6 +610,10 @@ nav:
           - AS400 PCML Connector:
               - Set up AS400 PCML Connector: reference/connectors/as400-pcml-connector/as400-pcml-connector-configuration.md
               - AS400 PCML Connector Reference: reference/connectors/as400-pcml-connector/as400-pcml-connector-reference.md
+          - Azure Service Bus Connector:
+              - Azure Service Bus Overview: reference/connectors/asb-connector/asb-connector-overview.md
+              - Set up Azure Service Bus: reference/connectors/asb-connector/asb-connector-setup.md
+              - Azure Service Bus Reference: reference/connectors/asb-connector/asb-connector-reference.md
           - BigQuery Connector:
               - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
               - Set up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md

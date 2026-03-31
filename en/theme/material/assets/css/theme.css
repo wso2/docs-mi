@@ -111,6 +111,28 @@
     --md-code-block-radius: .4rem;
 }
 
+/* Light theme overrides for code blocks */
+[data-md-color-scheme=default] {
+    --md-code-fg-color: #1f2024;
+    --md-code-bg-color: #f5f5f5;
+    --md-code-hl-color: #e8eaf6;
+    --md-code-hl-number-color: #b5290a;
+    --md-code-hl-special-color: #b5290a;
+    --md-code-hl-function-color: #795e26;
+    --md-code-hl-constant-color: #0777d3;
+    --md-code-hl-keyword-color: #0777d3;
+    --md-code-hl-string-color: #a31515;
+    --md-code-hl-name-color: #1f2024;
+    --md-code-hl-operator-color: #1f2024;
+    --md-code-hl-punctuation-color: #1f2024;
+    --md-code-hl-comment-color: #008000;
+    --md-code-hl-generic-color: #008000;
+    --md-code-hl-variable-color: #2b91af;
+
+    --md-code-tab-bg-color: #e0e0e0;
+    --md-code-linenos-bg-color: #ebebeb;
+}
+
 :root,
 [data-md-color-scheme=slate] {
     /* START OF - Default Material Theme Overrides  */
@@ -227,6 +249,10 @@
     color: var(--colors-white);
 }
 
+[data-md-color-scheme=default] .md-typeset .tabbed-labels>label {
+    color: var(--md-code-fg-color);
+}
+
 .md-typeset .highlighttable>tbody>tr+tr>.code>div>pre>code {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -244,8 +270,8 @@
 }
 
 [data-md-color-scheme=default] .md-typeset code {
-    background-color: var(--md-code-fg-color);
-    color: var(--md-code-bg-color);
+    background-color: var(--md-code-bg-color);
+    color: var(--md-code-fg-color);
 }
 
 .md-typeset pre>code {
