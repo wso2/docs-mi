@@ -43,7 +43,7 @@ The following methods allow you to import connectors into the project.
 4. Select **Connections** under **Other Artifacts** to open the **Connector Store** form.
 5. Select the relevant option to either import a connection using an **OpenAPI definition** or a **gRPC (Proto) definition**.
 
-<<<<<<< HEAD
+
     <a href="{{base_path}}/assets/img/integrate/connectors/new-import-connector.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/new-import-connector.png" alt="import connector" width="80%"></a>
 
 6. From the options appearing,
@@ -55,9 +55,7 @@ The following methods allow you to import connectors into the project.
 #### Method 3: Directly add connectors to the project
 
 If you have already downloaded the connector, in the project file structure you can add the connector file into the directory `<PROJECT_HOME>/src/main/wso2mi/resources/connectors`.
-=======
-    <a href="{{base_path}}/assets/img/integrate/connectors/import-connection.png"><img src="{{base_path}}/assets/img/integrate/connectors/import-connection.png" alt="import connection" width="80%"></a>
->>>>>>> 55ff43cae047be460588b6ec9ab81bf8ff8f2f61
+
 
 ### Remove connectors
 
