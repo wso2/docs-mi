@@ -30,7 +30,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 1. Click on the add new API (`+`) icon in the `APIs` in the **WSO2 Integrator: MI Project Explorer** to create a new API.
 
-    <a href="{{base_path}}/assets/img/get-started/build-ai-first-integration/rag/create_new_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_new_api.png" alt="Create New Project" width="80%"></a>
 
 2. Create a new API named `RAGChatAPI` by giving the name in the **Create API** form. Click **Create** to create the API.
 

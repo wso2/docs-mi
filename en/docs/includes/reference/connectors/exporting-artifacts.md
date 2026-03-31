@@ -19,7 +19,13 @@ To bundle a Connector into a CApp, a `Connector Exporter Project` is required.
 
 5. Once you are directed to the workspace, it displays all the connectors that exist in the workspace. You can select the relevant connector and click **Ok**.</br>
 
-    <a href="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/adding-connector-to-exporter-project-3.jpg" class="glightbox"><img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/adding-connector-to-exporter-project-3.jpg" title="Selecting Connector from Workspace" width="60%" alt="Selecting Connector from Workspace" />
+    <a href="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/adding-connector-to-exporter-project-3.jpg"
+   class="glightbox">
+  <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/adding-connector-to-exporter-project-3.jpg"
+       title="Selecting Connector from Workspace"
+       width="60%"
+       alt="Selecting Connector from Workspace" />
+</a>
 
 ### Creating a Composite Application Project
 
