@@ -1,8 +1,8 @@
-# Integration Server Configurations
+# Integration Server Configs
 
 All the server-level configurations of your WSO2 Integrator: MI instance can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
 
-The complete list of configuration parameters that you can use in the `deployment.toml` file are listed below along with descriptions. You can also see the documentation on product [installation and setup](../install-and-setup/install-and-setup-overview.md) for details on applying product configurations to your WSO2 Integrator: MI deployment.
+The complete list of configuration parameters that you can use in the `deployment.toml` file are listed below along with descriptions. You can also see the documentation on product [installation and setup](/setup/install_and_setup_overview) for details on applying product configurations to your WSO2 Integrator: MI deployment.
 
 ## Instructions for use
 
@@ -41,8 +41,8 @@ algorithm = "AES"
             <div class="superfences-tabs">
             
             <input name="2" type="checkbox" id="_tab_2">
-                <label class="tab-selector skip-toggle" for="_tab_2"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[server]
 hostname="localhost"
@@ -58,7 +58,7 @@ enable_swa=false
                             <code>[server]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the deployment parameters that are used for identifying a WSO2 Integrator: MI server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi">WSO2 Integrator: MI</a>. The required and optional parameters for this configuration are listed below.
+                                This configuration header is required for configuring the deployment parameters that are used for identifying a WSO2 Integrator: MI server node. You need to update these values when you deploy <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying-wso2-ei">WSO2 Integrator: MI</a>. The required and optional parameters for this configuration are listed below.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -234,10 +234,10 @@ enable_swa=false
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="3" type="checkbox" id="_tab_3">
                 <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[service_catalog]]
 apim_host = "https://localhost:9443"
@@ -348,16 +348,16 @@ password = "$secret{password}"</code></pre>
 </div>
 
 
-## Integration Control Plane
+## Micro Integrator Dashboard
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="4" type="checkbox" id="_tab_4">
                 <label class="tab-selector" for="_tab_4"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[dashboard_config]
 dashboard_url = "https://localhost:9743/dashboard/api/"
@@ -372,7 +372,7 @@ node_id = "dev_node_2"</code></pre>
                             <code>[dashboard_config]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for the WSO2 Integrator: MI server to connect with the Integration Control Plane.
+                                This configuration header is required for the WSO2 Integrator: MI server to connect with the dashboard server.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -394,7 +394,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The URL to access the Integration Control Plane. Be sure to replace {hostname/ip} and {port} with the relevant values from your environment.</p>
+                                        <p>The URL to access the dashboard server. Be sure to replace {hostname/ip} and {port} with the relevant values from your environment.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -413,7 +413,7 @@ node_id = "dev_node_2"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The time interval (in seconds) between two consecutive heartbeats that are sent from the WSO2 Integrator: MI to the ICP server.</p>
+                                        <p>The time interval (in seconds) between two consecutive heartbeats that are sent from the WSO2 Integrator: MI to the dashboard server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -434,7 +434,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The server group to which the WSO2 Integrator: MI instance belongs. Specify the same group ID in all the WSO2 Integrator: MI servers that should belong to a single group. By default, a &#39;group_id&#39; named &#39;default&#39; is assinged to every WSO2 Integrator: MI server that connects to the ICP server. When you sign in to the ICP server, you can view data per server group.</p>
+                                        <p>The server group to which the WSO2 Integrator: MI instance belongs. Specify the same group ID in all the WSO2 Integrator: MI servers that should belong to a single group. By default, a &#39;group_id&#39; named &#39;default&#39; is assinged to every WSO2 Integrator: MI server that connects to the dashboard. When you sign in to the dashboard, you can view data per server group.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -455,7 +455,7 @@ node_id = "dev_node_2"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The ICP server identifies the WSO2 Integrator: MI node by this ID. If you have already specified a node ID when you set up the WSO2 Integrator: MI cluster, the same node ID applies here by default. However, if a node ID is not defined in your clustering configurations, a random uuid is used here by default.</p>
+                                        <p>The dashboard identifies the WSO2 Integrator: MI node by this ID. If you have already specified a node ID when you set up the WSO2 Integrator: MI cluster, the same node ID applies here by default. However, if a node ID is not defined in your clustering configurations, a random uuid is used here by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -474,10 +474,10 @@ node_id = "dev_node_2"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="5" type="checkbox" id="_tab_5">
                 <label class="tab-selector" for="_tab_5"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[keystore.primary]
 file_name = "wso2carbon.jks"
@@ -493,7 +493,7 @@ key_password = "wso2carbon"</code></pre>
                             <code>[keystore.primary]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#changing-the-default-primary-keystore">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href="#internal-keystore">separate keystore</a> for internal data encryption.
+                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/configuring-keystores/#changing-the-default-primary-keystore">primary keystore</a>. This keystore is used for SSL handshaking (when the server communicates with another server) and for encrypting plain text information in configuration files. By default, this keystore is also used for encrypted data in internal datastores, unless you have configured a <a href="#internal-keystore">separate keystore</a> for internal data encryption.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -532,7 +532,7 @@ key_password = "wso2carbon"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -612,10 +612,10 @@ key_password = "wso2carbon"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="6" type="checkbox" id="_tab_6">
                 <label class="tab-selector" for="_tab_6"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[keystore.primary]
 file_name = "wso2carbon.jks"
@@ -631,7 +631,7 @@ key_password = "wso2carbon"</code></pre>
                             <code>[keystore.internal]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#separating-the-internal-keystore">configuring the internal keystore</a>.
+                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the keystore used for encrypting/decrypting data in internal data stores. You may sometimes choose to configure a separate keystore for this purpose because the primary keystore needs to renew certificates frequently. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes. Read more about <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/configuring-keystores/#separating-the-internal-keystore">configuring the internal keystore</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -670,7 +670,7 @@ key_password = "wso2carbon"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -750,10 +750,10 @@ key_password = "wso2carbon"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="7" type="checkbox" id="_tab_7">
                 <label class="tab-selector" for="_tab_7"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[system.parameter]
 org.wso2.SecureVaultPasswordRegEx = "any_valid_regex"</code></pre>
@@ -806,10 +806,10 @@ org.wso2.SecureVaultPasswordRegEx = "any_valid_regex"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="8" type="checkbox" id="_tab_8">
                 <label class="tab-selector" for="_tab_8"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[truststore]
 file_name="wso2truststore.jks"
@@ -824,7 +824,7 @@ alias="symmetric.key.value"</code></pre>
                             <code>[truststore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
+                                This configuration header is required for configuring the parameters that connect the WSO2 Integrator: MI to the keystore file (trust store) that is used to store the digital certificates that the server trusts for SSL communication. Read more about <a href="{{base_path}}/install-and-setup/setup/mi-setup/security/configuring-keystores/#optional-changing-the-default-truststore">configuring the truststore</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -863,7 +863,7 @@ alias="symmetric.key.value"</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;, &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -924,10 +924,10 @@ alias="symmetric.key.value"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="9" type="checkbox" id="_tab_9">
                 <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[internal_apis.file_user_store]
 enable = true
@@ -949,7 +949,7 @@ user.password = "pwd-2"
                             <code>[internal_apis.file_user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for disabling the default file-based user store of the WSO2 Integrator: MI's Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/'>configuring user stores</a>.
+                                This configuration header is required for disabling the default file-based user store of the WSO2 Integrator: MI's Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting-up-a-userstore'>configuring user stores</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -979,7 +979,7 @@ user.password = "pwd-2"
                             <code>[[internal_apis.users]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/'>configuring user stores</a>.
+                                This configuration header is required for defining the user name and password for the Management API. Reuse this header when you want to add more users. The user credentials are stored in the default file-based user store of the Management API. Read more about <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting-up-a-userstore'>configuring user stores</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1062,10 +1062,10 @@ user.password = "pwd-2"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="10" type="checkbox" id="_tab_10">
                 <label class="tab-selector" for="_tab_10"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[user_store]
 type = "read_only_ldap"
@@ -1108,7 +1108,7 @@ connection_retry_delay = "120000"
                             <code>[user_store]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for conencting the WSO2 Integrator: MI to an <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/'>external user store</a>.
+                                This configuration header is required for conencting the WSO2 Integrator: MI to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting-up-a-userstore'>external user store</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -1193,7 +1193,7 @@ connection_retry_delay = "120000"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to <a href='{{base_path}}/install-and-setup/setup/security/importing-ssl-certificate/'>add certificates to the truststore</a>.</p>
+                                        <p>The URL for connecting to the LDAP. Override the default URL for your setup. If you are connecting over ldaps (secured LDAP), you need to import the certificate of the user store to the truststore (wso2truststore.jks by default). See the instructions on how to &lt;a href=&#39;{{base_path}}/install-and-setup/setup/mi-setup/setup/security/importing_ssl_certificate&#39;&gt;add certificates to the truststore&lt;/a&gt;.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1756,10 +1756,10 @@ connection_retry_delay = "120000"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="11" type="checkbox" id="_tab_11">
                 <label class="tab-selector" for="_tab_11"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[datasource]]
 id = "WSO2_CARBON_DB"
@@ -1778,7 +1778,7 @@ pool_options.testOnBorrow = true</code></pre>
                             <code>[[datasource]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for connecting to a database from the WSO2 Integrator: MI. Databases are only required if you are connecting the WSO2 Integrator: MI to an <a href='{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store'>RDBMS user store</a>.
+                                This configuration header is required for connecting to a database from the WSO2 Integrator: MI. Databases are only required if you are connecting the WSO2 Integrator: MI to an <a href='{{base_path}}/install-and-setup/setup/mi-setup/setup/user-stores/setting_up_ro_ldap/#configuring-an-rdbms-user-store-optional'>RDBMS user store</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2428,10 +2428,10 @@ pool_options.testOnBorrow = true</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="12" type="checkbox" id="_tab_12">
                 <label class="tab-selector" for="_tab_12"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[management_api.jwt_token_security_handler]
 enable = true
@@ -2449,7 +2449,7 @@ token_config.size= "2048"
                             <code>[management_api.jwt_token_security_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the default JWT token store configurations of the WSO2 Integrator: MI's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for configuring the default JWT token store configurations of the WSO2 Integrator: MI's Management API. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2595,10 +2595,10 @@ token_config.size= "2048"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="13" type="checkbox" id="_tab_13">
                 <label class="tab-selector" for="_tab_13"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[management_api.authorization_handler]
 enable = false
@@ -2617,7 +2617,7 @@ path = "/apis"
                             <code>[management_api.authorization_handler]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for disabling authorization for the WSO2 Integrator: MI's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for disabling authorization for the WSO2 Integrator: MI's Management API. Authorization only applies when an external user store is used. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2647,7 +2647,7 @@ path = "/apis"
                             <code>[[management_api.authorization_handler.resources]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for enabling authorization for additional resources (other than 'users') of the WSO2 Integrator: MI's Management API. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for enabling authorization for additional resources (other than 'users') of the WSO2 Integrator: MI's Management API. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2688,10 +2688,10 @@ path = "/apis"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="14" type="checkbox" id="_tab_14">
                 <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[management_api.cors]
 enabled = true
@@ -2702,10 +2702,10 @@ allowed_headers = "Authorization"</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[management_api.cors]</code>
+                            <code>[[management_api.cors]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring CORs for the Management API of the WSO2 Integrator: MI. Read more about <a href='../../install-and-setup/setup/security/securing-management-api'>securing the Management API</a>.
+                                This configuration header is required for configuring CORs for the Management API of the WSO2 Integrator: MI. Read more about <a href='../../setup/security/securing-management-api'>securing the Management API</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2744,7 +2744,7 @@ allowed_headers = "Authorization"</code></pre>
                                             <span class="param-default-value">Default: <code>*</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>any string</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -2788,10 +2788,10 @@ allowed_headers = "Authorization"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="15" type="checkbox" id="_tab_15">
                 <label class="tab-selector" for="_tab_15"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_builders]
 application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
@@ -2811,7 +2811,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
                             <code>[message_builders]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the WSO2 Integrator: MI in the default non-blocking mode. If you are using the WSO2 Integrator: MI in blocking mode, see the <a href='#message-builders-blocking-mode'>message builder configurations for blocking mode</a>.
+                                This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the WSO2 Integrator: MI in the default non-blocking mode. If you are using the WSO2 Integrator: MI in blocking mode, see the <a href='#message-builders-blocking-mode'>message builder configurations for blocking mode</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3020,10 +3020,10 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="16" type="checkbox" id="_tab_16">
                 <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_builders]
 application_xml = "org.apache.axis2.builder.ApplicationXMLBuilder"
@@ -3043,7 +3043,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
                             <code>[blocking.message_builders]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the WSO2 Integrator: MI in <b>blocking</b> mode. You can use the <a href='#message-builders-non-blocking-mode'>same list of parameters</a> that are available for message builders in non-blocking mode.
+                                This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message builder</a> implementation that is used to build messages that are received by the WSO2 Integrator: MI in <b>blocking</b> mode. You can use the <a href='#message-builders-non-blocking-mode'>same list of parameters</a> that are available for message builders in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3063,10 +3063,10 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="17" type="checkbox" id="_tab_17">
                 <label class="tab-selector" for="_tab_17"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[message_formatters]
 form_urlencoded =  "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
@@ -3088,7 +3088,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                             <code>[message_formatters]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message formatting</a> implementation that is used for formatting messages that are sent out of the WSO2 Integrator: MI in <b>non-blocking</b> mode. If you are using the WSO2 Integrator: MI in <b>blocking</b> mode, see the <a href='#message-formatter-blocking-mode'>message formatter configurations for blocking mode</a>.
+                                This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message formatting</a> implementation that is used for formatting messages that are sent out of the WSO2 Integrator: MI in <b>non-blocking</b> mode. If you are using the WSO2 Integrator: MI in <b>blocking</b> mode, see the <a href='#message-formatter-blocking-mode'>message formatter configurations for blocking mode</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3339,10 +3339,10 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="18" type="checkbox" id="_tab_18">
                 <label class="tab-selector" for="_tab_18"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[blocking.message_formatters]
 form_urlencoded =  "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter"
@@ -3364,7 +3364,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                             <code>[blocking.message_formatters]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>message formatter</a> implementations that are used to format messages that are sent out from the WSO2 Integrator: MI in <b>blocking</b> mode. You can use the <a href='#message-formatters-non-blocking-mode'>same list of parameters</a> that are available for message formatters in non-blocking mode.
+                                This configuration header is required for configuring the <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>message formatter</a> implementations that are used to format messages that are sent out from the WSO2 Integrator: MI in <b>blocking</b> mode. You can use the <a href='#message-formatters-non-blocking-mode'>same list of parameters</a> that are available for message formatters in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3384,10 +3384,10 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="19" type="checkbox" id="_tab_19">
                 <label class="tab-selector" for="_tab_19"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_builders]]
 content_type = "application/json/badgerfish"
@@ -3400,7 +3400,7 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
                             <code>[[custom_message_builders]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>.
+                                This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3462,10 +3462,10 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="20" type="checkbox" id="_tab_20">
                 <label class="tab-selector" for="_tab_20"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_builders]]
 content_type = "application/json/badgerfish"
@@ -3478,7 +3478,7 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
                             <code>[[blocking.custom_message_builders]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-builder-non-blocking-mode'>same list of parameters</a> that are available for custom message builders in non-blocking mode.
+                                This configuration header is required for configuring the custom message builder implementation class and the selected content types to which the builder should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-builder-non-blocking-mode'>same list of parameters</a> that are available for custom message builders in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3498,10 +3498,10 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="21" type="checkbox" id="_tab_21">
                 <label class="tab-selector" for="_tab_21"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_message_formatters]]
 content_type = "application/json/badgerfish"
@@ -3514,7 +3514,7 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
                             <code>[[custom_message_formatters]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>.
+                                This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in non-blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3576,10 +3576,10 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="22" type="checkbox" id="_tab_22">
                 <label class="tab-selector" for="_tab_22"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[blocking.custom_message_formatters]]
 content_type = "application/json/badgerfish"
@@ -3592,7 +3592,7 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
                             <code>[[blocking.custom_message_formatters]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../install-and-setup/setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-formatter-non-blocking-mode'>same list of parameters</a> that are available for custom message formatters in non-blocking mode.
+                                This configuration header is required for configuring the custom message formatter implementation class and the selected content types to which the formatter should apply <b>in blocking mode</b>. See the instructions on configuring <a href='../../setup/message-builders-formatters/message-builders-and-formatters'>custom message builders and formatters</a>. You can use the <a href='#custom-message-formatter-non-blocking-mode'>same list of parameters</a> that are available for custom message formatters in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3612,10 +3612,10 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="23" type="checkbox" id="_tab_23">
                 <label class="tab-selector" for="_tab_23"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[server.get_request_processor]]
 item = "swagger.yaml"
@@ -3694,10 +3694,10 @@ class = "org.wso2.micro.integrator.transport.handlers.requestprocessors.swagger.
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="24" type="checkbox" id="_tab_24">
                 <label class="tab-selector" for="_tab_24"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.http]
 socket_timeout = "3m"
@@ -3726,25 +3726,25 @@ listener.verify_client = "require"
 listener.ssl_profile.file_path = "conf/sslprofiles/listenerprofiles.xml"
 listener.ssl_profile.read_interval = "1h"
 listener.preferred_ciphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
-listener.keystore.location ="repository/resources/security/wso2carbon.jks"
-listener.keystore.type = "JKS" 
-listener.keystore.password = "wso2carbon"
-listener.keystore.key_password = "wso2carbon"
-listener.truststore.location = "repository/resources/security/client-truststore.jks"
-listener.truststore.type = "JKS"
-listener.truststore.password = "wso2carbon"
+listener.keystore.file_name ="$ref{keystore.tls.file_name}"
+listener.keystore.type = "$ref{keystore.tls.type}"
+listener.keystore.password = "$ref{keystore.tls.password}"
+listener.keystore.key_password = "$ref{keystore.tls.key_password}"
+listener.truststore.file_name = "$ref{truststore.file_name}"
+listener.truststore.type = "$ref{truststore.type}"
+listener.truststore.password = "$ref{truststore.password}"
 sender.warn_on_http_500 = "*"
 sender.proxy_host = "$ref{server.hostname}"
 sender.proxy_port = 3128
 sender.non_proxy_hosts = ["$ref{server.hostname}"]
 sender.hostname_verifier = "AllowAll"
-sender.keystore.location ="repository/resources/security/wso2carbon.jks"
-sender.keystore.type = "JKS"
-sender.keystore.password = "wso2carbon"
-sender.keystore.key_password = "wso2carbon"
-sender.truststore.location = "repository/resources/security/client-truststore.jks"
-sender.truststore.type = "JKS"
-sender.truststore.password = "wso2carbon"
+sender.keystore.file_name ="$ref{keystore.tls.file_name}"
+sender.keystore.type = "$ref{keystore.tls.type}"
+sender.keystore.password = "$ref{keystore.tls.password}"
+sender.keystore.key_password = "$ref{keystore.tls.key_password}"
+sender.truststore.file_name = "$ref{truststore.file_name}"
+sender.truststore.type = "$ref{truststore.type}"
+sender.truststore.password = "$ref{truststore.password}"
 sender.ssl_profile.file_path = "conf/sslprofiles/senderprofiles.xml"
 sender.ssl_profile.read_interval = "30s"
 enable_message_size_validation = false
@@ -3760,7 +3760,7 @@ force_json_validation = false</code></pre>
                             <code>[transport.http]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that are used for <a href='../../install-and-setup/setup/performance-tuning/http-transport-tuning'>tuning the default HTTP/S passthrough transport</a> of the WSO2 Integrator: MI in non-blocking mode.
+                                This configuration header is required for configuring the parameters that are used for <a href='../../setup/performance-tuning/http-transport-tuning'>tuning the default HTTP/S passthrough transport</a> of the WSO2 Integrator: MI in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -4018,48 +4018,7 @@ force_json_validation = false</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.secured_wsdl_epr_prefix</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>$ref{server.hostname}</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>A URL prefix which will be added to all service EPRs and EPRs in WSDLs etc in HTTPS.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.secured_protocols</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>TLSv1,TLSv1.1,TLSv1.2</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>TLS (Transport Layer Security) protocols should be allowed when securing HTTP communications through HTTPS.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.keystore.location</code> </span>
+                                  <span class="param-name-wrap"> <code>listener.keystore.file_name</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -4092,7 +4051,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4143,7 +4102,7 @@ force_json_validation = false</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.truststore.location</code> </span>
+                                  <span class="param-name-wrap"> <code>listener.truststore.file_name</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -4176,7 +4135,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4437,7 +4396,7 @@ force_json_validation = false</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.keystore.location</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.keystore.file_name</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -4470,7 +4429,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4521,7 +4480,7 @@ force_json_validation = false</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.truststore.location</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.truststore.file_name</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -4554,7 +4513,7 @@ force_json_validation = false</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -4703,10 +4662,10 @@ force_json_validation = false</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="25" type="checkbox" id="_tab_25">
                 <label class="tab-selector" for="_tab_25"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.http]
 
@@ -4735,7 +4694,7 @@ sender.so_timeout = 60000</code></pre>
                             <code>[transport.blocking.http]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the parameters that are used for configuring the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-httphttps-transport'>default HTTP/S passthrough transport in blocking mode</a>.
+                                This configuration header is required for configuring the parameters that are used for configuring the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-httphttps-transport'>default HTTP/S passthrough transport in blocking mode</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5056,7 +5015,7 @@ sender.so_timeout = 60000</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If following is set to &#39;true&#39;, optional action part of the Content-Type will not be added to the SOAP 1.2 messages.</p>
+                                        <p>The socket timeout in milliseconds for the HTTP/HTTPS sender. This defines the maximum period of inactivity between two consecutive data packets.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -5143,27 +5102,6 @@ sender.so_timeout = 60000</code></pre>
                                         <p>The password for authenticating the proxy server.</p>
                                     </div>
                                 </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.parameter.maxTotalConnections</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>20</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The maximum number of connections allowed.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -5180,10 +5118,10 @@ sender.so_timeout = 60000</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="26" type="checkbox" id="_tab_26">
                 <label class="tab-selector" for="_tab_26"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.http.proxy_profile]]
 target_hosts = ["example.com", ".*.sample.com"]
@@ -5200,7 +5138,7 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
                             <code>[[transport.http.proxy_profile]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring <a href='../../install-and-setup/setup/configuring-proxy-servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>HTTP proxy profiles</a> when you use multiple proxy servers to route messages to different endpoints.
+                                This configuration header is required for configuring <a href='../../setup/configuring-proxy-servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>HTTP proxy profiles</a> when you use multiple proxy servers to route messages to different endpoints.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5325,10 +5263,10 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="27" type="checkbox" id="_tab_27">
                 <label class="tab-selector" for="_tab_27"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.http.secured_proxy_profile]]
 target_hosts = ["example.com", ".*.sample.com"]
@@ -5345,7 +5283,7 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
                             <code>[[transport.http.secured_proxy_profile]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring <a href='../../install-and-setup/setup/configuring-proxy-servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>secured HTTP proxy profiles</a> when you use multiple (secured) proxy servers to route messages to different endpoints.
+                                This configuration header is required for configuring <a href='../../setup/configuring-proxy-servers/#configuring-proxy-profiles-in-wso2-micro-integrator'>secured HTTP proxy profiles</a> when you use multiple (secured) proxy servers to route messages to different endpoints.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5491,10 +5429,10 @@ bypass_hosts = ["xxx.sample.com"]</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="28" type="checkbox" id="_tab_28">
                 <label class="tab-selector" for="_tab_28"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.vfs]
 
@@ -5517,7 +5455,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.vfs]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring how the WSO2 Integrator: MI communicates through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport'>VFS transport</a>.
+                                This configuration header is required for configuring how the WSO2 Integrator: MI communicates through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-vfs-transport'>VFS transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5577,7 +5515,7 @@ sender.parameter.customParameter = ""</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -5684,10 +5622,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="29" type="checkbox" id="_tab_29">
                 <label class="tab-selector" for="_tab_29"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.vfs]
 
@@ -5710,7 +5648,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[[transport.http.secured_proxy_profile]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#mail-transport-listener-blocking-mode'>blocking transport listener</a>.
+                                This configuration header is required for configuring the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#mail-transport-listener-blocking-mode'>blocking transport listener</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5770,7 +5708,7 @@ sender.parameter.customParameter = ""</code></pre>
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -5877,10 +5815,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="30" type="checkbox" id="_tab_30">
                 <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.mail.listener]
 enable = true   
@@ -5956,10 +5894,10 @@ parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="31" type="checkbox" id="_tab_31">
                 <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.mail.listener]
 enable = true
@@ -5973,7 +5911,7 @@ parameter.customParameter = "value"</code></pre>
                             <code>[transport.blocking.mail.listener]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener in blocking mode. You can use the <a href='#mail-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> listener in blocking mode. You can use the <a href='#mail-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5993,10 +5931,10 @@ parameter.customParameter = "value"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="32" type="checkbox" id="_tab_32">
                 <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.mail.sender]]
 name = "mailto"
@@ -6015,7 +5953,7 @@ parameter.from = "demo_user@wso2.com"</code></pre>
                             <code>[[transport.mail.sender]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport sender as well as the <a href='#mail-transport-sender-blocking-mode'>blocking transport sender</a>.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport sender as well as the <a href='#mail-transport-sender-blocking-mode'>blocking transport sender</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -6182,10 +6120,10 @@ parameter.from = "demo_user@wso2.com"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="33" type="checkbox" id="_tab_33">
                 <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.mail.listener]
 enable = true
@@ -6199,7 +6137,7 @@ parameter.customParameter = "value"</code></pre>
                             <code>[[transport.blocking.mail.sender]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender in blocking mode. You can use the <a href='#mail-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mailto-transport'>MailTo transport</a> sender in blocking mode. You can use the <a href='#mail-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking mail sender.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -6219,10 +6157,10 @@ parameter.customParameter = "value"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="34" type="checkbox" id="_tab_34">
                 <label class="tab-selector" for="_tab_34"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.jms.listener]]
 
@@ -6274,7 +6212,7 @@ parameter.consume_error_progression = "2.0"</code></pre>
                             <code>[[transport.jms.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#jms-transport-listener-blocking-mode'>blocking transport listener</a>.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener implementation of the WSO2 Integrator: MI in non-blocking mode. Note that the list of parameters given below can be used for the non-blocking transport listener as well as the <a href='#jms-transport-listener-blocking-mode'>blocking transport listener</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -7029,10 +6967,10 @@ parameter.consume_error_progression = "2.0"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="35" type="checkbox" id="_tab_35">
                 <label class="tab-selector" for="_tab_35"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.blocking.jms.listener]]
 
@@ -7083,7 +7021,7 @@ parameter.consume_error_progression = "2.0"</code></pre>
                             <code>[[transport.blocking.jms.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener in blocking mode. You can use the <a href='#jms-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS listener.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> listener in blocking mode. You can use the <a href='#jms-transport-listener-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS listener.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -7103,10 +7041,10 @@ parameter.consume_error_progression = "2.0"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="36" type="checkbox" id="_tab_36">
                 <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.jms.sender]]
 
@@ -7160,7 +7098,7 @@ parameter.vender_class_loader = false</code></pre>
                             <code>[[transport.jms.sender]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender implementation of the WSO2 Integrator: MI in non-blocking mode.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender implementation of the WSO2 Integrator: MI in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -7978,10 +7916,10 @@ parameter.vender_class_loader = false</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="37" type="checkbox" id="_tab_37">
                 <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.blocking.jms.sender]]
 
@@ -8033,7 +7971,7 @@ parameter.vender_class_loader = false</code></pre>
                             <code>[[transport.blocking.jms.sender]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender in blocking mode. You can use the <a href='#jms-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS sender.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-jms-transport'>JMS transport</a> sender in blocking mode. You can use the <a href='#jms-transport-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking JMS sender.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8053,10 +7991,10 @@ parameter.vender_class_loader = false</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="38" type="checkbox" id="_tab_38">
                 <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.jndi.connection_factories]
 QueueConnectionFactory = "amqp://admin:admin@clientID/carbon?brokerlist='tcp://localhost:5675'"
@@ -8131,10 +8069,10 @@ TopicConnectionFactory = "amqp://admin:admin@clientID/carbon?brokerlist='tcp://l
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="39" type="checkbox" id="_tab_39">
                 <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.jndi.queue]
 JMSMS = "JMSMS"
@@ -8188,10 +8126,10 @@ StockQuotesQueue = "StockQuotesQueue"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="40" type="checkbox" id="_tab_40">
                 <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.jndi.topic]
 MyTopic = "example.MyTopic"</code></pre>
@@ -8244,10 +8182,10 @@ MyTopic = "example.MyTopic"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="41" type="checkbox" id="_tab_41">
                 <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[transport.rabbitmq.listener]]
 
@@ -8256,6 +8194,7 @@ parameter.hostname = "localhost"
 parameter.port = 5672
 parameter.username = "guest"
 parameter.password = "guest"
+parameter.connection_factory = ""
 parameter.exchange_name = "amq.direct"
 parameter.queue_name = "MyQueue"
 parameter.queue_auto_ack = false
@@ -8272,15 +8211,16 @@ parameter.exchange_durable = ""
 parameter.exchange_auto_delete = ""
 parameter.message_content_type = ""
 
-parameter.retry_interval = 10000
+parameter.retry_interval = "10s"
 parameter.retry_count = 5
+parameter.connection_pool_size = 25
 
 parameter.ssl_enable = true
 parameter.ssl_version = "SSL"
 parameter.keystore_location ="$ref{keystore.tls.file_name}"
 parameter.keystore_type = "$ref{keystore.tls.type}"
 parameter.keystore_password = "$ref{keystore.tls.password}"
-parameter.truststore_location ="$ref{truststore.file_name}"
+parameter.truststore_file_name ="$ref{truststore.file_name}"
 parameter.truststore_type = "$ref{truststore.type}"
 parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                     </div>
@@ -8291,7 +8231,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[[transport.rabbitmq.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required if you are configuring WSO2 Integrator: MI to receive messages from a RabbitMQ broker. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required if you are configuring WSO2 Integrator: MI to receive messages from a RabbitMQ client. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8313,10 +8253,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>
-                                        The user-defined name of the RabbitMQ listener. This value must be used as the <code>rabbitmq.connection.factory</code> parameter in the <a href="{{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters/#required-parameters">RabbitMQ proxy service</a> configuration.
-                                        <br><b>Note:</b> The following globally configured parameters can be overridden by <a href="{{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters/#service-level-parameters-receiving-messages">Service-Level parameters</a> when defining the RabbitMQ proxy service.
-                                        </p>
+                                        <p>The name of the broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8337,7 +8274,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The IP address of the RabbitMQ broker.</p>
+                                        <p>The IP address of the server node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8379,7 +8316,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The username used to connect to the RabbitMQ broker.</p>
+                                        <p>The user name for connecting to RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8400,7 +8337,28 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password used to connect to the RabbitMQ broker.</p>
+                                        <p>The password for connecting to the RabbitMQ broker.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.connection_factory</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>org.apache.axis2.transport.rabbitmq.RabbitMQListener</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the connection factory.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8411,16 +8369,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: AMQP default</span>
+                                            <span class="param-default-value">Default: <code>amq.direct</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Name of the RabbitMQ exchange to which the queue is bound. If not specified, the queue will be bound to the AMQP default exchange.</p>
+                                        <p>Name of the RabbitMQ exchange to which the queue is bound. Use this parameter instead of rabbitmq.queue.routing.key, if you need to use the default exchange and publish to a queue.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8431,36 +8390,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The name of the queue from which messages will be consumed. If this parameter is not specified, you must provide the <code>parameter.queue_routing_key</code> instead.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_routing_key</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies the routing key used to route messages to the queue.</p>
+                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8471,36 +8411,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Determines whether message acknowledgments are sent automatically after a message is consumed by the WSO2 Integrator: MI.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.channel_consumer_qos</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>0</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Defines the maximum number of unacknowledged messages the listener can process at a time. Applicable only when <code>parameter.queue_auto_ack</code> is <code>false</code>. A value of <code>0</code> allows unlimited message delivery.</p>
+                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8511,6 +8432,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -8520,7 +8442,28 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>A unique identifier for the consumer attached to the queue. If not specified, RabbitMQ will generate a consumer tag automatically.</p>
+                                        <p>The client­ generated consumer tag to establish context.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.channel_consumer_qos</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The consumer qos value. You need to specify this parameter only if the rabbitmq.queue.auto.ack parameter is set to false.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8530,13 +8473,14 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8550,13 +8494,14 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8570,17 +8515,39 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Determines whether the queue should be automatically deleted when there are no active consumers.</p>
+                                        <p>Specifies whether to keep the queue even if it is not being consumed anymore.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_routing_key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The routing key of the queue.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8590,17 +8557,18 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to create the queue if it does not already exist on the broker.</p>
+                                        <p>Specifies whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8610,17 +8578,18 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to create the exchange if it does not already exist on the broker.</p>
+                                        <p>Specifies whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8631,16 +8600,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>direct</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>direct</code>, <code>fanout</code>, <code>topic</code>, <code>headers</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies the type of the RabbitMQ exchange.</p>
+                                        <p>The type of the exchange.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8650,13 +8620,14 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8670,37 +8641,39 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Determines whether the exchange should be automatically deleted when there are no active consumers.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.message_content_type</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>text/plain</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The content type to be used by the consumer. This parameter takes priority over the content type specified in the incoming message. If this parameter is not set, the WSO2 Integrator: MI will fall back to the content type in the message, and finally to the default content type if neither is available.</p>
+                                        <p>Specifies whether to keep the exchange even if it is not bound to any queue anymore.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.default_destination_type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>text/xml</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The content type of the consumer. &lt;/br&gt;Note that if the content type is specified in the message, this parameter does not override the specified content type.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8711,6 +8684,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30000</code></span>
@@ -8720,17 +8694,18 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the event of a network failure or broker shutdown, the WSO2 Integrator: MI will attempt to reconnect a number of times (as specified by the <code>parameter.retry_count</code> parameter), waiting for the interval defined by this parameter (in milliseconds) between each retry attempt.</p>
+                                        <p>In the case of network failure or broker shut down, the WSO2 Integrator: MI will attempt to reconnect a number of times (as sepcified by the parameter.retry_count parameter) with an interval (specified by this parameter) between the retry attempts.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.retry_count</code> </span>
+                                  <span class="param-name-wrap"> <code>parameter.retry_interval</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>3</code></span>
@@ -8740,7 +8715,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the event of a network failure or broker shutdown, the WSO2 Integrator: MI will attempt to reconnect as many times as specified by this parameter. If set to <code>-1</code>, the WSO2 Integrator: MI will retry indefinitely until the connection is restored.</p>
+                                        <p>In the case of network failure or broker shut down, the WSO2 Integrator: MI will attempt to reconnect as many times as sepcified by this parameter with an interval (specified by the parameter.retry_interval parameter) between the retry attempts.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8751,16 +8726,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether SSL is enabled for the RabbitMQ connection. If set to <code>true</code>, make sure to configure the keystore and truststore parameters provided below.</p>
+                                        <p>Specifies whether or not SSL is enabled for RabbitMQ connection. If you set this to &#39;true&#39;, be sure to update the keystore and trust store parameters given below.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8771,16 +8747,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>SSL</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies the SSL versions to be used.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
+                                        <p>The SSL versions.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8791,16 +8768,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>MI_HOME/repository/resources/security/wso2carbon.jks</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The path to the keystore file used to secure the RabbitMQ connection.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
+                                        <p>The path to the keystore file that is used for securing a RabbitMQ connection. By default, the keystore file of the primary keystore is enabled for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8811,16 +8789,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the keystore file.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
+                                        <p>The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8831,16 +8810,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>wso2carbon</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password of the keystore file used to secure the RabbitMQ connection.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
+                                        <p>The password of the keystore file that is used for securing a RabbitMQ connection. This keystore password is used when accessing the keys in the keystore. By default, the keystore password of the primary keystore is enabled for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8851,16 +8831,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>MI_HOME/repository/resources/security/wso2truststore.jks</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The path to the truststore file used for storing trusted digital certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
+                                        <p>The path to the keystore file that is used for storing the trusted digital certificates. By default, the product&#39;s trust store is configured for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8871,16 +8852,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the truststore file used for storing trusted certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
+                                        <p>The type of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8891,16 +8873,15 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>wso2carbon</code></span>
                                         </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
+                                        
                                     </div>
                                     <div class="param-description">
-                                        <p>The password of the truststore file used for storing trusted certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
+                                        <p>The password of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
                                     </div>
                                 </div>
                             </div>
@@ -8913,16 +8894,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
 </div>
 
 
-## RabbitMQ Sender (non-blocking mode)
+## RabbitMQ Sender
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="42" type="checkbox" id="_tab_42">
                 <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.rabbitmq]
 sender_enable = true
@@ -8933,6 +8914,18 @@ parameter.hostname = "localhost"
 parameter.port = 5672
 parameter.username = "guest"
 parameter.password = "guest"
+parameter.exchange_name = "amq.direct"
+parameter.routing_key = "MyQueue"
+parameter.reply_to_name = ""
+parameter.queue_delivery_mode = 1 # 1/2
+parameter.exchange_type = ""
+parameter.queue_name = "MyQueue"
+parameter.queue_durable = false
+parameter.queue_exclusive = false
+parameter.queue_auto_delete = false
+parameter.exchange_durable = ""
+parameter.queue_auto_declare = ""
+parameter.exchange_auto_declare = ""
 parameter.connection_pool_size = 10</code></pre>
                     </div>
                 </div>
@@ -8942,7 +8935,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[transport.rabbitmq]</code>
                             
                             <p>
-                                This configuration header is required for enabling the RabbitMQ listener in the WSO2 Integrator: MI. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required for enabling the RabbitMQ listener in the WSO2 Integrator: MI. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8960,11 +8953,11 @@ parameter.connection_pool_size = 10</code></pre>
                                             <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this parameter to <code>true</code> if you want to configure the WSO2 Integrator: MI to send messages to a RabbitMQ broker.</p>
+                                        <p>Set this parameter to &#39;true&#39; if you want to configure the WSO2 Integrator: MI to send messages to a RabbitMQ client.</p>
                                     </div>
                                 </div>
                             </div>
@@ -8972,7 +8965,7 @@ parameter.connection_pool_size = 10</code></pre>
                             <code>[[transport.rabbitmq.sender]]</code>
                             
                             <p>
-                                This configuration header is optional when you have the RabbitMQ sender enabled (<code>[transport.rabbitmq]</code>). Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is optional when you have the RabbitMQ sender enabled ([transport.rabbitmq]. Read more about <a href='../../setup/brokers/configure-with-rabbitMQ'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8994,7 +8987,7 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The user-defined name of the RabbitMQ sender.</p>
+                                        <p>The name of the broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9015,7 +9008,7 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The IP address of the RabbitMQ broker.</p>
+                                        <p>The IP address of the server node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9057,7 +9050,7 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The username used to connect to the RabbitMQ broker.</p>
+                                        <p>The user name for connecting to RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9078,74 +9071,180 @@ parameter.connection_pool_size = 10</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password used to connect to the RabbitMQ broker.</p>
+                                        <p>The password for connecting to the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.connection_pool_size</code> </span>
+                                  <span class="param-name-wrap"> <code>parameter.exchange_name</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> integer </span>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>100</code></span>
+                                            <span class="param-default-value">Default: <code>amq.direct</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies the number of connections to maintain in the RabbitMQ connection pool. This helps manage concurrent connections efficiently when handling multiple messages. Increase the value for higher throughput scenarios.</p>
+                                        <p>Name of the RabbitMQ exchange to which the queue is bound. Use this parameter instead of rabbitmq.queue.routing.key, if you need to use the default exchange and publish to a queue.</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-## RabbitMQ Sender (blocking mode)
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-
-            <input name="42" type="checkbox" id="_tab_42">
-                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
-                    <div class="mb-config-example">
-<pre><code class="toml">[transport.rabbitmq]
-sender_enable = true
-
-[transport.blocking.rabbitmq.sender]
-name = "rabbitMQSender"
-parameter.hostname = "localhost"
-parameter.port = 5672
-parameter.username = "guest"
-parameter.password = "guest"
-parameter.connection_pool_size = 10</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[transport.rabbitmq]</code>
-
-                            <p>
-                                This configuration header is required for enabling the RabbitMQ listener in the WSO2 Integrator: MI. Read more about <a href='../../install-and-setup/setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
+                            </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender_enable</code> </span>
+                                  <span class="param-name-wrap"> <code>parameter.routing_key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The routing key of the queue.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.reply_to_name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the call back­ queue. Specify this parameter if you expect a response.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_delivery_mode</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>persistent</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The delivery mode of the queue. Possible values are Non­-persistent and Persistent.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.exchange_type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The type of the exchange.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_durable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether the queue should remain declared even if the broker restarts. The default value is false.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_exclusive</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -9157,20 +9256,140 @@ parameter.connection_pool_size = 10</code></pre>
                                             <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this parameter to <code>true</code> if you want to configure the WSO2 Integrator: MI to send messages to a RabbitMQ broker.</p>
+                                        <p>Whether the queue should be exclusive or should be consumable by other connections. The default value is false.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_auto_delete</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies whether to keep the queue even if it is not being consumed anymore.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.exchange_auto_declare</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_auto_declare</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.exchange_durable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies whether the exchange should remain declared even if the broker restarts.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_auto_declare</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to keep the queue even if it is not being consumed anymore. The default value is false.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.exchange_auto_declare</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
                                     </div>
                                 </div>
                             </div>
-                        </div><div class="config-wrap">
-                            <code>[[transport.blocking.rabbitmq.sender]]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                This configuration header groups the parameters that are used to configure the RabbitMQ sender in blocking mode. You can use the <a href='#rabbitmq-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking RabbitMQ sender.
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -9179,16 +9398,17 @@ parameter.connection_pool_size = 10</code></pre>
     </section>
 </div>
 
+
 ## FIX Transport
 
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="43" type="checkbox" id="_tab_43">
                 <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.fix]
 
@@ -9204,7 +9424,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.fix]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-fix-transport'>FIX transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-fix-transport'>FIX transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9266,10 +9486,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="44" type="checkbox" id="_tab_44">
                 <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.mqtt]
 
@@ -9303,7 +9523,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.mqtt]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-mqtt-transport'>MQTT transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-mqtt-transport'>MQTT transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9512,10 +9732,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="45" type="checkbox" id="_tab_45">
                 <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.sap]
 
@@ -9539,7 +9759,7 @@ sender.bapi.parameter.customParameter = ""</code></pre>
                             <code>[transport.sap]</code>
                             
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to <a href='../../learn/integration-tutorials/sap-integration'>communicate with SAP</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to <a href='../../use-cases/tutorials/sap-integration'>communicate with SAP</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9727,10 +9947,10 @@ sender.bapi.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="46" type="checkbox" id="_tab_46">
                 <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.msmq]
 
@@ -9748,7 +9968,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.msmq]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-msmq-transport'>MSMQ transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-msmq-transport'>MSMQ transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -9831,10 +10051,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="47" type="checkbox" id="_tab_47">
                 <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.tcp]
 
@@ -9855,7 +10075,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.tcp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#tcp-transport-blocking-mode'>blocking transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#tcp-transport-blocking-mode'>blocking transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10001,10 +10221,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="48" type="checkbox" id="_tab_48">
                 <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.tcp]
 
@@ -10025,7 +10245,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.blocking.tcp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a> in blocking mode. You can use the <a href='#tcp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking TCP transport.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-tcp-transport'>TCP transport</a> in blocking mode. You can use the <a href='#tcp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking TCP transport.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10045,10 +10265,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="49" type="checkbox" id="_tab_49">
                 <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.ws]
 
@@ -10064,7 +10284,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.ws]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>Websocket transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>Websocket transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10168,10 +10388,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="50" type="checkbox" id="_tab_50">
                 <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.wss]
 
@@ -10190,7 +10410,7 @@ sender.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[transport.wss]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>secured Websocket transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-websocket-transport'>secured Websocket transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10336,10 +10556,10 @@ sender.truststore_password = "$ref{truststore.password}"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="51" type="checkbox" id="_tab_51">
                 <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.udp]
 
@@ -10356,7 +10576,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.udp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#udp-transport-blocking-mode'>blocking transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to communicate through the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a>. Note that the list of parameters given below can be used for the non-blocking transport as well as the <a href='#udp-transport-blocking-mode'>blocking transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10418,10 +10638,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="52" type="checkbox" id="_tab_52">
                 <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.blocking.udp]
 
@@ -10438,7 +10658,7 @@ sender.parameter.customParameter = ""</code></pre>
                             <code>[transport.blocking.tcp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that are used to configure the <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a> in blocking mode. You can use the <a href='#udp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking UDP transport.
+                                This configuration header groups the parameters that are used to configure the <a href='../../setup/transport-configurations/configuring-transports/#configuring-the-udp-transport'>UDP transport</a> in blocking mode. You can use the <a href='#udp-transport-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking UDP transport.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10458,10 +10678,10 @@ sender.parameter.customParameter = ""</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="53" type="checkbox" id="_tab_53">
                 <label class="tab-selector" for="_tab_53"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_transport.listener]]
 class = "org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportListener"
@@ -10474,7 +10694,7 @@ protocol = "hl7"</code></pre>
                             <code>[[custom_transport.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to receive messages through a <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to receive messages through a <a href='../../setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10536,10 +10756,10 @@ protocol = "hl7"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="54" type="checkbox" id="_tab_54">
                 <label class="tab-selector" for="_tab_54"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[custom_transport.sender]]
 class = "org.wso2.micro.integrator.business.messaging.hl7.transport.HL7TransportSender"
@@ -10552,7 +10772,7 @@ protocol = "hl7"</code></pre>
                             <code>[transport.udp]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to send messages through a <a href='../../install-and-setup/setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
+                                This configuration header groups the parameters that configure the WSO2 Integrator: MI to send messages through a <a href='../../setup/transport-configurations/configuring-transports/#configuring-custom-transports'>custom transport</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -10614,10 +10834,10 @@ protocol = "hl7"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="55" type="checkbox" id="_tab_55">
                 <label class="tab-selector" for="_tab_55"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[mediation]
 synapse.core_threads = 20
@@ -10852,13 +11072,13 @@ inbound.max_threads = 100</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>flow.statistics.capture_all</code> </span>
+                                  <span class="param-name-wrap"> <code>flow.statistics.enable</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -10934,424 +11154,6 @@ inbound.max_threads = 100</code></pre>
                                         <p>Set this property to true and enable tracing for the required integration artifact to record the following information:&lt;ul&gt;&lt;li&gt;Message context properties.&lt;/li&gt;&lt;li&gt;Message transport-scope properties.&lt;/li&gt;&lt;/ul&gt;</p>
                                     </div>
                                 </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>synapse.disable_thread_switch_on_blocking_call</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>By default, Axis2 spawns a new thread to handle each outgoing message. This is done to enable non-blocking message processing behaviour. But this might exhaust the thread pool and cause erroneous behaviour in guaranteed transaction scenarios. You can use this configuration to disable this behaviour when dealing with queuing transports like JMS. This thread-switching behaviour can also be disabled at the mediation level with the use of a <a href="{{base_path}}/reference/mediators/property-reference/generic-properties/#clientapinonblocking">property</a>.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-## Observability - OpenTelemetry
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-
-            <input name="56" type="checkbox" id="_tab_56">
-                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
-                    <div class="mb-config-example">
-<pre><code class="toml">[opentelemetry]
-enable = false
-logs = false
-type = "otlp"
-host = "localhost"
-port = 4318
-protocol = "http"
-
-[[opentelemetry.properties]]
-name = "api-key"
-value = "your-api-key"
-</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[opentelemetry]</code>
-
-                            <p>
-                                This configuration header groups the parameters used for enabling and configuring OpenTelemetry tracing in the WSO2 Integrator: MI. OpenTelemetry allows distributed tracing for debugging, observing, and identifying bottlenecks in message flows. 
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>"true" or "false"</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enables or disables OpenTelemetry tracing for the MI server. Set this to true to enable distributed tracing capabilities.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>logs</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>"true" or "false"</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enables or disables logging for OpenTelemetry traces. When enabled, tracing information is logged for debugging purposes.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>type</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>jaeger</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>"jaeger", "zipkin", "log", "otlp", or custom type name</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies the type of OpenTelemetry exporter to use. Options include jaeger (Jaeger tracing), zipkin (Zipkin tracing), log (log-based tracing), otlp (OpenTelemetry Protocol for APMs like NewRelic, Elastic), or a custom exporter type.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>host</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>localhost</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>Valid hostname or IP address</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The hostname or IP address of the tracing backend endpoint. This parameter is optional if the url parameter is specified. Used with Jaeger, Zipkin, or OTLP exporters.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>port</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>14250</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>Valid port number</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The port number of the tracing backend endpoint. This parameter is optional if the url parameter is specified. Common ports: 14250 for Jaeger, 9411 for Zipkin, 4318 for OTLP HTTP, 4317 for OTLP gRPC.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>url</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>Valid URL</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The complete URL of the tracing backend endpoint. This parameter can be used instead of specifying separate host and port parameters. Example: http://localhost:4318 for OTLP.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>protocol</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>"grpc"</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>"http" or "grpc"</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies the transport protocol to use for OTLP exporters. The default is gRPC. Set this to http to use HTTP transport for OTLP traces. This parameter is only applicable when type is set to otlp.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-Additional custom properties can be configured using the `[[opentelemetry.properties]]` array configuration:
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-
-            <input name="57" type="checkbox" id="_tab_57">
-                <label class="tab-selector" for="_tab_57"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
-                    <div class="mb-config-example">
-<pre><code class="toml">[[opentelemetry.properties]]
-name = "api-key"
-value = "your-api-key-value"
-
-[[opentelemetry.properties]]
-name = "custom-header"
-value = "custom-value"
-</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[[opentelemetry.properties]]</code>
-
-                            <p>
-                                This configuration allows you to specify custom headers and properties for OpenTelemetry exporters. This is particularly useful when connecting to APM providers that require authentication headers or other custom metadata. You can define multiple property entries by repeating the <code>[[opentelemetry.properties]]</code> section.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>name</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>Property or header name</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The name of the custom property or header to be sent with OpenTelemetry traces. For example, api-key for authentication headers.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>value</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>Property or header value</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The value of the custom property or header. For example, the API key value for authentication.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-## REST API - CORS Configuration
-
-To enable CORS for the [REST APIs]({{base_path}}/develop/creating-artifacts/creating-an-api) globally, you need to configure the API's CORS settings in the `deployment.toml` file:
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-
-            <input name="56" type="checkbox" id="_tab_56">
-                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
-                <div class="superfices-content" style="display: none;">
-                    <div class="mb-config-example">
-<pre><code class="toml">[synapse_properties]
-'synapse.rest.CORSConfig.enabled' = "true"
-'synapse.rest.CORSConfig.Access-Control-Allow-Origin' = "https://test.com"
-'synapse.rest.CORSConfig.Access-Control-Allow-Headers' = "content-type, Accept, Authorization"
-'synapse.rest.CORSConfig.Access-Control-Allow-Methods' = "GET, POST, DELETE, PUT, PATCH, OPTIONS"
-</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[synapse_properties]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                This configuration header is required for configuring CORS settings for REST APIs globally.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.enabled</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable/Disable CORS for the REST APIs at the server level.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.Access-Control-Allow-Origin</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-optional">Optional</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies the allowed origins for CORS requests. Use '*' to allow all origins or specify a specific URL.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.Access-Control-Allow-Headers</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-optional">Optional</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies the allowed headers for CORS requests. Provide a comma-separated list of header names.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>synapse.rest.CORSConfig.Access-Control-Allow-Methods</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-optional">Optional</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies the allowed methods for CORS requests. Provide a comma-separated list of HTTP methods (e.g., GET, POST).</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -11368,10 +11170,10 @@ To enable CORS for the [REST APIs]({{base_path}}/develop/creating-artifacts/crea
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="56" type="checkbox" id="_tab_56">
                 <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[synapse_handlers]]
 name = <handler_name>
@@ -11447,10 +11249,10 @@ class = <handler_class>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
+            
             <input name="57" type="checkbox" id="_tab_57">
                 <label class="tab-selector" for="_tab_57"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content" style="display: none;">
+                <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">#Static Token Authentication
 
@@ -11504,7 +11306,7 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
                             <code>[[external_vault]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required for configuring an external vault for secrets. Read more about <a href='../../install-and-setup/setup/security/using-hashicorp-secrets'>using HashiCorp sercrets</a>.
+                                This configuration header is required for configuring an external vault for secrets. Read more about <a href='../../setup/security/using-hashicorp-secrets'>using HashiCorp sercrets</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -11748,70 +11550,3 @@ keyStorePassword = "KEY_STORE_PASSWORD"</code></pre>
     </section>
 </div>
 
-## Expose versioned services configuration
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-
-            <input name="56" type="checkbox" id="_tab_56">
-                <label class="tab-selector" for="_tab_56"><i class="icon fa fa-code"></i></label>
-                <div class="superfices-content" style="display: none;">
-                    <div class="mb-config-example">
-<pre><code class="toml">[synapse_properties]
-'expose.versioned.services' = true
-</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[synapse_properties]</code>
-                            <p>
-                                This configuration header is required for exposing versioned services.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>expose.versioned.services</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enables exposing APIs, Proxy Services, and Data Services as versioned services.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-{% raw %}
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".tab-selector:not(.skip-toggle)").forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      const codeBlock = btn.nextElementSibling;
-      const isHidden = codeBlock.style.display === "none" || !codeBlock.style.display;
-      codeBlock.style.display = isHidden ? "block" : "none";
-    });
-  });
-});
-</script>
-{% endraw %}
