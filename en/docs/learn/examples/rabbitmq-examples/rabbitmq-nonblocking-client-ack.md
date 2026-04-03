@@ -1,11 +1,11 @@
 # How to Manage Guaranteed Delivery with Non-Blocking Client Acknowledgement
 
 This sample demonstrates how **WSO2 Integrator: MI** can ensure
-guaranteed message delivery from RabbitMQ while maintaining a
+guaranteed message delivery from RabbitMQ queue while maintaining a
 **non-blocking processing model** using **client-controlled
 acknowledgements**.
 
-In this approach, messages are consumed from RabbitMQ using **client
+In this approach, messages are consumed from RabbitMQ queue using **client
 acknowledgement mode**, and message acknowledgement is controlled
 explicitly through mediation logic. This allows the Micro Integrator to
 process messages using a **non-blocking architecture**, improving
@@ -68,6 +68,39 @@ the acknowledgement is not received within this time, the message will
 be **negatively acknowledged (NACK)** and returned to the queue.
 
 ------------------------------------------------------------------------
+
+## Reliable Error Queue Publishing with Publisher Confirms
+
+When routing messages to a configured **error queue** or **final queue**, there is a possibility of message loss if the publish operation fails.
+
+To improve reliability, the Micro Integrator supports **publisher confirms** for error queue publishing. When enabled, the broker acknowledges each published message, allowing the Micro Integrator to ensure that the message has been successfully delivered before removing it from the source queue.
+
+If a publish attempt fails, or if a confirmation is not received within the configured timeout, the operation is retried based on the configured retry count.
+
+### Enable Publisher Confirms for Error Queue Publishing
+
+Add the following parameters to the **proxy service configuration**:
+
+```xml
+<parameter name="rabbitmq.message.error.publish.with.confirms.enabled">true</parameter>
+<parameter name="rabbitmq.message.error.publish.confirm.timeout">5000</parameter>
+<parameter name="rabbitmq.message.error.publish.max.retry.count">3</parameter>
+```
+
+### Configuration Description
+
+### `rabbitmq.message.error.publish.with.confirms.enabled`
+
+Enables publisher confirms when publishing messages to the error or final queue. The message is acknowledged only after a successful broker confirmation.
+
+### `rabbitmq.message.error.publish.confirm.timeout`
+
+The time, in milliseconds, to wait for a broker confirmation. If the timeout is exceeded, the publish is treated as failed.
+
+### `rabbitmq.message.error.publish.max.retry.count`
+
+The total number of publish attempts when sending a message to the error or final queue. If all attempts fail, the message is acknowledged and discarded.
+
 
 ## Overriding the ACK Wait Time per Listener
 
