@@ -4,7 +4,6 @@ Before using the Azure Service Bus connector, you need to create an Azure Servic
 
 ## Prerequisites
 
-- Java 17 or above.
 - An active [Azure subscription](https://azure.microsoft.com/free/). If you don't have one, sign up for a free Azure account.
 
 ## Step 1: Create a Service Bus Namespace

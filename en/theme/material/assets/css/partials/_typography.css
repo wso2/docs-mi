@@ -59,3 +59,58 @@
 .md-typeset {
   font-size: var(--rem);
 }
+
+/* List indentation and spacing */
+.md-typeset ul,
+.md-typeset ol {
+  margin: 0 0 1em 0;
+  padding-left: 2em;
+}
+
+.md-typeset ul li,
+.md-typeset ol li {
+  margin-bottom: 0.5em;
+  margin-left: 0;
+}
+
+.md-typeset ul li:last-child,
+.md-typeset ol li:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested lists */
+.md-typeset ul ul,
+.md-typeset ul ol,
+.md-typeset ol ul,
+.md-typeset ol ol {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Blockquote indentation */
+.md-typeset blockquote {
+  padding-left: 0.6rem;
+  border-left: 0.2rem solid var(--md-default-fg-color--lighter);
+  margin-left: 0;
+}
+
+/* Admonition content indentation */
+.md-typeset .admonition > *,
+.md-typeset details > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Code block indentation */
+.md-typeset pre {
+  margin: 1em 0;
+}
+
+/* Table of contents indentation */
+.md-typeset .toc ul {
+  margin-left: 0;
+}
+
+.md-typeset .toc ul li {
+  margin-left: 0;
+}

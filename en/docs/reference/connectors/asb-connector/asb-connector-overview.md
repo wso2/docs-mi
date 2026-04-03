@@ -33,9 +33,11 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector
 
 ## Compatibility
 
+
 | Connector Version | Supported Product Versions | Supported Java Versions |
 |-------------------|----------------------------|-------------------------|
 | 1.0.0             | MI 4.4.0+                  | Java 17+                |
+
 
 ## Azure Service Bus Connector documentation
 
