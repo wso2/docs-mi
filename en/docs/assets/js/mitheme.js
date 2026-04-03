@@ -1,7 +1,7 @@
 /*!
- * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2024, WSO2 LLC. (http://www.wso2.com) All Rights Reserved.
  *
- * WSO2 Inc. licenses this file to you under the Apache License,
+ * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,15 +22,15 @@
 /* 
  * Initialize highlightjs 
  */
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
     hljs.initHighlightingOnLoad();
 });
-(function() {
-    if(document.querySelector('.tab-selector')){
-        document.querySelector('.tab-selector').addEventListener('click', function(e) {
+(function () {
+    if (document.querySelector('.tab-selector')) {
+        document.querySelector('.tab-selector').addEventListener('click', function (e) {
             // Show hide tab content next to the clicked tab
             var tabContentToShow = e.target.nextElementSibling;
-            if(tabContentToShow.style.display === 'none') {
+            if (tabContentToShow.style.display === 'none') {
                 tabContentToShow.style.display = 'block';
             } else {
                 tabContentToShow.style.display = 'none';
@@ -39,18 +39,18 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 })();
 
-/*
- * Initialize custom dropdown component
- */
+
+// Initialize custom dropdown component
+
 var dropdowns = document.getElementsByClassName('md-tabs__dropdown-link');
 var dropdownItems = document.getElementsByClassName('mb-tabs__dropdown-item');
 
 function indexInParent(node) {
     var children = node.parentNode.childNodes;
     var num = 0;
-    for (var i=0; i < children.length; i++) {
-         if (children[i]==node) return num;
-         if (children[i].nodeType==1) num++;
+    for (var i = 0; i < children.length; i++) {
+        if (children[i] == node) return num;
+        if (children[i].nodeType == 1) num++;
     }
     return -1;
 }
@@ -76,9 +76,9 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
-/*
- * Reading versions
- */
+
+// Reading versions
+
 var pageHeader = document.getElementById('page-header');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
@@ -87,209 +87,130 @@ var docSetLang = pageHeader.getAttribute('data-lang');
     docSetLang = docSetLang + '/';
 
 var docSetUrl = window.location.origin + '/' + docSetLang;
+var langRoot = window.location.origin + '/' + docSetLang;
+var activeRoot = window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf('/', 4) + 1);
+
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    docSetUrl = window.location.origin + '/en/4.5.0/';
+    activeRoot = window.location.origin + '/en/4.5.0/';
+    langRoot = window.location.origin + '/en/';
+}
+
 var request = new XMLHttpRequest();
 
-request.open('GET', docSetUrl +
-             'versions/assets/versions.json', true);
+request.open('GET', activeRoot +
+    'versions/assets/versions.json', true);
 
-request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
+request.onload = function () {
+    if (request.status >= 200 && request.status < 400) {
 
-      var data = JSON.parse(request.responseText);
-      var dropdown =  document.getElementById('version-select-dropdown');
-      var checkVersionsPage = document.getElementById('current-version-stable');
-
-      /*
-       * Appending versions to the version selector dropdown
-       */
-      if (dropdown){
-          data.list.sort().forEach(function(key, index){
-              var versionData = data.all[key];
-
-              if(versionData) {
-                  var liElem = document.createElement('li');
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
-
-                  var currentPath= window.location.pathname;
-                     // Find the index of '/en/'
-                  var pathWithoutEn = currentPath.substring(4,currentPath.length);
-                  var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
-
-                  url = docSetUrl + key+ pathWithoutVersion;
+        var data = JSON.parse(request.responseText);
+        var dropdown = document.getElementById('version-select-dropdown');
+        var checkVersionsPage = document.getElementById('current-version-stable');
 
 
-                  liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                  liElem.innerHTML =  '<a href="'+ url+'">' + key + '</a>';
+        // Appending versions to the version selector dropdown
 
-                  dropdown.insertBefore(liElem, dropdown.firstChild);
-              }
-          });
+        function compareSemVer(a, b) {
+            // implement a compareSemVer function that splits version strings by '.' and compares each numeric segment
+            var partsA = a.split('.').map(Number);
+            var partsB = b.split('.').map(Number);
+            for (var i = 0; i < Math.max(partsA.length, partsB.length); i++) {
+                var valA = partsA[i] || 0;
+                var valB = partsB[i] || 0;
+                if (valA !== valB) return valA - valB; // Ascending like default sort()
+            }
+            return a.localeCompare(b);
+        }
 
-          document.getElementById('show-all-versions-link')
-              .setAttribute('href', docSetUrl + 'versions');
-      }
+        if (dropdown) {
+            data.list.sort(compareSemVer).forEach(function (key, index) {
+                var versionData = data.all[key];
 
-      /*
-       * Appending versions to the version tables in versions page
-       */
-      if (checkVersionsPage){
-          var previousVersions = [];
+                if (versionData) {
+                    var liElem = document.createElement('li');
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
+                    var url = data.all[key].doc;
 
-          Object.keys(data.all).forEach(function(key, index){
-              if ((key !== data.current) && (key !== data['pre-release'])) {
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
+                    var currentPath = window.location.pathname;
+                    // Find the index of '/en/'
+                    var pathWithoutEn = currentPath.substring(4, currentPath.length);
+                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length);
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
+                    if (docLinkType === 'https' || docLinkType === 'http') {
+                        // For external links (older versions), go directly to the configured URL for that version plus the path
+                        url = data.all[key].doc.replace(/\/$/, "") + pathWithoutVersion;
+                    } else {
+                        // For relative internal versions (like '4.5.0')
+                        url = langRoot + data.all[key].doc + pathWithoutVersion;
+                    }
 
-                  previousVersions.push('<tr>' +
-                    '<th>' + key + '</th>' +
+
+                    liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                    liElem.innerHTML = '<a href="' + url + '">' + key + '</a>';
+
+                    dropdown.insertBefore(liElem, dropdown.firstChild);
+                }
+            });
+
+            document.getElementById('show-all-versions-link')
+                .setAttribute('href', activeRoot + 'versions');
+        }
+
+
+        // Appending versions to the version tables in versions page
+
+        if (checkVersionsPage) {
+            var previousVersions = [];
+
+            Object.keys(data.all).forEach(function (key, index) {
+                if ((key !== data.current) && (key !== data['pre-release'])) {
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
+
+                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
+                        target = '_blank'
+                    }
+
+                    previousVersions.push('<tr>' +
+                        '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' +
-                                target + '">Documentation</a>' +
+                        '<a href="' + data.all[key].doc + '" target="' +
+                        target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' +
-                                target + '">Release Notes</a>' +
+                        '<a href="' + data.all[key].notes + '" target="' +
+                        target + '">Release Notes</a>' +
                         '</td>' +
-                    '</tr>');
-              }
-          });
+                        '</tr>');
+                }
+            });
 
-          // Past releases update
-          document.getElementById('previous-versions').innerHTML =
-                  previousVersions.join(' ');
+            // Past releases update
+            document.getElementById('previous-versions').innerHTML =
+                previousVersions.join(' ');
 
-          // Current released version update
-          document.getElementById('current-version-number').innerHTML =
-                  data.current;
-          document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
-          document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
+            // Current released version update
+            document.getElementById('current-version-number').innerHTML =
+                data.current;
+            document.getElementById('current-version-documentation-link')
+                .setAttribute('href', langRoot + data.all[data.current].doc);
+            document.getElementById('current-version-release-notes-link')
+                .setAttribute('href', langRoot + data.all[data.current].notes);
 
-          // Pre-release version update
-          document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + 'next/');
-      }
+            // Pre-release version update
+            document.getElementById('pre-release-version-documentation-link')
+                .setAttribute('href', langRoot + 'next/');
+        }
 
-  } else {
-      console.error("We reached our target server, but it returned an error");
-  }
+    } else {
+        console.error("We reached our target server, but it returned an error");
+    }
 };
 
-request.onerror = function() {
+request.onerror = function () {
     console.error("There was a connection error of some sort");
 };
 
 request.send();
-
-document.addEventListener("DOMContentLoaded", function () {
-    var searchInput = document.querySelector("input.md-search__input");
-    let timeout = null;
-
-    if (searchInput) {
-        searchInput.addEventListener("input", function (event) {
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                let searchTerm = event.target.value.trim();
-                dataLayer.push({'event':'search','searchTerm':searchTerm});
-            }, 500);
-        });
-    }
-});
-
-var feedback = document.forms.feedback
-
-if (hasUserAcceptedCookies() && !isHomePage()) {
-    feedback.hidden = false
-}
-
-feedback.addEventListener("submit", function(ev) {
-  ev.preventDefault()
-
-  var page = document.location.pathname
-  var data = ev.submitter.getAttribute("data-md-value")
-
-  const pageLabel = page + "_" + data;
-  dataLayer.push({'event':'feedback','pageLabel':pageLabel});
-
-  feedback.firstElementChild.disabled = true
-
-  var note = feedback.querySelector(
-    ".md-feedback__note [data-md-value='" + data + "']"
-  )
-  if (note)
-    note.hidden = false
-})
-
-function isHomePage() {
-    return window.location.pathname === "/" || window.location.pathname === "/en/latest/";
-}
-
-function hasUserAcceptedCookies() {
-    const consentCookie = document.cookie.split('; ').find(row => row.startsWith('OptanonConsent='));
-    if (consentCookie) {
-        return consentCookie.includes('isGpcEnabled=0'); // Check if user has interacted with consent
-    }
-    return false;
-}
-
-// Utility function to process tutorial steps
-function processTutorialSteps(title, steps) {
-    document.querySelectorAll("label.md-nav__title").forEach(label => {
-        if (label.textContent.trim() === title) {
-            const ul = label.nextElementSibling;
-            if (ul && ul.tagName === "UL") {
-                ul.classList.add("custom-integration-list");
-                const listItems = ul.querySelectorAll("li");
-                let count = 1;
-                let completed = true;
-                listItems.forEach(li => {
-                    const link = li.querySelector("a.md-nav__link");
-                    if (link) {
-                        const linkText = link.textContent.trim();
-                        if (steps.includes(linkText)) {
-                            // Remove any existing numbers (if script runs again)
-                            link.innerHTML = link.innerHTML.replace(/^\d+\.\s*/, "");
-                            link.innerHTML = `<span class="custom-number">${count}</span> ${link.innerHTML}`;
-                            count++;
-                            if (completed) {
-                                li.classList.add("md-nav__link--completed");
-                            }
-                            if (li.classList.contains("md-nav__item--active")) {
-                                console.log("active");
-                                completed = false;
-                            }
-                        }
-                    }
-                });
-            }
-        }
-    });
-}
-
-// Define the exact displayed names for "Build your first integration" steps
-const integrationSteps = [
-    "Develop an Integration API",
-    "Route and Transform messages",
-    "Connect to SaaS or B2B Systems",
-    "Monitor and Manage Integrations"
-];
-
-
-// Define the exact displayed names for "Build your first ai integration" steps
-const aiIntegrationSteps = [
-    "Build an AI Chatbot",
-    "Build a Knowledge Base",
-    "Connect a Knowledge Base to the Chatbot",
-    "Create an AI Agent"
-];
-
-// Process tutorials
-processTutorialSteps("Build your first Integration", integrationSteps);
-processTutorialSteps("Build your first AI Integration", aiIntegrationSteps);
