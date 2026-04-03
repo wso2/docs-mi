@@ -964,7 +964,7 @@
     }
 
     [data-md-toggle=search]:checked~.md-header .md-tabs,
-    [data-md-toggle=search]:checked~.md-header .md-header__version-select-dropdown {
+    [data-md-toggle=search]:checked~.md-header .md-header__version-select {
         transition: opacity .25s;
         opacity: 0;
     }
@@ -1002,3 +1002,5 @@
         width: 16px;
     }
 }
+/* End of custom dropdown specific styles */
+

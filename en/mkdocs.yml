@@ -1238,6 +1238,7 @@ extra_javascript:
   - assets/lib/highlightjs/highlight.min.js
   - assets/js/theme.js
   - assets/js/copy-page.js
+  - assets/js/mitheme.js
 extra:
   material:
     jinja2content: true
