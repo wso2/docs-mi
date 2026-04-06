@@ -48,8 +48,8 @@ theme:
          toggle:
            icon: material/brightness-7
            name: Switch to light mode
-    logo: assets/img/logo-for-light.svg
-    logo_light: assets/img/logo.svg
+    logo: assets/img/WSO2-logo-black.svg
+    logo_light: assets/img/WSO2-logo-white.svg
     favicon: assets/img/favicon.png
     features:
        - navigation.indexes
@@ -1265,7 +1265,7 @@ extra:
             - title: What's New
               url: Get Started|About this Release
         - title: Community & Support
-          icon: octicons/light-bulb-16
+          icon: assets/img/WSO2-logo-black.svg
           icon_color: icon-color-2
           list_items:
             - title: GitHub
