@@ -36,7 +36,7 @@ Given below are the security guidelines for the Micro Integrator runtime.
         critical issues.</li>
         <li>WSO2 does not issue patches publicly for older product versions. Community users are encouraged to use the 
         latest product version to receive all the security issues resolved until that particular product release.</li>
-        <li><a href="https://docker.wso2.com/tags.php?repo=wso2mi">WSO2 Docker repository</a> releases docker images with security fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can fetch these docker images.</li>
+        <li><a href="https://registry.wso2.com/harbor/projects">WSO2 Docker repository</a> releases docker images with security fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can fetch these docker images.</li>
         </ul>
         </td>
       </tr>
