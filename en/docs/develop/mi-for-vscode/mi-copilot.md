@@ -6,7 +6,7 @@ The WSO2 Integrator:  MI Copilot is an AI-powered tool that simplifies the proce
 
 2. Click the **Open AI Panel** icon in the top-right corner of VS Code to open the MI Copilot interface. You can also type in the text box below and click **Generate** to open the MI Copilot interface.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" alt="Open AI Panel" width="100%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" alt="Open AI Panel" width="100%"></a>
 
     !!! note
         To use WSO2 MI Copilot in your integration project, you need an MI Copilot account.
@@ -21,15 +21,15 @@ The WSO2 Integrator:  MI Copilot is an AI-powered tool that simplifies the proce
 
         3.To create an account, click **Register**.
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/sign-in-to-copilot.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/sign-in-to-copilot.png" alt="sign-in-to-copilot" width="30%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/sign-in-to-copilot.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/sign-in-to-copilot.png" alt="sign-in-to-copilot" width="30%"></a>
 
         4.Sign up using your email, Google account, or GitHub account.
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/sign-up-to-copilot.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/sign-up-to-copilot.png" alt="sign-up-to-copilot" width="30%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/sign-up-to-copilot.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/sign-up-to-copilot.png" alt="sign-up-to-copilot" width="30%"></a>
 
 3. You can describe your integration scenarios in natural language in the provided text box, and the Copilot will generate the necessary integration projects, configurations, and required artifacts.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" alt="MI Copilot" width="100%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" alt="MI Copilot" width="100%"></a>
 
     !!! info
         You can provide integration requirements as:
@@ -52,8 +52,8 @@ The WSO2 Integrator:  MI Copilot is an AI-powered tool that simplifies the proce
 
     **Example 1:** Describe the integration scenario in natural language.
     
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/text-prompt.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/text-prompt.gif" alt="text prompt" width="900"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/text-prompt.gif" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/text-prompt.gif" alt="text prompt" width="900"></a>
     
     **Example 2:** Describe the integration scenario in natural language and upload an additional file.
     
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/file-upload.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/file-upload.gif" alt="file upload" width="900"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/file-upload.gif" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/file-upload.gif" alt="file upload" width="900"></a>

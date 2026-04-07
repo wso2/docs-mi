@@ -19,7 +19,7 @@ You will:
 
 The inbound endpoint captures CDC events and injects them into a mediation sequence. In this example, we simply log the message, but you can extend it with any logic using [WSO2 Integrator: MI mediators]({{base_path}}/reference/mediators/about-mediators/).
 
-<a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram-cdc.png" title="Salesforce CDC Integration" alt="Salesforce CDC Integration"/></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram-cdc.png" title="Salesforce CDC Integration" alt="Salesforce CDC Integration"/></a>
 
 ## Step 1: Enable CDC for the Account Object
 

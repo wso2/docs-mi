@@ -28,7 +28,7 @@ Follow the steps in [create integration project]({{base_path}}/develop/create-in
 
 1. First, create the `PostRecord` and `ReadRecord` sequences. Select WSO2 Integrator: MI and click `+` on **Sequences** to create the sequence.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png"><img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/servicenow/add-sequence.png" title="Adding a Sequence" width="800" alt="Adding a Sequence"/></a>
 
 2. Provide the Sequence name as `PostRecord` and click on **Create**. It will open a graphical view of the sequence where you can add the mediators and connectors.  
 

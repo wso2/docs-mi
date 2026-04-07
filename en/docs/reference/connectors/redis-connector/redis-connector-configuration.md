@@ -18,8 +18,8 @@ To configure the Redis connector, download the following client libraries from t
 3. Enter **redis-server** command to start the Redis server.
 4. In the command line, you can see the Redis **port** and **PID** as shown below.
     
-    <a href="{{base_path}}/assets/img/integrate/connectors/redis-server.png"><img src="{{base_path}}/assets/img/integrate/connectors/redis-server.png" title="Redis server" alt="Redis server"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/redis-server.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/redis-server.png" title="Redis server" alt="Redis server"/></a>
  
 5. You can interact with Redis using the built-in client. In the command line, navigate to the location you installed Redis. Enter `redis-cli`.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/redis-client.png"><img src="{{base_path}}/assets/img/integrate/connectors/redis-client.png" title="Redis Client" width="60%" alt="Redis Client"/> </a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/redis-client.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/redis-client.png" title="Redis Client" width="60%" alt="Redis Client"/> </a>

@@ -21,7 +21,7 @@ Follow the instructions given below to open an already-created integration artif
 
 6. Refresh the **WSO2 Integrator: MI Project Explorer** to ensure that the files are visible in the project structure.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/refresh-project-explorer.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/refresh-project-explorer.png" alt="refresh project explorer" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/refresh-project-explorer.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/refresh-project-explorer.png" alt="refresh project explorer" width="30%"></a>
 
 !!! note
 

@@ -5,7 +5,7 @@ This document explains the Continuous Integration and Continuous Deployment (CI/
 !!! Note
     This pipeline setup is provided for demonstration purposes using Jenkins. In production environments, you may implement similar flows using other CI/CD platforms such as GitHub Actions, GitLab CI, Azure DevOps etc.
 
-<a href="{{base_path}}/assets/img/setup-and-install/mi-cicd-K8s.png"><img src="{{base_path}}/assets/img/setup-and-install/mi-cicd-K8s.png" alt="CICD pipeline"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/mi-cicd-K8s.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/mi-cicd-K8s.png" alt="CICD pipeline"></a>
 
 ## Integration Project Build Job
 
@@ -17,7 +17,7 @@ This document explains the Continuous Integration and Continuous Deployment (CI/
 
 The integration project build pipeline conatins the following main 5 stages:
 
-<a href="{{base_path}}/assets/img/setup-and-install/integration_pipeline.png"><img src="{{base_path}}/assets/img/setup-and-install/integration_pipeline.png" alt="Integration pipeline" width="70%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/integration_pipeline.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/integration_pipeline.png" alt="Integration pipeline" width="70%"></a>
 
 1. **Clone Integration Project**: Securely clones the integration project using a GitHub Personal Access Token (PAT).
 
@@ -40,7 +40,7 @@ The integration project build pipeline conatins the following main 5 stages:
 
 The deployment pipeline contains the following four three stages:
 
-<a href="{{base_path}}/assets/img/setup-and-install/deployment_pipeline.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment_pipeline.png" alt="Deployment pipeline" width="70%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment_pipeline.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/deployment_pipeline.png" alt="Deployment pipeline" width="70%"></a>
 
 1. **Trigger on PR Merge**:
     Monitors the `dev` branch of the deployment repository for changes.

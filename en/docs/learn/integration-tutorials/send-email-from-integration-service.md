@@ -22,7 +22,7 @@ When you integrate the systems in your organization, it is also necessary to int
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -34,12 +34,12 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 2. Click on **Add artifact**.
 
-   <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
 5. Select **Http**.
    You need to add dependencies to the project, if not added yet.
@@ -130,7 +130,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 2. Click on **Add artifact**.
 3. Select **APIs** under **Create an Integration** to open the **API Form**.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/api-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/api-artifact.png" alt="api artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/api-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/api-artifact.png" alt="api artifact" width="80%"></a>
         
 4. Specify values for the required REST API properties:
 
@@ -166,7 +166,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 6. Click the **Edit** icon to edit the API resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
 
 7.  Specify values for the required resource properties:
 
@@ -189,7 +189,7 @@ Now let's start designing the integration by adding the necessary artifacts.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/edit-api-resource.png" alt="edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/edit-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/edit-api-resource.png" alt="edit API resource" width="30%"></a>
 
 8. Click **Update**.
 
@@ -199,7 +199,7 @@ You can now start updating the API resource with the mediation flow.
 
 1. Navigate to the **MI Project Explorer** > **APIs** > **HealthcareAPI** > **/categories/{category}/reserve**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/update-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/update-mediation-flow.png" alt="edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/update-mediation-flow.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/update-mediation-flow.png" alt="edit API resource" width="30%"></a>
 
 2. To add **Variable mediator** click **+** icon in the design view and select **Variable mediator** from the palette. This is used to extract the hospital name that is sent in the request payload. 
 
@@ -450,7 +450,7 @@ You can now start updating the API resource with the mediation flow.
 
 15. Add a **Respond** mediator to end the sequence processing.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/final-integration.png"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/final-integration.png" alt="final integration" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/final-integration.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/send-email-from-integration-service/final-integration.png" alt="final integration" width="80%"></a>
 
 We have now finished creating all the required artifacts.
 

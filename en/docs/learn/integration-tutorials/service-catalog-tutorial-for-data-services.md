@@ -26,7 +26,7 @@ Follow the instructions given in this section to create and configure the requir
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -38,7 +38,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 2. Click on the **+** symbol to open the **Add Artifact** pane.
 
-     <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
+     <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 
@@ -136,13 +136,13 @@ Let's start the API Manager runtime before starting the WSO2 Integrator: MI.
 
 5. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
-   <a href="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
+   <a href="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" class="glightbox"><img src="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
 
 6. Run the project.
 
    Click the **Build and Run** icon located in the top right corner of the VS Code.
 
-   <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
+   <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" class="glightbox"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
 When the WSO2 Integrator: MI starts, the integration service will be deployed to the **Service Catalog** during server startup. You will see the following in the server start-up log.
 
@@ -182,7 +182,7 @@ You can now see the new API's overview page.
     -   You can use the left-hand navigation to explore the new API.
     -   Click **Endpoints** in the left-hand navigator. You will see that the new API uses the integration service deployed in the WSO2 Integrator: MI as the endpoint (backend).
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-api.png" alt="endpoint view"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-api.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-api.png" alt="endpoint view"></a>
 
 **Select business plans**
 
@@ -192,7 +192,7 @@ Let's allocate some business plans for the API.
 
 2.  Select at least one business plan for the API and save.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-business-plan.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-business-plan.png" alt="add business plans to api"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-business-plan.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-business-plan.png" alt="add business plans to api"></a>
 
 **Deploy API in the Gateway**
 
@@ -203,7 +203,7 @@ Let's deploy the API in a gateway environment.
     !!! Tip
         This opens the **Deployment** tab in the left-hand navigator.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-deployment.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-deployment.png" alt="open the deployment options"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-deployment.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/dataservice-deployment.png" alt="open the deployment options"></a>
 
 2.  Click **Default** to specify the gateway environment and host.
 
@@ -220,7 +220,7 @@ You will now see the deployment as the first revision of the API.
 
 Click on **Overview** in the **Publisher** portal and click **Publish** for the `RDBMSDataService` as shown below.
 
-<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-publish.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-publish.png"></a>
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-publish.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-publish.png"></a>
 
 The API is now available in the **Developer** portal for consumers to access.
 
@@ -233,11 +233,11 @@ The API is now available in the **Developer** portal for consumers to access.
 
 2. Go to the **API** tab and click on the `RDBMSDataService`to open the API overview.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-api-overview.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-api-overview.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-api-overview.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-api-overview.png"></a>
 
 4. Click **API Console** under **Try Out** for the `RDBMSDataService` in the **Developer** portal as shown below.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-developer-portal.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-developer-portal.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-developer-portal.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-developer-portal.png"></a>
 
 5. Enter the username and password for Basic Authentication.
 
@@ -248,7 +248,7 @@ The API is now available in the **Developer** portal for consumers to access.
 7. Fill the EmployeeNumber. 
 8. Click **Execute**.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-try-it.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-try-it.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-try-it.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-try-it.png"></a>
 
     You will get the response message from the **RDBMSDataService** service, if you send the **EmployeeNumber** as `3`:
     
@@ -268,7 +268,7 @@ The API is now available in the **Developer** portal for consumers to access.
 10. Update the payload.
 11. Click **Execute**.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-soap-request.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-soap-request.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-soap-request.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/data-service-soap-request.png"></a>
 
     You will get the response message from the **RDBMSDataService** service, if you send the **EmployeeNumber** as `3`:
     

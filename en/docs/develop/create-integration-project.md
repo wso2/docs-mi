@@ -11,7 +11,7 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
 2. Click on the WSO2 Integrator: MI icon on the **Activity Bar** of the VS Code editor.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
 
     This will open the **Design View**.
 
@@ -21,13 +21,13 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
         Click **Create New Project** on **Design View**.
     
-        <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-design-view.png"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-design-view.png" alt="Create project using design view" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-design-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-design-view.png" alt="Create project using design view" width="80%"></a>
     
     - **Option 2:** Using the WSO2 Integrator: MI Project Explorer: 
 
         Click **Create New Project** on the **WSO2 Integrator: MI Project Explorer** pane.
         
-        <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-mi-project-explorer.png"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-mi-project-explorer.png" alt="Create project using MI project explorer" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-mi-project-explorer.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-mi-project-explorer.png" alt="Create project using MI project explorer" width="80%"></a>
 
     - **Option 3:** Using the Command Palette: 
 
@@ -35,7 +35,7 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
         2. Select **MI: Create New Project**.
 
-            <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-command-palette.png"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-command-palette.png" alt="Create project using command palette" width="80%"></a>
+            <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-command-palette.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-command-palette.png" alt="Create project using command palette" width="80%"></a>
 
       Next, the **Project Creation Form** will be opened.
 
@@ -45,13 +45,13 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
 6. Provide a location for the integration project under **Project Directory**.
 
-    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/new-project-details.png"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/new-project-details.png" alt="New Project Details" width="70%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/new-project-details.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/new-project-details.png" alt="New Project Details" width="70%"></a>
 
 7. Click **Create**.
 
     Once you click **Create**, the **Add Artifact** pane will be opened.
 
-    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/add-artifact-pane.png"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/add-artifact-pane.png" alt="Add Artifact Pane" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/add-artifact-pane.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/add-artifact-pane.png" alt="Add Artifact Pane" width="80%"></a>
 
 !!! note
     You need the following to work with the MI for VS Code extension.
@@ -63,7 +63,7 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
     1. Click **Download Java & MI** to download and set up Java and MI runtime.
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
 
         !!! info
             If a different version of the JDK or WSO2 MI is installed on your local machine, you'll be prompted to download the required versions. 
@@ -75,7 +75,7 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
         Once the process is complete, a window reload will be required, and you will be prompted with the following message:
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
 
     2. Click **Reload Window**.
 

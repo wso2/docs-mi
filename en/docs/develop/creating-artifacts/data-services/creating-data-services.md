@@ -10,7 +10,7 @@ Follow the instructions given below to create a new data service artifact in the
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click **+ View More** under **Create an Integration**.
 
@@ -32,11 +32,11 @@ You can configure the data source connection details in this step.
 
 1.	Go to the **Service Designer** of the created data service and click on **Edit** to reopen the **Data Service Form**.  
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-1.png" width="80%"></a>
 
 2.	Click on the **+ Add Datasource** to open the **Create Datasource** form.  
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-2.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-2.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-datasource-2.png" width="80%"></a>
 
 3. Enter the data source connection details.
 
@@ -52,11 +52,11 @@ In this step, you can configure a REST resource to invoke the data service.
 
 1.  Select **REST** and click on **+ Resource** to add a REST resource.
 	
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-resource-to-dataservice.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-resource-to-dataservice.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-resource-to-dataservice.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-resource-to-dataservice.png" width="80%"></a>
 
 2. Give the following details to create the REST resource. 
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png" width="80%"></a>  
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/create_resource.png" width="80%"></a>  
 
 	<table>
 		<tr>
@@ -89,11 +89,11 @@ In this step, you can configure a REST resource to invoke the data service.
 
 3. Go to the **Service Designer** view and click on the added resource to open the graphical view. 
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/open-resource-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/open-resource-graphical-view.png" width="80%"></a>  
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/open-resource-graphical-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/open-resource-graphical-view.png" width="80%"></a>  
 
 	The graphical view will appear as shown below. You can use it to configure the main query details.  
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" width="80%"></a>  
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" width="80%"></a>  
 
 ### Add a SOAP operation
 
@@ -101,19 +101,19 @@ In this step you can configure a SOAP operation for invoking the data service.
 
 1.  Select **SOAP** and click on **+ Operation** to add a SOAP operation.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/new-operataion.png" width="80%"></a>
 
 2.  Give a name to the SOAP Operation, then click on **Add**.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-operation.png" width="80%"></a>
 
 3. Click on the added operation to open the graphical view.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/open-operation-graphical-view.png" width="80%"></a>
 
 	The graphical view will appear as shown below. You can use it to configure the main query details.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png" width="80%"></a>  
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/soap-operation-view.png" width="80%"></a>  
 
 ### Create queries for REST resources and SOAP operations
 
@@ -121,7 +121,7 @@ You can configure the main query details for both SOAP operations and REST resou
 
 1.  Click on **Query** to edit the query configuration.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-query.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-query.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-query.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-query.png" width="80%"></a>
 
 2. Enter the following query details.
 
@@ -168,7 +168,7 @@ You can configure input parameters for the query using this section.
 
 1.  Click on the **Input Mapping** from the graphical view to edit the section.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-input-mapping.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-input-mapping.png" width="80%"></a>  
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-input-mapping.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/edit-input-mapping.png" width="80%"></a>  
 
 2.	There are two  ways to create the mapping:
 
@@ -178,7 +178,7 @@ You can configure input parameters for the query using this section.
 
     	1. Click **+ Add Parameter**.  
 
-			<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-input-mapping-params.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-input-mapping-params.png" width="80%"></a>
+			<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add-input-mapping-params.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add-input-mapping-params.png" width="80%"></a>
 
        	2. Enter the following input mapping details:
 
@@ -229,7 +229,7 @@ You can configure input parameters for the query using this section.
 
 	Shown below is an example query with input mapping:
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/input_mappings.png" width="80%"></a>
 
 #### Result (output mappings)
 
@@ -237,7 +237,7 @@ You can configure output result parameters for the query using this section.
 
 1.  Click **Output Mapping** from the graphical view to edit the output mapping configurations.
 
-	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png" width="80%"></a>
+	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/out_mapping_expanded.png" width="80%"></a>
 
 2. There are two ways to create the output mapping:
 
@@ -247,7 +247,7 @@ You can configure output result parameters for the query using this section.
       	1. Click **+ Add Parameter**.
 
 	
-			<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png" width="80%"></a>
+			<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/add_output_mappings.png" width="80%"></a>
 
       	2. Enter the following output element details.
 
@@ -282,7 +282,7 @@ You can configure output result parameters for the query using this section.
 
 		Shown below is an example query with output mappings:
 
-		<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png" width="80%"></a>
+		<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/output_mapings.png" width="80%"></a>
 
 ## Tutorials
 

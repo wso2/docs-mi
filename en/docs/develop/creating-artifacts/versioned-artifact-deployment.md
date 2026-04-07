@@ -23,7 +23,7 @@ You can enable artifact versioning from the project setting in VS Code.
 1. Open the **Project Overview** in your integration project.
 2. In the **Build Details** section, enable or disable versioned artifact deployment for the project.
 
-<a href="{{base_path}}/assets/img/develop/create-artifacts/versioned-artifact-deployment-for-the-project.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/versioned-artifact-deployment-for-the-project.png" alt="Enable or disable versioned artifact deployment for the project" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/create-artifacts/versioned-artifact-deployment-for-the-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/versioned-artifact-deployment-for-the-project.png" alt="Enable or disable versioned artifact deployment for the project" width="80%"></a>
 
 When this option is enabled, all artifacts in the project except services and inbound endpoints are deployed using their fully qualified names.
 

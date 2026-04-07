@@ -22,7 +22,7 @@ Follow the instructions below to create your first integration solution:
 
 Let’s try a simple scenario where the client sends a request to a `HelloWorld` API deployed in the WSO2 Integrator: MI and the API calls a backend service and returns its response. The backend service responds a `Hello World!!!` message, and the API deployed in the WSO2 Integrator: MI forwards this response to the client.
 
-<a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.gif"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.gif"></a>
+<a href="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.gif" class="glightbox"><img src="{{base_path}}/assets/img/integrate/quick-start-guide/mi-quick-start-guide.gif"></a>
 
 You can use the following `HelloWorld` service as the backend service.
 
@@ -49,7 +49,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 2. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
 3. Click **Create New Project** on **WSO2 Integrator: MI Project Explorer**. For more options for creating a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
@@ -59,7 +59,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 6. Provide a location for the integration project under **Project Directory**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-project.png" alt="Create New Project" width="80%"></a>
 
 7. Click **Create**.
 
@@ -75,7 +75,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
     1. Click **Download Java & MI** to download and set up Java and MI runtime.
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/download-java-and-mi.png" alt="Download Java and MI" width="80%"></a>
 
         !!! info
             If a different JDK or WSO2 MI version is installed on your local machine, you'll be prompted to download the required versions. 
@@ -87,7 +87,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
         Once the process is complete, a window reload will be required, and you will be prompted with the following message:
 
-        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
+        <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/reload-window.png" alt="Reload Window" width="80%"></a>
 
     2. Click **Reload Window**.
 
@@ -99,7 +99,7 @@ Now the integration project is ready to add an API. In this scenario, the API ca
 
 2. Enter `HelloWorldAPI` as the API **Name**. The API **Context** field will be automatically populated with the same value.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-api.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-api.png" alt="Create New API" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-api.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/new-api.png" alt="Create New API" width="80%"></a>
 
 3. Click **Create**.
 
@@ -111,19 +111,19 @@ Now it's time to design your API. This is the underlying logic that's executed b
 
 1. Open the **Resource View** of the API resource by clicking the `GET` resource under **Available resources** on **Service Designer**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/get-resource.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/get-resource.png" alt="Add new connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/get-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/get-resource.png" alt="Add new connection" width="80%"></a>
 
 2. Once you open the **Resource View**, click on the **+** icon on the canvas to open the palette.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/open-palette.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/open-palette.png" alt="Add new connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/open-palette.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/open-palette.png" alt="Add new connection" width="80%"></a>
 
 3. Under **Mediators** > **HTTP** select the **GET** operation .
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get-operation.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get-operation.png" alt="Add new connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get-operation.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get-operation.png" alt="Add new connection" width="80%"></a>
 
 4. In the **Add Get** pane that appears, click **Add new connection**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-new-connection.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-new-connection.png" alt="Add new connection" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-new-connection.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-new-connection.png" alt="Add new connection" width="40%"></a>
 
 5. Under **Add New Connection**, select **HTTPS**.
 
@@ -134,7 +134,7 @@ Now it's time to design your API. This is the underlying logic that's executed b
     | **Connection Name** | `HelloWorldConn`        |
     | **Base URL**        | `https://apis.wso2.com` |
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/hello-world-connection.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/hello-world-connection.png" alt="Add new connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/hello-world-connection.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/hello-world-connection.png" alt="Add new connection" width="80%"></a>
 
 7. Click **Add**.
 
@@ -142,7 +142,7 @@ Now it's time to design your API. This is the underlying logic that's executed b
 
 8. Enter `/zvdz/mi-qsg/v1.0` as the **Relative Path**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get.png" alt="Add new connection" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/add-get.png" alt="Add new connection" width="40%"></a>
 
 9. Click **Submit**.
 
@@ -154,7 +154,7 @@ Now it's time to design your API. This is the underlying logic that's executed b
 
 12. Click **Add**.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif" alt="Design API" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/design-api.gif" alt="Design API" width="80%"></a>
 
 Following is what you'll see in the **Source View** of the VS Code.
 
@@ -190,7 +190,7 @@ Now that you have developed an integration using the WSO2 Integrator: MI for the
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png" alt="Build and run" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/build-and-run-project.png" alt="Build and run" width="80%"></a>
 
 ## Step 5 - Test the integration service
 
@@ -200,7 +200,7 @@ When you run the integration artifact as in [Step 4](#step-4-run-the-integration
 
 Select `HelloWorldAPI` that you have developed and test the resource.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif" alt="Test API" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/test-api.gif" alt="Test API" width="80%"></a>
 
 Congratulations!
 Now, you have created your first integration service.

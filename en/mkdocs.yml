@@ -1157,6 +1157,13 @@ markdown_extensions:
   - attr_list
 plugins:
   - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      width: 100%
+      height: auto
+      zoomable: true
   - markdownextradata: {}
   - exclude:
       glob:
