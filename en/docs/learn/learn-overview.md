@@ -255,7 +255,8 @@ Learn how to implement various integration use cases, deploy them in the WSO2 In
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources">How to handle non-matching resources</a></li>
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes">How to handle HTTP status codes</a></li>
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/transforming-content-type">How to transform content types</a></li>
-                        <li><a href="{{base_path}}/learn/examples/rest-api-examples/securing-rest-apis">How to secure a REST API</a></li>
+                        <li><a href="{{base_path}}/learn/examples/rest-api-examples/securing-rest-apis-with-jwt-access-tokens">How to secure a REST API with JWT (Self Contained) Access Tokens</a></li>
+                        <li><a href="{{base_path}}/learn/examples/rest-api-examples/securing-rest-apis">How to secure a REST API with Basic Auth</a></li>
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/publishing-a-swagger-api">How to publish a custom swagger document</a></li>
                         <li>Handling Special Cases
                             <ul> 
