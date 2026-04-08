@@ -53,7 +53,7 @@ There may be scenarios where you need to create a customized base Micro Integrat
 The example below shows how to copy custom JARs into the MI runtime's `lib` directory:
 
 ```docker
-FROM docker.wso2.com/wso2mi:4.4.0
+FROM registry.wso2.com/wso2-integrator/mi:4.4.0
 
 USER wso2carbon
 
