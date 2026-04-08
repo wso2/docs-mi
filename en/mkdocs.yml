@@ -1084,6 +1084,7 @@ nav:
                   - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
                   - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
                   - OpenTelemetry Based Logs: observe-and-manage/classic-observability-logs/opentelemetry-logs.md
+                  - Moesif Based Logs: observe-and-manage/classic-observability-logs/moesif-logs.md
               - Traces:
                   - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
               - Metrics:
