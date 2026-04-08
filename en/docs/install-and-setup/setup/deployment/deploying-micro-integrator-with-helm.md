@@ -59,7 +59,7 @@ Follow the steps below to configure your Micro Integrator deployment.
         By default, the `values.yaml` file uses the base Micro Integrator image (which does not include any integrations) to set up the deployment.
 
         ```yaml
-        containerRegistry: "docker.wso2.com"
+        containerRegistry: "registry.wso2.com"
         wso2:
             deployment:
                 image: 
