@@ -50,7 +50,7 @@ theme:
            name: Switch to light mode
     logo: assets/img/WSO2-logo-black.svg
     logo_light: assets/img/WSO2-logo-white.svg
-    favicon: assets/img/favicon.png
+    favicon: assets/img/WSO2-logo-orange.svg
     features:
        - navigation.indexes
        - navigation.path
