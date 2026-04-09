@@ -159,6 +159,9 @@ set when you enable dynamic SSL profiles:
 
 ## Handling SSL profile load failures at startup
 
+!!! Note
+    This feature is only available from MI version **4.2.0.158** and upwards.
+
 By default, if any custom SSL profile fails to load during startup (e.g., due to a missing keystore, incorrect password, or invalid keystore type), the Micro Integrator will abort the startup process.
 
 To allow the server to start by skipping faulty profiles and logging a warning instead, pass the following JVM parameter at startup:
