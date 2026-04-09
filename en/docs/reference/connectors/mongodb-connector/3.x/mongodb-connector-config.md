@@ -72,7 +72,7 @@ The supported connection URI types and connection options are listed in the [Mon
             </td>
         </tr>
         <tr>
-            <td colspan="5" style="background-color: #f8f8f8; font-weight: bold;">
+            <td colspan="5" class="custom-table-header">
                 Connection String URI Configuration
             </td>
         </tr>
@@ -112,7 +112,7 @@ The supported connection URI types and connection options are listed in the [Mon
             </td>
         </tr>
         <tr>
-            <td colspan="5" style="background-color: #f8f8f8; font-weight: bold;">
+            <td colspan="5" class="custom-table-header">
                 Connection Parameters Configuration
             </td>
         </tr>

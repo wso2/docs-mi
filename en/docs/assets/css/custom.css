@@ -79,3 +79,8 @@ hr.rounded {
     padding: 12px;
     margin: 12px 0;
 }
+
+.custom-table-header {
+    background-color: var(--md-code-bg-color);
+    font-weight: bold;
+}
