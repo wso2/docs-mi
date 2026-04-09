@@ -223,3 +223,16 @@ set when you enable dynamic SSL profiles:
 |---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `             filePath            `         | The relative/absolute file path of the custom SSL profile configuration XML file.                                                                     | \-            |
 | `             fileReadInterval            ` | The time interval (in milliseconds) in which configuration updates will be loaded and applied at runtime. This value should be greater than 1 minute. | 3600000       |
+
+## Handling SSL profile load failures at startup
+
+By default, if any custom SSL profile fails to load during startup (e.g., due to a missing keystore, incorrect password, or invalid keystore type), the Micro Integrator will abort the startup process.
+
+To allow the server to start by skipping faulty profiles and logging a warning instead, pass the following JVM parameter at startup:Expand commentComment on lines R160 to R167Resolved
+
+```xml
+-Dssl.profile.skip.failures=trueExpand commentComment on line R170Resolved
+```
+    
+!!! Note
+    When this parameter is enabled, any request routed to a host whose SSL profile failed to load will fall back to the default SSL context. Ensure that such scenarios are handled appropriately in your environment.
