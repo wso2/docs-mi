@@ -87,4 +87,12 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
     <td>/home/kasun/Documents/SalesForceConnector/a.txt</td>
     <td>-</td>
   </tr>   
+  <tr>
+    <td>fallbackReplayId</td>
+    <td>Fallback event ID to start reading messages if the event ID stored in the Registry is invalid. -2 to replay all events, or -1 to replay only new events. 
+    This is supported in version 2.1.16 and above.</td>
+    <td>No</td>
+    <td>-1 or -2</td>
+    <td>-</td>
+  </tr>   
 </table>
