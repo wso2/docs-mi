@@ -271,29 +271,10 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
                Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code>,
                classes with matching names will be selectively blocked. 
             </p>
-            <div class="custom-admonition">
+            <div style="background:#f8f9fa; border-left:4px solid #ccc; padding:8px; margin:8px 0;">
                <strong>Note:</strong>  
                Limiting access to Java classes is supported with Rhino JS, Nashorn JS, and GraalJS engines.
             </div>
-            <p>
-               <b>Limiting Access to Java Methods/Native Objects</b><br />
-               Access to Java Methods/Native Objects can be restricted by providing the following
-               configurations in <code>conf/deployment.toml</code>.
-            </p>
-            <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-               data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
-'limit_java_native_object_access_in_scripts.enable' = true # or false
-'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
-'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader"</code></pre>
-            <p>
-               Java methods/native objects having names equal to any of the values given under
-               <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively
-               blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is
-               <code>BLOCK_LIST</code> (all other methods will be allowed).<br />
-               Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code>
-               is <code>ALLOW_LIST</code>, methods with matching names will be selectively allowed.
-            </p>
-            <div class="custom-admonition">
 
             Please refer to the following WSO2-recommended classes when updating your `ALLOW_LIST`. If you need to add additional classes, ensure they are verified as safe before including them.
             
@@ -344,7 +325,26 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
                <li>org.apache.synapse.mediators.bsf.NashornJavaScriptMessageContext</li>
                <li>org.apache.synapse.mediators.bsf.OpenJDKNashornJavaScriptMessageContext</li>
             </ul>
-            
+
+            <p>
+               <b>Limiting Access to Java Methods/Native Objects</b><br />
+               Access to Java Methods/Native Objects can be restricted by providing the following
+               configurations in <code>conf/deployment.toml</code>.
+            </p>
+            <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+               data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+'limit_java_native_object_access_in_scripts.enable' = true # or false
+'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
+'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader"</code></pre>
+            <p>
+                Java methods/native objects having names equal to any of the values given under
+                <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively
+                blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is
+                <code>BLOCK_LIST</code> (all other methods will be allowed).<br />
+                Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code>
+                is <code>ALLOW_LIST</code>, methods with matching names will be selectively allowed.
+            </p>
+
             <div style="background:#f8f9fa; border-left:4px solid #ccc; padding:8px; margin:8px 0;">
                <strong>Note:</strong>  
                Limiting access to Java methods is only supported with the Rhino JS engine.
