@@ -1,30 +1,30 @@
 .cInlineImage-small {
     display: inline-block;
     text-align: center;
-    height:45% !important;
-    width:30% !important;
+    height: 45% !important;
+    width: 30% !important;
     border: 1px solid gray;
 }
 
 .cInlineImage-full {
     display: inline-block;
     text-align: center;
-    height:75% !important;
-    width:90% !important;
+    height: 75% !important;
+    width: 90% !important;
     border: 1px solid gray;
 }
 
 .cInlineImage-threeQuarter {
     display: inline-block;
     text-align: center;
-    width:65%;
+    width: 65%;
     border: 1px solid gray;
 }
 
 .cInlineImage-half {
     display: inline-block;
     text-align: center;
-    width:50% !important;
+    width: 50% !important;
     border: 1px solid gray;
 }
 
@@ -34,7 +34,8 @@
     border: 1px solid gray;
 }
 
-.md-typeset th, .md-typeset td {
+.md-typeset th,
+.md-typeset td {
     border: 1px solid var(--md-typeset-table-color);
     border-spacing: 0;
     border-bottom: none;
@@ -63,10 +64,18 @@
 
 /* dark mode alternating table bg colors */
 [data-md-color-scheme="slate"] .md-typeset__table tr:nth-child(2n) {
-    background-color: hsla(var(--md-hue),25%,25%,1)
+    background-color: hsla(var(--md-hue), 25%, 25%, 1)
 }
+
 
 hr.rounded {
     border-top: 1px #bbb;
     border-radius: 1px;
+}
+
+.custom-admonition {
+    background-color: var(--md-code-bg-color);
+    border-left: 4px solid #ccc;
+    padding: 12px;
+    margin: 12px 0;
 }
