@@ -95,6 +95,37 @@ In this step, you can configure a REST resource to invoke the data service.
 
 	<a href="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/data_services/resource-graphical-view.png" width="80%"></a>  
 
+## Add query parameters to a resource
+
+Query parameters allow you to filter or customize the data returned by a resource 
+using URL parameters in the format `?param=value`.
+
+Follow the steps below to add a query parameter to a data service resource.
+
+1. In the **Data Service Designer**, click the resource you created under **Resources**.
+
+2. Click **Query** in the DataService view to open the query configuration.
+
+3. In the **Query / Expression** field, write your SQL query using a named variable.  
+   For example, to filter employees by department:
+```sql
+   SELECT EmployeeNumber, FirstName, LastName FROM Employees WHERE Department=:dept_name
+```
+
+4. Click **Input Mapping** in the DataService view to open the input mapping configuration.
+
+5. Click **+ Add Parameter** and fill in the following details:
+
+    | Field         | Value              |
+    |---------------|--------------------|
+    | Parameter Name | `dept_name`       |
+    | Parameter Type | `QUERY`           |
+    | SQL Type       | `STRING`          |
+
+6. Click **Save** to save the input mapping, then click **Submit** to apply.
+
+The resource can now be invoked with a query parameter:
+
 ### Add a SOAP operation
 
 In this step you can configure a SOAP operation for invoking the data service.
