@@ -1,9 +1,6 @@
 (function () {
     'use strict';
 
-    /**
-     * Icon SVG definitions matching the React component.
-     */
     const Icons = {
         Copy: `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" /><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" /></svg>`,
         Markdown: `<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14.85 3c.63 0 1.15.52 1.14 1.15v7.7c0 .63-.51 1.15-1.15 1.15H1.15C.52 13 0 12.48 0 11.84V4.15C0 3.52.52 3 1.15 3h13.7zM9 11V5H7l-1.5 2.25L4 5H2v6h2V8l1.5 2L7 8v3h2zm2.99.5L14.5 8H13V5h-2v3H9.5l2.49 3.5z" /></svg>`,
@@ -14,42 +11,78 @@
         Perplexity: `<svg width="16" height="16" viewBox="0 0 34 38" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.12114 0.0400391L15.919 9.98864V9.98636V0.062995H18.0209V10.0332L28.8671 0.0400391V11.3829H33.3202V27.744H28.8808V37.8442L18.0209 28.303V37.9538H15.919V28.4604L5.13338 37.96V27.744H0.680176V11.3829H5.12114V0.0400391ZM14.3344 13.4592H2.78208V25.6677H5.13074V21.8167L14.3344 13.4592ZM7.23518 22.7379V33.3271L15.919 25.6786V14.8506L7.23518 22.7379ZM18.0814 25.5775V14.8404L26.7677 22.7282V27.744H26.7789V33.219L18.0814 25.5775ZM28.8808 25.6677H31.2183V13.4592H19.752L28.8808 21.7302V25.6677ZM26.7652 11.3829V4.81584L19.6374 11.3829H26.7652ZM14.3507 11.3829H7.22306V4.81584L14.3507 11.3829Z" /></svg>`
     };
 
-    function createCopyPageButton(markdownUrl) {
-        // Container
+    /**
+     * Derives the logical Markdown URL from the current HTML URL.
+     * Logic:
+     * - /en/4.6.0/guides/foo/index.html -> /en/4.6.0/guides/foo.md
+     * - /en/4.6.0/guides/bar.html -> /en/4.6.0/guides/bar.md
+     */
+    function getFlattenedMarkdownUrlFromHtmlUrl(htmlUrl) {
+        const u = new URL(htmlUrl);
+        u.hash = ''; u.search = '';
+
+        // Strip index.html AND .html extension
+        let cleanPath = u.pathname
+            .replace(/\/index\.html$/, '/')
+            .replace(/\.html$/, '')
+            .replace(/\/$/, '');
+
+        const segments = cleanPath.split('/').filter(Boolean);
+
+        if (segments.length === 0) { u.pathname = '/index.md'; return u.href; }
+
+        const folderName = segments[segments.length - 1];
+        const parentSegments = segments.slice(0, -1);
+        const parentPath = parentSegments.join('/');
+
+        const isVersion = /^\d+\.\d+\.\d+$/.test(folderName);
+        const isLangOrVersion = isVersion || ['en', 'next', 'latest'].includes(folderName);
+        
+        if (isLangOrVersion) { 
+            u.pathname = `/${segments.join('/')}/index.md`; 
+        } else { 
+            u.pathname = parentPath ? `/${parentPath}/${folderName}.md` : `/${folderName}.md`; 
+        }
+        
+        return u.href;
+    }
+
+    async function fetchFlattenedMarkdownForCurrentPage() {
+        const mdUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
+        const res = await fetch(mdUrl, { cache: 'no-cache' });
+        if (!res.ok) throw new Error("Fetch failed");
+        return await res.text();
+    }
+
+    function createCopyPageButton() {
         const container = document.createElement('div');
         container.className = 'copy-page-container';
 
-        // Main Button
         const button = document.createElement('button');
-        button.className = 'copy-page-button md-content__button md-icon';
-        button.type = 'button';
+        button.className = 'copy-page-button md-content__button md-icon'; 
         button.setAttribute('aria-expanded', 'false');
         button.setAttribute('aria-haspopup', 'true');
         button.setAttribute('title', 'Copy page');
         button.innerHTML = Icons.Copy;
 
-        // Backdrop
         const backdrop = document.createElement('div');
         backdrop.className = 'copy-page-backdrop';
 
-        // Menu
         const menu = document.createElement('div');
         menu.className = 'copy-page-menu';
-
-        // Menu Items
         menu.innerHTML = `
             <button class="copy-page-item cp-copy">
                 ${Icons.Copy}
                 <div class="copy-page-item-text">
                     <span class="copy-page-item-title">Copy page</span>
-                    <span class="copy-page-item-desc">Copy page as Markdown for LLMs</span>
+                    <span class="copy-page-item-desc">Copy as Markdown for LLMs</span>
                 </div>
             </button>
             <button class="copy-page-item cp-view">
                 ${Icons.Markdown}
                 <div class="copy-page-item-text">
                     <span class="copy-page-item-title">View as Markdown</span>
-                    <span class="copy-page-item-desc">View this page as plain text</span>
+                    <span class="copy-page-item-desc">View as plain text</span>
                 </div>
             </button>
             <div class="copy-page-divider"></div>
@@ -79,142 +112,83 @@
             </button>
         `;
 
-        // Assemble
-        container.appendChild(button);
-        container.appendChild(backdrop);
+        container.appendChild(button); 
+        container.appendChild(backdrop); 
         container.appendChild(menu);
 
-        // --- Logic ---
-
-        // --- Logic ---
-
         let isOpen = false;
-
         const setOpen = (open) => {
-            isOpen = open;
+            isOpen = open; 
             button.setAttribute('aria-expanded', open.toString());
-
-            if (open) {
-                menu.classList.remove('hidden');
-                menu.style.display = 'block';
-                menu.classList.add('active');
-                backdrop.classList.add('active');
-            } else {
-                menu.classList.remove('active');
-                menu.style.display = 'none'; // Force hide
-                backdrop.classList.remove('active');
+            if (open) { 
+                menu.style.display = 'block'; 
+                menu.classList.add('active'); 
+                backdrop.classList.add('active'); 
+            } else { 
+                menu.classList.remove('active'); 
+                menu.style.display = 'none'; 
+                backdrop.classList.remove('active'); 
             }
         };
 
-        // Global click handler to manage all closing/toggling logic
-        // This avoids race conditions between button click and document click
         const handleGlobalClick = (event) => {
-            // If menu is closed, only the button can open it
             if (!isOpen) {
                 if (button.contains(event.target)) {
                     setOpen(true);
-                    event.stopPropagation(); // Prevent immediate closing if we had other listeners
+                    event.stopPropagation();
                 }
                 return;
             }
-
-            // If menu is open:
-
-            // 1. If clicking the button again, close
             if (button.contains(event.target)) {
                 setOpen(false);
                 return;
             }
-
-            // 2. If clicking inside the menu, do nothing (let menu item handlers work)
             if (menu.contains(event.target)) {
                 return;
             }
-
-            // 3. If clicking outside, close
             setOpen(false);
         };
 
-        // Ensure we don't double-bind
         document.removeEventListener('click', handleGlobalClick);
         document.addEventListener('click', handleGlobalClick);
 
-        // Cleanup logic is hard since we don't know when this component destroys, 
-        // but in this context (docs), it persists. 
-        // We do need to prevent multiple listeners if init runs again.
-        // The init() function checks for .copy-page-container availability, so we are safe from double-init.
-
-
-        // Cleanup routine if needed (though this script runs once per page load)
-
-        const getFullMarkdownUrl = () => {
-            return markdownUrl;
-        };
-
-        const getHtmlUrl = () => {
-            return window.location.href;
-        };
-
-        const getPromptWithMarkdown = () => {
-            const fullUrl = getFullMarkdownUrl();
-            return `Could you read this document about WSO2 Integrator: MI ${fullUrl} so I can ask questions about it?`;
-        };
-
-        const getPromptWithHtml = () => {
-            const fullUrl = getHtmlUrl();
-            return `Could you read this document about WSO2 Integrator: MI ${fullUrl} so I can ask questions about it?`;
+        const getPrompt = () => {
+            const fullUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
+            return `Could you read this document about WSO2 Micro Integrator ${fullUrl} so I can ask questions about it?`;
         };
 
         // Handlers
-        const handleCopyPage = async () => {
+        menu.querySelector('.cp-copy').addEventListener('click', async () => {
             try {
-                const response = await fetch(markdownUrl);
-                if (!response.ok) throw new Error('Failed to fetch');
-                const markdown = await response.text();
+                const markdown = await fetchFlattenedMarkdownForCurrentPage();
                 await navigator.clipboard.writeText(markdown);
-
-                // Feedback
                 const originalTitle = button.getAttribute('title');
                 button.setAttribute('title', 'Copied!');
-
-                setTimeout(() => {
-                    button.setAttribute('title', originalTitle);
-                }, 2000);
+                setTimeout(() => button.setAttribute('title', originalTitle), 2000);
             } catch (err) {
                 console.error('Failed to copy:', err);
             }
             setOpen(false);
-        };
+        });
 
-        const handleViewMarkdown = () => {
-            window.open(markdownUrl, '_blank');
+        menu.querySelector('.cp-view').addEventListener('click', () => {
+            const mdUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
+            window.open(mdUrl, '_blank');
             setOpen(false);
+        });
+
+        const aiLinks = { 
+            '.cp-chatgpt': 'https://chat.openai.com/?q=', 
+            '.cp-claude': 'https://claude.ai/new?q=', 
+            '.cp-perplexity': 'https://www.perplexity.ai/search?q=' 
         };
 
-        const handleOpenInChatGPT = () => {
-            // Uses HTML URL
-            window.open(`https://chat.openai.com/?q=${encodeURIComponent(getPromptWithHtml())}`, '_blank');
-            setOpen(false);
-        };
-
-        const handleOpenInClaude = () => {
-            // Uses Markdown URL
-            window.open(`https://claude.ai/new?q=${encodeURIComponent(getPromptWithMarkdown())}`, '_blank');
-            setOpen(false);
-        };
-
-        const handleOpenInPerplexity = () => {
-            // Uses Markdown URL
-            window.open(`https://www.perplexity.ai/?q=${encodeURIComponent(getPromptWithMarkdown())}`, '_blank');
-            setOpen(false);
-        };
-
-        // Attach listeners
-        menu.querySelector('.cp-copy').addEventListener('click', handleCopyPage);
-        menu.querySelector('.cp-view').addEventListener('click', handleViewMarkdown);
-        menu.querySelector('.cp-chatgpt').addEventListener('click', handleOpenInChatGPT);
-        menu.querySelector('.cp-claude').addEventListener('click', handleOpenInClaude);
-        menu.querySelector('.cp-perplexity').addEventListener('click', handleOpenInPerplexity);
+        Object.entries(aiLinks).forEach(([selector, url]) => {
+            menu.querySelector(selector).addEventListener('click', () => {
+                window.open(url + encodeURIComponent(getPrompt()), '_blank', 'noopener,noreferrer');
+                setOpen(false);
+            });
+        });
 
         return container;
     }
@@ -222,72 +196,29 @@
     function init() {
         if (document.querySelector('.copy-page-container')) return;
 
-        // Find Edit button (usually for getting the raw URL)
         const editButton = document.querySelector('.md-content__button.md-icon[href*="/edit/"]');
-
-        // Find View Source button (href usually contains /raw/ or /blob/)
         const viewButton = document.querySelector('.md-content__button.md-icon[href*="/raw/"]') ||
             document.querySelector('.md-content__button.md-icon[href*="/blob/"]');
 
-        let rawUrl;
-        let insertionPoint = null;
+        let insertionPoint = viewButton || editButton;
 
-        // 1. Determine URL
-        if (editButton) {
-            rawUrl = editButton.href
-                .replace('github.com', 'raw.githubusercontent.com')
-                .replace('/edit/', '/')
-                .replace('/blob/', '/');
-        } else if (viewButton) {
-            rawUrl = viewButton.href
-                .replace('github.com', 'raw.githubusercontent.com')
-                .replace('/blob/', '/') // View might be blob, we want raw
-                .replace('/raw/', '/'); // If already raw, check structure
-        } else {
-            // Fallback for homepage
-            const homePageSearch = document.querySelector('.md-home-search-container');
-            if (homePageSearch) {
-                rawUrl = 'https://raw.githubusercontent.com/wso2/docs-mi/main/en/docs/index.md';
-                // Try to find ANY button to append next to
-                insertionPoint = document.querySelector('.md-content__button');
-            }
-        }
+        const btn = createCopyPageButton();
 
-        // 2. Determine Insertion Point
-        // We want DOM order: [Edit, View, Copy] so Visual is [Copy, View, Edit]
-        // So we should insert AFTER 'viewButton' if it exists.
-        // If not, insert AFTER 'editButton'.
-
-        if (viewButton) {
-            insertionPoint = viewButton;
-        } else if (editButton) {
-            insertionPoint = editButton;
-        }
-
-        if (rawUrl) {
-            const btn = createCopyPageButton(rawUrl);
-
-            if (insertionPoint) {
-                // Insert AFTER the insertionPoint
-                if (insertionPoint.nextSibling) {
-                    insertionPoint.parentNode.insertBefore(btn, insertionPoint.nextSibling);
-                } else {
-                    insertionPoint.parentNode.appendChild(btn);
-                }
+        if (insertionPoint) {
+            if (insertionPoint.nextSibling) {
+                insertionPoint.parentNode.insertBefore(btn, insertionPoint.nextSibling);
             } else {
-                // Return to fallback insertion at top logic if no insertion point found
-                const contentInner = document.querySelector('.md-content__inner');
-                if (contentInner) {
-                    // For homepage or pages without other buttons, we want it at the top.
-                    // Especially important for homepage where it defaults to bottom otherwise.
-                    contentInner.insertBefore(btn, contentInner.firstChild);
-                }
+                insertionPoint.parentNode.appendChild(btn);
+            }
+        } else {
+            const contentInner = document.querySelector('.md-content__inner');
+            if (contentInner) {
+                contentInner.insertBefore(btn, contentInner.firstChild);
             }
         }
     }
 
-    // Observer for instant loading
-    const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver(() => {
         if (document.querySelector('.md-content') && !document.querySelector('.copy-page-container')) {
             init();
         }
