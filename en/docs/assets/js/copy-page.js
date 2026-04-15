@@ -196,10 +196,10 @@
             setOpen(false);
         });
 
-        const aiLinks = { 
-            '.cp-chatgpt': 'https://chat.openai.com/?q=', 
-            '.cp-claude': 'https://claude.ai/new?q=', 
-            '.cp-perplexity': 'https://www.perplexity.ai/search?q=' 
+        // ChatGPT and Perplexity still support query parameters
+        const aiLinks = {
+            '.cp-chatgpt': 'https://chat.openai.com/?q=',
+            '.cp-perplexity': 'https://www.perplexity.ai/search?q='
         };
 
         Object.entries(aiLinks).forEach(([selector, url]) => {
@@ -207,6 +207,32 @@
                 window.open(url + encodeURIComponent(getPrompt()), '_blank', 'noopener,noreferrer');
                 setOpen(false);
             });
+        });
+
+        // Claude handler - copy content to clipboard, then open Claude
+        menu.querySelector('.cp-claude').addEventListener('click', async () => {
+            try {
+                // Fetch and copy markdown content to clipboard
+                const markdown = await fetchFlattenedMarkdownForCurrentPage();
+                await navigator.clipboard.writeText(markdown);
+
+                // Show feedback on the button
+                const claudeButton = menu.querySelector('.cp-claude');
+                const titleElement = claudeButton.querySelector('.copy-page-item-title');
+                const originalText = titleElement.textContent;
+                titleElement.textContent = 'Copied! Opening Claude...';
+
+                // Open Claude in new window
+                const claudeWindow = window.open('https://claude.ai/new', '_blank', 'noopener,noreferrer');
+
+                // Revert button text after a moment
+                setTimeout(() => {
+                    titleElement.textContent = originalText;
+                }, 1500);
+            } catch (err) {
+                console.error('Failed to copy or open Claude:', err);
+            }
+            setOpen(false);
         });
 
         return container;
