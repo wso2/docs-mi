@@ -165,9 +165,22 @@
             try {
                 const markdown = await fetchFlattenedMarkdownForCurrentPage();
                 await navigator.clipboard.writeText(markdown);
+
+                // Show "Copied!" feedback on the button
+                const copyButton = menu.querySelector('.cp-copy');
+                const titleElement = copyButton.querySelector('.copy-page-item-title');
+                const originalText = titleElement.textContent;
+                titleElement.textContent = 'Copied!';
+
+                // Also show in button title attribute
                 const originalTitle = button.getAttribute('title');
                 button.setAttribute('title', 'Copied!');
-                setTimeout(() => button.setAttribute('title', originalTitle), 2000);
+
+                // Revert after 2 seconds
+                setTimeout(() => {
+                    titleElement.textContent = originalText;
+                    button.setAttribute('title', originalTitle);
+                }, 2000);
             } catch (err) {
                 console.error('Failed to copy:', err);
             }
@@ -201,6 +214,18 @@
 
     function init() {
         if (document.querySelector('.copy-page-container')) return;
+
+        // Don't show copy-page button on home page
+        const pathname = window.location.pathname;
+        const isHomePage = pathname === '/' ||
+                          pathname === '/docs-mi/' ||
+                          pathname === '/en/latest/' ||
+                          pathname === '/en/4.6.0/' ||
+                          pathname.endsWith('/index.html');
+
+        if (isHomePage) {
+            return;
+        }
 
         const editButton = document.querySelector('.md-content__button.md-icon[href*="/edit/"]');
         const viewButton = document.querySelector('.md-content__button.md-icon[href*="/raw/"]') ||
