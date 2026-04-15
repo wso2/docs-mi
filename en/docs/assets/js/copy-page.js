@@ -13,11 +13,26 @@
 
     /**
      * Derives the logical Markdown URL from the current HTML URL.
+     * First checks for a data-src-path attribute on the body element for the actual source path.
+     * Falls back to reconstructing from the HTML URL if the attribute is missing.
      * Logic:
      * - /en/4.6.0/guides/foo/index.html -> /en/4.6.0/guides/foo.md
      * - /en/4.6.0/guides/bar.html -> /en/4.6.0/guides/bar.md
      */
     function getFlattenedMarkdownUrlFromHtmlUrl(htmlUrl) {
+        // First, check if the page template provided the source path via data attribute
+        const srcPath = document.body.getAttribute('data-src-path');
+        if (srcPath) {
+            // Normalize the path: ensure it has .md extension and proper slashes
+            const u = new URL(htmlUrl);
+            const normalizedPath = srcPath.startsWith('/') ? srcPath : '/' + srcPath;
+            const mdPath = normalizedPath.endsWith('.md') ? normalizedPath : normalizedPath + '.md';
+            u.pathname = mdPath;
+            u.hash = ''; u.search = '';
+            return u.href;
+        }
+
+        // Fallback: reconstruct from the HTML URL (lossy, but works when data attribute is missing)
         const u = new URL(htmlUrl);
         u.hash = ''; u.search = '';
 
@@ -37,13 +52,13 @@
 
         const isVersion = /^\d+\.\d+\.\d+$/.test(folderName);
         const isLangOrVersion = isVersion || ['en', 'next', 'latest'].includes(folderName);
-        
-        if (isLangOrVersion) { 
-            u.pathname = `/${segments.join('/')}/index.md`; 
-        } else { 
-            u.pathname = parentPath ? `/${parentPath}/${folderName}.md` : `/${folderName}.md`; 
+
+        if (isLangOrVersion) {
+            u.pathname = `/${segments.join('/')}/index.md`;
+        } else {
+            u.pathname = parentPath ? `/${parentPath}/${folderName}.md` : `/${folderName}.md`;
         }
-        
+
         return u.href;
     }
 
@@ -243,11 +258,32 @@
 
         // Don't show copy-page button on home page
         const pathname = window.location.pathname;
-        const isHomePage = pathname === '/' ||
-                          pathname === '/docs-mi/' ||
-                          pathname === '/en/latest/' ||
-                          pathname === '/en/4.6.0/' ||
-                          pathname.endsWith('/index.html');
+
+        // Segment-based home page detection
+        const trimmed = pathname.replace(/^\/+|\/+$/g, '');
+        const segments = trimmed ? trimmed.split('/') : [];
+
+        // Root landing page (/) or no segments
+        let isHomePage = pathname === '/' || segments.length === 0;
+
+        // Single-segment top-level pages (e.g., /docs-mi/ or any single top-level folder)
+        if (segments.length === 1) {
+            // Could be a top-level folder like 'docs-mi' or a language like 'en'
+            // For these, we skip the button
+            isHomePage = true;
+        }
+
+        // Two-segment language/version landing pages (e.g., /en/latest/, /en/4.6.0/)
+        if (segments.length === 2) {
+            const lang = segments[0];
+            const version = segments[1];
+            const langWhitelist = ['en', 'next', 'latest'];
+            const versionPattern = /^(\d+\.\d+\.\d+|latest|next)$/;
+
+            if (langWhitelist.includes(lang) && versionPattern.test(version)) {
+                isHomePage = true;
+            }
+        }
 
         if (isHomePage) {
             return;
