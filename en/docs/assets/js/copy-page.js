@@ -222,8 +222,8 @@
                 const originalText = titleElement.textContent;
                 titleElement.textContent = 'Copied! Opening Claude...';
 
-                // Open Claude in new window
-                const claudeWindow = window.open('https://claude.ai/new', '_blank', 'noopener,noreferrer');
+                // Open Claude in new tab (avoid /new which triggers bot detection)
+                window.open('https://claude.ai', '_blank', 'noopener,noreferrer');
 
                 // Revert button text after a moment
                 setTimeout(() => {
