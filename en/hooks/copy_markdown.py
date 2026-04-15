@@ -1,10 +1,19 @@
 import html as html_lib
 import os
+import fnmatch
 
 
 def on_post_build(config, **kwargs):
     docs_dir = config["docs_dir"]
     site_dir = config["site_dir"]
+
+    # Get exclude patterns from the exclude plugin config
+    exclude_patterns = []
+    plugins = config.get("plugins", {})
+    if "exclude" in plugins:
+        exclude_config = plugins["exclude"]
+        if isinstance(exclude_config, dict) and "glob" in exclude_config:
+            exclude_patterns = exclude_config["glob"]
 
     for root, _dirs, files in os.walk(docs_dir):
         for filename in files:
@@ -13,6 +22,15 @@ def on_post_build(config, **kwargs):
 
             src = os.path.join(root, filename)
             rel = os.path.relpath(src, docs_dir)
+
+            # Check if file matches any exclude pattern
+            should_skip = False
+            for pattern in exclude_patterns:
+                if fnmatch.fnmatch(rel, pattern) or fnmatch.fnmatch(rel, f"{pattern}/*"):
+                    should_skip = True
+                    break
+            if should_skip:
+                continue
 
             dst_dir = os.path.join(site_dir, rel)
             # Remove any raw .md file that a previous hook may have created at this path

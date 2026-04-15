@@ -8,7 +8,7 @@ def on_pre_build(config):
     ALL_PAGES = []
 
 def on_post_page(output, page, config):
-    rel_url = page.file.src_path
+    rel_url = page.file.src_uri
     if not any(p["url"] == rel_url for p in ALL_PAGES):
         ALL_PAGES.append({"title": page.title, "url": rel_url})
 
@@ -31,4 +31,4 @@ def on_post_build(config):
         full_lines.append(f"- [{p['title']}](./{p['url']})")
     with open(full_path, "w", encoding="utf-8") as f:
         f.write("\n".join(full_lines))
-    print(f"SUCCESS - llms.txt and llms-full.txt generated.")
+    print("SUCCESS - llms.txt and llms-full.txt generated.")

@@ -152,7 +152,10 @@
             setOpen(false);
         };
 
-        document.removeEventListener('click', handleGlobalClick);
+        if (window.activeGlobalClickHandler) {
+            document.removeEventListener('click', window.activeGlobalClickHandler);
+        }
+        window.activeGlobalClickHandler = handleGlobalClick;
         document.addEventListener('click', handleGlobalClick);
 
         const getPrompt = () => {
@@ -188,11 +191,8 @@
         });
 
         menu.querySelector('.cp-view').addEventListener('click', () => {
-            const pathname = window.location.pathname;
-            const mdPath = (pathname === '/' || pathname === '')
-                ? '/index.md'
-                : pathname.replace(/\/$/, '') + '.md';
-            window.location.href = window.location.origin + mdPath;
+            const mdUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
+            window.location.href = mdUrl;
             setOpen(false);
         });
 
