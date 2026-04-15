@@ -51,7 +51,10 @@
         const mdUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
         const res = await fetch(mdUrl, { cache: 'no-cache' });
         if (!res.ok) throw new Error("Fetch failed");
-        return await res.text();
+        const html = await res.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        return doc.body.textContent;
     }
 
     function createCopyPageButton() {
@@ -172,8 +175,11 @@
         });
 
         menu.querySelector('.cp-view').addEventListener('click', () => {
-            const mdUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
-            window.open(mdUrl, '_blank');
+            const pathname = window.location.pathname;
+            const mdPath = (pathname === '/' || pathname === '')
+                ? '/index.md'
+                : pathname.replace(/\/$/, '') + '.md';
+            window.location.href = window.location.origin + mdPath;
             setOpen(false);
         });
 

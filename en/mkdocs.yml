@@ -1251,6 +1251,7 @@ extra_javascript:
   - assets/js/mitheme.js
 hooks:
   - hooks/copy_md.py
+  - hooks/copy_markdown.py
 extra:
   material:
     jinja2content: true
