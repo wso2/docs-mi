@@ -124,7 +124,7 @@
 /* Logo */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 3rem;
+  height: 1.4rem;
   padding: .1rem 0;
 }
 
@@ -330,7 +330,7 @@
   /* Compact the logo */
   .md-header__button.md-logo img,
   .md-header__button.md-logo svg {
-    height: 1.8rem;
+    height: 1.2rem;
   }
 
   /* Keep the search label tightly spaced */
