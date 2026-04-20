@@ -36,7 +36,13 @@ follows.
 <li><strong>WARN</strong> - provides informational messages on potentially harmful situations.</li>
 <li><strong>ERROR</strong> - provides error events that might still allow the application to continue running.</li>
 <li><p><strong>FATAL</strong> - provides very severe error events that will presumably lead the application to abort.</p></li>
-</ul></td>
+</ul>
+<div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>By default, logs at the INFO level and above are recorded. You can configure a logger in the <code>&lt;MI_HOME&gt;/conf/log4j2.properties</code> file to set the desired log level. Ensure that the logger name (<code>LogMediator</code>) is added to the loggers list.</p>
+    <p><code>logger.LogMediator.name = org.apache.synapse.mediators.builtin.LogMediator<br>logger.LogMediator.level = DEBUG</code></p>
+</div>
+</td>
 </tr>
 <tr class="even">
 <td><strong>Append Message ID</strong></td>
