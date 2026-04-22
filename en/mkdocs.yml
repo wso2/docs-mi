@@ -133,7 +133,6 @@ nav:
                   - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
                   - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
               - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
-              - Configure the Crypto Provider: install-and-setup/setup/security/configuring-the-crypto-provider.md
           - Message Brokers:
               - AMQP (RabbitMQ):
                   - Deploy RabbitMQ: install-and-setup/setup/brokers/deploy-rabbitmq.md
@@ -822,12 +821,7 @@ nav:
                   - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/2.x/microsoft-azure-storage-reference.md
               - 1.x:
-                  # - Microsoft Azure Storage Example: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-connector-example.md
                   - Microsoft Azure Storage Reference: reference/connectors/microsoft-azure-storage-connector/1.x/microsoft-azure-storage-reference.md
-          - DB Connector:
-              - DB Connector Overview: reference/connectors/db-connector/db-connector-overview.md
-              - DB Connector Example: reference/connectors/db-connector/db-connector-example.md
-              - DB Connector Reference: reference/connectors/db-connector/db-connector-config.md
           - MongoDB Connector:
               - MongoDB Connector Overview: reference/connectors/mongodb-connector/mongodb-connector-overview.md
               - 3.x:
@@ -836,11 +830,6 @@ nav:
               - 2.x:
                 - MongoDB Connector Example: reference/connectors/mongodb-connector/2.x/mongodb-connector-example.md
                 - MongoDB Connector Reference: reference/connectors/mongodb-connector/2.x/mongodb-connector-config.md
-          - RabbitMQ (AMQP 1.0) Connector:
-              - RabbitMQ (AMQP 1.0) Connector Overview: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-overview.md
-              - Set up RabbitMQ Broker: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-setup.md
-              - RabbitMQ (AMQP 1.0) Connector Example: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-example.md
-              - RabbitMQ (AMQP 1.0) Connector Reference: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-reference.md
           - Redis Connector:
               - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
               - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
@@ -944,9 +933,6 @@ nav:
           - Google Pub/Sub Inbound Endpoint:
                 - Google Pub/Sub Inbound Endpoint Example: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-example.md
                 - Google Pub/Sub Inbound Endpoint Reference: reference/connectors/google-pubsub-inbound/google-pubsub-inbound-endpoint-reference.md
-          - RabbitMQ (AMQP 1.0) Inbound Endpoint:
-              - RabbitMQ (AMQP 1.0) Inbound Endpoint Example: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example.md
-              - RabbitMQ (AMQP 1.0) Inbound Endpoint Reference: reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-reference.md
           - SMPP Inbound Endpoint:
               - SMPP Inbound Endpoint Example: reference/connectors/smpp-connector/smpp-inbound-endpoint-example.md
               - SMPP Inbound Endpoint Reference: reference/connectors/smpp-connector/smpp-inbound-endpoint-config.md
@@ -1081,16 +1067,11 @@ nav:
                   - Monitor Logs: observe-and-manage/classic-observability-logs/monitoring-logs.md
                   - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
                   - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
-                  - OpenTelemetry Based Logs: observe-and-manage/classic-observability-logs/opentelemetry-logs.md
               - Traces:
                   - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
               - Metrics:
-                  - Moesif Based Metrics:
-                      - Set up: observe-and-manage/classic-observability-metrics/moesif-metrics/setup.md
-                      - Moesif Dashboards: observe-and-manage/classic-observability-metrics/moesif-metrics/dashboards.md
                   - JMX Monitoring with JMX: observe-and-manage/classic-observability-metrics/jmx-monitoring.md
                   - SNMP Monitoring with SNMP: observe-and-manage/classic-observability-metrics/snmp-monitoring.md
-                  - OpenTelemetry Based Metrics: observe-and-manage/classic-observability-metrics/opentelemetry-metrics.md
               - TCP Messages:
                   - Starting TCPMon: observe-and-manage/classic-observability-tcp/starting-tcp-mon.md
                   - Message Monitoring with TCPMon: observe-and-manage/classic-observability-tcp/message-monitoring-with-tcpmon.md
@@ -1099,13 +1080,11 @@ nav:
               - Overview: observe-and-manage/cloud-native-observability-overview.md
               - Configure for VM based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-on-a-vm.md
               - Configure for K8s based MI Deployment: observe-and-manage/setting-up-cloud-native-observability-in-kubernetes.md
-              - Configure with OpenTelemetry: observe-and-manage/setting-up-opentelemetry-observability.md
               - Access the Dashboard: observe-and-manage/viewing-cloud-native-observability-statistics.md
       - Analytics:
           - ELK Based Analytics:
               - Setup: mi-analytics/mi-elk-installation-guide.md
               - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
-              - Publish Custom Analytics Events Data: mi-analytics/mi-custom-analytics.md
       - Administer:
           - Administer Overview: administer/admin-overview.md
           - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
@@ -1227,7 +1206,6 @@ plugins:
   # Extra
 extra_css:
   - assets/lib/highlightjs/styles/custom-highlight-styles.css
-  - assets/css/theme.css
   - assets/css/copy-page.css
   - assets/lib/json-formatter/json-formatter.css
   - assets/css/config-catalog.css
