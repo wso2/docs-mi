@@ -1207,6 +1207,7 @@ plugins:
   # Extra
 extra_css:
   - assets/lib/highlightjs/styles/custom-highlight-styles.css
+  - assets/css/theme.css
   - assets/css/copy-page.css
   - assets/lib/json-formatter/json-formatter.css
   - assets/css/config-catalog.css
