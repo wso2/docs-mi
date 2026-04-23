@@ -112,7 +112,7 @@ Follow the steps below to configure Datadog Agent to read log files. For this yo
        ```
        logs:
        - type: file
-         path: "/Users/dinithidias/MIProjects/wso2mi-4.2.0/repository/logs/synapse-analytics.log"
+         path: "<MI_HOME>/repository/logs/synapse-analytics.log"
          service: "wso2mi"
          source: "wso2mi_node"
        ```
