@@ -58,7 +58,7 @@ For the VM deployment, we need to install a Datadog client application which han
 
 2. Install the Datadog Agent by following the instructions provided in the Datadog documentation based on your operating system.
 
-    You will be notified once the Agent is running correctly, and it will continue to run in the background anf submit the metrics to Datadog.
+    You will be notified once the Agent is running correctly, and it will continue to run in the background and submit the metrics to Datadog.
 
     After a successful installation, you will be redirected to the Datadog dashboard.
 
