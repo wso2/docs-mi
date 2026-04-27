@@ -52,7 +52,7 @@
     --icon-color-1-fg: #27aae1;
     --icon-color-2-bg: rgba(255, 236, 246, var(--icon-bg-color-opacity));
     --icon-color-2-fg: #cf3b89;
-    --icon-color-3-bg: rgb(231, 246, 245, var(--icon-bg-color-opacity));
+    --icon-color-3-bg: rgba(231, 246, 245, var(--icon-bg-color-opacity));
     --icon-color-3-fg: #15a79e;
     --icon-color-4-bg: rgba(255, 247, 239, var(--icon-bg-color-opacity));
     --icon-color-4-fg: #f7931e;
