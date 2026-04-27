@@ -87,7 +87,7 @@ hr.rounded {
 
 /* Apply white background to images in dark mode ONLY in content area for better visibility of transparent diagrams */
 /* Refined to avoid affecting logos or icons (e.g., enterprise support) that might be in the content */
-[data-md-color-scheme="slate"] .md-content img:not([alt*="Logo"]):not([alt*="icon"]):not([alt*="Support"]) {
+[data-md-color-scheme="slate"] .md-content img:not([alt*="Logo" i]):not([alt*="icon" i]):not([alt*="Support" i]) {
     background-color: #ffffff !important;
     padding: 10px;
     border-radius: 4px;
