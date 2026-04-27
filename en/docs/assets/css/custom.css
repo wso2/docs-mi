@@ -90,5 +90,6 @@ hr.rounded {
 [data-md-color-scheme="slate"] .md-content img:not([alt*="Logo" i]):not([alt*="icon" i]):not([alt*="Support" i]) {
     background-color: #ffffff !important;
     padding: 10px;
+    box-sizing: border-box;
     border-radius: 4px;
 }
