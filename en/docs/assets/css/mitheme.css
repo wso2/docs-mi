@@ -366,3 +366,12 @@ header>.md-grid {
     color: var(--md-default-fg-color);
     font-size: 0.80rem;
 }
+
+/* Announcement bar styles */
+.md-banner {
+    text-align: center;
+}
+
+[data-md-color-scheme="default"] .md-banner {
+    color: #000;
+}
