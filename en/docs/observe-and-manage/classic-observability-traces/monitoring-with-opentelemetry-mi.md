@@ -160,7 +160,8 @@ OpenTelemetry protocol(OTLP) is a general-purpose telemetry data delivery protoc
         name = "api-key"
         value = "<your-insight-insert-key>" 
         ```
-With the above configuration, OTLP uses the gRPC transport by default for exchanging data. This behavior can be changed by setting the value of the configuration `protocol` to `http`.
+
+    With the above configuration, OTLP uses the gRPC transport by default for exchanging data. This behavior can be changed by setting the value of the configuration `protocol` to `http`.
 
     === "Format"
         ```toml
@@ -192,25 +193,25 @@ With the above configuration, OTLP uses the gRPC transport by default for exchan
     !!! note 
         Above example illustrates the OpenTelemetry configurations for NewRelic APM.
 
-It is recommended to use OTLP to view the traces through NewRelic APM. But still you can use zipkin format traces to view the traces through NewRelic in the following way.
+2. It is recommended to use OTLP to view the traces through NewRelic APM. But still you can use zipkin format traces to view the traces through NewRelic in the following way.
 
-=== "Format"
-    ```toml
-    [opentelemetry]
-    enable = true
-    logs = true
-    type = "zipkin"
-    url = "https://trace-api.newrelic.com/trace/v1?Api-Key=<Place
-    _your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
-    
-    ```
+    === "Format"
+        ```toml
+        [opentelemetry]
+        enable = true
+        logs = true
+        type = "zipkin"
+        url = "https://trace-api.newrelic.com/trace/v1?Api-Key=<Place
+        _your_Insight_Insert_key_here>&Data-Format=zipkin&Data-Format-Version=2"
+        
+        ```
 
-!!! note 
-    To configure the API key in Newrelic:
+    !!! note 
+        To configure the API key in Newrelic:
 
-    - Go to **Profile -> API keys -> Insights Insert key -> Insert keys** to create an account in New Relic. 
+        - Go to **Profile -> API keys -> Insights Insert key -> Insert keys** to create an account in New Relic. 
 
-        For other vendors, please consult the respective documentations.
+            For other vendors, please consult the respective documentations.
 
 
 ## Using the custom tracer implementation
