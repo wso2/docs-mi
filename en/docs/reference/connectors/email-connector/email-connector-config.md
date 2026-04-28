@@ -200,6 +200,47 @@ The connection configuration parameters are used to establish a connection with 
             <td>Action to take when the connection pool is exhausted.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <th colspan="3">Oauth2 Authentication</th>
+        </tr>
+        <tr>
+            <td colspan="3">These configurations are available from Email connector version 2.0.3 and above.</td>
+        </tr>
+        <tr>
+            <td>Enable OAuth2</td>
+            <td>Specifies if OAuth2 authentication is required.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Grant Type</td>
+            <td>Type of OAuth2 grant to be used.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Client Id</td>
+            <td>Client ID for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Client Secret</td>
+            <td>Client Secret for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Refresh Token</td>
+            <td>Refresh Token for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Token URL</td>
+            <td>URL to obtain the OAuth2 token.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>Scope</td>
+            <td>Scope for OAuth2 authentication.</td>
+            <td>No</td>
+        </tr>
     </table>
 
 ??? note "POP3"
