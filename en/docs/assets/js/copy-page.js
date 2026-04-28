@@ -36,27 +36,22 @@
         const u = new URL(htmlUrl);
         u.hash = ''; u.search = '';
 
-        // Strip index.html AND .html extension
-        let cleanPath = u.pathname
-            .replace(/\/index\.html$/, '/')
-            .replace(/\.html$/, '')
-            .replace(/\/$/, '');
+        // Strip trailing slash, index.html AND .html extension
+        let pathname = u.pathname
+            .replace(/\/$/, '')
+            .replace(/\/index\.html$/, '')
+            .replace(/\.html$/, '');
 
-        const segments = cleanPath.split('/').filter(Boolean);
+        const segments = pathname.split('/').filter(Boolean);
+        const last = segments[segments.length - 1];
 
-        if (segments.length === 0) { u.pathname = '/index.md'; return u.href; }
+        const isVersion = /^\d+\.\d+\.\d+$/.test(last);
+        const isLangOrVersion = isVersion || ['en', 'next', 'latest'].includes(last);
 
-        const folderName = segments[segments.length - 1];
-        const parentSegments = segments.slice(0, -1);
-        const parentPath = parentSegments.join('/');
-
-        const isVersion = /^\d+\.\d+\.\d+$/.test(folderName);
-        const isLangOrVersion = isVersion || ['en', 'next', 'latest'].includes(folderName);
-
-        if (isLangOrVersion) {
-            u.pathname = `/${segments.join('/')}/index.md`;
+        if (pathname === '' || pathname === '/' || isLangOrVersion) {
+            u.pathname = (pathname || '') + '/index.md';
         } else {
-            u.pathname = parentPath ? `/${parentPath}/${folderName}.md` : `/${folderName}.md`;
+            u.pathname = pathname + '.md';
         }
 
         return u.href;
@@ -206,8 +201,16 @@
         });
 
         menu.querySelector('.cp-view').addEventListener('click', () => {
-            const mdUrl = getFlattenedMarkdownUrlFromHtmlUrl(window.location.href);
-            window.location.href = mdUrl;
+            const origin = window.location.origin;
+            let pathname = window.location.pathname.replace(/\/$/, '');
+
+            // Handle root path
+            if (pathname === '') pathname = '/index';
+
+            // Append .md to the current path
+            const mdPath = pathname + '.md/';
+
+            window.location.href = origin + mdPath;
             setOpen(false);
         });
 
