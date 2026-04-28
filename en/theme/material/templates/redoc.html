@@ -17,6 +17,10 @@
 -->
 
 {% extends "base.html" %}
+{% block extrahead %}
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 
 {% block styles %}
   {{ super() }}
