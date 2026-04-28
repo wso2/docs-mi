@@ -112,7 +112,7 @@ The following operations allow you to work with the Email Connector. Click an op
         </tr>
     </table>
 
-    The following OAuth2 authentication configurations can be used for IMAP and IMAPS connections. **Note**: These configurations are available from Email connector version 1.1.0 and above.
+    The following OAuth2 authentication configurations can be used for IMAP, IMAPS and SMTPS connections. **Note**: These configurations are available from Email connector version 1.1.6 and above.
     <table>
         <tr>
             <th>Parameter Name</th>
