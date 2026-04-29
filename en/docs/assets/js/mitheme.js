@@ -98,7 +98,7 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
 
 var request = new XMLHttpRequest();
 
-request.open('GET', activeRoot +
+request.open('GET', langRoot +
     'versions/assets/versions.json', true);
 
 request.onload = function () {
@@ -160,7 +160,7 @@ request.onload = function () {
             });
 
             document.getElementById('show-all-versions-link')
-                .setAttribute('href', activeRoot + 'versions');
+                .setAttribute('href', langRoot + 'versions');
         }
 
 

@@ -1378,22 +1378,4 @@ extra:
   #base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.6.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
-  versions:
-    current: 4.6.0
-    all:
-      - name: 4.6.0
-        doc: https://mi.docs.wso2.com/en/latest/
-        notes: https://mi.docs.wso2.com/en/latest/get-started/about-this-release/
-      - name: 4.5.0
-        doc: https://mi.docs.wso2.com/en/4.5.0/
-        notes: https://mi.docs.wso2.com/en/4.5.0/get-started/about-this-release/
-      - name: 4.4.0
-        doc: https://mi.docs.wso2.com/en/4.4.0/
-        notes: https://mi.docs.wso2.com/en/4.4.0/get-started/about-this-release/
-      - name: 4.3.0
-        doc: https://mi.docs.wso2.com/en/4.3.0/
-        notes: https://mi.docs.wso2.com/en/4.3.0/get-started/about-this-release/
-      - name: 4.2.0
-        doc: https://mi.docs.wso2.com/en/4.2.0/
-        notes: https://mi.docs.wso2.com/en/4.2.0/get-started/about-this-release/
 
