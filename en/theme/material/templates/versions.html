@@ -31,15 +31,19 @@
 
       {{ page.content }}
 
-      <h3 id="current-version-stable">Current version (Stable)</h3>
+      {% set current_version = config.extra.versions.current %}
+
+      <h3>Current version (Stable)</h3>
 
       <table>
         <tbody>
-          <tr>
-            <th id="current-version-number"><!-- Populated by JS --></th>
-            <td><a id="current-version-documentation-link" href="#" target="_blank" rel="noopener noreferrer">Documentation</a></td>
-            <td><a id="current-version-release-notes-link" href="#" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
-          </tr>
+          {% for version in config.extra.versions.all if version.name == current_version %} 
+            <tr>
+              <th>{{ version.name }}</th>
+              <td><a href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
+              <td><a href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
 
@@ -50,8 +54,16 @@
       <h3>Past Versions</h3>
 
       <table>
-        <tbody id="previous-versions">
-          <!-- Populated by JS -->
+        <tbody>
+          {% for version in config.extra.versions.all %} 
+            {% if version.name != current_version %}
+              <tr>
+                <th>{{ version.name }}</th>
+                <td><a href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
+                <td><a href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
+              </tr>
+            {% endif %}
+          {% endfor %}
         </tbody>
       </table>
     </article>
