@@ -98,8 +98,7 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
 
 var request = new XMLHttpRequest();
 
-request.open('GET', langRoot +
-    'versions/assets/versions.json', true);
+request.open('GET', 'https://raw.githubusercontent.com/wso2/docs-mi/versions/en/docs/assets/versions.json', true);
 
 request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
