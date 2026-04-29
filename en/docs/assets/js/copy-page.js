@@ -202,13 +202,14 @@
 
         menu.querySelector('.cp-view').addEventListener('click', () => {
             const origin = window.location.origin;
-            let pathname = window.location.pathname.replace(/\/$/, '');
+            const pathname = window.location.pathname;
 
-            // Handle root path
-            if (pathname === '') pathname = '/index';
-
-            // Append .md to the current path
-            const mdPath = pathname + '.md/';
+            let mdPath;
+            if (pathname === '' || pathname === '/') {
+                mdPath = '/index.md';
+            } else {
+                mdPath = pathname.replace(/\/$/, '') + '.md';
+            }
 
             window.location.href = origin + mdPath;
             setOpen(false);
