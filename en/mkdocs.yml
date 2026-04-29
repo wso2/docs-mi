@@ -934,7 +934,7 @@ nav:
               - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
               - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
           - Kafka Inbound Endpoint:
-              - Kafka Inbound Endpoint Example: reference/connectors/kafka-connector/kafka-inbound-endpoint-example
+              - Kafka Inbound Endpoint Example: get-started/event-driven-integrations.md
               - Kafka Inbound Endpoint Reference: reference/connectors/kafka-connector/kafka-inbound-endpoint-config.md
           - Salesforce Inbound Endpoint:
               - Salesforce Inbound Endpoint PushTopic Example: reference/connectors/salesforce-connectors/sf-inbound-endpoint-example-pushtopic.md
@@ -1378,4 +1378,22 @@ extra:
   #base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.6.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+  versions:
+    current: 4.6.0
+    all:
+      - name: 4.6.0
+        doc: https://mi.docs.wso2.com/en/latest/
+        notes: https://mi.docs.wso2.com/en/latest/get-started/about-this-release/
+      - name: 4.5.0
+        doc: https://mi.docs.wso2.com/en/4.5.0/
+        notes: https://mi.docs.wso2.com/en/4.5.0/get-started/about-this-release/
+      - name: 4.4.0
+        doc: https://mi.docs.wso2.com/en/4.4.0/
+        notes: https://mi.docs.wso2.com/en/4.4.0/get-started/about-this-release/
+      - name: 4.3.0
+        doc: https://mi.docs.wso2.com/en/4.3.0/
+        notes: https://mi.docs.wso2.com/en/4.3.0/get-started/about-this-release/
+      - name: 4.2.0
+        doc: https://mi.docs.wso2.com/en/4.2.0/
+        notes: https://mi.docs.wso2.com/en/4.2.0/get-started/about-this-release/
 

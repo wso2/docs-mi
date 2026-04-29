@@ -33,15 +33,15 @@
 
       {% set current_version = config.extra.versions.current %}
 
-      <h3>Current version (Stable)</h3>
+      <h3 id="current-version-stable">Current version (Stable)</h3>
 
       <table>
         <tbody>
           {% for version in config.extra.versions.all if version.name == current_version %} 
             <tr>
-              <th>{{ version.name }}</th>
-              <td><a href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
-              <td><a href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
+              <th id="current-version-number">{{ version.name }}</th>
+              <td><a id="current-version-documentation-link" href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
+              <td><a id="current-version-release-notes-link" href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
             </tr>
           {% endfor %}
         </tbody>
@@ -54,7 +54,7 @@
       <h3>Past Versions</h3>
 
       <table>
-        <tbody>
+        <tbody id="previous-versions">
           {% for version in config.extra.versions.all %} 
             {% if version.name != current_version %}
               <tr>
