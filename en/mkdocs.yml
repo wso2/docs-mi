@@ -164,6 +164,7 @@ nav:
               - Configure a Proxy Server: install-and-setup/setup/configuring-proxy-servers.md
               - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/enabling-ssl-tunneling-thru-proxy-server.md
           - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
+          - Coordinated Task Delete Barrier: install-and-setup/setup/feature-configs/configuring-task-delete-barrier.md
       - Deploy:
           - "Deploy the WSO2 Integrator: MI":
               - "Configure a WSO2 Integrator: MI Cluster": install-and-setup/setup/deployment/deploying-wso2-mi.md
