@@ -153,18 +153,20 @@ request.onload = function () {
             });
 
             // "Show all" expands the dropdown with versions not in data.list
-            showAllLink.addEventListener('click', function (e) {
-                e.preventDefault();
-                Object.keys(data.all).sort(compareSemVer).forEach(function (key) {
-                    if (data.list.indexOf(key) === -1 && data.all[key]) {
-                        var liElem = document.createElement('li');
-                        liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                        liElem.innerHTML = '<a href="' + buildVersionUrl(key) + '">' + key + '</a>';
-                        dropdown.insertBefore(liElem, showAllLink.parentElement);
-                    }
+            if (showAllLink) {
+                showAllLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    Object.keys(data.all).sort(compareSemVer).forEach(function (key) {
+                        if (data.list.indexOf(key) === -1 && data.all[key]) {
+                            var liElem = document.createElement('li');
+                            liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                            liElem.innerHTML = '<a href="' + buildVersionUrl(key) + '">' + key + '</a>';
+                            dropdown.insertBefore(liElem, showAllLink.parentElement);
+                        }
+                    });
+                    showAllLink.parentElement.style.display = 'none';
                 });
-                showAllLink.parentElement.style.display = 'none';
-            });
+            }
         }
 
 
