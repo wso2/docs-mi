@@ -98,7 +98,8 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
 
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://raw.githubusercontent.com/wso2/docs-mi/versions/en/docs/assets/versions.json', true);
+request.open('GET', activeRoot +
+    'versions/assets/versions.json', true);
 
 request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
@@ -123,50 +124,43 @@ request.onload = function () {
         }
 
         if (dropdown) {
-            var showAllLink = document.getElementById('show-all-versions-link');
+            data.list.sort(compareSemVer).forEach(function (key, index) {
+                var versionData = data.all[key];
 
-            function buildVersionUrl(key) {
-                var docLinkType = data.all[key].doc.split(':')[0];
-                var url = data.all[key].doc;
-                var currentPath = window.location.pathname;
-                var pathWithoutEn = currentPath.substring(4, currentPath.length);
-                var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length);
-                if (docLinkType === 'https' || docLinkType === 'http') {
-                    url = data.all[key].doc.replace(/\/$/, "") + pathWithoutVersion;
-                } else {
-                    var baseDocUrl = langRoot;
-                    if (baseDocUrl.endsWith('latest/')) {
-                        baseDocUrl = baseDocUrl.substring(0, baseDocUrl.length - 7);
-                    }
-                    url = baseDocUrl + data.all[key].doc + pathWithoutVersion;
-                }
-                return url;
-            }
-
-            data.list.sort(compareSemVer).forEach(function (key) {
-                if (data.all[key]) {
+                if (versionData) {
                     var liElem = document.createElement('li');
+                    var docLinkType = data.all[key].doc.split(':')[0];
+                    var target = '_self';
+                    var url = data.all[key].doc;
+
+                    var currentPath = window.location.pathname;
+                    // Find the index of '/en/'
+                    var pathWithoutEn = currentPath.substring(4, currentPath.length);
+                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length);
+
+                    if (docLinkType === 'https' || docLinkType === 'http') {
+                        // For external links (older versions), go directly to the configured URL for that version plus the path
+                        url = data.all[key].doc.replace(/\/$/, "") + pathWithoutVersion;
+                    } else {
+                        // For relative internal branches (like 'latest')
+                        var baseDocUrl = langRoot;
+                        if (baseDocUrl.endsWith('latest/')) {
+                            // Trim trailing 'latest/' so we can properly append relative paths from versions.json
+                            baseDocUrl = baseDocUrl.substring(0, baseDocUrl.length - 7);
+                        }
+                        url = baseDocUrl + data.all[key].doc + pathWithoutVersion;
+                    }
+
+
                     liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                    liElem.innerHTML = '<a href="' + buildVersionUrl(key) + '">' + key + '</a>';
+                    liElem.innerHTML = '<a href="' + url + '">' + key + '</a>';
+
                     dropdown.insertBefore(liElem, dropdown.firstChild);
                 }
             });
 
-            // "Show all" expands the dropdown with versions not in data.list
-            if (showAllLink) {
-                showAllLink.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    Object.keys(data.all).sort(compareSemVer).forEach(function (key) {
-                        if (data.list.indexOf(key) === -1 && data.all[key]) {
-                            var liElem = document.createElement('li');
-                            liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                            liElem.innerHTML = '<a href="' + buildVersionUrl(key) + '">' + key + '</a>';
-                            dropdown.insertBefore(liElem, showAllLink.parentElement);
-                        }
-                    });
-                    showAllLink.parentElement.style.display = 'none';
-                });
-            }
+            document.getElementById('show-all-versions-link')
+                .setAttribute('href', activeRoot + 'versions');
         }
 
 
