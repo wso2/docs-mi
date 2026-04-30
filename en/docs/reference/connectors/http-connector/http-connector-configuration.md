@@ -4,7 +4,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
 
 ## Connections 
 
-??? note "HTTP"
+???+ note "HTTP"
     The HTTP connection allows you to connect to an HTTP endpoint.
     <table>
         <tr>
@@ -163,7 +163,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
     </http.init>
     ```
 
-??? note "HTTPS"
+???+ note "HTTPS"
     The HTTPS connection allows you to connect to an HTTPS endpoint.
     <table>
         <tr>
@@ -326,7 +326,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
 
 ## Operations
 
-??? note "GET"
+???+ note "GET"
     The `GET` operation sends an HTTP GET request.
     <table>
         <tr>
@@ -406,7 +406,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
     </http.get>
     ```
 
-??? note "DELETE"
+???+ note "DELETE"
     The `DELETE` operation sends an HTTP DELETE request.
     <table>
         <tr>
@@ -486,7 +486,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
     </http.delete>
     ```
 
-??? note "POST"
+???+ note "POST"
     The `POST` operation sends an HTTP POST request.
     <table>
         <tr>
@@ -592,7 +592,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
     </http.post>
     ```
 
-??? note "PUT"
+???+ note "PUT"
     The `PUT` operation sends an HTTP PUT request.
     <table>
         <tr>
@@ -698,7 +698,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
     </http.put>
     ```
 
-??? note "PATCH"
+???+ note "PATCH"
     The `PATCH` operation sends an HTTP PATCH request.
     <table>
         <tr>
@@ -804,7 +804,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
     </http.patch>
     ```
 
-??? note "HEAD"
+???+ note "HEAD"
     The `HEAD` operation sends an HTTP HEAD request.
     <table>
         <tr>
@@ -910,7 +910,7 @@ The following operations allow you to work with the HTTP. Click an operation nam
     </http.head>
     ```
 
-??? note "HEAD"
+???+ note "HEAD"
     The `HEAD` operation sends an HTTP HEAD request.
     <table>
         <tr>
