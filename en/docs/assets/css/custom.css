@@ -93,3 +93,20 @@ hr.rounded {
     box-sizing: border-box;
     border-radius: 4px;
 }
+
+/* Center the work in progress banner */
+.md-announce, .md-banner {
+    text-align: center !important;
+}
+
+.md-announce__inner, .md-banner__inner {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* Ensure banner text is black in light mode */
+[data-md-color-scheme="default"] .md-announce,
+[data-md-color-scheme="default"] .md-banner {
+    color: #000 !important;
+}
