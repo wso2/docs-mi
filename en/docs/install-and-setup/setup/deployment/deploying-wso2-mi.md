@@ -185,6 +185,10 @@ When you have Scheduled triggers in your integration deployment, each task shoul
     task_nodes = "node-1,node-2 ,node-3,node-4"
     ```
 
+#### Coordinated task delete barrier
+
+When hot-undeploying coordinated tasks in a cluster, a race condition can occur between nodes during task deletion. You can enable the **task delete barrier** feature to coordinate task deletion across nodes using a barrier protocol. See [Configuring the Coordinated Task Delete Barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier) for details.
+
 #### Advanced parameters
 
 The `resolving_period` and `resolving_frequency` properties are set by default as shown below. It is **not recommended** to change these default values.
