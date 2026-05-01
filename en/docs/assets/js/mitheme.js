@@ -80,26 +80,26 @@ for (var i = 0; i < dropdowns.length; i++) {
 // Reading versions
 
 var pageHeader = document.getElementById('page-header');
-var docSetLang = pageHeader.getAttribute('data-lang');
+var rawLang = pageHeader.getAttribute('data-lang') || 'en';
+var langPrefix = '/' + rawLang + '/';
 
-(window.location.pathname.split('/')[1] !== docSetLang) ?
+(window.location.pathname.split('/')[1] !== rawLang) ?
     docSetLang = '' :
-    docSetLang = docSetLang + '/';
+    docSetLang = rawLang + '/';
 
 var docSetUrl = window.location.origin + '/' + docSetLang;
 var langRoot = window.location.origin + '/' + docSetLang;
-var activeRoot = window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf('/', 4) + 1);
-
-if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    docSetUrl = window.location.origin + '/en/4.5.0/';
-    activeRoot = window.location.origin + '/en/4.5.0/';
-    langRoot = window.location.origin + '/en/';
+var segments = window.location.pathname.split('/').filter(Boolean);
+var activeRoot = window.location.origin + '/';
+if (segments.length > 0) {
+    activeRoot += segments.slice(0, 2).join('/') + '/';
 }
+
+
 
 var request = new XMLHttpRequest();
 
-request.open('GET', activeRoot +
-    'versions/assets/versions.json', true);
+request.open('GET', 'https://raw.githubusercontent.com/wso2/docs-mi/versions/en/docs/assets/versions.json', true);
 
 request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
@@ -111,44 +111,36 @@ request.onload = function () {
 
         // Appending versions to the version selector dropdown
 
-        function compareSemVer(a, b) {
-            // implement a compareSemVer function that splits version strings by '.' and compares each numeric segment
-            var partsA = a.split('.').map(Number);
-            var partsB = b.split('.').map(Number);
-            for (var i = 0; i < Math.max(partsA.length, partsB.length); i++) {
-                var valA = partsA[i] || 0;
-                var valB = partsB[i] || 0;
-                if (valA !== valB) return valA - valB; // Ascending like default sort()
-            }
-            return a.localeCompare(b);
-        }
+
 
         if (dropdown) {
-            data.list.sort(compareSemVer).forEach(function (key, index) {
+            data.list.sort().forEach(function(key, index){
                 var versionData = data.all[key];
 
-                if (versionData) {
+                if(versionData) {
                     var liElem = document.createElement('li');
                     var docLinkType = data.all[key].doc.split(':')[0];
                     var target = '_self';
                     var url = data.all[key].doc;
 
                     var currentPath = window.location.pathname;
-                    // Find the index of '/en/'
-                    var pathWithoutEn = currentPath.substring(4, currentPath.length);
-                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length);
+                    var segments = currentPath.split('/').filter(Boolean);
+                    var pathWithoutVersion = "/" + segments.slice(2).join('/');
+
+                    var versionDoc = data.all[key].doc;
+                    var docLinkType = versionDoc.split(':')[0];
 
                     if (docLinkType === 'https' || docLinkType === 'http') {
-                        // For external links (older versions), go directly to the configured URL for that version plus the path
-                        url = data.all[key].doc.replace(/\/$/, "") + pathWithoutVersion;
+                        // For external links (older versions), go directly to the configured URL
+                        url = versionDoc.replace(/\/$/, "") + pathWithoutVersion;
                     } else {
-                        // For relative internal versions (like '4.5.0')
-                        url = langRoot + data.all[key].doc + pathWithoutVersion;
+                        // Use the version number (key) instead of the 'doc' alias
+                        url = docSetUrl + key + pathWithoutVersion;
                     }
 
 
                     liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                    liElem.innerHTML = '<a href="' + url + '">' + key + '</a>';
+                    liElem.innerHTML =  '<a href="'+ url+'">' + key + '</a>';
 
                     dropdown.insertBefore(liElem, dropdown.firstChild);
                 }
@@ -195,9 +187,9 @@ request.onload = function () {
             document.getElementById('current-version-number').innerHTML =
                 data.current;
             document.getElementById('current-version-documentation-link')
-                .setAttribute('href', langRoot + data.all[data.current].doc);
+                .setAttribute('href', langRoot + data.current);
             document.getElementById('current-version-release-notes-link')
-                .setAttribute('href', langRoot + data.all[data.current].notes);
+                .setAttribute('href', langRoot + data.current + '/' + data.all[data.current].notes.split('/').slice(1).join('/'));
 
             // Pre-release version update
             document.getElementById('pre-release-version-documentation-link')
