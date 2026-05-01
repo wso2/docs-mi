@@ -113,11 +113,20 @@ request.onload = function() {
                   var url = data.all[key].doc;
 
                   var currentPath= window.location.pathname;
-                     // Find the index of '/en/'
+                  // Find the index of '/en/'
                   var pathWithoutEn = currentPath.substring(4,currentPath.length);
                   var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
 
-                  url = docSetUrl + key+ pathWithoutVersion;
+                  var versionDoc = data.all[key].doc;
+                  var docLinkType = versionDoc.split(':')[0];
+
+                  if (docLinkType === 'https' || docLinkType === 'http') {
+                      // For external links (older versions), go directly to the configured URL
+                      url = versionDoc.replace(/\/$/, "") + pathWithoutVersion;
+                  } else {
+                      // For relative internal branches (like 'latest')
+                      url = docSetUrl + versionDoc + pathWithoutVersion;
+                  }
 
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
@@ -127,8 +136,10 @@ request.onload = function() {
               }
           });
 
-          document.getElementById('show-all-versions-link')
-              .setAttribute('href', docSetUrl + 'versions');
+          var showAllLink = document.getElementById('show-all-versions-link');
+          if (showAllLink) {
+              showAllLink.setAttribute('href', docSetUrl + 'versions');
+          }
       }
 
       /*
