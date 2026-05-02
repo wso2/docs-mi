@@ -108,14 +108,13 @@ request.onload = function() {
 
               if(versionData) {
                   var liElem = document.createElement('li');
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
+                  var currentPath = window.location.pathname;
+                  var langPrefixLength = docSetLang ? docSetLang.length + 1 : 0;
+                  var pathWithoutLang = currentPath.substring(langPrefixLength);
+                  if (pathWithoutLang.startsWith('/')) pathWithoutLang = pathWithoutLang.substring(1);
 
-                  var currentPath= window.location.pathname;
-                  // Find the index of '/en/'
-                  var pathWithoutEn = currentPath.substring(4,currentPath.length);
-                  var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
+                  var firstSlashIndex = pathWithoutLang.indexOf("/");
+                  var pathWithoutVersion = (firstSlashIndex !== -1) ? pathWithoutLang.substring(firstSlashIndex) : "/";
 
                   var versionDoc = data.all[key].doc;
                   var docLinkType = versionDoc.split(':')[0];
@@ -124,9 +123,11 @@ request.onload = function() {
                       // For external links (older versions), go directly to the configured URL
                       url = versionDoc.replace(/\/$/, "") + pathWithoutVersion;
                   } else {
-                      // For relative internal branches (like 'latest')
-                      url = docSetUrl + versionDoc + pathWithoutVersion;
+                      // Use the version number (key) instead of the 'doc' alias
+                      url = docSetUrl + key + pathWithoutVersion;
                   }
+
+
 
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
@@ -178,10 +179,13 @@ request.onload = function() {
           // Current released version update
           document.getElementById('current-version-number').innerHTML =
                   data.current;
+          var docDocLink = docSetUrl + data.current;
+          var docNotesLink = docSetUrl + data.current + '/' + data.all[data.current].notes.split('/').slice(1).join('/');
+
           document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
+                  .setAttribute('href', docDocLink);
           document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
+                  .setAttribute('href', docNotesLink);
 
           // Pre-release version update
           document.getElementById('pre-release-version-documentation-link')
