@@ -91,8 +91,9 @@ var docSetUrl = window.location.origin + '/' + docSetLang;
 var langRoot = window.location.origin + '/' + docSetLang;
 var segments = window.location.pathname.split('/').filter(Boolean);
 var activeRoot = window.location.origin + '/';
-if (segments.length > 0) {
-    activeRoot += segments.slice(0, 2).join('/') + '/';
+var activeRootSegments = docSetLang ? 2 : 1;
+if (segments.length >= activeRootSegments) {
+    activeRoot += segments.slice(0, activeRootSegments).join('/') + '/';
 }
 
 
@@ -114,6 +115,8 @@ request.onload = function () {
 
 
         if (dropdown) {
+            var pathWithoutVersion = "/" + segments.slice(docSetLang ? 2 : 1).join('/');
+
             data.list.sort().forEach(function(key, index){
                 var versionData = data.all[key];
 
@@ -122,10 +125,6 @@ request.onload = function () {
                     var docLinkType = data.all[key].doc.split(':')[0];
                     var target = '_self';
                     var url = data.all[key].doc;
-
-                    var currentPath = window.location.pathname;
-                    var segments = currentPath.split('/').filter(Boolean);
-                    var pathWithoutVersion = "/" + segments.slice(2).join('/');
 
                     var versionDoc = data.all[key].doc;
                     var docLinkType = versionDoc.split(':')[0];
