@@ -103,7 +103,16 @@ request.onload = function() {
        * Appending versions to the version selector dropdown
        */
       if (dropdown){
-          data.list.sort().forEach(function(key, index){
+          data.list.sort(function(a, b) {
+              var aParts = a.split('.');
+              var bParts = b.split('.');
+              for (var i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+                  var aPart = parseInt(aParts[i]) || 0;
+                  var bPart = parseInt(bParts[i]) || 0;
+                  if (aPart !== bPart) return aPart - bPart;
+              }
+              return 0;
+          }).forEach(function(key, index){
               var versionData = data.all[key];
 
               if(versionData) {
@@ -118,6 +127,8 @@ request.onload = function() {
 
                   var versionDoc = data.all[key].doc;
                   var docLinkType = versionDoc.split(':')[0];
+                  var url = '';
+                  var searchAndHash = window.location.search + window.location.hash;
 
                   if (docLinkType === 'https' || docLinkType === 'http') {
                       // For external links (older versions), go directly to the configured URL
@@ -126,6 +137,7 @@ request.onload = function() {
                       // Use the version number (key) instead of the 'doc' alias
                       url = docSetUrl + key + pathWithoutVersion;
                   }
+                  url = url.replace(/\/$/, "") + searchAndHash;
 
 
 
@@ -151,21 +163,28 @@ request.onload = function() {
 
           Object.keys(data.all).forEach(function(key, index){
               if ((key !== data.current) && (key !== data['pre-release'])) {
-                  var docLinkType = data.all[key].doc.split(':')[0];
+                  var doc = data.all[key].doc;
+                  var notes = data.all[key].notes;
                   var target = '_self';
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
+                  if (doc.startsWith('http')) {
+                      target = '_blank';
+                  } else {
+                      doc = (docSetUrl + key + '/' + doc).replace(/([^:]\/)\/+/g, "$1");
+                  }
+
+                  if (!notes.startsWith('http')) {
+                      notes = (docSetUrl + key + '/' + notes).replace(/([^:]\/)\/+/g, "$1");
                   }
 
                   previousVersions.push('<tr>' +
                     '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' +
+                            '<a href="' + doc + '" target="' +
                                 target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' +
+                            '<a href="' + notes + '" target="' +
                                 target + '">Release Notes</a>' +
                         '</td>' +
                     '</tr>');
