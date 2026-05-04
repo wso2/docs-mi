@@ -29,7 +29,7 @@ If you are upgrading a cluster from a previous MI version, your existing coordin
 
 After the cluster starts, look for this line in the `wso2carbon.log` on each node:
 
-```
+```text
 INFO {ScheduledTaskManager} - Clustered task delete barrier flow is enabled. Configure [task_handling.enable_task_delete_barrier] to control it.
 ```
 
