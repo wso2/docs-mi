@@ -1875,7 +1875,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     !!! note
         The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either the `filePath` or `fileContent` parameter is mandatory.
-        The `isContentBase64Encoded` parameter is available only with Amazon S3 connector v2.0.7 and above.    
+        The `isContentBase64Encoded` parameter is available only with Amazon S3 connector v2.0.7 and above.
+        The `enableStreaming`, `streamingThreshold`, and `streamingPartSize` parameters are available only with Amazon S3 connector v2.0.12 and above.
 
     <table>
         <tr>
@@ -2038,6 +2039,21 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
             <td>Specifies whether you want to apply a Legal Hold to the uploaded object.</td>
             <td>Optional</td>
         </tr>
+        <tr>
+            <td>enableStreaming</td>
+            <td>When set to <code>true</code>, reads upload content directly from the binary payload in the message body as a streaming <code>InputStream</code>, avoiding full in-memory buffering. When enabled, <code>filePath</code> and <code>fileContent</code> must be empty. If the content length is unknown or exceeds <code>streamingThreshold</code>, a multipart upload is used automatically.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>streamingThreshold</td>
+            <td>The threshold in bytes at which the connector switches from a single-part upload to a multipart upload when streaming is enabled. Defaults to <code>104857600</code> (100 MB). Requires <code>enableStreaming</code> to be <code>true</code>.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>streamingPartSize</td>
+            <td>The part size in bytes for each chunk during a multipart upload. Must be between <code>5242880</code> (5 MB) and <code>2147483647</code> (~2 GB). Defaults to <code>104857600</code> (100 MB). Requires <code>enableStreaming</code> to be <code>true</code>.</td>
+            <td>Optional</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -2072,6 +2088,9 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         <objectLockMode>{$ctx:objectLockMode}</objectLockMode>
         <objectLockRetainUntilDate>{$ctx:objectLockRetainUntilDate}</objectLockRetainUntilDate>
         <objectLockLegalHoldStatus>{$ctx:objectLockLegalHoldStatus}</objectLockLegalHoldStatus>
+        <enableStreaming>{$ctx:enableStreaming}</enableStreaming>
+        <streamingThreshold>{$ctx:streamingThreshold}</streamingThreshold>
+        <streamingPartSize>{$ctx:streamingPartSize}</streamingPartSize>
     </amazons3.putObject>
     ```
 
