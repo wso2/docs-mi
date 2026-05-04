@@ -168,7 +168,7 @@ Now it is time to design your API. This is the underlying logic that's executed 
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/chatbot/add_file_memory.gif" alt="Set Chat Operation Payload" width="80%"></a>
 
-12. Now, we shall complete the **Chat** operation configuration by filling the `Session ID` and`User Query/Prompt` fields with the payload values.  
+12. Now, we shall complete the **Chat** operation configuration by filling the `Session ID` and `User Query/Prompt` fields with the payload values.  
 
     Here, we will use the `userID` value as the Session ID and the `query` value from the request payload as the user query for the Chat operation. Follow these steps to set it up:
 

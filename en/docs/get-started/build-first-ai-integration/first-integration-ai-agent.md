@@ -47,7 +47,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
 ## Step 2 - Design the integration
 
-1. Open the **Resource View** of the newly created API resource by clicking the `POST` resource under **Available resources** in the **Service Designer**.
+1. Open the **Resource View** of the newly created API resource by clicking the `POST /` resource under **Available resources** in the **Service Designer**.
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/agent/select_resource.png" alt="Create New Project" width="80%"></a>
 
