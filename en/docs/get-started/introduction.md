@@ -11,7 +11,7 @@ WSO2 Integrator: MI offers a streamlined approach to connect your business and p
 WSO2 Integrator: MI offers the ability to transform any service or data source into a reusable API. You can easily expose a wide array of services, including RESTful services, SOAP web services, WebSockets, and more. This empowers you to encapsulate your services, allowing you to parameterize and render them as reusable integrations. This API-centric approach enhances the flexibility and reusability of your integration solutions.
 
 ### Enable enterprise modernization
-WSO2 Integrator: MI provides  the ability to seamlessly connect systems in accordance with established open standards, interface with legacy or proprietary services and systems, assuring reliable access to all of your data. It is designed to facilitate the modernization of your enterprise, fostering greater efficiency and connectivity in your operations.
+WSO2 Integrator: MI provides the ability to seamlessly connect systems in accordance with established open standards, interface with legacy or proprietary services and systems, assuring reliable access to all of your data. It is designed to facilitate the modernization of your enterprise, fostering greater efficiency and connectivity in your operations.
 
 ## Low code integration
 
