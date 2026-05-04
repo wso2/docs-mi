@@ -228,7 +228,7 @@ set when you enable dynamic SSL profiles:
 
 By default, if any custom SSL profile fails to load during startup (e.g., due to a missing keystore, incorrect password, or invalid keystore type), the Micro Integrator will abort the startup process.
 
-To allow the server to start by skipping faulty profiles and logging a warning instead, pass the following JVM parameter at startup:Expand commentComment on lines R160 to R167Resolved
+To allow the server to start by skipping faulty profiles and logging a warning instead, pass the following JVM parameter at startup:
 
 ```xml
 -Dssl.profile.skip.failures=trueExpand commentComment on line R170Resolved
