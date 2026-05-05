@@ -14,7 +14,7 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
--->
+ -->
 
 {% extends "base.html" %}
 
@@ -31,41 +31,41 @@
 
       {{ page.content }}
 
-      {% set current_version = config.extra.versions.current %}
-
-      <h3>Current version (Stable)</h3>
-
-      <table>
-        <tbody>
-          {% for version in config.extra.versions.all if version.name == current_version %} 
-            <tr>
-              <th>{{ version.name }}</th>
-              <td><a href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
-              <td><a href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-
-      <p>This is the current stable version of the project.</p>
+      <div id="current-version-stable">
+        <h3>Current version (Stable)</h3>
+        <table>
+          <tbody>
+              <tr>
+                <th id="current-version-number"></th>
+                <td><a id="current-version-documentation-link" href="" target="_blank" rel="noopener noreferrer">Documentation</a></td>
+                <td><a id="current-version-release-notes-link" href="" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
+              </tr>
+          </tbody>
+        </table>
+        <p>This is the current stable version of the project.</p>
+      </div>
 
       <hr />
 
-      <h3>Past Versions</h3>
+      <div id="past-versions-section">
+        <h3>Past Versions</h3>
+        <table>
+          <tbody id="previous-versions">
+          </tbody>
+        </table>
+      </div>
 
-      <table>
-        <tbody>
-          {% for version in config.extra.versions.all %} 
-            {% if version.name != current_version %}
-              <tr>
-                <th>{{ version.name }}</th>
-                <td><a href="{{ version.doc }}" target="_blank" rel="noopener noreferrer">Documentation</a></td>
-                <td><a href="{{ version.notes }}" target="_blank" rel="noopener noreferrer">Release Notes</a></td>
-              </tr>
-            {% endif %}
-          {% endfor %}
-        </tbody>
-      </table>
+      <div id="pre-release-section" style="display:none;">
+        <h3>Pre-release Versions</h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>Next (Development)</th>
+              <td><a id="pre-release-version-documentation-link" href="" target="_blank" rel="noopener noreferrer">Documentation</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </article>
   </div>
 {% endblock %}
