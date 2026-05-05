@@ -12,16 +12,10 @@ Follow the steps given below to start the server.
 
 1. Open a command prompt as explained below.
 
-      <table>
-            <tr>
-                  <th>On <b>Linux/macOS</b></td>
-                  <td>Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window.</td>
-            </tr>
-            <tr>
-                  <th>On <b>Windows</b></td>
-                  <td>Click <b>Start &gt;Run</b>, type <b>cmd</b> at the prompt, and then press <b>Enter</b>.</td>
-            </tr>
-      </table>     
+      | Platform | Instructions |
+      | --- | --- |
+      | On **Linux/macOS** | Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window. |
+      | On **Windows** | Click **Start >Run**, type **cmd** at the prompt, and then press **Enter**. |
 
 2. Navigate to the `<MI_HOME>/bin` folder from your command line.
 3. Execute one of the commands given below.
