@@ -35,11 +35,11 @@ You can find the official WSO2 Integrator: MI Helm charts repository at: <a targ
     ```bash
     git clone https://github.com/wso2-enterprise/helm-mi.git
     cd helm-mi
-    git checkout 4.4.x
+    git checkout 4.5.x
     ```
 
     !!! note
-        The `4.4.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.4.0.
+        The `4.5.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.5.0.
 
 Let's refer to the root folder of the cloned repository as `<HELM_HOME>` throughout this guide.
 
@@ -126,7 +126,7 @@ You may expand each file section below to review the configuration content and u
             # -- Hostname of the WSO2 Integrator: MI deployment
             hostname: "mi.wso2.com"
             # -- Build version of the WSO2 Integrator: MI
-            BuildVersion: "4.4.0"
+            BuildVersion: "4.5.0"
             image:
                 # -- Container image repository name
                 repository: "currencyconverter"
@@ -156,7 +156,7 @@ You may expand each file section below to review the configuration content and u
 
     **Line 58** – Use the `env` section to pass environment variables required by your integration. These environment variables should match the configurables declared in your integration artifacts. For example, the `currency_service_url` variable is used by the API in this tutorial to dynamically resolve the backend service URL.
 
-    For a complete list of available configuration options and usage examples, refer to the [MI Helm Chart Configuration Guide](https://github.com/wso2/helm-mi/blob/4.4.x/mi/CONFIG.md).
+    For a complete list of available configuration options and usage examples, refer to the [MI Helm Chart Configuration Guide](https://github.com/wso2/helm-mi/blob/4.5.x/mi/CONFIG.md).
 
 ??? Note "icp-values.yaml"
     ```yaml linenums="1"
@@ -212,7 +212,7 @@ You may expand each file section below to review the configuration content and u
 
     **Line 38** – This section configures the Docker image for the ICP deployment. The image version is specified using the `tag`. Alternatively, you can specify the image using the `digest` parameter under `image`.
 
-    For a complete list of configuration options and their usage, refer to the [ICP Helm Chart Configuration Guide](https://github.com/wso2/helm-mi/blob/4.4.x/icp/CONFIG.md).
+    For a complete list of configuration options and their usage, refer to the [ICP Helm Chart Configuration Guide](https://github.com/wso2/helm-mi/blob/4.5.x/icp/CONFIG.md).
 
 1. Download the configuration files: <a href="{{base_path}}/assets/attachments/install-and-setup/mi-values.yaml">mi-values.yaml</a> and <a href="{{base_path}}/assets/attachments/install-and-setup/icp-values.yaml">icp-values.yaml</a>.
 2. Copy the `mi-values.yaml` file to the `<HELM_HOME>/mi` directory.
