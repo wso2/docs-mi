@@ -196,7 +196,7 @@ You may expand each file section below to review the configuration content and u
         # -- Hostname of the ICP deployment
         hostname: "icp.wso2.com"
         # -- Build version of the ICP
-        BuildVersion: "1.0.0"
+        BuildVersion: "1.2.0"
         image:
             # -- Container image repository name
             repository: "wso2-integration-control-plane"
