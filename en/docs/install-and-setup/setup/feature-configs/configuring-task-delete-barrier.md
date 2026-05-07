@@ -21,9 +21,7 @@ No additional configuration is required — the feature is on as soon as your cl
 
 ## Migrating an existing cluster
 
-If you are upgrading a cluster from a previous MI version, your existing coordination database does **not** contain the barrier tables and you must add them before starting the upgraded cluster — otherwise hot-undeploy of coordinated tasks will fail. The per-database script and the recommended downtime steps are documented in the upgrade guide:
-
-[Pre-upgrade tasks → Add the task delete barrier tables to the cluster coordination database]({{base_path}}/install-and-setup/upgrading-wso2-mi/#add-the-task-delete-barrier-tables-to-the-cluster-coordination-database)
+If you are upgrading an existing cluster from a previous MI version, the four barrier tables are not present in your current coordination database and must be added before starting the upgraded cluster — otherwise hot-undeploy of coordinated tasks will fail. The per-database scripts and recommended downtime steps are delivered as part of the support migration package; [contact WSO2 Support](https://wso2.com/contact/?ref=migrationsupport) to request the MI 4.6.0 migration resources.
 
 ## Confirming the feature is active
 

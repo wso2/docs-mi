@@ -16,47 +16,6 @@ Over the course of its lifetime, WSO2 Integrator: MI has changed significantly a
 
 To learn what’s new in the WSO2 Integrator: MI 4.6.0 release, see the [About this Release]({{base_path}}/get-started/about-this-release/) page.
 
-## Pre-upgrade tasks
-
-Before bringing your upgraded MI 4.6.0 nodes online, complete the tasks below that apply to your deployment.
-
-### Add the task delete barrier tables to the cluster coordination database
-
-Applies to **clustered deployments** that use [RDBMS-based coordination]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#cluster-coordination).
-
-MI 4.6.0 enables the **task delete barrier** feature by default to prevent stale tasks and brief duplicate execution during hot undeployment. The feature stores its state in four new tables in the coordination database (the database configured as `WSO2_COORDINATION_DB`). For new clusters these tables are created automatically by the standard `<DB_TYPE>_cluster.sql` script — but if you are reusing an existing pre-4.6.0 coordination database, you must add them manually before starting the upgraded cluster, otherwise hot-undeploy of coordinated tasks will fail.
-
-Stop all cluster nodes, then run the standalone barrier script for your database type from `<MI_HOME>/dbscripts/<DB_TYPE>/`:
-
-=== "MySQL"
-    ```bash
-    mysql -u root -p clusterdb < <MI_HOME>/dbscripts/mysql/mysql_cluster_task_delete_barrier.sql
-    ```
-=== "MSSQL"
-    ```bash
-    sqlcmd -S localhost -d clusterdb -i <MI_HOME>/dbscripts/mssql/mssql_cluster_task_delete_barrier.sql
-    ```
-=== "Oracle"
-    ```bash
-    sqlplus user/password@SID @<MI_HOME>/dbscripts/oracle/oracle_cluster_task_delete_barrier.sql
-    ```
-=== "Oracle RAC"
-    ```bash
-    sqlplus user/password@SID @<MI_HOME>/dbscripts/oracle-rac/oracle_rac_cluster_task_delete_barrier.sql
-    ```
-=== "PostgreSQL"
-    ```bash
-    psql -U root -d clusterdb -f <MI_HOME>/dbscripts/postgres/postgresql_cluster_task_delete_barrier.sql
-    ```
-=== "IBM DB2"
-    ```bash
-    db2 -tvf <MI_HOME>/dbscripts/db2/db2_cluster_task_delete_barrier.sql
-    ```
-
-Run the script **once per cluster** — the tables are shared by every node. If you would prefer to keep the legacy cleanup behavior instead of running the migration, see [Disabling the feature]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier/#disabling-the-feature).
-
-For background on what the feature does and how to verify it after the upgrade, see [Configuring the Coordinated Task Delete Barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier).
-
 ## Get started
 
 To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support in order to upgrade WSO2 Integrator: MI with minimal difficulty.
