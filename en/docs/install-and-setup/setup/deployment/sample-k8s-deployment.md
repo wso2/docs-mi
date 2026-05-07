@@ -201,7 +201,7 @@ You may expand each file section below to review the configuration content and u
             # -- Container image repository name
             repository: "wso2-integration-control-plane"
             # -- Container image tag
-            tag: "1.0.0"
+            tag: "1.2.0"
     ```
 
     **Line 1** – Since the WSO2 official ICP Docker image is used, the `containerRegistry` is set to `wso2`.
