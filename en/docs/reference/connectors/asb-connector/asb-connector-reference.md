@@ -2884,10 +2884,7 @@ The following operations require a **MessageReceiver** connection.
     ```
 
 ??? note "receivePayload"
-    Receives only the payload of a message from the configured queue or subscription.
-
-    !!! note
-        This operation can only be used in **Receive and Delete** mode and is not compatible with **Peek Lock** mode.
+    Receives only the payload of a message from the configured queue or subscription. This operation can only be used in **Receive and Delete** mode and is not compatible with **Peek Lock** mode.
 
     <table>
     <tr>
