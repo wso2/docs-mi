@@ -1,4 +1,4 @@
-# Configuring the Coordinated Task Delete Barrier
+# Configure the Coordinated Task Delete Barrier
 
 The **task delete barrier** is enabled by default in clustered WSO2 Integrator: MI deployments that use [RDBMS-based coordination]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#cluster-coordination). Most users do not need to do anything to use this feature — but you should read this page if you are **upgrading an existing cluster** (you may need to add a few tables to your coordination database) or if you want to **disable** the feature.
 
@@ -19,11 +19,11 @@ If you are setting up a new cluster, the default coordination-database script (`
 
 No additional configuration is required — the feature is on as soon as your cluster starts.
 
-## Migrating an existing cluster
+## Migrate an existing cluster
 
 If you are upgrading an existing cluster from a previous MI version, the four barrier tables are not present in your current coordination database and must be added before starting the upgraded cluster — otherwise hot-undeploy of coordinated tasks will fail. The per-database scripts and recommended downtime steps are delivered as part of the support migration package; [contact WSO2 Support](https://wso2.com/contact/?ref=migrationsupport) to request the MI 4.6.0 migration resources.
 
-## Confirming the feature is active
+## Confirm the feature is active
 
 After the cluster starts, look for this line in the `wso2carbon.log` on each node:
 
@@ -33,7 +33,7 @@ INFO {ScheduledTaskManager} - Clustered task delete barrier flow is enabled. Con
 
 When a coordinated task is hot-undeployed, the leader node logs a `Leader flow finalized delete barrier` line, and worker nodes log `Barrier acknowledgement` lines. Seeing both confirms the feature is working end-to-end.
 
-## Disabling the feature
+## Disable the feature
 
 If you need to revert to the legacy best-effort cleanup behavior, set `enable_task_delete_barrier = false` under `[task_handling]` in `<MI_HOME>/conf/deployment.toml` on **every node**, then restart:
 
