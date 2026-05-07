@@ -187,7 +187,7 @@ When you have Scheduled triggers in your integration deployment, each task shoul
 
 #### Coordinated task delete barrier
 
-The cluster uses the **task delete barrier** to coordinate task cleanup during hot undeployment, preventing stale tasks and brief duplicate execution across nodes. It is **enabled by default**, and the four supporting tables are created automatically by the standard `<MI_HOME>/dbscripts/<DB_TYPE>/<DB_TYPE>_cluster.sql` script. If you are upgrading an existing cluster (whose coordination database does not yet have these tables) or want to disable the feature, see [Configuring the Coordinated Task Delete Barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier).
+The cluster uses the **task delete barrier** to coordinate task cleanup during hot undeployment, preventing stale tasks and brief duplicate execution across nodes. It is **enabled by default**, and the required tables are created automatically by the standard `<MI_HOME>/dbscripts/<DB_TYPE>/<DB_TYPE>_cluster.sql` script. If you are upgrading an existing cluster (whose coordination database does not yet have these tables) or want to disable the feature, see [Configuring the Coordinated Task Delete Barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier).
 
 #### Advanced parameters
 
