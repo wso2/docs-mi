@@ -2914,7 +2914,7 @@ The following operations require a **MessageReceiver** connection.
     <tr>
         <td>T</td>
         <td>Output Type</td>
-        <td>Type to bind the received message body to. <b>Possible values</b>: <code>json</code> (for JSON payloads), <code>xml</code> (for XML), <code>string</code> (for plain-text/binary content).</td>
+        <td>Type to bind the received message body to. <b>Possible values</b>: <code>json</code> (for JSON payloads), <code>xml</code> (for XML), <code>string</code> (for plain-text/binary content). <b>Important</b>: This must match the format in which the message was originally sent. For example, if the message was sent as JSON, you must select <code>json</code> — selecting a different type will result in a binding error.</td>
         <td>No</td>
         <td>json</td>
     </tr>
