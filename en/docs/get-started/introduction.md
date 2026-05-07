@@ -1,6 +1,6 @@
 # Introduction
 
-**WSO2 Integrator: MI**, the Micro Integrator (MI) profile of WSO2 Integrator is a 100% open source integration solution to streamline your digital transformation journey. It offers a powerful configuration-driven approach, allowing developers to build integration solutions with a user-friendly low-code graphical designing experience. Its AI-assisted  development experience enables developers to leverage intelligent features to enhance integrations and accelerate development. It also supports a variety of integration architecture styles, including microservices, cloud-native, and centralized ESB-style architectures.
+**WSO2 Integrator: MI**, the Micro Integrator (MI) profile of WSO2 Integrator is a 100% open-source integration solution to streamline your digital transformation journey. It offers a powerful configuration-driven approach, allowing developers to build integration solutions with a user-friendly low-code graphical designing experience. Its AI-assisted development experience enables developers to leverage intelligent features to enhance integrations and accelerate development. It also supports a variety of integration architecture styles, including microservices, cloud-native, and centralized ESB-style architectures.
 
 ## Address every integration challenge with ease
 
@@ -59,4 +59,4 @@ Effortlessly transform your data sources into API endpoints or services with the
 Streamline intricate data transformation tasks without the need for manual coding by harnessing out-of-the-box tools such as FreeMarker Templates and XSLT, allowing you to efficiently and expeditiously convert and transfer data between various systems.
 
 ### Visual data mapping
-An intuitive visual data mapper facilitates data transformation across diverse formats, such as JSON, XML, and CSV. The drag-and-drop graphical interface empowers users to effortlessly create data transformation workflows without the need for manual coding
+An intuitive visual data mapper facilitates data transformation across diverse formats, such as JSON, XML, and CSV. The drag-and-drop graphical interface empowers users to effortlessly create data transformation workflows without the need for manual coding.
