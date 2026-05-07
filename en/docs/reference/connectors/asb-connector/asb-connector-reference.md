@@ -2898,13 +2898,6 @@ The following operations require a **MessageReceiver** connection.
         <th>Default Value</th>
     </tr>
     <tr>
-        <td>T</td>
-        <td>Output Type</td>
-        <td>Type to bind the received message body to. <b>Possible values</b>: <code>json</code> (for JSON payloads), <code>xml</code> (for XML), <code>string</code> (for plain-text/binary content).</td>
-        <td>No</td>
-        <td>json</td>
-    </tr>
-    <tr>
         <td>serverWaitTime</td>
         <td>Server Wait Time</td>
         <td>The maximum time (in seconds) the server waits for a message to arrive.</td>
@@ -2920,6 +2913,13 @@ The following operations require a **MessageReceiver** connection.
     </tr>
     <tr>
         <th colspan="5">Output</th>
+    </tr>
+    <tr>
+        <td>T</td>
+        <td>Output Type</td>
+        <td>Type to bind the received message body to. <b>Possible values</b>: <code>json</code> (for JSON payloads), <code>xml</code> (for XML), <code>string</code> (for plain-text/binary content).</td>
+        <td>No</td>
+        <td>json</td>
     </tr>
     <tr>
         <td>responseVariable</td>
