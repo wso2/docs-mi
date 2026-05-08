@@ -73,7 +73,7 @@ In this operation, we are going to receive the following inputs from the user.
     }
     ```
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" title="Adding the sample API request." width="70%" alt="Adding the API request."/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" title="Adding the sample API request." width="50%" alt="Adding the API request."/></a>
 
 #### Add RabbitMQ Connector to the Project
 
@@ -88,7 +88,7 @@ In this operation, we are going to receive the following inputs from the user.
 
 7. Create a new connection by clicking on the '+ Add new connection' button as shown below. It will open a new pop-up window.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" title="Creating a new Connection" width="70%" alt="Creating a new Connection"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" title="Creating a new Connection" width="80%" alt="Creating a new Connection"/></a>
 
 8. Click on the **RabbitMQ** tile under the RabbitMQ Connector.
 
@@ -145,7 +145,9 @@ In this operation, we are going to receive the following inputs from the user.
 
     You will use an expression to define the condition for the **If Else** mediator. This condition evaluates whether the Success field in the RabbitMQ connector response is `true` to determine the appropriate flow. If `true`, the integration generates a success message and responds to the client application; otherwise, it sends an error message to the client.
 
-15. In the **Add If Else Mediator** pane that appears, click on the expression editor (<img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator.png" alt="inline expression editor" class="inline-icon">) icon to open the editor.
+15. In the **Add If Else Mediator** pane that appears, click on the expression editor icon (`EX`) to open the editor.
+
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator.png" alt="Add if else Mediator" width="80%"></a>
 
 16. Select **Variables** → **rabbitmq_publishMessage_1** → **payload** → **success** to extract the RabbitMQ broker acknowledgment status from the Publish Message response.
 
@@ -161,13 +163,13 @@ In this operation, we are going to receive the following inputs from the user.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png" title="Adding Log Mediator" width="70%" alt="Adding Log Mediator"/></a>
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" title="Adding Log Mediator" width="70%" alt="Adding Log Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" title="Adding Log Mediator" width="60%" alt="Adding Log Mediator"/></a>
     
 20. Then select the **Payload** mediator from the **Mediator Palette** to create a custom response payload to be sent back to the client application.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" title="Adding Payload Mediator" width="70%" alt="Adding Payload Mediator"/></a>
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" title="Adding Payload Mediator" width="70%" alt="Adding Payload Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" title="Adding Payload Mediator" width="60%" alt="Adding Payload Mediator"/></a>
 
 21. Repeat the same steps for the **Else** branch as well. Add the **Log** mediator to log the failure message, the **Payload** mediator to create a custom error response payload.
 
