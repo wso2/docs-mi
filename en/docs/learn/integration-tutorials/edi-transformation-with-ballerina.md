@@ -106,10 +106,10 @@ The schema defines:
 
 ### Step 3: Generate Ballerina code from the EDI schema
 
-Run the Ballerina EDI code generation tool to produce Ballerina record types and conversion functions that match your schema:
+Run the Ballerina EDI code generation tool to produce Ballerina record types and conversion functions that match your EDI schema. Pass the path to `simple_order_schema.json` as the input and specify an output file name for the generated Ballerina source.
 
 ```bash
-bal edi codegen -i simple_order_schema.json -o schema.bal
+bal edi codegen -i path/to/simple_order_schema.json -o schema.bal
 ```
 
 This creates a `schema.bal` file containing:
