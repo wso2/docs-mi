@@ -332,6 +332,7 @@ nav:
       - SaaS and B2B Connectivity:
             - What is SaaS and B2B Connectivity: learn/integration-use-case/connectors.md
             - How to Send an Email from an Integration Service: learn/integration-tutorials/send-email-from-integration-service.md
+            - How to Handle EDI data with Ballerina: learn/integration-tutorials/edi-transformation-with-ballerina.md
       - Data Integration:
             - What is Data Integration: learn/integration-use-case/data-integration-overview.md
             - How to Expose a Datasource as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
