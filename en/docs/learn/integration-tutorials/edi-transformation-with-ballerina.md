@@ -8,7 +8,7 @@ The scenario uses a custom order EDI format — the same approach applies to sta
 
 **Input EDI payload:**
 
-```
+```text
 HDR*HDR123*ACME_CORP*20240519~
 ITM*Pen*10~
 ITM*Notebook*5~
@@ -301,7 +301,7 @@ This creates a `schema.bal` file containing:
 
 9. The complete mediation flow is as follows.
 
-    ```
+    ```text
       POST /transform
         → convertEDItoJSON (Ballerina mediator)
         → OrderTransform (Data Mapper)
@@ -316,7 +316,7 @@ This creates a `schema.bal` file containing:
 
 2. Open the integrated **Try it** feature or use a tool like Postman to send a `POST` request to `http://localhost:8290/transform` with the following EDI payload as plain text in the request body:
 
-    ```
+    ```text
     HDR*HDR123*ACME_CORP*20240519~
     ITM*Pen*10~
     ITM*Notebook*5~
