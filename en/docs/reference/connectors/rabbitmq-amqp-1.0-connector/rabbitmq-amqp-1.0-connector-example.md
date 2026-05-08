@@ -72,28 +72,27 @@ In this operation, we are going to receive the following inputs from the user.
         "message": "Hello World!"
     }
     ```
-  
-   <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" title="Adding the sample API request." width="40%" alt="Adding the API request."/></a>
+
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddAPIRequestPayload.png" title="Adding the sample API request." width="50%" alt="Adding the API request."/></a>
 
 #### Add RabbitMQ Connector to the Project
 
-1. Now we will add the `publishMessage` operation of the RabbitMQ Connector to the integration flow. To do this, we need to add the RabbitMQ Connector to the integration project first.
+5. Now we will add the `publishMessage` operation of the RabbitMQ Connector to the integration flow. To do this, we need to add the RabbitMQ Connector to the integration project first.
    For that, open the **Resource View**, click on the **+** icon on the canvas to open the **Mediator Palette** and search for `RabbitMQ` in the **Mediators** section. Then, select the **RabbitMQ** connector and click on the **Download** button.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectPublishMessageOperation.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectPublishMessageOperation.png" title="Adding RabbitMQ Connector" width="80%" alt="Adding RabbitMQ Connector"/></a>
 
-
-2. Click on the `publishMessage` operation to add that operation to the integration flow.
+6. Click on the `publishMessage` operation to add that operation to the integration flow.
 
 #### Create Connection
 
-1. Create a new connection by clicking on the '+ Add new connection' button as shown below. It will open a new pop-up window.
+7. Create a new connection by clicking on the '+ Add new connection' button as shown below. It will open a new pop-up window.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" title="Creating a new Connection" width="60%" alt="Creating a new Connection"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection1.png" title="Creating a new Connection" width="80%" alt="Creating a new Connection"/></a>
 
-2. Click on the **RabbitMQ** tile under the RabbitMQ Connector.
+8. Click on the **RabbitMQ** tile under the RabbitMQ Connector.
 
-3. Enter the connection name as `RabbitMQConnection` and provide the following details in the **RabbitMQ Connection** configuration pane.
+9. Enter the connection name as `RabbitMQConnection` and provide the following details in the **RabbitMQ Connection** configuration pane.
 
     - **RabbitMQ Broker Urls**: localhost:5672
     - **SASL Mechanism**: PLAIN
@@ -101,13 +100,13 @@ In this operation, we are going to receive the following inputs from the user.
     - **Server Username**: guest
     - **Server Password**: guest
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection2.png" title="Creating a new Connection" width="60%" alt="Creating a new Connection"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/CreateConnection2.png" title="Creating a new Connection" width="70%" alt="Creating a new Connection"/></a>
 
 ### Implement the API
 
-1. Once the RabbitMQ connection is successfully created, it will be listed in the drop-down on the **Connection** section of the **Add PublishMessage** operation window.
+10. Once the RabbitMQ connection is successfully created, it will be listed in the drop-down on the **Connection** section of the **Add PublishMessage** operation window.
 
-2. Now we need to configure the necessary parameters of the `publishMessage` operation. For some of the fields, we will use Synapse expressions to map values from the sample request defined in [Create Sample Request Payload](#create-sample-request-payload).
+11. Now we need to configure the necessary parameters of the `publishMessage` operation. For some of the fields, we will use Synapse expressions to map values from the sample request defined in [Create Sample Request Payload](#create-sample-request-payload).
     - Destination Queue/Exchange Section
         - **Queue**: `${payload.queue}`
         - **Queue Type**: QUORUM
@@ -124,61 +123,61 @@ In this operation, we are going to receive the following inputs from the user.
     - Output Section
        - **Output Variable Name**: rabbitmq_publishMessage_1
 
-3. To do this, click on the `Expression` icon in the Message field and select the `Payload` option.
+12. To do this, click on the `Expression` icon in the Message field and select the `Payload` option.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddExpression.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddExpression.png" title="Adding expressions." width="70%" alt="Configuring publishMessage operation."/></a>
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectFromPayload.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SelectFromPayload.png" title="Adding expressions." width="70%" alt="Configuring publishMessage operation."/></a>
 
-   This will open a new pop-up window where you can select the `payload.message` parameter from the request payload. <br/>
+    This will open a new pop-up window where you can select the `payload.message` parameter from the request payload.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/selectFromPayload2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/selectFromPayload2.png" title="Adding the send parameters." width="70%" alt="Configuring publishMessage operation."/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/selectFromPayload2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/selectFromPayload2.png" title="Adding the send parameters." width="70%" alt="Configuring publishMessage operation."/></a>
 
-   Next, do the same for the `Request Body` field. <br/>
+    Next, do the same for the `Request Body` field.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/PublishMessageConfigPane1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/PublishMessageConfigPane1.png" title="Adding the send parameters." width="40%" alt="PublishMessage operation pane."/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/PublishMessageConfigPane1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/PublishMessageConfigPane1.png" title="Adding the send parameters." width="70%" alt="PublishMessage operation pane."/></a>
 
-4. Click the **+** icon located immediately after the **Publish Message** operation to open the **Mediator Palette**. Add an [If Else Mediator]({{base_path}}/reference/mediators/filter-mediator) to verify the acknowledgment status from the RabbitMQ broker and proceed with the integration accordingly.
+13. Click the **+** icon located immediately after the **Publish Message** operation to open the **Mediator Palette**. Add an [If Else Mediator]({{base_path}}/reference/mediators/filter-mediator) to verify the acknowledgment status from the RabbitMQ broker and proceed with the integration accordingly.
 
-5. Under **Mediators**, search for `if else` and select the **If Else** mediator.
+14. Under **Mediators**, search for `if else` and select the **If Else** mediator.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SearchIfElseMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/SearchIfElseMediator.png" alt="Select If Else Mediator" width="80%"></a>
 
     You will use an expression to define the condition for the **If Else** mediator. This condition evaluates whether the Success field in the RabbitMQ connector response is `true` to determine the appropriate flow. If `true`, the integration generates a success message and responds to the client application; otherwise, it sends an error message to the client.
 
-6. In the **Add If Else Mediator** pane that appears, click on the expression editor (<img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator.png" alt="inline expression editor" class="inline-icon">) icon to open the editor.
+15. In the **Add If Else Mediator** pane that appears, click on the expression editor icon (`EX`) to open the editor.
 
-7. Select **Variables** → **rabbitmq_publishMessage_1** → **payload** → **success** to extract the RabbitMQ broker acknowledgment status from the Publish Message response.
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator.png" alt="Add if else Mediator" width="80%"></a>
 
-<a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png" alt="Add if else Mediator" width="40%"></a>
+16. Select **Variables** → **rabbitmq_publishMessage_1** → **payload** → **success** to extract the RabbitMQ broker acknowledgment status from the Publish Message response.
 
-8. Finally, click **Add** to insert the **If Else** mediator into the integration flow.
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddIfElseMediator2.png" alt="Add if else Mediator" width="70%"></a>
 
-9. Click on the **+** icon in the **Then** branch on the canvas to open the **Mediator Palette**. This branch executes when the Success field is `true`.
+17. Finally, click **Add** to insert the **If Else** mediator into the integration flow.
+
+18. Click on the **+** icon in the **Then** branch on the canvas to open the **Mediator Palette**. This branch executes when the Success field is `true`.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddMediatorsToThenBranch.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddMediatorsToThenBranch.png" alt="Add Mediators to then branch" width="80%"></a>
 
-10. Under **Mediators**, select the **Log** mediator to log the successful message publishing response from the RabbitMQ broker.
+19. Under **Mediators**, select the **Log** mediator to log the successful message publishing response from the RabbitMQ broker. Configure the Log mediator to use the variable `${vars.rabbitmq_publishMessage_1.payload.messageId}` to log the message ID from the RabbitMQ response.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png" title="Adding Log Mediator" width="40%" alt="Adding Log Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator.png" title="Adding Log Mediator" width="70%" alt="Adding Log Mediator"/></a>
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" title="Adding Log Mediator" width="40%" alt="Adding Log Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddLogMediator2.png" title="Adding Log Mediator" width="60%" alt="Adding Log Mediator"/></a>
     
-11. Then select the **Payload** mediator from the **Mediator Palette** to create a custom response payload to be sent back to the client application.
+20. Then select the **Payload** mediator from the **Mediator Palette** to create a custom response payload to be sent back to the client application.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" title="Adding Payload Mediator" width="40%" alt="Adding Payload Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator.png" title="Adding Payload Mediator" width="70%" alt="Adding Payload Mediator"/></a>
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" title="Adding Payload Mediator" width="40%" alt="Adding Payload Mediator"/></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddPayloadMediator2.png" title="Adding Payload Mediator" width="60%" alt="Adding Payload Mediator"/></a>
 
-
-12. Repeat the same steps for the **Else** branch as well. Add the **Log** mediator to log the failure message, the **Payload** mediator to create a custom error response payload.
+21. Repeat the same steps for the **Else** branch as well. Add the **Log** mediator to log the failure message, the **Payload** mediator to create a custom error response payload.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddMediatorsElseBranch.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddMediatorsElseBranch.png" title="Adding Mediators to else branch" width="80%" alt="Add Mediators to else branch"/></a>
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddMediatorsElseBranch2.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/AddMediatorsElseBranch2.png" title="Adding Mediators to else branch" width="80%" alt="Add Mediators to else branch"/></a>
 
-
-13. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response of the `publishMessage` operation as shown below.
+22. Add the [Respond Mediator]({{base_path}}/reference/mediators/respond-mediator/) to respond to the response of the `publishMessage` operation as shown below.
 
     <a href="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png" class="glightbox">
     <img src="{{base_path}}/assets/img/integrate/connectors/rabbitmq/RabbitMQPublishMessageAPI.png"
