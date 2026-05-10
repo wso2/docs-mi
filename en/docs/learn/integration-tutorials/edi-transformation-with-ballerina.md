@@ -45,8 +45,8 @@ The integration flow works as follows:
 
 ## Prerequisites
 
-- WSO2 Integrator: MI 4.2.0 or later
-- Java Development Kit — Version 17 (MI 4.2.0/4.3.0) or Version 21 (MI 4.4.0 or later)
+- WSO2 Integrator: MI 4.4.0 or later
+- Java Development Kit (Version 21)
 - VS Code with the [WSO2 Integrator: MI extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/) installed
 - Ballerina 2201.12.0 or later
 - Ballerina VS Code extension installed
@@ -106,7 +106,15 @@ The schema defines:
 
 ### Step 3: Generate Ballerina code from the EDI schema
 
-Run the Ballerina EDI code generation tool to produce Ballerina record types and conversion functions that match your EDI schema. Pass the path to `simple_order_schema.json` as the input and specify an output file name for the generated Ballerina source.
+The Ballerina EDI tool provides the `bal edi codegen` command used to generate Ballerina types and conversion functions from your schema. Pull it once before use.
+
+```bash
+bal tool pull edi
+```
+
+You can verify the installation by running `bal tool list` and confirming that `edi` appears in the output.
+
+Run the Ballerina EDI code generation tool to produce Ballerina record types and conversion functions that match your EDI schema. Pass the path to `simple_order_schema.json` as the input and specify an output file name for the generated Ballerina source. Keeping the schema alongside the module source makes it easy to regenerate the code if the schema changes later.
 
 ```bash
 bal edi codegen -i path/to/simple_order_schema.json -o schema.bal
