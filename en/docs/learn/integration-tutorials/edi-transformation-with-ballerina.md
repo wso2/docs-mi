@@ -150,10 +150,53 @@ You can verify the installation by running `bal tool list` and confirming that `
     - A `fromEdiString` function that parses EDI text into a `SimpleOrder` record.
     - A `toEdiString` function that serializes a `SimpleOrder` record back to EDI text.
 
-    !!! note
-      The `@mi:Operation` annotation exposes each function as an operation that can be used as a mediator in your integration flow. `convertEDItoJSON` handles EDI-to-JSON conversion, and `convertJSONtoEDI` handles the reverse.
+5. Open `SimpleOrder-module.bal` and add the following import at the top of the file:
 
-5. Click the **Build Ballerina Module** icon to build the Ballerina project.
+    ```ballerina
+    import wso2/mi;
+    ```
+
+    Then append the following MI wrapper functions at the end of the file:
+
+    ```ballerina
+    @mi:Operation
+    public function convertEDItoJSON(string ediText) returns json {
+        // Convert EDI string to Ballerina SimpleOrder record.
+        SimpleOrder|error simpleOrder = fromEdiString(ediText);
+        // Check if the conversion was successful.
+        if (simpleOrder is error) {
+            return {
+                "error": simpleOrder.message()
+            };
+        }
+        // Convert Ballerina SimpleOrder record to JSON.
+        return simpleOrder.toJson();
+    }
+
+    @mi:Operation
+    public function convertJSONtoEDI(json jsonData) returns string {
+        // Convert JSON to Ballerina SimpleOrder record.
+        SimpleOrder|error simpleOrder = jsonData.cloneWithType();
+
+        // Check if the conversion was successful.
+        if (simpleOrder is error) {
+            return "Error converting JSON to SimpleOrder: " + simpleOrder.message();
+        }
+        // Convert Ballerina SimpleOrder record to EDI string.
+        string|error ediString = toEdiString(simpleOrder);
+        // Check if the conversion was successful.
+        if (ediString is error) {
+            return "Error converting SimpleOrder to EDI: " + ediString.message();
+        }
+        // Return the EDI string.
+        return ediString;
+    }
+    ```
+
+    !!! note
+        The `@mi:Operation` annotation exposes each function as an operation that can be used as a mediator in your integration flow. `convertEDItoJSON` handles EDI-to-JSON conversion, and `convertJSONtoEDI` handles the reverse.
+
+6. Click the **Build Ballerina Module** icon to build the Ballerina project.
 
     <a href="{{base_path}}/assets/img/develop/ballerina-module/build.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/ballerina-module/build.png" alt="Build Ballerina Module" width="80%"></a>
 
@@ -161,7 +204,7 @@ You can verify the installation by running `bal tool list` and confirming that `
 
     <a href="{{base_path}}/assets/img/develop/ballerina-module/build-success.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/ballerina-module/build-success.png" alt="Build Success Notification" width="40%"></a>
 
-6. Once built, the module appears in the **Mediator palette** and its operations are available for use in integration flows.
+7. Once built, the module appears in the **Mediator palette** and its operations are available for use in integration flows.
 
 #### Create the REST API
 
