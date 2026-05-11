@@ -290,6 +290,7 @@ nav:
             - How to Transform Message Content: learn/integration-tutorials/transforming-message-content.md
             - How to Transform a JSON Message to SOAP: learn/examples/message-transformation-examples/json-to-soap-conversion.md
             - How to Transform a POX Message to JSON: learn/examples/message-transformation-examples/pox-to-json-conversion.md
+            - How to Transform EDI data: learn/integration-tutorials/transforming-edi-data.md
       - Service Orchestration:
             - What is Service Orchestration: learn/integration-use-case/service-orchestration-overview.md
             - How to Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
@@ -332,7 +333,6 @@ nav:
       - SaaS and B2B Connectivity:
             - What is SaaS and B2B Connectivity: learn/integration-use-case/connectors.md
             - How to Send an Email from an Integration Service: learn/integration-tutorials/send-email-from-integration-service.md
-            - How to Transform EDI data: learn/integration-tutorials/edi-transformation-with-ballerina.md
       - Data Integration:
             - What is Data Integration: learn/integration-use-case/data-integration-overview.md
             - How to Expose a Datasource as a Service: learn/integration-tutorials/sending-a-simple-message-to-a-datasource.md
