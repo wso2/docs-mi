@@ -188,7 +188,7 @@ For a detailed coverage report, review the JSON report generated at `<project-na
     <img src="{{base_path}}/assets/img/develop/unit-tests/generate-test-suite.png" alt="generate test suite" width="700">
 
 !!! Note
-    In order to use AI services, a MI Copilot account is required. You shall be prompted to login to MI Copilot if you are not already signed in.
+    AI services require a signed-in [WSO2 Integrator Copilot]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview) account. You will be prompted to sign in if you haven't already.
 
 ## Generate Unit Test Case using AI
 

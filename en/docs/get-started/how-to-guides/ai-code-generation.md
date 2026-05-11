@@ -1,7 +1,7 @@
 # Generate integrations using AI
 
 Did you know that the WSO2 Integrator: MI component of WSO2 Integrator includes an AI-powered assistant to help you effortlessly generate integration flows?
-In this guide, we are generating an API to retrieve weather information for a specified city and send it via email to a designated recipient.
+In this guide, you'll use the [WSO2 Integrator Copilot]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview) to generate an API that retrieves weather information for a specified city and emails it to a designated recipient.
 
 Check out this <a target="_blank" href="https://www.youtube.com/watch?v=XfXjwqhO9dY">video on YouTube</a> to see it in action.
 
@@ -26,48 +26,65 @@ You need Visual Studio Code (VS Code) with the <a target="_blank" href="https://
 
 6. Click **Create**.
 
-You will now see the projects listed in the **Project Explorer**.
+You will now see the project listed in the **Project Explorer**.
 
-### Step 2: Setup MI Copilot
+### Step 2: Open the Copilot panel and sign in
 
-1. Click on the **Open AI Panel** button in the top left corner.
+1. Click the **Open AI Panel** button in the top-right corner of VS Code.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" alt="open ai panel" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" alt="open the Copilot panel" width="80%"></a>
 
-2. Sign in to MI Copilot via the MI extension.
+2. Sign in with one of the three supported methods — **WSO2 Account** (default, free with usage quota), **Anthropic API key**, or **AWS Bedrock**. For this tutorial, signing in with your WSO2 Account is the simplest option.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png" alt="sign in to mi copilot" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-sign-in-ai.png" alt="sign in to the Copilot" width="80%"></a>
 
-### Step 3: Generate the mediation using MI Copilot
+    !!! info
+        For details on the three sign-in options, see [Sign in]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview/#sign-in).
 
-1. Describe the scenario that you need to generate the integration.
-    
+### Step 3: Describe the integration to the Copilot
+
+The Copilot opens a new chat session in **Edit mode** (the default). In this mode the Copilot can read, create, and edit files directly in your workspace. Every file it changes is captured on a **Checkpoint** card so you can review and undo before keeping the changes.
+
+1. Make sure the mode pill in the input bar is set to **Edit**.
+
+2. Attach the two OpenAPI specifications that describe the geolocation and weather endpoints by clicking the **Attach** <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" alt="attach files" width="30px"></a> button. Use [GeoLocationOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/GeoLocationOAS.yaml) and [OpenWeatherOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/OpenWeatherOAS.yaml).
+
+3. Describe the integration you want to build. For example:
+
     ??? "Example Prompt"
         ```
-        Generate a service to fetch weather data from a city name and email the weather details to the given email in the request. Refer to the attached OpenAPI Specifications for more details about the geolocation endpoint and weather endpoint.
+        Create a REST API called WeatherEmailService at context /weatherEmail with a GET /getWeather resource that accepts city and email query parameters. Use the attached OpenAPI specs to call the OpenWeather geolocation endpoint to get coordinates for the city, then call the current-weather endpoint using those coordinates, and finally email the weather details to the email address in the request. Use the HTTP and Email connectors.
         ```
 
-2. Add any supporting files that are required to generate this integration such as OpenAPI specifications, schemas, etc., by clicking on the **Add Files** <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" alt="attach files" width="30px"></a> button. In this guide, we are using the [GeoLocationOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/GeoLocationOAS.yaml) and [OpenWeatherOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/OpenWeatherOAS.yaml) OpenAPI specifications.
+4. Press **Enter** to send the message.
 
-3. Click on the **Generate** button and wait for the MI copilot to generate the necessary synapse configurations to work the scenario.
+    The Copilot will stream its progress in the chat panel:
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" alt="generate code" width="80%"></a>
+    - It lays out a **todo list** of the work (for example, *add HTTP connector*, *add Email connector*, *create API*, *create connections*, *validate*).
+    - You see live **tool call indicators** such as *Adding HTTP connector*, *Writing WeatherEmailService.xml*, and *Validating XML*.
+    - The Copilot adds the required connectors to your `pom.xml`, triggers their download, creates the API file and the two connection local entries, and validates the generated XML against the language server.
 
-4. Once the configurations are generated, add them to the project using the **Add to Project** button, which is in line with the artifact name.
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" alt="Copilot generating the integration" width="80%"></a>
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" alt="add artifacts" width="80%"></a>
+5. When the Copilot finishes, a **Checkpoint** card appears listing the files it created or changed. Open the **Design View** to confirm the API looks right.
 
-    The API will resemble the following structure once all the generated artifacts have been added.
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" alt="generated artifacts and checkpoint" width="80%"></a>
 
-    !!! Note 
-        The generated view may differ from ours, as AI-generated designs can vary. For example, AI may create separate sequences for the Weather API calls and email operation.
+    If something looks off, either click **Undo** on the Checkpoint card to roll back and rephrase your prompt, or send a follow-up message like *"Include the city name in the email subject."*
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="add artifacts" width="80%"></a>
+    When you're happy with the result, click **Accept** on the Checkpoint card.
+
+    !!! Note
+        Your generated flow may differ slightly from what's shown here — AI-generated designs can vary. For example, the Copilot may place the mediation logic in a separate sequence instead of inline.
+
+    The generated API resembles the structure below:
+
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="generated API" width="80%"></a>
 
     ??? "WeatherEmailService API"
         === "Design View"
             <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="ai-code-gen-api" width="70%"></a>
-		    
+
         === "Source View"
             ```yaml
             <api xmlns="http://ws.apache.org/ns/synapse" name="WeatherEmailService" context="/weatherEmail">
@@ -118,7 +135,7 @@ You will now see the projects listed in the **Project Explorer**.
     ??? "Email Connection"
         === "Design View"
             <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-email-conn.png" alt="http connection config" width="40%"></a>
-		    
+
         === "Source View"
             ```yaml
             <?xml version="1.0" encoding="UTF-8"?>
@@ -133,11 +150,11 @@ You will now see the projects listed in the **Project Explorer**.
                 </email.init>
             </localEntry>
             ```
-    
+
     ??? "HTTP Connection"
         === "Design View"
             <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-http-connection.png" alt="http connection config" width="40%"></a>
-		    
+
         === "Source View"
             ```yaml
             <?xml version="1.0" encoding="UTF-8"?>
@@ -157,31 +174,49 @@ You will now see the projects listed in the **Project Explorer**.
             ```
 
     !!! Note
-        After adding the synapse artifacts to the project, make sure to update the synapse configurations as follows,
+        Before running the API, update the generated configurations with real credentials:
 
-          - Update the email connection with the credentials of the sender’s email account.
-          - Update the `API_KEY` variable with the OpenWeather key obtained to retrieve the weather data.
+          - Update the email connection with the credentials of the sender's email account.
+          - Update the `API_KEY` variable with your OpenWeather API key.
+
+        You can ask the Copilot to open a specific file for you — for example, *"Open the Email connection so I can update the credentials."*
 
 ### Step 4: Build and run
 
-1. Click on the **Build and Run** button to build and deploy the integration.
+You have two options for building and running the integration: ask the Copilot to do it, or click the **Build and Run** button yourself.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" alt="build and run" width="80%"></a>
+=== "Using the Copilot"
 
-2. **Runtime Services** will open after the server is up and running, and from that panel, select the API that you need to try out using the **Try It** button.
+    Send a follow-up message:
+
+    ```
+    Build the project and start the server.
+    ```
+
+    The Copilot runs the Maven build, deploys the resulting `.car`, and starts the MI runtime. When the server is up, it posts a link to the Runtime Services panel in the chat.
+
+=== "Using the Build and Run button"
+
+    1. Click the **Build and Run** button to build and deploy the integration.
+
+        <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" alt="build and run" width="80%"></a>
+
+Once the server is running, **Runtime Services** opens. From that panel:
+
+1. Select your API and click **Try It**.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-try.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-try.png" alt="try out swagger" width="80%"></a>
 
-3. Click the **Try it Out** button to provide the required query parameters.
+2. Click **Try it Out** to open the parameter form.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-op-try.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-op-try.png" alt="try out operation" width="80%"></a>
 
-4. Provide the required parameters and click the **Execute** button to invoke the API.
+3. Provide the required query parameters and click **Execute**.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-exec.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-swagger-exec.png" alt="execute request" width="80%"></a>
 
-5. Check the response received from the server and confirm that the weather details for the specified city have been successfully sent to the email address provided as a query parameter in the API request.
+4. Check the response and confirm that the weather details for the specified city were emailed to the address in the request.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" alt="response" width="80%"></a>
 
-Automating complex integrations has never been easier. Why spend time doing all this manually when the WSO2 Integrator: MI Copilot can do it for you? Try it out today and save yourself hours of effort!
+Automating complex integrations has never been easier. Let the WSO2 Integrator Copilot do it for you and save yourself hours of effort!
