@@ -43,14 +43,6 @@ The integration flow works as follows:
 3. The Data Mapper mediator transforms the intermediate JSON into the final target format.
 4. The result is returned to the client.
 
-## Prerequisites
-
-- WSO2 Integrator: MI
-- Java Development Kit (Version 21)
-- VS Code with the [WSO2 Integrator: MI extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/) installed
-- Ballerina 2201.12.0 or later
-- Ballerina VS Code extension installed
-
 ## Let's get started!
 
 ### Step 1: Set up the workspace
