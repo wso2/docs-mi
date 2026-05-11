@@ -1,4 +1,4 @@
-# How to Handle EDI data with Ballerina
+# How to Transform EDI data
 
 ## What you'll build
 
@@ -17,7 +17,7 @@ ITM*Ruler*7~
 ITM*Stapler*2~
 ```
 
-The format uses `~` as the segment delimiter and `*` as the field delimiter. The `HDR` segment contains the order ID, organization, and date. Each `ITM` segment contains an item name and quantity.
+This sample EDI file uses `~` as the segment delimiter and `*` as the field delimiter. The `HDR` segment contains the order ID, organization, and date. Each `ITM` segment contains an item name and quantity.
 
 **Expected JSON output:**
 
@@ -39,13 +39,13 @@ The format uses `~` as the segment delimiter and `*` as the field delimiter. The
 The integration flow works as follows:
 
 1. A WSO2 Integrator: MI REST API accepts the EDI file in the request body.
-2. A Ballerina module (built using the Ballerina EDI tool) parses the EDI content into an intermediate JSON structure.
+2. A [Ballerina module](https://mi.docs.wso2.com/en/latest/develop/customizations/ballerina-module/overview/) (built using the Ballerina EDI tool) parses the EDI content into an intermediate JSON structure.
 3. The Data Mapper mediator transforms the intermediate JSON into the final target format.
 4. The result is returned to the client.
 
 ## Prerequisites
 
-- WSO2 Integrator: MI 4.4.0 or later
+- WSO2 Integrator: MI
 - Java Development Kit (Version 21)
 - VS Code with the [WSO2 Integrator: MI extension](https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/install-wso2-mi-for-vscode/) installed
 - Ballerina 2201.12.0 or later
