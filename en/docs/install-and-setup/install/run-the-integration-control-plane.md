@@ -1,4 +1,4 @@
-# Running the Integration Control Plane
+# Run the Integration Control Plane
 
 Follow the steps given below to run the Integration Control Plane.
 
@@ -166,4 +166,4 @@ When a project is created, ICP also auto-creates a
 
 ## What's next?
 
--   [Connecting an Integration in MI to ICP]({{base_path}}/install-and-setup/install/connecting-an-integration-to-icp).
+-   [Connect an MI-based Integration to ICP]({{base_path}}/install-and-setup/install/connect-an-integration-to-icp).

@@ -1,4 +1,4 @@
-# Installing the Integration Control Plane
+# Install the Integration Control Plane
 
 Follow the steps given below to install the Integration Control Plane (ICP).
 
@@ -7,7 +7,7 @@ Follow the steps given below to install the Integration Control Plane (ICP).
 See the [Integration Control Plane Installation Prerequisites]({{base_path}}/install-and-setup/install/icp-installation-prerequisites).
 Java Development Kit (JDK) is essential to run the product.
 
-## Installing the Integration Control Plane
+## Install the Integration Control Plane
 
 -   Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integrator/integration-control-plane/).
 
@@ -39,7 +39,7 @@ Java Development Kit (JDK) is essential to run the product.
      lib/                   # runtime libraries
 ```
 
-## Setting up JAVA_HOME
+## Set up JAVA_HOME
 
 You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
 
@@ -135,7 +135,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
     The system returns the JDK installation path.
 
-## Setting system properties
+## Set system properties
 
 If you need to set additional system properties when the server starts, you can take the following approach:
 
@@ -147,5 +147,5 @@ If you need to set additional system properties when the server starts, you can 
 
 ## What's next?
 
--   [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane).
+-   [Run the Integration Control Plane]({{base_path}}/install-and-setup/install/run-the-integration-control-plane).
 
