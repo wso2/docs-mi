@@ -1,6 +1,6 @@
 # Deploy WSO2 Integrator: MI on WSO2 Cloud
 
-This guide walks you through deploying WSO2 Integrator: MI on WSO2 cloud. For this guide, a simple API integration will be deployed on Devant using the WSO2 Integrator: MI VS Code extension.
+This guide walks you through deploying WSO2 Integrator: MI on WSO2 cloud. For this guide, a simple API integration will be deployed on WSO2 Cloud using the WSO2 Integrator: MI VS Code extension.
 
 ## Before you begin
 
@@ -23,7 +23,7 @@ This guide walks you through deploying WSO2 Integrator: MI on WSO2 cloud. For th
 8. You can confirm the details in the **Git Configuration** and click **Deploy** to deploy on WSO2 Cloud.
 9. Once the integration is deployed, a notification would pop up in the bottom right corner to **View in Console**.
 
-    <a href="{{base_path}}/assets/img/deploy/devant-deploy.gif" class="glightbox"><img src="{{base_path}}/assets/img/deploy/devant-deploy.gif" alt="Deploy on Devant" width="900"></a>
+    <a href="{{base_path}}/assets/img/deploy/devant-deploy.gif" class="glightbox"><img src="{{base_path}}/assets/img/deploy/devant-deploy.gif" alt="Deploy on WSO2 Cloud" width="900"></a>
 
 ## Test the API on WSO2 Cloud
 
