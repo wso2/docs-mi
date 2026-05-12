@@ -13,12 +13,32 @@ ICP provides centralized observability for MI runtimes. Application logs and per
 
 ## Prerequisites
 
-| Component | Purpose |
-|-----------|---------|
-| OpenSearch 2.x | Log and metrics storage |
-| Fluent Bit 3.x | Log collection and forwarding |
-| ICP Server 2.0.0+ | Observability API layer |
-| MI 4.4.0+ | Runtime with ICP heartbeat and analytics support |
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenSearch 2.x</td>
+      <td>Log and metrics storage</td>
+    </tr>
+    <tr>
+      <td>Fluent Bit 3.x</td>
+      <td>Log collection and forwarding</td>
+    </tr>
+    <tr>
+      <td>ICP Server 2.0.0+</td>
+      <td>Observability API layer</td>
+    </tr>
+    <tr>
+      <td>MI 4.4.0+</td>
+      <td>Runtime with ICP heartbeat and analytics support</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Step 1: Deploy OpenSearch
 
@@ -172,17 +192,48 @@ logger.ElasticStatisticsPublisher.additivity = false
 ```
 {% endraw %}
 
-| Setting | Purpose |
-|---------|---------|
-| `${sys:icp.runtime.log.suffix:-}` | Appends `[icp.runtimeId=<uuid>]` to each log line. The `:-` default produces nothing before the ID is initialized during startup. |
-| `additivity = false` | Prevents analytics lines from also appearing in `wso2carbon.log`. |
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>${sys:icp.runtime.log.suffix:-}</code></td>
+      <td>Appends <code>[icp.runtimeId=&lt;uuid&gt;]</code> to each log line. The <code>:-</code> default produces nothing before the ID is initialized during startup.</td>
+    </tr>
+    <tr>
+      <td><code>additivity = false</code></td>
+      <td>Prevents analytics lines from also appearing in <code>wso2carbon.log</code>.</td>
+    </tr>
+  </tbody>
+</table>
 
 This produces two log files:
 
-| File | Content | OpenSearch index |
-|------|---------|------------------|
-| `repository/logs/wso2carbon.log` | Application logs (startup, errors, mediations) | `mi-application-logs-*` |
-| `repository/logs/synapse-analytics.log` | Per-request analytics (latency, entity type, status) | `mi-metrics-logs-*` |
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Content</th>
+      <th>OpenSearch index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>repository/logs/wso2carbon.log</code></td>
+      <td>Application logs (startup, errors, mediations)</td>
+      <td><code>mi-application-logs-*</code></td>
+    </tr>
+    <tr>
+      <td><code>repository/logs/synapse-analytics.log</code></td>
+      <td>Per-request analytics (latency, entity type, status)</td>
+      <td><code>mi-metrics-logs-*</code></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Step 5: Configure Fluent Bit
 
@@ -439,14 +490,40 @@ Each analytics line in `synapse-analytics.log` looks like:
 
 Key payload fields used by the ICP Metrics page:
 
-| Field | Description |
-|-------|-------------|
-| `payload.entityType` | `API`, `ProxyService`, `Endpoint`, `Sequence`, `InboundEndpoint` |
-| `payload.latency` | Request duration in milliseconds |
-| `payload.failure` | `true` if the mediation faulted |
-| `payload.faultResponse` | `true` if a fault response was sent |
-| `payload.apiDetails` | API name, context, method, transport (for API entities) |
-| `payload.proxyServiceDetails` | Proxy service name (for ProxyService entities) |
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>payload.entityType</code></td>
+      <td><code>API</code>, <code>ProxyService</code>, <code>Endpoint</code>, <code>Sequence</code>, <code>InboundEndpoint</code></td>
+    </tr>
+    <tr>
+      <td><code>payload.latency</code></td>
+      <td>Request duration in milliseconds</td>
+    </tr>
+    <tr>
+      <td><code>payload.failure</code></td>
+      <td><code>true</code> if the mediation faulted</td>
+    </tr>
+    <tr>
+      <td><code>payload.faultResponse</code></td>
+      <td><code>true</code> if a fault response was sent</td>
+    </tr>
+    <tr>
+      <td><code>payload.apiDetails</code></td>
+      <td>API name, context, method, transport (for API entities)</td>
+    </tr>
+    <tr>
+      <td><code>payload.proxyServiceDetails</code></td>
+      <td>Proxy service name (for ProxyService entities)</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Index Lifecycle
 

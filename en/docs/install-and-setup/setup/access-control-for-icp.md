@@ -29,11 +29,28 @@ role's permissions. A mapping has two extra dimensions:
 - **Mapping level** — the level where the mapping was created (Organization,
   Project, or Component). This controls effective scope:
 
-  | Mapping Level | Effective Scope                              |
-  | ------------- | -------------------------------------------- |
-  | Organization  | All projects and integrations                |
-  | Project       | All integrations within that project         |
-  | Component     | That single integration only                 |
+  <table>
+    <thead>
+      <tr>
+        <th>Mapping Level</th>
+        <th>Effective Scope</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Organization</td>
+        <td>All projects and integrations</td>
+      </tr>
+      <tr>
+        <td>Project</td>
+        <td>All integrations within that project</td>
+      </tr>
+      <tr>
+        <td>Component</td>
+        <td>That single integration only</td>
+      </tr>
+    </tbody>
+  </table>
 
 - **Applicable environments** — either **All Environments** or a set of named
   environments (e.g. only *dev*). When scoped to selected environments, the
@@ -48,17 +65,61 @@ Users, roles, groups, and their permissions are all managed at the organization
 level. Project and integration levels exist solely to create and remove
 **mappings** — narrowing who has what access where.
 
-| Capability                     | Organization | Project | Integration |
-| ------------------------------ | ------------ | ------- | ----------- |
-| Create / delete users          | Yes          | --      | --          |
-| Create / delete roles          | Yes          | --      | --          |
-| Edit role permissions          | Yes          | --      | --          |
-| Create / delete groups         | Yes          | --      | --          |
-| Add / remove users from groups | Yes          | --      | --          |
-| Map roles to groups            | Yes          | Yes     | Yes         |
-| Scope mappings to environments | Yes          | Yes     | Yes         |
+<table>
+  <thead>
+    <tr>
+      <th>Capability</th>
+      <th>Organization</th>
+      <th>Project</th>
+      <th>Integration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Create / delete users</td>
+      <td>Yes</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Create / delete roles</td>
+      <td>Yes</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Edit role permissions</td>
+      <td>Yes</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Create / delete groups</td>
+      <td>Yes</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Add / remove users from groups</td>
+      <td>Yes</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <td>Map roles to groups</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Scope mappings to environments</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
 
----
 
 ## Recipes
 
@@ -156,11 +217,28 @@ groups cannot be deleted — remove the mappings first.
 Go to the organization **Access-control** > **Users** tab. Each user row has
 action icons:
 
-| Action          | Notes                                     |
-| --------------- | ----------------------------------------- |
-| Reset Password  | Opens a dialog to set a new password      |
-| Unlock Account  | Re-enables a locked account               |
-| Revoke Sessions | Terminates active sessions (disabled for your own account) |
+<table>
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Reset Password</td>
+      <td>Opens a dialog to set a new password</td>
+    </tr>
+    <tr>
+      <td>Unlock Account</td>
+      <td>Re-enables a locked account</td>
+    </tr>
+    <tr>
+      <td>Revoke Sessions</td>
+      <td>Terminates active sessions (disabled for your own account)</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -168,21 +246,61 @@ action icons:
 
 ### Default Roles
 
-| Role          | Description                                        |
-| ------------- | -------------------------------------------------- |
-| Admin         | Administrative access to projects and integrations |
-| Developer     | Development access with limited permissions        |
-| Project Admin | Administrative access to a specific project        |
-| Super Admin   | Full access to all resources and permissions       |
-| Viewer        | Read-only access with view permissions only        |
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Admin</td>
+      <td>Administrative access to projects and integrations</td>
+    </tr>
+    <tr>
+      <td>Developer</td>
+      <td>Development access with limited permissions</td>
+    </tr>
+    <tr>
+      <td>Project Admin</td>
+      <td>Administrative access to a specific project</td>
+    </tr>
+    <tr>
+      <td>Super Admin</td>
+      <td>Full access to all resources and permissions</td>
+    </tr>
+    <tr>
+      <td>Viewer</td>
+      <td>Read-only access with view permissions only</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Default Groups
 
-| Group          | Description                                         |
-| -------------- | --------------------------------------------------- |
-| Super Admins   | Super administrators with full access               |
-| Administrators | Administrators                                      |
-| Developers     | Developers                                          |
+<table>
+  <thead>
+    <tr>
+      <th>Group</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Super Admins</td>
+      <td>Super administrators with full access</td>
+    </tr>
+    <tr>
+      <td>Administrators</td>
+      <td>Administrators</td>
+    </tr>
+    <tr>
+      <td>Developers</td>
+      <td>Developers</td>
+    </tr>
+  </tbody>
+</table>
 
 Additionally, each new project auto-creates a `<Project Name> Admins` group
 mapped to the *Project Admin* role at the Project level.
@@ -191,40 +309,125 @@ mapped to the *Project Admin* role at the Project level.
 
 **Environment-Management**
 
-| Permission                       | Description                           |
-| -------------------------------- | ------------------------------------- |
-| `environment_mgt:manage`         | Full environment management           |
-| `environment_mgt:manage_nonprod` | Manage non-critical environments only |
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>environment_mgt:manage</code></td>
+      <td>Full environment management</td>
+    </tr>
+    <tr>
+      <td><code>environment_mgt:manage_nonprod</code></td>
+      <td>Manage non-critical environments only</td>
+    </tr>
+  </tbody>
+</table>
 
 **Integration-Management**
 
-| Permission               | Description                |
-| ------------------------ | -------------------------- |
-| `integration_mgt:edit`   | Edit integration settings  |
-| `integration_mgt:manage` | Create/delete integrations |
-| `integration_mgt:view`   | View integration details   |
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>integration_mgt:edit</code></td>
+      <td>Edit integration settings</td>
+    </tr>
+    <tr>
+      <td><code>integration_mgt:manage</code></td>
+      <td>Create/delete integrations</td>
+    </tr>
+    <tr>
+      <td><code>integration_mgt:view</code></td>
+      <td>View integration details</td>
+    </tr>
+  </tbody>
+</table>
 
 **Observability-Management**
 
-| Permission                        | Description                 |
-| --------------------------------- | --------------------------- |
-| `observability_mgt:view_insights` | View metrics and dashboards |
-| `observability_mgt:view_logs`     | View runtime logs           |
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>observability_mgt:view_insights</code></td>
+      <td>View metrics and dashboards</td>
+    </tr>
+    <tr>
+      <td><code>observability_mgt:view_logs</code></td>
+      <td>View runtime logs</td>
+    </tr>
+  </tbody>
+</table>
 
 **Project-Management**
 
-| Permission           | Description           |
-| -------------------- | --------------------- |
-| `project_mgt:edit`   | Edit project settings |
-| `project_mgt:manage` | Create/delete projects |
-| `project_mgt:view`   | View project details  |
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>project_mgt:edit</code></td>
+      <td>Edit project settings</td>
+    </tr>
+    <tr>
+      <td><code>project_mgt:manage</code></td>
+      <td>Create/delete projects</td>
+    </tr>
+    <tr>
+      <td><code>project_mgt:view</code></td>
+      <td>View project details</td>
+    </tr>
+  </tbody>
+</table>
 
 **User-Management**
 
-| Permission                    | Description                     |
-| ----------------------------- | ------------------------------- |
-| `user_mgt:manage_groups`      | Create/delete groups            |
-| `user_mgt:manage_roles`       | Create/delete roles             |
-| `user_mgt:manage_users`       | Create/delete users             |
-| `user_mgt:update_group_roles` | Assign/remove roles from groups |
-| `user_mgt:update_users`       | Edit user properties            |
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>user_mgt:manage_groups</code></td>
+      <td>Create/delete groups</td>
+    </tr>
+    <tr>
+      <td><code>user_mgt:manage_roles</code></td>
+      <td>Create/delete roles</td>
+    </tr>
+    <tr>
+      <td><code>user_mgt:manage_users</code></td>
+      <td>Create/delete users</td>
+    </tr>
+    <tr>
+      <td><code>user_mgt:update_group_roles</code></td>
+      <td>Assign/remove roles from groups</td>
+    </tr>
+    <tr>
+      <td><code>user_mgt:update_users</code></td>
+      <td>Edit user properties</td>
+    </tr>
+  </tbody>
+</table>
