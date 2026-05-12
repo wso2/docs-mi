@@ -1,6 +1,6 @@
-# Connecting an MI based Integration to ICP
+# Connecting an MI-based Integration to ICP
 
-An integration connects to ICP by including the `icp_config`section in the `deployment.toml` with a **secret** generated from the ICP console. Once
+An integration connects to ICP by including the `icp_config` section in the `deployment.toml` with a **secret** generated from the ICP console. Once
 configured, the ICP heartbeat component gets activated in MI and sends periodic heartbeats so ICP can monitor and manage the runtime.
 
 ## Prerequisites
@@ -37,9 +37,9 @@ and `integration` pre-filled and the secret is scoped to that component.
 
 ## 2. Configure the MI runtime
 
-### deployemnt.toml
+### deployment.toml
 
-Place the snippet in the `deployemnt.toml` next to your application jar, filling in any
+Place the snippet in the `deployment.toml` next to your application jar, filling in any
 placeholder values.
 
 ```toml

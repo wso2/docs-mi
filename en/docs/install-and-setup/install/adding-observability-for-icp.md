@@ -60,7 +60,7 @@ If your OpenSearch requires authentication, add `-u admin:<password>`. For HTTPS
 
 Do **not** create an explicit template for `mi-metrics-logs-*`. OpenSearch's dynamic mapping auto-maps `icp_runtimeId` as `text` with a `.keyword` subfield, which is what ICP Server's metrics queries require.
 
-!!! Note 
+!!! note
     The app logs template must map `icp_runtimeId` as `keyword` (ICP queries it with a bare `terms` filter). The metrics index must keep the dynamic mapping (`text` + `.keyword` subfield) because ICP's metrics aggregations use `icp_runtimeId.keyword`. Applying an explicit `keyword` mapping to the metrics index will break the Metrics page.
 
 ## Step 3: Configure ICP Server
@@ -323,9 +323,8 @@ Replace `<MI_HOME>` with the actual MI installation path. Use forward slashes on
 
 **Auth**: `HTTP_User` and `HTTP_Passwd` are required even if OpenSearch has security disabled — Fluent Bit sends them as-is and OpenSearch ignores them.
 
-:::note
-`Replace_Dots On` converts dots in field names (e.g. `payload.apiDetails`) to underscores, which OpenSearch requires.
-:::
+!!! note
+    `Replace_Dots On` converts dots in field names (e.g. `payload.apiDetails`) to underscores, which OpenSearch requires.
 
 ## Verification
 
