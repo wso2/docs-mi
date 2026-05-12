@@ -130,13 +130,36 @@ To <b>stop</b> the ICP standalone application, go to the terminal and press <i>C
 
 ICP ships with these resources out of the box:
 
-| Resource     | Defaults                                                     |
-| ------------ | ------------------------------------------------------------ |
-| Organization | **Default Organization** (`default`)                         |
-| Environments | **dev** (Non-Critical), **prod** (Critical)                  |
-| Roles        | Admin, Developer, Project Admin, Super Admin, Viewer         |
-| Groups       | Super Admins, Administrators, Developers                     |
-| User         | `admin` / `admin` (member of Super Admins)                   |
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Defaults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Organization</td>
+      <td><strong>Default Organization</strong> (<code>default</code>)</td>
+    </tr>
+    <tr>
+      <td>Environments</td>
+      <td><strong>dev</strong> (Non-Critical), <strong>prod</strong> (Critical)</td>
+    </tr>
+    <tr>
+      <td>Roles</td>
+      <td>Admin, Developer, Project Admin, Super Admin, Viewer</td>
+    </tr>
+    <tr>
+      <td>Groups</td>
+      <td>Super Admins, Administrators, Developers</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td><code>admin</code> / <code>admin</code> (member of Super Admins)</td>
+    </tr>
+  </tbody>
+</table>
 
 When a project is created, ICP also auto-creates a
 `<Project Name> Admins` group with the *Project Admin* role.
