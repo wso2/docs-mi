@@ -23,7 +23,7 @@ To get started:
 ```bash
 git clone https://github.com/wso2-enterprise/helm-mi.git
 cd helm-mi
-git checkout 4.4.x
+git checkout 4.6.x
 ```
 
 Let's refer to the root folder of the local copy as `<HELM_HOME>`.
@@ -53,13 +53,13 @@ There may be scenarios where you need to create a customized base WSO2 Integrato
 The example below shows how to copy custom JARs into the MI runtime's `lib` directory:
 
 ```docker
-FROM registry.wso2.com/wso2-integrator/mi:4.4.0
+FROM registry.wso2.com/wso2-integrator/mi:4.6.0
 
 USER wso2carbon
 
 ARG USER_HOME=/home/${USER}
 ARG WSO2_SERVER_NAME=wso2mi
-ARG WSO2_SERVER_VERSION=4.4.0
+ARG WSO2_SERVER_VERSION=4.6.0
 ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
 ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -227,7 +227,7 @@ Follow the steps below to secure the TOML configurations:
     ```
 
     Once enabled, all the password values provided via the Helm chart must be in encrypted format.  
-    Refer to the [`[secrets]` section](https://github.com/wso2/helm-mi/blob/4.4.x/mi/confs/deployment.toml#L204) of the `deployment.toml` to identify which values require encryption.
+    Refer to the [`[secrets]` section](https://github.com/wso2/helm-mi/blob/4.6.x/mi/confs/deployment.toml#L204) of the `deployment.toml` to identify which values require encryption.
 
 2. Encrypt secret values.
 
@@ -249,9 +249,9 @@ Follow the steps below to secure the TOML configurations:
     
     Refer to the following guides based on your cloud environment for detailed instructions:
 
-    - <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/EXAMPLES.md#amazon-elastic-kubernetes-service-eks">Amazon Elastic Kubernetes Service (EKS)</a>
-    - <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/EXAMPLES.md#azure-kubernetes-service-aks">Azure Kubernetes Service (AKS)</a>
-    - <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/EXAMPLES.md#google-kubernetes-engine-gke">Google Kubernetes Engine (GKE)</a>
+    - <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.6.x/mi/EXAMPLES.md#amazon-elastic-kubernetes-service-eks">Amazon Elastic Kubernetes Service (EKS)</a>
+    - <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.6.x/mi/EXAMPLES.md#azure-kubernetes-service-aks">Azure Kubernetes Service (AKS)</a>
+    - <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.6.x/mi/EXAMPLES.md#google-kubernetes-engine-gke">Google Kubernetes Engine (GKE)</a>
 
 ## User store configurations
 
@@ -467,6 +467,6 @@ This ensures that all generated resources follow the naming convention for easie
 
 ## What's next?
 
-- To explore advanced configurations and vendor–specific cluster settings, refer to the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/EXAMPLES.md">Examples documentation</a> and the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.4.x/mi/CONFIG.md">Config documentation</a> in the WSO2 Integrator: MI Helm Chart repository.
+- To explore advanced configurations and vendor–specific cluster settings, refer to the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.6.x/mi/EXAMPLES.md">Examples documentation</a> and the <a target="_blank" href="https://github.com/wso2/helm-mi/blob/4.6.x/mi/CONFIG.md">Config documentation</a> in the WSO2 Integrator: MI Helm Chart repository.
 
 - For a hands-on experience deploying WSO2 Integrator: MI and the Integration Control Plane (ICP) in a local Kubernetes cluster using commonly used configurations, see the [Sample Deployment]({{base_path}}/install-and-setup/setup/deployment/sample-k8s-deployment/) guide.
