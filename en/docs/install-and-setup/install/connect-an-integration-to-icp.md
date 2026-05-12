@@ -1,4 +1,4 @@
-# Connecting an MI-based Integration to ICP
+# Connect an MI-based Integration to ICP
 
 An integration connects to ICP by including the `icp_config` section in the `deployment.toml` with a **secret** generated from the ICP console. Once
 configured, the ICP heartbeat component gets activated in MI and sends periodic heartbeats so ICP can monitor and manage the runtime.
@@ -107,4 +107,4 @@ runtime = "mi-node-2"
 
 ## Next Step
 
--   [Adding Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/adding-observability).
+-   [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/adding-observability).

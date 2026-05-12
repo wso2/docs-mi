@@ -16,7 +16,7 @@ No configuration is needed. ICP creates the H2 credentials database automaticall
 !!! warning
     The default `admin` / `admin` credentials are publicly known. Change the password immediately after first login via **Profile** > **Change Password**.
 
-## Connecting an External Database
+## Connect an External Database
 
 ### Step 1 — Create the database and user
 

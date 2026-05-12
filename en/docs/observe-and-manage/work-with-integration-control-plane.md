@@ -1,10 +1,10 @@
-# Monitoring MI Artifacts and Logs
+# Monitor MI Artifacts and Logs
 
 The WSO2 Integration Control Plane (ICP) monitors the MI runtimes in a deployment. This can be a single MI runtime or multiple MI runtimes of an integration. ICP follows a three-level hierarchy i.e. organizations contain projects, and projects contain integrations. Each integration is deployed to an environment, which in turn maps to one or more runtimes. It provides a graphical view of the integration artifacts that are deployed in the MI runtimes. You can also perform various management and administration tasks using the ICP server. 
 
 The ICP server communicates with the management APIs of each WSO2 Integrator: MI runtimes of an integration to get and manipulate data.
 
-## Navigating to Artifacts
+## Navigate to Artifacts
 
 After signing in, you land on the **All Projects** page under the Default Organization.
 
@@ -87,7 +87,7 @@ You can use the ICP server to perform the following administration tasks related
 
     ICP provides centralized observability for MI runtimes. Application logs and per-request analytics are collected via Fluent Bit, stored in OpenSearch, and displayed in the ICP Console.
 
-## Using the Integration Control Plane
+## Use the Integration Control Plane
 
 Follow the steps given below to get started with the WSO2 Integration Control Plane.
 

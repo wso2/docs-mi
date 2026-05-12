@@ -1,4 +1,4 @@
-# Adding Centralized Observability in the Integration Control Plane
+# Add Centralized Observability in the Integration Control Plane
 
 ICP provides centralized observability for MI runtimes. Application logs and per-request analytics are collected via Fluent Bit, stored in OpenSearch, and displayed in the ICP Console.
 
