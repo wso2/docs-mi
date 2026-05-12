@@ -20,10 +20,8 @@ This guide walks you through deploying WSO2 Integrator: MI on WSO2 cloud. For th
 
 6. Once you select the Project, the **Create Integration** page will open. The integration type will be automatically chosen for you based on your MI Project, in this case, the **Integration as API** type will be selected.
 7. The name of the integration will be populated automatically. Wait for the GitHub authorization to complete, then click **Next**.
-8. The **Build Details** would have the **Technology** already selected. Hence, you can click **Next** again to proceed.
-9. You can confirm the details in the **Summary** and click **Create** to create the integration and deploy on Devant.
-10. Once the integration is deployed, a notification would pop up in the bottom right corner to **Open in Devant**. It will be needed to confirm this again.
-11. Once opened, you will be able to view the integration in the Devant console. 
+8. You can confirm the details in the **Git Configuration** and click **Deploy** to deploy on WSO2 Cloud.
+9. Once the integration is deployed, a notification would pop up in the bottom right corner to **View in Console**.
 
     <a href="{{base_path}}/assets/img/deploy/devant-deploy.gif" class="glightbox"><img src="{{base_path}}/assets/img/deploy/devant-deploy.gif" alt="Deploy on Devant" width="900"></a>
 
