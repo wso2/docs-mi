@@ -1255,6 +1255,7 @@ extra_javascript:
   - assets/js/copy-page.js
   - assets/js/mitheme.js
 hooks:
+  - hooks/optimize_glightbox.py
   - hooks/copy_md.py
   - hooks/copy_markdown.py
 extra:
