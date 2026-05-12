@@ -29,8 +29,7 @@ The Copilot works with any MI project — new or existing — and chooses the ri
 
 You can open the Copilot panel in either of these ways:
 
-- Click the **Open AI Panel** icon in the top-right corner of VS Code.
-- In the welcome **Design View** of a project, type what you want to build into the text box and press **Enter**. Your message becomes the first message of a new Copilot chat session.
+- Click the **Copilot** icon in the top-right corner of VS Code.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" alt="Open the Copilot panel" width="100%"></a>
 
@@ -41,7 +40,7 @@ You can open the Copilot panel in either of these ways:
 
 The first time you open the Copilot panel, you are asked to sign in. The Copilot supports three sign-in methods — you can switch between them at any time from **Settings**.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/sign-in-options.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/sign-in-options.png" alt="Sign-in options" width="60%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/sign-in-options.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/sign-in-options.png" alt="Sign-in options" width="100%"></a>
 
 <table>
   <thead>
@@ -70,22 +69,9 @@ The first time you open the Copilot panel, you are asked to sign in. The Copilot
   </tbody>
 </table>
 
-### Creating a WSO2 account
-
-If you don't have a WSO2 account, the panel shows a **WSO2 Account Not Found** message when you try to sign in.
-
-1. Click **Sign In**. A dialog appears asking if you want VS Code to open an external website.
-2. Click **Open**.
-3. In the browser, click **Register** and sign up using your email, Google account, or GitHub account.
-4. Return to VS Code — the extension completes the sign-in automatically.
-
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/sign-in-to-copilot.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/sign-in-to-copilot.png" alt="Sign in to the Copilot" width="30%"></a>
-
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/sign-up-to-copilot.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/sign-up-to-copilot.png" alt="Sign up to the Copilot" width="30%"></a>
-
 ### Switching auth methods later
 
-From the Copilot panel, click the **Settings** gear in the header and open the **Authentication** section. You can sign out and switch to any of the three methods without losing your chat history. The provider you are currently using is shown in the header as a small chip (for example, **WSO2**, **Anthropic**, or **Bedrock**).
+From the Copilot panel, click the **Settings** gear in the header and click the **Sign Out** button. You can sign out and switch to any of the three methods without losing your chat history. The provider you are currently using is shown in the header as a small chip (for example, **WSO2**, **Anthropic**, or **Bedrock**).
 
 ## Your first message
 
@@ -94,7 +80,7 @@ Before you send your first message, make sure you have:
 1. [Created a new integration project]({{base_path}}/develop/create-integration-project) or [opened an existing one]({{base_path}}/develop/opening-projects).
 2. Signed in with one of the three methods above.
 
-To start, either type directly into the welcome **Design View** box or open the Copilot panel and type in the input at the bottom. For example:
+To start a new chat session, open the Copilot panel and type in the input at the bottom. For example:
 
 > *Create a REST API called `OrderAPI` at context `/orders` with a `GET /orders/{id}` resource that fetches an order from the `https://api.example.com/orders/{id}` endpoint and returns the JSON response.*
 
@@ -110,8 +96,6 @@ Press **Enter**. The Copilot opens a new chat session in **Edit mode** (the defa
     You can also attach files with your message — OpenAPI specifications, JSON schemas, CSVs, PDFs, or images. The Copilot uses them as additional context. See [Attachments]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/features/#attachments).
 
 ## Anatomy of the Copilot panel
-
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/panel-anatomy.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/panel-anatomy.png" alt="Copilot panel anatomy" width="100%"></a>
 
 **Header (top)**
 

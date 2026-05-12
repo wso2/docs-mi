@@ -30,7 +30,7 @@ You will now see the project listed in the **Project Explorer**.
 
 ### Step 2: Open the Copilot panel and sign in
 
-1. Click the **Open AI Panel** button in the top-right corner of VS Code.
+1. Click the **Copilot** icon in the top-right corner of VS Code.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-open-ai-panel.png" alt="open the Copilot panel" width="80%"></a>
 
@@ -43,34 +43,37 @@ You will now see the project listed in the **Project Explorer**.
 
 ### Step 3: Describe the integration to the Copilot
 
-The Copilot opens a new chat session in **Edit mode** (the default). In this mode the Copilot can read, create, and edit files directly in your workspace. Every file it changes is captured on a **Checkpoint** card so you can review and undo before keeping the changes.
+The Copilot opens a new chat session in **Edit mode** (the default). In Edit mode the Copilot acts as an agent — it reads your project, adds the connectors it needs, writes the artifacts, validates them against the language server, and captures everything on a **Checkpoint** card you can review or roll back.
 
 1. Make sure the mode pill in the input bar is set to **Edit**.
 
 2. Attach the two OpenAPI specifications that describe the geolocation and weather endpoints by clicking the **Attach** <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-attach-files-btn.png" alt="attach files" width="30px"></a> button. Use [GeoLocationOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/GeoLocationOAS.yaml) and [OpenWeatherOAS.yaml]({{base_path}}/assets/attachments/quick-start-guide/how-to-guides/ai-code-gen/OpenWeatherOAS.yaml).
 
-3. Describe the integration you want to build. For example:
+3. Describe the integration in a single message. For example:
 
     ??? "Example Prompt"
         ```
         Create a REST API called WeatherEmailService at context /weatherEmail with a GET /getWeather resource that accepts city and email query parameters. Use the attached OpenAPI specs to call the OpenWeather geolocation endpoint to get coordinates for the city, then call the current-weather endpoint using those coordinates, and finally email the weather details to the email address in the request. Use the HTTP and Email connectors.
         ```
 
-4. Press **Enter** to send the message.
+4. Press **Enter** to send the message. You don't click a "Generate" button — the Copilot runs the whole task autonomously.
 
-    The Copilot will stream its progress in the chat panel:
+    As it works, the chat panel streams the agent loop in real time:
 
-    - It lays out a **todo list** of the work (for example, *add HTTP connector*, *add Email connector*, *create API*, *create connections*, *validate*).
-    - You see live **tool call indicators** such as *Adding HTTP connector*, *Writing WeatherEmailService.xml*, and *Validating XML*.
-    - The Copilot adds the required connectors to your `pom.xml`, triggers their download, creates the API file and the two connection local entries, and validates the generated XML against the language server.
+    - A **todo list** appears at the top of the response showing what the Copilot has planned (for example, *add HTTP connector*, *add Email connector*, *create API*, *create connections*, *validate*). Items tick off as they complete.
+    - **Tool call indicators** such as *Adding HTTP connector*, *Writing WeatherEmailService.xml*, and *Validating XML* show each step. If validation fails, the Copilot reads the error and self-corrects before continuing.
+    - The Copilot may pause to ask a clarifying question — for example, which email subject to use — and resumes after your reply.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" alt="Copilot generating the integration" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-generate-btn.png" alt="Copilot agent loop streaming in the chat panel" width="80%"></a>
 
-5. When the Copilot finishes, a **Checkpoint** card appears listing the files it created or changed. Open the **Design View** to confirm the API looks right.
+5. When the agent finishes, a **Checkpoint** card lists every file it created or changed. The artifacts are already in your project — open the **Design View** to confirm the API looks right.
 
-    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" alt="generated artifacts and checkpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-add-artifacts.png" alt="Checkpoint card with generated artifacts" width="80%"></a>
 
-    If something looks off, either click **Undo** on the Checkpoint card to roll back and rephrase your prompt, or send a follow-up message like *"Include the city name in the email subject."*
+    If something looks off, you have two options without leaving the chat:
+
+    - Click **Undo** on the Checkpoint card to roll back every file the Copilot changed in that turn, then rephrase your prompt.
+    - Send a follow-up message — for example, *"Include the city name in the email subject"* — and the Copilot will edit the files in place and produce a new checkpoint.
 
     When you're happy with the result, click **Accept** on the Checkpoint card.
 
@@ -81,10 +84,7 @@ The Copilot opens a new chat session in **Edit mode** (the default). In this mod
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="generated API" width="80%"></a>
 
-    ??? "WeatherEmailService API"
-        === "Design View"
-            <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-api.png" alt="ai-code-gen-api" width="70%"></a>
-
+    ??? "WeatherEmailService API source"
         === "Source View"
             ```yaml
             <api xmlns="http://ws.apache.org/ns/synapse" name="WeatherEmailService" context="/weatherEmail">
@@ -181,25 +181,20 @@ The Copilot opens a new chat session in **Edit mode** (the default). In this mod
 
         You can ask the Copilot to open a specific file for you — for example, *"Open the Email connection so I can update the credentials."*
 
-### Step 4: Build and run
+### Step 4: Build and run with the Copilot
 
-You have two options for building and running the integration: ask the Copilot to do it, or click the **Build and Run** button yourself.
+The Copilot can build the project and start the MI runtime for you — no need to leave the chat panel. Send a follow-up message:
 
-=== "Using the Copilot"
+```
+Build the project and start the server.
+```
 
-    Send a follow-up message:
+The agent runs the Maven build, deploys the resulting `.car`, and starts the MI runtime. You'll see tool call indicators for each step (*Running build*, *Starting MI server*) and a link to the **Runtime Services** panel in the chat when the server is up.
 
-    ```
-    Build the project and start the server.
-    ```
+??? tip "Prefer the button?"
+    If you'd rather build manually, click the **Build and Run** button at the top of the editor.
 
-    The Copilot runs the Maven build, deploys the resulting `.car`, and starts the MI runtime. When the server is up, it posts a link to the Runtime Services panel in the chat.
-
-=== "Using the Build and Run button"
-
-    1. Click the **Build and Run** button to build and deploy the integration.
-
-        <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" alt="build and run" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-run-btn.png" alt="Build and Run button" width="80%"></a>
 
 Once the server is running, **Runtime Services** opens. From that panel:
 
@@ -219,4 +214,4 @@ Once the server is running, **Runtime Services** opens. From that panel:
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-code-gen/ai-code-gen-results.png" alt="response" width="80%"></a>
 
-Automating complex integrations has never been easier. Let the WSO2 Integrator Copilot do it for you and save yourself hours of effort!
+That's the agent loop in action — one prompt, the Copilot plans the work, adds the right connectors, writes and validates the artifacts, deploys, and starts the server. From here you can keep going: ask for new resources, request retries with backoff, switch to **Plan** mode for a reviewable change list, or explore [Modes]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/modes) and [Features]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/features) to see what else the Copilot can do.

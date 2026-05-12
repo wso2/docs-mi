@@ -12,19 +12,36 @@ This page is a reference for the user-facing features of the Copilot panel. For 
 
 ## Checkpoints and undo
 
-Every time the Copilot edits files on your behalf, it creates a **checkpoint** — a snapshot of the files it is about to change. After the turn finishes, a card appears in the conversation showing the files that changed and how many lines were added or removed.
+The Copilot creates two kinds of checkpoints so you can roll back changes at different granularities — a fine-grained one for each turn the Copilot edits files, and a coarse-grained one for each message you send.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/checkpoint-card.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/checkpoint-card.png" alt="Checkpoint card" width="100%"></a>
+### Per-turn checkpoint — artifact changes
+
+Every time the Copilot adds, edits, or deletes an artifact in your project, it snapshots the previous state of the affected files. When the turn finishes, a **Checkpoint** card appears in the conversation listing the files that changed and how many lines were added or removed.
+
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/checkpoint-card.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/checkpoint-card.png" alt="Per-turn checkpoint card" width="100%"></a>
 
 The card has two actions:
 
 - **Accept** — acknowledges the changes and dismisses the card. Files stay as they are.
-- **Undo** — rolls back every file that was changed in that turn to the state it was in before the turn started. Works across multiple tool calls, file creations, and edits.
+- **Undo** — rolls back every file the Copilot changed in that turn. Works across multiple tool calls, file creations, edits, and deletions made in the same turn.
+
+Per-turn checkpoints cover any project mutation: file writes, file edits, new data mappers, connector additions, and connector removals. If you edit the same files yourself between the turn and hitting **Undo**, the Copilot detects the conflict and asks whether you want to force the rollback or keep your manual edits.
+
+### Per-message checkpoint — rewind project and chat
+
+Before each message you send, the panel snapshots both **your project state** and **the chat history**. This lets you rewind an entire multi-turn exchange back to the moment before a specific message — not just the most recent edit.
+
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/message-checkpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/message-checkpoint.png" alt="Per-message checkpoint" width="100%"></a>
+
+Click the rewind icon next to an earlier user message to:
+
+- Revert every file in your project to the state it was in when you sent that message.
+- Trim the chat history so the conversation returns to that point. Messages and replies sent after it are removed.
+
+Reach for this when a series of follow-ups has gone down the wrong path and you want a clean reset before re-prompting, rather than undoing one turn at a time.
 
 !!! info
-    Checkpoints are stored on disk, so they survive restarts of VS Code. The Copilot keeps the most recent checkpoints and garbage-collects older ones automatically.
-
-Checkpoints are created for any mutation: file writes, file edits, new data mappers, connector additions, and connector removals. If you edit the same files yourself between the checkpoint and hitting **Undo**, the Copilot detects the conflict and asks whether you want to force the rollback or keep your manual edits.
+    Both kinds of checkpoints are stored on disk and survive VS Code restarts. The Copilot keeps the most recent checkpoints and garbage-collects older ones automatically.
 
 ## Plan approval
 
@@ -43,7 +60,7 @@ The Copilot may also ask for permission to **enter** or **exit** Plan mode if it
 
 For multi-step tasks, the Copilot maintains a **todo list** visible in the conversation. Each item shows its status — pending, in progress, or done — as the Copilot works through them. This gives you a live view of what's happening during longer operations.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/todo-list.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/todo-list.png" alt="Todo list" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/todo-list.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/todo-list.png" alt="Todo list" width="100%"></a>
 
 Todos are in-memory for the current turn — they're a progress indicator, not a persistent task tracker.
 
@@ -51,7 +68,7 @@ Todos are in-memory for the current turn — they're a progress indicator, not a
 
 You can attach files and images to a message by clicking the **Attach** button in the input bar.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/attachments.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/attachments.png" alt="Attachments" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/attachments.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/attachments.png" alt="Attachments" width="100%"></a>
 
 ### Supported types
 
@@ -72,7 +89,7 @@ Attachments are validated before the message is sent — if anything is unsuppor
 
 Type `@` in the input bar and start typing a file or folder name to mention it inline. Mentions are picked from your open project.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mentions.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mentions.png" alt="File and folder @mentions" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mentions.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mentions.png" alt="File and folder @mentions" width="100%"></a>
 
 Mentions are a quick way to point the Copilot at a specific file or directory without having to describe it. For example:
 
@@ -84,7 +101,7 @@ The Copilot reads the mentioned file automatically — you don't need to attach 
 
 Each conversation you have with the Copilot is a **session**. Sessions are saved automatically and you can switch between them from the **session switcher** in the header.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/session-switcher.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/session-switcher.png" alt="Session switcher" width="60%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/session-switcher.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/session-switcher.png" alt="Session switcher" width="100%"></a>
 
 - **New Chat** (in the header) starts a fresh session. Your current session is saved to history.
 - The session switcher groups history into **Today**, **Yesterday**, **Past Week**, and **Older**.
@@ -93,13 +110,15 @@ Each conversation you have with the Copilot is a **session**. Sessions are saved
 !!! note
     Sessions are append-only — you can't edit or delete individual messages. If a conversation has gone in the wrong direction, start a new session.
 
-## Extended thinking
+## Adaptive thinking
 
-For complex requests, the Copilot may use **extended thinking** — it works through the problem before responding. When it does, you'll see a collapsible *Thinking* segment in the conversation with the Copilot's reasoning.
+For complex requests, the Copilot can use **adaptive thinking** — it works through the problem before responding, and skips the step when the request is straightforward. When it does think, a collapsible *Thinking* segment appears in the conversation with the Copilot's reasoning. Expand it to see the approach, or collapse it to focus on the final answer and the changes.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/thinking-segment.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/thinking-segment.png" alt="Extended thinking" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/thinking-segment.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/thinking-segment.png" alt="Thinking segment in the conversation" width="100%"></a>
 
-You can expand the thinking to see the Copilot's approach, or collapse it to focus on the final answer and the changes.
+Adaptive thinking is **on by default**. You can toggle it from the **Settings** gear in the panel header. Turn it off if you find the Copilot is overthinking — for example, deliberating on small edits where you'd rather it just make the change.
+
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/adaptive-thinking-setting.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/adaptive-thinking-setting.png" alt="Adaptive thinking toggle in settings" width="100%"></a>
 
 ## Shell command approvals
 
@@ -115,7 +134,7 @@ In **Ask** and **Plan** modes, only read-only shell commands are permitted.
 
 Open **Settings** from the header and find the **Models** section to choose which Claude model the Copilot uses.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/model-settings.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/model-settings.png" alt="Model settings" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/model-settings.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/model-settings.png" alt="Model settings" width="100%"></a>
 
 Two presets are configurable:
 

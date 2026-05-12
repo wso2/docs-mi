@@ -10,7 +10,7 @@ tags:
 
 The Copilot has three modes, selectable from the pill on the left of the input bar. Each mode changes what the Copilot is allowed to do — you pick the mode that matches how much autonomy you want to give it for the task at hand.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mode-switcher.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mode-switcher.png" alt="Mode switcher" width="60%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mode-switcher.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/mode-switcher.png" alt="Mode switcher" width="100%"></a>
 
 ## Mode comparison
 
@@ -189,8 +189,6 @@ While in Plan mode, the Copilot cannot modify source files — only the plan fil
 3. The Copilot reads `TransformOrdersSequence`, inspects the input and expected output, and may ask a clarifying question — for example:
 
     > *The XSLT currently drops the `internalNotes` field. Should the new data mapper also drop it, or include it?*
-
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/plan-mode-question.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/wso2-integrator-copilot/plan-mode-question.png" alt="Plan mode — question to user" width="100%"></a>
 
     Respond inline in the question dialog and the Copilot continues.
 
