@@ -22,17 +22,17 @@ ICP organizes MI artifacts into two categories: **Entry Points** and **Supportin
 
 Entry points are the primary interfaces through which traffic enters an integration. Within an environment section, the **Entry Points** tab is selected by default. Use the dropdown to switch between individual entry points.
 
-<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-artifacts-entry-points-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-artifacts-entry-points-view.png" width="1000"></a>
+<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-artifacts-entry-points-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-artifacts-entry-points-view.png" alt="Monitoring dashboard - artifacts entry points view" width="1000"></a>
 
 ### Supporting Artifacts
 
 Supporting artifacts appear in the **Supporting Artifacts** tab, organized by type in a side list. Each artifact card shows key fields and available controls.
 
-<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-supporting-artifacts-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-supporting-artifacts-view.png" width="1000"></a>
+<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-supporting-artifacts-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-supporting-artifacts-view.png" alt="Monitoring dashboard - supporting artifacts view" width="1000"></a>
 
 ## Capabilities of the ICP server
 
-You can use the ICP server to perform the following administration tasks related to your WSO2 Integrator: MI based integrations:
+You can use the ICP server to perform the following administration tasks related to your WSO2 Integrator: MI-based integrations:
 
 -   <b>Browse integration artifacts</b>
 
@@ -104,7 +104,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 1.  Generate a secret in the ICP console.
 
-    Sign in to the ICP console and generate a secret to authenticate the MI runtime. You can do this at organizaion level or Project/Integration level.
+    Sign in to the ICP console and generate a secret to authenticate the MI runtime. You can do this at organization level or Project/Integration level.
 
 2.  To connect the MI runtimes with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each runtime instance.
 
@@ -153,7 +153,7 @@ icp_url     = "https://<icp-host>:9445"
 
 On successful connection you will see:
 
-```
+```text
 INFO {ICPHeartBeatComponent} - Starting ICP heartbeat service. Interval: 10s
 INFO {ICPHeartBeatComponent} - Full heartbeat acknowledged by ICP.
 ```
