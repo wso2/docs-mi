@@ -9,34 +9,35 @@ Java Development Kit (JDK) is essential to run the product.
 
 ## Installing the Integration Control Plane
 
-1. Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integrator/integration-control-plane/).
+-   Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integrator/integration-control-plane/).
 
-2. Click **Download**.
+-   Click **Download** and provide the necessary details.  
 
-3. Provide the necessary details.  
+-   Click **Zip Archive** to download the Integration Control Plane as a ZIP file(e.g.
+   `wso2-integration-control-plane-2.0.0.zip`).
 
-4. Click **Zip Archive** to download the Integration Control Plane as a ZIP file.
+-   Extract it.
 
-5. Extract the archive file to a dedicated directory for the Integration Control Plane, which will hereafter be referred to as `<ICP_HOME>`.
+```bash
+    unzip wso2-integration-control-plane-2.0.0.zip
+    cd wso2-integration-control-plane-2.0.0
+```
 
-!!! info
-    To connect the MI servers with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
-        ```toml
-        [dashboard_config]
-        dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-        heartbeat_interval = "<HEARTBEAT_INTERVAL>"
-        group_id = "<GROUP_ID>"
-        node_id = "<NODE_ID>"
-        ```
-        For example:
-        ```toml
-        [dashboard_config]
-        dashboard_url = "https://localhost:9743/dashboard/api/"
-        heartbeat_interval = 5
-        group_id = "mi_dev"
-        node_id = "dev_node_2"
-        ```
-    For more information, see [Configure the MI servers]({{base_path}}/observe-and-manage/working-with-integration-control-plane/#step-2-configure-the-mi-servers).
+-   The extracted directory has the following layout.
+
+```
+    wso2-integration-control-plane-2.0.0/
+     bin/
+       icp.sh              # startup script (Linux / macOS)
+       icp.bat             # startup script (Windows)
+       icp-server.jar      # server binary
+       database/            # embedded H2 database files
+     conf/
+       deployment.toml      # main configuration file
+       security/            # keystores and cipher config
+     www/                   # console frontend
+     lib/                   # runtime libraries
+```
 
 ## Setting up JAVA_HOME
 
@@ -48,11 +49,11 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 ??? note "On Linux/OS X"
 
     1.  In your home directory, open the BASHRC file (.bash\_profile file on Mac) using editors such as vi, emacs, pico, or mcedit.
-    2.  Assuming you have JDK 11.0.x in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-11.0.x` with the actual directory where the JDK is installed.
+    2.  Assuming you have JDK 21.0.x in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-21.0.x` with the actual directory where the JDK is installed.
 
         ``` java
         On Linux:
-        export JAVA_HOME=/usr/java/jdk-11.0.x
+        export JAVA_HOME=/usr/java/jdk-21.0.x
         export PATH=${JAVA_HOME}/bin:${PATH}
              
         On OS X:
@@ -82,10 +83,10 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 ??? note "On Solaris"
 
     1.  In your home directory, open the BASHRC file in your favorite text editor such as vi, emacs, pico, or mcedit.
-    2.  Assuming you have JDK 11.0.x in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-11.0.x` with the actual directory where the JDK is installed.
+    2.  Assuming you have JDK 21.0.x in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-21.0.x` with the actual directory where the JDK is installed.
 
         ``` java
-        export JAVA_HOME=/usr/java/jdk-11.0.x
+        export JAVA_HOME=/usr/java/jdk-21.0.x
         export PATH=${JAVA_HOME}/bin:${PATH}
         ```
 
@@ -106,7 +107,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
 ??? note "On Windows"
 
-    Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk-11.0.x`. If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
+    Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk-21.0.x`. If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
     You set up `JAVA_HOME` using the System Properties, as described below. Alternatively, if you just want to set `JAVA_HOME` temporarily for the current command prompt window, set it at the command prompt.
 
@@ -126,7 +127,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
     4.  Enter the following information:
         -   In the **Variable name** field, enter: `JAVA_HOME`
-        -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Java/jdk-11.0.x           `
+        -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Java/jdk-21.0.x           `
 
     The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the `JAVA_HOME` variable to take effect, or manually set the `JAVA_HOME` variable in those command prompt windows as described in the next section. To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter**) and execute the following command:
 

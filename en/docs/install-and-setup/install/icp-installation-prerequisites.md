@@ -15,7 +15,7 @@ Prior to installing the WSO2 Integration Control Plane, make sure that the appro
 
 ## Tested environments
 
-The details of the tested environments for the WSO2 Integration Control Plane (ICP) 1.0.0 is given below.
+The details of the tested environments for the WSO2 Integration Control Plane (ICP) 2.0.0 is given below.
 
 ### Tested operating systems
 
@@ -24,9 +24,10 @@ The Integration Control Plane is tested with the following operating systems:
 | Operating System         | Versions |
 |--------------------------|----------|
 | Windows                  | 11       |
-| Ubuntu                   | 22.04    |
-| MacOS                    | 13.6     |
+| Ubuntu                   | 26.04    |
+| MacOS                    | 15.7     |
 | Linux(RHEL)              | 9.4      |
+| Windows Server           | 2022     |
 
 ### Tested JDKs
 
@@ -34,4 +35,4 @@ The Integration Control Plane runtime is tested with the following JDKs:
 
 | JDK         | Versions   |
 |-------------|------------|
-| OpenJDK     | 11, 17, 21 |
+| OpenJDK     | 21         |
