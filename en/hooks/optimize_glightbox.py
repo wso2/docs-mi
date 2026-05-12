@@ -13,7 +13,12 @@ def on_config(config, **kwargs):
 
     # MkDocs caches bound method references in plugins.events at load time,
     # so patching the instance is too late — we replace the cached reference directly.
-    post_page_events = plugins.events.get("post_page", [])
+    events = getattr(plugins, "events", None)
+    if not isinstance(events, dict):
+        return
+    post_page_events = events.get("post_page", [])
+    if not isinstance(post_page_events, list):
+        return
     for i, method in enumerate(post_page_events):
         if getattr(method, "__self__", None) is glightbox_plugin:
             post_page_events[i] = _make_fast_on_post_page(glightbox_plugin)
@@ -35,7 +40,13 @@ def _make_fast_on_post_page(plugin):
         js_url = utils.get_relative_url(utils.normalize_url("assets/javascripts/glightbox.min.js"), page.url)
 
         is_material = config["theme"].name == "material"
-        has_instant = "navigation.instant" in getattr(config["theme"], "_vars", {}).get("features", [])
+        theme_features = []
+        if hasattr(config["theme"], "get"):
+            theme_features = config["theme"].get("features", []) or []
+        has_instant = any(
+            f == "navigation.instant" or f.startswith("navigation.instant.")
+            for f in theme_features
+        )
 
         inline_css = (
             "html.glightbox-open { overflow: initial; height: 100%; } "
@@ -59,7 +70,7 @@ def _make_fast_on_post_page(plugin):
         )
 
         js_init = f"const lightbox = GLightbox({json.dumps(lb_config)});"
-        if is_material or has_instant:
+        if has_instant:
             js_init = f"document$.subscribe(() => {{{js_init}}})"
         body_tag = f"<script>{js_init}</script>"
 
