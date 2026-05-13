@@ -36,7 +36,7 @@ To develop the above scenario, let's get started with creating a new API in the 
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_rag_chat_api.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/create_rag_chat_api.png" alt="Create New Project" width="80%"></a>
 
-3. In the **Service Designer** pane, modify the `Resource Path` to `\chat` and the `Method` to `POST`. 
+3. In the **Service Designer** pane, modify the `Resource Path` to `/chat` and the `Method` to `POST`. 
 
     <a href="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/edit_resource.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-ai-integration/rag/edit_resource.gif" alt="Create New Project" width="80%"></a>
 
@@ -78,7 +78,7 @@ To develop the above scenario, let's get started with creating a new API in the 
     **Vector Store Connection**: `KB_CONN`  
     **LLM Connection**: `OPENAI_CONN`  
     **Memory Connection**: `FILE_MEMORY_CONN`  
-    **User ID**: `payload.userID` (with `EX` enabled)  
+    **Session ID**: `payload.userID` (with `EX` enabled)  
     **User Query/Prompt**: `${payload.query}`  
     **Overwrite Message Body**: `true`  
 

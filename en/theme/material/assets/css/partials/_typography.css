@@ -57,7 +57,7 @@
 }
 
 .md-typeset {
-  font-size: var(--rem);
+  font-size: 0.8rem;
 }
 
 /* List indentation and spacing */
@@ -94,9 +94,9 @@
   margin-left: 0;
 }
 
-/* Admonition content indentation */
-.md-typeset .admonition > *,
-.md-typeset details > * {
+/* Admonition content indentation — exclude title/summary so negative margins stretch it edge-to-edge */
+.md-typeset .admonition > *:not(.admonition-title),
+.md-typeset details > *:not(summary) {
   margin-left: 0;
   margin-right: 0;
 }

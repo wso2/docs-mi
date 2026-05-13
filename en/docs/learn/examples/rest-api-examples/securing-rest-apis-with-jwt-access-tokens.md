@@ -374,7 +374,7 @@ Follow the instructions below to secure APIs with JWT (Self Contained) access to
              </div> 
        </html>
     
-        **The Scope List:**
+      **The Scope List:**
         Under that key, list the specific scopes required to access that resource. Ex: `read:orders`, `write:orders`, etc. 
 
       Check this sample OpenAPI definition that includes the security definitions for scope validation:
@@ -411,38 +411,38 @@ Follow the instructions below to secure APIs with JWT (Self Contained) access to
 5. Click on the **Add Handler** button and type `org.wso2.micro.integrator.security.handler.oauth.OAuthAuthenticationHandler` as the class name. 
 6. Click on **Add Property** button to add the necessary properties as below.
 
-   <img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-authorization-handler/add-oauth-authorization-handler.png">
+  <img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-authorization-handler/add-oauth-authorization-handler.png">
 
-    ```xml
-    <api name="OrderService" context="/v1" publishSwagger="conf:/swagger/orders.yaml">
-        <resource methods="GET" uri-template="/orders">
-            <inSequence>
-                <payloadFactory media-type="json">
-                    <format>{"status": "Success", "data": "Order list retrieved"}</format>
-                </payloadFactory>
-                <respond/>
-            </inSequence>
-        </resource>
-        <resource methods="POST" url-mapping="/orders">
-            <inSequence>
-                <payloadFactory media-type="json">
-                  <format>{"status": "Success", "data": "Order created"}</format>
-                  <args/>
-                </payloadFactory>
-                <respond/>
-            </inSequence>
-            <faultSequence/>
-        </resource>
-        <handlers>
-            <handler class="org.wso2.micro.integrator.security.handler.oauth.OAuth2AuthorizationHandler">
-                <property name="jwksEndpoint" value="https://idp.example.com/.well-known/jwks.json"/>
-                <property name="audience" value="https://api.orders.com"/>
-                <property name="authorizationHeader" value="Authorization"/>
-                <property name="disableCNFValidation" value="false"/>
-            </handler>
-        </handlers>
-    </api>
-    ```
+```xml
+<api name="OrderService" context="/v1" publishSwagger="conf:/swagger/orders.yaml">
+    <resource methods="GET" uri-template="/orders">
+        <inSequence>
+            <payloadFactory media-type="json">
+                <format>{"status": "Success", "data": "Order list retrieved"}</format>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+    </resource>
+    <resource methods="POST" url-mapping="/orders">
+        <inSequence>
+            <payloadFactory media-type="json">
+              <format>{"status": "Success", "data": "Order created"}</format>
+              <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <faultSequence/>
+    </resource>
+    <handlers>
+        <handler class="org.wso2.micro.integrator.security.handler.oauth.OAuth2AuthorizationHandler">
+            <property name="jwksEndpoint" value="https://idp.example.com/.well-known/jwks.json"/>
+            <property name="audience" value="https://api.orders.com"/>
+            <property name="authorizationHeader" value="Authorization"/>
+            <property name="disableCNFValidation" value="false"/>
+        </handler>
+    </handlers>
+</api>
+```
 
 ### Step 3:  Configure Global Settings
 

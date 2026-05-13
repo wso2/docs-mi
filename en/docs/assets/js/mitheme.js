@@ -77,8 +77,9 @@ for (var i = 0; i < dropdowns.length; i++) {
 };
 
 
-// Reading versions
-
+/*
+ * Reading versions
+ */
 var pageHeader = document.getElementById('page-header');
 var docSetLang = pageHeader.getAttribute('data-lang');
 
@@ -87,134 +88,136 @@ var docSetLang = pageHeader.getAttribute('data-lang');
     docSetLang = docSetLang + '/';
 
 var docSetUrl = window.location.origin + '/' + docSetLang;
-var langRoot = window.location.origin + '/' + docSetLang;
-var activeRoot = window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf('/', 4) + 1);
-
-if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    docSetUrl = window.location.origin + '/en/latest/';
-    activeRoot = window.location.origin + '/en/latest/';
-    langRoot = window.location.origin + '/en/';
-}
-
 var request = new XMLHttpRequest();
 
-request.open('GET', activeRoot +
-    'versions/assets/versions.json', true);
+request.open('GET', 'https://raw.githubusercontent.com/wso2/docs-mi/versions/en/docs/assets/versions.json', true);
 
-request.onload = function () {
-    if (request.status >= 200 && request.status < 400) {
+request.onload = function() {
+  if (request.status >= 200 && request.status < 400) {
 
-        var data = JSON.parse(request.responseText);
-        var dropdown = document.getElementById('version-select-dropdown');
-        var checkVersionsPage = document.getElementById('current-version-stable');
+      var data = JSON.parse(request.responseText);
+      var dropdown =  document.getElementById('version-select-dropdown');
+      var checkVersionsPage = document.getElementById('current-version-stable');
 
+      /*
+       * Appending versions to the version selector dropdown
+       */
+      if (dropdown){
+          data.list.sort(function(a, b) {
+              var aParts = a.split('.');
+              var bParts = b.split('.');
+              for (var i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+                  var aPart = parseInt(aParts[i]) || 0;
+                  var bPart = parseInt(bParts[i]) || 0;
+                  if (aPart !== bPart) return aPart - bPart;
+              }
+              return 0;
+          }).forEach(function(key, index){
+              var versionData = data.all[key];
 
-        // Appending versions to the version selector dropdown
+              if(versionData) {
+                  var liElem = document.createElement('li');
+                  var currentPath = window.location.pathname;
+                  var langPrefixLength = docSetLang ? docSetLang.length + 1 : 0;
+                  var pathWithoutLang = currentPath.substring(langPrefixLength);
+                  if (pathWithoutLang.startsWith('/')) pathWithoutLang = pathWithoutLang.substring(1);
 
-        function compareSemVer(a, b) {
-            // implement a compareSemVer function that splits version strings by '.' and compares each numeric segment
-            var partsA = a.split('.').map(Number);
-            var partsB = b.split('.').map(Number);
-            for (var i = 0; i < Math.max(partsA.length, partsB.length); i++) {
-                var valA = partsA[i] || 0;
-                var valB = partsB[i] || 0;
-                if (valA !== valB) return valA - valB; // Ascending like default sort()
-            }
-            return a.localeCompare(b);
-        }
+                  var firstSlashIndex = pathWithoutLang.indexOf("/");
+                  var pathWithoutVersion = (firstSlashIndex !== -1) ? pathWithoutLang.substring(firstSlashIndex) : "/";
 
-        if (dropdown) {
-            data.list.sort(compareSemVer).forEach(function (key, index) {
-                var versionData = data.all[key];
+                  var versionDoc = data.all[key].doc;
+                  var docLinkType = versionDoc.split(':')[0];
+                  var url = '';
+                  var searchAndHash = window.location.search + window.location.hash;
 
-                if (versionData) {
-                    var liElem = document.createElement('li');
-                    var docLinkType = data.all[key].doc.split(':')[0];
-                    var target = '_self';
-                    var url = data.all[key].doc;
-
-                    var currentPath = window.location.pathname;
-                    // Find the index of '/en/'
-                    var pathWithoutEn = currentPath.substring(4, currentPath.length);
-                    var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length);
-
-                    if (docLinkType === 'https' || docLinkType === 'http') {
-                        // For external links (older versions), go directly to the configured URL for that version plus the path
-                        url = data.all[key].doc.replace(/\/$/, "") + pathWithoutVersion;
-                    } else {
-                        // For relative internal branches (like 'latest')
-                        var baseDocUrl = langRoot;
-                        if (baseDocUrl.endsWith('latest/')) {
-                            // Trim trailing 'latest/' so we can properly append relative paths from versions.json
-                            baseDocUrl = baseDocUrl.substring(0, baseDocUrl.length - 7);
-                        }
-                        url = baseDocUrl + data.all[key].doc + pathWithoutVersion;
-                    }
+                  if (docLinkType === 'https' || docLinkType === 'http') {
+                      // For external links (older versions), go directly to the configured URL
+                      url = versionDoc.replace(/\/$/, "") + pathWithoutVersion;
+                  } else {
+                      // Use the version number (key) instead of the 'doc' alias
+                      url = docSetUrl + key + pathWithoutVersion;
+                  }
+                  url = url.replace(/\/$/, "") + searchAndHash;
 
 
-                    liElem.className = 'md-tabs__item mb-tabs__dropdown';
-                    liElem.innerHTML = '<a href="' + url + '">' + key + '</a>';
-
-                    dropdown.insertBefore(liElem, dropdown.firstChild);
-                }
-            });
-
-            document.getElementById('show-all-versions-link')
-                .setAttribute('href', activeRoot + 'versions');
-        }
 
 
-        // Appending versions to the version tables in versions page
+                  liElem.className = 'md-tabs__item mb-tabs__dropdown';
+                  liElem.innerHTML =  '<a href="'+ url+'">' + key + '</a>';
 
-        if (checkVersionsPage) {
-            var previousVersions = [];
+                  dropdown.insertBefore(liElem, dropdown.firstChild);
+              }
+          });
 
-            Object.keys(data.all).forEach(function (key, index) {
-                if ((key !== data.current) && (key !== data['pre-release'])) {
-                    var docLinkType = data.all[key].doc.split(':')[0];
-                    var target = '_self';
+          var showAllLink = document.getElementById('show-all-versions-link');
+          if (showAllLink) {
+              showAllLink.setAttribute('href', docSetUrl + 'versions');
+          }
+      }
 
-                    if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                        target = '_blank'
-                    }
+      /*
+       * Appending versions to the version tables in versions page
+       */
+      if (checkVersionsPage){
+          var previousVersions = [];
 
-                    previousVersions.push('<tr>' +
-                        '<th>' + key + '</th>' +
+          Object.keys(data.all).forEach(function(key, index){
+              if ((key !== data.current) && (key !== data['pre-release'])) {
+                  var doc = data.all[key].doc;
+                  var notes = data.all[key].notes;
+                  var target = '_self';
+
+                  if (doc.startsWith('http')) {
+                      target = '_blank';
+                  } else {
+                      doc = (docSetUrl + key + '/' + doc).replace(/([^:]\/)\/+/g, "$1");
+                  }
+
+                  if (!notes.startsWith('http')) {
+                      notes = (docSetUrl + key + '/' + notes).replace(/([^:]\/)\/+/g, "$1");
+                  }
+
+                  previousVersions.push('<tr>' +
+                    '<th>' + key + '</th>' +
                         '<td>' +
-                        '<a href="' + data.all[key].doc + '" target="' +
-                        target + '">Documentation</a>' +
+                            '<a href="' + doc + '" target="' +
+                                target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                        '<a href="' + data.all[key].notes + '" target="' +
-                        target + '">Release Notes</a>' +
+                            '<a href="' + notes + '" target="' +
+                                target + '">Release Notes</a>' +
                         '</td>' +
-                        '</tr>');
-                }
-            });
+                    '</tr>');
+              }
+          });
 
-            // Past releases update
-            document.getElementById('previous-versions').innerHTML =
-                previousVersions.join(' ');
+          // Past releases update
+          document.getElementById('previous-versions').innerHTML =
+                  previousVersions.join(' ');
 
-            // Current released version update
-            document.getElementById('current-version-number').innerHTML =
-                data.current;
-            document.getElementById('current-version-documentation-link')
-                .setAttribute('href', langRoot + data.all[data.current].doc);
-            document.getElementById('current-version-release-notes-link')
-                .setAttribute('href', langRoot + data.all[data.current].notes);
+          // Current released version update
+          document.getElementById('current-version-number').innerHTML =
+                  data.current;
+          var docDocLink = docSetUrl + data.current;
+          var docNotesLink = docSetUrl + data.current + '/' + data.all[data.current].notes.split('/').slice(1).join('/');
 
-            // Pre-release version update
-            document.getElementById('pre-release-version-documentation-link')
-                .setAttribute('href', langRoot + 'next/');
-        }
+          document.getElementById('current-version-documentation-link')
+                  .setAttribute('href', docDocLink);
+          document.getElementById('current-version-release-notes-link')
+                  .setAttribute('href', docNotesLink);
 
-    } else {
-        console.error("We reached our target server, but it returned an error");
-    }
+          // Pre-release version update
+          document.getElementById('pre-release-version-documentation-link')
+              .setAttribute('href', docSetUrl + 'next/');
+      }
+
+  } else {
+      console.error("We reached our target server, but it returned an error");
+  }
 };
 
-request.onerror = function () {
+
+request.onerror = function() {
     console.error("There was a connection error of some sort");
 };
 

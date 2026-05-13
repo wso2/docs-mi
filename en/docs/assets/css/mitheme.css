@@ -12,7 +12,7 @@
 }
 
 .md-typeset :not(pre)>code {
-    background: var(--md-md-code-bg-color);
+    background: var(--md-code-bg-color);
     padding: 2px 5px;
     border-radius: 5px;
     font-size: 90%;
@@ -365,4 +365,13 @@ header>.md-grid {
 .md-typeset h6 {
     color: var(--md-default-fg-color);
     font-size: 0.80rem;
+}
+
+/* Announcement bar styles */
+.md-banner {
+    text-align: center;
+}
+
+[data-md-color-scheme="default"] .md-banner {
+    color: #000;
 }

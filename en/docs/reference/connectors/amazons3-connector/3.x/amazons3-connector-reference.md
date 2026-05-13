@@ -2320,8 +2320,7 @@ To use the Amazon S3 connector, `amazons3` connection before carrying out any Am
     See the [related API documentation](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/clouddirectory/model/putObjectRequest.html) for more information.
 
     !!! note
-        The `fileContent` parameter is available only with Amazon S3 connector v2.0.2 and above. Either the `filePath` or `fileContent` parameter is mandatory.
-        The `isContentBase64Encoded` parameter is available only with Amazon S3 connector v2.0.7 and above.    
+        The `enableStreaming`, `streamingThreshold`, and `streamingPartSize` parameters are available only with Amazon S3 connector v3.0.4 and above.
 
     <table>
         <tr>
@@ -2485,6 +2484,21 @@ To use the Amazon S3 connector, `amazons3` connection before carrying out any Am
             <td>Optional</td>
         </tr>
         <tr>
+            <td>enableStreaming</td>
+            <td>When set to <code>true</code>, reads upload content directly from the binary payload in the message body as a streaming <code>InputStream</code>, avoiding full in-memory buffering. When enabled, <code>filePath</code> and <code>fileContent</code> must be empty. If the content length is unknown or exceeds <code>streamingThreshold</code>, a multipart upload is used automatically.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>streamingThreshold</td>
+            <td>The threshold in bytes at which the connector switches from a single-part upload to a multipart upload when streaming is enabled. Defaults to <code>104857600</code> (100 MB). Requires <code>enableStreaming</code> to be <code>true</code>.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>streamingPartSize</td>
+            <td>The part size in bytes for each chunk during a multipart upload. Must be between <code>5242880</code> (5 MB) and <code>2147483647</code> (~2 GB). Defaults to <code>104857600</code> (100 MB). Requires <code>enableStreaming</code> to be <code>true</code>.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>responseVariable</td>
             <td>Name of the variable to which the output of the operation should be assigned.</td>
             <td>Yes</td>
@@ -2528,6 +2542,9 @@ To use the Amazon S3 connector, `amazons3` connection before carrying out any Am
         <objectLockMode>{$ctx:objectLockMode}</objectLockMode>
         <objectLockRetainUntilDate>{$ctx:objectLockRetainUntilDate}</objectLockRetainUntilDate>
         <objectLockLegalHoldStatus>{$ctx:objectLockLegalHoldStatus}</objectLockLegalHoldStatus>
+        <enableStreaming>{$ctx:enableStreaming}</enableStreaming>
+        <streamingThreshold>{$ctx:streamingThreshold}</streamingThreshold>
+        <streamingPartSize>{$ctx:streamingPartSize}</streamingPartSize>
         <responseVariable>amazons3_operation_1</responseVariable>
         <overwriteBody>true</overwriteBody>
     </amazons3.putObject>
