@@ -2,7 +2,7 @@
 
 The Management API of WSO2 Integrator: MI is the internal REST API.
 
-The [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli) and the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) communicates with this service to
+The [MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#download-and-initialize-the-mi-cli) and the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) communicate with this service to
 obtain administrative information of the server instance and to perform various administration tasks. If required, you can [directly access the management API]({{base_path}}/observe-and-manage/working-with-management-api) without using the ICP or CLI.
 
 See the topics given below information on securing the management API.
