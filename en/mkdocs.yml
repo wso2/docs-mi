@@ -1264,9 +1264,17 @@ extra:
   generator: false
   expanded_navs:
     - title: Get Started
-      options: [verticle-line]
+      options: [verticle-line, no-collapsible]
     - title: Install and Setup
-      options: [verticle-line]
+      options: [verticle-line, divider]
+    - title: Develop
+      options: [verticle-line-only, divider]
+    - title: Learn
+      options: [verticle-line-only, divider]
+    - title: References
+      options: [verticle-line-only, divider]
+    - title: Observe and Manage
+      options: [verticle-line-only, divider]
   home_page_cards:
     - section:
         - title: Get Started
