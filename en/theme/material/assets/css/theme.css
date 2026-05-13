@@ -114,7 +114,7 @@
 /* Light theme overrides for code blocks */
 [data-md-color-scheme=default] {
     --md-code-fg-color: #1f2024;
-    --md-code-bg-color: #f5f5f5;
+    --md-code-bg-color: #e8e8e8;
     --md-code-hl-color: #e8eaf6;
     --md-code-hl-number-color: #b5290a;
     --md-code-hl-special-color: #b5290a;
