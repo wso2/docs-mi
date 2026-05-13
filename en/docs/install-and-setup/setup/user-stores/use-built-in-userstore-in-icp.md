@@ -99,7 +99,7 @@ credentialsDbPassword = "changeme"
     </tr>
     <tr>
       <td><code>credentialsDbPort</code></td>
-      <td><code>5432</code></td>
+      <td>Varies by database type (see below)</td>
       <td>Database port (not used for H2)</td>
     </tr>
     <tr>
