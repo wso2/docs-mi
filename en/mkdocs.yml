@@ -1223,6 +1223,8 @@ extra_javascript:
   - assets/js/theme.js
   - assets/js/copy-page.js
   - assets/js/mitheme.js
+hooks:
+  - hooks/optimize_glightbox.py
 extra:
   material:
     jinja2content: true
