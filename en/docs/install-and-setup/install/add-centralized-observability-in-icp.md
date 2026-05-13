@@ -4,7 +4,7 @@ ICP provides centralized observability for MI runtimes. Application logs and per
 
 ## Architecture
 
-<a href="{{base_path}}/assets/img/integrate/observability/observability-icp.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/observability/observability-icp.png" width="1000"></a>
+<a href="{{base_path}}/assets/img/integrate/observability/observability-icp.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/observability/observability-icp.png" alt="ICP observability architecture diagram showing log and metrics flow from MI through Fluent Bit to OpenSearch and ICP Console" width="1000"></a>
 
 1. MI writes application logs to `wso2carbon.log` with an `[icp.runtimeId=<uuid>]` suffix on each line.
 2. MI writes per-request analytics to `synapse-analytics.log` as JSON lines prefixed with `SYNAPSE_ANALYTICS_DATA`.
@@ -130,7 +130,7 @@ enabled = true
 
 ### 2. Connect to ICP
 
-See [Connect MI Integration to ICP](connect-runtime-mi.md) for the full procedure. The minimum config:
+See [Connect MI Integration to ICP](connect-an-integration-to-icp.md) for the full procedure. The minimum config:
 
 ```toml
 [icp_config]

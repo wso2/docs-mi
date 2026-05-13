@@ -50,7 +50,7 @@ project     = "my-project"
 integration = "my-integration"
 runtime = "my-runtime"
 secret = "<generated secret>"
-#icp_url = "https://<hostname>:9446"
+#icp_url = "https://<hostname>:9445"
 ```
 
 ### Field Reference
@@ -107,4 +107,4 @@ runtime = "mi-node-2"
 
 ## Next Step
 
--   [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/adding-observability).
+-   [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/add-centralized-observability-in-icp).
