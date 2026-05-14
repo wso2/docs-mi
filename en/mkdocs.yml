@@ -99,11 +99,11 @@ nav:
               - Run the MI in Automation Mode: install-and-setup/install/running-the-mi-in-automation-mode.md
               - "Install WSO2 Integrator: MI for VSCode": develop/mi-for-vscode/install-wso2-mi-for-vscode.md
           - Install the Integration Control Plane:
-              - Install the Integration Control Plane: install-and-setup/install/install-integration-control-plane.md
-              - Run the Integration Control Plane: install-and-setup/install/run-the-integration-control-plane.md
+              - Install the Integration Control Plane: install-and-setup/install/installing-integration-control-plane.md
+              - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
               - Run the Integration Control Plane as a Windows Service: install-and-setup/install/run-the-integration-control-plane-as-windows-service.md
-              - Connect an Integration Runtime to ICP: install-and-setup/install/connect-an-integration-to-icp.md
-              - Add Centralized Observability in the ICP: install-and-setup/install/add-centralized-observability-in-icp.md
+              - Connect an Integration Runtime to ICP: install-and-setup/install/connecting-an-integration-to-icp.md
+              - Add Centralized Observability in the ICP: install-and-setup/install/adding-observability-for-icp.md
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
@@ -1122,7 +1122,7 @@ nav:
           - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
           - "Manage WSO2 Integrator: MI":
               - Runtime:
-                  - Integration Control Plane: observe-and-manage/work-with-integration-control-plane.md
+                  - Integration Control Plane: observe-and-manage/working-with-integration-control-plane.md
                   - Managing Integrations with MI CLI: observe-and-manage/managing-integrations-with-micli.md
                   - Management API: observe-and-manage/working-with-management-api.md
               - Logs:

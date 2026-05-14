@@ -166,4 +166,4 @@ When a project is created, ICP also auto-creates a
 
 ## What's next?
 
--   [Connect an MI-based Integration to ICP]({{base_path}}/install-and-setup/install/connect-an-integration-to-icp).
+-   [Connect an MI-based Integration to ICP]({{base_path}}/install-and-setup/install/connecting-an-integration-to-icp).

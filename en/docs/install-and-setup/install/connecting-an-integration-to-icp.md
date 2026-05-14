@@ -107,4 +107,4 @@ runtime = "mi-node-2"
 
 ## Next Step
 
--   [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/add-centralized-observability-in-icp).
+-   [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/adding-observability-for-icp).
