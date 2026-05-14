@@ -972,11 +972,11 @@
 .icon-color-4 svg path { fill: var(--icon-color-4-fg) !important; }
 
 [data-md-color-scheme=default] .md-typeset pre > .md-clipboard {
-    color: var(--md-default-bg-color--lightest);
+    color: rgba(0, 0, 0, 0.15);
 }
 
 [data-md-color-scheme=default] .md-typeset pre:hover > .md-clipboard {
-    color: var(--md-default-bg-color--light);
+    color: rgba(0, 0, 0, 0.4);
 }
 
 [data-md-color-scheme=default] .md-typeset pre > .md-clipboard:focus,
