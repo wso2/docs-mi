@@ -147,5 +147,5 @@ If you need to set additional system properties when the server starts, you can 
 
 ## What's next?
 
--   [Run the Integration Control Plane]({{base_path}}/install-and-setup/install/run-the-integration-control-plane).
+-   [Run the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane).
 

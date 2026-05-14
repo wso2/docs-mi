@@ -130,7 +130,7 @@ enabled = true
 
 ### 2. Connect to ICP
 
-See [Connect MI Integration to ICP](connect-an-integration-to-icp.md) for the full procedure. The minimum config:
+See [Connect MI Integration to ICP](connecting-an-integration-to-icp.md) for the full procedure. The minimum config:
 
 ```toml
 [icp_config]
