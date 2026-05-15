@@ -25,7 +25,7 @@ Java Development Kit (JDK) is essential to run the product.
 
 -   The extracted directory has the following layout.
 
-```
+```text
     wso2-integration-control-plane-2.0.0/
      bin/
        icp.sh              # startup script (Linux / macOS)
