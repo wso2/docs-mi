@@ -14,7 +14,7 @@ After signing in, you land on the **All Projects** page under the Default Organi
     - **Entry Points** — APIs, proxies, inbound endpoints, and tasks.
     - **Supporting Artifacts** — Endpoints, sequences, templates, and other backing artifacts.
 
-## Artifact Categories
+## Artifact categories
 
 ICP organizes MI artifacts into two categories: **Entry Points** and **Supporting Artifacts**.
 

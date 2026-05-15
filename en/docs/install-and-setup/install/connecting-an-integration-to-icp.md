@@ -13,7 +13,7 @@ configured, the ICP heartbeat component gets activated in MI and sends periodic 
 Sign in to the ICP console and generate a secret. There are two places to do this;
 choose whichever matches your workflow.
 
-### Option A — Organization Level
+### Option A — Organization level
 
 Best when you want to register a runtime before assigning it to a specific component,
 or when the component does not exist in ICP yet.
@@ -25,7 +25,7 @@ or when the component does not exist in ICP yet.
 
 > The secret is displayed only once. Copy it before closing the dialog.
 
-### Option B — Project / Component Level
+### Option B — Project / Component level
 
 Best when the component already exists in ICP. The generated snippet has `project`
 and `integration` pre-filled and the secret is scoped to that component.
@@ -53,7 +53,7 @@ secret = "<generated secret>"
 #icp_url = "https://<hostname>:9445"
 ```
 
-### Field Reference
+### Field reference
 
 | Field | Required | Default | Description |
 |-------|----------|---------|-------------|
@@ -105,6 +105,6 @@ runtime = "mi-node-2"
 | `Runtime shows but status is not RUNNING` | Heartbeats stopped | Check the MI process is alive and network is reachable |
 | `PKIX path building failed` | Self-signed ICP certificate | Set `ssl_verify = false` (non-production) or provide the CA via `cert` |
 
-## Next Step
+## Next step
 
 -   [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/adding-observability-for-icp).

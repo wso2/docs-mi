@@ -8,7 +8,7 @@ All configuration lives in `conf/deployment.toml`. The defaults work
 out of the box for local evaluation. ICP will start with the embedded H2
 database, listen on `https://localhost:9446`, and create an `admin` user.
 
-### Essential Settings
+### Essential settings
 
 | Setting                  | Default                  | Description                              |
 | ------------------------ | ------------------------ | ---------------------------------------- |
@@ -18,7 +18,7 @@ database, listen on `https://localhost:9446`, and create an `admin` user.
 | `logLevel`               | `INFO`                   | `DEBUG`, `INFO`, `WARN`, or `ERROR`      |
 | `frontendJwtHMACSecret`  | (default key)            | JWT signing secret — change in production |
 
-### Database Settings
+### Database settings
 
 By default ICP uses an embedded H2 database stored in `bin/database/`. For
 production, switch to PostgreSQL, MySQL, or MSSQL by uncommenting and editing
@@ -63,7 +63,7 @@ opensearchPassword = "<your-opensearch-password>"
 If OpenSearch runs without TLS, use `http://`. Skip this section if you don't
 need observability yet.
 
-### Reverse Proxy Settings
+### Reverse proxy settings
 
 ICP serves the console and API on port `9446` by default. To expose ICP through a reverse proxy:
 
