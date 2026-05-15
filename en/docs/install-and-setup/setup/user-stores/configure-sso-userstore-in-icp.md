@@ -231,7 +231,7 @@ When a user authenticates via SSO for the first time, ICP automatically creates 
 2. Local part of the `email` claim (before `@`)
 3. `preferred_username` claim
 
-After the account is created, an administrator must assign the appropriate roles and permissions before the user can access ICP resources. See [Access Control](../access-control.md).
+After the account is created, an administrator must assign the appropriate roles and permissions before the user can access ICP resources. See [Access Control](../access-control-for-icp.md).
 
 ## Security notes
 
@@ -273,7 +273,7 @@ After the account is created, an administrator must assign the appropriate roles
     <tr>
       <td>User authenticated successfully but has no access</td>
       <td>User account was created but has no assigned roles</td>
-      <td>An administrator must grant roles to the account in ICP. See <a href="../access-control.md">Access Control</a>.</td>
+      <td>An administrator must grant roles to the account in ICP. See <a href="../access-control-for-icp.md">Access Control</a>.</td>
     </tr>
   </tbody>
 </table>
