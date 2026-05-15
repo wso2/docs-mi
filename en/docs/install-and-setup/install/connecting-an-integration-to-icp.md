@@ -74,7 +74,7 @@ Start the MI instance using `micro-integrator.sh` or `micro-integrator.bat`.
 
 On startup the MI server logs:
 
-```
+```text
 INFO {ICPHeartBeatComponent} - Starting ICP heartbeat service. Interval: 10s
 INFO {ICPHeartBeatComponent} - Full heartbeat acknowledged by ICP.
 ```

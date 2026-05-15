@@ -1,6 +1,6 @@
 # Monitor MI Artifacts and Logs
 
-The WSO2 Integration Control Plane (ICP) monitors the MI runtimes in a deployment. This can be a single MI runtime or multiple MI runtimes of an integration. ICP follows a three-level hierarchy i.e. organizations contain projects, and projects contain integrations. Each integration is deployed to an environment, which in turn maps to one or more runtimes. It provides a graphical view of the integration artifacts that are deployed in the MI runtimes. You can also perform various management and administration tasks using the ICP server. 
+The WSO2 Integration Control Plane (ICP) monitors the MI runtimes in a deployment. This can be a single MI runtime or multiple MI runtimes of an integration. ICP follows a three-level hierarchy: organizations contain projects, and projects contain integrations. Each integration is deployed to an environment, which in turn maps to one or more runtimes. It provides a graphical view of the integration artifacts that are deployed in the MI runtimes. You can also perform various management and administration tasks using the ICP server. 
 
 The ICP server communicates with the management APIs of each WSO2 Integrator: MI runtimes of an integration to get and manipulate data.
 
@@ -36,7 +36,7 @@ You can use the ICP server to perform the following administration tasks related
 
 -   <b>Browse integration artifacts</b>
 
-    View details of the artifacts of an integration. Within each integration, artifacts are grouped by environment and split into two tabs i.e. Entry Points (REST APIs, proxy services, inbound endpoints, tasks) and Supporting Artifacts (endpoints, sequences, templates, message stores, connectors, data services, and more).
+    View details of the artifacts of an integration. Within each integration, artifacts are grouped by environment and split into two tabs: Entry Points (REST APIs, proxy services, inbound endpoints, tasks) and Supporting Artifacts (endpoints, sequences, templates, message stores, connectors, data services, and more).
 
 -   <b>View runtime status</b>
 

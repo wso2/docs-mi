@@ -107,7 +107,7 @@ opensearchUrl = "http://localhost:9200"
 
 Restart ICP Server after saving. Look for this log line to confirm:
 
-```
+```text
 level=INFO module=wso2/icp_server message="OpenSearch client initialized successfully"
 ```
 
@@ -389,7 +389,7 @@ curl <opensearch-host>:9200/_cat/indices/mi-*?v
 
 Expected:
 
-```
+```text
 mi-application-logs-2026.04.29
 mi-metrics-logs-2026.04.29
 ```
@@ -484,7 +484,7 @@ curl http://localhost:8290/<your-api-context>
 
 Each analytics line in `synapse-analytics.log` looks like:
 
-```
+```text
 [2026-04-29 14:59:49,781]  INFO {o.w.m.i.a.m.d.p.p.e.ElasticStatisticsPublisher} - SYNAPSE_ANALYTICS_DATA {"serverInfo":{...},"timestamp":"...","schemaVersion":1,"payload":{"entityType":"API","latency":31,"apiDetails":{...},...}} [icp.runtimeId=470d78e8-...]
 ```
 
