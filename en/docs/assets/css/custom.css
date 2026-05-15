@@ -34,37 +34,52 @@
     border: 1px solid gray;
 }
 
+/* Simple table styling */
 .md-typeset th,
 .md-typeset td {
-    border: 1px solid var(--md-typeset-table-color);
-    border-spacing: 0;
-    border-bottom: none;
-    border-left: none;
-    border-top: none;
+    border: none;
+    border-bottom: 1px solid var(--md-typeset-table-color);
 }
 
 .md-typeset__table {
-    line-height: 1;
+    line-height: 1.5;
 }
 
-.md-typeset__table table:not([class]) {
+.md-typeset table:not([class]) {
     font-size: .74rem;
-    border-right: none;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.md-typeset__table table:not([class]) td,
-.md-typeset__table table:not([class]) th {
-    padding: 9px;
+.md-typeset table:not([class]) th {
+    padding: 0.6rem 0.8rem;
+    vertical-align: top;
+    background-color: var(--md-code-bg-color);
+    font-weight: 600;
 }
 
-/* light mode alternating table bg colors */
-.md-typeset__table tr:nth-child(2n) {
+.md-typeset table:not([class]) td {
+    padding: 0.6rem 0.8rem;
+    vertical-align: top;
+}
+
+/* light mode alternating table row colors */
+.md-typeset table:not([class]) tbody tr:nth-child(2n) {
     background-color: #f8f8f8;
 }
 
-/* dark mode alternating table bg colors */
-[data-md-color-scheme="slate"] .md-typeset__table tr:nth-child(2n) {
-    background-color: hsla(var(--md-hue), 25%, 25%, 1)
+/* dark mode: no alternating rows — contrast is too harsh */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:nth-child(2n) {
+    background-color: unset;
+}
+
+/* row hover — must come after alternating rule to override it */
+.md-typeset table:not([class]) tbody tr:hover {
+    background-color: #ebebeb;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.07);
 }
 
 
@@ -85,9 +100,19 @@ hr.rounded {
     font-weight: bold;
 }
 
+/* Inline icons used within sentence text */
+.md-typeset .inline-icon {
+    height: 1.5em;
+    width: auto;
+    vertical-align: middle;
+    display: inline-block;
+    border: none;
+    margin: 0 0.2em;
+}
+
 /* Apply white background to images in dark mode ONLY in content area for better visibility of transparent diagrams */
 /* Refined to avoid affecting logos or icons (e.g., enterprise support) that might be in the content */
-[data-md-color-scheme="slate"] .md-content img:not([alt*="Logo" i]):not([alt*="icon" i]):not([alt*="Support" i]) {
+[data-md-color-scheme="slate"] .md-content img:not([alt*="Logo" i]):not([alt*="icon" i]):not([alt*="Support" i]):not(.inline-icon) {
     background-color: #ffffff !important;
     padding: 10px;
     box-sizing: border-box;
