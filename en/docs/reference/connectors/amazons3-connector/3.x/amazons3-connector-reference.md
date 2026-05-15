@@ -41,6 +41,18 @@ To use the Amazon S3 connector, `amazons3` connection before carrying out any Am
             <td>The AWS API endpoint hostname to which you need to connect.</td>
             <td>Optional</td>
         </tr>
+        <tr>
+            <td>forcePathStyle</td>
+            <td>
+                Whether to force path-style addressing for S3 objects when using a custom host. This parameter is applicable only when the <code>host</code> parameter is configured.
+                For more information about path-style and virtual-hosted–style access, see
+                <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#path-style-access" target="_blank">
+                    AWS S3 Path-Style Access Documentation
+                </a>.
+                <br><b>Note:</b> This option is available only with Amazon S3 Connector v3.0.5 and above.
+            </td>
+            <td>Optional</td>
+        </tr>
     </table>
 
     > **Note**: You can either pass credentials within init configuration or set the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables. The AWS SDK uses provider chains to look for AWS credentials in system/user environment variables.
