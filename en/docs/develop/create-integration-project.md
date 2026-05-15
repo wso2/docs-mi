@@ -81,4 +81,4 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
 Now you can start creating your integration by developing artifacts. See the [Integration Artifacts Overview]({{base_path}}/develop/creating-artifacts/creating-artifacts-overview) documentation to learn about the integration artifacts.
 
-Additionally, you can enhance your experience by incorporating AI-powered assistance with [WSO2 Integrator: MI Copilot]({{base_path}}/develop/mi-for-vscode/mi-copilot).
+Additionally, you can enhance your experience by incorporating AI-powered assistance with [WSO2 Integrator Copilot]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview).

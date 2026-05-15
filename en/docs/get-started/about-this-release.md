@@ -38,7 +38,7 @@ The following features and improvements were introduced with **WSO2 Integrator: 
 ??? note "AI Features"
     - MCP tool support for agents in the AI connector
     - Agent memory trim and summarization support
-    - Agent mode in MI Copilot
+    - Conversational WSO2 Integrator Copilot — Ask, Edit, and Plan modes with in-workspace file edits, checkpoints, plan approval, attachments, and more. See [WSO2 Integrator Copilot]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview).
 
 ??? note "Connector Enhancements"
     - AMQP 1.0 protocol support
