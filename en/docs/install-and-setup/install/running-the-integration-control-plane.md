@@ -1,193 +1,169 @@
-# Running the Integration Control Plane
+# Run the Integration Control Plane
 
-Follow the steps given below to run the WSO2 Integrator: MI runtime and the Integration Control Plane.
+Follow the steps given below to run the Integration Control Plane.
 
-## Before you begin
+## Configure the Integration Control Plane
 
-Follow the steps given below before you start.
+All configuration lives in `conf/deployment.toml`. The defaults work
+out of the box for local evaluation. ICP will start with the embedded H2
+database, listen on `https://localhost:9446`, and create an `admin` user.
 
-1.  Download and install the servers:
+### Essential settings
 
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-integration-control-plane) the Integration Control Plane.
-    -     [Download and install]({{base_path}}/install-and-setup/install/installing-mi) the WSO2 Integrator: MI.
+| Setting                  | Default                  | Description                              |
+| ------------------------ | ------------------------ | ---------------------------------------- |
+| `serverPort`             | `9446`                   | HTTPS port for the console and API       |
+| `runtimeListenerPort`    | `9445`                   | HTTPS port for runtime heartbeat connections |
+| `serverHost`             | `0.0.0.0`                | Bind address                             |
+| `logLevel`               | `INFO`                   | `DEBUG`, `INFO`, `WARN`, or `ERROR`      |
+| `frontendJwtHMACSecret`  | (default key)            | JWT signing secret — change in production |
 
-2.  Set up the WSO2 Integrator: MI:
+### Database settings
 
-    1.  Open the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of the WSO2 Integrator: MI, and add the following configuration.
+By default ICP uses an embedded H2 database stored in `bin/database/`. For
+production, switch to PostgreSQL, MySQL, or MSSQL by uncommenting and editing
+the `[icp_server.storage]` section in `deployment.toml`:
 
-           ```toml
-           [dashboard_config]
-           dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-           heartbeat_interval = "<HEARTBEAT_INTERVAL>"
-           group_id = "<GROUP_ID>"
-           node_id = "<NODE_ID>"
-           ```
-           For example: 
-           ```toml
-           [dashboard_config]
-            dashboard_url = "https://localhost:9743/dashboard/api/"
-            heartbeat_interval = 5
-            group_id = "mi_dev"
-            node_id = "dev_node_2"
-           ```
+```toml
+[icp_server.storage]
+dbType   = "postgresql"
+dbHost   = "db.example.com"
+dbPort   = 5432
+dbName   = "icp_database"
+dbUser   = "icp_user"
+dbPassword = "changeme"
+```
 
-    2.  Be sure to change the host and port number of the `dashboard_url` in the above configuration if you have changed the default host and port for the ICP server.
+A separate credentials database stores user passwords. Configure it with the
+`credentialsDb*` settings if you want credential storage on the same external
+database:
 
-    !!! Info
-        See the section on [configuring the MI servers for the dashboard]({{base_path}}/observe-and-manage/working-with-integration-control-plane/#step-2-configure-the-mi-servers) for more information.
+```toml
+credentialsDbType     = "postgresql"
+credentialsDbHost     = "db.example.com"
+credentialsDbPort     = 5432
+credentialsDbName     = "credentialsdb"
+credentialsDbUser     = "icp_user"
+credentialsDbPassword = "changeme"
+```
 
-3.  [Start the WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/running-the-mi).
+When using H2 (the default), no database configuration is needed.
 
-## Configuring Single Sign-on with OpenID Connect
+### Observability Settings (OpenSearch)
 
-!!! note "Before you begin"
-	- 	This is an **optional** configuration that you can do to enable Single Sign-On for the Integration Control Plane. By default, the Integration Control Plane uses its own user store for authentication.
-	-	See the documentation of your preferred Identity provider for instructions on setting up OpenID Connect.
-	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
+To enable centralized logs and metrics, point ICP at an OpenSearch instance.
+Add these keys **before the first `[section]` header** in `deployment.toml`:
 
-Follow the steps given below to connect the Integration Control Plane to your Identity provider.
+```toml
+opensearchUrl = "https://localhost:9200"
+opensearchUsername = "admin"
+opensearchPassword = "<your-opensearch-password>"
+```
 
-1.	Open the `deployment.toml` file stored in the `<ICP_HOME>/conf/` directory.
-2.	Add the following configurations and update the required values.
+If OpenSearch runs without TLS, use `http://`. Skip this section if you don't
+need observability yet.
 
-	```toml
-	[sso]
-	enable = true
-	client_id = "8e4uDF4ewc2aEa"
-	base_url = "https://localhost:9443"
-	jwt_issuer = "https://localhost:9443/oauth2/token"
-	resource_server_URLs = ["https://localhost:9743"]
-	sign_in_redirect_URL = "https://localhost:9743/sso"
-	```
+### Reverse proxy settings
 
-	Parameters used above are explained below.
+ICP serves the console and API on port `9446` by default. To expose ICP through a reverse proxy:
 
-	<table>
-		<tr>
-			<th>Parameter</th>
-			<th>Desciption</th>
-		</tr>
-		<tr>
-			<td>
-				<code>enable</code>
-			</td>
-			<td>
-				Use this paramater to enable Single Sign-On.
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<code>client_id</code>
-			</td>
-			<td>
-				The client ID generated from the Identity Provider.
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<code>base_url</code>
-			</td>
-			<td>
-				The URL of the Identity Provider.
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<code>jwt_issuer</code>
-			</td>
-			<td>
-				The Identity Provider's issuer identifier.
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<code>resource_server_URLs</code>
-			</td>
-			<td>
-				The URL of the Integration Control Plane.
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<code>sign_in_redirect_URL</code>
-			</td>
-			<td>
-				The Sign In redirect URL of the Integration Control Plane.
-			</td>
-		</tr>
+1. Point the proxy at `https://<icp-host>:9446` (the backend is HTTPS with a
+   self-signed certificate, so configure the proxy to trust it or skip
+   verification for the upstream).
 
-	</table>
+2. Tell ICP the external URL so the console can reach the API. Add these to
+   `deployment.toml`:
 
-See the [complete list of parameters]({{base_path}}/reference/config-catalog-integration-control-plane/#single-sign-on) you can configure for the single sign-on.
+   ```toml
+   backendGraphqlEndpoint      = "https://icp.example.com/graphql"
+   backendAuthBaseUrl           = "https://icp.example.com/auth"
+   backendObservabilityEndpoint = "https://icp.example.com/icp/observability"
+   ```
 
-## Starting the Integration Control Plane
+3. MI runtimes connect to ICP for heartbeats. If they also go through the
+   proxy, set `icp_url` in the runtime's `deployment.toml` to the proxy URL:
 
-Follow the steps given below.
+   ```toml
+   [icp_config]
+   icp_url = "https://icp.example.com"
+   ```
 
-1. Open a command prompt as explained below.
+   If runtimes connect directly (bypassing the proxy), leave `icp_url`
+   pointing at the ICP host.
 
-      <table>
-            <tr>
-                  <th>On <b>Linux/macOS</b></td>
-                  <td>Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window.</td>
-            </tr>
-            <tr>
-                  <th>On <b>Windows</b></td>
-                  <td>Click <b>Start &gt;Run</b>, type <b>cmd</b> at the prompt, and then press <b>Enter</b>.</td>
-            </tr>
-      </table>     
+## Start the Integration Control Plane
 
-2. Navigate to the `<ICP_HOME>/bin` folder from your command line.
-3. Execute one of the commands given below.
+Linux / macOS:
 
-    === "On macOS/Linux"
-        ```bash 
-        sh dashboard.sh
-        ```
-    === "On Windows"
-        ```bash 
-        dashboard.bat
-        ```
+```bash
+./bin/icp.sh
+```
 
-## Accessing the Integration Control Plane
+Windows:
 
-Once you have [started the ICP server](#starting-the-dashboard-server):
+```bat
+bin\icp.bat
+```
 
-1.  Access the ICP server using the following URL:
+The server logs its startup to the console. Once you see the listener ready
+message, ICP is available at `https://localhost:9446`.
 
-    ```bash
-    https://localhost:9743/dashboard
-    ```
+**Note:** ICP ships with a self-signed certificate. Your browser will show a
+security warning on first visit — accept it to proceed.
 
-    ![login form for Integration Control Plane]({{base_path}}/assets/img/integrate/monitoring-dashboard/login.png)
+## Sign In to the Integration Control Plane
 
-2.  Enter the following details to sign in:
+Navigate to `https://<host>:9446/login`. Enter username `admin` and password
+`admin`, then click **Sign In**.
 
-    <table>
-        <tr>
-            <th>
-                Username
-            </th>
-            <td>
-                The user name to sign in.</br></br>
-                <b>Note</b>: This should be a valid username that is saved in the WSO2 Integrator: MI server's user store. By default, the 'admin' user name is configured in the default user store.</br></br> 
-                See <a href="{{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore">configuring user stores</a> for information.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Password
-            </th>
-            <td>
-                The password of the user name. By default, 'admin' is the user name and password. 
-            </td>
-        </tr>
-    </table>
+After login the browser redirects to the organization home at
+`https://<host>:9446/organizations/default`.
 
-2.  Be sure that the WSO2 Integrator: MI servers are [already configured and started](#before-you-begin) before you sign in.
+**Warning:** Change the default admin password immediately via **Access-control**
+> **Users** > **Reset Password**.
 
-See the [Integration Control Plane]({{base_path}}/observe-and-manage/working-with-integration-control-plane) documentation for information on the control plane's capabilities and how to use them.
-
-## Stopping the Integration Control Plane
+## Stop the Integration Control Plane
 
 To <b>stop</b> the ICP standalone application, go to the terminal and press <i>Ctrl+C</i>.
+
+## Default Setting of the Integration Control Plane
+
+ICP ships with these resources out of the box:
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Defaults</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Organization</td>
+      <td><strong>Default Organization</strong> (<code>default</code>)</td>
+    </tr>
+    <tr>
+      <td>Environments</td>
+      <td><strong>dev</strong> (Non-Critical), <strong>prod</strong> (Critical)</td>
+    </tr>
+    <tr>
+      <td>Roles</td>
+      <td>Admin, Developer, Project Admin, Super Admin, Viewer</td>
+    </tr>
+    <tr>
+      <td>Groups</td>
+      <td>Super Admins, Administrators, Developers</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td><code>admin</code> / <code>admin</code> (member of Super Admins)</td>
+    </tr>
+  </tbody>
+</table>
+
+When a project is created, ICP also auto-creates a
+`<Project Name> Admins` group with the *Project Admin* role.
+
+## What's next?
+
+-   [Connect an MI-based Integration to ICP]({{base_path}}/install-and-setup/install/connecting-an-integration-to-icp).
