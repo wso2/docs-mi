@@ -101,7 +101,7 @@ nav:
           - Install the Integration Control Plane:
               - Install the Integration Control Plane: install-and-setup/install/installing-integration-control-plane.md
               - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
-              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/run-the-integration-control-plane-as-windows-service.md
+              - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-integration-control-plane-as-windows-service.md
               - Connect an Integration Runtime to ICP: install-and-setup/install/connecting-an-integration-to-icp.md
               - Add Centralized Observability in the ICP: install-and-setup/install/adding-observability-for-icp.md
           - Installation Options: install-and-setup/install/installation-options.md
@@ -1202,6 +1202,8 @@ plugins:
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.6.0/develop/using-remote-micro-integrator'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.6.0/mi-analytics/mi-elk-installation-guide/'
               'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.6.0/mi-analytics/mi-elk-installation-guide/'
+              'install-and-setup/setup/user-stores/managing-users.md': 'install-and-setup/setup/access-control-for-icp.md'
+              'install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md': 'install-and-setup/setup/user-stores/use-built-in-userstore-in-icp.md'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
