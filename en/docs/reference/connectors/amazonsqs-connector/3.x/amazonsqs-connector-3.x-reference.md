@@ -37,6 +37,11 @@ To use the Amazon SQS connector, first create the connection with your configura
             <td>No</td>
         </tr>
         <tr>
+            <td>endpoint</td>
+            <td>An optional custom endpoint URL. Use this for VPC interface endpoints or private/custom SQS-compatible hosts (for example: <code>https://vpce-xxxx.sqs.us-east-1.vpce.amazonaws.com</code>). Leave this blank to use the default AWS endpoint for the selected region. <b>Note:</b> This option is available only with Amazon SQS Connector v3.0.2 and above.</td>
+            <td>No</td>
+        </tr>
+        <tr>
             <td>connectionMaxIdleTime</td>
             <td>The maximum amount of time(in seconds) that a connection should be allowed to remain open while idle.</td>
             <td>No</td>
