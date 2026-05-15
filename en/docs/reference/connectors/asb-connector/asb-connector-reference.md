@@ -2775,14 +2775,7 @@ The following operations require a **MessageReceiver** connection.
         <td>Server Wait Time</td>
         <td>The maximum time (in seconds) the server waits for a message to arrive before returning.</td>
         <td>No</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>T</td>
-        <td>Type</td>
-        <td>The expected type of the message payload.</td>
-        <td>No</td>
-        <td>Message</td>
+        <td>60</td>
     </tr>
     <tr>
         <td>deadLettered</td>
@@ -2795,8 +2788,15 @@ The following operations require a **MessageReceiver** connection.
         <th colspan="5">Output</th>
     </tr>
     <tr>
+        <td>returnType</td>
+        <td>Message Body Type</td>
+        <td>Expected type of the message body. Determines how the body is bound when receiving the message. <b>Possible values</b>: <code>json</code>, <code>xml</code>, <code>text</code>.</td>
+        <td>No</td>
+        <td>json</td>
+    </tr>
+    <tr>
         <td>responseVariable</td>
-        <td>Response Variable</td>
+        <td>Output Variable Name</td>
         <td>The name of the variable to store the received message.</td>
         <td>No</td>
         <td>-</td>
@@ -2815,6 +2815,7 @@ The following operations require a **MessageReceiver** connection.
     ```xml
     <asb.receive configKey="asbReceiverConnection">
         <serverWaitTime>60</serverWaitTime>
+        <returnType>json</returnType>
         <responseVariable>asb_receive_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </asb.receive>
@@ -2883,7 +2884,7 @@ The following operations require a **MessageReceiver** connection.
     ```
 
 ??? note "receivePayload"
-    Receives only the payload of a message from the configured queue or subscription.
+    Receives the message from the configured queue or subscription directly bound to the configured output type. This operation can only be used in **Receive and Delete** mode and is not compatible with **Peek Lock** mode.
 
     <table>
     <tr>
@@ -2898,14 +2899,7 @@ The following operations require a **MessageReceiver** connection.
         <td>Server Wait Time</td>
         <td>The maximum time (in seconds) the server waits for a message to arrive.</td>
         <td>No</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>T</td>
-        <td>Type</td>
-        <td>The expected type of the message payload.</td>
-        <td>No</td>
-        <td>-</td>
+        <td>60</td>
     </tr>
     <tr>
         <td>deadLettered</td>
@@ -2918,8 +2912,15 @@ The following operations require a **MessageReceiver** connection.
         <th colspan="5">Output</th>
     </tr>
     <tr>
+        <td>T</td>
+        <td>Output Type</td>
+        <td>Type to bind the received message body to. <b>Possible values</b>: <code>json</code> (for JSON payloads), <code>xml</code> (for XML), <code>string</code> (for plain-text/binary content). <b>Important</b>: This must match the format in which the message was originally sent. For example, if the message was sent as JSON, you must select <code>json</code> - selecting a different type will result in a binding error.</td>
+        <td>No</td>
+        <td>json</td>
+    </tr>
+    <tr>
         <td>responseVariable</td>
-        <td>Response Variable</td>
+        <td>Output Variable Name</td>
         <td>The name of the variable to store the received payload.</td>
         <td>No</td>
         <td>-</td>
@@ -2937,6 +2938,7 @@ The following operations require a **MessageReceiver** connection.
 
     ```xml
     <asb.receivePayload configKey="asbReceiverConnection">
+        <T>json</T>
         <serverWaitTime>60</serverWaitTime>
         <responseVariable>asb_receivePayload_1</responseVariable>
         <overwriteBody>false</overwriteBody>

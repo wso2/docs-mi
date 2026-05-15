@@ -68,7 +68,7 @@ You can find the official WSO2 Integrator: MI Helm charts repository at: <a targ
     ```
 
     !!! note
-        The `4.6.x` branch (also tagged as `460-release`) includes Helm resources that are compatible with WSO2 Integrator: MI version 4.6.0.
+        The `4.6.x` branch includes Helm resources that are compatible with WSO2 Integrator: MI version 4.6.0.
 
     !!! note
         WSO2 subscription holders can use the enterprise repository (`https://github.com/wso2-enterprise/helm-mi.git`) for access to updated Docker images and additional enterprise features.
@@ -168,6 +168,7 @@ You may expand each file section below to review the configuration content and u
             # -- Hostname of the WSO2 Integrator: MI deployment
             hostname: "mi.wso2.com"
             # -- Build version of the WSO2 Integrator: MI
+            BuildVersion: "4.6.0"
             BuildVersion: "4.6.0"
             image:
                 # -- Container image repository name

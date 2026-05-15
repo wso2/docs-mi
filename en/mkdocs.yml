@@ -174,7 +174,7 @@ nav:
               - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
               - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
           - Deploy on OpenShift: install-and-setup/setup/deployment/openshift-deployment.md
-          - Deploy on Devant: install-and-setup/setup/deployment/devant-deployment.md
+          - Deploy on WSO2 Cloud: install-and-setup/setup/deployment/devant-deployment.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -290,6 +290,7 @@ nav:
             - How to Transform Message Content: learn/integration-tutorials/transforming-message-content.md
             - How to Transform a JSON Message to SOAP: learn/examples/message-transformation-examples/json-to-soap-conversion.md
             - How to Transform a POX Message to JSON: learn/examples/message-transformation-examples/pox-to-json-conversion.md
+            - How to Transform EDI data: learn/integration-tutorials/transforming-edi-data.md
       - Service Orchestration:
             - What is Service Orchestration: learn/integration-use-case/service-orchestration-overview.md
             - How to Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
@@ -1254,6 +1255,7 @@ extra_javascript:
   - assets/js/copy-page.js
   - assets/js/mitheme.js
 hooks:
+  - hooks/optimize_glightbox.py
   - hooks/copy_md.py
   - hooks/copy_markdown.py
 extra:
@@ -1262,9 +1264,17 @@ extra:
   generator: false
   expanded_navs:
     - title: Get Started
-      options: [verticle-line]
+      options: [verticle-line, no-collapsible]
     - title: Install and Setup
-      options: [verticle-line]
+      options: [verticle-line, divider]
+    - title: Develop
+      options: [verticle-line-only, divider]
+    - title: Learn
+      options: [verticle-line-only, divider]
+    - title: References
+      options: [verticle-line-only, divider]
+    - title: Observe and Manage
+      options: [verticle-line-only, divider]
   home_page_cards:
     - section:
         - title: Get Started
