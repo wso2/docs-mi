@@ -59,7 +59,7 @@ role's permissions. A mapping has two extra dimensions:
 Mappings created at a higher level are visible at lower levels but can only be
 removed at the level where they were created.
 
-### Where Things Live
+### Where things live
 
 Users, roles, groups, and their permissions are all managed at the organization
 level. Project and integration levels exist solely to create and remove
@@ -244,7 +244,7 @@ action icons:
 
 ## Reference
 
-### Default Roles
+### Default roles
 
 <table>
   <thead>
@@ -277,7 +277,7 @@ action icons:
   </tbody>
 </table>
 
-### Default Groups
+### Default groups
 
 <table>
   <thead>

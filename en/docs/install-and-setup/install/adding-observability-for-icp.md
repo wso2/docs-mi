@@ -525,11 +525,11 @@ Key payload fields used by the ICP Metrics page:
   </tbody>
 </table>
 
-## Index Lifecycle
+## Index lifecycle
 
 Indices are created daily with a date suffix. Use [OpenSearch ISM policies](https://opensearch.org/docs/latest/im-plugin/ism/index/) to manage retention. A typical policy keeps 30 days of logs and 90 days of metrics.
 
-## Security Notes
+## Security notes
 
 - In production, enable TLS on OpenSearch and set `tls On` and `tls.verify On` in Fluent Bit.
 - Use dedicated OpenSearch credentials for Fluent Bit (write-only) and ICP Server (read-only).

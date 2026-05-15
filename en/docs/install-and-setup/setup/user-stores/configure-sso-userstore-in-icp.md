@@ -93,7 +93,7 @@ For production deployments, replace the redirect URI with your public domain (e.
 
 Restart the ICP server after saving changes.
 
-### Configuration Parameters
+### Configuration parameters
 
 <table>
   <thead>
@@ -233,7 +233,7 @@ When a user authenticates via SSO for the first time, ICP automatically creates 
 
 After the account is created, an administrator must assign the appropriate roles and permissions before the user can access ICP resources. See [Access Control](../access-control.md).
 
-## Security Notes
+## Security notes
 
 - **Protect the client secret** — do not commit it to version control. Use environment variables or a secrets manager and inject the value at deployment time.
 - **Use HTTPS in production** — `ssoRedirectUri` must use `https://` for production deployments. `http://localhost` is an accepted exception in OIDC for local testing, but plain HTTP should never be used with a public hostname.
