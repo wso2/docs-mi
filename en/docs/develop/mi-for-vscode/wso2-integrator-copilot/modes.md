@@ -69,7 +69,7 @@ You can switch modes between messages. If you start in **Plan** and later approv
 
 ## Ask mode — explore and preview
 
-**Ask** is read-only. The Copilot can open files, run searches, look up connector docs, and generate code snippets, but it never writes to your project. If it produces code, the code appears in a code block with an **Add to Project** button — you stay in control of what goes in.
+**Ask** is read-only. The Copilot can open files, run searches, look up connector docs, and generate code snippets, but it does not automatically write to your project. If it produces code, the code appears in a code block with an **Add to Project** button — you stay in control of what goes in, and clicking it inserts the snippet into your project with a checkpoint.
 
 Use Ask mode to:
 
