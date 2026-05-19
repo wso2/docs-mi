@@ -4,7 +4,7 @@ This guide walks you through deploying WSO2 Integrator: MI on WSO2 cloud. For th
 
 ## Before you begin
 
-- Ensure you are logged in to [WSO2 Cloud](https://console.devant.dev/) with an [organization created](https://wso2.github.io/docs-integrator/docs/get-started/setup/sign-up-sign-in#step-2-create-an-organization).
+- Ensure you are logged in to [WSO2 Cloud](https://console.devant.dev/) with an [organization created](https://wso2.com/integration-platform/docs/get-started/setup/sign-up-sign-in/#step-3-create-an-organization).
 - [Install WSO2 Integrator: MI]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode/) extension on VS Code.
 
 ## Deployment steps
