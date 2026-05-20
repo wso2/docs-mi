@@ -8,6 +8,7 @@ All the server-level configurations of your Integration Control Plane can be app
 | ------------------------------------ | --------- | ----------- | --------------------------------------------------------------------- |
 | `serverPort`                         | `int`     | `9446`      | HTTPS port for all ICP endpoints                                      |
 | `serverHost`                         | `string`  | `"0.0.0.0"` | Bind address                                                          |
+| `runtimeListenerPort`                | `int`     | `9445`      | Port for runtime communication listener                               |
 | `logLevel`                           | `string`  | `"INFO"`    | Log verbosity — `DEBUG`, `INFO`, `WARN`, `ERROR`                      |
 | `enableAuditLogging`                 | `boolean` | `true`      | Enable audit log for authentication and management events             |
 | `enableMetrics`                      | `boolean` | `true`      | Expose Prometheus metrics endpoint                                    |
@@ -31,25 +32,25 @@ All the server-level configurations of your Integration Control Plane can be app
 
 Configure the main database in the `[icp_server.storage]` section of `<ICP_HOME>/conf/deployment.toml`.
 
-| Key        | Description                                               |
-| ---------- | --------------------------------------------------------- |
-| `dbType`   | Database engine — `mysql`, `postgresql`, `mssql`, or `h2` |
-| `host`     | Database server hostname (not used for H2)                |
-| `port`     | Database server port (not used for H2)                    |
-| `name`     | Database/schema name                                      |
-| `username` | Database user                                             |
-| `password` | Database password                                         |
+| Key          | Description                                               |
+| ------------ | --------------------------------------------------------- |
+| `dbType`     | Database engine — `mysql`, `postgresql`, `mssql`, or `h2` |
+| `dbHost`     | Database server hostname (not used for H2)                |
+| `dbPort`     | Database server port (not used for H2)                    |
+| `dbName`     | Database/schema name                                      |
+| `dbUser`     | Database user                                             |
+| `dbPassword` | Database password                                         |
 
 #### MySQL
 
 ```toml
 [icp_server.storage]
 dbType = "mysql"
-host = "localhost"
-port = 3306
-name = "icp_db"
-username = "<DB_USER>"
-password = "<DB_PASSWORD>"
+dbHost = "localhost"
+dbPort = 3306
+dbName = "icp_db"
+dbUser = "<DB_USER>"
+dbPassword = "<DB_PASSWORD>"
 ```
 
 #### PostgreSQL
@@ -57,11 +58,11 @@ password = "<DB_PASSWORD>"
 ```toml
 [icp_server.storage]
 dbType = "postgresql"
-host = "localhost"
-port = 5432
-name = "icp_db"
-username = "<DB_USER>"
-password = "<DB_PASSWORD>"
+dbHost = "localhost"
+dbPort = 5432
+dbName = "icp_db"
+dbUser = "<DB_USER>"
+dbPassword = "<DB_PASSWORD>"
 ```
 
 #### Microsoft SQL Server
@@ -69,11 +70,11 @@ password = "<DB_PASSWORD>"
 ```toml
 [icp_server.storage]
 dbType = "mssql"
-host = "localhost"
-port = 1433
-name = "icp_db"
-username = "<DB_USER>"
-password = "<DB_PASSWORD>"
+dbHost = "localhost"
+dbPort = 1433
+dbName = "icp_db"
+dbUser = "<DB_USER>"
+dbPassword = "<DB_PASSWORD>"
 ```
 
 #### H2 (In-Memory)

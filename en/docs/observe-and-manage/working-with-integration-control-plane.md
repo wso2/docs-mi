@@ -108,38 +108,38 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
 2.  To connect the MI runtimes with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each runtime instance.
 
-```toml
-[icp_config]
-enabled     = true
-environment = "dev"
-project     = "my-project"
-integration = "my-integration"
-runtime     = "mi-node-1"
-secret      = "<generated secret>"
-icp_url     = "https://<icp-host>:9445"
-```
+    ```toml
+    [icp_config]
+    enabled     = true
+    environment = "dev"
+    project     = "my-project"
+    integration = "my-integration"
+    runtime     = "mi-node-1"
+    secret      = "<generated secret>"
+    icp_url     = "https://<icp-host>:9445"
+    ```
 
-#### Field Reference
+    #### Field Reference
 
-| Field | Required | Default | Description |
-|-------|----------|---------|-------------|
-| `enabled` | yes | — | Must be `true` to activate ICP connectivity |
-| `environment` | yes | — | Environment **handle** (must match an ICP environment) |
-| `project` | yes | — | Project handle in ICP |
-| `integration` | yes | — | Integration handle in ICP |
-| `runtime` | no | auto-generated UUID | Unique identifier for this MI instance |
-| `secret` | yes | — | Secret from step 1 (`<key-id>.<key-material>`) |
-| `icp_url` | no | `https://localhost:9445` | ICP runtime listener endpoint |
+    | Field | Required | Default | Description |
+    |-------|----------|---------|-------------|
+    | `enabled` | yes | — | Must be `true` to activate ICP connectivity |
+    | `environment` | yes | — | Environment **handle** (must match an ICP environment) |
+    | `project` | yes | — | Project handle in ICP |
+    | `integration` | yes | — | Integration handle in ICP |
+    | `runtime` | no | auto-generated UUID | Display name for this runtime instance. A unique identifier is auto-generated at connection time. |
+    | `secret` | yes | — | Secret from step 1 (`<key-id>.<key-material>`) |
+    | `icp_url` | no | `https://localhost:9445` | ICP runtime listener endpoint |
 
-#### Optional Fields
+    #### Optional Fields
 
-| Field | Default | Description |
-|-------|---------|-------------|
-| `heartbeat_interval` | `10` | Seconds between heartbeats |
-| `jwt_issuer` | `icp-runtime-jwt-issuer` | JWT issuer claim |
-| `jwt_audience` | `icp-server` | JWT audience claim |
-| `jwt_expiry_seconds` | `3600` | JWT token lifetime |
-| `jwt_clock_skew_tolerance_ms` | `60000` | Clock skew tolerance in milliseconds |
+    | Field | Default | Description |
+    |-------|---------|-------------|
+    | `heartbeat_interval` | `10` | Seconds between heartbeats |
+    | `jwt_issuer` | `icp-runtime-jwt-issuer` | JWT issuer claim |
+    | `jwt_audience` | `icp-server` | JWT audience claim |
+    | `jwt_expiry_seconds` | `3600` | JWT token lifetime |
+    | `jwt_clock_skew_tolerance_ms` | `60000` | Clock skew tolerance in milliseconds |
 
 ### Step 3 - Start the MI Server
 

@@ -34,7 +34,7 @@ ICP provides centralized observability for MI runtimes. Application logs and per
       <td>Observability API layer</td>
     </tr>
     <tr>
-      <td>MI 4.4.0+</td>
+      <td>MI server</td>
       <td>Runtime with ICP heartbeat and analytics support</td>
     </tr>
   </tbody>
@@ -44,7 +44,23 @@ ICP provides centralized observability for MI runtimes. Application logs and per
 
 Any single-node or clustered OpenSearch deployment works. ICP needs HTTP(S) access to the OpenSearch REST API.
 
+For detailed OpenSearch setup and deployment instructions, refer to the [OpenSearch Installation Guide](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/index/).
+
+
 Note the host, port, and credentials — you will configure them in ICP Server and Fluent Bit.
+
+## Step 1.1: Deploy Fluent Bit
+
+ICP requires Fluent Bit **3.x** for log collection and forwarding to OpenSearch.
+
+For detailed Fluent Bit setup and deployment instructions, refer to the [Fluent Bit Installation Guide](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit).
+
+Ensure your Fluent Bit instance has:
+- Network connectivity to both the MI runtime (to tail log files) and OpenSearch (to forward logs)
+- Appropriate permissions to read MI log files
+- Sufficient disk space and memory for buffering
+
+After deployment, you will configure Fluent Bit to tail MI's log files in Step 5.
 
 ## Step 2: Create Index Templates
 
@@ -74,11 +90,15 @@ curl -X PUT '<opensearch-host>:9200/_index_template/wso2_mi_application_log_temp
   }'
 ```
 
-If your OpenSearch requires authentication, add `-u admin:<password>`. For HTTPS with self-signed certs, add `-k`.
+!!! note "Testing only"
+    The flags below are suitable for local testing. For production, use a dedicated OpenSearch user with minimal permissions, provide a trusted CA certificate (`--cacert <ca.crt>`), and avoid disabling SSL verification.
+
+    - If your OpenSearch requires authentication, add `-u admin:<password>`.
+    - For HTTPS with self-signed certs, add `-k` (skips SSL verification — not recommended for production).
 
 ### Metrics index — no template needed
 
-Do **not** create an explicit template for `mi-metrics-logs-*`. OpenSearch's dynamic mapping auto-maps `icp_runtimeId` as `text` with a `.keyword` subfield, which is what ICP Server's metrics queries require.
+**Do not** create an explicit template for `mi-metrics-logs-*`. OpenSearch's dynamic mapping will automatically map `icp_runtimeId` as `text` with a `.keyword` subfield, which is required by ICP Server metrics queries. Applying an explicit template will interfere with this automatic mapping.
 
 !!! note
     The app logs template must map `icp_runtimeId` as `keyword` (ICP queries it with a bare `terms` filter). The metrics index must keep the dynamic mapping (`text` + `.keyword` subfield) because ICP's metrics aggregations use `icp_runtimeId.keyword`. Applying an explicit `keyword` mapping to the metrics index will break the Metrics page.
@@ -87,23 +107,23 @@ Do **not** create an explicit template for `mi-metrics-logs-*`. OpenSearch's dyn
 
 Add the OpenSearch connection to `<ICP_HOME>/conf/deployment.toml`.
 
-**These lines must appear before any `[section]` header** (lines starting with `[`). Place them at the top of the file:
-
 ```toml
 opensearchUrl = "https://localhost:9200"
 opensearchUsername = "admin"
 opensearchPassword = "<your-opensearch-password>"
 ```
 
-If OpenSearch is running without TLS (e.g. with the security plugin disabled), use `http://`:
+!!! note
+    Place the above config at the top of the file **before any `[section]` header** (lines starting with `[`). 
 
-```toml
-opensearchUrl = "http://localhost:9200"
-```
+!!! warning "Testing and Development Only"
+    If OpenSearch is running without TLS (e.g. with the security plugin disabled), you can use `http://` **only for testing and development**:
 
-!!! warning
-    The ICP config file ships with these keys commented out near the bottom of the file, after `[ballerina.http.traceLogAdvancedConfig]`. **Do not uncomment those lines.** Because they fall under a `[section]` header, Ballerina treats them as section-scoped values and rejects them. Always add the OpenSearch keys before the first `[section]` header.
+    ```toml
+    opensearchUrl = "http://localhost:9200"
+    ```
 
+    For production deployments, always use HTTPS with proper TLS certificates and strong authentication credentials. Refer to [OpenSearch Security Best Practices](https://opensearch.org/docs/latest/security/index/) for configuring authentication, authorization, and encryption in production environments.
 
 Restart ICP Server after saving. Look for this log line to confirm:
 
@@ -125,8 +145,6 @@ flow.statistics.capture_all=true
 [analytics]
 enabled = true
 ```
-
-`flow.statistics.enable` activates mediation flow statistics collection. Without it, `[analytics]` has no data to publish.
 
 ### 2. Connect to ICP
 
@@ -282,7 +300,7 @@ Key details in `mi_log_parser`:
 
 ### Lua enrichment (optional)
 
-A Lua script can enrich records with metadata fields (`product`, `service_type`) and generate hash-based deduplication IDs. See `icp_server/resources/observability/opensearch-observability-dashboard/config/fluent-bit/scripts.lua` for the reference implementation.
+A Lua script can enrich records with metadata fields (`product`, `service_type`) and generate hash-based deduplication IDs. See `<ICP_SERVER>/resources/observability/opensearch-observability-dashboard/config/fluent-bit/scripts.lua` for the reference implementation.
 
 The pipeline works without Lua enrichment — logs and metrics will reach OpenSearch and be queryable by ICP. The Lua filters add deduplication and metadata that improve production reliability.
 
@@ -368,11 +386,11 @@ The pipeline works without Lua enrichment — logs and metrics will reach OpenSe
 
 Replace `<MI_HOME>` with the actual MI installation path. Use forward slashes on Linux, backslashes on Windows.
 
-**Output plugin**: Use `opensearch` (the dedicated OpenSearch output plugin).
+Adjust the following fields in each `[OUTPUT]` block to match your OpenSearch setup:
 
-**TLS**: Set `tls On` and `tls.verify Off` if OpenSearch uses HTTPS with a self-signed certificate. Set `tls Off` if OpenSearch runs plain HTTP (e.g. security plugin disabled).
-
-**Auth**: `HTTP_User` and `HTTP_Passwd` are required even if OpenSearch has security disabled — Fluent Bit sends them as-is and OpenSearch ignores them.
+- **Output plugin**: The `Name opensearch` line uses the dedicated OpenSearch output plugin.
+- **TLS**: Set `tls On` and `tls.verify Off` if OpenSearch uses HTTPS with a self-signed certificate. Set `tls Off` if OpenSearch runs plain HTTP (e.g., security plugin disabled).
+- **Auth**: `HTTP_User` and `HTTP_Passwd` are required even if OpenSearch has security disabled — Fluent Bit sends them as-is and OpenSearch ignores them.
 
 !!! note
     `Replace_Dots On` converts dots in field names (e.g. `payload.apiDetails`) to underscores, which OpenSearch requires.

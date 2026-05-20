@@ -5,7 +5,7 @@ configured, the ICP heartbeat component gets activated in MI and sends periodic 
 
 ## Prerequisites
 
-- ICP server running and reachable on port **9446**
+- ICP server running and reachable on port `9446`
 - An integration deployed as a composite application in MI
 
 ## 1. Generate a Secret
@@ -50,7 +50,6 @@ project     = "my-project"
 integration = "my-integration"
 runtime = "my-runtime"
 secret = "<generated secret>"
-#icp_url = "https://<hostname>:9445"
 ```
 
 ### Field reference
@@ -62,8 +61,8 @@ secret = "<generated secret>"
 | `project` | yes | — | Project handle in ICP |
 | `integration` | yes | — | Component handle in ICP |
 | `secret` | yes | — | Secret from step 1 |
-| `runtime` | no | - | Display Name for this runtime instance. A separate unique runtime identifier is generated at time of connection. |
-| `heartbeatInterval` | no | `10` | Seconds between heartbeats |
+| `runtime` | no | - | Unique identifier for this runtime instance. If not provided, a unique identifier is generated at time of connection. |
+| `heartbeat_interval` | no | `10` | Seconds between heartbeats |
 | `ssl_verify` | no | `true` | Enforce TLS certificate verification (non-production) |
 | `icp_url` | no | `https://localhost:9445` | ICP runtime listener endpoint |
 
