@@ -447,7 +447,7 @@ You can customize the format of this access log by changing the following proper
                      <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
                            <div class="sourceCode" id="cb4" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
-                              <pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1"></a>access_log_pattern=%h %l %u %t <span class="st">&quot;%r&quot;</span> %s %b</span></code></pre>
+                              <pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1"></a>access_log_pattern=%h %u %t <span class="st">&quot;%r&quot;</span> %s %b</span></code></pre>
                            </div>
                         </div>
                      </div>
@@ -457,7 +457,7 @@ You can customize the format of this access log by changing the following proper
                      <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
                            <div class="sourceCode" id="cb5" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
-                              <pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1"></a>access_log_pattern=%h %l %u %t <span class="st">&quot;%r&quot;</span> %s %b <span class="st">&quot;%{Referer}i&quot;</span> <span class="st">&quot;%{User-Agent}i&quot;</span></span></code></pre>
+                              <pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1"></a>access_log_pattern=%h %u %t <span class="st">&quot;%r&quot;</span> %s %b <span class="st">&quot;%{Referer}i&quot;</span> <span class="st">&quot;%{User-Agent}i&quot;</span></span></code></pre>
                            </div>
                         </div>
                      </div>
@@ -467,7 +467,7 @@ You can customize the format of this access log by changing the following proper
                <div class="code panel pdl" style="border-width: 1px;">
                   <div class="codeContent panelContent pdl">
                      <div class="sourceCode" id="cb6" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
-                        <pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1"></a>access_log_pattern=%{X-Forwarded-For}i %h %l %u %t \<span class="st">&quot;%r</span><span class="sc">\&quot;</span><span class="st"> %s %b </span><span class="sc">\&quot;</span><span class="st">%{Referer}i</span><span class="sc">\&quot;</span><span class="st"> </span><span class="sc">\&quot;</span><span class="st">%{User-Agent}i</span><span class="sc">\&quot;</span></span></code></pre>
+                        <pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1"></a>access_log_pattern=%{X-Forwarded-For}i %h %u %t \<span class="st">&quot;%r</span><span class="sc">\&quot;</span><span class="st"> %s %b </span><span class="sc">\&quot;</span><span class="st">%{Referer}i</span><span class="sc">\&quot;</span><span class="st"> </span><span class="sc">\&quot;</span><span class="st">%{User-Agent}i</span><span class="sc">\&quot;</span></span></code></pre>
                      </div>
                   </div>
                </div>
@@ -492,7 +492,7 @@ You can customize the format of this access log by changing the following proper
 <tbody>
 <tr class="odd">
 <td><pre><code>%a</code></pre></td>
-<td><p>Remote IP address</p></td>
+<td><p>Request User-Agent header</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%A</code></pre></td>
@@ -500,43 +500,43 @@ You can customize the format of this access log by changing the following proper
 </tr>
 <tr class="odd">
 <td><pre><code>%b</code></pre></td>
-<td><p>Bytes sent, excluding HTTP headers, or '-' if zero</p></td>
+<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if zero</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%B</code></pre></td>
-<td><p>Bytes sent, excluding HTTP headers</p></td>
+<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>%c</code></pre></td>
-<td><p>Cookie value</p></td>
+<td><p>Request Cookie header</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%C</code></pre></td>
-<td><p>Accept header</p></td>
+<td><p>Request Accept header</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>%e</code></pre></td>
-<td><p>Accept Encoding</p></td>
+<td><p>Request Accept-Encoding header</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%E</code></pre></td>
-<td><p>Transfer Encoding</p></td>
+<td><p>Request Transfer-Encoding header</p></td>
 </tr>
 <tr class="odd">
+<td><pre><code>%f</code></pre></td>
+<td><p>Request Referer header</p></td>
+</tr>
+<tr class="even">
 <td><pre><code>%h</code></pre></td>
 <td><p>The remote hostname (or IP address if enableLookups for the connector is false)</p></td>
 </tr>
-<tr class="even">
-<td><pre><code>%l</code></pre></td>
-<td><p>Remote logical username from identd (always returns '-')</p></td>
-</tr>
 <tr class="odd">
 <td><pre><code>%L</code></pre></td>
-<td><p>Accept Language</p></td>
+<td><p>Request Accept-Language header</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%k</code></pre></td>
-<td><p>Keep Alive</p></td>
+<td><p>Request Keep-Alive header</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>%m</code></pre></td>
@@ -544,11 +544,11 @@ You can customize the format of this access log by changing the following proper
 </tr>
 <tr class="even">
 <td><pre><code>%n</code></pre></td>
-<td><p>Content Encoding</p></td>
+<td><p>Request Content-Encoding header</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>%r</code></pre></td>
-<td><p>Request Element</p></td>
+<td><p>First line of the request</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%s</code></pre></td>
@@ -556,37 +556,33 @@ You can customize the format of this access log by changing the following proper
 </tr>
 <tr class="odd">
 <td><pre><code>%S</code></pre></td>
-<td><p>Accept Chatset</p></td>
+<td><p>Request Accept-Charset header</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%t</code></pre></td>
-<td><p>Date and time, in Common Log Format</p></td>
+<td><p>Date and time in Common Log Format with millisecond precision</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>%T</code></pre></td>
-<td><p>The time taken to process the request in seconds.</p></td>
+<td><p>Request Content-Type header</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%u</code></pre></td>
-<td><p>The remote user that was authenticated (if any), else '-'</p></td>
+<td><p>Request From header</p></td>
 </tr>
 <tr class="odd">
 <td><pre><code>%U</code></pre></td>
 <td><p>Requested URL path</p></td>
 </tr>
 <tr class="even">
-<td><pre><code>%v</code></pre></td>
-<td><p>Local server name</p></td>
+<td><pre><code>%V</code></pre></td>
+<td><p>Request Vary header</p></td>
 </tr>
 <tr class="odd">
-<td><pre><code>%V</code></pre></td>
-<td><p>Vary Header</p></td>
+<td><pre><code>%x</code></pre></td>
+<td><p>Request Connection header</p></td>
 </tr>
 <tr class="even">
-<td><pre><code>%x</code></pre></td>
-<td><p>Connection Header</p></td>
-</tr>
-<tr class="odd">
 <td><pre><code>%Z</code></pre></td>
 <td><p>Server Header</p></td>
 </tr>
