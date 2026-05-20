@@ -7,16 +7,15 @@ If your system uses more than one broker, you need to add multiple broker config
 The following example illustrates how to configure WSO2 Integrator: MI to listen to
 both ActiveMQ and WSO2 MB messages.
 
-1.  Download ActiveMQ (version 5.8.0 or later) from the [Apache ActiveMQ](http://activemq.apache.org/) site. 
-2.  Download the WSO2 Message Broker from the [WSO2 Message Broker](https://wso2.com/products/message-broker/) site.
-3.  Copy the following client libraries from `AMQ_HOME/lib` directory to `MI_HOME/lib` directory.  
+1.  Download ActiveMQ (version 5.8.0 or later) from the [Apache ActiveMQ](http://activemq.apache.org/) site.
+2.  Copy the following client libraries from `AMQ_HOME/lib` directory to `MI_HOME/lib` directory.  
     -   `            activemq-broker-5.8.0.jar           `
     -   `            activemq-client-5.8.0.jar           `
     -   `            geronimo-jms_1.1_spec-1.1.1.jar           `
     -   `            geronimo-j2ee-management_1.1_spec-1.0.1.jar           `
     -   `            hawtbuf-1.9.jar           `
-4.  Copy the andes-client-0.13.wso2v10.jar from <MB_HOME>/client-lib directory to <EI_HOME>/lib directory.
-5.  Add two JMS listener configurations to the deployment.toml file as shown below. Update connection parameters for the ActiveMQ and WSO2 MB brokers respectively.
+3.  Copy the andes-client-0.13.wso2v10.jar from <MB_HOME>/client-lib directory to <EI_HOME>/lib directory.
+4.  Add two JMS listener configurations to the deployment.toml file as shown below. Update connection parameters for the ActiveMQ and WSO2 MB brokers respectively.
 
     ```toml
     [[transport.jms.listener]]
@@ -45,8 +44,8 @@ both ActiveMQ and WSO2 MB messages.
     !!! Info
         Note that the transport receiver name is different in each configuration.
 
-7.  Start both ActiveMQ and WSO2 MB.
-8.  Start WSO2 Integrator: MI.
+5.  Start both ActiveMQ and WSO2 MB.
+6.  Start WSO2 Integrator: MI.
 
 Now ActiveMQ proxy service can be configured as follows to read messages from ActiveMQ server.
 
