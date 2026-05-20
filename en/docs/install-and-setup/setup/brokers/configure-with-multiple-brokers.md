@@ -14,7 +14,7 @@ both ActiveMQ and WSO2 MB messages.
     -   `            geronimo-jms_1.1_spec-1.1.1.jar           `
     -   `            geronimo-j2ee-management_1.1_spec-1.0.1.jar           `
     -   `            hawtbuf-1.9.jar           `
-3.  Copy the andes-client-0.13.wso2v10.jar from <MB_HOME>/client-lib directory to <EI_HOME>/lib directory.
+3.  Copy the andes-client-0.13.wso2v10.jar from <MB_HOME>/client-lib directory to <MI_HOME>/lib directory.
 4.  Add two JMS listener configurations to the deployment.toml file as shown below. Update connection parameters for the ActiveMQ and WSO2 MB brokers respectively.
 
     ```toml
