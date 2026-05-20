@@ -9,11 +9,11 @@ both ActiveMQ and WSO2 MB messages.
 
 1.  Download ActiveMQ (version 5.8.0 or later) from the [Apache ActiveMQ](http://activemq.apache.org/) site.
 2.  Copy the following client libraries from `AMQ_HOME/lib` directory to `MI_HOME/lib` directory.  
-    -   `            activemq-broker-5.8.0.jar           `
-    -   `            activemq-client-5.8.0.jar           `
-    -   `            geronimo-jms_1.1_spec-1.1.1.jar           `
-    -   `            geronimo-j2ee-management_1.1_spec-1.0.1.jar           `
-    -   `            hawtbuf-1.9.jar           `
+    -   `activemq-broker-5.8.0.jar`
+    -   `activemq-client-5.8.0.jar`
+    -   `geronimo-jms_1.1_spec-1.1.1.jar `
+    -   `geronimo-j2ee-management_1.1_spec-1.0.1.jar`
+    -   `hawtbuf-1.9.jar`
 3.  Copy the andes-client-0.13.wso2v10.jar from <MB_HOME>/client-lib directory to <MI_HOME>/lib directory.
 4.  Add two JMS listener configurations to the deployment.toml file as shown below. Update connection parameters for the ActiveMQ and WSO2 MB brokers respectively.
 
