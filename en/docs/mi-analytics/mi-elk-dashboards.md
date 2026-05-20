@@ -123,6 +123,26 @@ Gives you an idea about Proxy Services analytics.
 |Message Count|Total number of requests received within the time span|
 
 
+### Data Services Dashboard (wso2-mi-dataservice)
+
+Gives you an idea about Data Services analytics.
+
+<a href="{{base_path}}/assets/attachments/mi-elk/dataservices-dashboard.png"><img src="{{base_path}}/assets/attachments/mi-elk/mi-dataservice.png" width="70%" alt="Mi Data Services"></a>
+
+|Total Requests|Total number of requests handled by the Data Services|
+|:----|:----|
+|Fault Response Rate|Fault response percentage|
+|Failure Rate|Number of failure requests|
+|Fault Responses|Total Number of fault responses. (Example: Database connection failure)|
+|Failure Requests|Total Number of requests that failed|
+|Success Requests|Total Number of requests that were successful|
+|Maximum Latency|Maximum latency recorded by a single request|
+|Average Latency|Average latency for a request|
+|Top Data Services by Message Count|Top Data Services that served the highest number of requests|
+|Message Latency|Maximum, Minimum and Average latency for the messages in the time span|
+|Message Count|Total number of requests received within the time span|
+
+
 ## Creating Advanced Dashboards
 
 This section will help you to setup advanced dashboards using custom metadata. Use [this documentation](https://www.elastic.co/kibana/kibana-dashboard) by Elastic to explore what kind of dashboard widgets you can create.
