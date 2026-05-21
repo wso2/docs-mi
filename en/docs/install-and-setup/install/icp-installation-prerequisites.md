@@ -15,7 +15,7 @@ Prior to installing the WSO2 Integration Control Plane, make sure that the appro
 
 ## Tested environments
 
-The details of the tested environments for the WSO2 Integration Control Plane (ICP) 2.0.0 is given below.
+The details of the tested environments for the WSO2 Integration Control Plane (ICP) is given below.
 
 ### Tested operating systems
 
