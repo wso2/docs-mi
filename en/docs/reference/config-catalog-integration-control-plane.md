@@ -108,4 +108,5 @@ credentialsDbPassword = "icp_password"
 | `credentialsDbUser`     | `string` | `"icp_user"`      | Database user                           |
 | `credentialsDbPassword` | `string` | —                 | Database password                       |
 
-For PostgreSQL, credentials are stored in a `credentials` schema within the same database. For H2, they are stored in `<ICP_HOME>/bin/database/credentials`.
+ Credentials are stored in a dedicated credentials database separate from the main ICP database, configured via `credentialsDbName`, `credentialsDbHost`, and `credentialsDbPort`. For H2, they are stored in `<ICP_HOME>/bin/database/credentials`.
+ 

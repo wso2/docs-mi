@@ -286,9 +286,6 @@ SSO and local password authentication are independent. If the same email address
 **What happens if the identity provider is unavailable?**  
 SSO login will fail during an outage. Local password authentication (if enabled) remains unaffected.
 
-**Can I enforce SSO-only login?**  
-Yes. Disable the local authentication backend to require all users to authenticate through the identity provider. Ensure at least one SSO-authenticated administrator account is in place before doing so.
-
 **Can I configure more than one identity provider?**  
 ICP currently supports one OIDC provider per deployment.
 

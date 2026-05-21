@@ -9,35 +9,13 @@ Java Development Kit (JDK) is essential to run the product.
 
 ## Install the Integration Control Plane
 
--   Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integrator/integration-control-plane/).
+-   Go to the [WSO2 Integration Control Plane web page](https://wso2.com/integrator/icp/).
 
 -   Click **Download** and provide the necessary details.  
 
--   Click **Zip Archive** to download the Integration Control Plane as a ZIP file(e.g.
-   `wso2-integration-control-plane-2.0.0.zip`).
+-   Click **Zip Archive** to download the Integration Control Plane as a ZIP file.
 
--   Extract it.
-
-```bash
-    unzip wso2-integration-control-plane-2.0.0.zip
-    cd wso2-integration-control-plane-2.0.0
-```
-
--   The extracted directory has the following layout.
-
-```text
-    wso2-integration-control-plane-2.0.0/
-     bin/
-       icp.sh              # startup script (Linux / macOS)
-       icp.bat             # startup script (Windows)
-       icp-server.jar      # server binary
-       database/            # embedded H2 database files
-     conf/
-       deployment.toml      # main configuration file
-       security/            # keystores and cipher config
-     www/                   # console frontend
-     lib/                   # runtime libraries
-```
+-   Extract the ZIP archive.
 
 ## Set up JAVA_HOME
 

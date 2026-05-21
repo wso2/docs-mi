@@ -51,17 +51,7 @@ When using H2 (the default), no database configuration is needed.
 
 ### Observability Settings (OpenSearch)
 
-To enable centralized logs and metrics, point ICP at an OpenSearch instance.
-Add these keys **before the first `[section]` header** in `deployment.toml`:
-
-```toml
-opensearchUrl = "https://localhost:9200"
-opensearchUsername = "admin"
-opensearchPassword = "<your-opensearch-password>"
-```
-
-If OpenSearch runs without TLS, use `http://`. Skip this section if you don't
-need observability yet.
+To enable centralized logs and metrics, refer to [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/adding-observability-for-icp).
 
 ### Reverse proxy settings
 

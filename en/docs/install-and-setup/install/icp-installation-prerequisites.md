@@ -25,7 +25,7 @@ The Integration Control Plane is tested with the following operating systems:
 |--------------------------|----------|
 | Windows                  | 11       |
 | Ubuntu                   | 26.04    |
-| MacOS                    | 15.7     |
+| macOS                    | 15.7     |
 | Linux(RHEL)              | 9.4      |
 | Windows Server           | 2022     |
 
