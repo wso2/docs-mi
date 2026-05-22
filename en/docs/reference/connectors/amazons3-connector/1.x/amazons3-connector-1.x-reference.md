@@ -113,7 +113,7 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
         </tr>
         <tr>
             <td>expect</td>
-            <td>This header can be used only if a body is sent to not to send the request body until it recieves an acknowledgment.</td>
+            <td>This header can be used only if a body is sent to not to send the request body until it receives an acknowledgment.</td>
             <td>Yes</td>
         </tr>
         <tr>
