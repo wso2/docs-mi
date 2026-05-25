@@ -2,6 +2,9 @@
 
 The WSO2 Integration Control Plane (ICP) supports multiple secondary user stores alongside the primary user store. Users from secondary stores can authenticate using `username` (fallthrough) or `DOMAIN/username` (explicit domain).
 
+!!! tip
+    Using `DOMAIN/username` is recommended to avoid conflicts when usernames overlap across stores.
+
 !!! note
     Users from secondary user stores have non-admin (read-only) permissions in the ICP.
 
@@ -21,12 +24,12 @@ The `domain_name` is a label you choose for the store. Users from that store mus
     connection_password = "admin"
     user_search_base = "ou=Users,dc=wso2,dc=org"
     user_name_attribute = "uid"
-    user_name_search_filter = "(&amp;(objectClass=person)(uid=?))"
+    user_name_search_filter = "(&(objectClass=person)(uid=?))"
     user_name_list_filter = "(objectClass=person)"
     read_groups = true
     group_search_base = "ou=Groups,dc=wso2,dc=org"
     group_name_attribute = "cn"
-    group_name_search_filter = "(&amp;(objectClass=groupOfNames)(cn=?))"
+    group_name_search_filter = "(&(objectClass=groupOfNames)(cn=?))"
     group_name_list_filter = "(objectClass=groupOfNames)"
     membership_attribute = "member"
     ```
@@ -40,13 +43,13 @@ The `domain_name` is a label you choose for the store. Users from that store mus
     connection_password = "admin"
     user_search_base = "ou=Users,dc=wso2,dc=org"
     user_name_attribute = "uid"
-    user_name_search_filter = "(&amp;(objectClass=inetOrgPerson)(uid=?))"
+    user_name_search_filter = "(&(objectClass=inetOrgPerson)(uid=?))"
     user_name_list_filter = "(objectClass=inetOrgPerson)"
     user_entry_object_class = "inetOrgPerson"
     write_groups = true
     group_search_base = "ou=Groups,dc=wso2,dc=org"
     group_name_attribute = "cn"
-    group_name_search_filter = "(&amp;(objectClass=groupOfNames)(cn=?))"
+    group_name_search_filter = "(&(objectClass=groupOfNames)(cn=?))"
     group_name_list_filter = "(objectClass=groupOfNames)"
     group_entry_object_class = "groupOfNames"
     membership_attribute = "member"
