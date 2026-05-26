@@ -34,25 +34,53 @@ This reference page documents all the configuration parameters supported by the 
     <td>-</td>
   </tr>
   <tr>
+    <td><code>connection.salesforce.authenticationType</code></td>
+    <td>The authentication method to use when connecting to Salesforce. <code>username-token</code> uses SOAP login with a username and password. <code>oauth</code> uses the OAuth2 Client Credentials grant type. Existing configurations without this parameter default to <code>username-token</code> with no migration required. OAuth2 Client Credentials support is available from connector version 3.0.5 onwards.</td>
+    <td>No</td>
+    <td><code>username-token</code><br/><code>oauth</code></td>
+    <td><code>username-token</code></td>
+  </tr>
+  <tr>
     <td><code>connection.salesforce.userName</code></td>
-    <td>Salesforce login user name.</td>
-    <td>Yes</td>
+    <td>Salesforce login user name. Required only when <code>authenticationType</code> is <code>username-token</code>.</td>
+    <td>Yes (when <code>authenticationType = username-token</code>)</td>
     <td>-</td>
     <td>-</td>
   </tr>
   <tr>
     <td><code>connection.salesforce.password</code></td>
-    <td>Salesforce login password.</td>
-    <td>Yes</td>
+    <td>Salesforce login password (append the security token to the password). Required only when <code>authenticationType</code> is <code>username-token</code>.</td>
+    <td>Yes (when <code>authenticationType = username-token</code>)</td>
     <td><code>eitest123xxxxxxx</code></td>
     <td>-</td>
   </tr>
   <tr>
     <td><code>connection.salesforce.loginEndpoint</code></td>
-    <td>The Endpoint of the Salesforce account.</td>
-    <td>Yes</td>
+    <td>The SOAP login endpoint for the Salesforce account. Required only when <code>authenticationType</code> is <code>username-token</code>.</td>
+    <td>No (when <code>authenticationType = username-token</code>)</td>
     <td><code>https://login.salesforce.com</code></td>
     <td><code>https://login.salesforce.com</code></td>
+  </tr>
+  <tr>
+    <td><code>connection.salesforce.clientId</code></td>
+    <td>The OAuth2 consumer key from the Salesforce Connected App. Required only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td>Yes (when <code>authenticationType = oauth</code>)</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td><code>connection.salesforce.clientSecret</code></td>
+    <td>The OAuth2 consumer secret from the Salesforce Connected App. Required only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td>Yes (when <code>authenticationType = oauth</code>)</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td><code>connection.salesforce.tokenEndpoint</code></td>
+    <td>The OAuth2 token endpoint URL. Use <code>https://test.salesforce.com/services/oauth2/token</code> for sandbox environments. Applicable only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td>No (when <code>authenticationType = oauth</code>)</td>
+    <td><code>https://login.salesforce.com/services/oauth2/token</code><br/><code>https://test.salesforce.com/services/oauth2/token</code></td>
+    <td><code>https://login.salesforce.com/services/oauth2/token</code></td>
   </tr>
   <tr>
     <td><code>connection.salesforce.soapApiVersion</code></td>
