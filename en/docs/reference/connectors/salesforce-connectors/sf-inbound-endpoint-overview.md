@@ -21,7 +21,7 @@ This reference page documents all the configuration parameters supported by the 
   </tr>
   <tr>
     <td><code>connection.salesforce.salesforceObject</code></td>
-    <td>The name of the Push Topic or the Platform Event that is added to the Salesforce account, or the Record the you want to listen for Change Data Capture events.</td>
+    <td>The name of the Push Topic or the Platform Event that is added to the Salesforce account, or the Record that you want to listen for Change Data Capture events.</td>
     <td>Yes</td>
     <td><code>/topic/Account</code><br/><code>/data/AccountChangeEvent</td>
     <td>-</td>
@@ -35,7 +35,7 @@ This reference page documents all the configuration parameters supported by the 
   </tr>
   <tr>
     <td><code>connection.salesforce.authenticationType</code></td>
-    <td>The authentication method to use when connecting to Salesforce. <code>username-token</code> uses SOAP login with a username and password. <code>oauth</code> uses the OAuth2 Client Credentials grant type. Existing configurations without this parameter default to <code>username-token</code> with no migration required. OAuth2 Client Credentials support is available from connector version 3.0.5 onwards.</td>
+    <td>The authentication method to use when connecting to Salesforce. <code>username-token</code> uses SOAP login with a username, password and token. <code>oauth</code> uses the OAuth2 Client Credentials grant type. Configurations without this parameter default to <code>username-token</code>. OAuth2 Client Credentials support is available from inbound version 3.0.5 onwards.</td>
     <td>No</td>
     <td><code>username-token</code><br/><code>oauth</code></td>
     <td><code>username-token</code></td>
