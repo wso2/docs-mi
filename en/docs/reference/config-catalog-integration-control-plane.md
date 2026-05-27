@@ -109,4 +109,59 @@ credentialsDbPassword = "icp_password"
 | `credentialsDbPassword` | `string` | —                 | Database password                       |
 
  Credentials are stored in a dedicated credentials database separate from the main ICP database, configured via `credentialsDbName`, `credentialsDbHost`, and `credentialsDbPort`. For H2, they are stored in `<ICP_HOME>/bin/database/credentials`.
- 
+
+## SSO Configurations
+
+Configure Single Sign-On (SSO) using the `[sso]` section of `<ICP_HOME>/conf/deployment.toml`.
+
+```toml
+[sso]
+enable = true
+client_id = "<CLIENT_ID>"
+client_secret = "<CLIENT_SECRET>"
+base_url = "https://<IDP_HOST>:<IDP_PORT>"
+jwt_issuer = "https://<IDP_HOST>:<IDP_PORT>/oauth2/token"
+additional_trusted_audience = ["<AUDIENCE>"]
+jwks_algorithm = "RS256"
+well_known_endpoint = "https://<IDP_HOST>:<IDP_PORT>/oauth2/token/.well-known/openid-configuration"
+jwks_endpoint = "https://<IDP_HOST>:<IDP_PORT>/oauth2/jwks"
+introspection_endpoint = "https://<IDP_HOST>:<IDP_PORT>/oauth2/introspect"
+user_info_endpoint = "https://<IDP_HOST>:<IDP_PORT>/oauth2/userinfo"
+resource_server_URLs = ["https://<ICP_HOST>:<ICP_PORT>"]
+sign_in_redirect_URL = "https://<ICP_HOST>:<ICP_PORT>/sso"
+admin_group_attribute = "groups"
+admin_groups = ["admin"]
+storage = "webWorker"
+
+[[sso.authorization_request.params]]
+key = "app_id"
+value = "<APP_ID>"
+```
+
+| Key                              | Type            | Default                                                    | Description                                                                                   |
+| -------------------------------- | --------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `enable`                         | `boolean`       | `false`                                                    | Enable SSO for the ICP console                                                                |
+| `client_id`                      | `string`        | —                                                          | OAuth 2.0 client ID registered in the identity provider                                       |
+| `client_secret`                  | `string`        | —                                                          | OAuth 2.0 client secret registered in the identity provider                                   |
+| `base_url`                       | `string`        | —                                                          | Base URL of the identity provider (e.g., WSO2 Identity Server)                                |
+| `jwt_issuer`                     | `string`        | —                                                          | Expected `iss` claim in the JWT — typically the token endpoint of the identity provider       |
+| `additional_trusted_audience`    | `string array`  | —                                                          | Additional audiences trusted for JWT validation besides the default                           |
+| `jwks_algorithm`                 | `string`        | —                                                          | Algorithm used to verify the JWT signature (e.g., `RS256`)                                   |
+| `well_known_endpoint`            | `string`        | `<base_url>/oauth2/token/.well-known/openid-configuration` | OpenID Connect discovery endpoint for auto-configuring identity provider metadata             |
+| `jwks_endpoint`                  | `string`        | —                                                          | JWKS endpoint for fetching public keys to verify JWT signatures                               |
+| `introspection_endpoint`         | `string`        | —                                                          | Token introspection endpoint                                                                  |
+| `user_info_endpoint`             | `string`        | —                                                          | UserInfo endpoint for retrieving claims about the authenticated user                          |
+| `resource_server_URLs`           | `string array`  | —                                                          | List of ICP resource server URLs that accept the SSO token                                    |
+| `sign_in_redirect_URL`           | `string`        | —                                                          | Callback URL to redirect after a successful sign-in                                           |
+| `admin_group_attribute`          | `string`        | `"groups"`                                                 | JWT claim name that carries group membership information                                      |
+| `admin_groups`                   | `string array`  | —                                                          | Groups whose members are granted admin privileges in the ICP console                          |
+| `storage`                        | `string`        | `"webWorker"`                                              | Browser storage for the SSO session — `webWorker`, `sessionStorage`, or `localStorage`       |
+
+### Additional Authorization Request Parameters
+
+Use `[[sso.authorization_request.params]]` to append extra query parameters to the authorization request sent to the identity provider.
+
+| Key     | Type     | Description                                         |
+| ------- | -------- | --------------------------------------------------- |
+| `key`   | `string` | Query parameter name to append to the auth request  |
+| `value` | `string` | Value for the query parameter                       |
