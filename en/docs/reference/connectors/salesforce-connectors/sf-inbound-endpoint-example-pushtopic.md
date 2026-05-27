@@ -62,7 +62,7 @@ The Salesforce Inbound Endpoint supports two authentication methods:
 - **OAuth2 Client Credentials (oauth)** — authenticates using a Salesforce Connected App's consumer key and secret via the OAuth2 Client Credentials grant. Recommended for server-to-server integrations where storing a user password is undesirable.
 
 !!! info "Version requirement"
-    OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 3.0.5** onwards.
+    OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 3.0.5 and 2.1.17** onwards.
 
 Choose the authentication method that fits your deployment.
 
