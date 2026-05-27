@@ -13,8 +13,8 @@ This guide shows how to configure a Salesforce Inbound Endpoint using CDC to lis
 You will:
 
 1. Enable CDC for a Salesforce object.
-2. Reset the security token to authenticate with the Salesforce API.
-3. Configure the Inbound Endpoint in WSO2 Micro Integrator using the Visual Studio Code extension.
+2. Set up Salesforce authentication (username/password or OAuth2 Client Credentials).
+3. Configure the Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
 4. Run and test the integration to receive real-time events.
 
 The inbound endpoint captures CDC events and injects them into a mediation sequence. In this example, we simply log the message, but you can extend it with any logic using [WSO2 Micro Integrator mediators]({{base_path}}/reference/mediators/about-mediators/).
@@ -37,15 +37,51 @@ The inbound endpoint captures CDC events and injects them into a mediation seque
 
 This enables the publication of **AccountChangeEvent** events.
 
-## Step 2: Reset Security Token
+## Step 2: Set up Salesforce Authentication
 
-1. **Login** to Salesforce. Click the **User Settings** icon → **Settings**.
+The Salesforce Inbound Endpoint supports two authentication methods:
 
-2. Navigate to **Reset My Security Token** and click **Reset Security Token**.
+- **Username/Password (username-token)** — authenticates using a Salesforce username, password, and security token via the SOAP login API. This is the default authentication type.
+- **OAuth2 Client Credentials (oauth)** — authenticates using a Salesforce Connected App’s consumer key and secret via the OAuth2 Client Credentials grant. Recommended for server-to-server integrations where storing a user password is undesirable.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/reset.png" title="Reset Security Token" width="70%" alt="Reset Security Token"/>
+!!! info "Version requirement"
+    OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 2.1.17 and 3.0.5** onwards.
 
-You’ll receive the token via email.
+Choose the authentication method that fits your deployment.
+
+=== "Username/Password (username-token)"
+
+    1. **Login** to Salesforce. Click the **User Settings** icon → **Settings**.
+
+    2. Navigate to **Reset My Security Token** and click **Reset Security Token**.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/reset.png" title="Reset Security Token" width="70%" alt="Reset Security Token"/>
+
+    You will receive the new security token via email. You will need to append it to your password when configuring the inbound endpoint.
+
+=== "OAuth2 Client Credentials (oauth)"
+
+    Create a Salesforce External Client App that supports the Client Credentials flow:
+
+    1. **Login** to your **Salesforce Account** and click the **Setup** icon (top right).
+
+    2. In the **Quick Find** box, search for **External Client App Manager** (under **External Client Apps**) and open it. Alternatively, go to **App Manager** (under **Apps**) and click the **New External Client App** button in the top right.
+
+    3. Click **New External Client App**.
+
+    4. Enter an **App Name** and a **Contact Email Address**.
+
+    5. Under **OAuth Settings**, enable **Enable OAuth** and configure the following:
+        - **Callback URL**: Enter any valid URL (e.g., `https://login.salesforce.com/services/oauth2/success`).
+        - **Selected OAuth Scopes**: Add **Manage user data via APIs (api)** and any other required scopes.
+        - Enable **Enable Client Credentials Flow**.
+
+    6. Click **Create**. After saving, open the app, go to the **Settings** tab, and click **Consumer Key and Secret** to retrieve the **Consumer Key** (clientId) and **Consumer Secret** (clientSecret).
+
+    7. To assign a run-as user for the Client Credentials flow, go to the app’s **Policies** tab, click **Edit**, and set the **Run As** username to a dedicated integration user.
+
+    !!! note
+        The Client Credentials flow does not require end-user interaction and is intended for server-to-server integrations. Use a dedicated integration user with the minimum required permissions as the run-as user.
 
 ## Step 3: Configure Salesforce Inbound Endpoint (CDC) in VS Code
 
@@ -59,25 +95,49 @@ You’ll receive the token via email.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/create-inbound-ep.png" title="Create Inbound Endpoint" width="800" alt="Create Inbound Endpoint"/>
 
-4. Use the following configuration:
+4. Fill in the form with the values for your chosen authentication method:
 
-    * **Name**: SalesforceCDCInboundEP
-    * **Injecting Sequence Name**: test
-    * **Error Sequence Name**: test
-    * **Polling Interval**: 100
-    * **Salesforce Object**: `/data/AccountChangeEvent`
-    * **Package Version**: 45.0
-    * **User Name**: `<USERNAME>`
-    * **Password**: `<PASSWORD><SECURITY_TOKEN>`
-    * **Login Endpoint**: `https://login.salesforce.com`
-    * **SOAP API Version**: `45.0`
-    * **Wait Time**: `5000`
-    * **Connection Timeout**: `20000`
-    * **Execute sequentially** and **Coordination**: select
-    * **Replay**: deselect
-    * **Event ID File Path**: `<FILE_PATH>`
+    === "Username/Password (username-token)"
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/inbound-cdc-config.png" title="CDC Inbound Configuration" width="800" alt="CDC Inbound Configuration"/>
+        * **Name**: SalesforceCDCInboundEP
+        * **Injecting Sequence Name**: test
+        * **Error Sequence Name**: test
+        * **Polling Interval**: 100
+        * **Salesforce Object**: `/data/AccountChangeEvent`
+        * **Package Version**: 45.0
+        * **Authentication Type**: username-token
+        * **User Name**: `<USERNAME>`
+        * **Password**: `<PASSWORD><SECURITY_TOKEN>`
+        * **Login Endpoint**: `https://login.salesforce.com`
+        * **SOAP API Version**: `45.0`
+        * **Wait Time**: `5000`
+        * **Connection Timeout**: `20000`
+        * **Execute sequentially** and **Coordination**: select
+        * **Replay**: deselect
+        * **Event ID File Path**: `<FILE_PATH>`
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/inbound-cdc-config.png" title="CDC Inbound Configuration (username-token)" width="800" alt="CDC Inbound Configuration (username-token)"/>
+
+    === "OAuth2 Client Credentials (oauth)"
+
+        * **Name**: SalesforceCDCInboundEP
+        * **Injecting Sequence Name**: test
+        * **Error Sequence Name**: test
+        * **Polling Interval**: 100
+        * **Salesforce Object**: `/data/AccountChangeEvent`
+        * **Package Version**: 45.0
+        * **Authentication Type**: oauth
+        * **Client ID**: `<CONSUMER_KEY>`
+        * **Client Secret**: `<CONSUMER_SECRET>`
+        * **Token Endpoint**: `https://login.salesforce.com/services/oauth2/token` (use `https://test.salesforce.com/services/oauth2/token` for sandboxes)
+        * **Wait Time**: `5000`
+        * **Connection Timeout**: `20000`
+        * **Execute sequentially** and **Coordination**: select
+        * **Replay**: deselect
+        * **Event ID File Path**: `<FILE_PATH>`
+
+        !!! note
+            When using OAuth2 Client Credentials, the **User Name**, **Password**, and **Login Endpoint** fields are not required and will be ignored if provided.
 
 5. Add a **Log Mediator** to print the incoming CDC event:
 
