@@ -33,7 +33,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 4. Navigate to the source view and update it with the following configuration as required.
 
     !!! info "Version requirement"
-        OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 2.1.17 and 3.0.5** onwards.
+        OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 2.1.17** onwards.
 
     === "Username/Password (username-token)"
 
