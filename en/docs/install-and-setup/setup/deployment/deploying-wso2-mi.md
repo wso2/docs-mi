@@ -185,11 +185,15 @@ When you have Scheduled triggers in your integration deployment, each task shoul
     task_nodes = "node-1,node-2 ,node-3,node-4"
     ```
 
-#### Coordinated task delete barrier
+### RDBMS Coordination Parameters
+
+For detailed information on configuring RDBMS coordination parameters, including heartbeat configuration and rolling updates, see [RDBMS Coordination Configuration]({{base_path}}/install-and-setup/setup/feature-configs/configuring-rdbms-coordination).
+
+### Coordinated task delete barrier
 
 The cluster uses the **task delete barrier** to coordinate task cleanup during hot undeployment, preventing stale tasks and brief duplicate execution across nodes. It is **enabled by default**, and the required tables are created automatically by the standard `<MI_HOME>/dbscripts/<DB_TYPE>/<DB_TYPE>_cluster.sql` script. If you are upgrading an existing cluster (whose coordination database does not yet have these tables) or want to disable the feature, see [Configuring the Coordinated Task Delete Barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier).
 
-#### Advanced parameters
+### Advanced parameters
 
 The `resolving_period` and `resolving_frequency` properties are set by default as shown below. It is **not recommended** to change these default values.
 
