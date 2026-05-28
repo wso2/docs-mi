@@ -33,7 +33,7 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
   </tr>
   <tr>
     <td><code>connection.salesforce.authenticationType</code></td>
-    <td>The authentication method to use when connecting to Salesforce. <code>username-token</code> uses SOAP login with a username, password and token. <code>oauth</code> uses the OAuth2 Client Credentials grant type. Configurations without this parameter default to <code>username-token</code>. OAuth2 Client Credentials support is available from inbound version 2.1.17 and 3.0.5 onwards.</td>
+    <td>The authentication method to use when connecting to Salesforce. <code>username-token</code> uses SOAP login with a username, password and token. <code>oauth</code> uses the OAuth2 Client Credentials grant type. Configurations without this parameter default to <code>username-token</code>. OAuth2 Client Credentials support is available from inbound version 2.1.17 onwards.</td>
     <td>No</td>
     <td><code>username-token</code><br/><code>oauth</code></td>
     <td><code>username-token</code></td>
