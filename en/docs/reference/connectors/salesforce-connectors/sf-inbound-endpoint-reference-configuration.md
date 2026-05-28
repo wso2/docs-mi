@@ -39,25 +39,53 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
     <td>-</td>
   </tr>
   <tr>
+    <td>authenticationType</td>
+    <td>The authentication method to use when connecting to Salesforce. <code>username-token</code> uses SOAP login with a username, password and security token. <code>oauth</code> uses the OAuth2 Client Credentials grant type. Configurations without this parameter default to <code>username-token</code>. OAuth2 Client Credentials support is available from inbound version 2.1.17 onwards.</td>
+    <td>No</td>
+    <td>username-token, oauth</td>
+    <td>username-token</td>
+  </tr>
+  <tr>
     <td>loginEndpoint</td>
-    <td>The Endpoint of the Salesforce account.</td>
-    <td>Yes</td>
+    <td>The SOAP login endpoint for the Salesforce account. Required only when <code>authenticationType</code> is <code>username-token</code>.</td>
+    <td>Yes (when authenticationType = username-token)</td>
     <td>https://login.salesforce.com</td>
     <td>https://login.salesforce.com</td>
   </tr>
   <tr>
     <td>userName</td>
-    <td>The username for accessing the Salesforce account.</td>
-    <td>Yes</td>
+    <td>The username for accessing the Salesforce account. Required only when <code>authenticationType</code> is <code>username-token</code>.</td>
+    <td>Yes (when authenticationType = username-token)</td>
     <td>-</td>
     <td>-</td>
   </tr> 
   <tr>
     <td>password</td>
-    <td> The password provided here is a concatenation of the user password and the security token provided by Salesforce. For more information, see <a href="https://help.salesforce.com/articleView?id=user_security_token.htm&type=5">Information on creating a security token in Salesforce</a></td>
-    <td>Yes</td>
+    <td>The password provided here is a concatenation of the user password and the security token provided by Salesforce. Required only when <code>authenticationType</code> is <code>username-token</code>. For more information, see <a href="https://help.salesforce.com/articleView?id=user_security_token.htm&type=5">Information on creating a security token in Salesforce</a>.</td>
+    <td>Yes (when authenticationType = username-token)</td>
     <td>eitest123xxxxxxx</td>
     <td>-</td>
+  </tr>
+  <tr>
+    <td>clientId</td>
+    <td>The OAuth2 consumer key from the Salesforce Connected App. Required only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td>Yes (when authenticationType = oauth)</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>clientSecret</td>
+    <td>The OAuth2 consumer secret from the Salesforce Connected App. Required only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td>Yes (when authenticationType = oauth)</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>tokenEndpoint</td>
+    <td>The OAuth2 token endpoint URL. Use <code>https://test.salesforce.com/services/oauth2/token</code> for sandbox environments. Applicable only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td>No (when authenticationType = oauth)</td>
+    <td>https://login.salesforce.com/services/oauth2/token</td>
+    <td>https://login.salesforce.com/services/oauth2/token</td>
   </tr>
   <tr>
     <td>waitTime</td>
