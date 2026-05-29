@@ -2466,7 +2466,7 @@ The following operations require a **MessageSender** connection.
 
     ```xml
     <asb.sendPayload configKey="asbSenderConnection">
-        <messagePayload>${payload.message}</messagePayload>
+        <messagePayload>{${payload.message}}</messagePayload>
         <responseVariable>asb_sendPayload_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </asb.sendPayload>
@@ -3040,7 +3040,7 @@ These operations are used with the **PEEK_LOCK** receive mode to settle received
 
     ```xml
     <asb.complete configKey="asbReceiverConnection">
-        <sequenceNumber>${vars.asb_receive_1.payload.sequenceNumber}</sequenceNumber>
+        <sequenceNumber>{${vars.asb_receive_1.payload.sequenceNumber}}</sequenceNumber>
         <responseVariable>asb_complete_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </asb.complete>
@@ -3087,7 +3087,7 @@ These operations are used with the **PEEK_LOCK** receive mode to settle received
 
     ```xml
     <asb.abandon configKey="asbReceiverConnection">
-        <sequenceNumber>${vars.asb_receive_1.payload.sequenceNumber}</sequenceNumber>
+        <sequenceNumber>{${vars.asb_receive_1.payload.sequenceNumber}}</sequenceNumber>
         <responseVariable>asb_abandon_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </asb.abandon>
@@ -3134,7 +3134,7 @@ These operations are used with the **PEEK_LOCK** receive mode to settle received
 
     ```xml
     <asb.defer configKey="asbReceiverConnection">
-        <sequenceNumber>${vars.asb_receive_1.payload.sequenceNumber}</sequenceNumber>
+        <sequenceNumber>{${vars.asb_receive_1.payload.sequenceNumber}}</sequenceNumber>
         <responseVariable>asb_defer_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </asb.defer>
@@ -3195,7 +3195,7 @@ These operations are used with the **PEEK_LOCK** receive mode to settle received
 
     ```xml
     <asb.deadLetter configKey="asbReceiverConnection">
-        <sequenceNumber>${vars.asb_receive_1.payload.sequenceNumber}</sequenceNumber>
+        <sequenceNumber>{${vars.asb_receive_1.payload.sequenceNumber}}</sequenceNumber>
         <deadLetterReason>Processing failed</deadLetterReason>
         <deadLetterErrorDescription>Invalid message format</deadLetterErrorDescription>
         <responseVariable>asb_deadLetter_1</responseVariable>
@@ -3244,7 +3244,7 @@ These operations are used with the **PEEK_LOCK** receive mode to settle received
 
     ```xml
     <asb.renewLock configKey="asbReceiverConnection">
-        <sequenceNumber>${vars.asb_receive_1.payload.sequenceNumber}</sequenceNumber>
+        <sequenceNumber>{${vars.asb_receive_1.payload.sequenceNumber}}</sequenceNumber>
         <responseVariable>asb_renewLock_1</responseVariable>
         <overwriteBody>false</overwriteBody>
     </asb.renewLock>
