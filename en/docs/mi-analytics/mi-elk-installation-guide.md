@@ -7,6 +7,7 @@ WSO2 Micro Integrator now supports publishing operational analytics for Elastic 
 - Endpoints
 - Inbound Endpoints
 - Proxy Services
+- Data Services
 
 ## Required components from Elastic Stack
 
@@ -180,6 +181,7 @@ proxy_service_analytics.enabled = true
 sequence_analytics.enabled = true
 endpoint_analytics.enabled = true
 inbound_endpoint_analytics.enabled = true
+data_service_analytics.enabled = true
 
 ```
 
@@ -190,6 +192,7 @@ inbound_endpoint_analytics.enabled = true
 |sequence_analytics.enabled|bool|TRUE|If set to false, analytics for Sequences will not be published|
 |endpoint_analytics.enabled|bool|TRUE|If set to false, analytics for Endpoints will not be published|
 |inbound_endpoint_analytics.enabled|bool|TRUE|If set to false, analytics for Inbound Endpoints will not be published|
+|data_service_analytics.enabled|bool|TRUE|If set to false, analytics for Data Services will not be published|
 |prefix|string|SYNAPSE_ANALYTICS_DATA|This string will be used as a prefix when Elasticsearch analytics are being published. The purpose of this prefix is to distinguish log lines that hold analytics data from others. If you override this default value, you will have to update the Logstash and Filebeat configuration files accordingly.|
 |enabled|bool|FALSE|If set to true, Elasticsearch service will be enabled|
 |id|string|hostname|An identifier that will be published with the analytic|
