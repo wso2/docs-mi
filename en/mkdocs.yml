@@ -123,7 +123,7 @@ nav:
                   - Built-in User Store: install-and-setup/setup/user-stores/use-built-in-userstore-in-icp.md
                   - LDAP User Store: install-and-setup/setup/user-stores/configure-ldap-userstore-in-icp.md
                   - SSO User Store: install-and-setup/setup/user-stores/configure-sso-userstore-in-icp.md
-                  - Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores-in-icp.md
+                  - Secondary User Store: install-and-setup/setup/user-stores/configuring-secondary-user-stores-in-icp.md
           - Security:
               - Set up Keystores:
                   - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
