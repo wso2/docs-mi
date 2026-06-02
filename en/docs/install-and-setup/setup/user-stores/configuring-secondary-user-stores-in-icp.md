@@ -1,4 +1,4 @@
-# Configure Secondary User Stores in ICP
+# Configure a Secondary User Store in ICP
 
 The WSO2 Integration Control Plane (ICP) supports multiple secondary user stores alongside the primary user store. Users from secondary stores can authenticate using `username` (fallthrough) or `DOMAIN/username` (explicit domain).
 
