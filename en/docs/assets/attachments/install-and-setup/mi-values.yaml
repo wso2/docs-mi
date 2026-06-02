@@ -3,10 +3,20 @@ containerRegistry: ""
 
 wso2:
   ingress:
+    # -- Enable Ingress for MI
+    enabled: false
+  gatewayAPI:
+    # -- Enable Gateway API resources
     enabled: true
-    ingressClassName: "nginx"
-    annotations:
-      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # -- Create a Gateway resource
+    createGateway: false
+    # -- GatewayClass name
+    gatewayClassName: "envoy"
+    # -- Name of the Gateway resource
+    gatewayName: "wso2-gateway"
+    # -- Namespace of the Gateway resource
+    gatewayNamespace: "default"
+
   config:
     keyStore:
       primary:
@@ -34,18 +44,34 @@ wso2:
         # -- Primary truststore password
         password: "wso2carbon"
     icp:
-      # -- ICP URL
-      url: "https://cloud-icp:9743/dashboard/api/"
+      # -- Enable ICP connectivity
+      enabled: true
+      # -- Runtime ID (If not defined Pod UID will be used as runtime ID)
+      runtime: ""
+      # -- Environment name (must match the environment configured in ICP when the secret was generated)
+      environment: "dev"
+      # -- Project name
+      project: "MI-Project"
+      # -- Integration name
+      integration: "currency-converter"
+      # -- Secret key (obtained from ICP — copy from ICP dashboard after clicking Generate Secret)
+      secret: "xxxxx-xxxxx-xxxxx-xxxxx"
+      # -- ICP server URL (internal Kubernetes service DNS name)
+      icpUrl: "https://cloud-icp:9445"
+      # -- Set to false for local dev with self-signed ICP certificate. Never use in production.
+      sslVerify: false
   deployment:
     securityContext:
       # -- Enable/Disable AppArmor (https://kubernetes.io/docs/tutorials/security/apparmor/)
       apparmor: false
       # -- Enable/Disable seccomp profile (https://kubernetes.io/docs/tutorials/security/seccomp/)
-      seccompProfile: false
+      seccompProfile:
+        enabled: false
+      # -- The UID to run the entrypoint of the container process
       runAsUser: "10802"
-    # -- Hostname of the Micro Integrator deployment
+    # -- Hostname of the WSO2 Integrator: MI deployment
     hostname: "mi.wso2.com"
-    # -- Build version of the Micro Integrator
+    # -- Build version of the WSO2 Integrator: MI
     BuildVersion: "4.6.0"
     image:
       # -- Container image repository name
@@ -54,6 +80,6 @@ wso2:
       tag: "1.0.0"
     # -- Number of deployment replicas
     replicas: 2
-    # -- (list) Environment variables for the Micro integrator deployment
+    # -- (list) Environment variables for the WSO2 Integrator: MI deployment
     envs:
       currency_service_url: "https://dev-tools.wso2.com/gs/helpers/v1.0"

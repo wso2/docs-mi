@@ -1,18 +1,31 @@
 containerRegistry: "wso2"
 wso2:
+  subscription:
+    # -- WSO2 subscription username
+    username: "<username>"
+    # -- WSO2 subscription password
+    password: "<password>"
   ingress:
     # -- Enable Ingress for ICP
+    enabled: false
+  gatewayAPI:
+    # -- Enable Gateway API resources
     enabled: true
-    # -- Ingress class name
-    ingressClassName: "nginx"
-    # -- (list) Ingress annotations
-    annotations:
-      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # -- Create a Gateway resource
+    createGateway: true
+    # -- GatewayClass name
+    gatewayClassName: "envoy"
+    # -- Name of the Gateway resource
+    gatewayName: "wso2-gateway"
+    # -- Namespace of the Gateway resource
+    gatewayNamespace: "default"
+    # -- K8s TLS secret for configured hostname
+    tlsSecret: ""
   config:
     miUserstore:
-      # -- The user name for signing in to the Micro Integrator runtimes
+      # -- The user name for signing in to the WSO2 Integrator: MI runtimes
       username: "admin"
-      # -- The user password for signing in to the Micro Integrator runtimes.
+      # -- The user password for signing in to the WSO2 Integrator: MI runtimes.
       password: "admin"
     keyStore:
       #  -- The keystore file name
@@ -23,20 +36,23 @@ wso2:
       password: "wso2carbon"
       # -- The keystore key password
       keyPassword: "wso2carbon"
+    # -- Frontend JWT HMAC secret (at least 32 characters for HS256)
+    frontendJwtHMACSecret: "sample-frontend-jwt-hmac-secret-key-which-is-at-least-32-chars"
   deployment:
     securityContext:
       # -- Enable/Disable AppArmor (https://kubernetes.io/docs/tutorials/security/apparmor/)
       apparmor: false
       # -- Enable/Disable seccomp profile (https://kubernetes.io/docs/tutorials/security/seccomp/)
-      seccompProfile: false
+      seccompProfile:
+        enabled: false
       # -- The UID to run the entrypoint of the container process
       runAsUser: "802"
-      # -- Hostname of the ICP deployment
+    # -- Hostname of the ICP deployment
     hostname: "icp.wso2.com"
-      # -- Build version of the ICP
-    BuildVersion: "1.0.0"
+    # -- Build version of the ICP
+    BuildVersion: "2.0.0"
     image:
       # -- Container image repository name
       repository: "wso2-integration-control-plane"
       # -- Container image tag
-      tag: "1.0.0"
+      tag: "2.0.0"
