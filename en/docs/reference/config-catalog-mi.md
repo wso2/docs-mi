@@ -10648,7 +10648,8 @@ statistics.clean_interval = "1000ms"
 stat.tracer.collect_payloads=false
 stat.tracer.collect_mediation_properties=false
 inbound.core_threads = 20
-inbound.max_threads = 100</code></pre>
+inbound.max_threads = 100
+vault_registry_lookup_enabled = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -10953,6 +10954,27 @@ inbound.max_threads = 100</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>By default, Axis2 spawns a new thread to handle each outgoing message. This is done to enable non-blocking message processing behaviour. But this might exhaust the thread pool and cause erroneous behaviour in guaranteed transaction scenarios. You can use this configuration to disable this behaviour when dealing with queuing transports like JMS. This thread-switching behaviour can also be disabled at the mediation level with the use of a <a href="{{base_path}}/reference/mediators/property-reference/generic-properties/#clientapinonblocking">property</a>.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>vault_registry_lookup_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>When set to <code>true</code>, the <code>wso2:vault-lookup()</code> function checks secrets stored as properties on <code>conf:/repository/components/secure-vault</code> in the registry before falling back to <code>cipher-text.properties</code>. This enables secrets to be added or updated at runtime via the Management API without a server restart. Also protects the secure-vault registry path from being overwritten by CAPP deployments. See <a href="../../install-and-setup/setup/security/encrypting-plain-text/#managing-secrets-at-runtime">Managing Secrets at Runtime</a>.</p>
                                     </div>
                                 </div>
                             </div>

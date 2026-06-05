@@ -172,3 +172,91 @@ If you start the WSO2 Integrator: MI as a background job, you will not be able t
    ```bash
    ./micro-integrator.sh start
    ```
+
+## Managing Secrets at Runtime
+
+The steps above require a server restart whenever a new secret is added or updated. If you need to manage secrets dynamically at runtime, you can store secrets as properties in the registry and read it from there using synapse expressions.
+
+This approach uses the existing [Management API for registry resource properties]({{base_path}}/observe-and-manage/working-with-management-api/#add-properties-to-a-registry-resource) to add or update secrets at runtime, without restarting the server.
+
+!!! note
+    Secrets managed this way are only accessible in synapse configurations via synapse expressions. They cannot be referenced in server configuration files such as `deployment.toml` (e.g., using `$secret{alias}`).
+
+### Step 1: Enable registry-backed vault lookup
+
+Add the following to `deployment.toml` and restart the server **once** to enable the feature:
+
+```toml
+[mediation]
+vault_registry_lookup_enabled = true
+```
+
+Once enabled:
+
+- `wso2:vault-lookup('<alias>')` or `${wso2:vault-lookup('<alias>')}` checks for the secret as a property on `conf:/repository/components/secure-vault` before falling back to `cipher-text.properties`.
+
+### Step 2: Encrypt the secret value
+
+You must store secrets in encrypted form. Use one of the following methods to obtain the ciphertext.
+
+**Option A: Using MI CLI (recommended)**
+
+Initialize the keystore once, pointing to the same JKS keystore configured in MI:
+
+```bash
+mi secret init
+```
+
+Then encrypt the secret interactively. The ciphertext is printed to the console:
+
+```bash
+mi secret create
+```
+
+For more information, see [Encrypting Secrets with MI CLI]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#encrypting-secrets-with-mi-cli).
+
+**Option B: Using the Cipher Tool**
+
+```bash
+sh <MI_HOME>/bin/ciphertool.sh
+```
+
+Copy the encrypted output (ciphertext) from either option.
+
+### Step 3: Obtain a Management API access token
+
+```bash
+curl -X GET "https://localhost:9164/management/login" \
+  -H "Authorization: Basic <base64(username:password)>" -k
+```
+
+Copy the `AccessToken` value from the response.
+
+### Step 4: Add the secret via the Management API
+
+Use the registry resource properties endpoint to store the encrypted value at the secure-vault registry path:
+
+```bash
+curl -X POST \
+  "https://localhost:9164/management/registry-resources/properties?path=registry/config/repository/components/secure-vault" \
+  -H "Authorization: Bearer {AccessToken}" \
+  -H "Content-Type: application/json" \
+  -d '[{"name": "<alias>", "value": "<encrypted_value>"}]' -k
+```
+
+- Replace `<alias>` with the alias you will reference in your synapse configuration (e.g., `myEndpointPassword`).
+- Replace `<encrypted_value>` with the ciphertext from Step 2.
+
+The secret is immediately available — no server restart is required.
+
+### Step 5: Reference the secret in synapse configurations
+
+```xml
+<variable name="password" expression="${wso2-vault('myEndpointPassword')}"/>
+```
+
+If you are using xpath expressions, use the following syntax:
+
+```xml
+<variable name="password" expression="wso2:vault-lookup('myEndpointPassword')"/>
+```
