@@ -10580,7 +10580,8 @@ statistics.clean_interval = "1000ms"
 stat.tracer.collect_payloads=false
 stat.tracer.collect_mediation_properties=false
 inbound.core_threads = 20
-inbound.max_threads = 100</code></pre>
+inbound.max_threads = 100
+vault_registry_lookup_enabled = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -10864,6 +10865,27 @@ inbound.max_threads = 100</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Set this property to true and enable tracing for the required integration artifact to record the following information:&lt;ul&gt;&lt;li&gt;Message context properties.&lt;/li&gt;&lt;li&gt;Message transport-scope properties.&lt;/li&gt;&lt;/ul&gt;</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>vault_registry_lookup_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>When set to <code>true</code>, the <code>wso2:vault-lookup()</code> function checks secrets stored as properties on <code>conf:/repository/components/secure-vault</code> in the registry before falling back to <code>cipher-text.properties</code>. This enables secrets to be added or updated at runtime via the Management API without a server restart. Also protects the secure-vault registry path from being overwritten by CAPP deployments. See <a href="../../install-and-setup/setup/security/encrypting-plain-text/#managing-secrets-at-runtime">Managing Secrets at Runtime</a>.</p>
                                     </div>
                                 </div>
                             </div>
