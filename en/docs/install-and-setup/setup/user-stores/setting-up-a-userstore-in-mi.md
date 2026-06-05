@@ -4,7 +4,7 @@ A user store is a repository that stores user credentials (user names and passwo
 
 ## Users in the WSO2 Integrator: MI
 
-Find out about [user credentials in the WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/user-stores/managing-users/#users-credentials-in-the-mi).
+Find out about [user credentials in the WSO2 Integrator: MI]({{base_path}}/install-and-setup/setup/user-stores/managing-users/#user-credentials-in-the-mi).
 
 ## File-based user store (Default)
 

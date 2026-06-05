@@ -59,6 +59,14 @@ You can use the ICP server to perform the following administration tasks related
     !!! Note
         Control changes are applied to all MI runtimes where the artifact is deployed. If a runtime is offline at the time of the change, the update is applied when it reconnects.
 
+    !!! info
+        To restrict the non-admin users in the ICP from updating the deployed artifacts, you can add the following configuration to the `<ICP_HOME>/conf/deployment.toml` file.
+
+        ```toml
+        [user_access]
+        make_non_admin_users_read_only = true
+        ```
+
 -   <b>Inspect artifact source and configuration</b>
 
     View the raw XML definition of any artifact. For specific types, inspect additional details such as endpoint lists, WSDL definitions, configuration parameters, local entry values, or the child artifacts bundled in a Composite Application.
