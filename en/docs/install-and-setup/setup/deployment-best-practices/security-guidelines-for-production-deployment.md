@@ -8,6 +8,14 @@ In addition, see the [production deployment checklist]({{base_path}}/install-and
 -   [OS-level security](#os-level-security)
 -   [Network-level security](#network-level-security)
 
+!!! Note
+    In WSO2 MI, access to the **Management API** is an **intentional and expected capability** granted to authenticated users by design, 
+    as the platform is built for authorized personnel to manage integration workflows. This includes the ability to deploy artifacts and 
+    perform operations that may result in code execution on the server, which is expected behavior for an integration platform of this nature. However,
+    if stricter access control is desired, you may restrict Management API write access to administrator users only by [configuring `make_non_admin_users_read_only`]({{base_path}}/install-and-setup/setup/user-stores/managing-users#restrict-non-admin-users-from-updating-the-deployed-artifacts) in the deployment setting 
+    to further reduce the attack surface in production environments. It is the responsibility of the deploying organization to make this determination based on their business and security requirements.
+
+
 ## Runtime-level security
 
 Given below are the security guidelines for the WSO2 Integrator: MI runtimes. Note that some of these guidelines are common to both runtimes, whereas some guidelines are runtime-specific.
