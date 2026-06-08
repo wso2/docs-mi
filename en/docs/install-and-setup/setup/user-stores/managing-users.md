@@ -37,7 +37,22 @@ An existing admin user can log in to the WSO2 Integrator: MI server from the CLI
 
 ### Non-admin users
 
-Users that do not have admin privileges can access the management API, the CLI, and the ICP server to view and monitor integration artifacts and logs.
+Users without admin privileges can access the management API, the CLI, and the ICP server to update deployed artifacts, and to view and monitor integration artifacts and logs.
+
+#### Restrict non-admin users from updating the deployed artifacts
+To restrict the non-admin users from updating the deployed artifacts through **management API** and **CLI**, you can add the following configuration to the `<MI_HOME>/conf/deployment.toml` file.
+
+```toml
+[user_access]
+make_non_admin_users_read_only = true
+```
+
+To restrict the non-admin users from updating the deployed artifacts with **ICP**, you can add the following configuration to the `<ICP_HOME>/conf/deployment.toml` file.
+
+```toml
+[user_access]
+make_non_admin_users_read_only = true
+```
 
 ## Manage users and roles from the CLI
 
