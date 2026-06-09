@@ -1179,6 +1179,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
+              'develop/mi-for-vscode/mi-copilot.md': 'https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/wso2-integrator-copilot/overview/'
               'observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md': 'https://mi.docs.wso2.com/en/latest/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/'
               'install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/sample-k8s-deployment/'
               'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.6.0/get-started/build-first-integration'

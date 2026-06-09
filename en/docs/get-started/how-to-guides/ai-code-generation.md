@@ -185,9 +185,7 @@ The Copilot opens a new chat session in **Edit mode** (the default). In Edit mod
 
 The Copilot can build the project and start the MI runtime for you — no need to leave the chat panel. Send a follow-up message:
 
-```
-Build the project and start the server.
-```
+    Build the project and start the server.
 
 The agent runs the Maven build, deploys the resulting `.car`, and starts the MI runtime. You'll see tool call indicators for each step (*Running build*, *Starting MI server*) and a link to the **Runtime Services** panel in the chat when the server is up.
 

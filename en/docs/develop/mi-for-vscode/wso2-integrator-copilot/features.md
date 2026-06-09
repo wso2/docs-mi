@@ -6,7 +6,7 @@ tags:
   - ai
 ---
 
-# Features
+# WSO2 Integrator Copilot Features
 
 This page is a reference for the user-facing features of the Copilot panel. For how to use the three modes, see [Modes]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/modes).
 

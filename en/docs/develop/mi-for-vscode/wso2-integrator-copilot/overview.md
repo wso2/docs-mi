@@ -86,7 +86,7 @@ To start a new chat session, open the Copilot panel and type in the input at the
 
 Press **Enter**. The Copilot opens a new chat session in **Edit mode** (the default) and starts working:
 
-- You see the Copilot's reasoning stream in live, followed by **tool call indicators** (for example, *reading file*, *adding connector*, *writing `src/main/wso2mi/artifacts/apis/OrderAPI.xml`*).
+- You see the Copilot's reasoning stream live, followed by **tool call indicators** (for example, *reading file*, *adding connector*, *writing `src/main/wso2mi/artifacts/apis/OrderAPI.xml`*).
 - Files it creates or edits appear on a **Checkpoint** card at the bottom of the conversation, with **Accept** and **Undo** buttons so you can review before keeping the changes.
 - When it finishes, you can ask a follow-up (for example, *"Add a `POST /orders` resource too"*) and the Copilot continues from the same context.
 
