@@ -97,6 +97,27 @@ Mentions are a quick way to point the Copilot at a specific file or directory wi
 
 The Copilot reads the mentioned file automatically — you don't need to attach it.
 
+## Project instructions with AGENTS.md
+
+You can pin project-specific instructions for the Copilot by creating an `AGENTS.md` file at the **root of your project**. This follows the same convention used by other AI coding tools (such as Claude Code's `CLAUDE.md` and the [`AGENTS.md`](https://agents.md) spec), so a single file can guide multiple tools.
+
+Use it to capture the conventions you'd otherwise have to repeat in every prompt — for example:
+
+- House style and naming conventions (*"Name all sequences in `PascalCase` and suffix them with `Seq`."*)
+- Preferred approaches (*"Always use the data mapper for JSON-to-XML transformations rather than PayloadFactory."*)
+- Project-specific context (*"Connections live in `src/main/wso2mi/artifacts/local-entries`; reuse `OpenWeather` instead of creating new ones."*)
+
+The Copilot treats `AGENTS.md` as authoritative guidance layered on top of its built-in system prompt: **on conflict, your instructions take precedence.**
+
+### How it's loaded
+
+- `AGENTS.md` is **loaded automatically** — there's nothing to attach or `@mention`. Just keep the file at the project root.
+- It is re-sent to the Copilot **only when its contents change**, so it doesn't consume tokens on every turn.
+- Edit the file and the Copilot picks up the new instructions on your next message. Delete it and the Copilot discards the project-level instructions it had sourced from it.
+
+!!! info "Size limit"
+    `AGENTS.md` is capped at **30 KB**. If the file is larger, the Copilot uses only the first 30 KB and shows an **AGENTS.md truncated** notice in the conversation so both you and the Copilot know that rules beyond that point are not in context. Keep the file focused and concise.
+
 ## Sessions
 
 Each conversation you have with the Copilot is a **session**. Sessions are saved automatically and you can switch between them from the **session switcher** in the header.
