@@ -33,10 +33,10 @@ MI for VS Code is the comprehensive developer tool, which you will use to <b>dev
     </tr>
     <tr>
         <td>
-            <a href="{{base_path}}/develop/mi-for-vscode/mi-copilot">MI Copilot</a>
+            <a href="{{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview">WSO2 Integrator Copilot</a>
         </td>
         <td>
-            Explore the capabilities of MI Copilot and learn how to integrate it into your projects.
+            Explore the conversational AI assistant built into MI for VS Code — Ask, Edit, and Plan modes, checkpoints, attachments, and more.
         </td>
     </tr>
 </table>

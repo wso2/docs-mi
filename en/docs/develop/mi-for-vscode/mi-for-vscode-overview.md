@@ -60,19 +60,27 @@ Shown below is the **Project Overview** of a sample integration project.
 
 <a href="{{base_path}}/assets/img/develop/mi-for-vscode/project-overview.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/project-overview.png" alt="project overview" width="80%"></a>
 
-## WSO2 MI Copilot
+## WSO2 Integrator Copilot
 
-WSO2 Integrator:  MI Copilot is an AI-powered tool that simplifies the creation of integration scenarios. By describing your requirements in natural language or uploading relevant files, MI Copilot generates the necessary integration artifacts for seamless project integration.
+WSO2 Integrator Copilot is a conversational AI assistant built into MI for VS Code. It reads your project, generates and edits integration artifacts, adds connectors, validates Synapse XML, and can even build the project and run the MI runtime — all from a chat panel in the IDE.
 
-Clicking on the **Open AI Panel** icon located in the top right corner of VS Code will open the WSO2 MI Copilot interface.
+Click the **Open AI Panel** icon in the top right corner of VS Code to open the Copilot panel.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" alt="Open AI Panel" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/open-ai-panel.png" alt="Open the Copilot panel" width="80%"></a>
 
-You can create any integration project by entering your integration scenario in natural language into the provided text box, allowing AI to generate the necessary artifacts.
+The Copilot has three modes you can pick per message:
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" alt="MI Copilot" width="80%"></a>
+- **Ask** — read-only, for exploring and previewing suggestions.
+- **Edit** — the default working mode; the Copilot implements changes directly in your project with a checkpoint you can undo.
+- **Plan** — write a reviewable plan first, get your approval, then switch back to Edit to execute it.
 
-For more information on WSO2 MI Copilot and its capabilities, see [MI Copilot]({{base_path}}/develop/mi-for-vscode/mi-copilot) documentation.
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-copilot.png" alt="Copilot panel" width="80%"></a>
+
+Learn more:
+
+- [WSO2 Integrator Copilot — Overview]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview) — opening the panel, signing in, and your first message.
+- [Modes: Ask, Edit, and Plan]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/modes) — when to use each mode, with walkthroughs.
+- [Features]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/features) — checkpoints, plan approval, attachments, sessions, model selection, and usage limits.
 
 ## Samples
 
