@@ -53,3 +53,29 @@ To monitor messages from client to server using TCPMon:
     windows.
 
     ![TCPMon console option]({{base_path}}/assets/img/integrate/tcp/tcp-console-options.png)
+
+## Using TCPMon with WSO2 Micro Integrator
+
+When developing integrations with WSO2 Micro Integrator (MI), you can use TCPMon to monitor messages in two main ways: intercepting messages sent to the MI, and intercepting messages sent from the MI to an external backend.
+
+### 1. Monitoring Messages Sent TO WSO2 MI (Client -> TCPMon -> MI)
+
+If you want to inspect the requests sent from a client application before they reach a proxy service or API hosted on the Micro Integrator:
+
+1. Identify the port your MI service is listening on (e.g., `8290` for HTTP).
+2. Open TCPMon and add a listener on an unused port (e.g., `8291`).
+3. Set the **Target Hostname** to `localhost` (or the IP of the MI server).
+4. Set the **Target Port** to `8290`.
+5. Update your client application to send its requests to the TCPMon listener port (`http://localhost:8291/...`) instead of directly to the MI. 
+6. TCPMon will capture the incoming request, display it, and forward it to the Micro Integrator.
+
+### 2. Monitoring Messages Sent FROM WSO2 MI (MI -> TCPMon -> Backend)
+
+To inspect the outgoing payload the Micro Integrator sends to an external backend service:
+
+1. Identify the backend service hostname and port (e.g., `backend.com` on port `80`).
+2. Open TCPMon and add a listener on an unused local port (e.g., `8081`).
+3. Set the **Target Hostname** to the backend's hostname (`backend.com`).
+4. Set the **Target Port** to the backend's port (`80`).
+5. In your Micro Integrator integration artifact (e.g., the `<endpoint>` definition), change the target URL to point to the TCPMon listener (`http://localhost:8081/...`) instead of the actual backend URL.
+6. When the MI routes a message to the endpoint, it will go through TCPMon, allowing you to view the exact payload before it is forwarded to the backend.
