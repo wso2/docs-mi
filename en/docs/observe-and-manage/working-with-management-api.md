@@ -552,14 +552,31 @@ The management API has multiple resources to provide information regarding the d
 	      "faultyCount": 1,
 	      "activeList": [
 	        {
-	          "name": "SampleServicesCompositeApplication",
-	          "version": "1.0.0"
+	          "name": "data-service-proj",
+	          "version": "1.0.0",
+	          "artifacts": [
+	            {
+	              "name": "ds",
+	              "type": "dataservice"
+	            },
+	            {
+	              "name": "config",
+	              "type": "property"
+	            }
+	          ]
 	        }
 	      ],
 	      "faultyList": [
 	        {
-	          "name": "FaultyCAppCompositeExporter",
-	          "version": "1.0.0"
+	          "name": "samplecapp",
+	          "errorMessage": "API deployment from the file : /wso2mi/tmp/carbonapps/-1234/samplecapp_1.0.0.car/FaultyAPI_1.0.0/FaultyAPI-1.0.0.xml : Failed.",
+	          "version": "1.0.0",
+	          "artifacts": [
+	            {
+	              "name": "FaultyAPI",
+	              "type": "api"
+	            }
+	          ]
 	        }
 	      ]
 	    }
@@ -650,6 +667,28 @@ The management API has multiple resources to provide information regarding the d
 	```
 	curl -X GET "https://localhost:9164/management/applications?carbonAppName=HelloCApp" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
+
+-	**Resource**: `/applications/{name}/fault`
+
+	**Description**: Retrieves the fault details including the stack trace of a faulty carbon application.
+
+	**Example**:
+
+    === "Request"
+	    ```bash
+	    curl --location 'https://localhost:9164/management/applications/samplecapp/fault' \
+	    --header 'Accept: application/json' \
+	    --header 'Authorization: Bearer TOKEN'
+	    ```
+    === "Response"
+	    ```json
+	    {
+	        "name": "samplecapp",
+	        "errorMessage": "API deployment from the file : /wso2mi/tmp/carbonapps/-1234/samplecapp_1.0.0.car/FaultyAPI_1.0.0/FaultyAPI-1.0.0.xml : Failed.",
+	        "version": "1.0.0",
+	        "faultStackTrace": "<STACK_TRACE>"
+	    }
+	    ```
 
 ### ADD CARBON APPLICATIONS
 
@@ -1605,7 +1644,7 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/data-services`
 
-	**Description**: Retrieves a list of all data services deployed.
+	**Description**: Retrieves a list of all successfully deployed data services. If any standalone `.dbs` data services have failed to deploy, they are included in the `faultyList` of the response.
 
 	**Example**:
 
@@ -1623,6 +1662,13 @@ The management API has multiple resources to provide information regarding the d
 	    	    "wsdl1_1": "http://Sachiths-MacBook-Pro.local:8290/services/StudentDataService?wsdl",
 	    	    "wsdl2_0": "http://Sachiths-MacBook-Pro.local:8290/services/StudentDataService?wsdl2"
 	    	}
+	        ],
+	        "faultyCount": 1,
+	        "faultyList": [
+	            {
+	                "name": "SampleDataService",
+	                "errorMessage": "DS Fault Message: Access denied for user 'root'@'localhost' (using password: YES)\nDS Code: CONNECTION_UNAVAILABLE_ERROR\n"
+	            }
 	        ]
 	    }
 	    ```
@@ -1657,6 +1703,27 @@ The management API has multiple resources to provide information regarding the d
 	```bash
 	curl -X GET "https://localhost:9164/management/data-services?dataServiceName=StudentDataService" -H "accept:          application/json" -H "Authorization: Bearer TOKEN" -k -i
 	```
+
+-	**Resource**: `/data-services/{name}/fault`
+
+	**Description**: Retrieves the fault details including the stack trace of a faulty data service.
+
+	**Example**:
+
+    === "Request"
+	    ```bash
+	    curl -X GET "https://localhost:9164/management/data-services/SampleDataService/fault" \
+	    -H "accept: application/json" \
+	    -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"
+	    ```json
+	    {
+	        "serviceName": "SampleDataService",
+	        "errorMessage": "DS Fault Message: Access denied for user 'root'@'localhost' (using password: YES)\nDS Code: CONNECTION_UNAVAILABLE_ERROR\n",
+	        "faultStackTrace": "<STACK_TRACE>"
+	    }
+	    ```
 
 ### GET DATA SOURCES
 -	**Resource**: `/data-sources`
