@@ -337,34 +337,37 @@ The above log describes the failover capability of the tasks when the task serve
 
 ## Monitor the cluster with ICP
 
-1. Follow the instructions in the [Installing the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane) guide to set up ICP.
+1. Follow the instructions in the [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane) guide to set up ICP.
 
-2. After installing ICP, configure each WSO2 Integrator: MI node to connect with it. Open the `deployment.toml` file located in the `<MI_HOME>/conf` directory of each server instance and update the configurations as follows:
+2. After installing ICP, refer the [Connect an MI-based Integration to ICP]({{base_path}}//install-and-setup/install/connecting-an-integration-to-icp/) guide to configure each WSO2 Integrator: MI node to connect with it. Open the `deployment.toml` file located in the `<MI_HOME>/conf` directory of each server instance and update the configurations as follows:
 
     Node 1:
     
     ```
-    [dashboard_config]
-    dashboard_url = "https://localhost:9743/dashboard/api/"
-    heartbeat_interval = 5
-    group_id = "mi_dev"
-    node_id = "dev_node_1"
+    [icp_config]
+    enabled = true
+    environment = "dev"
+    project     = "mi_dev_project"
+    integration = "mi_dev_integration"
+    runtime = "dev_node_1"
+    secret = "<generated secret>"
     ```
     
     Node 2:
     
     ```
-    [dashboard_config]
-    dashboard_url = "https://localhost:9743/dashboard/api/"
-    heartbeat_interval = 5
-    group_id = "mi_dev"
-    node_id = "dev_node_2"
+    [icp_config]
+    enabled = true
+    environment = "dev"
+    project     = "mi_dev_project"
+    integration = "mi_dev_integration"
+    runtime = "dev_node_2"
+    secret = "<generated secret>"
     ```
 
-   Refer to the [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/) guide for further details.
-
-3. Start the ICP by following the instructions in the [Starting the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#starting-the-integration-control-plane) guide.
+3. Start the ICP by following the instructions in the [Start the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#start-the-integration-control-plane) guide.
 
 4. Next, start all WSO2 Integrator: MI instances using the steps mentioned in the [Starting MI Server]({{base_path}}/install-and-setup/install/running-the-mi/#starting-the-mi-server) guide.
 
-5. Once all components are running, access the ICP dashboard by following the instructions in the [Accessing the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#accessing-the-integration-control-plane) guide. You should see all configured WSO2 Integrator: MI nodes listed in the ICP dashboard.
+5. Once all components are running, access the ICP dashboard by following the instructions in the [Sign into the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#sign-in-to-the-integration-control-plane) guide. You should see all configured WSO2 Integrator: MI nodes listed as runtimes.
+
