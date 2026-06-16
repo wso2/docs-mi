@@ -256,14 +256,14 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 
-9. Create the **Message Inject Sequence** named `enrollmentProcessingSeq` using the **RabbitMQ Consumer - Message Inject Sequence** configuration given above.
-10. Create the **Error Sequence** named `enrollmentErrorSeq` using the **RabbitMQ Consumer - Error Sequence** configuration given above.
-11. Create the **Inbound Endpoint** named `RabbitMQEnrollmentEP` using the **RabbitMQ Consumer** configuration given above, and configure it to inject messages into the `enrollmentProcessingSeq` sequence and handle errors via the `enrollmentErrorSeq` sequence. Refer to the [RabbitMQ (AMQP 1.0) Inbound Endpoint Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Inbound Endpoint.
-12. Before creating the REST API, create the local entry for the RabbitMQ connection using the **RabbitMQ Producer - Connection Configuration** given above. Refer to the [RabbitMQ (AMQP 1.0) Connector Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Connector `publishMessage` operation.
-13. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `EnrollmentAPI` with context `/enrollment` using the **RabbitMQ Producer** configuration given above.
-14. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
-15. Make the `http://localhost:8280/enrollment-backend` backend endpoint unavailable temporarily to simulate failures.
-16. Send the following payload as an HTTP POST request to `http://localhost:8290/enrollment`:
+3. Create the **Message Inject Sequence** named `enrollmentProcessingSeq` using the **RabbitMQ Consumer - Message Inject Sequence** configuration given above.
+4. Create the **Error Sequence** named `enrollmentErrorSeq` using the **RabbitMQ Consumer - Error Sequence** configuration given above.
+5. Create the **Inbound Endpoint** named `RabbitMQEnrollmentEP` using the **RabbitMQ Consumer** configuration given above, and configure it to inject messages into the `enrollmentProcessingSeq` sequence and handle errors via the `enrollmentErrorSeq` sequence. Refer to the [RabbitMQ (AMQP 1.0) Inbound Endpoint Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Inbound Endpoint.
+6. Before creating the REST API, create the local entry for the RabbitMQ connection using the **RabbitMQ Producer - Connection Configuration** given above. Refer to the [RabbitMQ (AMQP 1.0) Connector Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Connector `publishMessage` operation.
+7. Create the [REST API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `EnrollmentAPI` with context `/enrollment` using the **RabbitMQ Producer** configuration given above.
+8. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
+9. Make the `http://localhost:8280/enrollment-backend` backend endpoint unavailable temporarily to simulate failures.
+10. Send the following payload as an HTTP POST request to `http://localhost:8290/enrollment`:
 
     ```xml
     <Enrollment>
@@ -282,4 +282,4 @@ Create the artifacts:
     </Enrollment>'
     ```
 
-17. You will see that the failed message is retried 3 times with a 60-second delay between each attempt (enforced by the `enrollment-error` queue TTL), and then moved to the `enrollment-final-error` queue once the maximum retry count is exceeded.
+11. You will see that the failed message is retried 3 times with a 60-second delay between each attempt (enforced by the `enrollment-error` queue TTL), and then moved to the `enrollment-final-error` queue once the maximum retry count is exceeded.
