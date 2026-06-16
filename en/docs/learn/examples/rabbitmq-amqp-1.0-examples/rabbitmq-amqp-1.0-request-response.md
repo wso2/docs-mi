@@ -23,11 +23,9 @@ See the instructions on how to [build and run](#build-and-run) this example.
                 <parameter name="rabbitmq.server.port">5672</parameter>
                 <parameter name="rabbitmq.queue.name">order-request</parameter>
                 <parameter name="rabbitmq.queue.type">QUORUM</parameter>
-                <parameter name="rabbitmq.queue.auto.declare">true</parameter>
-                <parameter name="rabbitmq.exchange.name">order-request-exchange</parameter>
+                <parameter name="rabbitmq.queue.auto.declare">false</parameter>
                 <parameter name="rabbitmq.exchange.type">DIRECT</parameter>
-                <parameter name="rabbitmq.exchange.auto.declare">true</parameter>
-                <parameter name="rabbitmq.routing.key">order-request</parameter>
+                <parameter name="rabbitmq.exchange.auto.declare">false</parameter>
                 <parameter name="rabbitmq.connection.sasl.mechanism">PLAIN</parameter>
                 <parameter name="rabbitmq.connection.oauth2.enabled">false</parameter>
                 <parameter name="rabbitmq.server.user.name">guest</parameter>
@@ -140,7 +138,7 @@ See the instructions on how to [build and run](#build-and-run) this example.
                     <requestCharSet></requestCharSet>
                     <responseCharSet></responseCharSet>
                     <queue>order-request</queue>
-                    <queueAutoDeclare>false</queueAutoDeclare>
+                    <queueAutoDeclare>true</queueAutoDeclare>
                     <queueType>QUORUM</queueType>
                     <queueArguments></queueArguments>
                     <deliveryLimit></deliveryLimit>
@@ -148,7 +146,8 @@ See the instructions on how to [build and run](#build-and-run) this example.
                     <queueAutoDelete>false</queueAutoDelete>
                     <queueOverflowStrategy>DROP_HEAD</queueOverflowStrategy>
                     <replyToQueue>order-reply</replyToQueue>
-                    <replyToQueueAutoDeclare>false</replyToQueueAutoDeclare>
+                    <replyToQueueAutoDeclare>true</replyToQueueAutoDeclare>
+                    <replyToQueueType>QUORUM</replyToQueueType>
                     <replyToQueueArguments></replyToQueueArguments>
                     <replyToQueueDeliveryLimit></replyToQueueDeliveryLimit>
                     <replyToQueueDeadLetterStrategy></replyToQueueDeadLetterStrategy>
