@@ -111,10 +111,10 @@ Create the artifacts:
 
 {!includes/build-and-run.md!}
 
-7. Create the **Message Inject Sequence** named `ordersProcessingSeq` using the **RabbitMQ Consumer - Message Inject Sequence** configuration given above.
-8. Create the **Error Sequence** named `ordersErrorSeq` using the **RabbitMQ Consumer - Error Sequence** configuration given above.
-9. Create the **Inbound Endpoint** named `RabbitMQOrdersEP` using the **RabbitMQ Consumer** configuration given above, and configure it to inject messages into the `ordersProcessingSeq` sequence and handle errors via the `ordersErrorSeq` sequence. Refer to the [RabbitMQ (AMQP 1.0) Inbound Endpoint Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Inbound Endpoint.
-10. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
-11. Make the `http://localhost:8280/orders-backend` endpoint unavailable temporarily.
-12. Publish a message to the `orders` queue.
-13. You will see that the failed message has been moved to the `orders-error` queue via the dead letter exchange.
+3. Create the **Message Inject Sequence** named `ordersProcessingSeq` using the **RabbitMQ Consumer - Message Inject Sequence** configuration given above.
+4. Create the **Error Sequence** named `ordersErrorSeq` using the **RabbitMQ Consumer - Error Sequence** configuration given above.
+5. Create the **Inbound Endpoint** named `RabbitMQOrdersEP` using the **RabbitMQ Consumer** configuration given above, and configure it to inject messages into the `ordersProcessingSeq` sequence and handle errors via the `ordersErrorSeq` sequence. Refer to the [RabbitMQ (AMQP 1.0) Inbound Endpoint Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Inbound Endpoint.
+6. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
+7. Make the `http://localhost:8280/orders-backend` endpoint unavailable temporarily.
+8. Publish a message to the `orders` queue.
+9. You will see that the failed message has been moved to the `orders-error` queue via the dead letter exchange.
