@@ -104,8 +104,8 @@ See the instructions on how to [build and run](#build-and-run) this example.
 1. Make sure you have a RabbitMQ broker instance running.
 2. Create an exchange with the name `orders-exchange` (type: DIRECT, durable: true).
 3. Create another exchange `orders-error-exchange` (type: DIRECT, durable: true).
-4. Create queue `orders-error` (durable: true) and bind it to `orders-error-exchange` with routing key `orders-error`.
-5. Create queue `orders` (durable: true) with a dead letter exchange configured to `orders-error-exchange` and dead letter routing key `orders-error`, then bind it to `orders-exchange` with routing key `orders`.
+4. Create CLASSIC type queue `orders-error` (durable: true) and bind it to `orders-error-exchange` with routing key `orders-error`.
+5. Create QUORUM type queue `orders` (durable: true) with a dead letter exchange configured to `orders-error-exchange` and dead letter routing key `orders-error`, then bind it to `orders-exchange` with routing key `orders`.
 
 Create the artifacts:
 
