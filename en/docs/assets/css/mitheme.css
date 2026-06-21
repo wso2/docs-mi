@@ -451,3 +451,35 @@ header>.md-grid {
 .custom-integration-list .md-nav__link--completed .custom-number {
     background-color: #f57c00;
 }
+
+/* Bordered tab windows for image/screenshot tabs (opt-in). Add a hidden
+   `<span class="image-tabs"></span>` marker to a page to box its content tabs and
+   shrink each window to the screenshot. Scoped via :has() so only pages with the
+   marker are affected. Intended for tabs whose content is a single image. */
+.image-tabs {
+    display: none;
+}
+
+.md-content__inner:has(.image-tabs) .tabbed-set {
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 6px;
+    padding: 0.2rem 0.8rem 0.6rem;
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* Let the tab image fill the (now content-sized) window without extra gaps. */
+.md-content__inner:has(.image-tabs) .tabbed-set .tabbed-content img {
+    display: block;
+}
+
+/* Distribute the tab labels equally across the window width so they are all the
+   same size regardless of label text length. */
+.md-content__inner:has(.image-tabs) .tabbed-set > .tabbed-labels {
+    display: flex;
+}
+
+.md-content__inner:has(.image-tabs) .tabbed-set > .tabbed-labels > label {
+    flex: 1 1 0;
+    text-align: center;
+}
