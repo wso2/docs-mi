@@ -15,7 +15,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configuration**
 
-    ```xml
+```xml
     <bigquery.init>
         <apiUrl>{$ctx:apiUrl}</apiUrl>
         <accessToken>{$ctx:accessToken}</accessToken>
@@ -28,7 +28,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         <quotaUser>{$ctx:quotaUser}</quotaUser>
         <userIp>{$ctx:userIp}</userIp>
     </bigquery.init>
-    ```
+```
 
     <table>
         <tr>
@@ -110,7 +110,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
     
     Alternatively, you can use the following operation (getAccessTokenFromServiceAccount) to get the access token and to do all the other operations.
 
-    ```xml
+```xml
     <bigquery.getAccessTokenFromServiceAccount>
         <apiUrl>{$ctx:apiUrl}</apiUrl>
         <keyStoreLocation>{$ctx:keyStoreLocation}</keyStoreLocation>
@@ -118,7 +118,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         <scope>{$ctx:scope}</scope>
         <accessTokenRegistryPath>{$ctx:accessTokenRegistryPath}</accessTokenRegistryPath>
     </bigquery.getAccessTokenFromServiceAccount>
-    ```
+```
 
     <table>
         <tr>
@@ -155,7 +155,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     You can also use the below operation (getAccessTokenFromAuthorizationCode) to get the access token and to do all the other operations.
 
-    ```xml
+```xml
     <bigquery.getAccessTokenFromAuthorizationCode>
         <apiUrl>{$ctx:apiUrl}</apiUrl>
         <authorizationCode>{$ctx:authorizationCode}</authorizationCode>           
@@ -164,7 +164,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         <clientId>{$ctx:clientId}</clientId>
         <registryPath>{$ctx:registryPath}</registryPath>
     </bigquery.getAccessTokenFromAuthorizationCode>
-    ```
+```
 
     <table>
         <tr>
@@ -189,12 +189,12 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         </tr>
         <tr>
             <td>clientSecret</td>
-            <td>The space delimited scope to access the API.</td>
+            <td>The client secret for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>clientId</td>
-            <td>The registry path to store the access token (this is an optional parameter).</td>
+            <td>The client ID for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -206,14 +206,14 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     You can also use the below operation (getAccessTokenFromRefreshToken) to get the access token and to do all the other operations.
 
-    ```xml
+```xml
     <bigquery.getAccessTokenFromRefreshToken>
         <apiUrl>{$ctx:apiUrl}</apiUrl>
         <clientSecret>{$ctx:clientSecret}</clientSecret>
         <clientId>{$ctx:clientId}</clientId>
         <refreshToken>{$ctx:refreshToken}</refreshToken>
     </bigquery.getAccessTokenFromRefreshToken>
-    ```
+```
 
     <table>
         <tr>
@@ -228,12 +228,12 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         </tr>
         <tr>
             <td>clientSecret</td>
-            <td>The space delimited scope to access the API.</td>
+            <td>The client secret for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>clientId</td>
-            <td>The registry path to store the access token (this is an optional parameter).</td>
+            <td>The client ID for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -245,14 +245,14 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample request**
 
-    ```json
+```json
     {
         "apiUrl": "https://www.googleapis.com",
         "clientId": "504627865627-kdni8r2s10sjcgd4v6stthdaqb4bvnba.apps.googleusercontent.com",
         "refreshToken": "1/uWful-diQNAdk-alDUa6ixxxxxxxx-LpJIikEQ2sqA",
         "clientSecret": "ChlbHI_T7zssXXTRYuqj_-TM"
     }
-    ```
+```
 
     
 ---
@@ -281,16 +281,16 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.getDataset>
         <projectId>{$ctx:projectId}</projectId>
         <datasetId>{$ctx:datasetId}</datasetId>
     </bigquery.getDataset>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "accessToken": "ya29.BwKYx40Dith1DFQBDjZOHNqhcxmKs9zbkjAWQa1q8mdMFndp2-q8ifG66fwprOigRwKSNw",
         "apiUrl": "https://www.googleapis.com",
@@ -309,11 +309,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "ifNoneMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8",
         "ifMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8"
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#dataset",
         "etag": "1xuEK5ngZZ+fj0iioOa6Og==",
@@ -347,7 +347,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "location": "US",
         "defaultPartitionExpirationMs": "5184000000"
     }
-    ```
+```
 
 ??? note "listDatasets"
     The listDatasets operation lists a set of data. For more information, see related [BigQuery documentation](https://cloud.google.com/bigquery/docs/reference/v2/datasets/list).
@@ -381,18 +381,18 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.listDatasets>
         <projectId>{$ctx:projectId}</projectId>
         <maxResults>{$ctx:maxResults}</maxResults>
         <pageToken>{$ctx:pageToken}</pageToken>
         <isAll>{$ctx:isAll}</isAll>
     </bigquery.listDatasets>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "accessToken": "ya29.BwKYx40Dith1DFQBDjZOHNqhcxmKs9zbkjAWQa1q8mdMFndp2-q8ifG66fwprOigRwKSNw",
         "apiUrl": "https://www.googleapis.com",
@@ -413,11 +413,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "ifNoneMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8",
         "ifMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8"
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#datasetList",
         "etag": "5xsXo/uZ5RUfG49EzOV9Gg==",
@@ -433,7 +433,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
             }
         ]
     }
-    ```
+```
 
 ### Jobs
 
@@ -499,7 +499,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.runQuery>
         <useQueryCache>{$ctx:useQueryCache}</useQueryCache>
         <timeoutMs>{$ctx:timeoutMs}</timeoutMs>
@@ -512,11 +512,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         <kind>{$ctx:kind}</kind>
         <useLegacySql>{$ctx:useLegacySql}</useLegacySql>
     </bigquery.runQuery>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "quotaUser":"1hx46f5g4h5ghx6h41x54gh6f4hx",
         "userIp":"192.77.88.12",
@@ -541,11 +541,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "ifNoneMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8",
         "ifMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8"
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#queryResponse",
         "schema": {
@@ -594,7 +594,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "jobComplete": true,
         "cacheHit": false
     }
-    ```
+```
 
 ### Projects
 
@@ -620,16 +620,16 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.listProjects>
         <maxResults>{$ctx:maxResults}</maxResults>
         <pageToken>{$ctx:pageToken}</pageToken>
     </bigquery.listProjects>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "accessToken" : "ya29.BwKYx40Dith1DFQBDjZOHNqhcxmKs9zbkjAWQa1q8mdMFndp2-q8ifG66fwprOigRwKSNw",
         "apiUrl" : "https://www.googleapis.com",
@@ -648,11 +648,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "ifNoneMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8",
         "ifMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8"
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#projectList",
         "etag": "jdhx8JpxmSC6iJhWFNchpw==",
@@ -678,7 +678,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         ],
         "totalItems": 2
     }
-    ```
+```
 
 ### Table data
 
@@ -724,7 +724,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.listTabledata>
         <datasetId>{$ctx:datasetId}</datasetId>
         <projectId>{$ctx:projectId}</projectId>
@@ -733,11 +733,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         <pageToken>{$ctx:pageToken}</pageToken>
         <startIndex>{$ctx:startIndex}</startIndex>
     </bigquery.listTabledata>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "accessToken": "ya29.BwKYx40Dith1DFQBDjZOHNqhcxmKs9zbkjAWQa1q8mdMFndp2-q8ifG66fwprOigRwKSNw",
         "apiUrl": "https://www.googleapis.com",
@@ -760,11 +760,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "ifNoneMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8",
         "ifMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8"
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#tableDataList",
         "etag": "RRRjVfSIc2CcCrEaLPH6Dg==",
@@ -792,7 +792,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
             }
         ]
     }
-    ```
+```
 
 ??? note "insertAllTableData"
     The insertAllTableData operation retrieves table data from a specified set of rows. For more information, see related [BigQuery documentation](https://cloud.google.com/bigquery/docs/reference/v2/tabledata/insertAll).
@@ -841,7 +841,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.insertAllTableData>
         <datasetId>{$ctx:datasetId}</datasetId>
         <projectId>{$ctx:projectId}</projectId>
@@ -851,11 +851,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         <templateSuffix>{$ctx:templateSuffix}</templateSuffix>
         <jsonPay>{$ctx:jsonPay}</jsonPay>
     </bigquery.insertAllTableData>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "apiUrl":"https://www.googleapis.com",
         "keyStoreLocation":"/home/hariprasath/Desktop/bigQuery/p12/Non Production-232c0d8ac8f2.p12",
@@ -882,11 +882,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
                     }
             }
     }
-    ```
+```
 
     Following is a sample request that inserts multiple records.
 
-    ```json
+```json
     {
         "apiUrl":"https://www.googleapis.com",
         "keyStoreLocation":"/home/hariprasath/Desktop/bigQuery/p12/Non Production-232c0d8ac8f2.p12",
@@ -916,15 +916,15 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
             }
         ]
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#tableDataInsertAllResponse"
     }
-    ```
+```
 
 ### Tables
 
@@ -955,17 +955,17 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.getTable>
         <tableId>{$ctx:tableId}</tableId>
         <datasetId>{$ctx:datasetId}</datasetId>
         <projectId>{$ctx:projectId}</projectId>
     </bigquery.getTable>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "accessToken": "ya29.BwKYx40Dith1DFQBDjZOHNqhcxmKs9zbkjAWQa1q8mdMFndp2-q8ifG66fwprOigRwKSNw",
         "apiUrl": "https://www.googleapis.com",
@@ -988,11 +988,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "ifNoneMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8",
         "ifMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8"
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#tableList",
         "etag": "ASMRI9cY0t0ilhpaFI4OMA==",
@@ -1024,7 +1024,7 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         ],
         "totalItems": 2
     }
-    ```
+```
 
 ??? note "listTables"
     The listTables operation retrieves all available tables in the specified dataset. For more information, see related [BigQuery documentation](https://cloud.google.com/bigquery/docs/reference/v2/tables/list).
@@ -1058,18 +1058,18 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
 
     **Sample configurations**
 
-    ```xml
+```xml
     <bigquery.listTables>
         <datasetId>{$ctx:datasetId}</datasetId>
         <pageToken>{$ctx:pageToken}</pageToken>
         <projectId>{$ctx:projectId}</projectId>
         <maxResults>{$ctx:maxResults}</maxResults>
     </bigquery.listTables>
-    ```
+```
 
     **Sample request**
 
-    ```json
+```json
     {
         "accessToken": "ya29.BwKYx40Dith1DFQBDjZOHNqhcxmKs9zbkjAWQa1q8mdMFndp2-q8ifG66fwprOigRwKSNw",
         "apiUrl": "https://www.googleapis.com",
@@ -1092,11 +1092,11 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         "ifNoneMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8",
         "ifMatch":"hnk59tKBkX8cdlePZ8VtzgVzuO4/tS1oqpXxnkU21hZeK5k4lqRrRr8"
     }
-    ```
+```
 
     **Sample response**
 
-    ```json
+```json
     {
         "kind": "bigquery#tableList",
         "etag": "ASMRI9cY0t0ilhpaFI4OMA==",
@@ -1128,4 +1128,4 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         ],
         "totalItems": 2
     }
-    ```
+```
