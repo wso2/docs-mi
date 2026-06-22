@@ -83,11 +83,11 @@ To develop the above scenario, let's get started with creating an integration pr
 
 2. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
 3. Click **Create New Project** on **Design View**. For more options for creating a new integration project, see [Create an Integration Project]({{base_path}}/develop/create-integration-project).
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/create_new_project_btn.png" alt="Create New Project" width="80%"></a>
 
 4. In the **Project Creation Form**, enter `EventIntegration` as the **Project Name**.
 
@@ -95,7 +95,7 @@ To develop the above scenario, let's get started with creating an integration pr
 
 6. Provide a location for the integration project under **Project Directory**.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/create_new_event_integration_project.png"><img src="{{base_path}}/assets/img/get-started/event-integration/create_new_event_integration_project.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/create_new_event_integration_project.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/create_new_event_integration_project.png" alt="Create New Project" width="80%"></a>
 
 7. Click **Create**.
 
@@ -107,11 +107,11 @@ Now that the integration project is ready, let's create a Kafka event listener.
 
 1. In the **Add Artifact** interface, under **Create an Integration**, click **Event Integration**. This will open the list of event integrations available in WSO2 Integrator: MI.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_event_integration.png" alt="Create New Project" width="80%"></a>
 
 2. Select **Kafka (Inbound)** from the list. In the confirmation pane, click **Yes** to add the required dependencies.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_kafka_listener.png" alt="Create New Project" width="80%"></a>
 
 3. In the **Create Event Integration** form, enter `BankTransactionListener` as the **Event Integration Name** and `bank-transactions` as the **Topic Name**.
 
@@ -119,7 +119,7 @@ Now that the integration project is ready, let's create a Kafka event listener.
         1. In this tutorial, you will use the local Kafka broker configured in [Step 1 – Set Up Kafka](#step-1-setup-kafka). If you plan to use a different Kafka broker, update the **Kafka Servers** field accordingly.
         2. You can use the default values for the remaining fields. For advanced configurations, refer to the [Kafka listener]({{base_path}}/reference/connectors/kafka-connector/kafka-inbound-endpoint-config/) documentation.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/configure_kafka_listener.png"><img src="{{base_path}}/assets/img/get-started/event-integration/configure_kafka_listener.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/configure_kafka_listener.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/configure_kafka_listener.png" alt="Create New Project" width="80%"></a>
 
 4. Finally, click **Create** to add the Kafka listener to your integration project.
 
@@ -132,7 +132,7 @@ Now it's time to design your integration. This defines the underlying logic that
     !!! Note
         Setting an input payload for the integration flow is not mandatory. However, it is recommended, as it will be used to enable expression suggestions, which you will explore in later steps of this tutorial.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/click_start_node_event.png"><img src="{{base_path}}/assets/img/get-started/event-integration/click_start_node_event.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/click_start_node_event.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/click_start_node_event.png" alt="Create New Project" width="80%"></a>
 
 2. Click **Add Request**, provide the following JSON payload, then click **Add**. Finally, click **Save** to complete the input payload setup.
 
@@ -145,11 +145,11 @@ Now it's time to design your integration. This defines the underlying logic that
     }
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/add_start_payload_kafka_event.gif"><img src="{{base_path}}/assets/img/get-started/event-integration/add_start_payload_kafka_event.gif" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/add_start_payload_kafka_event.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/add_start_payload_kafka_event.gif" alt="Create New Project" width="80%"></a>
 
 3. Click on the **+** icon on the canvas to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/add_first_mediator.png"><img src="{{base_path}}/assets/img/get-started/event-integration/add_first_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/add_first_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/add_first_mediator.png" alt="Create New Project" width="80%"></a>
 
     Since this is an event-driven integration, we’ll log the incoming message to ensure that events are being received by the WSO2 Integrator: MI.
 
@@ -158,7 +158,7 @@ Now it's time to design your integration. This defines the underlying logic that
     !!! Tip  
         You can use the <a target="_blank" href="{{base_path}}/reference/mediators/log-mediator/">Log mediator</a> to print the message content to the server logs. This is helpful for checking what data is being received and for debugging during development.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/select_log_mediator.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_log_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/select_log_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_log_mediator.png" alt="Create New Project" width="80%"></a>
 
 5. You will use the following template to log the message. It logs the incoming message payload along with the text `Kafka event received`. You can either copy and paste the template or use the inline expression editor to construct it.
 
@@ -166,7 +166,7 @@ Now it's time to design your integration. This defines the underlying logic that
     Kafka event received, data = ${payload}
     ```
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/add_inline_log_message.gif"><img src="{{base_path}}/assets/img/get-started/event-integration/add_inline_log_message.gif" alt="Create New Project" width="50%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/add_inline_log_message.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/add_inline_log_message.gif" alt="Create New Project" width="50%"></a>
 
 6. Click **Add** to insert the **Log** mediator into the integration flow.
 
@@ -174,7 +174,7 @@ Now it's time to design your integration. This defines the underlying logic that
 
 8. Under **Mediators**, select the **Payload** mediator.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/select_payload_mediator.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_payload_mediator.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/select_payload_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_payload_mediator.png" alt="Create New Project" width="80%"></a>
 
 9. In the **Payload** box, enter the following sample JSON object. In the next step, you will use an inline expression to extract the JSON payload from the Kafka message and insert it into this template.
 
@@ -188,7 +188,7 @@ Now it's time to design your integration. This defines the underlying logic that
 
 10. In the JSON object, place your cursor next to `"data": `, then click on the inline expression editor (<img src="{{base_path}}/assets/img/get-started/build-first-integration/inline_expression_icon.png" alt="inline expression editor" class="inline-icon">) icon. From the editor, select **Payload** → **payload**, and click **Add** to insert the inline expression into the JSON object.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/add_inline_expression_payload.gif">
+    <a href="{{base_path}}/assets/img/get-started/event-integration/add_inline_expression_payload.gif" class="glightbox">
         <img src="{{base_path}}/assets/img/get-started/event-integration/add_inline_expression_payload.gif" width="50%" alt="Add inline expression">
     </a>
 
@@ -196,21 +196,21 @@ Now it's time to design your integration. This defines the underlying logic that
 
 12. Click on the **+** icon just after the **Payload** mediator to open the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/add_mediator_after_payload.png"><img src="{{base_path}}/assets/img/get-started/event-integration/add_mediator_after_payload.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/add_mediator_after_payload.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/add_mediator_after_payload.png" alt="Create New Project" width="80%"></a>
 
     In the next steps, you will use the Kafka connector to publish the transformed message to the `bank-audit` topic.
 
 5. Search for `kafka` in the **Mediator Palette**, then click the download (<img src="{{base_path}}/assets/img/get-started/build-first-integration/connector_download_icon.png" alt="connector download icon" class="inline-icon">) icon to add the [Kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-overview/) to the project. In the confirmation pane, select **Yes** to add the required dependencies.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/select_kafka_connector.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_kafka_connector.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/select_kafka_connector.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_kafka_connector.png" alt="Create New Project" width="80%"></a>
 
 6. Once the connector is downloaded, select the `PublishMessages` operation from the **Mediator Palette**.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/select_publish_message.png"><img src="{{base_path}}/assets/img/get-started/event-integration/select_publish_message.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/select_publish_message.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/select_publish_message.png" alt="Create New Project" width="80%"></a>
 
 14. Click **+ Add new connection** to create a new connection.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_add_new_connection_btn.png"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_add_new_connection_btn.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_add_new_connection_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_add_new_connection_btn.png" alt="Create New Project" width="80%"></a>
 
 15. Select `KAFKA` and fill in the following details to create a connection to the Kafka broker. Then, click **Add** in the **Add New Connection** form to complete the connection setup. In the next step, you will configure the operational-level parameters, such as the topic to which the messages will be published.
 
@@ -225,7 +225,7 @@ Now it's time to design your integration. This defines the underlying logic that
         1. In this tutorial, you will use the local Kafka broker configured in [Step 1 – Set Up Kafka](#step-1-setup-kafka). If you plan to use a different Kafka broker, update the **Bootstrap Servers** field accordingly.
         2. You can keep the default values for the remaining fields. For more information, refer to the [Kafka connector]({{base_path}}/reference/connectors/kafka-connector/kafka-connector-config/) documentation.
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_create_new_connection.png"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_create_new_connection.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_create_new_connection.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_create_new_connection.png" alt="Create New Project" width="80%"></a>
 
 16. Fill in the following details in the **Add PublishMessages** pane, then click **Submit** to add the operation to the integration flow.
 
@@ -235,7 +235,7 @@ Now it's time to design your integration. This defines the underlying logic that
     | **Partition Number**        | `0` |
     | **Content-Type** | `application/json` |
 
-    <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_set_publish_params.png"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_set_publish_params.png" alt="Create New Project" width="30%"></a>
+    <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_set_publish_params.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_set_publish_params.png" alt="Create New Project" width="30%"></a>
 
 You have successfully completed the integration flow to listen to Kafka events and publish the transformed message to another Kafka topic. For reference, you can review the configured event listener, sequence and Kafka connection.
 
@@ -245,7 +245,7 @@ You have successfully completed the integration flow to listen to Kafka events a
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/event-integration/bank_transaction_listener_config.png"><img src="{{base_path}}/assets/img/get-started/event-integration/bank_transaction_listener_config.png" alt="Create New Project" width="40%"></a>
+        <a href="{{base_path}}/assets/img/get-started/event-integration/bank_transaction_listener_config.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/bank_transaction_listener_config.png" alt="Create New Project" width="40%"></a>
 
     === "Source View"
         ```yaml
@@ -292,7 +292,7 @@ You have successfully completed the integration flow to listen to Kafka events a
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_in_sequence_config.png"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_in_sequence_config.png" alt="ai datamapping api" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_in_sequence_config.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_in_sequence_config.png" alt="ai datamapping api" width="70%"></a>
 
     === "Source View"
         ```yaml
@@ -335,7 +335,7 @@ You have successfully completed the integration flow to listen to Kafka events a
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_connection_config.png"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_connection_config.png" alt="ai datamapping api" width="40%"></a>
+        <a href="{{base_path}}/assets/img/get-started/event-integration/kafka_connection_config.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/kafka_connection_config.png" alt="ai datamapping api" width="40%"></a>
         
     === "Source View"
         ```yaml
@@ -358,7 +358,7 @@ Now that you have completed the integration, it's time to deploy it to the WSO2 
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/get-started/event-integration/build_and_run_btn.png"><img src="{{base_path}}/assets/img/get-started/event-integration/build_and_run_btn.png" alt="ai datamapping api" width="80%"></a>
+<a href="{{base_path}}/assets/img/get-started/event-integration/build_and_run_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/event-integration/build_and_run_btn.png" alt="ai datamapping api" width="80%"></a>
 
 ## Step 6 - Test the integration
 

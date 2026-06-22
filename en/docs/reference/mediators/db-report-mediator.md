@@ -11,7 +11,7 @@ The syntax of the DB Report mediator changes depending on whether you connect to
 
 -   **Connection Pool**
     ```xml
-    <dbreport>
+    <dbreport useTransaction="true | false">
        <connection>
          <pool>
           (
@@ -37,11 +37,14 @@ The syntax of the DB Report mediator changes depending on whether you connect to
     ```
 
 -   **Data source**
-    The syntax of the DBLookup mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource. Click on the relevant tab to view the required syntax.
-    
+    The syntax of the DB Report mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource. Click on the relevant tab to view the required syntax.
+
+    !!! Note
+        You need to use a **Carbon Datasource** with the DBReport mediator for the <a href="{{base_path}}/reference/mediators/transaction-mediator">Transaction Mediator</a> to work correctly. Otherwise, operations like commit, rollback  will not function as expected.
+
     === "External Datasource"
-        ```xml 
-        <dbreport>
+        ```xml
+        <dbreport useTransaction="true | false">
            <connection>
               <pool>
                 <dsName/>
@@ -58,9 +61,9 @@ The syntax of the DB Report mediator changes depending on whether you connect to
            </statement>+
         </dbreport>
         ```
-    === "Carbon Datasource"        
-        ```xml 
-        <dbreport>
+    === "Carbon Datasource"
+        ```xml
+        <dbreport useTransaction="true | false">
            <connection>
               <pool>
                 <dsName/>
@@ -75,10 +78,7 @@ The syntax of the DB Report mediator changes depending on whether you connect to
 
 ## Configurations
 
-The configuration of the DBQuery mediator changes depending on whether you connect to the database using a connection pool, or using a data
-source.
-
-### Connection Pool configurations
+### General configurations
 
 The parameters available to configure the DB Report mediator are as follows.
 
@@ -125,6 +125,38 @@ Specifying the value as -1 allows unlimited transactions. Change the value accor
 <p>For detailed information about configuring Transaction mediators, see <a href="{{base_path}}/reference/mediators/transaction-mediator">Transaction Mediator</a> .</p>
 </div></td>
 </tr>
+</tbody>
+</table>
+
+The configuration of the DBReport mediator varies depending on whether you connect to the database using a connection pool or a datasource. Refer to the following sections accordingly.
+
+### Connection Pool configurations
+
+The parameters available to configure the DB Report mediator are as follows.
+
+!!! Info
+    When specifying the DB connection using a connection pool, other than specifying parameter values inline, you can also specify following parameter values of the connection information (i.e. Driver, URL, User and password) as registry entries. The advantage of specifying a parameter value as a registry entry is that the same connection information configurations can be used in different environments simply by changing the registry entry value. To do this, give the registry path within the `key` attribute as shown in the example below.
+    ```xml
+    <dbreport xmlns="http://ws.apache.org/ns/synapse">
+    <connection>
+        <pool>
+            <password key="conf:/repository/esb/password"/>
+            <driver key="conf:/repository/esb/driver"/>
+            <url key="conf:/repository/esb/url"/>
+            <user key="conf:/repository/esb/username"/>
+        </pool>
+    </connection>
+    </dbreport>
+    ```
+
+<table>
+<thead>
+<tr class="header">
+<th>Parameter Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr class="even">
 <td><strong>Driver</strong></td>
 <td>The class name of the database driver.</td>
@@ -230,14 +262,13 @@ Once you have defined the above parameters, enter the following properties:
 
 ### Datasource configurations
 
-The configuration of the DBLookup mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource. 
+The configuration of the DB Report mediator further differs based on whether the connection to the database is made using an external datasource or a Carbon datasource.
 
 #### External Datasource
 The parameters available to configure the DB Report mediator as an external datasource are as follows.
 
 | Parameter Name      | Description                                                                                                                                                                                   |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Use Transaction** | This parameter specifies whether the database operation should be performed within a transaction or not. Click **Yes** or **No** as relevant.                                                 |
 | **Initial Context** | The initial context factory class. The corresponding `                   Java                  ` environment property is `                   java.naming.factory.initial                  ` . |
 | **Datasource Name** | The naming service provider URL . The corresponding `                   Java                  ` environment property is `                   java.naming.provider.url                  ` .     |
 | **URL**             | The JDBC URL of the database that data will be written to.                                                                                                                                    |
@@ -274,8 +305,34 @@ Once you have defined the above parameters, enter the following properties:
 
 | Parameter Name      | Description                                                                                                                                                                                |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Use Transaction** | This parameter specifies whether the database operation should be performed within a transaction or not. Click **Yes** or **No** as relevant.                                              |
-| **Datasource**      | This parameter is used to selected a specific Carbon datasource you want to use to make the connection. All the Carbon datasources which are currently available are included in the list. |
+| **Datasource**      | This parameter is used to select a specific Carbon datasource you want to use to make the connection. All the Carbon datasources which are currently available are included in the list. |
+
+If you plan to use transactions, you must configure the datasource with an `XADataSource` implementation and set `defaultAutoCommit` to false. This ensures that the <a href="{{base_path}}/reference/mediators/transaction-mediator">Transaction Mediator</a> can correctly manage commit and rollback operations.
+
+The following is a sample datasource configuration for a MySQL database:
+
+```xml
+<datasource>
+    <name>inventoryDB</name>
+    <jndiConfig useDataSourceFactory="false">
+        <name>jdbc/inventoryDB</name>
+    </jndiConfig>
+    <definition type="RDBMS">
+        <configuration>
+            <testOnBorrow>true</testOnBorrow>
+            <defaultAutoCommit>false</defaultAutoCommit>
+            <dataSourceClassName>com.mysql.cj.jdbc.MysqlXADataSource</dataSourceClassName>
+            <username>USERNAME</username>
+            <password>PASSWORD</password>
+            <dataSourceProps>
+                <property name="url">jdbc:mysql://localhost:3306/<DB_NAME></property>
+            </dataSourceProps>
+        </configuration>
+    </definition>
+</datasource>
+```
+
+For more information on creating a datasource, see [Create a datasource]({{base_path}}/develop/creating-artifacts/data-services/creating-datasources).
 
 ### SQL statements
 
@@ -388,11 +445,7 @@ Transaction Mediator configuration.
                 <dbreport useTransaction="true">
                     <connection>
                         <pool>
-                            <dsName>java:jdbc/XADerbyDS</dsName>
-                            <icClass>org.jnp.interfaces.NamingContextFactory</icClass>
-                            <url>localhost:1099</url>
-                            <user>EI</user>
-                            <password>EI</password>
+                            <dsName>jdbc/inventoryDB</dsName>
                         </pool>
                     </connection>
                     <statement>
@@ -406,11 +459,7 @@ Transaction Mediator configuration.
                 <dbreport useTransaction="true">
                     <connection>
                         <pool>
-                            <dsName>java:jdbc/XADerbyDS1</dsName>
-                            <icClass>org.jnp.interfaces.NamingContextFactory</icClass>
-                            <url>localhost:1099</url>
-                            <user>EI</user>
-                            <password>EI</password>
+                            <dsName>jdbc/inventoryDB</dsName>
                         </pool>
                     </connection>
                     <statement>
@@ -453,4 +502,25 @@ Transaction Mediator configuration.
             </markForSuspension>
         </address>
     </endpoint>
+    ```
+=== "Data Source"
+    ```xml
+    <datasource>
+        <name>inventoryDB</name>
+        <jndiConfig useDataSourceFactory="false">
+            <name>jdbc/inventoryDB</name>
+        </jndiConfig>
+        <definition type="RDBMS">
+            <configuration>
+                <testOnBorrow>true</testOnBorrow>
+                <defaultAutoCommit>false</defaultAutoCommit>
+                <dataSourceClassName>com.mysql.cj.jdbc.MysqlXADataSource</dataSourceClassName>
+                <username>USERNAME</username>
+                <password>PASSWORD</password>
+                <dataSourceProps>
+                    <property name="url">jdbc:mysql://localhost:3306/<DB_NAME></property>
+                </dataSourceProps>
+            </configuration>
+        </definition>
+    </datasource>
     ```

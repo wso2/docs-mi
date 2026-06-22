@@ -33,7 +33,7 @@ Following are the integration artifacts that we can used to implement this scena
             </inSequence>
             <faultSequence>
                 <log level="custom">
-                    <property name="text" value="An unexpected error occured"/>
+                    <property name="text" value="An unexpected error occurred"/>
                     <property name="message" expression="get-property('ERROR_MESSAGE')"/>
                 </log>
                 <drop/>
@@ -54,7 +54,7 @@ Following are the integration artifacts that we can used to implement this scena
         ```xml
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunErrorHandler">
             <log level="custom">
-                <property name="text" value="An unexpected error occured for stock SUN"/>
+                <property name="text" value="An unexpected error occurred for stock SUN"/>
                 <property name="message" expression="get-property('ERROR_MESSAGE')"/>
             </log>
             <drop/>

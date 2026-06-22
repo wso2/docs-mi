@@ -12,7 +12,7 @@ Follow these instructions to create a [Proxy Service]({{base_path}}/reference/sy
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click **+ View More** under **Create an Integration**.
 
@@ -33,7 +33,7 @@ Follow these instructions to create a [Proxy Service]({{base_path}}/reference/sy
 
 3. Click on the **+** icon to open the palette.
    
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-design-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-design-view.png" alt="source view" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-design-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/proxy-service-design-view.png" alt="source view" width="80%"></a>
 
 4. Add the required mediators and connectors and design the integration flow.
 
@@ -45,7 +45,7 @@ Follow these instructions to create a [Proxy Service]({{base_path}}/reference/sy
 
 3. Once you open the **Proxy View**, click the **Edit** icon to edit the proxy service.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-service.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-service.png" alt="Edit proxy service" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-service.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/edit-proxy-service.png" alt="Edit proxy service" width="80%"></a>
 
 4. Update the required parameters.
 
@@ -66,11 +66,11 @@ Follow these instructions to create a [Proxy Service]({{base_path}}/reference/sy
 
 Click the **Show Source** (**</>**) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the proxy service.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show source view" width="30%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show source view" width="30%"></a>
 
 You can update the proxy service using this view.
 
-<a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/source-view.png" alt="source view" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-proxy-service/source-view.png" alt="source view" width="80%"></a>
 
 ## Examples
 

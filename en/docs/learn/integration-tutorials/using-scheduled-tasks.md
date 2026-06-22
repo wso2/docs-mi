@@ -29,7 +29,7 @@ Follow the instructions given in this section to create and configure the requir
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -39,7 +39,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 1. In the **Add Artifact** interface, under **Create an Integration**, click on **Automation**. This opens the Automation Form.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/automation-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/automation-artifact.png" alt="create automation artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/automation-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/automation-artifact.png" alt="create automation artifact" width="80%"></a>
 
     !!! Note
         WSO2 Integrator: MI supports automation flows that can be triggered either on a schedule or at server startup. It provides two types of automations:
@@ -83,7 +83,7 @@ Now let's start designing the integration by adding the necessary artifacts.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/new-task.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/new-task.png" alt="create new task" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/new-task.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/new-task.png" alt="create new task" width="80%"></a>
 
 3. Click **Create**. This will open the integration flow (sequence) that will be executed by the configured Scheduled Trigger.
 
@@ -95,7 +95,7 @@ You can now start designing the integration logic. We will add a [Log Mediator](
 
 2. Under **Mediators**, select the **Log** mediator.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_log_mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_log_mediator.png" alt="create new task" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_log_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_log_mediator.png" alt="create new task" width="80%"></a>
 
 3. Provide `City = ${xpath("//city")}` as the **Message**, and click **Add** to insert the **Log** mediator into the integration flow.
 
@@ -103,7 +103,7 @@ You can now start designing the integration logic. We will add a [Log Mediator](
 
 5. Under **Mediators**, select the **Drop** mediator, and click **Add** to insert it into the integration flow.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_drop_mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_drop_mediator.png" alt="create new task" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_drop_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/select_drop_mediator.png" alt="create new task" width="80%"></a>
 
 You have successfully completed the integration flow with the scheduled trigger and logged the message. For reference, you can review the configured scheduled trigger (task) and the sequence.
 
@@ -113,7 +113,7 @@ You have successfully completed the integration flow with the scheduled trigger 
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/task_config.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/task_config.png" alt="InjectXMLTask" width="40%"></a>
+        <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/task_config.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/task_config.png" alt="InjectXMLTask" width="40%"></a>
 
     === "Source View"
         ```yaml
@@ -132,7 +132,7 @@ You have successfully completed the integration flow with the scheduled trigger 
         You can view the source view by clicking on the **Show Source** (`</>`) icon located in the top right corner of the VS Code.
 
     === "Design View"
-        <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/sequence_config.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/sequence_config.png" alt="InjectXMLTaskSequence" width="70%"></a>
+        <a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/sequence_config.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/sequence_config.png" alt="InjectXMLTaskSequence" width="70%"></a>
 
     === "Source View"
         ```yaml
@@ -151,10 +151,10 @@ Now that you have developed an integration using the WSO2 Integrator: MI for the
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/build_and_run_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
 
 ### Step 4: Test the use case
 
 When you run the integration artifact as described in [Step 3](#step-3-build-and-run-the-artifacts), you will see the injected XML message being printed in the WSO2 Integrator: MI logs every 5 seconds, in the **Output** tab of VS Code.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/output_log.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/output_log.png" alt="MI output logs" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/output_log.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-scheduled-tasks/output_log.png" alt="MI output logs" width="80%"></a>

@@ -127,11 +127,11 @@ Depending on the client API version you are going to use, you have to choose the
 
 | Dashboard name                   | API version 1.x | API version 0.x | 
 |----------------------------------|-----------------|-----------------|
-| WSO2 API Metrics                 | Revision 3      | Revision 2      |
-| WSO2 Inbound Endpoint Metrics    | Revision 2      | Revision 1      |
+| WSO2 API Metrics                 | Revision 5      | Revision 2      |
+| WSO2 Inbound Endpoint Metrics    | Revision 3      | Revision 1      |
 | WSO2 Integration Cluster Metrics | Revision 2      | Revision 1      |
 | WSO2 Integration Node Metrics    | Revision 3      | Revision 2      |
-| WSO2 Proxy Service Metrics       | Revision 2      | Revision 1      |
+| WSO2 Proxy Service Metrics       | Revision 3      | Revision 1      |
 
 
 ## Step 2 - Optionally, integrate the Log Processing add-on

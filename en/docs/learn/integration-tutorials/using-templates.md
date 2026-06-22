@@ -21,7 +21,7 @@ and reuse it in multiple places of the mediation flow.
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/create-new-project.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -63,7 +63,7 @@ and reuse it in multiple places of the mediation flow.
 
 6. Click the **Edit** icon to edit the API resource.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-icon.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-icon.png" alt="edit icon" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-icon.png" alt="edit icon" width="80%"></a>
 
 4.  Click the new API Resource to access the **Properties** tab and enter the following details:
 
@@ -86,7 +86,7 @@ and reuse it in multiple places of the mediation flow.
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
 
 8. Click **Update**.
 
@@ -107,12 +107,12 @@ Let's create three different HTTP connections for the above services.
 
 2. Click on **Add artifact**.
 
-   <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
+   <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-   <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
+   <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
 5. Select **Http**.
 6. You need to add dependencies to the project, if not added yet.
@@ -158,7 +158,7 @@ Let's create three different HTTP connections for the above services.
 4. Select **Template** under **Other Artifacts**.
 2. Next, select the **Sequence Template** from the appeared template artifact menu. 
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png" alt="select sequence template" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-sequence-template/sequence-template-form.png" alt="select sequence template" width="80%"></a>
 
 3. In the **Template Artifact** form that appears, specify the following values to create the new sequence template.
 
@@ -188,7 +188,7 @@ Let's create three different HTTP connections for the above services.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/filled-sequence-template.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/filled-sequence-template.png" alt="Filled sequence template" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/filled-sequence-template.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/filled-sequence-template.png" alt="Filled sequence template" width="80%"></a>
 
 4. Click **Create**. 
 
@@ -287,7 +287,7 @@ You can now start configuring the API resource.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/add-switch-mediator.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/add-switch-mediator.png" alt="Add switch mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/add-switch-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/add-switch-mediator.png" alt="Add switch mediator" width="80%"></a>
 
 4. Add a **Call Template** mediator to each case branch by clicking the **+** sign in each case branch, and selecting **Call Template** mediator from the palette. In the form that appears, specify the following values.
 
@@ -372,7 +372,7 @@ You can now start configuring the API resource.
 
 6. Add a **Respond** mediator by clicking the **+** sign after the **Switch** mediator. It will return the response from the health care service back to the client.
 
-<a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/design-view.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/design-view.png" alt="Complete design view" width="80%"></a>
+<a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/design-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/design-view.png" alt="Complete design view" width="80%"></a>
 
 ### Step 3: Build and run the artifacts
 

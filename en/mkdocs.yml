@@ -31,42 +31,39 @@ copyright: "WSO2 Integrator: MI - Documentation"
 
 # Configuration
 theme:
-  name: material
-  custom_dir: theme/material
-  logo: images/logo.svg
-  favicon: images/favicon.png
-  features:
-    - content.code.copy
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - content.action.edit
-    - content.action.view
-    - navigation.indexes
-    - content.code.annotate
-  #highlightjs: true
-  feature:
-    tabs: true
-  language: 'en'
-  palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to dark mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      toggle:
-        icon: octicons/moon-16
-        name: Switch to system preference
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      toggle:
-        icon: octicons/sun-16
-        name: Switch to light mode
+    name: material
+    custom_dir: theme/material
+    font: false
+    toc: false
+    palette:
+      # Palette toggle for light mode
+       - media: "(prefers-color-scheme: light)"
+         scheme: default 
+         toggle:
+          icon: material/brightness-4
+          name: Switch to dark mode
+      # Palette toggle for dark mode
+       - media: "(prefers-color-scheme: dark)"
+         scheme: slate
+         toggle:
+           icon: material/brightness-7
+           name: Switch to light mode
+    logo: assets/img/WSO2-logo-black.svg
+    logo_light: assets/img/WSO2-logo-white.svg
+    favicon: assets/img/WSO2-logo-orange.svg
+    features:
+       - navigation.indexes
+       - navigation.path
+       - navigation.top
+       - navigation.footer
+       - navigation.instant.progress
+       - content.code.copy
+       - content.action.edit
+       - content.action.view
+       - content.tabs.link
+       - search.suggest
+       - search.share
+    language: 'en'
 #Breaks build if there's a warning
 strict: false
 # Navigation
@@ -105,12 +102,15 @@ nav:
               - Install the Integration Control Plane: install-and-setup/install/installing-integration-control-plane.md
               - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
               - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-integration-control-plane-as-windows-service.md
+              - Connect an Integration Runtime to ICP: install-and-setup/install/connecting-an-integration-to-icp.md
+              - Add Centralized Observability in the ICP: install-and-setup/install/adding-observability-for-icp.md
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
           - "Update WSO2 Integrator: MI": install-and-setup/setup/updating-mi.md
           - User Stores:
               - User Stores in MI:
+                  - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
                   - Configure a User Store in MI: install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi.md
                   - Configure Databases:
                       - MySQL Database: install-and-setup/setup/databases/setting-up-mysql.md
@@ -121,7 +121,9 @@ nav:
                   - Configure Secondary User Stores: install-and-setup/setup/user-stores/configuring-secondary-user-stores.md
                   - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
               - User Stores in ICP:
-                  - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
+                  - Built-in User Store: install-and-setup/setup/user-stores/use-built-in-userstore-in-icp.md
+                  - LDAP User Store: install-and-setup/setup/user-stores/configure-ldap-userstore-in-icp.md
+                  - SSO User Store: install-and-setup/setup/user-stores/configure-sso-userstore-in-icp.md
           - Security:
               - Set up Keystores:
                   - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
@@ -167,6 +169,8 @@ nav:
               - Configure a Proxy Server: install-and-setup/setup/configuring-proxy-servers.md
               - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/enabling-ssl-tunneling-thru-proxy-server.md
           - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
+          - Coordinated Task Delete Barrier: install-and-setup/setup/feature-configs/configuring-task-delete-barrier.md
+          - RDBMS Coordination Configuration: install-and-setup/setup/feature-configs/configuring-rdbms-coordination.md
       - Deploy:
           - "Deploy the WSO2 Integrator: MI":
               - "Configure a WSO2 Integrator: MI Cluster": install-and-setup/setup/deployment/deploying-wso2-mi.md
@@ -176,7 +180,7 @@ nav:
               - Configure Helm charts: install-and-setup/setup/deployment/configuring-helm-charts.md
               - Example: install-and-setup/setup/deployment/sample-k8s-deployment.md
           - Deploy on OpenShift: install-and-setup/setup/deployment/openshift-deployment.md
-          - Deploy on Devant: install-and-setup/setup/deployment/devant-deployment.md
+          - Deploy on WSO2 Cloud: install-and-setup/setup/deployment/devant-deployment.md
           - Deployment Best Practices:
               - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
               - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -209,7 +213,10 @@ nav:
       - WSO2 MI for VSCode:
           - "WSO2 Integrator: MI for VSCode Overview":  develop/mi-for-vscode/mi-for-vscode-overview.md
           - Troubleshooting MI for VS Code: develop/mi-for-vscode/troubleshooting-mi-for-vscode.md
-          - MI Copilot: develop/mi-for-vscode/mi-copilot.md
+          - WSO2 Integrator Copilot:
+              - Overview: develop/mi-for-vscode/wso2-integrator-copilot/overview.md
+              - "Modes: Ask, Edit, and Plan": develop/mi-for-vscode/wso2-integrator-copilot/modes.md
+              - Features: develop/mi-for-vscode/wso2-integrator-copilot/features.md
           - Best Practices Guide: develop/mi-for-vscode/best-practices.md
       #- Publish Integrations to the API Manager: develop/working-with-service-catalog.md
       - Integration Projects:
@@ -292,6 +299,7 @@ nav:
             - How to Transform Message Content: learn/integration-tutorials/transforming-message-content.md
             - How to Transform a JSON Message to SOAP: learn/examples/message-transformation-examples/json-to-soap-conversion.md
             - How to Transform a POX Message to JSON: learn/examples/message-transformation-examples/pox-to-json-conversion.md
+            - How to Transform EDI data: learn/integration-tutorials/transforming-edi-data.md
       - Service Orchestration:
             - What is Service Orchestration: learn/integration-use-case/service-orchestration-overview.md
             - How to Expose Several Services as a Single Service: learn/integration-tutorials/exposing-several-services-as-a-single-service.md
@@ -305,6 +313,7 @@ nav:
                     - How to Store and Forward Messages for Guaranteed Delivery: learn/integration-tutorials/storing-and-forwarding-messages.md
                     - How to Retry Failed Messages with a Delay: learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq.md
                     - How to Requeue a Message Preserving the Order: learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq.md
+                    - How to Manage Guaranteed Delivery with Non Blocking Client Acknowledgement: learn/examples/rabbitmq-examples/rabbitmq-nonblocking-client-ack.md
                     - How to Publish Unacked Messages to Dead Letter Exchange: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
                 - How to Implement Dual Channel Scenario with RabbitMQ: learn/examples/rabbitmq-examples/request-response-rabbitmq.md
             - JMS examples:
@@ -339,6 +348,7 @@ nav:
             - How to Expose an RDBMS Datasource: learn/examples/data-integration/rdbms-data-service.md
             - How to Expose other Datasources:
                   - CSV Datasource: learn/examples/data-integration/csv-data-service.md
+                  - Excel Datasource: learn/examples/data-integration/excel-data-service.md
                   - Mongo Datasource: learn/examples/data-integration/mongo-data-service.md
                   - Carbon Datasource: learn/examples/data-integration/carbon-data-service.md
             - How to Expose Data in JSON Format: learn/examples/data-integration/json-with-data-service.md
@@ -367,7 +377,9 @@ nav:
             - How to Handle Non-matching Resources: learn/examples/rest-api-examples/handling-non-matching-resources.md
             - How to Handle HTTP Status Codes: learn/examples/rest-api-examples/setting-https-status-codes.md
             - How to Transform Content Types: learn/examples/rest-api-examples/transforming-content-type.md
-            - How to Secure a REST API: learn/examples/rest-api-examples/securing-rest-apis.md
+            - How to Secure a REST API:
+                - How to Secure a REST API with Basic Authentication: learn/examples/rest-api-examples/securing-rest-apis.md
+                - How to Secure a REST API with OAuth2: learn/examples/rest-api-examples/securing-rest-apis-with-jwt-access-tokens.md
             - How to Publish a Custom Swagger Document: learn/examples/rest-api-examples/publishing-a-swagger-api.md
             - How to Handle Special Cases: learn/examples/rest-api-examples/special-cases.md
       - Proxy Services:
@@ -611,6 +623,10 @@ nav:
           - AS400 PCML Connector:
               - Set up AS400 PCML Connector: reference/connectors/as400-pcml-connector/as400-pcml-connector-configuration.md
               - AS400 PCML Connector Reference: reference/connectors/as400-pcml-connector/as400-pcml-connector-reference.md
+          - Azure Service Bus Connector:
+              - Azure Service Bus Overview: reference/connectors/asb-connector/asb-connector-overview.md
+              - Set up Azure Service Bus: reference/connectors/asb-connector/asb-connector-setup.md
+              - Azure Service Bus Reference: reference/connectors/asb-connector/asb-connector-reference.md
           - BigQuery Connector:
               - BigQuery Overview: reference/connectors/bigquery-connector/bigquery-connector-overview.md
               - Set up the BigQuery Environment: reference/connectors/bigquery-connector/bigquery-connector-configuration.md
@@ -1088,6 +1104,7 @@ nav:
                   - Monitor Correlation Logs: observe-and-manage/classic-observability-logs/monitoring-correlation-logs.md
                   - Monitor Audit Logs: observe-and-manage/classic-observability-logs/monitoring-mi-audit-logs.md
                   - OpenTelemetry Based Logs: observe-and-manage/classic-observability-logs/opentelemetry-logs.md
+                  - Moesif Based Logs: observe-and-manage/classic-observability-logs/moesif-logs.md
               - Traces:
                   - OpenTelemetry: observe-and-manage/classic-observability-traces/monitoring-with-opentelemetry-mi.md
               - Metrics:
@@ -1112,9 +1129,10 @@ nav:
               - Setup: mi-analytics/mi-elk-installation-guide.md
               - Access the Dashboard: mi-analytics/mi-elk-dashboards.md
               - Publish Custom Analytics Events Data: mi-analytics/mi-custom-analytics.md
+          - Other Analytics:
+              - Datadog Analytics Installation Guide: mi-analytics/datadog-analytics-installation-guide.md
       - Administer:
           - Administer Overview: administer/admin-overview.md
-          - Manage Users and Roles: install-and-setup/setup/user-stores/managing-users.md
           - Write a Custom User Store Manager: administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md
           - "Manage WSO2 Integrator: MI":
               - Runtime:
@@ -1124,6 +1142,7 @@ nav:
               - Logs:
                   - Manage Log Growth: administer/logging-and-monitoring/logging/managing-log-growth.md
                   - Masking Sensitive Information in Logs: administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs.md
+          - Access Control for the Integration Control Plane: install-and-setup/setup/access-control-for-icp.md
 
 # Extensions
 markdown_extensions:
@@ -1161,6 +1180,13 @@ markdown_extensions:
   - attr_list
 plugins:
   - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      width: 100%
+      height: auto
+      zoomable: true
   - markdownextradata: {}
   - exclude:
       glob:
@@ -1168,6 +1194,7 @@ plugins:
         - 'includes/*'
   - redirects:
       redirect_maps:
+              'develop/mi-for-vscode/mi-copilot.md': 'https://mi.docs.wso2.com/en/latest/develop/mi-for-vscode/wso2-integrator-copilot/overview/'
               'observe-and-manage/classic-observability-logs/enabling-logs-for-a-component.md': 'https://mi.docs.wso2.com/en/latest/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/'
               'install-and-setup/setup/deployment/deploying-micro-integrator-with-helm.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/sample-k8s-deployment/'
               'get-started/quick-start-guide.md': 'https://mi.docs.wso2.com/en/4.6.0/get-started/build-first-integration'
@@ -1190,6 +1217,7 @@ plugins:
               'develop/hot-deployment.md': 'https://mi.docs.wso2.com/en/4.6.0/develop/using-remote-micro-integrator'
               'mi-analytics/setting-up-mi-analytics.md': 'https://mi.docs.wso2.com/en/4.6.0/mi-analytics/mi-elk-installation-guide/'
               'mi-analytics/using-the-analytics-dashboard.md': 'https://mi.docs.wso2.com/en/4.6.0/mi-analytics/mi-elk-installation-guide/'
+              'install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/user-stores/use-built-in-userstore-in-icp'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/hello-world.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/content-based-routing.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
               'install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-integrations/integration-samples/jms-sender-receiver.md': 'https://mi.docs.wso2.com/en/4.6.0/install-and-setup/setup/deployment/kubernetes-deployment'
@@ -1230,38 +1258,148 @@ plugins:
               'reference/connectors/amazons3-connector/amazons3-connector-example.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-example'
               'reference/connectors/amazons3-connector/amazons3-connector-reference.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
               'reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/file-inbound/file-inbound-overview'
+              'reference/connectors/salesforce-connectors/sf-rest-connector-config.md': 'https://mi.docs.wso2.com/en/4.6.0/reference/connectors/salesforce-connectors/3.x/sf-rest-connector-config'
   # Extra
 extra_css:
-  # You can select a different theme for syntax highlighting by simply
-  # selecting a different css file file bellow from the available list.
-  # assets/lib/highlightjs/styles/vs.min.css
   - assets/lib/highlightjs/styles/custom-highlight-styles.css
-  # Make sure to activate only one palette at a time.
-  # If all the palettes are commented out, the default material theme palette will take over
-  - assets/css/blue-palette-alt1.css
-  # - assets/css/blue-palette-alt2.css
-  # - assets/css/blue-palette.css
-  # - assets/css/green-palette.css
-  # - assets/css/orange-palette.css
-  - assets/css/mitheme.css
+  - assets/css/theme.css
+  - assets/css/custom.css
+  - assets/css/copy-page.css
   - assets/lib/json-formatter/json-formatter.css
   - assets/css/config-catalog.css
   - assets/lib/fontawesome-free-6.3.0-web/css/all.min.css
   - assets/css/redoc.css
 extra_javascript:
-  - assets/lib/highlightjs/highlight.min.js
   - assets/lib/json-formatter/json-formatter.umd.js
+  - assets/lib/highlightjs/highlight.min.js
+  - assets/js/theme.js
+  - assets/js/copy-page.js
   - assets/js/mitheme.js
-  # - assets/lib/backtotop/js/util.js
-  # - assets/lib/backtotop/js/main.js
+hooks:
+  - hooks/optimize_glightbox.py
+  - hooks/copy_md.py
+  - hooks/copy_markdown.py
 extra:
+  material:
+    jinja2content: true
+  generator: false
+  expanded_navs:
+    - title: Get Started
+      options: [verticle-line, no-collapsible]
+    - title: Install and Setup
+      options: [verticle-line, divider]
+    - title: Develop
+      options: [verticle-line-only, divider]
+    - title: Learn
+      options: [verticle-line-only, divider]
+    - title: References
+      options: [verticle-line-only, divider]
+    - title: Observe and Manage
+      options: [verticle-line-only, divider]
+  home_page_cards:
+    - section:
+        - title: Get Started
+          icon: octicons/rocket-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Introduction
+              url: Get Started|Introduction
+            - title: Key Concepts
+              url: Get Started|Key Concepts
+            - title: Build your first Integration
+              url: Get Started|Build your first Integration|Build your first Integration
+            - title: Build your first AI Integration
+              url: Get Started|Build your first AI Integration|Build your first AI Integration
+            - title: What's New
+              url: Get Started|About this Release
+        - title: Community & Support
+          icon: octicons/light-bulb-16
+          icon_color: icon-color-2
+          list_items:
+            - title: GitHub
+              url: https://github.com/wso2/product-micro-integrator/issues
+            - title: Discord
+              url: https://discord.com/invite/wso2
+            - title: Enterprise Support
+              url: https://wso2.com/subscription/
+    - section:
+        - title: Install & Setup
+          icon: octicons/download-16
+          icon_color: icon-color-3
+          list_items:
+            - title: "Install WSO2 Integrator: MI"
+              url: "Install and Setup|Install|Install the WSO2 Integrator: MI|Install MI"
+            - title: VS Code extension for MI
+              url: "Develop|WSO2 MI for VSCode|WSO2 Integrator: MI for VSCode Overview"
+            - title: Integration Control Plane
+              url: Install and Setup|Install|Install the Integration Control Plane|Install the Integration Control Plane
+        - title: References
+          icon: octicons/gear-16
+          icon_color: icon-color-1
+          list_items:
+            - title: Product Configurations
+              url: References|Product Configurations|MI Configuration Catalog
+            - title: Integration Properties
+              url: /en/latest/reference/mediators/property-reference/generic-properties/
+            - title: Mediators
+              url: /en/latest/reference/mediators/about-mediators/
+            - title: Connectors
+              url: References|Connectors|Connectors Overview
+    - section:
+        - title: Tutorials
+          icon: octicons/book-16
+          icon_color: icon-color-4
+          list_items:
+            - title: Routing and Transformation
+              url: Learn|Message Routing|What is Message Routing
+            - title: Service Orchestration
+              url: Learn|Service Orchestration|What is Service Orchestration
+            - title: Asynchronous Messaging
+              url: Learn|Asynchronous Message Processing|What is Asynchronous Message Processing
+            - title: File Processing
+              url: Learn|File Processing|What is File Processing
+            - title: Data Integration
+              url: Learn|Data Integration|What is Data Integration
+            - title: SaaS and B2B Integration
+              url: Learn|SaaS and B2B Connectivity|What is SaaS and B2B Connectivity
+            - title: Enterprise Integration Patterns
+              url: Learn|Enterprise Integration Patterns|Overview
+            - title: View all
+              url: Learn|Overview
+  nav_icons:
+    Home:
+      icon: octicons/home-16
+      level: 1
+    Get Started:
+      icon: octicons/rocket-16
+      level: 1
+    Install and Setup:
+      icon: octicons/gear-16
+      level: 1
+    Develop:
+      icon: octicons/browser-16
+      level: 1
+    Learn:
+      icon: octicons/book-16
+      level: 1
+    References:
+      icon: octicons/book-16
+      level: 1
+    Observe and Manage:
+      icon: octicons/graph-16
+      level: 1
   social:
-    - type: github
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/wso2
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/wso2
-    - type: linkedin
+    - icon: fontawesome/brands/linkedin-in
       link: https://www.linkedin.com/company/wso2
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/user/WSO2TechFlicks
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/intent/follow?screen_name=wso2
+
   choreo_connect: # not applied in "includes" section, update "includes" separately
     version: 1.2.0
     envoy_version: v1.24.1 # for GA release
@@ -1272,3 +1410,4 @@ extra:
 #   base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.6.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+

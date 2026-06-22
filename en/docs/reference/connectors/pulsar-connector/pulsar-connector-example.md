@@ -12,7 +12,7 @@ The user sends a  payload containing the necessary information, such as topic, 
 
 The following diagram illustrates an overview of the Apache Pulsar RESTful service that you are going to build in this example.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/pulsar/PulsarConnectorDiagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/pulsar/PulsarConnectorDiagram.png" title="PulsarConnectorUseCase" width="800" alt="PulsarConnectorUseCase"/></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/pulsar/PulsarConnectorDiagram.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/pulsar/PulsarConnectorDiagram.png" title="PulsarConnectorUseCase" width="800" alt="PulsarConnectorUseCase"/></a>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 

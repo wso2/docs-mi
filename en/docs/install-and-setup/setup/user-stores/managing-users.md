@@ -24,12 +24,12 @@ WSO2 Integrator: MI requires <b>user</b> credentials for <i>authentication</i> a
 
 ### Admin users
 
-WSO2 Integrator: MI users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore/#configuring-an-rdbms-user-store) user store that is connected to the WSO2 Integrator: MI server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
+WSO2 Integrator: MI users with admin privileges can manage other users in an [LDAP]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/#configuring-an-ldap-user-store) or [RDBMS]({{base_path}}/install-and-setup/setup/user-stores/setting-up-a-userstore-in-mi/#configuring-an-rdbms-user-store) user store that is connected to the WSO2 Integrator: MI server. These user management tasks include <b>viewing</b>, <b>adding</b>, and <b>removing</b> users.
 
 !!! Tip
 	Admin users can basically access any resource (of the WSO2 Integrator: MI's management API) that has <b>authorization</b> privileges enabled. By default, only the `users` resource of the management API allows authorization, which allows an admin to perform user management. 
 
-	Read more about about [authorization in the management API]({{base_path}}/install-and-setup/setup/security/securing-management-api/#authorization).
+	Read more about [authorization in the management API]({{base_path}}/install-and-setup/setup/security/securing-management-api/#authorization).
 
 If a user with admin privileges does not exist in your user store, the admin credentials will be created when you invoke the WSO2 Integrator: MI's [management API]({{base_path}}/observe-and-manage/working-with-management-api) for the first time. That is, when you log in to the WSO2 Integrator: MI server from the <b>CLI tool</b>/<b>ICP server</b>, or directly invoke the management API, the user credentials you use will get stored in the user store and admin privileges will be assigned.
 
@@ -37,7 +37,23 @@ An existing admin user can log in to the WSO2 Integrator: MI server from the CLI
 
 ### Non-admin users
 
-Users that do not have admin privileges can access the management API, the CLI, and the ICP server to view and monitor integration artifacts and logs.
+Users without admin privileges can access the management API, the CLI, and the ICP server to update deployed artifacts, and to view and monitor integration artifacts and logs.
+
+#### Restrict non-admin users from updating the deployed artifacts
+
+To restrict the non-admin users from updating the deployed artifacts through **management API** and **CLI**, you can add the following configuration to the `<MI_HOME>/conf/deployment.toml` file.
+
+```toml
+[user_access]
+make_non_admin_users_read_only = true
+```
+
+To restrict the non-admin users from updating the deployed artifacts with the **Integration Control Plane (ICP)**, you can add the following configuration to the `<ICP_HOME>/conf/deployment.toml` file.
+
+```toml
+[user_access]
+make_non_admin_users_read_only = true
+```
 
 ## Manage users and roles from the CLI
 
@@ -45,22 +61,6 @@ You can use the WSO2 MI CLI to view details of users, add new users, and remove 
 
 For more information, see [Manage Users]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#manage-users) and see [Manage Roles]({{base_path}}/observe-and-manage/managing-integrations-with-micli/#manage-roles).
 
-## Manage users and roles from the Integration Control Plane 
+## Manage users and roles from the Integration Control Plane
 
-See the [WSO2 Integrator: MI ICP documentation]({{base_path}}/observe-and-manage/working-with-integration-control-plane) to set up the ICP server. Be sure to log in to the WSO2 Integrator: MI server (from the ICP server) with your admin user name and password.
-
-Select <b>Users</b> in the left-hand navigator to view the list of existing users.
-
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-users-1.png">
-
-Click <b>Add User</b> to create new users. Note that you can assign admin privileges during user creation.
-
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/dashboard-users-2.png">
-
-Select <b>Roles</b> in the left-hand navigator to view the list of existing roles.
-
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-dashboard-list-roles.png">
-
-Click <b>Add Role</b> to create new role.
-
-<img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/mi-dashboard-add-role-sc.png">
+For instructions on managing users and roles using the ICP, see [Monitor MI Artifacts and Logs]({{base_path}}/observe-and-manage/working-with-integration-control-plane).

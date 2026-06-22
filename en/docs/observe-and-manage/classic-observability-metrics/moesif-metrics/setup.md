@@ -372,4 +372,4 @@ Start up Fluent-bit with the `docker compose up` command.
 
 Start your MI server and send a few requests. You will see the actions appearing on your Moesif Event Log.
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/event_logs.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/event_logs.png" width="70%" alt="Event Log"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/event_logs.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/event_logs.png" width="70%" alt="Event Log"></a>

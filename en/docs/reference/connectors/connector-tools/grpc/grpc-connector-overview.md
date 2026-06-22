@@ -33,27 +33,27 @@ Follow the steps below to generate the gRPC connector:
 
 4. Add a new artifact by clicking on **Add artifact**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click on **+ View More** under **Create an Integration**.
 
 6. Select **Connections** under **Other Artifacts** to open the **Connector Store** form.
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="60%"></a>
 
 7. Click on the **For gRPC (Proto)**
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png" alt="connections artifact" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-6.png" alt="connections artifact" width="60%"></a>
 
 8. Then select a location for the .proto file and click the **import**
 
 9. If the given proto file is valid, You can view the generated connection type in the **Connections**.
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
 
 10. To use the connector operations, you can create an integration artifact (such as API and sequence) and add it from the Mediator Palette.
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
 
 ## Option 02: Using the WSO2 MI Connector Tooling
 
@@ -123,23 +123,23 @@ By following these steps, you can generate a fully functional gRPC connector fro
 1. Navigate to the **Mediator Palette** page
 2. Select the **Add Module** under the Mediator Palette.
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-1.png" alt="generated connector" width="60%" ></a>
 
 3. Select **Import Module**
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png" alt="import connector" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-8.png" alt="import connector" width="60%"></a>
 
 4. Select Location to upload the generated connector. After providing the generated connector zip file, click **Import**
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png" alt="generated connector" width="60%"></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-9.png" alt="generated connector" width="60%"></a>
 
 5. You can view the connector type in **the Connections**
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-4.png" alt="generated connector" width="60%" ></a>
 
 6. To use the connector operations, you can create an integration artifact (such as API and sequence) and add it from the Mediator Palette.
 
-      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
+      <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/grpc-tool-5.png" alt="generated connector" width="60%" ></a>
 
 !!! Note
     The gRPC Connector Generator does **not** yet handle:

@@ -1,7 +1,7 @@
 /*!
- * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2024, WSO2 LLC. (http://www.wso2.com) All Rights Reserved.
  *
- * WSO2 Inc. licenses this file to you under the Apache License,
+ * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License.
  * You may obtain a copy of the License at
@@ -22,15 +22,15 @@
 /* 
  * Initialize highlightjs 
  */
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
     hljs.initHighlightingOnLoad();
 });
-(function() {
-    if(document.querySelector('.tab-selector')){
-        document.querySelector('.tab-selector').addEventListener('click', function(e) {
+(function () {
+    if (document.querySelector('.tab-selector')) {
+        document.querySelector('.tab-selector').addEventListener('click', function (e) {
             // Show hide tab content next to the clicked tab
             var tabContentToShow = e.target.nextElementSibling;
-            if(tabContentToShow.style.display === 'none') {
+            if (tabContentToShow.style.display === 'none') {
                 tabContentToShow.style.display = 'block';
             } else {
                 tabContentToShow.style.display = 'none';
@@ -39,18 +39,18 @@ window.addEventListener("DOMContentLoaded", function() {
     }
 })();
 
-/*
- * Initialize custom dropdown component
- */
+
+// Initialize custom dropdown component
+
 var dropdowns = document.getElementsByClassName('md-tabs__dropdown-link');
 var dropdownItems = document.getElementsByClassName('mb-tabs__dropdown-item');
 
 function indexInParent(node) {
     var children = node.parentNode.childNodes;
     var num = 0;
-    for (var i=0; i < children.length; i++) {
-         if (children[i]==node) return num;
-         if (children[i].nodeType==1) num++;
+    for (var i = 0; i < children.length; i++) {
+        if (children[i] == node) return num;
+        if (children[i].nodeType == 1) num++;
     }
     return -1;
 }
@@ -76,6 +76,7 @@ for (var i = 0; i < dropdowns.length; i++) {
     };
 };
 
+
 /*
  * Reading versions
  */
@@ -89,8 +90,7 @@ var docSetLang = pageHeader.getAttribute('data-lang');
 var docSetUrl = window.location.origin + '/' + docSetLang;
 var request = new XMLHttpRequest();
 
-request.open('GET', docSetUrl +
-             'versions/assets/versions.json', true);
+request.open('GET', 'https://raw.githubusercontent.com/wso2/docs-mi/versions/en/docs/assets/versions.json', true);
 
 request.onload = function() {
   if (request.status >= 200 && request.status < 400) {
@@ -103,21 +103,43 @@ request.onload = function() {
        * Appending versions to the version selector dropdown
        */
       if (dropdown){
-          data.list.sort().forEach(function(key, index){
+          data.list.sort(function(a, b) {
+              var aParts = a.split('.');
+              var bParts = b.split('.');
+              for (var i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+                  var aPart = parseInt(aParts[i]) || 0;
+                  var bPart = parseInt(bParts[i]) || 0;
+                  if (aPart !== bPart) return aPart - bPart;
+              }
+              return 0;
+          }).forEach(function(key, index){
               var versionData = data.all[key];
 
               if(versionData) {
                   var liElem = document.createElement('li');
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
+                  var currentPath = window.location.pathname;
+                  var langPrefixLength = docSetLang ? docSetLang.length + 1 : 0;
+                  var pathWithoutLang = currentPath.substring(langPrefixLength);
+                  if (pathWithoutLang.startsWith('/')) pathWithoutLang = pathWithoutLang.substring(1);
 
-                  var currentPath= window.location.pathname;
-                     // Find the index of '/en/'
-                  var pathWithoutEn = currentPath.substring(4,currentPath.length);
-                  var pathWithoutVersion = pathWithoutEn.substring(pathWithoutEn.indexOf("/"), pathWithoutEn.length)
+                  var firstSlashIndex = pathWithoutLang.indexOf("/");
+                  var pathWithoutVersion = (firstSlashIndex !== -1) ? pathWithoutLang.substring(firstSlashIndex) : "/";
 
-                  url = docSetUrl + key+ pathWithoutVersion;
+                  var versionDoc = data.all[key].doc;
+                  var docLinkType = versionDoc.split(':')[0];
+                  var url = '';
+                  var searchAndHash = window.location.search + window.location.hash;
+
+                  if (docLinkType === 'https' || docLinkType === 'http') {
+                      // For external links (older versions), go directly to the configured URL
+                      url = versionDoc.replace(/\/$/, "") + pathWithoutVersion;
+                  } else {
+                      // Use the version number (key) instead of the 'doc' alias
+                      url = docSetUrl + key + pathWithoutVersion;
+                  }
+                  url = url.replace(/\/$/, "") + searchAndHash;
+
+
 
 
                   liElem.className = 'md-tabs__item mb-tabs__dropdown';
@@ -127,8 +149,10 @@ request.onload = function() {
               }
           });
 
-          document.getElementById('show-all-versions-link')
-              .setAttribute('href', docSetUrl + 'versions');
+          var showAllLink = document.getElementById('show-all-versions-link');
+          if (showAllLink) {
+              showAllLink.setAttribute('href', docSetUrl + 'versions');
+          }
       }
 
       /*
@@ -139,21 +163,28 @@ request.onload = function() {
 
           Object.keys(data.all).forEach(function(key, index){
               if ((key !== data.current) && (key !== data['pre-release'])) {
-                  var docLinkType = data.all[key].doc.split(':')[0];
+                  var doc = data.all[key].doc;
+                  var notes = data.all[key].notes;
                   var target = '_self';
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
+                  if (doc.startsWith('http')) {
+                      target = '_blank';
+                  } else {
+                      doc = (docSetUrl + key + '/' + doc).replace(/([^:]\/)\/+/g, "$1");
+                  }
+
+                  if (!notes.startsWith('http')) {
+                      notes = (docSetUrl + key + '/' + notes).replace(/([^:]\/)\/+/g, "$1");
                   }
 
                   previousVersions.push('<tr>' +
                     '<th>' + key + '</th>' +
                         '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' +
+                            '<a href="' + doc + '" target="' +
                                 target + '">Documentation</a>' +
                         '</td>' +
                         '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' +
+                            '<a href="' + notes + '" target="' +
                                 target + '">Release Notes</a>' +
                         '</td>' +
                     '</tr>');
@@ -167,10 +198,13 @@ request.onload = function() {
           // Current released version update
           document.getElementById('current-version-number').innerHTML =
                   data.current;
+          var docDocLink = docSetUrl + data.current;
+          var docNotesLink = docSetUrl + data.current + '/' + data.all[data.current].notes.split('/').slice(1).join('/');
+
           document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
+                  .setAttribute('href', docDocLink);
           document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
+                  .setAttribute('href', docNotesLink);
 
           // Pre-release version update
           document.getElementById('pre-release-version-documentation-link')
@@ -182,114 +216,9 @@ request.onload = function() {
   }
 };
 
+
 request.onerror = function() {
     console.error("There was a connection error of some sort");
 };
 
 request.send();
-
-document.addEventListener("DOMContentLoaded", function () {
-    var searchInput = document.querySelector("input.md-search__input");
-    let timeout = null;
-
-    if (searchInput) {
-        searchInput.addEventListener("input", function (event) {
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                let searchTerm = event.target.value.trim();
-                dataLayer.push({'event':'search','searchTerm':searchTerm});
-            }, 500);
-        });
-    }
-});
-
-var feedback = document.forms.feedback
-
-if (hasUserAcceptedCookies() && !isHomePage()) {
-    feedback.hidden = false
-}
-
-feedback.addEventListener("submit", function(ev) {
-  ev.preventDefault()
-
-  var page = document.location.pathname
-  var data = ev.submitter.getAttribute("data-md-value")
-
-  const pageLabel = page + "_" + data;
-  dataLayer.push({'event':'feedback','pageLabel':pageLabel});
-
-  feedback.firstElementChild.disabled = true
-
-  var note = feedback.querySelector(
-    ".md-feedback__note [data-md-value='" + data + "']"
-  )
-  if (note)
-    note.hidden = false
-})
-
-function isHomePage() {
-    return window.location.pathname === "/" || window.location.pathname === "/en/latest/";
-}
-
-function hasUserAcceptedCookies() {
-    const consentCookie = document.cookie.split('; ').find(row => row.startsWith('OptanonConsent='));
-    if (consentCookie) {
-        return consentCookie.includes('isGpcEnabled=0'); // Check if user has interacted with consent
-    }
-    return false;
-}
-
-// Utility function to process tutorial steps
-function processTutorialSteps(title, steps) {
-    document.querySelectorAll("label.md-nav__title").forEach(label => {
-        if (label.textContent.trim() === title) {
-            const ul = label.nextElementSibling;
-            if (ul && ul.tagName === "UL") {
-                ul.classList.add("custom-integration-list");
-                const listItems = ul.querySelectorAll("li");
-                let count = 1;
-                let completed = true;
-                listItems.forEach(li => {
-                    const link = li.querySelector("a.md-nav__link");
-                    if (link) {
-                        const linkText = link.textContent.trim();
-                        if (steps.includes(linkText)) {
-                            // Remove any existing numbers (if script runs again)
-                            link.innerHTML = link.innerHTML.replace(/^\d+\.\s*/, "");
-                            link.innerHTML = `<span class="custom-number">${count}</span> ${link.innerHTML}`;
-                            count++;
-                            if (completed) {
-                                li.classList.add("md-nav__link--completed");
-                            }
-                            if (li.classList.contains("md-nav__item--active")) {
-                                console.log("active");
-                                completed = false;
-                            }
-                        }
-                    }
-                });
-            }
-        }
-    });
-}
-
-// Define the exact displayed names for "Build your first integration" steps
-const integrationSteps = [
-    "Develop an Integration API",
-    "Route and Transform messages",
-    "Connect to SaaS or B2B Systems",
-    "Monitor and Manage Integrations"
-];
-
-
-// Define the exact displayed names for "Build your first ai integration" steps
-const aiIntegrationSteps = [
-    "Build an AI Chatbot",
-    "Build a Knowledge Base",
-    "Connect a Knowledge Base to the Chatbot",
-    "Create an AI Agent"
-];
-
-// Process tutorials
-processTutorialSteps("Build your first Integration", integrationSteps);
-processTutorialSteps("Build your first AI Integration", aiIntegrationSteps);

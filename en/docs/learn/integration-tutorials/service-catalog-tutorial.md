@@ -4,11 +4,11 @@
 
 In this tutorial, you'll define an integration service using WSO2 Integrator: MI Extension for Visual Studio Code (MI for VS Code) and expose it as a managed API to the API marketplace. API consumers then **discover** the API from the marketplace, **subscribe** to it, and **use it** for application development.
 
-<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api"></a>
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/exposing-servie-as-managed-api.png" alt="exposing integration service as a managed api"></a>
 
 This demonstrates how the integration components and API management components of WSO2 API Manager work together to enable API-led integration. The following diagram illustrates the various API Manager components and the different user roles that are involved in implementing this process:
 
-<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" alt="exposing integration service as a managed api"></a>
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-led-integration-components.png" alt="exposing integration service as a managed api"></a>
 
 1. An **Integration Developer** creates the service using WSO2 Integrator: MI Extension for Visual Studio Code (MI for VS Code) and deploys it in the WSO2 Integrator: MI runtime.
 
@@ -50,7 +50,7 @@ Follow the instructions given in this section to create and configure the requir
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/create-new-project-integration-first.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -62,7 +62,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 2. Click on the **+** symbol to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="80%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 
@@ -127,7 +127,7 @@ A REST API is required for receiving the client requests and the REST resource w
       </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png" alt="synapse API artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/synapse-api-creation-form.png" alt="synapse API artifact" width="80%"></a>
 
 3. Click **Create**. This opens the **Service Designer** interface.
 
@@ -139,7 +139,7 @@ A REST API is required for receiving the client requests and the REST resource w
 
 5. Click the **Edit** icon to edit the API resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
 
 6. Specify values for the required resource properties:
 
@@ -162,7 +162,7 @@ A REST API is required for receiving the client requests and the REST resource w
       </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" alt="edit API resource" width="40%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" alt="edit API resource" width="40%"></a>
 
 7. Click **Update**.
 
@@ -172,7 +172,7 @@ You can now configure the mediation logic to handle requests.
 
 1. To get started, click on the **+** icon to add the first mediator to the sequence.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
 
 2. Select **Log** mediator in the **Mediators** section. The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
 
@@ -209,7 +209,7 @@ You can now configure the mediation logic to handle requests.
 5. Click on the **+** icon in the sequence to add a **GET** operation for **QueryDoctorConn** after the Log mediator.
 From the palette, select **Mediators** > **HTTP** > **GET** operation.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/http-connector-get-operation.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/http-connector-get-operation.png" alt="http connector get operation" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/http-connector-get-operation.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/http-connector-get-operation.png" alt="http connector get operation" width="30%"></a>
 
 6. Once the **GET** operation form is opened, fill in the information in the table below:
 
@@ -247,7 +247,7 @@ From the palette, select **Mediators** > **HTTP** > **GET** operation.
 
 You have successfully created all the artifacts that are required for sending a request through the WSO2 Integrator: MI to the back-end service.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png" alt="integration sequence with http connector" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence-with-http-connector.png" alt="integration sequence with http connector" width="80%"></a>
 
 ### Step 3: Configure the WSO2 Integrator: MI
 
@@ -297,13 +297,13 @@ Let's start the API Manager runtime before starting the WSO2 Integrator: MI.
 
 5. Select the folder where `<MI_HOME>` is located. This will be set as the **current server path**.
 
-    <a href="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
+    <a href="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" class="glightbox"><img src="../../../assets/img/develop/mi-for-vscode/qsg/current-server-path.png" alt="Current server path" width="50%"></a>
 
 6. Run the project.
 
     Click the **Build and Run** icon located in the top right corner of the VS Code.
 
-    <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
+    <a href="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" class="glightbox"><img src="../../../assets/img/develop/mi-for-vscode/qsg/build-and-run.png" alt="Build and run" width="25%"></a>
 
 When the WSO2 Integrator: MI starts, the integration service will be deployed to the **Service Catalog** during server startup. You will see the following in the server start-up log.
 
@@ -341,13 +341,13 @@ Let's expose the integration service as a managed API.
 
 You can now see the new API's overview page.
 
-<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png" alt="new api view"></a>
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview.png" alt="new api view"></a>
 
 !!! Note
     -   You can use the left-hand navigation to explore the new API.
     -   Click **Endpoints** in the left-hand navigator. You will see that the new API uses the integration service deployed in the WSO2 Integrator: MI as the endpoint (backend).
 
-        <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png" alt="endpoint view"></a>
+        <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/endpoint-config-of-api.png" alt="endpoint view"></a>
 
 **Select business plans**
 
@@ -355,11 +355,11 @@ Let's allocate some business plans for the API.
 
 1.  Go to the API overview and click **Business Plan**.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png" alt="click to add business plan"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-business-plan.png" alt="click to add business plan"></a>
 
 2.  Select at least one business plan for the API and save.
  
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" alt="add business plans to api"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-business-plans.png" alt="add business plans to api"></a>
 
 **Deploy API in the Gateway**
 
@@ -370,14 +370,14 @@ Let's deploy the API in a gateway environment.
     !!! Tip
         This opens the **Deployment** tab in the left-hand navigator.
     
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png" alt="open the deployment options"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-deployment.png" alt="open the deployment options"></a>
 
 2.  Click **Default** to specify the gateway environment and host.
 
     !!! Tip
         This setting deploys the API in Production as well as Sandbox gateways. Find out more about [gateway environments](https://apim.docs.wso2.com/en/4.3.0/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways/).
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" alt="select gateways for the deployment"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-deployment-revision.png" alt="select gateways for the deployment"></a>
 
 3.  **Optionally**, you can add a description.
 
@@ -385,13 +385,13 @@ Let's deploy the API in a gateway environment.
 
 You will now see the deployment as the first revision of the API:
 
-<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png" alt="api first revision"></a>
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-gateway-deployment-summary.png" alt="api first revision"></a>
 
 ### Step 7: Publish the API
 
 Go to the API overview in the **Publisher** portal and click **Publish** for the `HealthcareAPI` as shown below.
 
-<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-publish.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-publish.png"></a>
+<a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-publish.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/api-overview-publish.png"></a>
 
 The API is now available in the **Developer** portal for consumers to access.
 
@@ -416,15 +416,15 @@ The API is now available in the **Developer** portal for consumers to access.
 
 2.  Go to the **API** tab. The `HealthcareAPI` is listed as shown below.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-list.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-list.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-list.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-list.png"></a>
 
 3.  Select the `HealthcareAPI` to open the API overview.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-overview.png"></a>
 
 4.  Click **API Console** under **Try Out** for the `HealthcareAPI` in the **Developer** portal as shown below.
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-healthcare-api-try-it.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-healthcare-api-try-it.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-healthcare-api-try-it.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-healthcare-api-try-it.png"></a>
 
 5.  Enter the username and password for Basic Authentication.
 
@@ -435,7 +435,7 @@ The API is now available in the **Developer** portal for consumers to access.
 4.  Specify `surgery` as the doctor category.
 5.  Click **Execute**.
 
-     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"></a>
+     <a href="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/service-catalog/developer-portal-api-try-it-execute.png"></a>
 
 You will get the response message from the Healthcare service, if you send the category as `surgery`:
 

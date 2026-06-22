@@ -93,7 +93,7 @@ Follow the steps below to specify the stylesheet as a Registry entry in the abov
 
 1. Navigate to the **Registry Explorer**. Hover over **Registry Explorer** and click the **+** icon that appears.
 
-    <a href="{{base_path}}/assets/img/integrate/mediators/add-registry-resource.png"><img src="{{base_path}}/assets/img/integrate/mediators/add-registry-resource.png" alt="Add registry resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/integrate/mediators/add-registry-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/mediators/add-registry-resource.png" alt="Add registry resource" width="30%"></a>
 
 2. In the **Create New Registry Resource** form that appears, specify the following values to create the new endpoint.
 

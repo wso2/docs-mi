@@ -124,7 +124,7 @@ Let's send a request with multiple transactions to the data service:
     </p:addEmployeeOp_batch_req>
     ```
     
-    <a href="{{base_path}}/assets/img/examples/data-integration/batch-requesting-soap-ui.png"><img src="{{base_path}}/assets/img/examples/data-integration/batch-requesting-soap-ui.png" title="Soap UI" width="900" alt="Soap UI"/></a>
+    <a href="{{base_path}}/assets/img/examples/data-integration/batch-requesting-soap-ui.png" class="glightbox"><img src="{{base_path}}/assets/img/examples/data-integration/batch-requesting-soap-ui.png" title="Soap UI" width="900" alt="Soap UI"/></a>
     
 4.  Invoke the **addEmployeeOp** operation.
 

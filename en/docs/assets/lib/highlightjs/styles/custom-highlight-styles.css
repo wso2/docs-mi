@@ -17,8 +17,8 @@ code.hljs {
 
 /* Light theme - Default */
 [data-md-color-scheme="default"] .hljs {
-  background: var(--md-code-bg-color, #f7f7f9);
-  color: #000000;
+  background: #e8e8e8;
+  color: #1f2024;
 }
 
 [data-md-color-scheme="default"] .hljs-comment,
@@ -58,8 +58,11 @@ code.hljs {
 }
 
 [data-md-color-scheme="default"] .hljs-bullet,
-[data-md-color-scheme="default"] .hljs-link,
 [data-md-color-scheme="default"] .hljs-symbol {
+  color: #00b0e8;
+}
+
+[data-md-color-scheme="default"] .hljs-link {
   color: #00b0e8;
   text-decoration: underline;
 }
@@ -113,8 +116,11 @@ code.hljs {
 }
 
 [data-md-color-scheme="slate"] .hljs-bullet,
-[data-md-color-scheme="slate"] .hljs-link,
 [data-md-color-scheme="slate"] .hljs-symbol {
+  color: #4fc1ff;
+}
+
+[data-md-color-scheme="slate"] .hljs-link {
   color: #4fc1ff;
   text-decoration: underline;
 }

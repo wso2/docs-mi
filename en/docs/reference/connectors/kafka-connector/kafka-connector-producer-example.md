@@ -15,7 +15,7 @@ API has the context `/publishMessages`. It will publish messages via the topic t
 
 The following diagram illustrates all the required functionality of the Kafka service that you are going to build.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/kafka/kafkaconnectorpublishmessage.png"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafkaconnectorpublishmessage.png" title="KafkaConnector" width="800" alt="KafkaConnector"/></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/kafka/kafkaconnectorpublishmessage.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/kafka/kafkaconnectorpublishmessage.png" title="KafkaConnector" width="800" alt="KafkaConnector"/></a>
 
 If you do not want to configure this yourself, you can simply [get the project](#get-the-project) and run it.
 

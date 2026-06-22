@@ -43,11 +43,11 @@ Now, it's time to configure the MI runtime to connect to the Integration Control
 
 1. Click the **Explorer** icon in the top-left corner of VS Code to switch to the default Explorer view.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/click_default_explorer.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/click_default_explorer.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/click_default_explorer.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/click_default_explorer.png" alt="Create New Project" width="80%"></a>
 
 2. Expand the **deployment** directory, then click on `deployment.toml` to open it.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/open_deployment_toml.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/open_deployment_toml.png" alt="Create New Project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/open_deployment_toml.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/open_deployment_toml.png" alt="Create New Project" width="80%"></a>
 
 3. Uncomment or add the following configuration in the `deployment.toml` file, then save the changes.
 
@@ -89,7 +89,7 @@ Now, it's time to configure the MI runtime to connect to the Integration Control
     !!! Tip
         If the **Build and Run** icon is not visible after opening the `deployment.toml` file, click the **WSO2 Integrator: MI** icon on the Activity Bar in the VS Code editor to return to the main view.
 
-        <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_mi_build_and_run.gif"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_mi_build_and_run.gif" alt="Create New Project" width="70%"></a>
+        <a href="{{base_path}}/assets/img/get-started/build-first-integration/select_mi_build_and_run.gif" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/select_mi_build_and_run.gif" alt="Create New Project" width="70%"></a>
 
 4. Once the MI server has started successfully, you should see logs similar to the following in the terminal where the Integration Control Plane (ICP) was started.
 
@@ -108,7 +108,7 @@ Now that the Integration Control Plane (ICP) is running, log in to the web porta
 
 1. Open your web browser and navigate to [https://localhost:9743/login](https://localhost:9743/login).
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_login_screen.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_login_screen.png" alt="Create New Project"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_login_screen.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_login_screen.png" alt="Create New Project"></a>
 
 2. Use `admin` as both the username and password, then click **Sign In** to access the Integration Control Plane.
 
@@ -117,11 +117,11 @@ Now that the Integration Control Plane (ICP) is running, log in to the web porta
 
     After signing in, you will land on the home page of the Integration Control Plane, which displays details about the connected MI nodes. This page lists all available MI nodes, and you can view the **Group ID** and **Node ID** configured in [Step 1 – Configure MI]({{base_path}}/get-started/build-first-integration/first-integration-monitor-icp/#step-1-configure-mi).
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_home_page.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_home_page.png" alt="Create New Project"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_home_page.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_home_page.png" alt="Create New Project"></a>
 
 3. Click the **Node ID** `node_1` to view details about the MI node. A side panel will open, displaying information about the server.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_node_information.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_node_information.png" alt="Create New Project"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_node_information.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_node_information.png" alt="Create New Project"></a>
 
     To view details about the deployed artifacts—such as integration applications, APIs, connectors, and more—use the options available in the left-hand navigation panel.
 
@@ -130,14 +130,14 @@ Now that the Integration Control Plane (ICP) is running, log in to the web porta
     !!! Info "What is a Carbon Application?"
         A Carbon Application in WSO2 Integrator:  MI is a deployable archive that packages and distributes integration artifacts in a structured manner. To learn more, see the [Deploying Artifacts]({{base_path}}/develop/deploy-artifacts/) documentation.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png" alt="Create New Project"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_capp_information.png" alt="Create New Project"></a>
 
 5. Click **APIs** to view the deployed APIs. You should see the `Bank` API listed. Click on a node to view the API details, including the API's source code.
 
     !!! Info
         When viewing the resources, you should see those created in the previous tutorials. The source code should reflect the structure of the `Bank` API.
 
-    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_api_information.png"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_api_information.png" alt="Create New Project"></a>
+    <a href="{{base_path}}/assets/img/get-started/build-first-integration/icp_api_information.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/build-first-integration/icp_api_information.png" alt="Create New Project"></a>
 
     You may explore the other artifacts on your own for reference.
 

@@ -176,6 +176,7 @@ Learn how to implement various integration use cases, deploy them in the WSO2 In
                             <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq">How to retry failed messages with a delay</a></li>
                             <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq">How to requeue a message preserving the order</a></li>
                             <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq">How to publish unacked messages to Dead Letter Exchange</a></li>
+                            <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/rabbitmq-nonblocking-client-ack">How to Manage Guaranteed Delivery with Non Blocking Client Acknowledgement</a></li>
                         </ul>
                     </li>
                     <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/request-response-rabbitmq">How to implement Dual Channel scenario with RabbitMQ</a></li>
@@ -254,7 +255,8 @@ Learn how to implement various integration use cases, deploy them in the WSO2 In
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/handling-non-matching-resources">How to handle non-matching resources</a></li>
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/setting-https-status-codes">How to handle HTTP status codes</a></li>
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/transforming-content-type">How to transform content types</a></li>
-                        <li><a href="{{base_path}}/learn/examples/rest-api-examples/securing-rest-apis">How to secure a REST API</a></li>
+                        <li><a href="{{base_path}}/learn/examples/rest-api-examples/securing-rest-apis-with-jwt-access-tokens">How to secure a REST API with JWT (Self Contained) Access Tokens</a></li>
+                        <li><a href="{{base_path}}/learn/examples/rest-api-examples/securing-rest-apis">How to secure a REST API with Basic Auth</a></li>
                         <li><a href="{{base_path}}/learn/examples/rest-api-examples/publishing-a-swagger-api">How to publish a custom swagger document</a></li>
                         <li>Handling Special Cases
                             <ul> 

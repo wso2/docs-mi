@@ -17,13 +17,13 @@ Follow the steps below to open your existing integration project:
 
 5. Click **Open MI Project**.
 
-    <a href="{{base_path}}/assets/img/develop/open-project/open-project.png"><img src="{{base_path}}/assets/img/develop/open-project/open-project.png" alt="Open MI Project"></a>
+    <a href="{{base_path}}/assets/img/develop/open-project/open-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/open-project/open-project.png" alt="Open MI Project"></a>
 
     !!! Note
 
         Select the **Import from CApp** option if you want to create a project using an existing Composite Application (CApp).
 
-        <a href="{{base_path}}/assets/img/develop/open-project/import-from-capp.png"><img src="{{base_path}}/assets/img/develop/open-project/import-from-capp.png" alt="Import from CApp"></a>
+        <a href="{{base_path}}/assets/img/develop/open-project/import-from-capp.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/open-project/import-from-capp.png" alt="Import from CApp"></a>
 
     !!! warning "If you have an integration project created by WSO2 Integration Studio..."
     
@@ -41,7 +41,7 @@ Follow the steps below to open your existing integration project:
 
         Within the `.backup` folder, a file named `skipped-files-during-migration.txt` is generated, which contains the file paths of artifacts that were available to be selected in a composite exporter but were not selected in any composite exporter. 
         
-        <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png" alt="Migrate project"></a>
+        <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-project.png" alt="Migrate project"></a>
 
         <u>Migrating a Workspace</u>
 
@@ -51,6 +51,6 @@ Follow the steps below to open your existing integration project:
 
         Each integration project within the workspace will be migrated separately. This process is similar to migrating a single project. If multiple projects are created during migration, they will be opened in a workspace.
     
-        <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png" alt="Migrate workspace"></a>         
+        <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png" alt="Migrate workspace"></a>         
 
 You will see that the integration artifacts are imported into **WSO2 Integrator: MI Project Explorer**, and the project files are imported into **Explorer**.

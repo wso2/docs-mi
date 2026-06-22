@@ -6,12 +6,12 @@ A PushTopic lets you define a SOQL query and receive event notifications when ch
 
 ## What you'll build
 
-This guide walks you through the process of setting up a Salesforce Inbound Endpoint that listens to changes in Salesforce records using a PushTopic. 
+This guide walks you through the process of setting up a Salesforce Inbound Endpoint that listens to changes in Salesforce records using a PushTopic.
 
 You will:
 
 1. Create a PushTopic using Salesforce Developer Console.
-2. Reset the security token to authenticate with the Salesforce API.
+2. Set up Salesforce authentication (username/password or OAuth2 Client Credentials).
 3. Configure the Inbound Endpoint in WSO2 Integrator: MI using the Visual Studio Code extension.
 4. Run and test the integration to receive real-time notifications.
 
@@ -20,7 +20,7 @@ The inbound endpoint acts as a message receiver and injects events into an integ
 
 In this example, we will use the **Account** object in Salesforce to demonstrate the PushTopic functionality. When an **Account** record is created, updated, deleted, or undeleted, the WSO2 Inbound Endpoint will receive notifications and process them accordingly. For a visual representation of the integration, refer to the diagram below:
 
-<a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png" title="Salesforce Inbound Endpoint" alt="Salesforce Inbound Endpoint"/></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/diagram.png" title="Salesforce Inbound Endpoint" alt="Salesforce Inbound Endpoint"/></a>
 
 ## Step 1: Creating a PushTopic
 
@@ -54,15 +54,53 @@ The [PushTopic](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_stre
    This code sets up a PushTopic to listen for all changes on the Salesforce **Account** object. Once created, Salesforce will send notifications to the WSO2 Inbound Endpoint whenever an **Account** record changes.
 
 
-## Step 2: Reset Security Token
+## Step 2: Set up Salesforce Authentication
 
-1. **Login** to your **Salesforce Account**. Click the **Settings** icon (top right corner of the Home page).
+The Salesforce Inbound Endpoint supports two authentication methods:
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/settings.png" title="Select Settings." width="40%" alt="Select Settings"/> 
+- **Username/Password (username-token)** — authenticates using a Salesforce username, password, and security token via the SOAP login API. This is the default authentication type.
+- **OAuth2 Client Credentials (oauth)** — authenticates using a Salesforce Connected App's consumer key and secret via the OAuth2 Client Credentials grant. Recommended for server-to-server integrations where storing a user password is undesirable.
 
-2. Navigate to **Reset My Security Token** and click **Reset Security Token**.
+!!! info "Version requirement"
+    OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 3.0.5** onwards.
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/reset.png" title="Reset Security Token" width="70%" alt="Reset Security Token"/>
+Choose the authentication method that fits your deployment.
+
+=== "Username/Password (username-token)"
+
+    1. **Login** to your **Salesforce Account**. Click the **Settings** icon (top right corner of the Home page).
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/settings.png" title="Select Settings." width="40%" alt="Select Settings"/> 
+
+    2. Navigate to **Reset My Security Token** and click **Reset Security Token**.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/reset.png" title="Reset Security Token" width="70%" alt="Reset Security Token"/>
+
+    You will receive the new security token via email. You will need to append it to your password when configuring the inbound endpoint.
+
+=== "OAuth2 Client Credentials (oauth)"
+
+    Create a Salesforce External Client App that supports the Client Credentials flow:
+
+    1. **Login** to your **Salesforce Account** and click the **Setup** icon (top right).
+
+    2. In the **Quick Find** box, search for **External Client App Manager** (under **External Client Apps**) and open it. Alternatively, go to **App Manager** (under **Apps**) and click the **New External Client App** button in the top right.
+
+    3. Click **New External Client App**.
+
+    4. Enter an **App Name** and a **Contact Email Address**.
+
+    5. Under **OAuth Settings**, enable **Enable OAuth** and configure the following:
+        - **Callback URL**: Enter any valid URL (e.g., `https://login.salesforce.com/services/oauth2/success`).
+        - **Selected OAuth Scopes**: Add **Manage user data via APIs (api)** and any other required scopes.
+        - Enable **Enable Client Credentials Flow**.
+
+    6. Click **Create**. After saving, open the app, go to the **Settings** tab, and click **Consumer Key and Secret** to retrieve the **Consumer Key** (clientId) and **Consumer Secret** (clientSecret).
+
+    7. To assign a run-as user for the Client Credentials flow, go to the app's **Policies** tab, click **Edit**, and set the **Run As** username to a dedicated integration user.
+
+    !!! note
+        The Client Credentials flow does not require end-user interaction and is intended for server-to-server integrations. Use a dedicated integration user with the minimum required permissions as the run-as user.
 
 
 ## Step 3: Configure Inbound Endpoint using WSO2 Integrator: MI VS Code Extension
@@ -76,28 +114,52 @@ The [PushTopic](https://developer.salesforce.com/docs/atlas.en-us.202.0.api_stre
 3. Create a **Salesforce Inbound Endpoint**.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/create-inbound-ep.png" title="Create Salesforce Inbound Endpoint" width="800" alt="Create Salesforce Inbound Endpoint"/>
-    
-4. Fill in the form with the following values:
 
-    * **Name**: SalesforceInboundEP
-    * **Injecting Sequence Name**: test
-    * **Error Sequence Name**: test
-    * **Polling Interval**: 100
-    * **Salesforce Object**: /topic/Account
-    * **Package Version**: 37.0
-    * **User Name**: `<USERNAME>`
-    * **Password**: `<SALESFORCE_PASSWORD><SECURITY_TOKEN>`
-    * **Login Endpoint**: https://login.salesforce.com
-    * **SOAP API Version**: 58.0
-    * **Wait Time**: 5000
-    * **Connection Timeout**: 20000
-    * **Execute sequentially** and **Coordination**: select
-    * **Replay**: deselect
-    * **Event ID File Path**: `<FILE_PATH>`
+4. Fill in the form with the values for your chosen authentication method:
+
+    === "Username/Password (username-token)"
+
+        * **Name**: SalesforceInboundEP
+        * **Injecting Sequence Name**: test
+        * **Error Sequence Name**: test
+        * **Polling Interval**: 100
+        * **Salesforce Object**: /topic/Account
+        * **Package Version**: 37.0
+        * **Authentication Type**: username-token
+        * **User Name**: `<USERNAME>`
+        * **Password**: `<SALESFORCE_PASSWORD><SECURITY_TOKEN>`
+        * **Login Endpoint**: https://login.salesforce.com
+        * **SOAP API Version**: 58.0
+        * **Wait Time**: 5000
+        * **Connection Timeout**: 20000
+        * **Execute sequentially** and **Coordination**: select
+        * **Replay**: deselect
+        * **Event ID File Path**: `<FILE_PATH>`
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/inbound-ep-config.png" title="Inbound Endpoint Configuration (username-token)" width="800" alt="Inbound Endpoint Configuration (username-token)"/>
+
+    === "OAuth2 Client Credentials (oauth)"
+
+        * **Name**: SalesforceInboundEP
+        * **Injecting Sequence Name**: test
+        * **Error Sequence Name**: test
+        * **Polling Interval**: 100
+        * **Salesforce Object**: /topic/Account
+        * **Package Version**: 37.0
+        * **Authentication Type**: oauth
+        * **Client ID**: `<CONSUMER_KEY>`
+        * **Client Secret**: `<CONSUMER_SECRET>`
+        * **Token Endpoint**: `https://login.salesforce.com/services/oauth2/token` (use `https://test.salesforce.com/services/oauth2/token` for sandboxes)
+        * **Wait Time**: 5000
+        * **Connection Timeout**: 20000
+        * **Execute sequentially** and **Coordination**: select
+        * **Replay**: deselect
+        * **Event ID File Path**: `<FILE_PATH>`
+
+        !!! note
+            When using OAuth2 Client Credentials, the **User Name**, **Password**, and **Login Endpoint** fields are not required and will be ignored if provided.
 
 5. Submit the configuration.
-
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inbound/inbound-ep-config.png" title="Inbound Endpoint Configuration" width="800" alt="Inbound Endpoint Configuration"/>
 
 6. Add a **Log Mediator** to the sequence to log the incoming messages. and tick the **Append Payload** option to include the payload in the log.
 

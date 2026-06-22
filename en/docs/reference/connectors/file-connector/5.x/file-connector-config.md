@@ -612,6 +612,27 @@ There are different connection configurations that can be used for the above pro
             No
             </td>
         </tr>
+        <tr>
+        <td>
+            Cache File Stats
+        </td>
+        <td>
+            cacheFileStats
+        </td>
+        <td>
+            Boolean
+        </td>
+        <td>
+            Enable this to cache file stats for better performance. Since the stats(metadata) are cached, if another process modifies the metadata while the file is being read, those changes may not be detected by the File Connector operation.</br>
+            Available in file-connector <b>v5.0.4</b> and above.
+        </td>
+        <td>
+            false
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
     </table>
 
     !!!info

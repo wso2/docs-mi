@@ -35,7 +35,7 @@ Follow the instructions given in this section to create and configure the requir
 
 5. Select the **WSO2 Integrator: MI runtime version** and provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -47,15 +47,15 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
 
 1. Click on **+View More** on the **Add Artifact** page.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-endpoint.png" alt="create new endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-endpoint.png" alt="create new endpoint" width="30%"></a>
 
 2. Navigate to the **Other Artifacts** > **Endpoints**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-endpoint.png" alt="Add endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-endpoint.png" alt="Add endpoint" width="30%"></a>
 
 3. Next, select **HTTP Endpoint** type on the **Endpoint Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-http-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-http-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-http-endpoint.png" alt="Create HTTP Endpoint" width="60%"></a>
 
 4. In the **HTTP Endpoint Form** that appears, specify the following values to create the new endpoint. 
 
@@ -88,7 +88,7 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
      </tbody>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png" alt="endpoint artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/endpoint-artifact.png" alt="endpoint artifact" width="80%"></a>
 
 5. Click **Create**.  
 
@@ -96,7 +96,7 @@ An Endpoint artifact is required for the purpose of exposing the URL that connec
 
     Once the endpoint artifact is created, it will appear on the **MI Overview** interface.    
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png" alt="mi overview endpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/mi-overview-endpoint.png" alt="mi overview endpoint" width="80%"></a>
 
 #### Create a REST API
 
@@ -104,11 +104,11 @@ A REST API is required for receiving the client response and the REST resource w
 
 1. To open the **Add Artifact** page, go to **MI Project Explorer** and click on the **+** icon.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png" alt="add artifact" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-artifact.png" alt="add artifact" width="30%"></a>
 
 2. Click on **API** to open the **API Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-api.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-api.png" alt="add API" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-api.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-api.png" alt="add API" width="30%"></a>
 
 3. Specify values for the required REST API properties:
 
@@ -134,7 +134,7 @@ A REST API is required for receiving the client response and the REST resource w
       </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png" alt="synapse API artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/synapse-api-artifact.png" alt="synapse API artifact" width="80%"></a>
 
 4. Click **Create**. This opens the **Service Designer** interface.
 
@@ -146,7 +146,7 @@ A REST API is required for receiving the client response and the REST resource w
 
 6. Click the **Edit** icon to edit the API resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-icon.png" alt="edit icon" width="80%"></a>
 
 7. Specify values for the required resource properties:
 
@@ -169,7 +169,7 @@ A REST API is required for receiving the client response and the REST resource w
       </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" alt="edit API resource" width="40%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/edit-api-resource.png" alt="edit API resource" width="40%"></a>
 
 8. Click **Update**.
 
@@ -179,11 +179,11 @@ You can now configure the mediation logic to handle requests.
 
 1. To get started, click on the **+** icon to add the first mediator to the sequence.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-log.png" alt="add log" width="80%"></a>
 
 2. Select **Log** mediator in the **Generic** section under **All Mediators**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png" alt="log mediator" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-mediator.png" alt="log mediator" width="30%"></a>
 
     !!! Note
         The Log mediator logs messages when the request is received by the API resource. In this scenario, let's configure the Log mediator to display the following message: “Welcome to the HealthcareService”.
@@ -213,7 +213,7 @@ You can now configure the mediation logic to handle requests.
      <td>
         <div class="content-wrapper">
            1. To edit the **Properties** and print a welcome message in the log, click **Add Parameter**. <br />
-               <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png" alt="add-parameter" width="30%"></a>, <br />
+               <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-parameter.png" alt="add-parameter" width="30%"></a>, <br />
            2. Then add the following values:<br />
            <ul>
               <li><strong>Property Name</strong>: <code>Log Property message</code></li>
@@ -221,7 +221,7 @@ You can now configure the mediation logic to handle requests.
               <li><strong>Property Value</strong> : <code>"Welcome to HealthcareService"</code></li>
            </ul>
            <p>
-           <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png" alt="log-property" width="30%"></a></p> <br />
+           <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/log-property.png" alt="log-property" width="30%"></a></p> <br />
          3. Click **Save** to save the properties.
         </div>
      </td>
@@ -240,15 +240,15 @@ You can now configure the mediation logic to handle requests.
 
 4. Click on the **+** icon in the sequence to add a Call mediator after the Log mediator.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png" alt="add call" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-call.png" alt="add call" width="80%"></a>
 
 5. From the **Palette**, select **Call Endpoint** mediator under the **Mediators** > **Others** section.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png" alt="call endpoint mediator" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint-mediator.png" alt="call endpoint mediator" width="30%"></a>
 
 6. From the **Call Endpoint** pane, select the **QueryDoctorEP** endpoint, which we created in a previous step.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png" alt="call endpoint" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/call-endpoint.png" alt="call endpoint" width="30%"></a>
 
 7. Click **Submit**.
 
@@ -256,17 +256,17 @@ You can now configure the mediation logic to handle requests.
 
 8. Click on the **+** icon in the sequence to add a **Respond** mediator after the Call Endpoint mediator.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/add-respond.png" alt="add respond" width="80%"></a>
 
 9. From the **Palette**, select **Respond** mediator under the **Mediators** section.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" alt="respond mediator" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/respond-mediator.png" alt="respond mediator" width="30%"></a>
 
 10. Click **Submit**.
 
 You have successfully created all the artifacts that are required for sending a request through the WSO2 Integrator: MI to the back-end service.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png" alt="integration sequence" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/integration-sequence.png" alt="integration sequence" width="80%"></a>
 
 ### Step 3: Build and run the artifacts
 

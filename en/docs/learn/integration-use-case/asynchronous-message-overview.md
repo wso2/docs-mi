@@ -27,6 +27,7 @@ Disadvantages of asynchronous messaging includes the additional component of a m
                         <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/retry-delay-failed-msgs-rabbitmq">How to retry failed messages with a delay</a></li>
                         <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/requeue-msgs-with-errors-rabbitmq">How to requeue a message preserving the order</a></li>
                         <li><a href="{{base_path}}/learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq">How to publish unacked messages to Dead Letter Exchange</a></li>
+						<li><a href="{{base_path}}/learn/examples/rabbitmq-examples/rabbitmq-nonblocking-client-ack">How to Manage Guaranteed Delivery with Non Blocking Client Acknowledgement</a></li>
                     </ul>
                 </li>
                 <li>

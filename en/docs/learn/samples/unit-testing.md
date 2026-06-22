@@ -28,4 +28,4 @@ secondSubFlowTestSuite has one test case which sets flowValue property to flowVa
 
 1. Switch to the unit test view and click on the **Run Test** button on top level to run the test suite at once or click on the **Run Test** button of specific test case to run them separately.
 
-<a href="{{base_path}}/assets/img/learn/samples/run-unit-test.png"><img src="{{base_path}}/assets/img/learn/samples/run-unit-test.png" alt="Access Samples" width="700"></a>
+<a href="{{base_path}}/assets/img/learn/samples/run-unit-test.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/samples/run-unit-test.png" alt="Access Samples" width="700"></a>

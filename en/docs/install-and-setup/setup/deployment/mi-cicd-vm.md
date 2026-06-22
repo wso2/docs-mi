@@ -29,7 +29,7 @@ There are two kinds of jobs in Jenkins that we need to maintain. One for the Int
 
 4. Nexus server - To store the deployable composite artifacts (CApps). 
 
-5.WSO2 Integrator: MI instances in 3 environment (Standalone or Clustered)
+5. WSO2 Integrator: MI instances in 3 environment (Standalone or Clustered)
 
 6. Separate WSO2 Integrator: MI instance as Unit Testing Server (Optional)
 

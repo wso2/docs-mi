@@ -1,11 +1,14 @@
 # Applying Security to an API
 
-## Using a Basic Auth handler
-A Basic Authentication handler is enabled in the WSO2 Integrator: MI by default. See the example on [securing an API with basic auth]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis).
+WSO2 Integrator: MI provides two built-in handlers to secure your REST APIs. Depending on your security requirements and infrastructure, you can choose the most appropriate implementation:
+
+- **OAuth2 Authorization Handler:** This handler is designed for modern, stateless security using JSON Web Tokens (JWT). It validates self-contained access tokens, performs scope checks, and ensures the token complies with RFC 9068. Learn more: [Securing an API with JWT (Self Contained) access tokens]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis-with-jwt-access-tokens).
+
+- **Basic Authentication Handler:** This handler provides a traditional approach by validating user credentials (username and password) against the internal user store configured in the server. Learn more: [Securing an API with basic auth]({{base_path}}/learn/examples/rest-api-examples/securing-rest-apis).
 
 ## Using a custom basic auth handler
 
-If required, you can implement a custom basic auth handler (instead of the default handler explained above). The following example of a primitive security handler serves as a template that can be used to write your own security handler to secure an API.
+If required, you can implement a custom basic auth handler (instead of the default handlers explained above). The following example of a primitive security handler serves as a template that can be used to write your own security handler to secure an API.
 
 ### Prerequisites
 

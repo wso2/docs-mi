@@ -163,9 +163,9 @@ The connection configuration parameters are used to establish a connection with 
 
 Embedding model connections are used to connect to various embedding model providers. These connections are essential for enabling the Generative AI Module to interact with different embedding model services.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/ai/embedding-connections.png" title="Embedding Model Provider Connections" width="250" alt="Embedding Model Provider Connections"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/ai/embedding-connections.png" title="Embedding Model Provider Connections" width="500" alt="Embedding Model Provider Connections"/>
 
-The WSO2 MI Generative AI Module supports Open AI embedding model provider.
+The WSO2 MI Generative AI Module supports Open AI and Azure Open AI embedding model providers.
 
 #### Connection Configuration Parameters
 The connection configuration parameters are used to establish a connection with the Embedding model provider. These parameters are needed to provide based on the provider you are using.
@@ -187,6 +187,40 @@ The connection configuration parameters are used to establish a connection with 
             <td>apiKey</td>
             <td>OpenAI Key</td>
             <td>API key used to authenticate with the OpenAI service.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+??? note "Azure Open AI"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Display Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>Connection Name</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>apiKey</td>
+            <td>Azure OpenAI Key</td>
+            <td>API key used to authenticate with the Azure OpenAI service.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>deploymentName</td>
+            <td>Deployment Name</td>
+            <td>Name of the deployment in Azure OpenAI.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>endpoint</td>
+            <td>Endpoint</td>
+            <td>Endpoint URL of the Azure OpenAI service.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -215,6 +249,12 @@ The WSO2 MI Generative AI Module supports multiple vector stores.
         
 - **Pinecone DB**  
     Pinecone is a managed vector database service that provides high-performance and scalable storage for embeddings.
+
+- **Weaviate**  
+    Weaviate is an open-source, cloud-native vector database that supports hybrid search (vector + keyword) and is optimized for semantic search and generative AI use cases.
+
+- **Milvus**  
+    Milvus is a high-performance, open-source vector database built for scalable similarity search, capable of handling large-scale embedding workloads efficiently.
 
 - **MI Vector Store**  
     MI Vector Store is an in-memory vector database offered by WSO2 MI which will persist the data in the MI resources.  
@@ -358,6 +398,104 @@ The connection configuration parameters are used to establish a connection with 
             <td>dimension</td>
             <td>Dimension of embeddings</td>
             <td>Dimension of the embeddings used in the Pinecone service.</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+??? note "Weaviate"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Display Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>Connection Name</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>scheme</td>
+            <td>Scheme</td>
+            <td>Protocol used to connect to the Weaviate instance (http or https).</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>host</td>
+            <td>Host</td>
+            <td>Host name or IP address where the Weaviate service is running.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>port</td>
+            <td>Port</td>
+            <td>Port number of the Weaviate service.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>apiKey</td>
+            <td>API Key</td>
+            <td>API key used to authenticate with the Weaviate service (if authentication is enabled).</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>objectClass</td>
+            <td>Object Class</td>
+            <td>Name of the Weaviate class used to store and retrieve vector objects.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>avoidDuplicates</td>
+            <td>Avoid Duplicates</td>
+            <td>Enable to prevent inserting duplicate vector objects into the specified class.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>consistencyLevel</td>
+            <td>Consistency Level</td>
+            <td>Consistency level for write operations (e.g., ONE, QUORUM, ALL).</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+??? note "Milvus"
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Display Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>Connection Name</td>
+            <td>Name of the connection.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>url</td>
+            <td>URI</td>
+            <td>Full URI of the Milvus server (e.g., http://localhost:19530).</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>token</td>
+            <td>Token / API Key</td>
+            <td>Authentication token or API key used to connect to the Milvus service (if authentication is enabled).</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>collection</td>
+            <td>Collection Name</td>
+            <td>Name of the collection in Milvus used to store vector embeddings.</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>dimension</td>
+            <td>Dimension</td>
+            <td>Dimension of the embeddings stored in the Milvus collection.</td>
             <td>Yes</td>
         </tr>
     </table>
@@ -992,6 +1130,24 @@ The connection configuration parameters are used to establish a connection with 
             <td>Whether to overwrite the message body with the response. The default is false.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td>overflowHandlingMethod</td>
+            <td>Overflow Handling Method</td>
+            <td>The method to handle context overflow when Max History is reached. The default is Trim.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>summarizationLlmConfigKey</td>
+            <td>Summarization LLM Connection</td>
+            <td>Connection to the LLM to be used for Summarization. If not specified, agent's model will be used.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>summarizationModelName</td>
+            <td>Summarization Model Name</td>
+            <td>Model name to be used for summarization. This needs to be specified only if a Summarization LLM Connection is specified.</td>
+            <td>No</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -1015,6 +1171,7 @@ The connection configuration parameters are used to establish a connection with 
         <topP>1</topP>
         <frequencyPenalty>0</frequencyPenalty>
         <maxHistory>10</maxHistory>
+        <overflowHandlingMethod>Trim</overflowHandlingMethod>
     </ai.agent>
     ```
     

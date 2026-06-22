@@ -58,7 +58,7 @@ Follow the steps given below to create a new data service.
 
 2. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-project.png" alt="create new project" width="80%"></a>
 
 3. Click **Create**.
 
@@ -70,13 +70,13 @@ Once you click **Create**, the **Add Artifact** pane will be opened.
 
 2. Select **Data Service** under **Other Artifacts** to open the **Data Service Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/select_dataservice_artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/select_dataservice_artifact.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/select_dataservice_artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/select_dataservice_artifact.png" width="80%"></a>
 
 3. Provide `EmployeeDataService` as the **Data Service Name**. In the next step, you will configure a datasource that enables the service to connect to the MySQL database.
 
 4. Click **Add Datasource**.
    
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/create-new-dataservice.png" width="80%"></a>
     
 5. Set `EmployeeDatasource` as the **Datasource Identifier**, and select `RDBMS` for the **Datasource Type**, since this tutorial uses a MySQL database. Once you select the datasource type, the relevant configuration fields will be displayed.
 
@@ -149,7 +149,7 @@ Once you click **Create**, the **Add Artifact** pane will be opened.
     !!! Note
         The rest of the configurations will be left as default. For advanced configurations, refer to [Datasource Parameters]({{base_path}}/reference/synapse-properties/data-services/datasource-configuration-parameters/).
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-form.png" width="80%"></a>
 
 6. Click **Next**. 
 
@@ -159,13 +159,13 @@ Once you click **Create**, the **Add Artifact** pane will be opened.
 
 8. Click **Test Connection** to verify the connection. A success or failure message will appear based on the result.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/datasource-test-connection.png" width="80%"></a>
 
 9. Once the connection is successful, click **Create** to finalize the data source setup.
 
 10. Finally, click **Create** in the **Data Service** form to add the Data Service to the integration project. In the next steps, you will learn how to create a resource and define a SQL query.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/insert-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/insert-dataservice.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/insert-dataservice.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/insert-dataservice.png" width="80%"></a>
 
 #### Create a resource
 
@@ -173,11 +173,11 @@ Now, let's create a REST resource that will be used to invoke the SQL query.
 
 1. In the **MI Project Explorer**, select the **EmployeeDataService** that you created in the previous step.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/select-dataservice.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/select-dataservice.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/select-dataservice.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/select-dataservice.png" width="80%"></a>
 
 2. In the **Data Service Designer**, click the **+ Resources** button to add a new resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/add-resource.png" width="80%"></a>
 
     In the next step, you will create a resource that accepts the Employee Number as a path parameter. This value will be used to query the SQL database.
 
@@ -215,7 +215,7 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
 
 1. Open the **DataService View** of the newly created resource by clicking the `GET Employee/{EmployeeNumber}` resource under **Resources** in the **Data Service Designer**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/new-resource.png" width="80%"></a>
 
     !!! Info
         A single Data Service resource consists of the following key elements:
@@ -227,7 +227,7 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
 
 2. Click on **Input Mapping** in the **DataService** view.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/c.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/c.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping.png" width="80%"></a>
 
     Here, you will map the `EmployeeNumber` path parameter to the SQL query variable `employee_number`, which will be used in the SQL query.
 
@@ -259,7 +259,7 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
     </tbody>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/input-mapping-2.png" width="30%"></a>
 
 4. Finally, click **Submit** in the **Edit Input Mapping** pane to complete the input mapping configuration.
 
@@ -274,13 +274,13 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
     The `:employee_number` syntax is used to reference the SQL query variable you configured earlier.
     When the resource is invoked, the value passed through the `EmployeeNumber` path parameter will be substituted into this query.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/define_query.png" width="30%"></a>
 
 7. Click on **Transformation** in the **DataService** view. Here, you will set the content type to **JSON**, as the client expects a JSON response.
 
 8. Choose `JSON` as the **Output Type**, then click **Submit** to save the transformation settings.
     
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/transformation.png" width="80%"></a>
 
 9. Click on **Output Mapping** in the **DataService** view. Here, you will define the response JSON using the SQL results (`EmployeeNumber`, `FirstName`, `LastName`, and `Email`) retrieved from the query defined earlier.
     
@@ -302,7 +302,7 @@ Let’s write an SQL query to retrieve data from the MySQL data source you confi
 
     Since we're returning a single record, the mapping is done for a single row, and each key in the `Employee` object maps directly to a column value from the query.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output_mapping.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output_mapping.png" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/data-service/output_mapping.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/output_mapping.png" width="80%"></a>
 
 ### Step 3: Build and run the artifacts
 
@@ -313,7 +313,7 @@ Now that you have developed the data service using the WSO2 Integrator: MI for t
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/data-service/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/build_and_run_btn.png" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/data-service/build_and_run_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/data-service/build_and_run_btn.png" width="80%"></a>
 
 ### Step 4: Test the data service
 

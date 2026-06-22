@@ -23,7 +23,7 @@ Follow the instructions given in this section to create and configure the requir
 
 3. Click on the WSO2 Integrator: MI icon on the Activity Bar of the VS Code editor.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="MI VS Code Extension" width="80%"></a>
 
 4. Click **Open MI Project** on **Design View**.
 
@@ -33,15 +33,15 @@ Follow the instructions given in this section to create and configure the requir
 
 1. Once you have opened the integration project described above, the **WSO2 Integrator: MI Project Explorer** will appear with the previously created artifacts. Note that the `HealthcareAPI` is already included.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png"><img src="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png" alt="Inbound project explorer" width="40%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/using-inbound-endpoint/inbound-project-explorer.png" alt="Inbound project explorer" width="40%"></a>
 
 2. Click the **+** icon in the **MI Project Explorer**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png" alt="create inbound endpoint" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-inbound-endpoint/create-inbound-endpoint.png" alt="create inbound endpoint" width="40%"></a>
 
 3. Select the  **Event Integration** and click it.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png"><img src="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png" alt="add inbound endpoint" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/add-inbound-endpoint.png" alt="add inbound endpoint" width="80%"></a>
 
 4. On the **Create Event Integration panel**, select **HTTP** as the inbound endpoint type.
 

@@ -12,7 +12,7 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click **+ View More** under **Create an Integration**.
 
@@ -30,9 +30,9 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 - The created sequence is also available in the **Palette**, under **All Mediators** > **Generic** > **Call Sequence**, and is ready for use in other meditation workflows.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png" alt="Sample Sequence" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/defined-sequence.png" alt="Sample Sequence" width="80%"></a>
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-defined-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-defined-sequence.png" alt="Call Sequence" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-defined-sequence.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-defined-sequence.png" alt="Call Sequence" width="80%"></a>
 
 
 ### Create from a sequence mediator
@@ -43,11 +43,11 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 3. Select **Call Sequence**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/edit-proxy.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/edit-proxy.png" alt="Edit Proxy" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/edit-proxy.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/edit-proxy.png" alt="Edit Proxy" width="80%"></a>
 
 4. In the **Call Sequence** pane, select the previously created sequence from the **Referring Sequence** dropdown. Then the sequence will be linked to the integration.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/referring-sequence.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/referring-sequence.png" alt="referring sequence" width="30%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/referring-sequence.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/referring-sequence.png" alt="referring sequence" width="30%"></a>
 
 ### Design the integration
 
@@ -55,11 +55,11 @@ Follow these steps to create a new reusable sequence that you can add to your me
 
 2. Click the **+** icon to open the **Palette**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-design-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-design-view.png" alt="Sequence design view" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-design-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-design-view.png" alt="Sequence design view" width="80%"></a>
 
 2. Add the required integration artifacts from the **Palette** and design the integration flow.    
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-graphical-editor.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-graphical-editor.png" alt="Sequence graphical editor" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-graphical-editor.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/sequence-graphical-editor.png" alt="Sequence graphical editor" width="80%"></a>
 
 <!--
 
@@ -69,7 +69,7 @@ Follow these steps to create a new reusable sequence that you can add to your me
       
     2. Under **Referring Sequence**, select the sequence from the list of available sequences.
        
-       <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence-pane.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence-pane.png" alt="Call sequence pane" width="40%"></a>
+       <a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence-pane.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/call-sequence-pane.png" alt="Call sequence pane" width="40%"></a>
 
 -->
 
@@ -79,11 +79,11 @@ You can also use the [**Source view**](#using-the-source-view) to update the seq
 
 Click the **Show Source** (`</>`) icon located in the top right corner of the VS Code to view the XML-based synapse configuration (source code) of the reusable sequence.
 
-<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show Source View" width="30%"></a>
+<a href="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/qsg/show-source-view.png" alt="Show Source View" width="30%"></a>
 
 You can update the sequence using this view.
 
-<a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/using-source-view.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/using-source-view.png" alt="Using Source View" width="80%"></a>
+<a href="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/using-source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-reusable-sequence/using-source-view.png" alt="Using Source View" width="80%"></a>
 
 ## Examples
 

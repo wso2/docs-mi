@@ -8,6 +8,14 @@ In addition, see the [production deployment checklist]({{base_path}}/install-and
 -   [OS-level security](#os-level-security)
 -   [Network-level security](#network-level-security)
 
+!!! Note
+    In WSO2 MI, access to the **Management API** is an **intentional and expected capability** granted to authenticated users by design, 
+    as the platform is built for authorized personnel to manage integration workflows. This includes the ability to deploy artifacts and 
+    perform operations that may result in code execution on the server, which is expected behavior for an integration platform of this nature. However,
+    if stricter access control is desired, you may restrict Management API write access to administrator users only by [configuring `make_non_admin_users_read_only`]({{base_path}}/install-and-setup/setup/user-stores/managing-users#restrict-non-admin-users-from-updating-the-deployed-artifacts) in the deployment setting 
+    to further reduce the attack surface in production environments. It is the responsibility of the deploying organization to make this determination based on their business and security requirements.
+
+
 ## Runtime-level security
 
 Given below are the security guidelines for the WSO2 Integrator: MI runtimes. Note that some of these guidelines are common to both runtimes, whereas some guidelines are runtime-specific.
@@ -36,7 +44,7 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
         critical issues.</li>
         <li>WSO2 does not issue patches publicly for older product versions. Community users are encouraged to use the 
         latest product version to receive all the security issues resolved until that particular product release.</li>
-        <li><a href="https://docker.wso2.com/tags.php?repo=wso2mi">WSO2 Docker repository</a> releases docker images with security fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can fetch these docker images.</li>
+        <li><a href="https://registry.wso2.com/harbor/projects">WSO2 Docker repository</a> releases docker images with security fixes. Users with a <a href="https://wso2.com/subscription">subscription</a> can fetch these docker images.</li>
         </ul>
         </td>
       </tr>
@@ -271,10 +279,58 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
                Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code>,
                classes with matching names will be selectively blocked. 
             </p>
-            <div style="background:#f8f9fa; border-left:4px solid #ccc; padding:8px; margin:8px 0;">
+            <div class="custom-admonition">
+
                <strong>Note:</strong>  
                Limiting access to Java classes is supported with Rhino JS, Nashorn JS, and GraalJS engines.
             </div>
+
+            Please refer to the following WSO2-recommended classes when updating your `ALLOW_LIST`. If you need to add additional classes, ensure they are verified as safe before including them.
+            
+            <ul>
+               <li>java.math.*</li>
+               <li>java.lang.Object</li>
+               <li>java.lang.Character</li>
+               <li>java.lang.Boolean</li>
+               <li>java.lang.Byte</li>
+               <li>java.lang.Short</li>
+               <li>java.lang.Integer</li>
+               <li>java.lang.Long</li>
+               <li>java.lang.Float</li>
+               <li>java.lang.Double</li>
+               <li>java.lang.String</li>
+               <li>java.lang.StringBuilder</li>
+               <li>java.lang.StringBuffer</li>
+               <li>java.lang.Enum</li>
+               <li>java.lang.Math.*</li>
+               <li>java.util.UUID</li>
+               <li>java.util.ArrayList</li>
+               <li>java.util.Arrays</li>
+               <li>java.util.HashMap</li>
+               <li>java.util.HashSet</li>
+               <li>java.util.Hashtable</li>
+               <li>java.util.LinkedList</li>
+               <li>java.util.LinkedHashMap</li>
+               <li>java.util.LinkedHashSet</li>
+               <li>java.util.TreeMap</li>
+               <li>java.util.Collections</li>
+               <li>java.util.Random</li>
+               <li>java.util.regex.*</li>
+               <li>java.text.*</li>
+               <li>java.time.*</li>
+               <li>java.io.ByteArrayInputStream</li>
+               <li>java.io.ByteArrayOutputStream</li>
+               <li>java.io.StringWriter</li>
+               <li>java.io.StringReader</li>
+               <li>java.io.CharArrayWriter</li>
+               <li>java.io.CharArrayReader</li>
+               <li>javax.script.SimpleScriptContext</li>
+               <li>org.apache.synapse.mediators.bsf.CommonScriptMessageContext</li>
+               <li>org.apache.synapse.mediators.bsf.GraalVMJavaScriptMessageContext</li>
+               <li>org.apache.synapse.mediators.bsf.NashornJavaScriptMessageContext</li>
+               <li>org.apache.synapse.mediators.bsf.OpenJDKNashornJavaScriptMessageContext</li>
+            </ul>
+            
             <p>
                <b>Limiting Access to Java Methods/Native Objects</b><br />
                Access to Java Methods/Native Objects can be restricted by providing the following
@@ -286,14 +342,16 @@ Given below are the security guidelines for the WSO2 Integrator: MI runtime.
 'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
 'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader"</code></pre>
             <p>
-               Java methods/native objects having names equal to any of the values given under
-               <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively
-               blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is
-               <code>BLOCK_LIST</code> (all other methods will be allowed).<br />
-               Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code>
-               is <code>ALLOW_LIST</code>, methods with matching names will be selectively allowed.
+                Java methods/native objects having names equal to any of the values given under
+                <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively
+                blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is
+                <code>BLOCK_LIST</code> (all other methods will be allowed).<br />
+                Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code>
+                is <code>ALLOW_LIST</code>, methods with matching names will be selectively allowed.
             </p>
-            <div style="background:#f8f9fa; border-left:4px solid #ccc; padding:8px; margin:8px 0;">
+
+            <div class="custom-admonition">
+
                <strong>Note:</strong>  
                Limiting access to Java methods is only supported with the Rhino JS engine.
             </div>

@@ -33,10 +33,10 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 ## Create the integration logic
 
 1. Hover over **APIs** and click the **+** icon that appears to open the **API Form**.
-   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/create-api.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/create-api.png" alt="add property" width="80%"></a>
+   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/create-api.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/create-api.png" alt="add property" width="80%"></a>
 
 2. Provide the API name as `college_student_api` and the API context as `/student` and Click **Create**. You can go to the source view of the xml configuration file of the API and copy the following configuration and save. 
-   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/source-view.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/source-view.png" alt="add property" width="80%"></a>
+   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/source-view.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/source-view.png" alt="add property" width="80%"></a>
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -61,12 +61,12 @@ Follow the steps in the [create integration project]({{base_path}}/develop/creat
 4. Provide Sequence name as `init_sequence`.
    
 5. Click the created sequence form **MI Overview**.
-   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png" alt="add property" width="80%"></a>
+   <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/sequence-create.png" alt="add property" width="80%"></a>
 
 6. Click the **+** icon to add the first mediator to the sequence.
    
 7. Search `ldap` in **Connector** panel and Click **Ldap** Connector
-    <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png" alt="add property" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/ldap_connector/ldap-connector.png" alt="add property" width="80%"></a>
    
 8. Click **Init** operation. Then click **Submit**.
    

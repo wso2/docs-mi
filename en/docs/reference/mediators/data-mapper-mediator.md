@@ -203,10 +203,10 @@ The operations that the Data Mapper supports as shown below.
 - **match** – check whether the input match with a (JS) Regular Expression
 
 ## AI Data Mapper
-The MI Copilot AI Assistant will allow you to seamlessly generate the input-output mapping. Simply load the input and output schema (of any type) to the relevant sections as shown below and click **Map**. Use the **Clear** button to clear all mappings.
+The [WSO2 Integrator Copilot]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview) will allow you to seamlessly generate the input-output mapping. Simply load the input and output schema (of any type) to the relevant sections as shown below and click **Map**. Use the **Clear** button to clear all mappings.
 
 !!! info "WSO2 Account and Usage Limits"
-    To use this feature, you must have a WSO2 account. If you do not have one, attempting to access Copilot or the mapping feature will prompt you to create an account. If your account exceeds the usage limit, it will be refreshed after the specified time limit.
+    To use this feature, you must have a WSO2 account. If you do not have one, attempting to access the Copilot or the mapping feature will prompt you to create an account. If your account exceeds the usage limit, it will be refreshed after the specified time limit.
 
 !!! info "Review and Fine-tune"
     Since AI powers the automated mapping, it may contain errors. Always verify the accuracy of the generated mappings. To fine tune the mappings you can use the `</>` button and edit the TypeScript (TS) file.

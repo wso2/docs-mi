@@ -8,7 +8,7 @@ These guidelines are designed to ensure transparency, security, and compliance w
 
 The AI Copilot is integrated into the WSO2 Integrator: MI developer experience. It works as follows:
 
-<a href="{{base_path}}/assets/img/setup-and-install/references/ai-usage/macro-architecture.png"><img src="{{base_path}}/assets/img/setup-and-install/references/ai-usage/macro-architecture.png" alt="AI Macro Architecture" width="70%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/references/ai-usage/macro-architecture.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/references/ai-usage/macro-architecture.png" alt="AI Macro Architecture" width="70%"></a>
 
 - **AI Copilot Code**: Delivered as a Visual Studio Code (VS Code) extension, providing in-editor assistance such as code completion, explanations, and suggestions.
 - **Language Server**: Powers intelligent features inside the IDE, including syntax awareness and integration with Copilot services.
@@ -31,7 +31,7 @@ This ensures that only authorized users in your organization can access Copilot 
 
 The movement of data through the Copilot is designed for zero-retention at the intermediary layer:
 
-<a href="{{base_path}}/assets/img/setup-and-install/references/ai-usage/ai-data-flow.png"><img src="{{base_path}}/assets/img/setup-and-install/references/ai-usage/ai-data-flow.png" alt="AI Macro Architecture" width="70%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/references/ai-usage/ai-data-flow.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/references/ai-usage/ai-data-flow.png" alt="AI Macro Architecture" width="70%"></a>
 
 - **Direct Forwarding**: MI Intelligence forwards user data directly to Anthropic for processing
 - **No Local Storage**: MI Intelligence does not store any user data locally

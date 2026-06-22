@@ -10,7 +10,7 @@ To address issues such as frozen views or errors while designing integrations us
 
 2. Select **Developer: Reload Window** from the list of commands.
 
-    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/reload-window.png"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/reload-window.png" alt="MI Refresh" width="70%"></a>
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/reload-window.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/reload-window.png" alt="MI Refresh" width="70%"></a>
 
 Refreshing the MI for VS Code extension resolves common errors in the graphical view and restores normal functionality.
 

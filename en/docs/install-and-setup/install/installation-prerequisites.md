@@ -70,8 +70,8 @@ The WSO2 Integrator: MI runtime is tested with the following operating systems:
 | Ubuntu                   | 24.04    |
 | Red Hat Enterprise Linux | 9.7, 10  |
 | Rocky Linux              | 10       |
-| MacOS                    | 15.7     |
-| SUSE Linux               | 15       |
+| MacOS                    | 26.3     |
+| SUSE Linux               | 16       |
 
 ### Tested JDKs
 
@@ -90,11 +90,11 @@ The WSO2 Integrator: MI runtime is tested with the following databases:
 
 | DBMS                 | Versions           |
 |----------------------|--------------------|
-| MySQL                | 8, 9             |
-| Oracle               | 12c release 2, 19c |
-| Microsoft SQL Server | 2022               |
-| PostgreSQL           | 17.2         |
-| MariaDB              | 10.5               |
+| MySQL                | 8, 9               |
+| Oracle               | 19c, 26ai          |
+| Microsoft SQL Server | 2025               |
+| PostgreSQL           | 17.2, 18.3         |
+| MariaDB              | 10.5, 12.2         |
 | DB2                  | 11.5               |
 
 ### ARM compatibility

@@ -692,6 +692,23 @@ The management API has multiple resources to provide information regarding the d
 	    {"Message":"Successfully added Carbon Application HelloWorldCompositeExporter_1.0.0.car"}
 	    ```
 
+### DELETE CARBON APPLICATIONS
+
+-	**Resource**: `/applications`
+
+	**Description**: Delete a carbon application from the deployment folder. Once deleted it will be undeployed from the server.
+
+	**Example**:
+    
+    === "Request"
+	    ```bash 
+	    curl -X DELETE "https://localhost:9164/management/applications/HelloWorldCompositeExporter_1.0.0" -H "Authorization: Bearer TOKEN" -k -i
+	    ```
+    === "Response"    
+	    ```bash 
+	    {"Message":"Successfully removed Carbon Application named HelloWorldCompositeExporter_1.0.0"}
+	    ```
+
 ### DOWNLOAD CARBON APPLICATION
 
 -	**Resource**: `/applications`

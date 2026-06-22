@@ -11,16 +11,16 @@ Follow the steps below to create a custom mediator artifact:
 1. [Create a new integration project]({{base_path}}/develop/create-integration-project/) or select an existing one.  
 2. Navigate to **MI Project Explorer** and click on **Add artifact**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 4. Select **Class Mediator** under **Other Artifacts** to open the **ClassMediator Creation Form**.
 
-    <a href="{{base_path}}/assets/img/integrate/create_project/select_class.png"><img src="{{base_path}}/assets/img/integrate/create_project/select_class.png" alt="class mediator artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/create_project/select_class.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/create_project/select_class.png" alt="class mediator artifact" width="80%"></a>
 
 5. Enter the package name and class name of your mediator project.
 
-    <a href="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png"><img src="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png" alt="class mediator form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/create_project/custom_mediator_creation.png" alt="class mediator form" width="80%"></a>
 
 6. Click <b>Create</b> and see that the project is now listed in the project explorer.  
 

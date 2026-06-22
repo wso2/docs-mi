@@ -5,7 +5,7 @@
 
 This example demonstrates how to integrate with the `OrderService` gRPC API to handle the lifecycle of an order in a retail system—from creation to retrieval and updates. This API facilitates seamless backend communication for e-commerce platforms, inventory systems, and similar applications.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png" alt="generated connector" width="80%" ></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/highlevel-diagram.png" alt="generated connector" width="80%" ></a>
 
 ## Prerequisites:
 1. Download the sample order proto file [`order-service.proto`]({{base_path}}/assets/attachments/learn/grpc-tool/order-service.proto) file.
@@ -22,12 +22,12 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 
 **Step 02:** Create a new sequence or API artifact within your integration project, see [Create Sequence]({{base_path}}/reference/mediators/sequence-mediator).
          
-<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png" alt="generated connector" width="20%" hight="40%" ></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/1_seq_grpc.png" alt="generated connector" width="20%" hight="40%" ></a>
 
 
 **Step 03:** From the Mediator Palette, select the `orderservice` connector that was generated from the [`order-service.proto`]({{base_path}}/assets/attachments/learn/grpc-tool/order-service.proto) file using above one of options in [generate the gRPC connector]({{base_path}}/reference/connectors/connector-tools/grpc/grpc-connector-overview).
 
-<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png" alt="generated connector" width="60%" ></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/orderservice.png" alt="generated connector" width="60%" ></a>
 
 **Step 04:** Create a connection by filling in the form with the required authentication details.
 
@@ -40,7 +40,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 | Username        | eve                  |
 | Password        | eve@123              |
 
-<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/2_connection_form.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/2_connection_form.png" alt="Create Order" width="50%" height="60%" ></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/2_connection_form.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/2_connection_form.png" alt="Create Order" width="50%" height="60%" ></a>
 
 **Step 05:** Add the `CreateOrder` operation to your sequence or API. Provide the necessary input as a JSON object that matches the input message defined in the `.proto` file. 
 
@@ -63,7 +63,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
            "price": 299.99
          }
          ```
-   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png" alt="generated connector" width="30%" height="40%" ></a>
+   <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/3_create_form.png" alt="generated connector" width="30%" height="40%" ></a>
 
 **Step 06:** Similarly, you can use the `GetOrder` operation to retrieve order details by supplying the `order_id`. Again, make sure the response overwrites the payload.
 
@@ -75,7 +75,7 @@ This example demonstrates how to integrate with the `OrderService` gRPC API to h
 
 **Step 07:** Optionally, add the `UpdateOrder` operation to modify existing orders by providing the order ID and updated details.
 **Step 08:** Add any response handling logic needed to process the output from the gRPC calls at the end of your sequence or API.
-<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/simple-usecase.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/simple-usecase.png" alt="generated connector" width="40%" ></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/simple-usecase.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/simple-usecase.png" alt="generated connector" width="40%" ></a>
 
 ---
 
@@ -112,14 +112,14 @@ This example shows how to use the generated gRPC connector alongside the `Data M
       - **Data Mapping**: Use the [`Data Mapper mediator`]({{base_path}}/reference/mediators/data-mapper-mediator) to map the complex JSON structure to the `CreateOrderRequest` message. The mapping can be done visually in the WSO2 Integrator: MI for VS Code.
       
 
-        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png" alt="data mapper mediator" width="30%" height="40%" ></a>
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/6_datamapper.png" alt="data mapper mediator" width="30%" height="40%" ></a>
              
      
-        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/5_datamapper.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/5_datamapper.png" alt="data mapping" width="80%" ></a>
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/5_datamapper.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/5_datamapper.png" alt="data mapping" width="80%" ></a>
       
            - With the Data Mapper, you can add expression conditions to your mappings, allowing you to transform or filter data as needed. For example, you can set conditions to map certain fields only when specific criteria are met, or format data before sending it to the gRPC service.
         
-        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/condition_mapping.gif"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/condition_mapping.gif" alt="data mapping with condition" width="80%" ></a>
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/condition_mapping.gif" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/condition_mapping.gif" alt="data mapping with condition" width="80%" ></a>
 
         ??? note "Data Mapper sourcecode"
             ```
@@ -227,6 +227,6 @@ This example shows how to use the generated gRPC connector alongside the `Data M
 
         This approach makes it easy to work with large or differently structured input payloads, ensuring they conform to your gRPC request messages.
 
-        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/4_grpc_full_sequence.png"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/4_grpc_full_sequence.png" alt="generated connector" ></a>
+        <a href="{{base_path}}/assets/img/integrate/connectors/grpc-tool/4_grpc_full_sequence.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/grpc-tool/4_grpc_full_sequence.png" alt="generated connector" ></a>
 
         - **Final Sequence**: The final sequence will look like this, where the Data Mapper transforms the complex input into the expected gRPC request format.

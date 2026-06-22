@@ -30,7 +30,7 @@ Follow the instructions given in this section to create and configure the requir
 
 5. Provide a location under the **Project Directory**.
 
-     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/create-new-project.png" alt="create new project" width="80%"></a>
+     <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -53,16 +53,16 @@ Let's create three different HTTP connections for the above services.
 
 2. Click on **+ Add artifact**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
 5. Select **HTTP**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/select-http.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/select-http.png" alt="select HTTP connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/select-http.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/select-http.png" alt="select HTTP connection" width="80%"></a>
 
 6. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
      <table>
@@ -133,13 +133,13 @@ You have now created the three connections for the hospital back-end services th
       </tr>
     </table>                                                                   
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/synapse-api-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/synapse-api-artifact.png" alt="Synapse API artifact" width="70%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/synapse-api-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/synapse-api-artifact.png" alt="Synapse API artifact" width="70%"></a>
 
 4. Click **Create**.
 
 5. On the Service Designer, click on the three dots (**⋮**) and then **Edit** to access the **Properties** of the default API resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png" alt="Edit API resource" width="70%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png" alt="Edit API resource" width="70%"></a>
 
 6. Enter the following details:
 
@@ -162,7 +162,7 @@ You have now created the three connections for the hospital back-end services th
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/tutorials/using-templates/edit-api-resource.png" alt="edit API resource" width="30%"></a>
 
 7. Click **Update**.
 
@@ -174,7 +174,7 @@ You can now start configuring the API resource.
 
 2. Click on the **+** icon to open the **Mediator Palette**. 
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png" alt="open palette" width="60%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/open-palette.png" alt="open palette" width="60%"></a>
 
 3. Select the **Switch** mediator under **Mediators**.
 
@@ -244,7 +244,7 @@ You can now start configuring the API resource.
         </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view-after-log.png" alt="Resource view after adding log" width="80%"></a>
 
     !!! Info
         You have now configured the <a target="_blank" href="{{base_path}}/reference/mediators/switch-mediator">Switch mediator</a> to log the message `Routing to: <Hospital Name>` whenever a request is sent to this API resource. The request will then be routed to the relevant hospital back-end service based on the hospital name provided in the request payload.
@@ -290,13 +290,13 @@ You can now start configuring the API resource.
     !!! Note
         We will leave the rest of the configurations as defaults: **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png" alt="HTTP POST operation" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/http_post_grandoak.png" alt="HTTP POST operation" width="30%"></a>
 
 8. Add a **Respond** mediator right after the **Switch** mediator to return the response from the healthcare service back to the client.
 
     You have successfully created all the artifacts required to route messages to a back-end service based on the content of the request payload. 
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png" alt="Resource view" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/resource-view.png" alt="Resource view" width="80%"></a>
 
 ### Step 3: Build and run the artifacts
 
@@ -304,7 +304,7 @@ Now that you have developed an integration using the WSO2 Integrator: MI for the
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/message-routing/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/message-routing/build_and_run_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
 
 ### Step 4: Test the use case
 
@@ -360,7 +360,7 @@ Select the `HealthcareAPI` you have developed and test the resource using the fo
     </tr>
 </table>
 
-<a href="{{base_path}}/assets/img/learn/tutorials/message-routing/try_out.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/try_out.png" alt="Try Out" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/message-routing/try_out.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/try_out.png" alt="Try Out" width="80%"></a>
 
 Optionally, you can use [Postman](https://www.postman.com/downloads/) or [cURL](https://curl.haxx.se/) to send the request. You can refer to the following request information.
     

@@ -24,7 +24,7 @@ In this tutorial, instead of sending the request directly to the back-end servic
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -34,11 +34,11 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 1. Go to **MI Project Explorer**  and click **+** button to add artifact.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-artifact.png" alt="add artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-artifact.png" alt="add artifact" width="80%"></a>
 
 2. In the **Add Artifact** interface, under **Create an Integration**, click on **API**. This opens the API Form.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png" alt="select new API" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/add_artifact_pane.png" alt="select new API" width="80%"></a>
 
 3. Enter the details given below to create a new REST API.
 
@@ -70,7 +70,7 @@ Now let's start designing the integration by adding the necessary artifacts.
 
 5. On the Service Designer, click on the three dots (**⋮**) and then **Edit** to access the **Properties** of the default API resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png" alt="Edit API resource" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_default_get.png" alt="Edit API resource" width="80%"></a>
 
 6. Enter the following details:
 
@@ -98,7 +98,7 @@ Now let's start designing the integration by adding the necessary artifacts.
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png" alt="Edit API resource properties" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/edit_api_resource_props.png" alt="Edit API resource properties" width="30%"></a>
 
 7. Click **Update**.
 
@@ -111,19 +111,19 @@ Now, let's create a message store artifact that connects to the RabbitMQ broker 
 
 1. In the **MI Project Explorer** click on **+ Add artifact**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png" alt="create Message Store" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store.png" alt="create Message Store" width="80%"></a>
 
 2. Click **+ View More** under **Create an Integration**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png" alt="edit API resource" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-2.png" alt="edit API resource" width="80%"></a>
 
 3. Select **Message Store** under **Other Artifacts** to open the **Message Store Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-3.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-3.png" alt="select message store" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-3.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-3.png" alt="select message store" width="80%"></a>
 
 4. Select **RabbitMQ Message Store**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-4.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-4.png" alt="select rabbitmq store" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-4.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-store-4.png" alt="select rabbitmq store" width="80%"></a>
 
 5. Enter the following details to create a new RabbitMQ message store.
 
@@ -190,21 +190,21 @@ Let’s update the REST API so that incoming client requests are forwarded to th
 
 1. Navigate to **MI Project Explorer** > **APIs** > **HealthcareAPI** > **/categories/{category}/reserve** to open the **Resource View**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png" alt="Edit API resource" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/update-mediation-flow.png" alt="Edit API resource" width="80%"></a>
 
 2. Click on the **+** icon on the canvas to open the **Mediator Palette**. In the next step, you will add a [Store mediator]({{base_path}}/reference/mediators/store-mediator/) to store the incoming message in the Message Store you configured earlier.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-mediator-mediation-flow.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-mediator-mediation-flow.png" alt="Add mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-mediator-mediation-flow.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-mediator-mediation-flow.png" alt="Add mediator" width="80%"></a>
 
 2. Select the **Store Message** mediator under **Mediators**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_store_mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_store_mediator.png" alt="Add mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_store_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_store_mediator.png" alt="Add mediator" width="80%"></a>
 
 3. Select `HospitalServiceMessageStore` as the **Message Store** in the **Add Store Mediator** pane, and click **Add** to insert it into the integration flow.
 
 4. Click the **+** icon after the **Store** mediator, and add a **Respond** mediator from the **Mediator Palette** to send a response back to the client.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/post_resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/post_resource.png" alt="Add mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/post_resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/post_resource.png" alt="Add mediator" width="80%"></a>
 
 You have now completed the integration flow that stores the message sent by the client in the configured message store. Next, we’ll create the integration flow that will be executed when the Message Processor retrieves a message from the store.
 
@@ -218,25 +218,25 @@ Let's create a sequence that will use the messages saved in the message store an
 
 3. Select **Sequence** under **Other Artifacts** to open the **Sequence Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png" alt="Create new sequence" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence.png" alt="Create new sequence" width="80%"></a>
 
 4. In the **Sequence Form** that appears, provide `HospitalServiceSequence` as the **Name**, and click **Create**. This will open the **Sequence View**, where you can design the integration flow.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png" alt="Create new HospitalServiceSequence" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-new-sequence-2.png" alt="Create new HospitalServiceSequence" width="80%"></a>
 
     In the next steps, you will design the integration flow to call the hospital service backend and log the response it returns.
 
 5. Click on the **+** icon on the canvas to open the **Mediator Palette**, to add the HTTP POST operation to call the hospital service backend.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add_first_mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add_first_mediator.png" alt="Add first mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add_first_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add_first_mediator.png" alt="Add first mediator" width="80%"></a>
 
 6. Search for `post` in the **Mediator Palette**, and select the **HTTP POST** operation.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/search_post.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/search_post.png" alt="Add POST operation" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/search_post.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/search_post.png" alt="Add POST operation" width="80%"></a>
 
 7. Click **+ Add new connection** to create a new connection.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/new_http_conn.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/new_http_conn.png" alt="add new connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/new_http_conn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/new_http_conn.png" alt="add new connection" width="80%"></a>
 
 8. Select `HTTP` and fill in the following details to create a connection to hospital service backend. Finally, click **Add** in the **Add New Connection** form to create the connection.
 
@@ -245,24 +245,24 @@ Let's create a sequence that will use the messages saved in the message store an
     | **Connection Name** | `HospitalConnection`        |
     | **Base URL**        | `http://localhost:9090` |
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/form_http_conn.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/form_http_conn.png" alt="create connection" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/form_http_conn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/form_http_conn.png" alt="create connection" width="80%"></a>
 
 9. Provide `/${payload.hospital_id}/categories/${params.pathParams.category}/reserve` as the **Relative Path**, and click **Add** to add the operation to the integration flow.
 
     !!! Note
         You can leave the rest of the configurations as default: **Content Type** set to **JSON**, **Request Body** as `${payload}`, and **Overwrite Message Body** checked.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png" alt="HTTP operation" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/transforming-message-content/http_post_op.png" alt="HTTP operation" width="30%"></a>
 
 10. Click on the **+** icon after the **HTTP POST** operation, and select the **Log** mediator from the **Mediator Palette** to log the response received from the hospital backend service.
 
 11. Provide `Payload: ${payload}` as the **Message** in the **Add Log Mediator** pane, and click **Add** to insert the **Log** mediator into the integration flow.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-log-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-log-mediator.png" alt="HTTP operation" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-log-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/add-log-mediator.png" alt="HTTP operation" width="30%"></a>
 
 12. Finally, click on the **+** icon after the **Log** mediator, select the **Drop** mediator from the **Mediator Palette**, and click **Add** to add it to the integration flow.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_drop_mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_drop_mediator.png" alt="HTTP operation" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_drop_mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/select_drop_mediator.png" alt="HTTP operation" width="80%"></a>
 
 You have now completed the integration flow that will be executed when the message processor picks up a message.  
 In the next step, you will create a [Message Processor]({{base_path}}/reference/synapse-properties/message-processors/msg-sampling-processor-properties/) that will pick messages from the Message Store configured in the [previous step](#create-the-message-store).
@@ -280,11 +280,11 @@ You need to create a **Message Sampling Processor**, which will retrieve message
 
 3. Select **Message Processor** under **Other Artifacts** to open the **Message Processor Form**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor.png" alt="Create-message-processor" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor.png" alt="Create-message-processor" width="80%"></a>
 
 4. Select **Message Sampling Processor**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor-2.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor-2.png" alt="Create new message processor" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor-2.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/create-message-processor-2.png" alt="Create new message processor" width="80%"></a>
 
 5. Enter the following details, and click **Create** to add a new Message Sampling Processor.
 
@@ -325,7 +325,7 @@ Now that you have developed an integration using the WSO2 Integrator: MI for the
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/build_and_run_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
 
 ### Step 5: Test the use case
 
@@ -382,7 +382,7 @@ Select the `HealthcareAPI` you have developed and test the resource using the fo
     </tr>
 </table>
 
-<a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/try_out.png"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/try_out.png" alt="Try Out" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/try_out.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/storing-and-forwarding-messages/try_out.png" alt="Try Out" width="80%"></a>
 
 Optionally, you can use [Postman](https://www.postman.com/downloads/) or [cURL](https://curl.haxx.se/) to send the request. You can refer to the following request information.
 

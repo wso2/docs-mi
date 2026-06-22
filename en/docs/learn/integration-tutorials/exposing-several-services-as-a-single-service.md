@@ -8,7 +8,7 @@ In this tutorial, when a client sends a request for a medical appointment, the W
 
 You will also use the <a target="_blank" href="{{base_path}}/reference/mediators/payloadfactory-mediator/">Payload mediator</a> to transform the response from one back-end service into the format required by another service.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/what_you_will_build.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/what_you_will_build.png" alt="service orchestration" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/what_you_will_build.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/what_you_will_build.png" alt="service orchestration" width="80%"></a>
 
 ### Concepts and artifacts used
 
@@ -35,7 +35,7 @@ Follow the instructions given in this section to create and configure the requir
 
 5. Provide a location under **Select Project Directory**.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/create-new-project.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/create-new-project.png" alt="create new project" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/create-new-project.png" alt="create new project" width="80%"></a>
 
 6. Click **Create**.
 
@@ -48,12 +48,12 @@ Let's create an HTTP connection to represent all three back-end services: Hospit
 1. Navigate to **MI Project Explorer**.
 2. Click on **Add artifact**.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 3. Click **+ View More** under **Create an Integration**.
 4. Select **Connections** under **Other Artifacts** to open the **Connector Store Form**.
 
-    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/connections-artifact.png" alt="connections artifact" width="80%"></a>
 
 5. Select **HTTP**.
 6. In the **Add New Connection** form, specify the following values to create the new HTTP connection.
@@ -114,7 +114,7 @@ You have now created the connection that is required for this tutorial.
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-api-artifact.png"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-api-artifact.png" alt="create API artifact" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-api-artifact.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/sending-simple-message-to-service/create-api-artifact.png" alt="create API artifact" width="80%"></a>
 
 4. Click **Create**. This opens the **Service Designer** interface.
 
@@ -122,7 +122,7 @@ You have now created the connection that is required for this tutorial.
 
 5. On the Service Designer, click on the three dots (**⋮**) and then **Edit** to access the **Properties** of the default API resource.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png" alt="Edit API resource" width="70%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/message-routing/edit-icon-api-resource.png" alt="Edit API resource" width="70%"></a>
 
 6. Enter the following details:
 
@@ -150,7 +150,7 @@ You have now created the connection that is required for this tutorial.
     </tr>
     </table>
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/edit-api-resource.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/edit-api-resource.png" alt="Edit API resource" width="30%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/edit-api-resource.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/edit-api-resource.png" alt="Edit API resource" width="30%"></a>
 
 7. Click **Update**.
 
@@ -183,7 +183,7 @@ You can now start updating the API resource with the mediation flow.
     }
     ```
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_start_payload_service_chaining.gif"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_start_payload_service_chaining.gif" alt="Add start payload" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_start_payload_service_chaining.gif" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_start_payload_service_chaining.gif" alt="Add start payload" width="80%"></a>
 
     We need to use the Hospital ID (`hospital_id`) and card number (`cardNo`) in multiple HTTP calls later in the integration flow. To avoid losing these values, we will store them using the <a target="_blank" href="{{base_path}}/reference/mediators/variable-mediator/">Variable mediator</a> so that they can be easily reused throughout the flow.
 
@@ -191,7 +191,7 @@ You can now start updating the API resource with the mediation flow.
 
 4. Under **Mediators**, select the **Variable** mediator.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-variable-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-variable-mediator.png" alt="add variable mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-variable-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-variable-mediator.png" alt="add variable mediator" width="80%"></a>
 
 5. Provide `hospital_id` as the variable name. In the next, we will extract the Hospital ID from the incoming payload and assign it to this variable.
 
@@ -199,13 +199,13 @@ You can now start updating the API resource with the mediation flow.
 
 7. Once expressions are enabled, click on the expression editor (<img src="{{base_path}}/assets/img/common/expression_editor_icon.png" alt="expression editor" class="inline-icon">) icon to open the editor. Then, select **Payload** → **hospital_id** to extract the Hospital ID from the request payload.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/service_chaining_hospital_id_var.gif"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/service_chaining_hospital_id_var.gif" alt="Extract Hospital ID" width="50%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/service_chaining_hospital_id_var.gif" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/service_chaining_hospital_id_var.gif" alt="Extract Hospital ID" width="50%"></a>
 
 8. Click **Add** to insert the **Variable** mediator into the integration flow.
 
 9. Next, add a new **Variable** mediator right after the previous one. This mediator will extract and store the card number from the incoming payload.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_second_var.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_second_var.png" alt="Add second variable" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_second_var.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_second_var.png" alt="Add second variable" width="80%"></a>
 
 10. Similar to the previous steps, you can use the expression editor to select **Payload** → **cardNo**, or simply copy and paste the following details.
 
@@ -240,7 +240,7 @@ You can now start updating the API resource with the mediation flow.
 
 12. Search for `post` in the **Mediator Palette** to add the **HTTP POST** operation after the **Variable** mediator.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_post.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_post.png" alt="Add HTTP POST" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_post.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_post.png" alt="Add HTTP POST" width="80%"></a>
 
 13. In the pane that appears, specify the following values.
 
@@ -397,7 +397,7 @@ You can now start updating the API resource with the mediation flow.
     !!! Tip
         You can search for `get` in the **Mediator Palette** to quickly find the HTTP GET operation.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_post.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_get.png" alt="Add HTTP GET" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_post.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add_http_get.png" alt="Add HTTP GET" width="80%"></a>
 
 18. In the pane that appears, specify the following values.
 
@@ -454,7 +454,7 @@ You can now start updating the API resource with the mediation flow.
 
 19. Click on the **+** icon after the **HTTP GET** operation and select the **Payload** mediator to construct the above request payload.
 
-    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-payload-mediator.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-payload-mediator.png" alt="add payload mediator" width="80%"></a>
+    <a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-payload-mediator.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/add-payload-mediator.png" alt="add payload mediator" width="80%"></a>
 
 20. In the **Add Payload Mediator** pane that appears, enter the following template in the **Payload** box and ensure that the **Content Type** is set to **JSON**.
 
@@ -544,7 +544,7 @@ Now that you have developed an integration using the WSO2 Integrator: MI for the
 
 Click the **Build and Run** icon located in the top right corner of VS Code.
 
-<a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/build_and_run_btn.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/build_and_run_btn.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/build_and_run_btn.png" alt="Build and Run" width="80%"></a>
 
 ### Step 4: Test the use case
 
@@ -601,7 +601,7 @@ Select the `HealthcareAPI` you have developed and test the resource using the fo
     </tr>
 </table>
 
-<a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/try_out.png"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/try_out.png" alt="Try Out" width="80%"></a>
+<a href="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/try_out.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/tutorials/exposing-several-services/try_out.png" alt="Try Out" width="80%"></a>
 
 Optionally, you can use [Postman](https://www.postman.com/downloads/) or [cURL](https://curl.haxx.se/) to send the request. You can refer to the following request information.
 

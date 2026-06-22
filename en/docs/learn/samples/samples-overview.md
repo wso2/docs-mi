@@ -13,8 +13,8 @@ You can access the available samples through the **Welcome to MI** page of MI fo
 
 If you are not on the **Welcome to MI** page, navigate to it by selecting **MI: Open MI Welcome** from the VS Code command palette.
 
-<a href="{{base_path}}/assets/img/learn/samples/access_samples.png"><img src="{{base_path}}/assets/img/learn/samples/access_samples.png" alt="Access Samples" width="700"></a>
+<a href="{{base_path}}/assets/img/learn/samples/access_samples.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/samples/access_samples.png" alt="Access Samples" width="700"></a>
 
 Click on **More...** to open a comprehensive window displaying all available samples, complete with advanced search and filter options for streamlined exploration.
 
-<a href="{{base_path}}/assets/img/learn/samples/access_samples2.png"><img src="{{base_path}}/assets/img/learn/samples/access_samples2.png" alt="Access Samples" width="700"></a>
+<a href="{{base_path}}/assets/img/learn/samples/access_samples2.png" class="glightbox"><img src="{{base_path}}/assets/img/learn/samples/access_samples2.png" alt="Access Samples" width="700"></a>

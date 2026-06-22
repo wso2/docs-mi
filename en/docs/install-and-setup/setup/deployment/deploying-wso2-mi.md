@@ -5,7 +5,7 @@ See the instructions on how to set up a cluster of WSO2 Integrator: MI nodes in 
 
 This deployment scenario is a two-node WSO2 Integrator: MI deployment. That is, two WSO2 Integrator: MI nodes are configured to serve requests with high availability and scalability. The product nodes in the deployment are fronted by an external third-party load balancer, which routes requests to the two nodes on a round-robin basis.
 
-<a href="{{base_path}}/assets/img/integrate/mi-deployment.png"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="WSO2 Integrator: MI deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/integrate/mi-deployment.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/mi-deployment.png" alt="WSO2 Integrator: MI deployment" width="60%"></a>
 
 ## Install the WSO2 Integrator: MI
 
@@ -185,6 +185,10 @@ When you have Scheduled triggers in your integration deployment, each task shoul
     task_nodes = "node-1,node-2 ,node-3,node-4"
     ```
 
+#### Coordinated task delete barrier
+
+The cluster uses the **task delete barrier** to coordinate task cleanup during hot undeployment, preventing stale tasks and brief duplicate execution across nodes. It is **enabled by default**, and the required tables are created automatically by the standard `<MI_HOME>/dbscripts/<DB_TYPE>/<DB_TYPE>_cluster.sql` script. If you are upgrading an existing cluster (whose coordination database does not yet have these tables) or want to disable the feature, see [Configuring the Coordinated Task Delete Barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier).
+
 #### Advanced parameters
 
 The `resolving_period` and `resolving_frequency` properties are set by default as shown below. It is **not recommended** to change these default values.
@@ -239,6 +243,10 @@ resolving_frequency = "3"
         </td>
     </tr>
 </table>
+
+### RDBMS Coordination Parameters
+
+For detailed information on configuring RDBMS coordination parameters, including heartbeat configuration and rolling updates, see [RDBMS Coordination Configuration]({{base_path}}/install-and-setup/setup/feature-configs/configuring-rdbms-coordination).
 
 ## Deployment synchronization
 
@@ -329,34 +337,37 @@ The above log describes the failover capability of the tasks when the task serve
 
 ## Monitor the cluster with ICP
 
-1. Follow the instructions in the [Installing the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane) guide to set up ICP.
+1. Follow the instructions in the [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane) guide to set up ICP.
 
-2. After installing ICP, configure each WSO2 Integrator: MI node to connect with it. Open the `deployment.toml` file located in the `<MI_HOME>/conf` directory of each server instance and update the configurations as follows:
+2. After installing ICP, refer the [Connect an MI-based Integration to ICP]({{base_path}}//install-and-setup/install/connecting-an-integration-to-icp/) guide to configure each WSO2 Integrator: MI node to connect with it. Open the `deployment.toml` file located in the `<MI_HOME>/conf` directory of each server instance and update the configurations as follows:
 
     Node 1:
     
     ```
-    [dashboard_config]
-    dashboard_url = "https://localhost:9743/dashboard/api/"
-    heartbeat_interval = 5
-    group_id = "mi_dev"
-    node_id = "dev_node_1"
+    [icp_config]
+    enabled = true
+    environment = "dev"
+    project     = "mi_dev_project"
+    integration = "mi_dev_integration"
+    runtime = "dev_node_1"
+    secret = "<generated secret>"
     ```
     
     Node 2:
     
     ```
-    [dashboard_config]
-    dashboard_url = "https://localhost:9743/dashboard/api/"
-    heartbeat_interval = 5
-    group_id = "mi_dev"
-    node_id = "dev_node_2"
+    [icp_config]
+    enabled = true
+    environment = "dev"
+    project     = "mi_dev_project"
+    integration = "mi_dev_integration"
+    runtime = "dev_node_2"
+    secret = "<generated secret>"
     ```
 
-   Refer to the [Running the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/) guide for further details.
-
-3. Start the ICP by following the instructions in the [Starting the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#starting-the-integration-control-plane) guide.
+3. Start the ICP by following the instructions in the [Start the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#start-the-integration-control-plane) guide.
 
 4. Next, start all WSO2 Integrator: MI instances using the steps mentioned in the [Starting MI Server]({{base_path}}/install-and-setup/install/running-the-mi/#starting-the-mi-server) guide.
 
-5. Once all components are running, access the ICP dashboard by following the instructions in the [Accessing the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#accessing-the-integration-control-plane) guide. You should see all configured WSO2 Integrator: MI nodes listed in the ICP dashboard.
+5. Once all components are running, access the ICP dashboard by following the instructions in the [Sign into the Integration Control Plane]({{base_path}}/install-and-setup/install/running-the-integration-control-plane/#sign-in-to-the-integration-control-plane) guide. You should see all configured WSO2 Integrator: MI nodes listed as runtimes.
+

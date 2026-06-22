@@ -96,7 +96,7 @@ Users can utilize this resource to send CSV content for upload via a CSV file. T
 
 5. Select the 'Respond' mediator.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" width="800" /></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" width="800" /></a>
 
 #### - /getJobInfo
 
@@ -107,7 +107,7 @@ Using this resource, users can get the job information.
     2. In the 'Job ID' text box, enter the expression `${payload.jobId}`.
 3. Select the 'Respond' mediator.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" width="600" /></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" width="600" /></a>
 
 #### - /getSuccessfulResults
 
@@ -119,7 +119,7 @@ Using this resource, users can retrieve the successfully processed records of a 
     3. In the 'Output type' dropdown, select `JSON` or `CSV`.
 3. Select the 'Respond' mediator.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" width="600" /></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" width="600" /></a>
 
 ### Test the resources
 

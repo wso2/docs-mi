@@ -5,7 +5,7 @@
 1. Download the <a href="{{base_path}}/assets/attachments/moesif-metrics/dashboards_template.json" download="dashboards_template.json">dashboards_template.json</a> file containing the template dashboards for MI.
 2. On the Moesif UI, click on **Create New** → **Dashboard Templates** → **Import JSON Template** and provide the JSON template downloaded above. 
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png" width="70%" alt="Moesif Dashboard Templates"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_templates.png" width="70%" alt="Moesif Dashboard Templates"></a>
 
 The new dashboards will be visible under your Saved Dashboards along with the default Moesif Dashboards.
 
@@ -15,7 +15,7 @@ The new dashboards will be visible under your Saved Dashboards along with the de
 
 This dashboard provides an overview of overall analytics.
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_overall.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_overall.png" width="70%" alt="Overall Dashboard"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_overall.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_overall.png" width="70%" alt="Overall Dashboard"></a>
 
 |Name|Displayed Data|
 |:----|:----|
@@ -35,7 +35,7 @@ This dashboard provides an overview of overall analytics.
 
 This dashboard provides an overview of API analytics.
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_api.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_api.png" width="70%" alt="API Dashboard"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_api.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_api.png" width="70%" alt="API Dashboard"></a>
 
 |Name|Displayed Data|
 |:----|:----|
@@ -56,7 +56,7 @@ This dashboard provides an overview of API analytics.
 
 This dashboard provides an overview of the endpoints analytics.
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ep.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ep.png" width="70%" alt="Endpoints Dashboard"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ep.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ep.png" width="70%" alt="Endpoints Dashboard"></a>
 
 |Name|Displayed Data|
 |:----|:----|
@@ -77,7 +77,7 @@ This dashboard provides an overview of the endpoints analytics.
 
 This dashboard provides an overview of inbound endpoints analytics.
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_iep.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_iep.png" width="70%" alt="Inbound Endpoints Dashboard"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_iep.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_iep.png" width="70%" alt="Inbound Endpoints Dashboard"></a>
 
 |Name|Displayed Data|
 |:----|:----|
@@ -98,7 +98,7 @@ This dashboard provides an overview of inbound endpoints analytics.
 
 This dashboard provides an overview of sequences analytics.
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_seq.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_seq.png" width="70%" alt="Sequences Dashboard"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_seq.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_seq.png" width="70%" alt="Sequences Dashboard"></a>
 
 |Name|Displayed Data|
 |:----|:----|
@@ -119,7 +119,7 @@ This dashboard provides an overview of sequences analytics.
 
 This dashboard provides an overview of proxy services analytics.
 
-<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ps.png"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ps.png" width="70%" alt="Proxy Services Dashboard"></a>
+<a href="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ps.png" class="glightbox"><img src="{{base_path}}/assets/attachments/moesif-metrics/dashboard_ps.png" width="70%" alt="Proxy Services Dashboard"></a>
 
 |Name|Displayed Data|
 |:----|:----|

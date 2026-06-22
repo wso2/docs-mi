@@ -200,4 +200,4 @@ Follow the steps below to invoke the deployed integration services and access th
 
     Open <a target="_blank" href="https://icp.wso2.com/login">https://icp.wso2.com/login</a> in your browser and sign in using the credentials.
 
-     <a href="{{base_path}}/assets/img/setup-and-install/icp_login.png"><img src="{{base_path}}/assets/img/setup-and-install/icp_login.png" alt="ICP Login page" width="80%"></a>
+     <a href="{{base_path}}/assets/img/setup-and-install/icp_login.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/icp_login.png" alt="ICP Login page" width="80%"></a>

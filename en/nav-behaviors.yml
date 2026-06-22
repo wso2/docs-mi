@@ -1,0 +1,94 @@
+# Navigation Behaviors Configuration
+# This file defines how navigation sections expand/collapse based on user navigation
+#
+# GROUPING STRUCTURE:
+# - Home: Always expanded (no rules = always visible)
+# - Group 1: Get started (default expanded)
+# - Group 2: Integration Guides, Developer Guides, Deploy, Observability and Monitoring (collapsed by default)
+# - Group 3: References, Release Notes (collapsed by default)
+#
+# LOGIC:
+# - collapse_when_url_starts_with: URLs that trigger this section to collapse
+# - stay_expanded_when_url_starts_with: URLs that keep this section expanded
+# - stay_expanded_on_pages: Specific pages where this section stays expanded
+
+auto_collapse:
+  # GROUP 1: Get started - Default expanded everywhere
+  - title: Get started
+    collapse_when_url_starts_with:
+      # Collapse when visiting other main sections
+      - integration-guides/
+      - developer-guides/
+      - deploy/
+      - observability-and-monitoring/
+      - references/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded in own section
+      - get-started/
+    stay_expanded_on_pages:
+      - index.md
+
+  # GROUP 2: Integration Guides - Collapsed everywhere except own pages
+  - title: Integration Guides
+    collapse_when_url_starts_with:
+      # Collapse when visiting other sections
+      - get-started/
+      - developer-guides/
+      - deploy/
+      - observability-and-monitoring/
+      - references/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded only in own section
+      - integration-guides/
+
+  # GROUP 2: Developer Guides - Collapsed everywhere except own pages
+  - title: Developer Guides
+    collapse_when_url_starts_with:
+      # Collapse when visiting other sections
+      - get-started/
+      - integration-guides/
+      - deploy/
+      - observability-and-monitoring/
+      - references/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded only in own section
+      - developer-guides/
+
+  # GROUP 2: Deploy - Collapsed everywhere except own pages
+  - title: Deploy
+    collapse_when_url_starts_with:
+      # Collapse when visiting other sections
+      - get-started/
+      - integration-guides/
+      - developer-guides/
+      - observability-and-monitoring/
+      - references/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded only in own section
+      - deploy/
+
+  # GROUP 2: Observability and Monitoring - Collapsed everywhere except own pages
+  - title: Observability and Monitoring
+    collapse_when_url_starts_with:
+      # Collapse when visiting other sections
+      - get-started/
+      - integration-guides/
+      - developer-guides/
+      - deploy/
+      - references/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded only in own section
+      - observability-and-monitoring/
+
+  # GROUP 3: References - Collapsed everywhere except own pages
+  - title: References
+    collapse_when_url_starts_with:
+      # Collapse when visiting other sections
+      - get-started/
+      - integration-guides/
+      - developer-guides/
+      - deploy/
+      - observability-and-monitoring/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded only in own section
+      - references/

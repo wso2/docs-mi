@@ -85,6 +85,10 @@ The following parameters can be specified under the connection factory configura
     <td>parameter.'rabbitmq.max.inbound.message.body.size'</td>
     <td>The maximum size limit in bytes for inbound message bodies.</td>
   </tr>
+  <tr>
+    <td>parameter.factory_executor_pool_size</td>
+    <td>The size of the executor pool for the connection factory, which determines how many consumer callbacks can be processed concurrently per connection. Increase this to allow more concurrent delivery processing for the <code>rabbitmq.concurrent.consumer.count</code> parameter when the default pool size (based on available CPU cores) is insufficient.</td>
+  </tr>
 </table>
 
 ### SSL/TLS parameters
@@ -234,6 +238,10 @@ present. If set to <code>false</code>, the WSO2 Integrator: MI will assume that 
             The content type of the consumer. <b>Note</b>: If the content type is specified in the message, this parameter does not override the specified content type. The default value is <code>text/xml</code>. <br><br>
             <b>Note:</b> If you are consuming SOAP messages, set this parameter to <code>application/soap+xml</code> or <code>text/xml</code>. For other XML messages, set this parameter to <code>application/xml</code>.
          </td>
+      </tr>
+      <tr>
+        <td>rabbitmq.concurrent.consumer.count</td>
+        <td>The number of concurrent consumers for the RabbitMQ connection. Default is 1.</td>
       </tr>            
    </tbody>
 </table>

@@ -156,7 +156,7 @@ Let's add the operations to the resources in the `Salesforce` API
       2. In the 'Job ID' text box, enter the expression `$ctx:jobId`.
 
   6. Select the 'Respond' mediator.
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png" width="800"/></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-data.png" width="800"/></a>
 
 #### - /createJobAndUploadFile
 
@@ -200,7 +200,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   6. Select the 'Respond' mediator.
 
-<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" width="800" /></a>
+<a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-job-upload-file.png" width="800" /></a>
 
 #### - /getJobInfo
   
@@ -223,7 +223,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   3. Select the 'Respond' mediator.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" width="600" /></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-job-info.png" width="600" /></a>
 
 #### - /getSuccessfulResults
   
@@ -249,7 +249,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   3. Select the 'Respond' mediator.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" width="600" /></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-successful-results.png" width="600" /></a>
 
 #### - /getUnprocessedResults
   
@@ -280,7 +280,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   4. Select the 'Respond' mediator.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-unprocessed-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-unprocessed-results.png" width="700" /></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-unprocessed-results.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-unprocessed-results.png" width="700" /></a>
 
 #### - /deleteJob
 
@@ -303,7 +303,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   3. Select the 'Respond' mediator.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/delete-job.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/delete-job.png" width="600" /></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/delete-job.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/delete-job.png" width="600" /></a>
 
 #### - /createQuery
 
@@ -328,7 +328,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   2. Select the 'Respond' mediator.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-query-job.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-query-job.png" width="500" /></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-query-job.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/create-query-job.png" width="500" /></a>
 
 #### - /getQueryJobInfo
   
@@ -351,7 +351,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   3. Select the 'Respond' mediator.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-info.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-info.png" width="600" /></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-info.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-info.png" width="600" /></a>
 
 #### - /getSuccessfulQueryResults
 
@@ -377,7 +377,7 @@ Let's add the operations to the resources in the `Salesforce` API
 
   3. Select the 'Respond' mediator.
 
-  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-results.png"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-results.png" width="600" /></a>
+  <a href="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-results.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/connectors/salesforcebulk-v2/get-query-job-results.png" width="600" /></a>
 
 
 ??? info "The resources are now ready to be tested. The API source should resemble the following. Expand to see."

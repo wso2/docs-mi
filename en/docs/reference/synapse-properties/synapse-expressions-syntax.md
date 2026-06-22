@@ -10,7 +10,7 @@ By default, Synapse Expressions returns a valid JSON result. When working with X
 
 The main building blocks of Synapse Expressions are expressions and parameters.
 
-<a href="{{base_path}}/assets/img/reference/expression_overview.png"><img src="{{base_path}}/assets/img/reference/expression_overview.png" alt="Expression Syntax" width="80%"></a>
+<a href="{{base_path}}/assets/img/reference/expression_overview.png" class="glightbox"><img src="{{base_path}}/assets/img/reference/expression_overview.png" alt="Expression Syntax" width="80%"></a>
 
 Each expression can just be a parameter or an expression which combines multiple parameters.
 
@@ -62,7 +62,7 @@ The following types of literals are supported in Synapse expressions.
 
 Synapse expression has six top level access operators and some of them are branched out to access nested values.
 
-<a href="{{base_path}}/assets/img/reference/accessing_values.png"><img src="{{base_path}}/assets/img/reference/accessing_values.png" alt="Access values" width="60%"></a>
+<a href="{{base_path}}/assets/img/reference/accessing_values.png" class="glightbox"><img src="{{base_path}}/assets/img/reference/accessing_values.png" alt="Access values" width="60%"></a>
 
 ### Access values in payloads
 

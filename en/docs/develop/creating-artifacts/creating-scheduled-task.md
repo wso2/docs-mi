@@ -12,13 +12,13 @@ Follow the instructions below to create a Scheduled trigger in the WSO2 Integrat
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. On the **Add artifact** pane, click **Automation** under **Create an Integration** to open the **Task Form**.
 
 6. Specify values for the [required parameters]({{base_path}}/reference/synapse-properties/scheduled-task-properties) for the Scheduled trigger.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png" alt="create new Scheduled trigger" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/create-new-scheduled-task.png" alt="create new Scheduled trigger" width="80%"></a>
 
 The created Scheduled trigger will be available in **Project Overview** under **Automation**.
 
@@ -39,7 +39,7 @@ You can later update the task configurations to specify the incoming message tha
 
 4. Click the pen icon next to the task name.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png" alt="create new Scheduled trigger" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-scheduled-tasks/edit-scheduled-task.png" alt="create new Scheduled trigger" width="80%"></a>
 
 5. Update task configurations.
 

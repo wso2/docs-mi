@@ -26,6 +26,14 @@ Go to the <a target="_blank" href="https://store.wso2.com/connector/esb-connecto
 	</tr>
 	<tr>
 		<td>
+			6.x
+		</td>
+		<td>
+			MI 4.4.0+
+		</td>
+	</tr>
+	<tr>
+		<td>
 			5.x
 		</td>
 		<td>
@@ -54,13 +62,13 @@ For older versions, see the details in the connector store.
 
 ## Prerequisites
 
-For File Connector v4.0.41 or later and v5.0.3 or later, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the **<PRODUCT-HOME>/lib** folder.
+For File Connector v4.0.41 or later and v5.0.3 or later, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the `<PRODUCT_HOME>/lib` folder.
 
-## File Connector documentation (latest - 5.x version)
+## File Connector documentation (latest - 6.x version)
 
-* **[File Connector Example]({{base_path}}/reference/connectors/file-connector/5.x/file-connector-example/)**: This example explains how to use File Connector to create a file in the local file system and read the particular file. 
+* **[File Connector Example]({{base_path}}/reference/connectors/file-connector/6.x/file-connector-example/)**: This example explains how to use File Connector to create a file in the local file system and read the particular file. 
 
-* **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/5.x/file-connector-config/)**: This documentation provides a reference guide for the File Connector.
+* **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/6.x/file-connector-config/)**: This documentation provides a reference guide for the File Connector.
 
 For older versions, see the details in the relevant links.
 

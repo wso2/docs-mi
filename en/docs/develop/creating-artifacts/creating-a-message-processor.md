@@ -12,7 +12,7 @@ Follow the instructions below to create a new [Message Processor]({{base_path}}/
 
 4. Click on the **+** icon to open the **Add Artifact** pane.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/add-artifact-icon.png" alt="add artifact" width="40%"></a>
 
 5. Click **+ View More** under **Create an Integration**.
 
@@ -20,7 +20,7 @@ Follow the instructions below to create a new [Message Processor]({{base_path}}/
 
 7. Select the type of message processor you are creating.
 
-    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/message-processor-form.png"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/message-processor-form.png" alt="message processor form" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/message-processor-form.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-message-processor/message-processor-form.png" alt="message processor form" width="80%"></a>
 
 8. Enter a unique name for the message processor.
 

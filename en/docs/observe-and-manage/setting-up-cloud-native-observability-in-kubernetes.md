@@ -84,14 +84,14 @@ Follow the steps below to set up the Grafana server:
 
 3. In the **Add data source** page, select **Prometheus**.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/select_prometheus.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/select_prometheus.png" style="width:60%"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/select_prometheus.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/select_prometheus.png" style="width:60%"></a>
     
 4. In the **Data Sources/Prometheus** page, enter the URL of the centralized remote Prometheus server.
 
     !!! Tip
         If you're running the Prometheus server locally using the configurations provided in this guide, you can set the URL to `http://localhost:9090`.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/prometheus_config.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/prometheus_config.png" style="width:60%"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/prometheus_config.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/prometheus_config.png" style="width:60%"></a>
     
 5. Click **Save & Test**. You will see a confirmation message if the data source is configured successfully.
 
@@ -113,7 +113,7 @@ These dashboards are provided as JSON files that can be manually imported to Gra
 
     The **Import** dialog box opens as follows.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-import-dialog-box.png"></a>
     
 3. Click **Upload .json file**. Then browse for one of the dashboards that you downloaded as a JSON file.
 
@@ -534,7 +534,7 @@ Follow the steps below to add **Loki** as a data source in Grafana and enable lo
     - Click **Data Sources**, then click **Add data source**.
     - In the **Add data source** page, select **Loki**.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png" style="width:60%"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/grafana-select-datasource.png" style="width:60%"></a>
 
 4. Configure the Loki data source.
 
@@ -620,18 +620,18 @@ To visualize tracing data in Grafana using Jaeger, follow the steps below.
 
 2. Click the **Gear** icon in the left-hand navigation pane to go to the **Configuration** section and then click **Data Sources**.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/open-datasources.png"></a>
 
 3. Click **Add data source** and select **Jaeger** from the list of available data source types.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/select-jaeger.png"></a>
     
 4. In the **Data Sources/Jaeger** dialog box, enter the URL of the Jaeger query service in the `http://<host>:<port>` format.
 
     !!! Tip
         If you're running the Jaeger locally using the configurations provided in this guide, you can set the URL to `http://localhost:16686`.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/enter-basic-jaeger-information.png"></a>
     
 5. Click **Save & Test**. You will see a confirmation message if the data source is configured successfully.
 
@@ -645,14 +645,14 @@ To enable redirection to Jaeger from the service dashboards:
 
 3. Click **Variables** in the sidebar.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/variables.png"></a>
 
 4. Edit the **JaegerHost** variable and set it to your Jaeger query component’s `host:port`.
 
     !!! Tip
         If you're running the Jaeger locally using the configurations provided in this guide, you can set the **JaegerHost** variable to `localhost:16686`.
 
-    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png"></a>
+    <a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/constant-options.png"></a>
 
 5. Click **Save**.
 
@@ -660,7 +660,7 @@ Repeat these steps for each service-level dashboard to enable proper redirection
     
 Once this configuration is complete, clicking on response time widgets within a service-level dashboard will redirect you to the relevant trace in the Jaeger UI.
 
-<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png" style="width:40%"></a>
+<a href="{{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png" class="glightbox"><img src="{{base_path}}/assets/img/integrate/monitoring-dashboard/jaeger-ui.png" style="width:40%"></a>
 
 ## What's next?
 
