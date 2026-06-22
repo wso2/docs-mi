@@ -8,8 +8,6 @@ The following operations allow you to work with the AS400 PCML Connector. Click 
 
 To use the AS400 PCML connector, add the <pcml.init> element in your configuration before carrying out any other pcml operations.
 
-The BigQuery API requires all requests to be authenticated as a user or a service account. For more information, see [Authenticate to BigQuery Documentation](https://cloud.google.com/bigquery/authentication). See [How to Use OAuth 2.0 for Server to Server Applications Documentation](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) for information on service account authentication. For more information, see [related BigQuery documentation](https://developers.google.com/identity/protocols/OAuth2WebServer).
-
 ??? note "init"
     The init operation is used to initialize the connection to AS400 server.
 
