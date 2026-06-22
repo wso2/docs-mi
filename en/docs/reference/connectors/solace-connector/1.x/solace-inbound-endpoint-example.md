@@ -68,7 +68,7 @@ Follow these steps in the MI for VS Code extension.
     <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-orderqueue-form.png" title="OrderQueueListener configuration" width="80%" alt="OrderQueueListener configuration"/>
 
     !!! tip "Filter messages with a selector"
-        Set the optional **Selector** field to a SQL-92 selector expression so the broker delivers only matching messages to this endpoint, evaluated server-side only on message headers and the **User Properties** set when publishing. Selectors apply to `QUEUE` and durable topic (DTE) destinations only.For example, 
+        Set the optional **Selector** field to a SQL-92 selector expression so the broker delivers only matching messages to this endpoint, evaluated server-side only on message headers and the **User Properties** set when publishing. Selectors apply to `QUEUE` and durable topic (DTE) destinations only. For example, 
         
         - `region = 'EU' AND channel = 'counter'` polls the next counter-channel EU order.
         - `priority >= 5 AND region = 'EU'` polls the next EU order with priority 5 or higher.

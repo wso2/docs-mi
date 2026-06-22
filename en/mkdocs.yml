@@ -914,9 +914,8 @@ nav:
           - Solace Connector:
               - Solace Connector Overview: reference/connectors/solace-connector/solace-connector-overview.md
               - Set up the Solace Environment: reference/connectors/solace-connector/solace-connector-config.md
-              - 1.x:
-                - Solace Connector Example: reference/connectors/solace-connector/1.x/solace-connector-1.x-example.md
-                - Solace Connector Reference: reference/connectors/solace-connector/1.x/solace-connector-1.x-reference.md
+              - Solace Connector Example: reference/connectors/solace-connector/1.x/solace-connector-1.x-example.md
+              - Solace Connector Reference: reference/connectors/solace-connector/1.x/solace-connector-1.x-reference.md
           - Twitter Connector:
               - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
               - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
@@ -1407,7 +1406,7 @@ extra:
       version: 1.2.0-1
       git_tag: v1.2.0.1
   site_version: 4.6.0
-#   base_path: http://localhost:8000/en/latest
+  #base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.6.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
 

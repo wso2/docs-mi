@@ -93,7 +93,7 @@ The connection authenticates WSO2 Integrator: MI with the Solace PubSub+ broker 
 
     <table>
         <tr><th>Parameter</th><th>Description</th><th>Required</th><th>Default</th></tr>
-        <tr><td>configRef</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
+        <tr><td>configKey</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
         <tr><td>destinationType</td><td><code>TOPIC</code> or <code>QUEUE</code>.</td><td>Yes</td><td>TOPIC</td></tr>
         <tr><td>destinationName</td><td>Name of the topic or queue to publish to.</td><td>Yes</td><td>-</td></tr>
         <tr><td>messageType</td><td><code>TEXT</code>, <code>BYTES</code>, or <code>XML</code>. JSON payloads are auto-detected and carried as TEXT.</td><td>No</td><td>TEXT</td></tr>
@@ -114,7 +114,7 @@ The connection authenticates WSO2 Integrator: MI with the Solace PubSub+ broker 
         <tr><td>responseVariable</td><td>Variable name where the publish result JSON is stored.</td><td>No</td><td>solacePublishResponse</td></tr>
     </table>
 
-    Returns a status object in the response variable ('${vars.<responseVariable>'.payload') and operation does not overwrite the message body.
+    Returns a status object in the response variable ('${vars.<responseVariable>.payload}') and operation does not overwrite the message body.
 
     **Response fields:** `destination`, `destinationType`, `deliveryMode`, `messageType`, `ackStatus`, `ackReceived`, `correlationKey`, `error`, `publishedAt`.
 
@@ -140,7 +140,7 @@ The connection authenticates WSO2 Integrator: MI with the Solace PubSub+ broker 
 
     <table>
         <tr><th>Parameter</th><th>Description</th><th>Required</th><th>Default</th></tr>
-        <tr><td>configRef</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
+        <tr><td>configKey</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
         <tr><td>destinationType</td><td><code>TOPIC</code> or <code>QUEUE</code>.</td><td>Yes</td><td>TOPIC</td></tr>
         <tr><td>destinationName</td><td>Name of the topic or queue to send the request to.</td><td>Yes</td><td>-</td></tr>
         <tr><td>messageType</td><td><code>TEXT</code>, <code>BYTES</code>, or <code>XML</code>.</td><td>No</td><td>TEXT</td></tr>
@@ -174,7 +174,7 @@ The connection authenticates WSO2 Integrator: MI with the Solace PubSub+ broker 
 
     <table>
         <tr><th>Parameter</th><th>Description</th><th>Required</th><th>Default</th></tr>
-        <tr><td>configRef</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
+        <tr><td>configKey</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
         <tr><td>deliveryMode</td><td><code>DIRECT</code>, <code>PERSISTENT</code>, or <code>NON_PERSISTENT</code>.</td><td>No</td><td>DIRECT</td></tr>
         <tr><td>messageType</td><td><code>TEXT</code>, <code>BYTES</code>, or <code>XML</code>.</td><td>No</td><td>TEXT</td></tr>
         <tr><td>applicationMessageType</td><td>Application-defined message type.</td><td>No</td><td>-</td></tr>
@@ -208,7 +208,7 @@ The connection authenticates WSO2 Integrator: MI with the Solace PubSub+ broker 
 
     <table>
         <tr><th>Parameter</th><th>Description</th><th>Required</th><th>Default</th></tr>
-        <tr><td>configRef</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
+        <tr><td>configKey</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
         <tr><td>queueName</td><td>Name of the queue to poll.</td><td>Yes</td><td>-</td></tr>
         <tr><td>pollTimeout</td><td>Maximum time to wait for a message in milliseconds.</td><td>No</td><td>5000</td></tr>
         <tr><td>selector</td><td>Optional SQL-92 selector expression for filtering on headers and user properties, e.g. <code>region = 'EU' AND priority > 5</code>.</td><td>No</td><td>-</td></tr>
@@ -236,7 +236,7 @@ The connection authenticates WSO2 Integrator: MI with the Solace PubSub+ broker 
 
     <table>
         <tr><th>Parameter</th><th>Description</th><th>Required</th><th>Default</th></tr>
-        <tr><td>configRef</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
+        <tr><td>configKey</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
         <tr><td>queueName</td><td>Name of the queue to browse.</td><td>Yes</td><td>-</td></tr>
         <tr><td>maxMessages</td><td>Maximum number of messages to return.</td><td>No</td><td>10</td></tr>
         <tr><td>browseTimeout</td><td>Maximum time to wait per message read in milliseconds. Browse stops once no message arrives within this window.</td><td>No</td><td>2000</td></tr>
@@ -318,11 +318,11 @@ Group multiple `publishMessage` calls (and deferred settlement of `poll`) into a
 ### beginTransaction
 
 ??? note "beginTransaction"
-    Starts a new local transaction on the Solace connection. Subsequent `publishMessage`/`pollMessage` calls participate atomically.
+    Starts a new local transaction on the Solace connection. Subsequent `publishMessage`/`poll` calls participate atomically.
 
     <table>
         <tr><th>Parameter</th><th>Description</th><th>Required</th><th>Default</th></tr>
-        <tr><td>configRef</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
+        <tr><td>configKey</td><td>The Solace connection to use.</td><td>Yes</td><td>-</td></tr>
         <tr><td>transactionTimeoutMillis</td><td>Auto-rollback after this many milliseconds if commit/rollback is not reached. Prevents leaks from forgotten or faulted sequences.</td><td>No</td><td>60000</td></tr>
     </table>
 

@@ -7,7 +7,7 @@ This example shows how WSO2 Integrator: MI uses the Solace Connector to act as a
 
 ## What you'll build
 
-!!! info "Usecase"
+!!! info "Use case"
     This example uses a fictional airline, **SkyWay** that runs its booking platform on a Solace broker so that the different parts of the business can exchange events reliably. When a customer places a booking, the order is published to a queue for guaranteed processing by the fulfilment system, while a lightweight notification is broadcast to a topic so that interested services (such as loyalty and analytics) can react. Front-end services query live seat availability through synchronous request-reply, operators browse and poll the order queue to inspect or drain pending bookings, an order is processed by polling it and publishing a follow-on event together in a single transaction so the broker never holds partial state.
 
 A single REST API with the context `/skyway` exposes one resource per operation, grouped by messaging pattern:
@@ -203,7 +203,7 @@ You can read `Q.orders` in two ways without an inbound endpoint: `browse` previe
     <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-browse-queue.png" title="Browse Queue resource with Respond" width="1000" alt="Browse Queue resource"/>
 
     !!! tip "Filter with a selector"
-        Set the optional **Selector** field to a SQL-92 selector expression to preview only the messages whose properties match, instead of the whole queue. The expression is evaluated only against message headers and the **User Properties** set when publishing.For example, 
+        Set the optional **Selector** field to a SQL-92 selector expression to preview only the messages whose properties match, instead of the whole queue. The expression is evaluated only against message headers and the **User Properties** set when publishing. For example, 
         
         - `region = 'EU' AND channel = 'counter'` polls the next counter-channel EU order.
         - `priority >= 5 AND region = 'EU'` polls the next EU order with priority 5 or higher.
