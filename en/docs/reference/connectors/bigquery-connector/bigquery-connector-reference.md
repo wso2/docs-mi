@@ -189,12 +189,12 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         </tr>
         <tr>
             <td>clientSecret</td>
-            <td>The space delimited scope to access the API.</td>
+            <td>The client secret for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>clientId</td>
-            <td>The registry path to store the access token (this is an optional parameter).</td>
+            <td>The client ID for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
@@ -228,12 +228,12 @@ The BigQuery API requires all requests to be authenticated as a user or a servic
         </tr>
         <tr>
             <td>clientSecret</td>
-            <td>The space delimited scope to access the API.</td>
+            <td>The client secret for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
             <td>clientId</td>
-            <td>The registry path to store the access token (this is an optional parameter).</td>
+            <td>The client ID for the BigQuery API.</td>
             <td>Yes</td>
         </tr>
         <tr>
