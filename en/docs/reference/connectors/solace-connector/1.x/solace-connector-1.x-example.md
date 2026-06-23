@@ -1,8 +1,5 @@
 # Solace Connector Example
 
-<!-- Opt in to bordered image-tab windows (see .image-tabs in mitheme.css). -->
-<span class="image-tabs"></span>
-
 This example shows how WSO2 Integrator: MI uses the Solace Connector to act as a client of a [Solace PubSub+](https://solace.com/products/event-broker/) event broker. From a mediation flow, you can publish messages, perform synchronous request-reply, browse and poll queues, and group publishes into local transactions.
 
 ## What you'll build
@@ -43,7 +40,11 @@ All operations share a single Solace connection. You will create it once (from t
 
 1. Open any resource of the API in **Design** view, click the **+** icon on the canvas to open the **Mediator Palette**, and then under **Connections** tab, click **Add new connection**.
 
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/new-connection-palette.png" title="Open the Mediator Palette and add a new connection" width="1000" alt="New connection palette"/>
+
 2. Search for the **Solace** connector.
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/search-connection-palette.png" title="Search for the Solace connector" width="1000" alt="Search connection palette"/>
 
 3. Provide the following values to connect to the broker using basic authentication, then click **Add**:
 
@@ -61,14 +62,7 @@ All operations share a single Solace connection. You will create it once (from t
     !!! note
         For a TLS host (`tcps://`), expand **SSL/TLS Security** and provide a trust store that contains the broker's CA certificate, or, for a self-signed broker in a lab, set **Validate Certificate** (and, if needed, **Validate Certificate Hostname**) to `false`. Never disable certificate or hostname validation in production, as it removes protection against man-in-the-middle attacks.
 
-    === "Step 1: Add new connection"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/new-connection-palette.png" title="Open the Mediator Palette and add a new connection" width="1000" alt="New connection palette"/>
-
-    === "Step 2: Search for Solace"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/search-connection-palette.png" title="Search for the Solace connector" width="1000" alt="Search connection palette"/>
-
-    === "Step 3: Enter connection details"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-add-connection.png" title="Add Solace connection form" width="1000" alt="Add Solace connection"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-add-connection.png" title="Add Solace connection form" width="1000" alt="Add Solace connection"/>
 
     !!! info "Client Name"
         **Client Name** is an optional connection setting that uniquely identifies this session on the broker (it appears in PubSub+ Manager under **Clients**). Solace requires client names to be **unique within a Message VPN**: if two sessions connect with the same name, the broker disconnects the duplicate. Leave it blank to let the broker auto-generate a unique name. Set it explicitly only when you want a recognizable name for monitoring or troubleshooting, and in that case give each endpoint and connection (`OrderQueueListener`, `SeatRequestListener`, and `SOLACE_REPLY_CONNECTION`) a distinct value so they do not collide.
@@ -88,6 +82,8 @@ This resource publishes an incoming order to the `Q.orders` queue with **persist
 
 2. Add the **Publish Message** operation and configure it:
 
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/search-solace-publish-queue.png" title="Search for the Publish Message operation" width="1000" alt="Search Publish Message"/>
+
     - **Connection**: `SOLACE_CONNECTION`
     - **Destination Type**: `QUEUE`
     - **Destination Name**: `Q.orders`
@@ -106,19 +102,14 @@ This resource publishes an incoming order to the `Q.orders` queue with **persist
     !!! tip "Tag messages with user properties for later filtering"
         Use the optional **User Properties** field to attach key-value metadata to the message (here, `region=EU` and `channel=counter`). Consumers can then filter on these properties with a selector, so only matching messages are delivered, without inspecting the payload.
 
-3. Add a [Payload Factory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) that emits the publish result from `${vars.solace_publishMessage_1.payload}`, followed by a [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). (The publish operation returns a status object in its response variable rather than overwriting the message body.)
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-solace-publish-queue.png" title="Publish Message configuration form" width="1000" alt="Publish Message form"/>
 
-    === "Step 1: Find Publish Message operation"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/search-solace-publish-queue.png" title="Search for the Publish Message operation" width="1000" alt="Search Publish Message"/>
+3. Add a [Payload Factory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) that emits the publish result from `${vars.solace_publishMessage_1.payload}`. (The publish operation returns a status object in its response variable rather than overwriting the message body.)
 
-    === "Step 2: Configure operation"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-solace-publish-queue.png" title="Publish Message configuration form" width="1000" alt="Publish Message form"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-payload-solace-publish-queue.png" title="Add the Payload Factory mediator" width="1000" alt="Payload Factory mediator"/>
 
-    === "Step 3: Add Payload Mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-payload-solace-publish-queue.png" title="Add the Payload Factory mediator" width="1000" alt="Payload Factory mediator"/>
-
-    === "Step 4: Add Respond Mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-publish-queue.png" title="Publish Message resource with Respond" width="1000" alt="Publish Message Queue resource"/>
+4. Add a **Respond** mediator. 
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-publish-queue.png" title="Publish Message resource with Respond" width="1000" alt="Publish Message Queue resource"/>
 
 #### 2. Broadcast a notification to a topic (direct delivery)
 
@@ -134,18 +125,19 @@ Same **Publish Message** operation as above, but published to a topic with best-
     - **Message Type**: `TEXT`
     - **Delivery Mode**: `DIRECT`
 
-3. Add a [Payload Factory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) that returns `{"result":"published"}`, followed by a **Respond** mediator.
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/configure-solace-publish-topic.png" title="Configure the Publish Message operation" width="1000" alt="Configure Publish Message"/>
 
-    === "Step 1: Configure Publish Message operation"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/configure-solace-publish-topic.png" title="Configure the Publish Message operation" width="1000" alt="Configure Publish Message"/>
+3. Add a [Payload Factory mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) that returns `{"result":"published"}`.
 
-    === "Step 2: Add Payload Mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-payload-publish-topic.png" title="Add the Payload Factory mediator" width="1000" alt="Add Payload Mediator"/>
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-payload-publish-topic.png" title="Add the Payload Factory mediator" width="1000" alt="Add Payload Mediator"/>
 
-    === "Step 3: Add Respond Mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-respond-publish-topic.png" title="Publish Message resource with Respond" width="1000" alt="Publish Message Topic resource"/>
+4. Add a **Respond** mediator.
 
-### 3. Request-reply
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/add-respond-publish-topic.png" title="Publish Message resource with Respond" width="1000" alt="Publish Message Topic resource"/>
+
+### Request-reply
+
+#### 3. Query seat availability (request-reply)
 
 `sendRequest` publishes a request and blocks until a reply arrives on a temporary reply-to destination, or until the request times out.
 
@@ -161,16 +153,11 @@ Same **Publish Message** operation as above, but published to a topic with best-
     - **Request Timeout (ms)**: `30000`
     - **Overwrite Body**: `true`
 
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/configure-solace-request-reply.png" title="Configure the Send Request operation" width="1000" alt="Configure Send Request"/>
+
 3. Add a **Respond** mediator. The reply payload becomes the API response.
 
-    === "Step 1: Configure Send Request operation"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/configure-solace-browse.png" title="Configure the Send Request operation" width="1000" alt="Configure Send Request"/>
-
-    === "Step 2: Add Log Mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-request-reply-log.png" title="Add a Log mediator" width="1000" alt="Request-Reply Log mediator"/>
-
-    === "Step 3: Add Respond Mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-request-reply.png" title="Send Request resource with Respond" width="1000" alt="Request-Reply resource"/>   
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-request-reply.png" title="Send Request resource with Respond" width="1000" alt="Request-Reply resource"/>
 
     !!! note
         A replier must be listening on `airline/request/seats/>` to answer the request. The [Solace Inbound Endpoint Example]({{base_path}}/reference/connectors/solace-connector/1.x/solace-inbound-endpoint-example/) builds exactly that replier using the `sendReply` operation. Without a replier, this resource returns a timeout.
@@ -191,12 +178,16 @@ You can read `Q.orders` in two ways without an inbound endpoint: `browse` previe
     - **Browse Timeout (ms)**: `2000`
     - **Overwrite Body**: `true`
 
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/configure-solace-browse.png" title="Configure the Send Request operation" width="1000" alt="Configure Browse Operation"/>
+
     !!! note "Reading the response"
         - Each browsed message is an element of the payload array. Message fields like `messageId`, `correlationId`, `expiration`, `replyTo`, and `userProperties` appear only when the broker set them, so null-check before use.
         
         - The `destination` and `messageCount` can be found in `${vars.<responseVariable>.attributes}`. 
 
-3. Add a **Log** mediator to log 'destination' and 'message count'.        
+3. Add a **Log** mediator to log 'destination' and 'message count'.    
+
+    <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-browse-log.png" title="Add a Log mediator" width="1000" alt="Browse destination and message count Log mediator"/>
 
 4. Add a **Respond** mediator. Browsing does not consume the messages, so live consumers still receive them.
 

@@ -1,8 +1,5 @@
 # Solace Inbound Endpoint Example
 
-<!-- Opt in to bordered image-tab windows (see .image-tabs in mitheme.css). -->
-<span class="image-tabs"></span>
-
 The Solace Inbound Endpoint lets WSO2 Integrator: MI **consume** messages from a [Solace PubSub+](https://solace.com/products/event-broker/) broker. It listens on a queue or topic and injects each received message into a mediation sequence, where you can process it and settle it with `acknowledgeMessage` / `nackMessage`, or answer it with `sendReply`.
 
 ## What you'll build
@@ -76,9 +73,17 @@ Follow these steps in the MI for VS Code extension.
 5. Open the generated **`OrderQueueListener-inboundSequence`** and build the validation and settlement logic:
 
     1. Add a **Log** mediator that logs the incoming order.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-add-log-mediator.png" title="Add the Log mediator" width="1000" alt="Log Mediator"/>
+
     2. Add an **If-Else** mediator with the condition `${payload.seats > 9}`.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-add-filter.png" title="Add the If-Else mediator" width="1000" alt="If-Else Mediator"/>
+
     3. In the **then** branch (too many seats), add a **Log** mediator and a **NACK Message** operation with **Outcome Type** set to `REJECTED`.
     4. In the **else** branch (valid order), add a **Log** mediator and an **Acknowledge Message** operation.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-filter-logic.png" title="Configure the then and else branches" width="1000" alt="If-Else Mediator Logic"/>
 
     Expand the full sequence below and paste it into the **Source** view of the sequence:
 
@@ -112,15 +117,6 @@ Follow these steps in the MI for VS Code extension.
         </sequence>
         ```
 
-    === "Step 1: Add the Log mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-add-log-mediator.png" title="Add the Log mediator" width="1000" alt="Log Mediator"/>
-
-    === "Step 2: Add the If-Else mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-add-filter.png" title="Add the If-Else mediator" width="1000" alt="If-Else Mediator"/>
-
-    === "Step 3: Configure the branches"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-filter-logic.png" title="Configure the then and else branches" width="1000" alt="If-Else Mediator Logic"/>
-
     !!! note
         The settlement operations (`acknowledgeMessage`, `nackMessage`) act on the message currently delivered by the inbound endpoint, so they do not need a `configKey`. They work only when the inbound endpoint has **Auto Acknowledge** set to `false`.
 
@@ -153,9 +149,21 @@ Follow these steps in the MI for VS Code extension.
 7. Build the reply logic for **`SeatRequestListener-inboundSequence`**:
 
     1. Create a separate Solace connection named `SOLACE_REPLY_CONNECTION` for the reply. You cannot reuse the connector's `SOLACE_CONNECTION` here, so configure a new connection with the same broker host, VPN, and credentials, exactly as in the [connector example]({{base_path}}/reference/connectors/solace-connector/1.x/solace-connector-1.x-example/#create-the-solace-connection).
-    2. Add a **Log** mediator to log the incoming request.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-reply-connection.png" title="Create the SOLACE_REPLY_CONNECTION" width="1000" alt="Solace Reply Connection"/>
+
+    2. Optionally, add a **Log** mediator to log the incoming request.
     3. Add a **Payload Factory** mediator that builds the seat-availability reply : '{"flightNo":"${payload.flightNo}","available":["12A","14C","22F"],"count":3}'
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-reply-payload.png" title="Add the Payload Factory mediator" width="1000" alt="Solace Reply Payload"/>
+
     4. Add the **Send Reply** operation and select `SOLACE_REPLY_CONNECTION`.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-send-reply.png" title="Add the Send Reply operation" width="1000" alt="Add send reply operation"/>
+
+        The completed reply sequence looks like the following:
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-send-reply-sequence.png" title="Completed reply sequence" width="1000" alt="Send reply Sequence"/>
 
     Expand the full sequence below and paste it into the **Source** view of the sequence:
 
@@ -177,18 +185,6 @@ Follow these steps in the MI for VS Code extension.
             </solace.sendReply>
         </sequence>
         ```
-
-    === "Step 1: Create the reply connection"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-reply-connection.png" title="Create the SOLACE_REPLY_CONNECTION" width="1000" alt="Solace Reply Connection"/>
-
-    === "Step 2: Add Payload Mediator"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-reply-payload.png" title="Create the SOLACE_REPLY_CONNECTION" width="1000" alt="Solace Reply Payload"/>
-
-    === "Step 3: Add Send Reply operation"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-send-reply.png" title="Add the Send Reply operation" width="1000" alt="Add send reply operation"/>
-
-    === "Step 4 Complete the reply sequence"
-        <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-send-reply-sequence.png" title="Completed reply sequence" width="1000" alt="Send reply Sequence"/>
 
     !!! note
         `sendReply` uses the 'reply-to' destination and 'correlation ID' carried on the inbound request message, so you do not specify a destination. It works only inside a sequence driven by an inbound endpoint that received a request message.
