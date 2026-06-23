@@ -372,6 +372,10 @@ header>.md-grid {
     text-align: center;
 }
 
+.custom-integration-list .md-nav__link--completed .custom-number {
+    background-color: #f57c00;
+}
+
 [data-md-color-scheme="default"] .md-banner {
     color: #000;
 }
