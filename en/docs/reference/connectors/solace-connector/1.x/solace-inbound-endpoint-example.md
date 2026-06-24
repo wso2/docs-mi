@@ -67,8 +67,8 @@ Follow these steps in the MI for VS Code extension.
     !!! tip "Filter messages with a selector"
         Set the optional **Selector** field to a SQL-92 selector expression so the broker delivers only matching messages to this endpoint, evaluated server-side only on message headers and the **User Properties** set when publishing. Selectors apply to `QUEUE` and durable topic (DTE) destinations only. For example, 
         
-        - `region = 'EU' AND channel = 'counter'` polls the next counter-channel EU order.
-        - `priority >= 5 AND region = 'EU'` polls the next EU order with priority 5 or higher.
+        - `region = 'EU' AND channel = 'counter'` receive only counter-channel EU orders.
+        - `priority >= 5 AND region = 'EU'` receive only EU orders with priority 5 or higher.
 
 5. Open the generated **`OrderQueueListener-inboundSequence`** and build the validation and settlement logic:
 
@@ -153,7 +153,7 @@ Follow these steps in the MI for VS Code extension.
         <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-reply-connection.png" title="Create the SOLACE_REPLY_CONNECTION" width="1000" alt="Solace Reply Connection"/>
 
     2. Optionally, add a **Log** mediator to log the incoming request.
-    3. Add a **Payload Factory** mediator that builds the seat-availability reply : '{"flightNo":"${payload.flightNo}","available":["12A","14C","22F"],"count":3}'
+    3. Add a **Payload Factory** mediator that builds the seat-availability reply : `{"flightNo":"${payload.flightNo}","available":["12A","14C","22F"],"count":3}`
 
         <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-inbound-reply-payload.png" title="Add the Payload Factory mediator" width="1000" alt="Solace Reply Payload"/>
 
@@ -236,7 +236,7 @@ Publish messages to `Q.orders`. The easiest way is the connector example's `/sky
     [ORDER] Seat limit exceeded.
     ```
 
-    Confirm queue depth and DMQ contents in PubSub+ Manager under **Queues**.
+    In PubSub+ Manager, open **Queues** and check the DMQ. The rejected message should appear there.
 
     <img src="{{base_path}}/assets/img/integrate/connectors/solace/solace-dmq-result.png" title="Queue and DMQ result" width="80%" alt="Queue and DMQ result"/>
 
