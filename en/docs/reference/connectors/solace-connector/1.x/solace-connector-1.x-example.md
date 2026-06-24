@@ -196,8 +196,8 @@ You can read `Q.orders` in two ways without an inbound endpoint: `browse` previe
     !!! tip "Filter with a selector"
         Set the optional **Selector** field to a SQL-92 selector expression to preview only the messages whose properties match, instead of the whole queue. The expression is evaluated only against message headers and the **User Properties** set when publishing. For example, 
         
-        - `region = 'EU' AND channel = 'counter'` polls the next counter-channel EU order.
-        - `priority >= 5 AND region = 'EU'` polls the next EU order with priority 5 or higher.
+        - `region = 'EU' AND channel = 'counter'` browse counter-channel EU orders.
+        - `priority >= 5 AND region = 'EU'` browse EU orders with priority 5 or higher.
 
 #### 5. Poll a single message from the queue
 
