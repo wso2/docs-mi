@@ -42,6 +42,31 @@ Apply the following configurations when you create a proxy service.
         <property name="ClientApiNonBlocking" value="true" scope="axis2" action="remove"/>
         ```
 
+## Disable locking for single-consumer setups
+
+It is not recommended to have multiple consumers accessing the same VFS source folder simultaneously, as this can lead to file processing conflicts.
+
+When a single source folder is accessed by only one consumer, you can disable file locking to improve performance by setting the following parameter in the proxy service:
+
+```xml
+<parameter name="transport.vfs.Locking">disable</parameter>
+```
+
+!!! Note
+    File locking is enabled by default. Only disable it when you are certain that no other consumer accesses the same source folder. See [transport.vfs.Locking]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters/#service-level-parameters) for details.
+
+## Configure the connection timeout
+
+The default socket timeout is not applied for VFS transport connections. You must explicitly configure the `timeout` parameter in the `transport.vfs.FileURI` URL to avoid indefinite connection waits. Specify the timeout value in milliseconds as a query parameter:
+
+```
+ftp://username:password@host/path?timeout=5000
+```
+
+See [VFS URL parameters]({{base_path}}/reference/synapse-properties/transport-parameters/vfs-transport-parameters/#vfs-url-parameters) for details.
+
+## Stream large files
+
 Following is a sample configuration that uses the VFS transport to handle large files:
 
 ```xml
