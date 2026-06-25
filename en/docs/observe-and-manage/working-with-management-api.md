@@ -552,24 +552,24 @@ The management API has multiple resources to provide information regarding the d
 	      "faultyCount": 1,
 	      "activeList": [
 	        {
-	          "name": "data-service-proj",
+	          "name": "SampleServicesCompositeApplication",
 	          "version": "1.0.0",
 	          "artifacts": [
 	            {
-	              "name": "ds",
-	              "type": "dataservice"
+	              "name": "HelloWorldAPI",
+	              "type": "api"
 	            },
-	            {
-	              "name": "config",
-	              "type": "property"
+				{
+	              "name": "EmployeeDataService",
+	              "type": "dataservice"
 	            }
 	          ]
 	        }
 	      ],
 	      "faultyList": [
 	        {
-	          "name": "samplecapp",
-	          "errorMessage": "API deployment from the file : /wso2mi/tmp/carbonapps/-1234/samplecapp_1.0.0.car/FaultyAPI_1.0.0/FaultyAPI-1.0.0.xml : Failed.",
+	          "name": "FaultyCAppCompositeExporter",
+	          "errorMessage": "API deployment from the file : /wso2mi/tmp/carbonapps/-1234/FaultyCAppCompositeExporter_1.0.0.car/FaultyAPI_1.0.0/FaultyAPI-1.0.0.xml : Failed.",
 	          "version": "1.0.0",
 	          "artifacts": [
 	            {
@@ -676,15 +676,15 @@ The management API has multiple resources to provide information regarding the d
 
     === "Request"
 	    ```bash
-	    curl --location 'https://localhost:9164/management/applications/samplecapp/fault' \
+	    curl --location 'https://localhost:9164/management/applications/FaultyCAppCompositeExporter/fault' \
 	    --header 'Accept: application/json' \
 	    --header 'Authorization: Bearer TOKEN'
 	    ```
     === "Response"
 	    ```json
 	    {
-	        "name": "samplecapp",
-	        "errorMessage": "API deployment from the file : /wso2mi/tmp/carbonapps/-1234/samplecapp_1.0.0.car/FaultyAPI_1.0.0/FaultyAPI-1.0.0.xml : Failed.",
+	        "name": "FaultyCAppCompositeExporter",
+	        "errorMessage": "API deployment from the file : /wso2mi/tmp/carbonapps/-1234/FaultyCAppCompositeExporter_1.0.0.car/FaultyAPI_1.0.0/FaultyAPI-1.0.0.xml : Failed.",
 	        "version": "1.0.0",
 	        "faultStackTrace": "<STACK_TRACE>"
 	    }
@@ -1666,7 +1666,7 @@ The management API has multiple resources to provide information regarding the d
 	        "faultyCount": 1,
 	        "faultyList": [
 	            {
-	                "name": "SampleDataService",
+	                "name": "FaultyDataService",
 	                "errorMessage": "DS Fault Message: Access denied for user 'root'@'localhost' (using password: YES)\nDS Code: CONNECTION_UNAVAILABLE_ERROR\n"
 	            }
 	        ]
@@ -1712,14 +1712,14 @@ The management API has multiple resources to provide information regarding the d
 
     === "Request"
 	    ```bash
-	    curl -X GET "https://localhost:9164/management/data-services/SampleDataService/fault" \
+	    curl -X GET "https://localhost:9164/management/data-services/FaultyDataService/fault" \
 	    -H "accept: application/json" \
 	    -H "Authorization: Bearer TOKEN" -k -i
 	    ```
     === "Response"
 	    ```json
 	    {
-	        "serviceName": "SampleDataService",
+	        "serviceName": "FaultyDataService",
 	        "errorMessage": "DS Fault Message: Access denied for user 'root'@'localhost' (using password: YES)\nDS Code: CONNECTION_UNAVAILABLE_ERROR\n",
 	        "faultStackTrace": "<STACK_TRACE>"
 	    }
