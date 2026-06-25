@@ -71,6 +71,11 @@ To use the Amazon SQS connector, first create the connection with your configura
             <td>The amount of time(in seconds) to wait for the http request to complete before giving up and timing out.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td>endpoint</td>
+            <td>Optional custom endpoint URL. Use this for VPC interface endpoints or private/custom SQS-compatible hosts (for example: https://vpce-xxxx.sqs.us-east-1.vpce.amazonaws.com). Leave blank to use the default AWS endpoint for the selected region.</td>
+            <td>No</td>
+        </tr>
     </table>
 
     !!! note
