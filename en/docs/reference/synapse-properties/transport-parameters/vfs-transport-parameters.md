@@ -208,7 +208,8 @@ See [Creating a Proxy Service]({{base_path}}/develop/creating-artifacts/creating
             transport.vfs.Locking
          </td>
          <td>
-            By default, file locking is enabled in the VFS transport. This parameter lets you configure the locking behavior on a per service basis. You can also disable locking globally by specifying the parameter at the receiver level and selectively enable locking only for a set of services. The setting is enabled by default.
+            By default, file locking is enabled in the VFS transport. This parameter lets you configure the locking behavior on a per service basis. You can also disable locking globally by specifying the parameter at the receiver level and selectively enable locking only for a set of services. The setting is enabled by default.</br></br>
+            <b>Note</b>: It is not recommended to have multiple consumers access the same source folder simultaneously. If a single consumer accesses the source folder, you can set this to <code>disable</code> to turn off locking. See <a href="{{base_path}}/install-and-setup/setup/performance-tuning/tuning-the-vfs-transport/#disable-locking-for-single-consumer-setups">Disable locking for single-consumer setups</a>.
          </td>
       </tr>
       <tr>
@@ -480,7 +481,8 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
            timeout
          </td>
          <td>
-            The connection timeout in milliseconds. Possible value: <code>1000</code>. The default value is <code>5000</code>.
+            The connection timeout in milliseconds. Possible value: <code>1000</code>. The default value is <code>5000</code>.</br></br>
+            <b>Note</b>: The default socket timeout is not applied for VFS transport connections. You must explicitly set this parameter to avoid indefinite connection waits.
          </td>
       </tr>
       <tr>
