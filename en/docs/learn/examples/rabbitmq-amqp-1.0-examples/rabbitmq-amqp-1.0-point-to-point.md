@@ -162,11 +162,11 @@ Create the artifacts:
 3. Create the **Message Inject Sequence** named `successSeq` using the **RabbitMQ Consumer - Message Inject Sequence** configuration given above.
 4. Create the **Error Sequence** named `errorSeq` using the **RabbitMQ Consumer - Error Sequence** configuration given above.
 5. Create the **Inbound Endpoint** named `RabbitMQInboundEP` using the **RabbitMQ Consumer** configuration given above, and configure it to inject messages into the `successSeq` sequence and handle errors via the `errorSeq` sequence. Refer to the [RabbitMQ (AMQP 1.0) Inbound Endpoint Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-inbound-endpoint-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Inbound Endpoint.
-6. Create the [Rest API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `PublishMessage` with context `/publishmessage` using the **RabbitMQ Producer** configuration given above, including the RabbitMQ (AMQP 1.0) Connector Publish Message Operation in the inSequence.
-7. Before creating the Rest API, make sure to create the local entry for the RabbitMQ connection configuration using the **RabbitMQ Producer - Connection Configuration** given above. Refer the [RabbitMQ (AMQP 1.0) Connector Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Connector PublishMessage Operation.
-8. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
-9. Make sure you have a RabbitMQ broker instance running.
-10. Send the following payload as an HTTP POST request to `http://localhost:8290/publishmessage`:
+6. Before creating the Rest API, make sure to create the local entry for the RabbitMQ connection configuration using the **RabbitMQ Producer - Connection Configuration** given above. Refer the [RabbitMQ (AMQP 1.0) Connector Example]({{base_path}}/reference/connectors/rabbitmq-amqp-1.0-connector/rabbitmq-amqp-1.0-connector-example/) for more information regarding configuring the RabbitMQ (AMQP 1.0) Connector PublishMessage Operation.
+7. Create the [Rest API]({{base_path}}/develop/creating-artifacts/creating-an-api/) named `PublishMessage` with context `/publishmessage` using the **RabbitMQ Producer** configuration given above, including the RabbitMQ (AMQP 1.0) Connector Publish Message Operation in the inSequence.
+9. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
+10. Make sure you have a RabbitMQ broker instance running.
+11. Send the following payload as an HTTP POST request to `http://localhost:8290/publishmessage`:
 
     ```xml
     <Message>
