@@ -144,7 +144,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
         <img src="{{base_path}}/assets/img/get-started/build-first-integration/add_inline_expression_post.gif" width="50%" alt="Add inline expression">
     </a>
 
-11. Finally, click **Sumbit** to insert the **HTTP POST** operation into the integration flow.
+11. Finally, click **Submit** to insert the **HTTP POST** operation into the integration flow.
 
     !!! Tip
         Since you're halfway through the flow, it's a good time to verify everything so far. You can use the **Mediator TryOut** feature to execute the flow up to a specific mediator and inspect its input and output.
@@ -174,7 +174,7 @@ Now, it's time to design the bank deposit flow. Follow the steps below to create
 
 14. In the **Add If Else Mediator** pane that appears, click on the expression editor (<img src="{{base_path}}/assets/img/get-started/build-first-integration/expression_editor_icon.png" alt="inline expression editor" class="inline-icon">) icon to open the editor.
 
-15. Select **Variables** → **http_post_1** → **attribures** → **statusCode** to extract the HTTP status code from the POST response.
+15. Select **Variables** → **http_post_1** → **attributes** → **statusCode** to extract the HTTP status code from the POST response.
 
 16. Next, type a space to display the list of operators. Select the `==` (equal) operator and enter `200` to complete the condition.
 
