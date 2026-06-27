@@ -45,7 +45,7 @@
 ### Generating the .bindings file
 
 1. Download the <a href="{{base_path}}/assets/attachments/install-and-setup/mq-bindings-generator.zip">MQ bindings generator project</a> and extract the contents.
-2. Open the Java project in your favorite IDE and change the required detials in the code. ex: host, port, queue, channel, queue manager name, etc.
+2. Open the Java project in your favorite IDE and change the required details in the code. ex: host, port, queue, channel, queue manager name, etc.
 
     !!! Note
         We can use the default `DEV.ADMIN.SVRCONN` channel for testing purposes.
