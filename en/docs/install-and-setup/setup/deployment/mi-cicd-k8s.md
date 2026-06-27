@@ -15,7 +15,7 @@ This document explains the Continuous Integration and Continuous Deployment (CI/
 
 ### Pipeline Steps
 
-The integration project build pipeline conatins the following main 5 stages:
+The integration project build pipeline contains the following main 5 stages:
 
 <a href="{{base_path}}/assets/img/setup-and-install/integration_pipeline.png" class="glightbox"><img src="{{base_path}}/assets/img/setup-and-install/integration_pipeline.png" alt="Integration pipeline" width="70%"></a>
 
