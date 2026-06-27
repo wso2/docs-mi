@@ -336,7 +336,7 @@ You may expand each file section below to review the configuration content and u
 
     To access the deployed services using domain names (`mi.wso2.com` and `icp.wso2.com`), you need to add entries to your local `/etc/hosts` file. This maps the domain names to the external IP address of your Gateway.
 
-    For example, current shared Gateway address is 192.168.127.2 and  `wso2.deployment.hostname : "icp.wso2.com"` then add the following lines. For convinience let's add the MI host entry as well.
+    For example, current shared Gateway address is 192.168.127.2 and  `wso2.deployment.hostname : "icp.wso2.com"` then add the following lines. For convenience let's add the MI host entry as well.
 
     ```
     192.168.127.2    icp.wso2.com
