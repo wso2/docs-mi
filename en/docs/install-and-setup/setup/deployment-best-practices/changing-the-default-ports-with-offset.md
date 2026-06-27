@@ -17,7 +17,7 @@ Note that most of the **runtime ports** change automatically based on the offset
 The default port offset in the WSO2 Integrator: MI runtime is `10`. Use one of the following two methods to apply an offset to the WSO2 Integrator: MI runtime.
 
 !!! Tip
-	-	The internal offset of 10 is overriden by this manual offset. That is, if the manual offset is 3, the default ports will change as follows:
+	-	The internal offset of 10 is overridden by this manual offset. That is, if the manual offset is 3, the default ports will change as follows:
 		- `8290` -> `8283` (8290 - 10 + 3)
 		- `8253` -> `8246` (8253 - 10 + 3)
 		- `9164` -> `9157` (9164 - 10 + 3)
