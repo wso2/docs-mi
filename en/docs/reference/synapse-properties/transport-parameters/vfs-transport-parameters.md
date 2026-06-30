@@ -482,7 +482,25 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
          </td>
          <td>
             The connection timeout in milliseconds. Possible value: <code>1000</code>. The default value is <code>5000</code>.</br></br>
-            <b>Note</b>: The default socket timeout is not applied for VFS transport connections. You must explicitly set this parameter to avoid indefinite connection waits.
+            <b>Note</b>: The default socket timeout is not applied for VFS transport connections. You must explicitly set this parameter to avoid indefinite connection waits.</br></br>
+            <b>For SFTP connections</b>, the underlying JSch library uses this value as the socket timeout and as the interval for sending SSH keep-alive messages. If <code>connectTimeout</code> is not specified, this value is also used as the SFTP connection timeout.
+         </td>
+      </tr>
+      <tr>
+         <td>
+            connectTimeout
+         </td>
+         <td>
+            The maximum time, in milliseconds, to wait while establishing the SFTP connection. Possible value: <code>6000</code>. If not specified, the value configured for the <code>timeout</code> parameter is used.
+            <br>Available in <b>MI 4.6.0.4</b> and later for SFTP connections.
+         </td>
+      </tr>
+      <tr>
+         <td>
+            keepAliveCount
+         </td>
+         <td>
+            The maximum number of unanswered SSH keep-alive messages before the SFTP session is terminated. Possible value: <code>3</code>. The default value is <code>1</code>. <br>Available in <b>MI 4.6.0.4</b> and later for SFTP connections.
          </td>
       </tr>
       <tr>
