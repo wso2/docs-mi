@@ -111,7 +111,7 @@ path = "/apis"
 
 ## Configuring CORS
 
-CORS is enabled for the management API by default. The default configuration allows all origins (denoted by the `*` symbol). The `Authorization` header is also enabled by default to cater to the functionalities of the the Integration Control Plane.
+CORS is enabled for the management API by default. The default configuration allows all origins (denoted by the `*` symbol). The `Authorization` header is also enabled by default to cater to the functionalities of the Integration Control Plane.
 
 Add the following to the `deployment.toml` file and update the values.
 

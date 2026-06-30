@@ -170,7 +170,7 @@ You can now start configuring the API resource.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-weather-request.png" alt="weather http request" width="30%"></a>
 
-12. Click on the **+** icon in the diagram and search for for the **Datamapper** mediator in the **Mediator Palette**.
+12. Click on the **+** icon in the diagram and search for the **Datamapper** mediator in the **Mediator Palette**.
 
     <a href="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper.png" class="glightbox"><img src="{{base_path}}/assets/img/get-started/how-to-guides/ai-data-mapping/ai-data-mapping-data-mapper.png" alt="search data mapper" width="80%"></a>
 

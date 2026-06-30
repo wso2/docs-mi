@@ -11,7 +11,7 @@ The following are the artifacts used commonly in a WSO2 Integrator: MI deploymen
 
 These are directories in WSO2 Integrator: MI that includes deployable files, which are valid from a specified date and time at runtime.
 
--   `<MI_HOME>/repository/deployment/server` -  Contains Synapse configurations and and other deployment artifacts.
+-   `<MI_HOME>/repository/deployment/server` -  Contains Synapse configurations and other deployment artifacts.
 
 
 ### Persistent Configuration Artifacts
