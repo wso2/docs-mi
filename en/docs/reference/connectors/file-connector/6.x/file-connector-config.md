@@ -623,6 +623,9 @@ There are different connection configurations that can be used for the above pro
 
 ??? note "SFTP"
 
+    !!! note
+        If the SFTP server has disabled the SSH exec channel (i.e., does not allow execution of remote commands) or does not support the `id` command, set **File System Permission Check** (`setAvoidPermission`) to `true`. The connector uses SSH exec to run `id -u` and `id -G` internally to resolve file permissions. If the server restricts exec access, this check will fail. Setting `setAvoidPermission` to `true` bypasses these commands entirely.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -744,8 +747,7 @@ There are different connection configurations that can be used for the above pro
                 Boolean
             </td>
             <td>
-                Set to true if you want to skip the file permission check.</br>
-                Available in file-connector <b>v4.0.9</b> and above.
+                This must be set to <code>true</code> if the SFTP server has disabled the SSH exec channel or does not support the <code>id</code> command.</br></br>
             </td>
             <td>
                 false
