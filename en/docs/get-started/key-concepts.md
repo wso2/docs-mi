@@ -16,19 +16,19 @@ Message entry points are the entities that a message can enter into the WSO2 Int
 
 #### APIs
 
-An API in WSO2 Integrator: MI is a key component for exposing integration services. Each API is anchored at a user-defined URL context and will only process requests that fall under the given URL context. An API is made of one or more resources, which are logical components of an API that can be accessed by making a particular type of HTTP call.
+An API in WSO2 Integrator: MI is a key component for exposing integration services. Each API is anchored at a user-defined URL context and processes only requests that fall under the given URL context. An API is made of one or more resources, which are logical components of an API that can be accessed by making a particular type of HTTP call.
 
 See the [REST APIs]({{base_path}}/reference/synapse-properties/rest-api-properties) documentation for more information.
 
 #### Proxy Services
 
-A Proxy service is a virtual service that receives messages and optionally processes them before forwarding them to a service at a given endpoint. This approach allows you to perform the necessary message transformations and introduce additional functionality to your services without changing your actual services. Unlike in [APIs](#apis), here, the protocol does not always need to be HTTP/S. Proxy Services support other well-known protocols such as JMS, FTP, FIX, and HL7.
+A Proxy service is a virtual service that receives messages and optionally processes them before forwarding them to a service at a given endpoint. This approach allows you to perform the necessary message transformations and introduce additional functionality without modifying your actual services. Unlike in [APIs](#apis), here, the protocol does not always need to be HTTP/S. Proxy Services support other well-known protocols such as JMS, FTP, FIX, and HL7.
 
 See the [Proxy Services]({{base_path}}/reference/synapse-properties/proxy-service-properties) documentation for more information.
 
 #### Inbound Endpoints
 
-In [APIs](#apis) and [proxy services](#proxy-services) some parts of the configuration are global to a particular instance. For example, the HTTP port needs to be common for all the APIs. The Inbound Endpoints do not contain such global configurations. That gives extra flexibility in configuring the Inbound Endpoints compared to the other two message entry points.
+In [APIs](#apis) and [proxy services](#proxy-services) some parts of the configuration are global to a particular instance. For example, the HTTP port needs to be common for all the APIs. The Inbound Endpoints do not contain such global configurations. This provides greater flexibility in configuring the Inbound Endpoints compared to the other two message entry points.
 
 See the [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-endpoints/about-inbound-endpoints) documentation for more information.
 
@@ -38,7 +38,7 @@ See the [Inbound Endpoints]({{base_path}}/reference/synapse-properties/inbound-e
 
 #### Mediators
 
-Mediators are individual processing units that perform a specific function on messages that pass through the WSO2 Integrator: MI. The mediator takes the message received by the [message entry points](#message-entry-points), carries out some predefined actions on it (such as transforming, enriching, filtering), and modifies the message.
+Mediators are individual processing units that perform a specific function on messages that pass through the WSO2 Integrator: MI. The mediator takes the message received by the [message entry points](#message-entry-points), performs predefined actions on it (such as transforming, enriching, filtering), and modifies the message.
 
 See the [Mediators]({{base_path}}/reference/mediators/about-mediators) documentation for more information.
 
@@ -77,7 +77,7 @@ See the [Endpoints]({{base_path}}/reference/synapse-properties/endpoint-properti
 
 #### Connectors
 
-A Connector allows your mediation flows to connect and interact with external services such as Twitter and Salesforce. Typically, connectors are used to wrap the API or the SDK of an external service. Each connector provides operations that perform different actions in that service. For example, the Twitter connector has operations for creating a tweet, getting a user's followers, and more.
+A Connector allows mediation flows to connect and interact with external services such as Twitter and Salesforce. Typically, connectors are used to wrap the API or the SDK of an external service. Each connector provides operations that perform different actions in that service. For example, the Twitter connector has operations for creating a tweet, getting a user's followers, and more.
 
 To download a required connector, go to the [WSO2 Connector Store](https://store.wso2.com/store).
 
@@ -95,13 +95,13 @@ See the [Data Services]({{base_path}}/reference/synapse-properties/data-services
 
 #### Scheduled triggers
 
-Executing an integration process at a specified time is a common requirement in enterprise integration. For example, in an organization, there can be a need to run an integration process to synchronize two systems every day at the end of the day. In the WSO2 Integrator: MI, the execution of a message mediation process can be automated to run periodically by using a Scheduled trigger. Furthermore, you can use cron expressions for more advanced scheduling configurations.
+Executing an integration process at a specified time is a common requirement in enterprise integration. For example, in an organization, there may be a need to run an integration process to synchronize two systems every day at the end of the day. In the WSO2 Integrator: MI, the execution of a message mediation process can be automated to run periodically by using a Scheduled trigger. Furthermore, you can use cron expressions for more advanced scheduling configurations.
 
 See the [Scheduled triggers]({{base_path}}/reference/synapse-properties/scheduled-task-properties) documentation for more information.
 
 #### Transports
 
-A transport protocol is responsible for carrying messages that are in a specific protocol. WSO2 Integrator: MI supports all the widely used transports including, HTTP/S, JMS, and VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
+A transport protocol is responsible for carrying messages that are in a specific protocol. WSO2 Integrator: MI supports all the widely used transports including HTTP/S, JMS, and VFS, as well as domain-specific transports like FIX. Each transport provides a receiver implementation for receiving messages and a sender implementation for sending messages.
 
 See the [Transports]({{base_path}}/install-and-setup/setup/transport-configurations/configuring-transports) documentation for more information.
 
