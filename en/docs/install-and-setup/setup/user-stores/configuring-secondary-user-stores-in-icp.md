@@ -8,7 +8,7 @@ The WSO2 Integration Control Plane (ICP) supports multiple secondary user stores
 !!! note
     Users from secondary user stores have non-admin (read-only) permissions in the ICP.
 
-## Adding a secondary user store
+## Add a secondary user store
 
 Add one `[[secondary_user_store]]` block per store to the `<ICP_HOME>/conf/deployment.toml` file.
 
