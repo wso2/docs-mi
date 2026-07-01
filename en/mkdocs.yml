@@ -119,6 +119,7 @@ nav:
                   - Configure the File-Based Registry: install-and-setup/setup/deployment/file-based-registry.md
               - User Stores in ICP:
                   - Configure a User Store in ICP: install-and-setup/setup/user-stores/setting-up-a-userstore-in-icp.md
+                  - Configure a Secondary User Store in ICP: install-and-setup/setup/user-stores/configuring-secondary-user-stores-in-icp.md
           - Security:
               - Set up Keystores:
                   - Create New Keystores: install-and-setup/setup/security/creating-keystores.md
