@@ -392,6 +392,16 @@ The following parameters are required when configuring Kafka Inbound Endpoint.
             <td>Whether to enable the use of logical type converters in Avro. This parameter is available only with Kafka Inbound Endpoint v1.2.2 and above.</td>
             <td><code>False</code></td>
         </tr>
+        <tr>
+            <td><code>batch.processing.enabled</code></td>
+            <td>When set to <code>true</code>, all valid records returned by a single Kafka poll are bundled into one message and injected together into the inbound sequence, instead of being processed one record at a time. See <a href="#batch-mediation">Batch Mediation</a> for details.</td>
+            <td><code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>kafka.dlq.topic</code></td>
+            <td>The Kafka topic to which poison pill records (records that could not be deserialized) are forwarded when batch processing is enabled. If not set, poison pills are logged and skipped without being forwarded. Only applicable when <code>batch.processing.enabled</code> is <code>true</code>.</td>
+            <td></td>
+        </tr>
 </table>
 
 ---
@@ -450,3 +460,76 @@ Add this parameter to the inbound endpoint to control the retry behavior:
     - For throughput and scalability:
         - Configure your Kafka topic with **multiple partitions**.
         - Run **multiple Kafka Inbound Endpoints** (within the same consumer group) to read from different partitions concurrently.
+
+---
+
+## Batch mediation
+
+By default, the Kafka Inbound Endpoint processes one record at a time — each record polled from Kafka is injected into the inbound sequence as a separate message. Batch mediation changes this so that all valid records returned by a single poll are bundled into one message and injected together. To enable it, set the following parameter:
+
+```xml
+<parameter name="batch.processing.enabled">true</parameter>
+```
+
+### Message payload format
+
+The shape of the injected message depends on the configured `contentType`.
+
+**JSON** (`contentType = application/json`)
+
+All record values are combined into a JSON array. Each element is the raw record value.
+
+```json
+[{"id":1,"name":"Alice"},{"id":2,"name":"Bob"},{"id":3,"name":"Charlie"}]
+```
+
+**XML** (`contentType = application/xml` or `text/xml`)
+
+All record values are wrapped in a `<messages>` root element. Each record value must be a valid XML fragment.
+
+```xml
+<messages>
+    <item><id>1</id><name>Alice</name></item>
+    <item><id>2</id><name>Bob</name></item>
+</messages>
+```
+
+**Plain text** (`contentType = text/plain` or any other value)
+
+Each record value is wrapped in a `<text>` element under a `<messages>` root. Special XML characters in the values are escaped automatically. The injected message content type is `application/xml`.
+
+```xml
+<messages>
+    <text xmlns="http://ws.apache.org/commons/ns/payload">hello world</text>
+    <text xmlns="http://ws.apache.org/commons/ns/payload">a &lt;b&gt; &amp; c</text>
+</messages>
+```
+
+### Poison pill handling in batch mode
+
+A poison pill is a record that Kafka could not deserialize. In batch mode, poison pills detected in a poll are **skipped individually** — they are not included in the batch payload injected to the inbound sequence. A warning is logged for each skipped poison pill.
+
+To forward poison pills to a Dead Letter Queue (DLQ) topic instead of silently discarding them, configure the `kafka.dlq.topic` parameter:
+
+```xml
+<parameter name="kafka.dlq.topic">my-dlq-topic</parameter>
+```
+
+The DLQ record carries the original raw bytes as its value and the following provenance headers:
+
+| Header | Description |
+|---|---|
+| `kafka_dlt-original-topic` | The topic the poison pill was consumed from |
+| `kafka_dlt-original-partition` | The partition number |
+| `kafka_dlt-original-offset` | The offset of the poison pill record |
+| `kafka_dlt-original-timestamp` | The record timestamp |
+| `kafka_dlt-exception-message` | The deserialization error message |
+| `kafka_dlt-exception-cause-message` | The root cause message (if available) |
+
+### Manual offset control and retry in batch mode
+
+Batch mode supports the same manual offset control and retry configuration described in [Manual offset control](#manual-offset-control), with the following differences:
+
+- Offsets are committed at the **batch boundary** — on success, the last offset of each partition in the poll + 1 is committed. If a poll returns only null or poison pill records, offsets are still advanced past the entire poll.
+- On failure (with retries remaining), the consumer seeks back to the **first valid record's offset** per partition, so null records and poison pills already filtered out are not re-delivered.
+- Once the retry count is exhausted, offsets are committed past the batch and an error is injected to the `onError` sequence with error code `700511` (`RETRY_EXHAUSTED`).
