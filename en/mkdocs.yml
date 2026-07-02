@@ -316,6 +316,14 @@ nav:
                     - How to Manage Guaranteed Delivery with Non Blocking Client Acknowledgement: learn/examples/rabbitmq-examples/rabbitmq-nonblocking-client-ack.md
                     - How to Publish Unacked Messages to Dead Letter Exchange: learn/examples/rabbitmq-examples/move-msgs-to-dlq-rabbitmq.md
                 - How to Implement Dual Channel Scenario with RabbitMQ: learn/examples/rabbitmq-examples/request-response-rabbitmq.md
+            - RabbitMQ (AMQP 1.0) examples:
+                - How to Implement Point to Point Messaging Using RabbitMQ (AMQP 1.0) Connector and Inbound Endpoint: learn/examples/rabbitmq-amqp-1.0-examples/rabbitmq-amqp-1.0-point-to-point.md
+                - How to Publish and Subscribe with RabbitMQ (AMQP 1.0) Connector and Inbound Endpoint: learn/examples/rabbitmq-amqp-1.0-examples/rabbitmq-amqp-1.0-pub-sub.md
+                - Guaranteed Delivery:
+                    - How to Retry Failed Messages with a Delay: learn/examples/rabbitmq-amqp-1.0-examples/rabbitmq-amqp-1.0-retry-delay-failed-msgs.md
+                    - How to Requeue a Message Preserving the Order: learn/examples/rabbitmq-amqp-1.0-examples/rabbitmq-amqp-1.0-requeue-msgs-with-errors.md
+                    - How to Publish Released/Discard Messages to Dead Letter Exchange: learn/examples/rabbitmq-amqp-1.0-examples/rabbitmq-amqp-1.0-move-msgs-to-dlq.md
+                - How to Implement Dual Channel Scenario with RabbitMQ (AMQP 1.0) Connector and Inbound Endpoint: learn/examples/rabbitmq-amqp-1.0-examples/rabbitmq-amqp-1.0-request-response.md
             - JMS examples:
                 - How to Consume JMS Messages: learn/examples/jms-examples/consuming-jms.md
                 - How to Produce JMS Messages: learn/examples/jms-examples/producing-jms.md

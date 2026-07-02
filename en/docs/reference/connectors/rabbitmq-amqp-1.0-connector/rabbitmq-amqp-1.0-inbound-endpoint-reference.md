@@ -280,6 +280,21 @@ This reference page documents all the configuration parameters supported by the 
         <td> - </td>
     </tr>
     <tr>
+     <td>rabbitmq.connection.oauth2.scope</td>
+     <td>Scope</td>
+      <td>
+            Scopes to include in the OAuth 2.0 token request (space-separated if multiple).
+            <br/>
+            The required scopes depend on the RabbitMQ OAuth 2.0 authorization configuration and the intended use case. If the integration only needs to consume and publish messages to RabbitMQ, it can be configured with scopes that grant read and write permissions. However, if the integration also needs to create or manage queues, exchanges, bindings, or other broker resources, additional management-related scopes must be included. 
+            <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p> The exact scope values depend on the RabbitMQ OAuth 2.0 configuration. Some deployments may use aliases such as read, write, and management, while others may require RabbitMQ-specific scopes such as <code>rabbitmq.read:*/*</code>, <code>rabbitmq.write:*/*</code>, and <code>rabbitmq.configure:*/*</code>. Refer to the <a href="https://www.rabbitmq.com/docs/oauth2">RabbitMQ OAuth 2.0 documentation</a> for details on scope aliases and scope-to-permission mapping.</p>
+           </div>
+        </td>
+    <td>No</td>
+    <td> - </td>
+    </tr>
+    <tr>
         <th colspan="5">Resilience</th>
     </tr>
     <tr>
@@ -1043,6 +1058,13 @@ This reference page documents all the configuration parameters supported by the 
         </ul>
         <b>Important</b>: This setting is only relevant when <code>rabbitmq.dead.letter.exchange.type</code> is DIRECT. It is ignored for FANOUT exchanges. Leave blank to preserve the original message routing key.
     </td>
+    <td>No</td>
+    <td> - </td>
+</tr>
+<tr>
+    <td>rabbitmq.dead.letter.queue.message.ttl</td>
+    <td>Dead Letter Queue Message TTL</td>
+    <td>Time-to-live (TTL) in milliseconds for messages in the Dead Letter Queue before being retried or discarded.</td>
     <td>No</td>
     <td> - </td>
 </tr>
