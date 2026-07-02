@@ -235,7 +235,7 @@ Also [download](https://logging.apache.org/log4j/1.2/download.html) the followin
 
 ### Configuring Sample FIX Applications
 
-If you are using a binary distribution of Quickfix/J, the two samples (FIX messages sender/reveiver) and their configuration files are all packed to two JAR files called
+If you are using a binary distribution of Quickfix/J, the two samples (FIX messages sender/receiver) and their configuration files are all packed to two JAR files called
 `quickfixj-examples-banzai-2.1.1.jar` and `quickfixj-examples-executor-2.1.1.jar`. You will have to extract the
 JAR file, modify the configuration files and pack them to a JAR file
 again under the same name.
