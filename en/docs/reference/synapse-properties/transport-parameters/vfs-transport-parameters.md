@@ -516,6 +516,22 @@ When you use the [transport.vfs.FileURI](#vfs-transport-file_url) parameter, you
            Encoding of the file names in the file host. This is required when the file names are in different encoding than UTF-8 ex: ISO-8859-1.
          </td>
       </tr>
+      <tr>
+         <td>
+            transport.vfs.diskShareAccessMask
+         </td>
+         <td>
+            Configures the SMB2 disk share access mask used when establishing the connection. Specify one or more access masks supported by SMBJ as a comma-separated list.
+            <br><br>
+            <b>Example:</b> <code>transport.vfs.diskShareAccessMask=GENERIC_READ,GENERIC_WRITE</code>
+            <br><br>
+            For the complete list of supported access masks, refer to the
+            <a href="https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html"
+               target="_blank" rel="noopener noreferrer">SMBJ AccessMask documentation</a>.
+            <br><br>
+            <b>Note:</b> This parameter is available from MI 4.5.0.27 onwards.
+         </td>
+      </tr>
    </tbody>
 </table>
 
