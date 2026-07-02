@@ -38,7 +38,7 @@ Follow the steps below to set up an Oracle database.
     assistant (dbca) or manually.
 2.  Make the necessary changes in the Oracle
     `           tnsnames.ora          ` and
-    `           listner.ora          ` files in order to define
+    `           listener.ora          ` files in order to define
     addresses of the databases for establishing connections to the newly
     created database.
 3.  After configuring the `           .ora          ` files, start the
