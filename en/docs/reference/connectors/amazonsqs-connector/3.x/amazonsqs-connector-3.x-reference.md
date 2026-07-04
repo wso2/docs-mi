@@ -72,8 +72,7 @@ To use the Amazon SQS connector, first create the connection with your configura
             <td>No</td>
         </tr>
         <tr>
-            <td>endpoint</td>
-            <td>An optional custom endpoint URL. Use this for VPC interface endpoints or private/custom SQS-compatible hosts (for example: <code>https://vpce-xxxx.sqs.us-east-1.vpce.amazonaws.com</code>). Leave this blank to use the default AWS endpoint for the selected region. <b>Note:</b> This option is available only with Amazon SQS Connector v3.0.2 and above.</td>
+            <td>An optional custom endpoint URL. Use this for VPC interface endpoints or private/custom SQS-compatible hosts (for example: <code>https://vpce-xxxx.sqs.us-east-1.vpce.amazonaws.com</code>). Omit this parameter to use the default AWS endpoint for the selected region. Note: This option is available only with Amazon SQS connector v3.0.2 and above.</td>
             <td>No</td>
         </tr>
     </table>
