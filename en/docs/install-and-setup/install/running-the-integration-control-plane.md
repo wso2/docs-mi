@@ -4,9 +4,17 @@ Follow the steps given below to run the Integration Control Plane.
 
 ## Configure the Integration Control Plane
 
-All configuration lives in `conf/deployment.toml`. The defaults work
-out of the box for local evaluation. ICP will start with the embedded H2
-database, listen on `https://localhost:9446`, and create an `admin` user.
+=== "ICP 2.0.0"
+
+    All configuration lives in `conf/deployment.toml`. The defaults work
+    out of the box for local evaluation. ICP will start with the embedded H2
+    database, listen on `https://localhost:9446`, and create an `admin` user.
+
+=== "ICP 1.2.0"
+
+    All configuration lives in `conf/Config.toml`. The defaults work
+    out of the box for local evaluation. ICP will start with the embedded H2
+    database, listen on `https://localhost:9446`, and create an `admin` user.
 
 ### Essential settings
 
@@ -20,34 +28,67 @@ database, listen on `https://localhost:9446`, and create an `admin` user.
 
 ### Database settings
 
-By default ICP uses an embedded H2 database stored in `bin/database/`. For
-production, switch to PostgreSQL, MySQL, or MSSQL by uncommenting and editing
-the `[icp_server.storage]` section in `deployment.toml`:
+=== "ICP 2.0.0"
 
-```toml
-[icp_server.storage]
-dbType   = "postgresql"
-dbHost   = "db.example.com"
-dbPort   = 5432
-dbName   = "icp_database"
-dbUser   = "icp_user"
-dbPassword = "changeme"
-```
+    By default ICP uses an embedded H2 database stored in `bin/database/`. For
+    production, switch to PostgreSQL, MySQL, or MSSQL by uncommenting and editing
+    the `[icp_server.storage]` section in `deployment.toml`:
 
-A separate credentials database stores user passwords. Configure it with the
-`credentialsDb*` settings if you want credential storage on the same external
-database:
+    ```toml
+    [icp_server.storage]
+    dbType   = "postgresql"
+    dbHost   = "db.example.com"
+    dbPort   = 5432
+    dbName   = "icp_database"
+    dbUser   = "icp_user"
+    dbPassword = "changeme"
+    ```
 
-```toml
-credentialsDbType     = "postgresql"
-credentialsDbHost     = "db.example.com"
-credentialsDbPort     = 5432
-credentialsDbName     = "credentialsdb"
-credentialsDbUser     = "icp_user"
-credentialsDbPassword = "changeme"
-```
+    A separate credentials database stores user passwords. Configure it with the
+    `credentialsDb*` settings if you want credential storage on the same external
+    database:
 
-When using H2 (the default), no database configuration is needed.
+    ```toml
+    credentialsDbType     = "postgresql"
+    credentialsDbHost     = "db.example.com"
+    credentialsDbPort     = 5432
+    credentialsDbName     = "credentialsdb"
+    credentialsDbUser     = "icp_user"
+    credentialsDbPassword = "changeme"
+    ```
+
+    When using H2 (the default), no database configuration is needed.
+
+=== "ICP 1.2.0"
+
+    By default ICP uses an embedded H2 database stored in `database/`. For
+    production, switch to PostgreSQL, MySQL, or MSSQL by uncommenting and editing
+    the `[icp_server.storage]` section in `Config.toml`:
+
+    ```toml
+    [icp_server.storage]
+    dbType   = "postgresql"
+    dbHost   = "db.example.com"
+    dbPort   = 5432
+    dbName   = "icp_database"
+    dbUser   = "icp_user"
+    dbPassword = "changeme"
+    ```
+
+    A separate credentials database stores user passwords. Configure it with the
+    `credentialsDb*` settings if you want credential storage on the same external
+    database:
+
+    ```toml
+    credentialsDbType     = "postgresql"
+    credentialsDbHost     = "db.example.com"
+    credentialsDbPort     = 5432
+    credentialsDbName     = "credentialsdb"
+    credentialsDbUser     = "icp_user"
+    credentialsDbPassword = "changeme"
+    ```
+
+    When using H2 (the default), no database configuration is needed.
 
 ### Observability Settings (OpenSearch)
 
@@ -61,14 +102,27 @@ ICP serves the console and API on port `9446` by default. To expose ICP through 
    self-signed certificate, so configure the proxy to trust it or skip
    verification for the upstream).
 
-2. Tell ICP the external URL so the console can reach the API. Add these to
-   `deployment.toml`:
+2. Tell ICP the external URL so the console can reach the API. Add these settings:
 
-   ```toml
-   backendGraphqlEndpoint      = "https://icp.example.com/graphql"
-   backendAuthBaseUrl           = "https://icp.example.com/auth"
-   backendObservabilityEndpoint = "https://icp.example.com/icp/observability"
-   ```
+    === "ICP 2.0.0"
+
+        Add these to `deployment.toml`:
+
+        ```toml
+        backendGraphqlEndpoint      = "https://icp.example.com/graphql"
+        backendAuthBaseUrl           = "https://icp.example.com/auth"
+        backendObservabilityEndpoint = "https://icp.example.com/icp/observability"
+        ```
+
+    === "ICP 1.2.0"
+
+        Add these to `Config.toml`:
+
+        ```toml
+        backendGraphqlEndpoint      = "https://icp.example.com/graphql"
+        backendAuthBaseUrl           = "https://icp.example.com/auth"
+        backendObservabilityEndpoint = "https://icp.example.com/icp/observability"
+        ```
 
 3. MI runtimes connect to ICP for heartbeats. If they also go through the
    proxy, set `icp_url` in the runtime's `deployment.toml` to the proxy URL:

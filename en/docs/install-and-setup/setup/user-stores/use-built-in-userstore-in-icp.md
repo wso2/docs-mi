@@ -2,7 +2,15 @@
 
 The built-in user store keeps user credentials — password hashes, salts, and per-user attributes such as failed-login counters — in a dedicated **credentials database**, separate from the main ICP database that holds projects, environments, and integration metadata.
 
-By default both databases use the embedded H2 engine, writing to `<ICP_HOME>/bin/database/`. For production, switch the credentials database to PostgreSQL, MySQL, or MSSQL.
+By default both databases use the embedded H2 engine. For production, switch the credentials database to PostgreSQL, MySQL, or MSSQL.
+
+=== "ICP 2.0.0"
+
+    The default database files are written to `<ICP_HOME>/bin/database/`.
+
+=== "ICP 1.2.0"
+
+    The default database files are written to `<ICP_HOME>/database/`.
 
 
 ## Default Setup (H2)
@@ -24,58 +32,116 @@ Create a dedicated database and user on the database server. The user needs `CRE
 
 ### Step 2 — Initialize the schema
 
-Run the appropriate init script to create the `user_credentials` and `user_attributes` tables and seed the default `admin` user. The scripts are included in the ICP distribution:
+Run the appropriate init script to create the `user_credentials` and `user_attributes` tables and seed the default `admin` user.
 
-<table>
-  <thead>
-    <tr>
-      <th>Database</th>
-      <th>Init script</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PostgreSQL</td>
-      <td><code>db-scripts/credentials_postgresql_init.sql</code></td>
-    </tr>
-    <tr>
-      <td>MySQL</td>
-      <td><code>db-scripts/credentials_mysql_init.sql</code></td>
-    </tr>
-    <tr>
-      <td>MSSQL</td>
-      <td><code>db-scripts/credentials_mssql_init.sql</code></td>
-    </tr>
-  </tbody>
-</table>
+=== "ICP 2.0.0"
 
-Example for PostgreSQL:
+    The scripts are included in the ICP distribution under the `db-scripts/` directory:
 
-```bash
-psql -h <host> -U <admin_user> -d <credentials_db> \
-  -f db-scripts/credentials_postgresql_init.sql
-```
+    <table>
+      <thead>
+        <tr>
+          <th>Database</th>
+          <th>Init script</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PostgreSQL</td>
+          <td><code>db-scripts/credentials_postgresql_init.sql</code></td>
+        </tr>
+        <tr>
+          <td>MySQL</td>
+          <td><code>db-scripts/credentials_mysql_init.sql</code></td>
+        </tr>
+        <tr>
+          <td>MSSQL</td>
+          <td><code>db-scripts/credentials_mssql_init.sql</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    Example for PostgreSQL:
+
+    ```bash
+    psql -h <host> -U <admin_user> -d <credentials_db> \
+      -f db-scripts/credentials_postgresql_init.sql
+    ```
+
+=== "ICP 1.2.0"
+
+    The scripts are included in the ICP distribution under the `database/` directory:
+
+    <table>
+      <thead>
+        <tr>
+          <th>Database</th>
+          <th>Init script</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PostgreSQL</td>
+          <td><code>database/credentials_postgresql_init.sql</code></td>
+        </tr>
+        <tr>
+          <td>MySQL</td>
+          <td><code>database/credentials_mysql_init.sql</code></td>
+        </tr>
+        <tr>
+          <td>MSSQL</td>
+          <td><code>database/credentials_mssql_init.sql</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    Example for PostgreSQL:
+
+    ```bash
+    psql -h <host> -U <admin_user> -d <credentials_db> \
+      -f database/credentials_postgresql_init.sql
+    ```
 
 The init script seeds the `admin` user with a bcrypt hash of the default password `admin`.
 
 !!! warning
     The default `admin` / `admin` credentials are publicly known. Change the password immediately after first login via **Profile** > **Change Password**.
 
-### Step 3 — Configure deployment.toml
+### Step 3 — Configure the configuration file
 
-Add the `credentialsDb*` keys as **top-level entries** in `<ICP_HOME>/conf/deployment.toml`, before any `[section]` header:
+Add the `credentialsDb*` keys as **top-level entries** (before any `[section]` header) to the respective configuration file:
 
-```toml
-credentialsDbType     = "postgresql"
-credentialsDbHost     = "db.example.com"
-credentialsDbPort     = 5432
-credentialsDbName     = "credentials_db"
-credentialsDbUser     = "icp_user"
-credentialsDbPassword = "changeme"
-```
+=== "ICP 2.0.0"
 
-!!! Note
-    These keys must be top-level entries, **not** inside the `[icp_server.storage]` section. The `[icp_server.storage]` section controls the main ICP database (projects, environments, etc.), which is configured independently.
+    Add the settings to `<ICP_HOME>/conf/deployment.toml`:
+
+    ```toml
+    credentialsDbType     = "postgresql"
+    credentialsDbHost     = "db.example.com"
+    credentialsDbPort     = 5432
+    credentialsDbName     = "credentials_db"
+    credentialsDbUser     = "icp_user"
+    credentialsDbPassword = "changeme"
+    ```
+
+    !!! Note
+        These keys must be top-level entries, **not** inside the `[icp_server.storage]` section. The `[icp_server.storage]` section controls the main ICP database (projects, environments, etc.), which is configured independently.
+
+=== "ICP 1.2.0"
+
+    Add the settings to `<ICP_HOME>/conf/Config.toml`:
+
+    ```toml
+    credentialsDbType     = "postgresql"
+    credentialsDbHost     = "db.example.com"
+    credentialsDbPort     = 5432
+    credentialsDbName     = "credentials_db"
+    credentialsDbUser     = "icp_user"
+    credentialsDbPassword = "changeme"
+    ```
+
+    !!! Note
+        These keys must be top-level entries, **not** inside the `[icp_server.storage]` section. The `[icp_server.storage]` section controls the main ICP database (projects, environments, etc.), which is configured independently.
 
 
 <table>

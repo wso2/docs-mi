@@ -1,6 +1,8 @@
 # Integration Control Plane Configuration Catalog
 
-All the server-level configurations of your Integration Control Plane can be applied using a single configuration file, which is the `deployment.toml` file (stored in the `ICP_HOME/conf` directory).
+All the server-level configurations of your Integration Control Plane can be applied using a single configuration file:
+* **ICP 2.0.0**: The `deployment.toml` file (stored in the `ICP_HOME/conf` directory).
+* **ICP 1.2.0**: The `Config.toml` file (stored in the `ICP_HOME/conf` directory).
 
 ## Server Settings
 
@@ -30,7 +32,9 @@ All the server-level configurations of your Integration Control Plane can be app
 
 ### Main Database
 
-Configure the main database in the `[icp_server.storage]` section of `<ICP_HOME>/conf/deployment.toml`.
+Configure the main database in the `[icp_server.storage]` section of the configuration file:
+* **ICP 2.0.0**: `<ICP_HOME>/conf/deployment.toml`
+* **ICP 1.2.0**: `<ICP_HOME>/conf/Config.toml`
 
 | Key          | Description                                               |
 | ------------ | --------------------------------------------------------- |
@@ -88,7 +92,9 @@ H2 is suitable for development and testing only.
 
 ### Credentials Database
 
-The default authentication backend stores user credentials in a separate database or schema. These are flat top-level keys in `deployment.toml` (not under any table header).
+The default authentication backend stores user credentials in a separate database or schema. These are flat top-level keys configured in:
+* **ICP 2.0.0**: `deployment.toml` (not under any table header)
+* **ICP 1.2.0**: `Config.toml` (not under any table header)
 
 ```toml
 credentialsDbType = "postgresql"   # h2, postgresql, mysql, or mssql
@@ -108,11 +114,15 @@ credentialsDbPassword = "icp_password"
 | `credentialsDbUser`     | `string` | `"icp_user"`      | Database user                           |
 | `credentialsDbPassword` | `string` | —                 | Database password                       |
 
- Credentials are stored in a dedicated credentials database separate from the main ICP database, configured via `credentialsDbName`, `credentialsDbHost`, and `credentialsDbPort`. For H2, they are stored in `<ICP_HOME>/bin/database/credentials`.
+ Credentials are stored in a dedicated credentials database separate from the main ICP database, configured via `credentialsDbName`, `credentialsDbHost`, and `credentialsDbPort`. For H2, they are stored in:
+ * **ICP 2.0.0**: `<ICP_HOME>/bin/database/credentials`
+ * **ICP 1.2.0**: `<ICP_HOME>/database/credentials`
 
 ## SSO Configurations
 
-Configure Single Sign-On (SSO) using the `[sso]` section of `<ICP_HOME>/conf/deployment.toml`.
+Configure Single Sign-On (SSO) using the `[sso]` section of:
+* **ICP 2.0.0**: `<ICP_HOME>/conf/deployment.toml`
+* **ICP 1.2.0**: `<ICP_HOME>/conf/Config.toml`
 
 ```toml
 [sso]
