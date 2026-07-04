@@ -41,7 +41,7 @@ For some integrations, it is necessary to update the server configurations. For 
 Click the <img src="{{base_path}}/assets/img/integrate/testing-integrations/server-configs-panel-icon.png" width="20"> icon to open the <b>Embedded WSO2 Integrator: MI Configuration</b> dialog box shown below.
 
 !!! Note 
-	You can also paramterize configurations as [environment variables]({{base_path}}/install-and-setup/setup/dynamic-server-configurations) and later [inject environment variables to the embedded WSO2 Integrator: MI](#injecting-environment-variables-to-embedded-micro-integrator).
+	You can also parameterize configurations as [environment variables]({{base_path}}/install-and-setup/setup/dynamic-server-configurations) and later [inject environment variables to the embedded WSO2 Integrator: MI](#injecting-environment-variables-to-embedded-micro-integrator).
 
 <img src="{{base_path}}/assets/img/integrate/testing-integrations/server-configs-panel.png">
 
