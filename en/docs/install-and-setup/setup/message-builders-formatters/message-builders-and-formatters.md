@@ -247,7 +247,7 @@ The class name used in the above line should be the name used for the class when
 
 The `custom_message_builders` and `custom_message_formatters` configurations shown above apply to non-blocking transports.
 
-When the WSO2 Integrator: MI runs in blocking mode, use the following configurations instead.
+When the WSO2 Micro Integrator runs in blocking mode, use the following configurations instead.
 
 ### Custom message builders (Blocking mode)
 
@@ -265,4 +265,4 @@ content_type = "<content_type>"
 class = "<message_formatter_class>"
 ```
 
-These configurations function similarly to their non-blocking equivalents, but are applied only when the WSO2 Integrator: MI uses blocking transport.
+These configurations function similarly to their non-blocking equivalents, but are applied only when the WSO2 Micro Integrator uses blocking transport.
