@@ -230,7 +230,7 @@ In your integration solution, the following RabbitMQ send parameters can be spec
   </tr>
   <tr>
     <td>placeholder</td>
-    <td>Specifies the routing key to use when both rabbitmq.queue.name and rabbitmq.queue.routing.key query parameters are not defined. If both parameters are provided, this path value is not used for routing and can be omitted from the URI.</td>
+    <td>Specifies the routing key to use when both <code>rabbitmq.queue.name</code> and <code>rabbitmq.queue.routing.key</code> query parameters are not defined. If both parameters are provided, this path value is not used for routing and can be omitted from the URI.</td>
   </tr>
   <tr>
     <td>rabbitmq.server.host.name</td>
