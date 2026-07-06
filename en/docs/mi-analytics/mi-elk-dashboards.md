@@ -124,9 +124,6 @@ Gives you an idea about Proxy Services analytics.
 
 ### Data Services Dashboard (wso2-mi-dataservice)
 
-!!! note
-    This feature was introduced in update level 4.4.0.56. Ensure your product pack is updated to this version or higher to access it.
-
 Gives you an idea about Data Services analytics.
 
 <a href="{{base_path}}/assets/attachments/mi-elk/mi-dataservice.png" class="glightbox"><img src="{{base_path}}/assets/attachments/mi-elk/mi-dataservice.png" width="70%" alt="Mi Data Services"></a>
