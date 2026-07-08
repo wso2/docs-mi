@@ -38,6 +38,38 @@ If we are deploying the Carbon Application in some remote server which we cannot
 
 Once the Carbon Application is exported, we can copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory manually and start the server.
 
+## Enable priority-based composite application deployment
+
+When multiple composite applications are deployed, they are processed according to their dependency tree by default. If there isn't enough information to construct a dependency tree, composite applications are deployed in alphabetical order instead. However, composite applications deployed in alphabetical order can still depend on each other, in which case deployment may fail due to incorrect ordering. To handle such scenarios, you can enable priority-based deployment by adding the following configuration to `<MI_HOME>/conf/deployment.toml`:
+
+```toml
+[server]
+enable_priority_deployment = true
+```
+
+With this configuration, composite applications are divided into two categories:
+
+- **High-priority**: composite applications containing a connector, datasource, registry resource, or class mediator.
+- **Low-priority**: all other composite applications.
+
+High-priority composite applications are deployed first (in alphabetical order), followed by low-priority ones (also in alphabetical order).
+
+If high-priority composite applications depend on each other, deployment may still fail due to incorrect ordering. To mitigate this, configure a retry count using `priority_deployment_retry_count`. This value represents the number of additional deployment attempts made for high-priority composite applications after the initial attempt. The default is `1`.
+
+```toml
+[server]
+enable_priority_deployment = true
+priority_deployment_retry_count = 2
+```
+
+By default, the artifact types listed above (connector, datasource, registry resource, and class mediator) are treated as high-priority. You can override this default list by configuring `priority_deployment_high_priority_types` with the specific artifact types you want to treat as high-priority.
+
+```toml
+[server]
+enable_priority_deployment = true
+priority_deployment_high_priority_types = ["lib/synapse/mediator", "synapse/lib", "registry/resource", "datasource/datasource"]
+```
+
 ## Build Docker image
 
 We can use the WSO2 Integrator: MI VS Code extension to build a Docker image of our integration solution.

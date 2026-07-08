@@ -61,6 +61,28 @@
                             "type": "string",
                             "required": "false",
                             "default": "repository/deployment/server/synapse-configs"
+                        },
+                        {
+                            "name": "enable_priority_deployment",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Use this parameter to enable priority-based deployment of composite applications. When enabled, composite applications containing a connector, datasource, registry resource, or class mediator are treated as high-priority by default and are deployed first, followed by all other composite applications (low-priority). Within each priority group, composite applications are deployed in alphabetical order. The default set of high-priority artifact types can be overridden using <code>priority_deployment_high_priority_types</code>."
+                        },
+                        {
+                            "name": "priority_deployment_retry_count",
+                            "type": "integer",
+                            "required": false,
+                            "default": "1",
+                            "description": "The number of additional deployment attempts made for high-priority composite applications after the initial attempt, when <code>enable_priority_deployment</code> is set to <code>true</code>. This is useful when high-priority composite applications depend on each other and deployment may fail due to incorrect ordering."
+                        },
+                        {
+                            "name": "priority_deployment_high_priority_types",
+                            "type": "string array",
+                            "required": false,
+                            "default": "[\"lib/synapse/mediator\", \"synapse/lib\", \"registry/resource\", \"datasource/datasource\"]",
+                            "description": "Overrides the default list of artifact types that are treated as high-priority when <code>enable_priority_deployment</code> is set to <code>true</code>. By default, composite applications containing a connector, datasource, registry resource, or class mediator are treated as high-priority."
                         }
                     ]
                 }
