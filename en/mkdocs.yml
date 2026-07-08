@@ -906,6 +906,9 @@ nav:
           - Apache Pulsar Inbound Endpoint:
               - Apache Pulsar Inbound Endpoint Example: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-example.md
               - Apache Pulsar Inbound Endpoint Reference: reference/connectors/pulsar-connector/pulsar-inbound-endpoint-reference.md
+          - Azure Service Bus Inbound Endpoint:
+              - Azure Service Bus Inbound Endpoint Example: reference/connectors/asb-inbound/asb-inbound-endpoint-example.md
+              - Azure Service Bus Inbound Endpoint Reference: reference/connectors/asb-inbound/asb-inbound-endpoint-reference.md
           - ISO8583 Inbound Endpoint:
               - ISO8583 Inbound Endpoint Example: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-example.md
               - ISO8583 Inbound Endpoint Reference: reference/connectors/iso8583-connector/iso8583-inbound-endpoint-config.md
