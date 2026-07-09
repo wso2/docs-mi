@@ -1190,6 +1190,151 @@ The management API has multiple resources to provide information regarding the d
 		{"message":"HelloScheduledTask : is deactivated"}
 	    ```
 
+### GET TASK STATUS
+
+-	**Resource**: `/task-status`
+
+	**Description**: Retrieves which node of the cluster each coordinated task is currently running on. This resource is available when [coordinated task monitoring]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-monitoring) is enabled — while the feature is disabled, every view responds with `"taskMonitoringEnabled": false`. All views except `?scope=local` read the shared coordination database, so querying any one node returns the cluster-wide answer.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/task-status" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "nodes": [
+	            {
+	                "nodeId": "node",
+	                "tasks": [
+	                    "SampleScheduledTask",
+	                    "MSMP_sampleMessageProcessor_0"
+	                ]
+	            },
+	            {
+	                "nodeId": "node1",
+	                "tasks": [
+	                    "AnotherScheduledTask"
+	                ]
+	            }
+	        ],
+	        "coordinationDbAvailable": true
+	    }
+	    ```
+
+-	**Resource**: `/task-status?node={nodeId},{nodeId}`
+
+	**Description**: The same view, filtered to the specified node(s). A requested node that is running no coordinated tasks is listed with an empty `tasks` array.
+
+-	**Resource**: `/task-status?name={taskName}`
+
+	**Description**: Retrieves where the specified task is running, together with a `duplicate` flag and the last-observed time (ISO-8601, UTC).
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/task-status?name=SampleScheduledTask" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "observedAt": "2026-06-27T20:16:43.801Z",
+	        "taskName": "SampleScheduledTask",
+	        "duplicate": false,
+	        "coordinationDbAvailable": true,
+	        "runningOn": [
+	            "node"
+	        ]
+	    }
+	    ```
+
+-	**Resource**: `/task-status?view=duplicates`
+
+	**Description**: Live duplicate check — lists the coordinated tasks currently running on two or more nodes. `"healthy": true` means no task is duplicated right now.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/task-status?view=duplicates" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "duplicates": [
+	            {
+	                "nodes": [
+	                    "node",
+	                    "node1"
+	                ],
+	                "taskName": "SampleScheduledTask"
+	            }
+	        ],
+	        "healthy": false,
+	        "coordinationDbAvailable": true
+	    }
+	    ```
+
+-	**Resource**: `/task-status?view=history`
+
+	**Description**: Forensic duplication history — every recorded duplication episode, including short-lived ones. The `severity` is `OPEN` (still happening), `TRANSIENT` (recovered quickly), or `SUSTAINED` (persisted beyond roughly twice the heartbeat-retry interval). Add `&name={taskName}` to filter to one task.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/task-status?view=history" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "coordinationDbAvailable": true,
+	        "episodes": [
+	            {
+	                "severity": "SUSTAINED",
+	                "nodes": "node,node1",
+	                "kind": "UNEXPECTED",
+	                "clearedAt": "2026-06-27T20:25:17.211Z",
+	                "taskName": "SampleScheduledTask",
+	                "detectedAt": "2026-06-27T20:24:24.160Z",
+	                "durationMs": 53051,
+	                "open": false,
+	                "destinedNode": "node"
+	            }
+	        ]
+	    }
+	    ```
+
+-	**Resource**: `/task-status?scope=local`
+
+	**Description**: The queried node's own in-memory set of running coordinated tasks. This view reads no database, so it keeps answering during a coordination database outage — query each node separately and compare.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/task-status?scope=local" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "coordinationEnabled": true,
+	        "scope": "local",
+	        "source": "in-memory",
+	        "nodeId": "node",
+	        "tasks": [
+	            "SampleScheduledTask",
+	            "MSMP_sampleMessageProcessor_0"
+	        ]
+	    }
+	    ```
+
+	??? note "Coordination database outage"
+		If the coordination database is unavailable, the database-backed views degrade explicitly with `"coordinationDbAvailable": false` and a message — they never return a false `"healthy": true`. The `?scope=local` view is unaffected and keeps answering in this state.
+
 ### GET MESSAGE STORES
 
 -	**Resource**: `/message-stores`
