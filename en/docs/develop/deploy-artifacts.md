@@ -22,21 +22,23 @@ Now that you have developed an integration using the WSO2 Integrator: MI Visual 
 
     <a href="{{base_path}}/assets/img/develop/run-overview.png"><img src="{{base_path}}/assets/img/develop/run-overview.png" alt="deploymentLogs" width="700"></a>
 
-## Build and Export the Carbon Application
+<!--- This to preserve backward compatibility of links --->
+<a id="build-and-export-the-carbon-application"></a>
+## Build and Export the Composite Application
 
-If we are deploying the Carbon Application in some remote server which we cannot configure as in the **Build and Run** option, we can export the Carbon Application and deploy it in the server manually.
+If we are deploying the Composite Application in some remote server which we cannot configure as in the **Build and Run** option, we can export the Composite Application and deploy it in the server manually.
 
-- Click on the **Build** button on the top right corner of the **Project Overview** page to build the Carbon Application.
-  Once the build is finished, you can switch to VS Code default file explorer view and get the Carbon Application file from the target directory. 
+- Click on the **Build** button on the top right corner of the **Project Overview** page to build the Composite Application.
+  Once the build is finished, you can switch to VS Code default file explorer view and get the Composite Application file from the target directory. 
 
     <a href="{{base_path}}/assets/img/develop/build-capp.png"><img src="{{base_path}}/assets/img/develop/build-capp.png" alt="build" width="700"></a>
 
-- To build and export in a single step, click on the **Export** button on the top right corner of the **Project Overview** page to export the Carbon Application.
-  Select a directory to save the exported Carbon Application file.
+- To build and export in a single step, click on the **Export** button on the top right corner of the **Project Overview** page to export the Composite Application.
+  Select a directory to save the exported Composite Application file.
 
     <a href="{{base_path}}/assets/img/develop/export-capp.png"><img src="{{base_path}}/assets/img/develop/export-capp.png" alt="export" width="700"></a>
 
-Once the Carbon Application is exported, we can copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory manually and start the server.
+Once the Composite Application is exported, we can copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory manually and start the server.
 
 ## Build Docker image
 
@@ -66,3 +68,38 @@ We can use the WSO2 Integrator: MI VS Code extension to build a Docker image of 
     <name>helloworld:${project.version}</name>
     ```
     Then build the Docker image again.
+
+## Enable priority-based Composite Application deployment
+
+!!! Note
+    Priority-based Composite Application deployment is available from **WSO2 Micro Integrator 4.5.0.22 update level** onwards.
+
+When multiple Composite Applications are deployed, they are processed according to their [dependency tree]({{base_path}}/develop/integration-project-dependencies/) by default. If there isn't enough information to construct a dependency tree, Composite Applications are deployed in alphabetical order instead. However, Composite Applications deployed in alphabetical order can still depend on each other, in which case deployment may fail due to incorrect ordering. To handle such scenarios, you can enable priority-based deployment by adding the following configuration to `<MI_HOME>/conf/deployment.toml`:
+
+```toml
+[server]
+enable_priority_deployment = true
+```
+
+With this configuration, Composite Applications are divided into two categories:
+
+- **High-priority**: Composite Applications containing a connector, datasource, registry resource, or class mediator.
+- **Low-priority**: all other Composite Applications.
+
+High-priority Composite Applications are deployed first (in alphabetical order), followed by low-priority ones (also in alphabetical order).
+
+If high-priority Composite Applications depend on each other, deployment may still fail due to incorrect ordering. To mitigate this, configure a retry count using `priority_deployment_retry_count`. This value represents the number of additional deployment attempts made for high-priority Composite Applications after the initial attempt. The default is `1`.
+
+```toml
+[server]
+enable_priority_deployment = true
+priority_deployment_retry_count = 2
+```
+
+By default, the artifact types listed above (connector, datasource, registry resource, and class mediator) are treated as high-priority. You can override this default list by configuring `priority_deployment_high_priority_types` with the specific artifact types you want to treat as high-priority.
+
+```toml
+[server]
+enable_priority_deployment = true
+priority_deployment_high_priority_types = ["lib/synapse/mediator", "synapse/lib", "registry/resource", "datasource/datasource"]
+```
