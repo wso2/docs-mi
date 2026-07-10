@@ -22,21 +22,23 @@ Now that you have developed an integration using the WSO2 Integrator: MI Visual 
 
     <a href="{{base_path}}/assets/img/develop/run-overview.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/run-overview.png" alt="deploymentLogs" width="700"></a>
 
-## Build and Export the Carbon Application
+<!--- This to preserve backward compatibility of links --->
+<a id="build-and-export-the-carbon-application"></a>
+## Build and Export the Composite Application
 
-If we are deploying the Carbon Application in some remote server which we cannot configure as in the **Build and Run** option, we can export the Carbon Application and deploy it in the server manually.
+If we are deploying the Composite Application in some remote server which we cannot configure as in the **Build and Run** option, we can export the Composite Application and deploy it in the server manually.
 
-- Click on the **Build** button on the top right corner of the **Project Overview** page to build the Carbon Application.
-  Once the build is finished, you can switch to VS Code default file explorer view and get the Carbon Application file from the target directory. 
+- Click on the **Build** button on the top right corner of the **Project Overview** page to build the Composite Application.
+  Once the build is finished, you can switch to VS Code default file explorer view and get the Composite Application file from the target directory. 
 
     <a href="{{base_path}}/assets/img/develop/build-capp.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/build-capp.png" alt="build" width="700"></a>
 
-- To build and export in a single step, click on the **Export** button on the top right corner of the **Project Overview** page to export the Carbon Application.
-  Select a directory to save the exported Carbon Application file.
+- To build and export in a single step, click on the **Export** button on the top right corner of the **Project Overview** page to export the Composite Application.
+  Select a directory to save the exported Composite Application file.
 
     <a href="{{base_path}}/assets/img/develop/export-capp.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/export-capp.png" alt="export" width="700"></a>
 
-Once the Carbon Application is exported, we can copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory manually and start the server.
+Once the Composite Application is exported, we can copy it to the `<MI_HOME>/repository/deployment/server/carbonapps` directory manually and start the server.
 
 ## Enable priority-based composite application deployment
 
