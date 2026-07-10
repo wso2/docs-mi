@@ -218,6 +218,65 @@ enable_swa=false
                                         <p></p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_priority_deployment</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use this parameter to enable priority-based deployment of composite applications. When enabled, composite applications containing a connector, datasource, registry resource, or class mediator are treated as high-priority by default and are deployed first, followed by all other composite applications (low-priority). Within each priority group, composite applications are deployed in alphabetical order. The default set of high-priority artifact types can be overridden using <code>priority_deployment_high_priority_types</code>.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>priority_deployment_retry_count</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>1</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The number of additional deployment attempts made for high-priority composite applications after the initial attempt, when <code>enable_priority_deployment</code> is set to <code>true</code>. This is useful when high-priority composite applications depend on each other and deployment may fail due to incorrect ordering.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>priority_deployment_high_priority_types</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string array </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>[&quot;lib/synapse/mediator&quot;, &quot;synapse/lib&quot;, &quot;registry/resource&quot;, &quot;datasource/datasource&quot;]</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Overrides the default list of artifact types that are treated as high-priority when <code>enable_priority_deployment</code> is set to <code>true</code>. By default, composite applications containing a connector, datasource, registry resource, or class mediator are treated as high-priority.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

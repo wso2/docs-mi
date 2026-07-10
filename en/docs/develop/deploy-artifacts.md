@@ -74,7 +74,7 @@ We can use the WSO2 Integrator: MI VS Code extension to build a Docker image of 
 !!! Note
     Priority-based Composite Application deployment is available from **WSO2 Micro Integrator 4.5.0.22 update level** onwards.
 
-When multiple Composite Applications are deployed, they are processed in alphabetical order by default. However, if some Composite Applications depend on others, deployment may fail due to incorrect ordering. To enable priority-based deployment, add the following configuration to `<MI_HOME>/conf/deployment.toml`:
+When multiple Composite Applications are deployed, they are processed according to their dependency tree by default. If there isn't enough information to construct a dependency tree, Composite Applications are deployed in alphabetical order instead. However, Composite Applications deployed in alphabetical order can still depend on each other, in which case deployment may fail due to incorrect ordering. To handle such scenarios, you can enable priority-based deployment by adding the following configuration to `<MI_HOME>/conf/deployment.toml`:
 
 ```toml
 [server]
