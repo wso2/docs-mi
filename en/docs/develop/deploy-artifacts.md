@@ -42,7 +42,7 @@ Once the Composite Application is exported, we can copy it to the `<MI_HOME>/rep
 
 ## Enable priority-based composite application deployment
 
-When multiple composite applications are deployed, they are processed according to their dependency tree by default. If there isn't enough information to construct a dependency tree, composite applications are deployed in alphabetical order instead. However, composite applications deployed in alphabetical order can still depend on each other, in which case deployment may fail due to incorrect ordering. To handle such scenarios, you can enable priority-based deployment by adding the following configuration to `<MI_HOME>/conf/deployment.toml`:
+When multiple composite applications are deployed, they are processed according to their [dependency tree]({{base_path}}/develop/integration-project-dependencies/) by default. If there isn't enough information to construct a dependency tree, composite applications are deployed in alphabetical order instead. However, composite applications deployed in alphabetical order can still depend on each other, in which case deployment may fail due to incorrect ordering. To handle such scenarios, you can enable priority-based deployment by adding the following configuration to `<MI_HOME>/conf/deployment.toml`:
 
 ```toml
 [server]
