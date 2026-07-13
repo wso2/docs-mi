@@ -374,6 +374,9 @@ password="wso2carbon"</code></pre>
 	-	To enable this feature, upgrade the WSO2 Integrator: MI Dashboard to version 4.0.1 or higher, or the Integration Control Plane to version 1.0.0 or higher.
 	-	This feature was tested with WSO2 IS 5.10.0 and Shibboleth 4.1.2. There may be compatibility issues when using other vendors.
 
+!!! important
+	The ID token issued by the Identity Provider must contain the claim configured as the `user_name_attribute` (default: `preferred_username`). If this claim is missing from the ID token, the Integration Control Plane renders a blank page after a successful sign-in. To avoid this, either request a scope that includes the claim (for example, add the `profile` scope when using WSO2 Identity Server so that `preferred_username` is issued), or set `user_name_attribute` to a claim that is always present in the ID token, such as `sub`.
+
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -392,6 +395,8 @@ resource_server_URLs = ["https://localhost:9743"]
 sign_in_redirect_URL = "https://localhost:9743/sso"
 admin_group_attribute = "groups"
 admin_groups = ["admin", "tester"]
+scope = ["openid", "profile"]
+user_name_attribute = "preferred_username"
 
 [[sso.authorization_request.params]]
 key = "app_id"
@@ -787,7 +792,7 @@ value = "C123d"
                                         </div>                                   
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to specify the requested scopes.</p>
+                                        <p>Use this paramater to specify the requested scopes. Make sure the requested scopes cause the Identity Provider to include the claim configured as the <code>user_name_attribute</code> in the ID token. For example, when using WSO2 Identity Server with the default <code>user_name_attribute</code> (<code>preferred_username</code>), request <code>["openid", "profile"]</code>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -798,14 +803,14 @@ value = "C123d"
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type array"> string </span>
+                                            <span class="param-type string"> string </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>&quot;sub&quot;</code></span>
+                                            <span class="param-default-value">Default: <code>&quot;preferred_username&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to specify the attribute you need to use as the user name in the ICP server.</p>
+                                        <p>Use this paramater to specify the ID token claim you need to use as the user name in the ICP server. This claim must be present in the ID token issued by the Identity Provider; otherwise, the Integration Control Plane renders a blank page after a successful sign-in. If the Identity Provider does not issue the <code>preferred_username</code> claim by default, either request a scope that includes it (for example, the <code>profile</code> scope in WSO2 Identity Server) or set this parameter to a claim that is always present, such as <code>sub</code>.</p>
                                     </div>
                                 </div>
                             </div>
