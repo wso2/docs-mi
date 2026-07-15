@@ -4,8 +4,12 @@
 
 When a message comes in to WSO2 Integrator: MI, the receiving transport selects a **message builder** based
 on the message's content type. It uses that builder to process the
-message's raw payload data and convert it into SOAP. Conversely, when
-sending a message out from WSO2 Integrator: MI, a **message formatter** is used to build
+message's raw payload data and convert it into SOAP.
+
+!!! note
+    For incoming messages, WSO2 Integrator: MI automatically decompresses payloads encoded with the `gzip` or `br` (Brotli) `Content-Encoding` header before selecting the appropriate message builder.
+
+Conversely, when sending a message out from WSO2 Integrator: MI, a **message formatter** is used to build
 the outgoing stream from the message. As with message builders, the
 message formatter is selected based on the message's content type. Given below is the typical workflow:
 
