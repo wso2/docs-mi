@@ -21,7 +21,7 @@ You will:
 - Java 17 or later.
 - The [Azure Service Bus Connector](https://store.wso2.com/connector/mi-connector-asb) added to your project (required for message settlement operations in PEEK_LOCK mode).
 
-#### **Step 01: Add the Azure Service Bus Inbound Endpoint to your project**
+### **Step 01: Add the Azure Service Bus Inbound Endpoint to your project**
 
 1. [Create a new project]({{base_path}}/develop/create-integration-project/) in WSO2 Micro Integrator (MI).
 
@@ -63,7 +63,7 @@ You will:
    </inboundEndpoint>
    ```
 
-#### **Step 02: Configure the mediation sequence**
+### **Step 02: Configure the mediation sequence**
 
 1. Add a [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) to the sequence to log the incoming message metadata. Set the following properties:
 
@@ -136,7 +136,7 @@ az servicebus queue message send \
 
 Check the MI server logs. You should see the message metadata and payload logged:
 
-```
+```text
     INFO {LogMediator} - {inboundendpoint:asbQueueListener} ASB_MessageId: 4636edfc0e894b6980ffb52f087c35cc, To: , MessageID: ce9e2ae0-277c-413b-b941-3764e9d94b9a, Direction: request, Payload: {
     "orderId": "ORD-001",
     "amount": 99.99

@@ -280,7 +280,7 @@ A variable (default name `asb_inbound`) is set on the message context containing
 
 You can access these values in the mediation flow using variable expressions, for example:
 
-```
+```text
 ${vars.asb_inbound.attributes.deliveryCount}
 ${vars.asb_inbound.headers.messageId}
 ${vars.asb_inbound.headers.customProperty1}
