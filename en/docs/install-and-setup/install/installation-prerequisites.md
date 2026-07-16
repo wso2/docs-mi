@@ -93,7 +93,7 @@ The WSO2 Integrator: MI runtime is tested with the following databases:
 | MySQL                | 8, 9             |
 | Oracle               | 12c release 2, 19c |
 | Microsoft SQL Server | 2022               |
-| PostgreSQL           | 17.2         |
+| PostgreSQL           | 17.2, 18.3         |
 | MariaDB              | 10.5               |
 | DB2                  | 11.5               |
 
