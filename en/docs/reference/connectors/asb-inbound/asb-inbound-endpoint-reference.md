@@ -2,6 +2,37 @@
 
 The following sections provide a detailed reference for the Azure Service Bus Inbound Endpoint in WSO2 Micro Integrator. This event-based inbound endpoint connects to an Azure Service Bus namespace and consumes messages from a queue or a topic subscription, injecting each message into a mediation sequence.
 
+## Compatibility
+
+| Connector Version | Supported Product Versions | Supported Java Versions |
+|-------------------|----------------------------|-------------------------|
+| 0.9.0             | MI 4.4.0+                  | Java 17+                |
+
+## Sample Configuration
+
+```xml
+   <inboundEndpoint name="asbQueueListener" class="org.wso2.carbon.inbound.asb.ASBEventConsumer" sequence="asbQueueListener-inboundSequence" onError="asbQueueListener-inboundErrorSequence" suspend="false">
+      <parameters xmlns="http://ws.apache.org/ns/synapse">
+         <parameter name="inbound.behavior">eventBased</parameter>
+         <parameter name="connectionString">Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=YOUR_KEY_NAME;SharedAccessKey=YOUR_KEY</parameter>
+         <parameter name="entityType">queue</parameter>
+         <parameter name="queueName">orders</parameter>
+         <parameter name="sessionEnabled">false</parameter>
+         <parameter name="coordination">true</parameter>
+         <parameter name="inboundVariableName">asb_inbound</parameter>
+         <parameter name="receiveMode">PEEK_LOCK</parameter>
+         <parameter name="maxConcurrentConsumers">1</parameter>
+         <parameter name="prefetchCount">0</parameter>
+         <parameter name="maxLockDurationMs">300000</parameter>
+         <parameter name="messageProcessingTimeoutMs">240000</parameter>
+         <parameter name="maxRetries">3</parameter>
+         <parameter name="retryDelayMs">1000</parameter>
+         <parameter name="retryMaxDelayMs">30000</parameter>
+         <parameter name="tryTimeoutMs">60000</parameter>
+      </parameters>
+   </inboundEndpoint>
+```
+
 ## Connection Parameters
 
 <table>
@@ -53,6 +84,12 @@ The following sections provide a detailed reference for the Azure Service Bus In
     <td>No</td>
     <td><code>true</code></td>
   </tr>
+  <tr>
+    <td><code>inboundVariableName</code></td>
+    <td>Name of the variable that holds the structured message data (attributes and headers). Accessible in the mediation flow via this variable name.</td>
+    <td>No</td>
+    <td><code>asb_inbound</code></td>
+  </tr>
 </table>
 
 ## Consumer Parameters
@@ -68,7 +105,7 @@ The following sections provide a detailed reference for the Azure Service Bus In
     <td><code>receiveMode</code></td>
     <td>Message receive mode.<br>
       <ul>
-        <li><b>PEEK_LOCK</b> — the message is locked on the broker while the sequence processes it. The message must be explicitly settled using the Azure Service Bus connector's <b>Message Settlement (Only For Event Integration)</b> operations.</li>
+        <li><b>PEEK_LOCK</b> — the message is locked on the broker while the sequence processes it. The message must be explicitly settled in the mediation sequence using the Azure Service Bus connector's <a href="{{base_path}}/reference/connectors/asb-connector/asb-connector-reference/#message-settlement-only-for-event-integration">Message Settlement (Only For Event Integration)</a> operations.</li>
         <li><b>RECEIVE_AND_DELETE</b> — the message is deleted from the broker as soon as it is received. No settlement is performed.</li>
       </ul>
     </td>
@@ -82,8 +119,8 @@ The following sections provide a detailed reference for the Azure Service Bus In
     <td><code>false</code></td>
   </tr>
   <tr>
-    <td><code>maxConcurrentMessages</code></td>
-    <td>Maximum number of messages processed concurrently. Ignored when <code>sessionEnabled</code> is <code>true</code>.</td>
+    <td><code>maxConcurrentConsumers</code></td>
+    <td>Maximum number of concurrent consumers processing messages. Ignored when <code>sessionEnabled</code> is <code>true</code>.</td>
     <td>No</td>
     <td><code>1</code></td>
   </tr>
@@ -94,8 +131,8 @@ The following sections provide a detailed reference for the Azure Service Bus In
     <td><code>1</code></td>
   </tr>
   <tr>
-    <td><code>maxConcurrentMessagesPerSession</code></td>
-    <td>Maximum number of messages processed concurrently within a single session. Set to <code>1</code> to preserve message ordering within a session. Only used when <code>sessionEnabled</code> is <code>true</code>.</td>
+    <td><code>maxConcurrentConsumersPerSession</code></td>
+    <td>Maximum number of concurrent consumers processing messages within a single session. Set to <code>1</code> to preserve message ordering within a session. Only used when <code>sessionEnabled</code> is <code>true</code>.</td>
     <td>No</td>
     <td><code>1</code></td>
   </tr>
@@ -124,6 +161,17 @@ The following sections provide a detailed reference for the Azure Service Bus In
     <td><code>240000</code></td>
   </tr>
 </table>
+
+!!! note
+    Use `prefetchCount` cautiously in `RECEIVE_AND_DELETE` mode. Prefetched messages are removed from the broker immediately, so if the consumer stops or fails before processing them, those messages are lost.
+
+!!! note "Session-enabled entity behavior"
+    When `sessionEnabled` is `true`:
+
+    - The processor acquires sessions and processes all available messages in each session. After the last message, it waits `sessionIdleTimeoutMs` for new messages before releasing the session and acquiring the next one.
+    - With `maxConcurrentSessions` set to `n`, only `n` sessions are held at a time — remaining sessions wait until a slot is released.
+    - To reduce starvation across many sessions, increase `maxConcurrentSessions` and lower `sessionIdleTimeoutMs`.
+    - To preserve message ordering within a session, keep `maxConcurrentConsumersPerSession` set to `1`.
 
 ## Resilience Parameters
 
@@ -182,6 +230,13 @@ A variable (default name `asb_inbound`) is set on the message context containing
 | `partitionKey` | Partition key (set only if present). |
 | `to` | The `To` address (set only if present). |
 | `deadLetterSource` | Original entity if the message came from a dead-letter queue (set only if present). |
+| `lockedUntil` | Time until which the message is locked for processing (set only in PEEK_LOCK mode). |
+| `expiresAt` | Time at which the message expires (set only if present). |
+| `scheduledEnqueueTime` | Scheduled enqueue time for the message (set only if present). |
+| `enqueuedSequenceNumber` | Enqueued sequence number assigned by the broker. |
+| `state` | State of the message (e.g., `Active`, `Deferred`, `Scheduled`; set only if present). |
+| `deadLetterReason` | Reason the message was dead-lettered (set only if present). |
+| `deadLetterErrorDescription` | Error description for why the message was dead-lettered (set only if present). |
 
 **`headers`** — messaging headers and application properties:
 
@@ -192,6 +247,7 @@ A variable (default name `asb_inbound`) is set on the message context containing
 | `contentType` | Message content type. |
 | `subject` | Message subject/label. |
 | `replyTo` | Reply-to address. |
+| `replyToSessionId` | Reply-to session identifier (set only if present). |
 | *(custom keys)* | Any application properties set by the sender. |
 
 **Sample variable value:**
@@ -204,7 +260,10 @@ A variable (default name `asb_inbound`) is set on the message context containing
     "enqueuedTime": "2026-07-08T10:15:30Z",
     "sequenceNumber": 42,
     "sessionId": "session-001",
-    "partitionKey": "partition-A"
+    "partitionKey": "partition-A",
+    "lockedUntil": "2026-07-08T10:16:30Z",
+    "expiresAt": "2026-07-08T11:15:30Z",
+    "enqueuedSequenceNumber": 42
   },
   "headers": {
     "messageId": "abc123-def456",
@@ -212,6 +271,7 @@ A variable (default name `asb_inbound`) is set on the message context containing
     "contentType": "application/json",
     "subject": "order.created",
     "replyTo": "reply-queue",
+    "replyToSessionId": "reply-session-001",
     "customProperty1": "value1",
     "customProperty2": "value2"
   }
@@ -221,21 +281,37 @@ A variable (default name `asb_inbound`) is set on the message context containing
 You can access these values in the mediation flow using variable expressions, for example:
 
 ```
-${var.asb_inbound.attributes.deliveryCount}
-${var.asb_inbound.headers.messageId}
-${var.asb_inbound.headers.customProperty1}
+${vars.asb_inbound.attributes.deliveryCount}
+${vars.asb_inbound.headers.messageId}
+${vars.asb_inbound.headers.customProperty1}
 ```
 
 ## Message Settlement
 
-When using `PEEK_LOCK` receive mode, the mediation flow must record a settlement decision using the Azure Service Bus connector's **Message Settlement (Only For Event Integration)** operations. The following settlement actions are available:
+When using `PEEK_LOCK` receive mode, the mediation flow must record a settlement decision before processing completes. This is done using the [Azure Service Bus Connector's]({{base_path}}/reference/connectors/asb-connector/asb-connector-reference/) **Message Settlement (Only For Event Integration)** operations. The inbound endpoint and connector work together — the inbound endpoint receives the message and injects it into the sequence, and the connector's settlement operations (placed within the same sequence) communicate the settlement decision back to the inbound endpoint, which then settles the message with the broker.
 
-| Action | Description |
-| ------ | ----------- |
-| `complete` | Remove the message from the queue (successful processing). |
-| `abandon` | Release the lock so the message is redelivered. |
-| `defer` | Defer the message for later retrieval by sequence number. |
-| `deadLetter` | Move the message to the dead-letter queue (optionally with a reason and description). |
+To use settlement, add the [Azure Service Bus Connector](https://store.wso2.com/connector/mi-connector-asb) to your project and place the appropriate settlement operation in your mediation sequence:
+
+| Operation | Description |
+| --------- | ----------- |
+| `asb.consumer_complete` | Remove the message from the queue (successful processing). |
+| `asb.consumer_abandon` | Release the lock so the message is redelivered. |
+| `asb.consumer_defer` | Defer the message for later retrieval by sequence number. |
+| `asb.consumer_deadLetter` | Move the message to the dead-letter queue (optionally with a reason and description). |
+
+Example sequence with settlement:
+
+```xml
+<sequence name="request" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+   <log category="INFO" logMessageID="false" logFullPayload="true">
+      <message>messageId: ${vars.asb_inbound.headers.messageId}</message>
+   </log>
+   <asb.consumer_complete>
+      <responseVariable>asb_consumer_complete_1</responseVariable>
+      <overwriteBody>false</overwriteBody>
+   </asb.consumer_complete>
+</sequence>
+```
 
 If the sequence does not record a decision before `messageProcessingTimeoutMs` elapses, the lock expires and the message is redelivered by Azure. Azure enforces the entity's max delivery count, after which repeatedly un-settled messages are dead-lettered automatically.
 

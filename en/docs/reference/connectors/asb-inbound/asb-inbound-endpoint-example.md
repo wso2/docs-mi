@@ -2,7 +2,7 @@
 
 ## About Azure Service Bus Event Integration
 
-The Azure Service Bus inbound endpoint acts as an event-based message consumer. It connects to an Azure Service Bus namespace and continuously listens for messages on a **queue** or **topic subscription**, injecting each message into a mediation sequence for processing. The endpoint is built on top of the Azure `ServiceBusProcessorClient`, supporting concurrent consumption, automatic lock renewal, session-aware processing, and configurable retry behavior.
+The Azure Service Bus inbound endpoint acts as an event-based message consumer. It connects to an Azure Service Bus namespace and continuously listens for messages on a **queue** or **topic subscription**, injecting each message into a mediation sequence for processing. The endpoint is built on top of the Azure SDK, supporting concurrent consumption, automatic lock renewal, session-aware processing, and configurable retry behavior.
 
 ## What you'll build
 
@@ -16,152 +16,133 @@ You will:
 
 ## Prerequisites
 
-- An Azure Service Bus namespace with at least one queue or a topic with a subscription. You can create one from the [Azure portal](https://portal.azure.com/).
-- A connection string with **Listen** (or higher) permission for the target entity. Obtain this from the Azure portal under **Shared Access Policies**.
+- An Azure Service Bus namespace with at least one queue or a topic with a subscription. Set up Azure Service Bus by following the instructions in [Set up Azure Service Bus]({{base_path}}/reference/connectors/asb-connector/asb-connector-setup/).
 - WSO2 Micro Integrator 4.4.0 or later.
+- Java 17 or later.
 - The [Azure Service Bus Connector](https://store.wso2.com/connector/mi-connector-asb) added to your project (required for message settlement operations in PEEK_LOCK mode).
 
-#### **Step 01: Create an Azure Service Bus Queue**
-
-1. In the [Azure portal](https://portal.azure.com/), navigate to your Service Bus namespace.
-2. Click **Queues** in the left navigation, then click **+ Queue**.
-3. Enter a name for the queue (e.g., `orders`) and click **Create**.
-4. Navigate to **Shared Access Policies** and copy the connection string.
-
-#### **Step 02: Add the Azure Service Bus Inbound Endpoint to your project**
+#### **Step 01: Add the Azure Service Bus Inbound Endpoint to your project**
 
 1. [Create a new project]({{base_path}}/develop/create-integration-project/) in WSO2 Micro Integrator (MI).
+
 2. In the Add Artifact interface, under Create an Integration, click **Event Integration**. This will open the list of event integrations available in WSO2 Micro Integrator.
-3. Select **Azure Service Bus**.
-4. Fill in the form with the following values:
+
+3. Select **Azure Service Bus (Inbound)**.
+      
+      <img src="{{base_path}}/assets/img/integrate/connectors/asb-inbound/select-asb-inbound.png" title="Create ASB Inbound Endpoint" width="1000" alt="Create ASB Inbound Endpoint"/>
+
+4. Enter the following values in the form and click **Create**.
 
     - **Event Integration Name**: `asbQueueListener`
     - **Connection String**: Your Azure Service Bus connection string.
     - **Entity Type**: `queue`
-    - **Queue Name**: `orders`
+    - **Queue Name**: `orders` [Name of your queue]
 
-#### **Step 03: Configure the mediation sequence**
+   The source view of the created inbound endpoint is shown below. For detailed descriptions of each parameter, please refer to the [Azure Service Bus Inbound Endpoint Reference]({{base_path}}/reference/connectors/asb-inbound/asb-inbound-endpoint-reference/).
+
+   ```xml
+   <inboundEndpoint name="asbQueueListener" class="org.wso2.carbon.inbound.asb.ASBEventConsumer" sequence="asbQueueListener-inboundSequence" onError="asbQueueListener-inboundErrorSequence" suspend="false">
+      <parameters xmlns="http://ws.apache.org/ns/synapse">
+         <parameter name="inbound.behavior">eventBased</parameter>
+         <parameter name="connectionString">Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=YOUR_KEY_NAME;SharedAccessKey=YOUR_KEY</parameter>
+         <parameter name="entityType">queue</parameter>
+         <parameter name="queueName">orders</parameter>
+         <parameter name="sessionEnabled">false</parameter>
+         <parameter name="coordination">true</parameter>
+         <parameter name="inboundVariableName">asb_inbound</parameter>
+         <parameter name="receiveMode">PEEK_LOCK</parameter>
+         <parameter name="maxConcurrentConsumers">1</parameter>
+         <parameter name="prefetchCount">0</parameter>
+         <parameter name="maxLockDurationMs">300000</parameter>
+         <parameter name="messageProcessingTimeoutMs">240000</parameter>
+         <parameter name="maxRetries">3</parameter>
+         <parameter name="retryDelayMs">1000</parameter>
+         <parameter name="retryMaxDelayMs">30000</parameter>
+         <parameter name="tryTimeoutMs">60000</parameter>
+      </parameters>
+   </inboundEndpoint>
+   ```
+
+#### **Step 02: Configure the mediation sequence**
 
 1. Add a [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) to the sequence to log the incoming message metadata. Set the following properties:
 
-    - `messageId` with expression `${var.asb_inbound.headers.messageId}`
-    - `deliveryCount` with expression `${var.asb_inbound.attributes.deliveryCount}`
+    - **Append Payload**: true
+    - **Message**: `ASB_MessageId: ${vars.asb_inbound.headers.messageId}`
 
-2. Enable **Append Payload** to include the message body in the log output.
+2. Add the Azure Service Bus connector's **Complete** operation from the **Message Settlement (Only For Event Integration)** section to settle the message (complete it after successful processing).
+      
+      <img src="{{base_path}}/assets/img/integrate/connectors/asb-inbound/add-complete-operation.png" title="Add Complete Operation" width="800" alt="Add Complete Operation"/>
 
-3. Add the Azure Service Bus connector's **consumer_complete** operation to settle the message (complete it after successful processing).
+   The resulting sequence XML should look like:
 
-4. Add a [Drop Mediator]({{base_path}}/reference/mediators/drop-mediator/) at the end of the sequence.
+   ```xml
+   <sequence name="asbQueueListener-inboundSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+      <log category="INFO" logMessageID="false" logFullPayload="true">
+         <message>ASB_MessageId: ${vars.asb_inbound.headers.messageId}</message>
+      </log>
+      <asb.consumer_complete>
+         <responseVariable>asb_consumer_complete_1</responseVariable>
+         <overwriteBody>false</overwriteBody>
+      </asb.consumer_complete>
+   </sequence>
+   ```
 
-The resulting sequence XML should look like:
+   For the error sequence, you can dead-letter the message with a reason:
 
-```xml
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="request" onError="fault">
-   <log level="custom">
-      <property name="messageId" expression="${var.asb_inbound.headers.messageId}"/>
-      <property name="deliveryCount" expression="${var.asb_inbound.attributes.deliveryCount}"/>
-   </log>
-   <log level="full"/>
-   <asb.consumer_complete />
-   <drop/>
-</sequence>
+   ```xml
+   <sequence name="asbQueueListener-inboundErrorSequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+      <log category="INFO" logMessageID="false" logFullPayload="false">
+         <message>MESSAGE: Executing default 'fault' sequence
+         ERROR_CODE: ${properties.synapse.ERROR_CODE}
+         ERROR_MESSAGE: ${properties.synapse.ERROR_MESSAGE}</message>
+      </log>
+      <asb.consumer_deadLetter>
+         <responseVariable>asb_consumer_deadLetter_1</responseVariable>
+         <overwriteBody>false</overwriteBody>
+         <deadLetterReason>DEADLETTERED_BY_RECEIVER</deadLetterReason>
+         <deadLetterErrorDescription>Fault in processing</deadLetterErrorDescription>
+      </asb.consumer_deadLetter>
+   </sequence>
+   ```
+
+## Export the integration project as a carbon application
+To export the project, refer to the [build and export the carbon application]({{base_path}}/develop/deploy-artifacts/#build-and-export-the-carbon-application) guide.
+
+## Get the project
+
+You can download the ZIP file and extract the contents to get the project code.
+
+<a href="{{base_path}}/assets/attachments/connectors/AzureServiceBus-Inbound-Example.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+</a>
+
+## Deployment
+
+To deploy and run the project, refer to the [build and run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
+
+## Test
+
+Send a test message to the `orders` queue using the Azure portal's **Service Bus Explorer**, the Azure CLI, or the Azure Service Bus connector's **sendMessage** operation from another integration:
+
+```bash
+az servicebus queue message send \
+  --namespace-name <namespace> \
+  --queue-name orders \
+  --body '{"orderId": "ORD-001", "amount": 99.99}'
 ```
 
-For the error sequence, you can dead-letter the message with a reason:
+**Expected Response**:
 
-```xml
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="fault">
-   <log level="full">
-      <property name="MESSAGE" value="Executing default 'fault' sequence"/>
-      <property name="ERROR_CODE" expression="get-property('ERROR_CODE')"/>
-      <property name="ERROR_MESSAGE" expression="get-property('ERROR_MESSAGE')"/>
-   </log>
-   <asb.consumer_deadLetter>
-      <responseVariable>asb_consumer_deadLetter_1</responseVariable>
-      <overwriteBody>false</overwriteBody>
-      <deadLetterReason>DEADLETTERED_BY_RECEIVER</deadLetterReason>
-      <deadLetterErrorDescription>Fault in processing</deadLetterErrorDescription>
-   </asb.consumer_deadLetter>
-   <drop/>
-</sequence>
+Check the MI server logs. You should see the message metadata and payload logged:
+
 ```
+    INFO {LogMediator} - {inboundendpoint:asbQueueListener} ASB_MessageId: 4636edfc0e894b6980ffb52f087c35cc, To: , MessageID: ce9e2ae0-277c-413b-b941-3764e9d94b9a, Direction: request, Payload: {
+    "orderId": "ORD-001",
+    "amount": 99.99
+}
+ ```
 
-#### **Step 04: Deploy, Run and Test**
+## What's next
 
-1. Deploy and run the project using the [build and run]({{base_path}}/develop/deploy-artifacts/) guide or the **Run** button in the VS Code extension.
-
-2. Send a test message to the `orders` queue. You can use the Azure portal's **Service Bus Explorer**, the Azure CLI, or the Azure Service Bus connector's **sendMessage** operation from another integration:
-
-    ```bash
-    az servicebus queue message send \
-      --namespace-name <namespace> \
-      --queue-name orders \
-      --body '{"orderId": "ORD-001", "amount": 99.99}'
-    ```
-
-3. Check the MI server logs. You should see the message metadata and payload logged:
-
-    ```
-    INFO {LogMediator} - messageId = abc123-def456, deliveryCount = 1
-    ```
-
-## Consuming from a Topic Subscription
-
-To consume from a topic subscription instead of a queue, configure the inbound endpoint with:
-
-- **Entity Type**: `topic`
-- **Topic Name**: the name of the topic (e.g., `events`)
-- **Subscription Name**: the name of the subscription (e.g., `audit`)
-
-The resulting inbound endpoint configuration:
-
-```xml
-<inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
-                 name="asbTopicListener"
-                 sequence="request"
-                 onError="fault"
-                 class="org.wso2.carbon.inbound.asb.ASBEventConsumer"
-                 suspend="false">
-   <parameters>
-      <parameter name="inbound.behavior">eventBased</parameter>
-      <parameter name="coordination">true</parameter>
-      <parameter name="connectionString">Endpoint=sb://&lt;namespace&gt;.servicebus.windows.net/;SharedAccessKeyName=&lt;keyName&gt;;SharedAccessKey=&lt;key&gt;</parameter>
-      <parameter name="entityType">topic</parameter>
-      <parameter name="topicName">events</parameter>
-      <parameter name="subscriptionName">audit</parameter>
-      <parameter name="receiveMode">PEEK_LOCK</parameter>
-      <parameter name="contentType">application/json</parameter>
-   </parameters>
-</inboundEndpoint>
-```
-
-## Session-Enabled Entities
-
-To consume from a session-enabled queue or subscription, set `sessionEnabled` to `true`. The endpoint uses a session-aware processor that automatically acquires sessions.
-
-```xml
-<inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
-                 name="asbSessionQueueListener"
-                 sequence="request"
-                 onError="fault"
-                 class="org.wso2.carbon.inbound.asb.ASBEventConsumer"
-                 suspend="false">
-   <parameters>
-      <parameter name="inbound.behavior">eventBased</parameter>
-      <parameter name="coordination">true</parameter>
-      <parameter name="connectionString">Endpoint=sb://&lt;namespace&gt;.servicebus.windows.net/;SharedAccessKeyName=&lt;keyName&gt;;SharedAccessKey=&lt;key&gt;</parameter>
-      <parameter name="entityType">queue</parameter>
-      <parameter name="queueName">session-orders</parameter>
-      <parameter name="sessionEnabled">true</parameter>
-      <parameter name="maxConcurrentSessions">2</parameter>
-      <parameter name="maxConcurrentMessagesPerSession">1</parameter>
-      <parameter name="receiveMode">PEEK_LOCK</parameter>
-      <parameter name="contentType">application/json</parameter>
-   </parameters>
-</inboundEndpoint>
-```
-
-You can access the session identifier in the mediation flow using `${var.asb_inbound.attributes.sessionId}`.
-
-!!! note
-    Pointing a session-enabled endpoint at a non-session entity (or vice versa) will fail at runtime.
+* To customize this example for your own scenario, see [Azure Service Bus Inbound Endpoint Reference]({{base_path}}/reference/connectors/asb-inbound/asb-inbound-endpoint-reference/) documentation.
