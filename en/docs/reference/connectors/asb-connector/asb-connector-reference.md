@@ -3290,3 +3290,184 @@ These operations are used with the **PEEK_LOCK** receive mode to settle received
         <overwriteBody>false</overwriteBody>
     </asb.close>
     ```
+
+---
+
+### Message Settlement (Only For Event Integration)
+
+The following operations are used exclusively within the mediation sequence of the **Azure Service Bus Inbound Endpoint** (event integration). They record a settlement decision for the message currently being processed by the inbound endpoint. Unlike the MessageReceiver settlement operations above, these do not require a connection configuration or a sequence number — the inbound endpoint automatically correlates the decision to the in-flight message.
+
+!!! note
+    These operations are only applicable when the inbound endpoint's `receiveMode` is `PEEK_LOCK`. In `RECEIVE_AND_DELETE` mode, the message is already removed on receipt and settlement is not needed.
+
+??? note "consumer_complete"
+    Records a **complete** decision — the message is removed from the queue (successful processing).
+
+    <table>
+    <tr>
+        <th>Parameter Name</th>
+        <th>Display Name</th>
+        <th>Description</th>
+        <th>Required</th>
+        <th>Default Value</th>
+    </tr>
+    <tr>
+        <th colspan="5">Output</th>
+    </tr>
+    <tr>
+        <td>responseVariable</td>
+        <td>Response Variable</td>
+        <td>The name of the variable to store the operation output.</td>
+        <td>No</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>overwriteBody</td>
+        <td>Overwrite Message Body</td>
+        <td>Whether to replace the message body with the operation output.</td>
+        <td>No</td>
+        <td>false</td>
+    </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <asb.consumer_complete>
+        <responseVariable>asb_consumer_complete_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </asb.consumer_complete>
+    ```
+
+??? note "consumer_abandon"
+    Records an **abandon** decision — the message lock is released so the message becomes available for redelivery.
+
+    <table>
+    <tr>
+        <th>Parameter Name</th>
+        <th>Display Name</th>
+        <th>Description</th>
+        <th>Required</th>
+        <th>Default Value</th>
+    </tr>
+    <tr>
+        <th colspan="5">Output</th>
+    </tr>
+    <tr>
+        <td>responseVariable</td>
+        <td>Response Variable</td>
+        <td>The name of the variable to store the operation output.</td>
+        <td>No</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>overwriteBody</td>
+        <td>Overwrite Message Body</td>
+        <td>Whether to replace the message body with the operation output.</td>
+        <td>No</td>
+        <td>false</td>
+    </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <asb.consumer_abandon>
+        <responseVariable>asb_consumer_abandon_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </asb.consumer_abandon>
+    ```
+
+??? note "consumer_defer"
+    Records a **defer** decision — the message is deferred for later retrieval by sequence number.
+
+    <table>
+    <tr>
+        <th>Parameter Name</th>
+        <th>Display Name</th>
+        <th>Description</th>
+        <th>Required</th>
+        <th>Default Value</th>
+    </tr>
+    <tr>
+        <th colspan="5">Output</th>
+    </tr>
+    <tr>
+        <td>responseVariable</td>
+        <td>Response Variable</td>
+        <td>The name of the variable to store the operation output.</td>
+        <td>No</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>overwriteBody</td>
+        <td>Overwrite Message Body</td>
+        <td>Whether to replace the message body with the operation output.</td>
+        <td>No</td>
+        <td>false</td>
+    </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <asb.consumer_defer>
+        <responseVariable>asb_consumer_defer_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </asb.consumer_defer>
+    ```
+
+??? note "consumer_deadLetter"
+    Records a **dead-letter** decision — the message is moved to the dead-letter sub-queue, optionally with a reason and error description.
+
+    <table>
+    <tr>
+        <th>Parameter Name</th>
+        <th>Display Name</th>
+        <th>Description</th>
+        <th>Required</th>
+        <th>Default Value</th>
+    </tr>
+    <tr>
+        <td>deadLetterReason</td>
+        <td>Dead Letter Reason</td>
+        <td>The reason for dead-lettering the message.</td>
+        <td>No</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>deadLetterErrorDescription</td>
+        <td>Dead Letter Error Description</td>
+        <td>A description of the error that caused the message to be dead-lettered.</td>
+        <td>No</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <th colspan="5">Output</th>
+    </tr>
+    <tr>
+        <td>responseVariable</td>
+        <td>Response Variable</td>
+        <td>The name of the variable to store the operation output.</td>
+        <td>No</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>overwriteBody</td>
+        <td>Overwrite Message Body</td>
+        <td>Whether to replace the message body with the operation output.</td>
+        <td>No</td>
+        <td>false</td>
+    </tr>
+    </table>
+
+    **Sample configuration**
+
+    ```xml
+    <asb.consumer_deadLetter>
+        <deadLetterReason>DEADLETTERED_BY_RECEIVER</deadLetterReason>
+        <deadLetterErrorDescription>Fault in processing</deadLetterErrorDescription>
+        <responseVariable>asb_consumer_deadLetter_1</responseVariable>
+        <overwriteBody>false</overwriteBody>
+    </asb.consumer_deadLetter>
+    ```
