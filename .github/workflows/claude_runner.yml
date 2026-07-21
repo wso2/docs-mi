@@ -17,6 +17,8 @@ jobs:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js 24
         uses: actions/setup-node@v5
@@ -64,24 +66,28 @@ jobs:
       - name: Checkout original repository
         uses: actions/checkout@v5
         with:
-          repository: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}  
+          repository: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}
           token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
-          fetch-depth: 0 
-          
+          fetch-depth: 0
+          persist-credentials: false
+
       - name: Set up Node.js 24
         uses: actions/setup-node@v5
         with:
           node-version: '24'
 
       - name: Configure git for commits
+        env:
+          GIT_USER_NAME: ${{ secrets.DOC_FIXING_AGENT_GIT_USER_NAME }}
+          GIT_USER_EMAIL: ${{ secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL }}
         run: |
           # Show current remotes for debugging
           echo "Current remotes:"
           git remote -v
 
           # Configure git for commits
-          git config user.name ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}
-          git config user.email ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}
+          git config user.name "$GIT_USER_NAME"
+          git config user.email "$GIT_USER_EMAIL"
 
       - name: Install security pre-commit hook
         run: |
@@ -152,7 +158,7 @@ jobs:
           prompt: ${{ env.SYSTEM_PROMPT }}
           trigger_phrase: "@wso2-engineering-bot"
           claude_args: |
-            --allowedTools "Bash(git fetch *),Bash(git checkout *),Bash(git branch *),Bash(git status *),Bash(git diff *),Bash(git add *),Bash(git commit *),Bash(git push *),Bash(git log *),Bash(ls *),Bash(mkdir *),Bash(cp *),Bash(mv *),Bash(mkdocs *),WebFetch,mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch,mcp__github__add_issue_comment,mcp__github__get_file_contents"
+            --allowedTools "Bash(git fetch *),Bash(git checkout *),Bash(git branch *),Bash(git status *),Bash(git diff *),Bash(git add *),Bash(git commit *),Bash(git push *),Bash(git reset *),Bash(git log *),Bash(ls *),Bash(mkdir *),Bash(cp *),Bash(mv *),Bash(mkdocs *),WebFetch,mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch,mcp__github__add_issue_comment,mcp__github__get_file_contents"
             --model claude-sonnet-4-5-20250929
 
       - name: Get next queued issue

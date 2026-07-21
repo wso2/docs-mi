@@ -88,28 +88,29 @@ If an issue requests changes to forbidden paths, you MUST:
    - CRITICAL: Do NOT proceed to commit/PR creation if build fails
    - Only continue to step 7 after confirming successful build
 
-7. Commit & push (push directly to original repo):
+7. Stage changes & validate for secrets BEFORE any commit or push (MANDATORY):
    git add .
+   # Check for secrets in STAGED changes — this MUST pass before committing or pushing
+   git diff --cached | grep -iE '(GITHUB_TOKEN|ANTHROPIC_API_KEY|DOC_FIXING_AGENT|API_KEY|SECRET|PASSWORD|ghp_[a-zA-Z0-9]{36}|sk-[a-zA-Z0-9]{32,})' && { echo "✗ Secrets detected"; exit 1; } || echo "✓ No secrets detected"
+   # If secrets found → STOP, do NOT commit or push, git reset, add label AI-Agent/Cannot-Fix
+   # CRITICAL: Never run git commit or git push until this scan passes — a pushed branch is already public.
+
+8. Commit & push (only after the secret scan in step 7 passes):
    git commit -m "Fix: [short description]"
    git push -u origin ${BRANCH_NAME}
-
-8. Validate changes before PR (MANDATORY):
-   # Check for secrets in staged/committed changes
-   it diff origin/{VERSION}...HEAD | grep -iE '(GITHUB_TOKEN|ANTHROPIC|API_KEY|SECRET|PASSWORD|\$[A-Z_]+)' || echo "✓ No secrets detected"
-   # If secrets found → STOP, reset, label AI-Agent/Cannot-Fix
 
 9. Create PR within original repository:
    - Source: ${REPOSITORY}:${BRANCH_NAME}
    - Target: ${REPOSITORY}:{VERSION}
    - Create PR from new branch → version branch (same repository)
 
-9. Repeat for other versions of the repository if the issue exists there.
+10. Repeat for other versions of the repository if the issue exists there.
 
-10. Remove workflow label(AI-Agent/In-Progress).
+11. Remove workflow label(AI-Agent/In-Progress).
 
-11. Add 'AI-Agent/Fixed' label.
+12. Add 'AI-Agent/Fixed' label.
 
-12. Comment on issue with summary:
+13. Comment on issue with summary:
     "Documentation fix completed. PRs created: [list PR links with versions]. Build status: [Result after run mkdocs build need to display]"
 
 =========================================
