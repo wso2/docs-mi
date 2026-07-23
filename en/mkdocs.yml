@@ -902,6 +902,10 @@ nav:
               - Set up the Salesforce Pub/Sub Connector: reference/connectors/salesforce-pubsub-connector/sf-pubsub-configuration.md
               - Salesforce Pub/Sub Example: reference/connectors/salesforce-pubsub-connector/sf-pubsub-example.md
               - Salesforce Pub/Sub Reference: reference/connectors/salesforce-pubsub-connector/sf-pubsub-connector-reference.md
+          - SAP JCo Connector:
+              - SAP JCo Connector Overview: reference/connectors/sap-jco-connector/sap-jco-connector-overview.md
+              - Set up the SAP JCo Connector: reference/connectors/sap-jco-connector/sap-jco-connector-configuration.md
+              - SAP JCo Connector Reference: reference/connectors/sap-jco-connector/sap-jco-connector-reference.md
           - ServiceNow Connector:
               - ServiceNow Connector Overview: reference/connectors/servicenow-connector/servicenow-overview.md
               - Set up Servicenow: reference/connectors/servicenow-connector/settingup-servicenow-instance.md
