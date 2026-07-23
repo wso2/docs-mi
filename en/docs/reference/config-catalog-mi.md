@@ -1030,7 +1030,7 @@ user.password = "pwd-2"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable the default file-based user store. This allows you to use an external user store for user authentication in the Management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable the default file-based user store. This allows you to use an external user store for user authentication in the Management API.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2530,7 +2530,7 @@ token_config.size= "2048"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable JWT authentication for the management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable JWT authentication for the management API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2698,7 +2698,7 @@ path = "/apis"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable authorization for the management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable authorization for the management API.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2786,7 +2786,7 @@ allowed_headers = "Authorization"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable CORs for the Management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable CORs for the Management API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
