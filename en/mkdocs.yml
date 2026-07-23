@@ -231,6 +231,7 @@ nav:
               - Create a REST API: develop/creating-artifacts/creating-an-api.md
               - Create a Proxy Service: develop/creating-artifacts/creating-a-proxy-service.md
               - Create an Inbound Endpoint: develop/creating-artifacts/creating-an-inbound-endpoint.md
+              - Create an MCP Server: develop/creating-artifacts/creating-an-mcp-server.md
               - Create Scheduled triggers: develop/creating-artifacts/creating-scheduled-task.md
               - Create a Message Store: develop/creating-artifacts/creating-a-message-store.md
               - Create a Message Processor: develop/creating-artifacts/creating-a-message-processor.md
@@ -988,6 +989,7 @@ nav:
               - CXF WS RM Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/cxf-ws-rm-inbound-endpoint-properties.md
               - HL7 Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/hl7-inbound-endpoint-properties.md
               - Websocket Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/websocket-inbound-endpoint-properties.md
+              - MCP Inbound Endpoint: reference/synapse-properties/inbound-endpoints/listening-inbound-endpoints/mcp-inbound-endpoint-properties.md
               - JMS Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/jms-inbound-endpoint-properties.md
               - Kafka Inbound Endpoint: reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/kafka-inbound-endpoint-properties.md
               - RabbitMQ Inbound Endpoint: reference/synapse-properties/inbound-endpoints/event-based-inbound-endpoints/rabbitmq-inbound-endpoint-properties.md
