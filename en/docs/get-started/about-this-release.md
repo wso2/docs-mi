@@ -45,6 +45,9 @@ The following features and improvements were introduced with **WSO2 Integrator: 
     - gRPC connector with import support
     - MI connector generation from Ballerina connectors
 
+??? note "WSO2 Integrator 5.0.0 Availability"
+    - WSO2 Integrator 5.0.0 is available for early adopters. For more details, see [WSO2 Integrator 5.0.0 documentation](https://wso2.com/integration/).
+
 ## Fixed issues
 
 - [WSO2 Integrator: MI Issues](https://github.com/wso2/product-micro-integrator/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2025-10-28..2026-03-27)
