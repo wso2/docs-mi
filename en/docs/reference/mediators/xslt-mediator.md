@@ -309,3 +309,32 @@ INFO - LogMediator To: /services/XSLTProxy.XSLTProxyHttpSoap11Endpoint, WSAction
     Then the XSLT transformation happens in memory without writing data to disk. Therefore, performance is increased.
 
     If the input or transformed message size exceeds the value of `<synapse.temp_data_chunk_size>`, the XSLT Mediator creates temporary files at `<MI_HOME>/tmp`. These files are not explicitly deleted by the WSO2 Integrator: MI. The lifecycle of these files is managed by Java's Garbage Collector (GC). When no references to the temporary files remain, they will be expected to be deleted as part of the `java.lang.Object.finalize()` method.
+
+## Example 5 - Adding XML declaration to the output
+
+By default, WSO2 MI does not include the XML declaration (`<?xml version="1.0" encoding="utf-8"?>`) in the output payload. To add the XML declaration to the output, set the `WRITE_XML_DECLARATION` property in the axis2 scope as shown below.
+
+```xml
+<property name="WRITE_XML_DECLARATION" scope="axis2" value="true"/>
+```
+
+**Example:**
+
+```xml
+<sequence name="main">
+    <xslt key="my_transform.xslt"/>
+    <property name="WRITE_XML_DECLARATION" scope="axis2" value="true"/>
+    <respond/>
+</sequence>
+```
+
+The output will include the XML declaration as follows.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Employees>
+    <Employee>
+        <EmployeeID>JOHNDOE1</EmployeeID>
+    </Employee>
+</Employees>
+```
