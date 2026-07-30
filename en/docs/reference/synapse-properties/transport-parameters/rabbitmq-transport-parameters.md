@@ -204,6 +204,11 @@ To enable SSL support in RabbitMQ, you need to configure the following paramet
 
 In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/develop/creating-artifacts/creating-endpoints).
 
+**Format of the Address URL**:
+
+```
+rabbitmq:/<placeholder>?<query-parameter-name1>=<query-parameter-value1>&amp;<query-parameter-name2>=<query-parameter-value2>
+```
 **Example**:
 
 -   Design view of an address endpoint in WSO2 Integration Studio:
