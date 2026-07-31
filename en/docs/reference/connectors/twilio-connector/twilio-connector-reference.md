@@ -219,7 +219,7 @@ The following operations are available for working with [accounts](https://www.t
     ```xml
     <twilio.updateAccount configKey="MyTwilioConfig">
         <subAccountSid>{$ctx:subAccountSid}</subAccountSid>
-        <friendlyName>{$ctx:subAccountSid}</friendlyName>
+        <friendlyName>{$ctx:friendlyName}</friendlyName>
         <status>{$ctx:subAccountSid}</status>
     </twilio.updateAccount>
     ```
