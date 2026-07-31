@@ -34,10 +34,10 @@ To use the Twilio connector, add the `<twilio.init>` element in your configurati
     **Sample configuration**
 
     ```xml
-    <twitter.init>
+    <twilio.init>
         <accountSid>{$ctx:accountSid}</accountSid>
         <accessToken>{$ctx:accessToken}</accessToken>
-    </twitter.init>
+    </twilio.init>
     ```
 
     **Sample request**
