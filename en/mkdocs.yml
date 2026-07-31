@@ -925,16 +925,19 @@ nav:
               - Set up the Solace Environment: reference/connectors/solace-connector/solace-connector-config.md
               - Solace Connector Example: reference/connectors/solace-connector/1.x/solace-connector-1.x-example.md
               - Solace Connector Reference: reference/connectors/solace-connector/1.x/solace-connector-1.x-reference.md
+          - Twilio Connector:
+              - Twilio Connector Overview: reference/connectors/twilio-connector/twilio-connector-overview.md
+              - Twilio Connector Reference: reference/connectors/twilio-connector/twilio-connector-reference.md
           - Twitter Connector:
-              - Twitter Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
+              - Twitter Connector Overview: reference/connectors/twitter-connector/twitter-connector-overview.md
               - Generate Credentials: reference/connectors/twitter-connector/twitter-connector-credentials.md
               - Set up Integration Runtime: reference/connectors/twitter-connector/twitter-connector-configuration.md
               - 4.x:
-                - Twitter Example: reference/connectors/twitter-connector/4.x/twitter-connector-example.md
-                - Twitter Reference: reference/connectors/twitter-connector/4.x/twitter-connector-reference.md
+                - Twitter Connector Example: reference/connectors/twitter-connector/4.x/twitter-connector-example.md
+                - Twitter Connector Reference: reference/connectors/twitter-connector/4.x/twitter-connector-reference.md
               - 3.x:
-                - Twitter Example: reference/connectors/twitter-connector/3.x/twitter-connector-example.md
-                - Twitter Reference: reference/connectors/twitter-connector/3.x/twitter-connector-reference.md
+                - Twitter Connector Example: reference/connectors/twitter-connector/3.x/twitter-connector-example.md
+                - Twitter Connector Reference: reference/connectors/twitter-connector/3.x/twitter-connector-reference.md
           - Snowflake Connector:
               - Snowflake Connector Overview: reference/connectors/snowflake-connector/snowflake-connector-overview.md
               - Snowflake Connector Example: reference/connectors/snowflake-connector/snowflake-connector-example.md
