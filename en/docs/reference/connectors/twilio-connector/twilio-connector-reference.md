@@ -36,7 +36,7 @@ To use the Twilio connector, add the `<twilio.init>` element in your configurati
     ```xml
     <twilio.init>
         <accountSid>{$ctx:accountSid}</accountSid>
-        <accessToken>{$ctx:accessToken}</accessToken>
+        <authToken>{$ctx:accessToken}</authToken>
     </twilio.init>
     ```
 
