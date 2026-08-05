@@ -2,7 +2,7 @@
 
 The Cryptography Module adds **OpenPGP** (RFC 9580 / RFC 4880) message-level cryptography to WSO2 Integrator: MI mediation flows. It lets you encrypt, decrypt, sign and verify payloads in line protecting data for storage or store-and-forward exchange (files, batch B2B transfers, archives) and proving its origin. The cryptographic core is [Bouncy Castle](https://www.bouncycastle.org/), so the output is standard OpenPGP and interoperates with GnuPG and any other compliant tool.
 
-- It is a **message-mediation** module: each operation takes its input from the **message body** (the default) or an **expression** (such as `${payload.x}` or `${vars.x}`), performs a single PGP operation, and writes the result back to the message body or to a response variable.
+- This is a **message-mediation** module: each operation takes its input from the **message body** (the default) or an **expression** (such as `${payload.x}` or `${vars.x}`), performs a single PGP operation, and writes the result back to the message body or to a response variable.
 - Keys are supplied through **PGP key connections** — one connection per key — that operations reference by config key.
 - Each operation reads and writes either **TEXT** or **BINARY**, mirroring the File Connector / VFS transport, so it slots directly into file-based `read → PGP → write` flows.
 

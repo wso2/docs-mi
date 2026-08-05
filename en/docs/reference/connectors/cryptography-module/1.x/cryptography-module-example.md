@@ -41,11 +41,13 @@ operation:
     connection — the PGP operations are identical either way.
 
 !!! tip "How input and output are decided"
-    Each PGP operation is governed by three configuration choices:
+    Each PGP operation is governed by following configuration choices:
     
     1. **Input Type** — how to interpret the data on the receiving side (decryption/verification):
         - **BINARY** (default) — read as raw bytes
         - **TEXT** — read as a text string
+
+        `inputType` applies to outbound operations(encrypt/sign). Inbound operations (decrypt/verifiy) auto-detect the OpenPGP input and use `outputType`outputType for the recovered representation.
     
     2. **Input Source** — where the data comes from:
         - **Message Body** (default) — the raw payload
@@ -171,6 +173,12 @@ operation:
     <img src="{{base_path}}/assets/img/integrate/connectors/cryptography/pgp/PGP_Keys_store.png" title="PGP key files added to the project resources" width="800" alt="PGP key files under resources/keys in the project explorer"/>
 
     Check **[Import from file system](https://mi.docs.wso2.com/en/latest/develop/creating-artifacts/creating-registry-resources/#import-from-file-system)**
+
+    !!! warning
+        These are disposable demo keys, so all four `.asc` files go under `resources:keys/` here for
+        simplicity. **In production, never put a private key under `resources:`** — keep it in
+        `env:NAME` or the Secure Vault
+        ([details]({{base_path}}/reference/connectors/cryptography-module/1.x/cryptography-module-config/#public-vs-private-keys-where-each-goes)).
 
 ## Set up Local file structure
 

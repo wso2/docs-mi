@@ -38,25 +38,48 @@ local entry (`cryptography.init`).
 
 ### Key material sources
 
-The `privateKeyPath` / `publicKeyPath` field accepts several sources. Use a project registry resource
-(`resources:`) as the default.
+The `privateKeyPath` / `publicKeyPath` field accepts several sources. Use a project resource
+(`resources:`) for **public** keys; keep **private** keys in a protected secret source such as
+`env:NAME` or the Secure Vault.
 
 <table>
 <thead>
   <tr><th>Form</th><th>Source</th><th>Use for</th></tr>
 </thead>
 <tbody>
-  <tr><td><code>resources:keys/alice-private.asc</code></td><td>Project registry resource, bundled in the integration project.</td><td><strong>Recommended</strong> — versioned with the project.</td></tr>
-  <tr><td><code>env:NAME</code></td><td>Environment variable holding the key material.</td><td>Containers / Kubernetes Secrets.</td></tr>
-  <tr><td><code>-----BEGIN PGP…</code></td><td>Key text pasted inline (armored).</td><td>Quick tests.</td></tr>
-  <tr><td><code>/path/to/key.asc</code></td><td>Filesystem path.</td><td>On-box files.</td></tr>
-  <tr><td><code>gov:/…</code>, <code>conf:/…</code></td><td>WSO2 Registry (legacy syntax).</td><td>Older deployments; still supported.</td></tr>
+  <tr><td><code>resources:keys/bob-public.asc</code></td><td>Project resource, bundled in the integration project.</td><td><strong>Public keys</strong></td></tr>
+  <tr><td><code>env:NAME</code></td><td>Environment variable holding the (armored) key material.</td><td><strong>Recommended for private keys</strong> — containers / Kubernetes Secrets.</td></tr>
+  <tr><td><code>/path/to/key.asc</code></td><td>Filesystem path.</td><td>On-box files (For both public and private keys).</td></tr>
+  <tr><td><code>-----BEGIN PGP…</code></td><td>Key text pasted inline (armored).</td><td>Quick tests</td></tr>
 </tbody>
 </table>
 
 !!! note
     `gov:/` and `conf:/` are the legacy registry syntax — still supported for backward compatibility,
-    but new integrations should use `resources:`.
+    but new integrations should use `resources:` (public keys) or `env:` / Secure Vault (private keys).
+
+### Public vs private keys — where each goes
+
+Handle the two kinds of key differently, because only one is a secret.
+
+**Public key** (a partner's key — not secret): safe to bundle with the project.
+
+- Put the `.asc` file in the project under `resources/keys/`.
+- In a **PGP Public Key** connection, set:
+    - `publicKeyPath` → `resources:keys/partner-public.asc`
+    - `keyIdentifier` → the owner's email (e.g. `partner@example.com`)
+
+**Private key** (your key — secret): keep it out of the project.
+
+- Store the key material in an environment variable / mounted secret, and the passphrase in Secure Vault.
+- In a **PGP Private Key** connection, set:
+    - `privateKeyPath` → `env:MY_PRIVATE_KEY`
+    - `passphrase` → `{${wso2-vault('pgp_my_passphrase')}}`
+    - `keyIdentifier` → your email (e.g. `me@example.com`)
+
+!!! warning
+    Never put a private key under `resources:` — it gets packaged and committed. Only public keys
+    belong there.
 
 ### PGP_PRIVATE_KEY
 
@@ -70,7 +93,7 @@ Your identity — used by [pgpSign](#pgpsign), [pgpDecrypt](#pgpdecrypt),
 </thead>
 <tbody>
   <tr><td>Connection Name</td><td>name</td><td>Yes</td><td>Unique name referenced by operations (as the config key).</td></tr>
-  <tr><td>Private Key Location</td><td>privateKeyPath</td><td>Yes</td><td>Secret key location — see <a href="#key-material-sources">key material sources</a>.</td></tr>
+  <tr><td>Private Key Location</td><td>privateKeyPath</td><td>Yes</td><td>Secret key location. Keep private keys <strong>out of project resources</strong> — use <code>env:NAME</code> or the Secure Vault, not <code>resources:</code>. See <a href="#key-material-sources">key material sources</a>.</td></tr>
   <tr><td>Key Identifier</td><td>keyIdentifier</td><td>No</td><td>Which key to use: fingerprint (40-hex), 16-hex Key ID (<code>0x…</code>), or exact user ID / email. Optional if the key ring holds a single key.</td></tr>
   <tr><td>Passphrase</td><td>passphrase</td><td>No</td><td>Protects the secret key. Use a Secure Vault reference such as <code>{${wso2-vault('pgp_alice_passphrase')}}</code>, not a literal. Leave blank for an unprotected key.</td></tr>
 </tbody>
@@ -80,7 +103,7 @@ Your identity — used by [pgpSign](#pgpsign), [pgpDecrypt](#pgpdecrypt),
 <localEntry key="my-private" xmlns="http://ws.apache.org/ns/synapse">
   <cryptography.init>
     <connectionType>PGP_PRIVATE_KEY</connectionType>
-    <privateKeyPath>resources:keys/alice-private.asc</privateKeyPath>
+    <privateKeyPath>env:ALICE_PRIVATE_KEY</privateKeyPath>
     <keyIdentifier>alice@example.com</keyIdentifier>
     <passphrase>{${wso2-vault('pgp_alice_passphrase')}}</passphrase>
     <name>my-private</name>
