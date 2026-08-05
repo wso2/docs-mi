@@ -14,8 +14,8 @@ Cryptography Module.
 The module provides six operations:
 
 * `pgpEncrypt` — encrypt the input for a recipient using their public key.
-* `pgpDecrypt` — decrypt the input using sender's private key and passphrase.
-* `pgpSign` — sign the input with recipient's private key.
+* `pgpDecrypt` — decrypt the input using recipient's private key and passphrase.
+* `pgpSign` — sign the input with sender's private key.
 * `pgpVerify` — verify a signed message with the sender's public key.
 * `pgpSignAndEncrypt` — sign then encrypt in a single pass (outbound).
 * `pgpDecryptAndVerify` — decrypt then verify in a single pass (inbound).
@@ -38,7 +38,7 @@ As an open source project, WSO2 extensions welcome contributions from the commun
 To contribute to the code for this module, please create a pull request in the module's GitHub
 repository. 
 
-- **[Cryptography Module Github Repository](https://github.com/wso2-extensions/mediation-cryptography-module/pull/1)**
+- **[Cryptography Module GitHub repository](https://github.com/wso2-extensions/mediation-cryptography-module)**
 
 Check the issue tracker for open issues that interest you. We look forward to receiving
 your contributions.

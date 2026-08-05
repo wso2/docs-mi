@@ -174,7 +174,7 @@ operation:
 
 ## Set up Local file structure
 
-Before running the examples, create the following directory structure on the desired location of your local machine.Remember to configure the Inbound File Uri path and File connector write path with with your local paths.  
+Before running the examples, create the following directory structure at the desired location on your local machine. Remember to configure the inbound File URI path and File connector write path with your local paths. 
 
 ```text
 FileExchange/
@@ -332,7 +332,7 @@ its **Inbound Sequence** runs the PGP operation and writes the result. Point the
         <?xml version="1.0" encoding="UTF-8"?>
         <inboundEndpoint name="PurchaseOrderOutboundListener" class="org.wso2.carbon.inbound.vfs.VFSConsumer" sequence="PurchaseOrderOutboundListener-inboundSequence" onError="PurchaseOrderOutboundListener-inboundErrorSequence" suspend="false">
             <parameters xmlns="http://ws.apache.org/ns/synapse">
-                <parameter name="transport.vfs.FileURI">C:/Users/AmilaSW/Documents/FileExchange/send</parameter>
+                <parameter name="transport.vfs.FileURI">/path/to/FileExchange/send</parameter>
                 <parameter name="scheduleType">Polling</parameter>
                 <parameter name="interval">5</parameter>
                 <parameter name="transport.vfs.ContentType">application/octet-stream</parameter>
@@ -385,7 +385,7 @@ its **Inbound Sequence** runs the PGP operation and writes the result. Point the
         <?xml version="1.0" encoding="UTF-8"?>
         <inboundEndpoint name="PurchaseOrderInboundListener" class="org.wso2.carbon.inbound.vfs.VFSConsumer" sequence="PurchaseOrderInboundListener-inboundSequence" onError="PurchaseOrderInboundListener-inboundErrorSequence" suspend="false">
             <parameters xmlns="http://ws.apache.org/ns/synapse">
-                <parameter name="transport.vfs.FileURI">C:/Users/AmilaSW/Documents/FileExchange/exchange</parameter>
+                <parameter name="transport.vfs.FileURI">/path/to/FileExchange/exchange</parameter>
                 <parameter name="scheduleType">Polling</parameter>
                 <parameter name="interval">5</parameter>
                 <parameter name="transport.vfs.ContentType">application/octet-stream</parameter>
@@ -448,9 +448,9 @@ To deploy and run the project, refer to the [Build and Run]({{base_path}}/develo
 **Objective:** demonstrate **Sign** → **Verify**.
 
 !!! note "Business scenario"
-    Global Electronics publishes a weekly product catalog. Every customer receives the same catalog,
+    ABC Retail publishes a weekly product catalog. Every customer receives the same catalog,
     so it is public and needs no encryption — but customers must be able to verify that it genuinely
-    originated from Global Electronics and has not been modified. Alice **signs** the catalog with her
+    originated from ABC Retail and has not been modified. Alice **signs** the catalog with her
     private key; Bob **verifies** the signature with Alice's public key before importing it. If
     verification fails, the catalog is rejected.
 
@@ -498,7 +498,7 @@ routes the file to `/verified` or `/rejected` directories based on the `signatur
         <?xml version="1.0" encoding="UTF-8"?>
         <inboundEndpoint name="PriceCatalogPublisherListener" class="org.wso2.carbon.inbound.vfs.VFSConsumer" sequence="PriceCatalogPublisherListener-inboundSequence" onError="PriceCatalogPublisherListener-inboundErrorSequence" suspend="false">
             <parameters xmlns="http://ws.apache.org/ns/synapse">
-                <parameter name="transport.vfs.FileURI">C:/Users/AmilaSW/Documents/FileExchange/publish</parameter>
+                <parameter name="transport.vfs.FileURI">/path/to/FileExchange/publish</parameter>
                 <parameter name="scheduleType">Polling</parameter>
                 <parameter name="interval">5</parameter>
                 <parameter name="transport.vfs.ContentType">application/octet-stream</parameter>
@@ -552,7 +552,7 @@ routes the file to `/verified` or `/rejected` directories based on the `signatur
         <?xml version="1.0" encoding="UTF-8"?>
         <inboundEndpoint name="PriceCatalogConsumerListener" class="org.wso2.carbon.inbound.vfs.VFSConsumer" sequence="PriceCatalogConsumerListener-inboundSequence" onError="PriceCatalogConsumerListener-inboundErrorSequence" suspend="false">
             <parameters xmlns="http://ws.apache.org/ns/synapse">
-                <parameter name="transport.vfs.FileURI">C:/Users/AmilaSW/Documents/FileExchange/consume</parameter>
+                <parameter name="transport.vfs.FileURI">/path/to/FileExchange/consume</parameter>
                 <parameter name="scheduleType">Polling</parameter>
                 <parameter name="interval">5</parameter>
                 <parameter name="transport.vfs.ContentType">application/octet-stream</parameter>
@@ -670,7 +670,7 @@ the recovered invoice on success and raising an error on a bad signature.
         <?xml version="1.0" encoding="UTF-8"?>
         <inboundEndpoint name="InvoiceOutboundListener" class="org.wso2.carbon.inbound.vfs.VFSConsumer" sequence="InvoiceOutboundListener-inboundSequence" onError="InvoiceOutboundListener-inboundErrorSequence" suspend="false">
             <parameters xmlns="http://ws.apache.org/ns/synapse">
-                <parameter name="transport.vfs.FileURI">C:/Users/AmilaSW/Documents/FileExchange/secure</parameter>
+                <parameter name="transport.vfs.FileURI">/path/to/FileExchange/secure</parameter>
                 <parameter name="scheduleType">Polling</parameter>
                 <parameter name="interval">5</parameter>
                 <parameter name="transport.vfs.ContentType">application/octet-stream</parameter>
@@ -698,7 +698,7 @@ the recovered invoice on success and raising an error on a bad signature.
                 <symmetricKeyAlgorithm>AES_256</symmetricKeyAlgorithm>
                 <compressionAlgorithm>ZLIB</compressionAlgorithm>
                 <signatureHashAlgorithm>SHA256</signatureHashAlgorithm>
-                <armor>false</armor>
+                <armor>true</armor>
                 <integrityCheck>true</integrityCheck>
                 <fileName>{${headers.FILE_NAME}}</fileName>
                 <responseVariable>cryptography_pgpSignAndEncrypt_1</responseVariable>
@@ -727,7 +727,7 @@ the recovered invoice on success and raising an error on a bad signature.
         <?xml version="1.0" encoding="UTF-8"?>
         <inboundEndpoint name="InvoiceInboundListener" class="org.wso2.carbon.inbound.vfs.VFSConsumer" sequence="InvoiceInboundListener-inboundSequence" onError="InvoiceInboundListener-inboundErrorSequence" suspend="false">
             <parameters xmlns="http://ws.apache.org/ns/synapse">
-                <parameter name="transport.vfs.FileURI">C:/Users/AmilaSW/Documents/FileExchange/open</parameter>
+                <parameter name="transport.vfs.FileURI">/path/to/FileExchange/open</parameter>
                 <parameter name="scheduleType">Polling</parameter>
                 <parameter name="interval">5</parameter>
                 <parameter name="transport.vfs.ContentType">application/octet-stream</parameter>
