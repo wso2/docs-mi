@@ -1,7 +1,7 @@
 # Cryptography (PGP) Module Reference
 
 The Cryptography Module adds in-line **OpenPGP** (RFC 9580 / RFC 4880) message-level cryptography
-to WSO2 Micro Integrator mediation flows. It is built on [Bouncy Castle](https://www.bouncycastle.org/),
+to WSO2 Integrator: MI mediation flows. It is built on [Bouncy Castle](https://www.bouncycastle.org/),
 so its output is standard OpenPGP and interoperates with GnuPG and any other compliant tool.
 
 Keys are supplied through **connections** — one per key — that operations reference by config key.
