@@ -711,6 +711,11 @@ nav:
                       - employeeSSOAccounts: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeessoaccounts.md
                       - employeeWorkAssignmentManagers: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/employeeworkassignmentmanagers.md
                       - userPayAdjustmentCodeGroups: reference/connectors/ceridiandayforce-connector/user-security-authority-and-management/userpayadjustmentcodegroups.md
+          - Cryptography (PGP) Module:
+              - Cryptography Module Overview: reference/connectors/cryptography-module/cryptography-module-overview.md
+              - 1.x:
+                  - Cryptography Module Example: reference/connectors/cryptography-module/1.x/cryptography-module-example.md
+                  - Cryptography Module Reference: reference/connectors/cryptography-module/1.x/cryptography-module-config.md
           - CSV Module:
               - 3.x:
                   - reference/connectors/csv-module/3.x/csv-module-config.md
