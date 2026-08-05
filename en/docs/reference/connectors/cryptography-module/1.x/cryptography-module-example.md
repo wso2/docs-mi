@@ -425,6 +425,18 @@ its **Inbound Sequence** runs the PGP operation and writes the result. Point the
         ```
 
 
+### Get the project
+
+You can download the ZIP file and extract the contents to get the project code.
+
+<a href="{{base_path}}/assets/attachments/connectors/cryptography-module.zip">
+    <img src="{{base_path}}/assets/img/integrate/connectors/download-zip.png" width="200" alt="Download ZIP">
+</a>
+
+### Deployment
+
+To deploy and run the project, refer to the [Build and Run]({{base_path}}/develop/deploy-artifacts/#build-and-run) guide.
+
 ### Test the flow
 - Drop `purchase_order.csv` into `/send` directory. 
 - Within a poll cycle the outbound listener encrypt and writes `/exchange/purchase_order.pgp` (unreadable to anyone but Bob). 
