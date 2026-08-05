@@ -274,6 +274,19 @@ You can save the LDAP configuration as a [local entry]({{base_path}}/develop/cre
             <td>Boolean value to allow an empty search result or throw an exception. If this property is not defined, an exception will be thrown and a fault sequence is executed if the search result is empty.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td>pageSize</td>
+            <td>
+                Specifies the maximum number of entries to retrieve per LDAP page during the search operation. When this parameter is set, the connector performs the search using LDAP paged results and automatically retrieves subsequent pages before returning the results. This helps retrieve entries beyond server-side size limits, such as Active Directory's default 1000-entry limit.
+                <br><br>
+                When the <code>limit</code> parameter is also specified, the connector stops retrieving pages after collecting the configured maximum number of results.
+                <br><br>
+                <b>Note:</b> When <code>pageSize</code> is specified, the <code>onlyOneReference</code> parameter is not applicable.
+                <br><br>
+                <b>Note:</b> Available from LDAP Connector version <strong>1.0.15</strong> onwards.
+            </td>
+            <td>No</td>
+        </tr>
     </table>
 
     **Sample configuration**
