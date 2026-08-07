@@ -479,7 +479,7 @@ By default, the Kafka Inbound Endpoint processes one record at a time — each r
 The content type of the injected message depends on the configured `contentType`.
 
 === "JSON"
-    `contentType = application/json`
+    `contentType` = `application/json`
 
     All record values are combined into a JSON array. Each element is the raw record value.
 
@@ -488,7 +488,7 @@ The content type of the injected message depends on the configured `contentType`
     ```
 
 === "XML"
-    `contentType = application/xml` or `text/xml`
+    `contentType` = `application/xml` or `text/xml`
 
     All record values are wrapped in a `<messages>` root element. Each record value must be a valid XML fragment.
 
@@ -500,14 +500,14 @@ The content type of the injected message depends on the configured `contentType`
     ```
 
 === "Plain text"
-    `contentType = text/plain` or any other value
+    `contentType` = `text/plain` or any other value
 
     Each record value is wrapped in a `<text>` element under a `<messages>` root. Special XML characters in the values are escaped automatically. The injected message content type is `application/xml`.
 
     ```xml
     <messages>
         <text xmlns="http://ws.apache.org/commons/ns/payload">hello world</text>
-        <text xmlns="http://ws.apache.org/commons/ns/payload">a &lt;b&gt; &amp; c</text>
+        <text xmlns="http://ws.apache.org/commons/ns/payload">Order &lt;#1042&gt; confirmed &amp; shipped</text>
     </messages>
     ```
 
