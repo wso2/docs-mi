@@ -26,6 +26,16 @@
 
 {% extends "base.html" %}
 
+{% block announce %}
+This documentation is a work in progress.
+{% endblock %}
+
+{% block extrahead %}
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
+
+
 {% block styles %}
 {{ super() }}
 <link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
