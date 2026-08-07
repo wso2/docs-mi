@@ -72,7 +72,7 @@ wso2:
     # -- Hostname of the WSO2 Integrator: MI deployment
     hostname: "mi.wso2.com"
     # -- Build version of the WSO2 Integrator: MI
-    BuildVersion: "4.6.0"
+    BuildVersion: "4.7.0"
     image:
       # -- Container image repository name
       repository: "currencyconverter"
