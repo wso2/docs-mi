@@ -472,7 +472,7 @@ By default, the Kafka Inbound Endpoint processes one record at a time — each r
 ```
 
 !!! Note
-    In batch mode, all records fetched by a poll are held in memory as part of the message context. Fine-tune `max.poll.records` according to your available memory — larger batches consume more memory.
+    In batch mode, all records fetched by a poll are held in memory as part of the message context. Fine-tune `max.poll.records` according to your memory allocation.
 
 ### Message payload format
 
