@@ -465,45 +465,51 @@ Add this parameter to the inbound endpoint to control the retry behavior:
 
 ## Batch mediation
 
-By default, the Kafka Inbound Endpoint processes one record at a time — each record polled from Kafka is injected into the inbound sequence as a separate message. Batch mediation changes this so that all valid records returned by a single poll are bundled into one message and injected together. To enable it, set the following parameter:
+By default, the Kafka Inbound Endpoint processes one record at a time — each record polled from Kafka is injected into the inbound sequence as a separate message. Batch mediation changes this so that all valid records fetched by a single poll are bundled into one message and injected together. To enable it, set the following parameter:
 
 ```xml
 <parameter name="batch.processing.enabled">true</parameter>
 ```
 
+!!! Note
+    In batch mode, all records fetched by a poll are held in memory as part of the message context. Fine-tune `max.poll.records` according to your available memory — larger batches consume more memory.
+
 ### Message payload format
 
-The shape of the injected message depends on the configured `contentType`.
+The content type of the injected message depends on the configured `contentType`.
 
-**JSON** (`contentType = application/json`)
+=== "JSON"
+    `contentType = application/json`
 
-All record values are combined into a JSON array. Each element is the raw record value.
+    All record values are combined into a JSON array. Each element is the raw record value.
 
-```json
-[{"id":1,"name":"Alice"},{"id":2,"name":"Bob"},{"id":3,"name":"Charlie"}]
-```
+    ```json
+    [{"id":1,"name":"Alice"},{"id":2,"name":"Bob"},{"id":3,"name":"Charlie"}]
+    ```
 
-**XML** (`contentType = application/xml` or `text/xml`)
+=== "XML"
+    `contentType = application/xml` or `text/xml`
 
-All record values are wrapped in a `<messages>` root element. Each record value must be a valid XML fragment.
+    All record values are wrapped in a `<messages>` root element. Each record value must be a valid XML fragment.
 
-```xml
-<messages>
-    <item><id>1</id><name>Alice</name></item>
-    <item><id>2</id><name>Bob</name></item>
-</messages>
-```
+    ```xml
+    <messages>
+        <item><id>1</id><name>Alice</name></item>
+        <item><id>2</id><name>Bob</name></item>
+    </messages>
+    ```
 
-**Plain text** (`contentType = text/plain` or any other value)
+=== "Plain text"
+    `contentType = text/plain` or any other value
 
-Each record value is wrapped in a `<text>` element under a `<messages>` root. Special XML characters in the values are escaped automatically. The injected message content type is `application/xml`.
+    Each record value is wrapped in a `<text>` element under a `<messages>` root. Special XML characters in the values are escaped automatically. The injected message content type is `application/xml`.
 
-```xml
-<messages>
-    <text xmlns="http://ws.apache.org/commons/ns/payload">hello world</text>
-    <text xmlns="http://ws.apache.org/commons/ns/payload">a &lt;b&gt; &amp; c</text>
-</messages>
-```
+    ```xml
+    <messages>
+        <text xmlns="http://ws.apache.org/commons/ns/payload">hello world</text>
+        <text xmlns="http://ws.apache.org/commons/ns/payload">a &lt;b&gt; &amp; c</text>
+    </messages>
+    ```
 
 ### Poison pill handling in batch mode
 
