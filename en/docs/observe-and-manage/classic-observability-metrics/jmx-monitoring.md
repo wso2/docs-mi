@@ -70,7 +70,7 @@ detached) to an already running Java process. This universal agent uses the JVM 
 2. Add it to the `<MI_HOME>/dropins/` directory.
 3. Start the WSO2 product server.
 4. Get the PID of wso2 server
-5. 5. Start the JVM Agent ex: java -jar jolokia-agent-jvm-2.6.0-javaagent.jar --host=localhost --port=9764 start <PID>
+5. 5. Start the JVM Agent ex: java -jar jolokia-agent-jvm-2.6.0-javaagent.jar --host=localhost --port=9763 start <PID>
 6. Also you can call it with --help to get a short usage information:
 
    Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
@@ -85,7 +85,7 @@ detached) to an already running Java process. This universal agent uses the JVM 
 
 Follow the steps below to use Jolokia to monitor a WSO2 product using OSGi Agent.
 
-1. 1. Download [OSGi-Agent](https://jolokia.org/download.html). (These instructions are tested with the Jolokia OSGi Agent version 2.6.0.)
+1. Download [OSGi-Agent](https://jolokia.org/download.html). (These instructions are tested with the Jolokia OSGi Agent version 2.6.0.)
 2. Add it to the `<MI_HOME>/dropins/` directory.
 3. Start the WSO2 product server.
 4. You can define the port with system variables. E.g., `./micro-integrator.sh -Dorg.osgi.service.http.port=9763`
