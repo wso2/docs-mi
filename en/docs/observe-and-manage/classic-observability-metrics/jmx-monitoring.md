@@ -70,7 +70,7 @@ detached) to an already running Java process. This universal agent uses the JVM 
 2. Add it to the `<MI_HOME>/dropins/` directory.
 3. Start the WSO2 product server.
 4. Get the PID of wso2 server
-5. 5. Start the JVM Agent ex: java -jar jolokia-agent-jvm-2.6.0-javaagent.jar --host=localhost --port=9763 start <PID>
+5. Start the JVM Agent ex: java -jar jolokia-agent-jvm-2.6.0-javaagent.jar --host=localhost --port=9763 start <PID>
 6. Also you can call it with --help to get a short usage information:
 
    Once the server starts, you can read MBeans using Jolokia APIs. The following are a few examples.
