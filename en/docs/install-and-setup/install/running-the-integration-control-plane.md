@@ -20,34 +20,50 @@ database, listen on `https://localhost:9446`, and create an `admin` user.
 
 ### Database settings
 
-By default ICP uses an embedded H2 database stored in `bin/database/`. For
-production, switch to PostgreSQL, MySQL, or MSSQL by uncommenting and editing
-the `[icp_server.storage]` section in `deployment.toml`:
+=== "ICP 2.0.0"
 
-```toml
-[icp_server.storage]
-dbType   = "postgresql"
-dbHost   = "db.example.com"
-dbPort   = 5432
-dbName   = "icp_database"
-dbUser   = "icp_user"
-dbPassword = "changeme"
-```
+    By default ICP uses an embedded H2 database stored in `bin/database/`. For
+    production, switch to PostgreSQL, MySQL, or MSSQL by uncommenting and editing
+    the `[icp_server.storage]` section in `deployment.toml`:
 
-A separate credentials database stores user passwords. Configure it with the
-`credentialsDb*` settings if you want credential storage on the same external
-database:
+    ```toml
+    [icp_server.storage]
+    dbType   = "postgresql"
+    dbHost   = "db.example.com"
+    dbPort   = 5432
+    dbName   = "icp_database"
+    dbUser   = "icp_user"
+    dbPassword = "changeme"
+    ```
 
-```toml
-credentialsDbType     = "postgresql"
-credentialsDbHost     = "db.example.com"
-credentialsDbPort     = 5432
-credentialsDbName     = "credentialsdb"
-credentialsDbUser     = "icp_user"
-credentialsDbPassword = "changeme"
-```
+    A separate credentials database stores user passwords. Configure it with the
+    `credentialsDb*` settings if you want credential storage on the same external
+    database:
 
-When using H2 (the default), no database configuration is needed.
+    ```toml
+    credentialsDbType     = "postgresql"
+    credentialsDbHost     = "db.example.com"
+    credentialsDbPort     = 5432
+    credentialsDbName     = "credentialsdb"
+    credentialsDbUser     = "icp_user"
+    credentialsDbPassword = "changeme"
+    ```
+
+    When using H2 (the default), no database configuration is needed.
+
+=== "ICP 1.2.0"
+
+    ICP 1.2.0 does not ship an embedded application database, and has no
+    `[icp_server.storage]` or `credentialsDb*` settings — those are specific to
+    2.0.0's rewritten backend. By default, ICP 1.2.0 authenticates users from a
+    flat file baked into `conf/user-mgt.xml`, with no database involved.
+
+    To back user management with an external RDBMS instead, switch to the JDBC
+    user store in `conf/user-mgt.xml` and initialize the schema using the script
+    for your database under `dbscripts/` (for example, `dbscripts/mysql/mysql_user.sql`
+    or `dbscripts/postgres/postgresql_user.sql`). See
+    [Built-in User Store]({{base_path}}/install-and-setup/setup/user-stores/use-built-in-userstore-in-icp)
+    for the full ICP 1.2.0 walkthrough.
 
 ### Observability Settings (OpenSearch)
 
