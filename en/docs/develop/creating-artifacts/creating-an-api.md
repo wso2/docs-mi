@@ -330,6 +330,51 @@ To enable CORS for your API, follow these steps:
 
 7. Click **Save Changes**.
 
+## Binds to an Inbound Endpoint
+
+You can bind an API to an inbound endpoint. The API can then be invoked only through the specified inbound endpoints.
+
+!!! Note
+    This is supported only for HTTP, HTTPS, and WebSocket inbound endpoints. APIs cannot be bound to other inbound endpoints, such as JMS or MQTT.
+
+### API-level binds-to
+
+All resources inherit this binding unless overridden at the [resource level](#resource-level-binds-to). To configure API-level binding for your API, follow these steps:
+
+1. Go to **Project Overview**.
+
+2. Under **APIs**, select the API you want to edit. This will open the **Service Designer**.
+
+3. On the **Service Designer**, click the **Edit** icon to edit the API.
+
+4. In the **Edit API** pane, navigate to the **Binds to** section.
+
+5. Click **+ Add Inbound Endpoint**.
+
+6. Configure the Inbound Endpoint to bind to the API.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/binds-to-inbound-endpoint-api-level.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/binds-to-inbound-endpoint-api-level.png" alt="Binds to an Inbound Endpoint: API Level" width="80%"></a>
+
+7. Click **Save Changes**.
+
+### Resource-level binds-to
+
+Overrides the API-level binding for a specific resource. The resource-level binding must be a subset of the [API-level binds-to](#api-level-binds-to) configuration. To configure resource-level binds-to for your API, follow these steps:
+
+1. On the **Service Designer**, click on the API resource to go to the **Resource View** of the API resource.
+
+2. Click the **Edit** icon to edit the API resource.
+
+3. Under **Advanced Options**, navigate to the **Binds to** section.
+
+5. Click **+ Add Inbound Endpoint**.
+
+6. Configure the Inbound Endpoint to bind to the API.
+
+    <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/binds-to-inbound-endpoint-resource-level.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/binds-to-inbound-endpoint-resource-level.png" alt="Binds to an Inbound Endpoint: Resource Level" width="80%"></a>
+
+7. Click **Save**.
+
 ## Examples
 
 Follow our examples on APIs: 
