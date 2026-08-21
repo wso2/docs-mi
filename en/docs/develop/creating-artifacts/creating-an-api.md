@@ -330,7 +330,7 @@ To enable CORS for your API, follow these steps:
 
 7. Click **Save Changes**.
 
-## Binds to an Inbound Endpoint
+## Bind to an Inbound Endpoint
 
 You can bind an API to an inbound endpoint. The API can then be invoked only through the specified inbound endpoints.
 
