@@ -39,8 +39,7 @@ and `integration` pre-filled and the secret is scoped to that component.
 
 ### deployment.toml
 
-Place the snippet in the `deployment.toml` next to your application jar, filling in any
-placeholder values.
+Place the following snippet in the `MI_HOME/conf/deployment.toml` file, filling in any placeholder values.
 
 ```toml
 [icp_config]
