@@ -8,9 +8,12 @@ ALLOWED_PATTERNS=(
 )
 
 # Get list of files staged for commit
-STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR)
+STAGED_FILES=()
+while IFS= read -r -d '' file; do
+    STAGED_FILES+=("$file")
+done < <(git diff --cached --name-only -z --diff-filter=ACMR)
 
-if [ -z "$STAGED_FILES" ]; then
+if [ ${#STAGED_FILES[@]} -eq 0 ]; then
     exit 0
 fi
 
@@ -19,7 +22,7 @@ echo "Pre-commit validation: Checking staged files against whitelist..."
 # Check if all changes are within allowed patterns (whitelist enforcement)
 INVALID_FOUND=false
 
-for file in $STAGED_FILES; do
+for file in "${STAGED_FILES[@]}"; do
     ALLOWED=false
 
     for pattern in "${ALLOWED_PATTERNS[@]}"; do
@@ -63,17 +66,41 @@ echo ""
 echo "Scanning for secrets in staged changes..."
 SECRETS_FOUND=false
 
+TEXT_FILES=()
+for file in "${STAGED_FILES[@]}"; do
+    if [ "$(git show ":$file" 2>/dev/null | LC_ALL=C tr -dc '\000' | wc -c | tr -d ' ')" -gt 0 ]; then
+        continue
+    fi
+    TEXT_FILES+=("$file")
+done
+
+if [ ${#TEXT_FILES[@]} -eq 0 ]; then
+    echo "No text files to scan for secrets"
+    echo "Pre-commit validation passed"
+    exit 0
+fi
+
 # Get the diff of staged changes
-STAGED_DIFF=$(git diff --cached)
+if ! STAGED_DIFF=$(git diff --cached --no-color -- "${TEXT_FILES[@]}"); then
+    echo "COMMIT BLOCKED: Unable to read staged diff for secret scanning"
+    exit 1
+fi
+
+ADDED_LINES=$(printf '%s\n' "$STAGED_DIFF" | awk '
+    /^\+\+\+ /      { next }
+    /^@@/           { inhunk = 1; next }
+    /^diff /        { inhunk = 0; next }
+    inhunk && /^\+/ { print substr($0, 2) }
+')
 
 # Check for common secret patterns
-if echo "$STAGED_DIFF" | grep -qE '(ghp_[a-zA-Z0-9]{36}|ghs_[a-zA-Z0-9]{36}|sk-[a-zA-Z0-9]{32,}|xox[baprs]-[a-zA-Z0-9-]+|AKIA[0-9A-Z]{16}|\b[A-Za-z0-9+/]{40}=?\b)' || \
-   echo "$STAGED_DIFF" | grep -qiE '(password|secret|api[_-]?key|token)\s*[:=]\s*["\x27][^"\x27\s]{8,}["\x27]'; then
+if echo "$ADDED_LINES" | grep -qE '(ghp_[a-zA-Z0-9]{36}|ghs_[a-zA-Z0-9]{36}|sk-[a-zA-Z0-9]{32,}|xox[baprs]-[a-zA-Z0-9-]+|(AKIA|ASIA)[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY( BLOCK)?-----)' || \
+   echo "$ADDED_LINES" | grep -qiE '(password|secret|api[_-]?key|token)\s*[:=]\s*["\x27][^"\x27\s]{8,}["\x27]'; then
     echo "COMMIT BLOCKED: Potential secrets detected in staged changes"
     echo ""
     echo "Detected secret-like patterns in staged changes (content redacted for security)."
-    echo "$STAGED_DIFF" | grep -cE '(ghp_[a-zA-Z0-9]{36}|ghs_[a-zA-Z0-9]{36}|sk-[a-zA-Z0-9]{32,}|xox[baprs]-[a-zA-Z0-9-]+|AKIA[0-9A-Z]{16})' || true
-    echo "$STAGED_DIFF" | grep -ciE '(password|secret|api[_-]?key|token)\s*[:=]\s*["\x27][^"\x27\s]{8,}["\x27]' || true
+    echo "$ADDED_LINES" | grep -cE '(ghp_[a-zA-Z0-9]{36}|ghs_[a-zA-Z0-9]{36}|sk-[a-zA-Z0-9]{32,}|xox[baprs]-[a-zA-Z0-9-]+|(AKIA|ASIA)[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY( BLOCK)?-----)' || true
+    echo "$ADDED_LINES" | grep -ciE '(password|secret|api[_-]?key|token)\s*[:=]\s*["\x27][^"\x27\s]{8,}["\x27]' || true
     SECRETS_FOUND=true
 fi
 
