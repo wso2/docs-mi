@@ -385,7 +385,7 @@ See the instructions on [Use Wire Logs]({{base_path}}/develop/using-wire-logs) t
 Access logs related to service/API invocations are enabled by default in the WSO2 Integrator: MI. Access logs for the PassThrough transport will record the request and the response on **two** separate log lines.
 
 !!! note "Access Log V2"
-    Starting from WSO2 Integrator: MI 4.5.0.31 (U2 level 45), you can enable **Access Log V2** mode, which logs each HTTP request-response pair as a **single** access log entry. See [Access Log V2](#access-log-v2) for more information.
+    Starting from WSO2 Integrator: MI 4.5.0.31 (U2 level 31), you can enable **Access Log V2** mode, which logs each HTTP request-response pair as a **single** access log entry. See [Access Log V2](#access-log-v2) for more information.
 
 By default, access logs are printed to the `http_access.log` file (stored in the `<MI_HOME>/repository/logs` folder). If required, you can use the log4j2 configurations to print the access logs to other destinations.
 
@@ -486,7 +486,7 @@ You can customize the format of this access log by changing the following proper
 #### Access Log V2
 
 !!! note "New in WSO2 Integrator: MI 4.5.0.31"
-    Access Log V2 is available from WSO2 Integrator: MI 4.5.0.31 (U2 level 45) onwards.
+    Access Log V2 is available from WSO2 Integrator: MI 4.5.0.31 (U2 level 31) onwards.
 
 By default, the PassThrough transport writes **two** separate log lines per request — one for the inbound request and one for the outbound response. Access Log V2 consolidates these into a **single log entry** per HTTP request-response pair, making logs easier to correlate and parse.
 
