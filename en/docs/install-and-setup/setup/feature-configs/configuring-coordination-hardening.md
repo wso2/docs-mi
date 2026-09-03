@@ -45,9 +45,30 @@ The script only creates tables, writes no data and can be run again safely. Runn
     On MySQL, the coordination database must use the `latin1` character set, the same requirement that applies to the base cluster coordination script.
 
 !!! Warning
-    Do not enable the feature on a node whose coordination database lacks these tables. Such a node refuses to finish starting, which is the intended fail-closed behavior: it opens no transports and logs an `ERROR` that names the `schema-present` condition and a hardened activation step that failed. Apply the script to the database and the node completes its startup on its own within one lease retry, without a restart.
+    Do not enable the feature (Step 3) on a node whose coordination database lacks these tables. Such a node refuses to finish starting, which is the intended fail-closed behavior: it opens no transports and logs an `ERROR` that names the `schema-present` condition and a hardened activation step that failed. Apply the script to the database and the node completes its startup on its own within one lease retry, without a restart.
 
-## Step 2 - Enable the feature on every node
+## Step 2 - Remove leftover task entries
+
+The boot pass of an armed node accepts the cluster only when every entry in `COORDINATED_TASK_TABLE` belongs to a task that some node deploys and that has an open, bound claim row. A coordination database that was in use before the feature was enabled can hold entries for tasks that no node deploys any more, typically because an artifact was removed while the server was stopped, which never triggers the cleanup that removes the entry. Such entries never receive a claim row and keep every node in the `seeding-parity` gate with no coordinated task running, so remove them before the first armed start.
+
+Run the same check the product runs, against the coordination database:
+
+```sql
+SELECT t.TASK_NAME, t.DESTINED_NODE_ID, t.TASK_STATE
+  FROM COORDINATED_TASK_TABLE t
+  LEFT JOIN COORDINATED_TASK_CLAIM c ON t.TASK_NAME = c.TASK_NAME
+ WHERE c.TASK_NAME IS NULL;
+```
+
+Before the first activation the query lists every entry, because no claim rows exist yet. Compare the names against the scheduled triggers and message processors deployed on every node (`repository/deployment/server/carbonapps` and `synapse-configs/default/tasks`). Delete only the entries whose artifact is deployed on no node:
+
+```sql
+DELETE FROM COORDINATED_TASK_TABLE WHERE TASK_NAME IN ('<task name>', '<task name>');
+```
+
+Do not truncate the table: the entries of deployed tasks carry their recorded state. If an entry is missed, the readiness output of every node names it under `seeding-parity` and the same delete applies while the nodes keep running; the boot pass retries on its own and no restart is needed. After activation the query returns no rows on a healthy cluster, and an artifact removed while a node is stopped keeps its claim row, so it no longer blocks the boot pass (see `orphan-task-row` below).
+
+## Step 3 - Enable the feature on every node
 
 Add the following to `<MI_HOME>/conf/deployment.toml` on **every node**:
 
@@ -66,7 +87,7 @@ Restart the nodes **one at a time**, letting the cluster settle before the next.
 !!! Note
     All nodes in the cluster must use the same values for these four settings. A node that stays at `coordination_hardening = false` is reported by its peers under the `unadvertised-member` condition and is excluded from task placement.
 
-## Step 3 - Confirm the feature is active
+## Step 4 - Confirm the feature is active
 
 After the rolling restart, [get a JWT token]({{base_path}}/observe-and-manage/working-with-management-api/#getting-a-jwt-token) and ask every node for its readiness:
 
@@ -156,8 +177,8 @@ Conditions that need one restart of that node, after fixing the named cause:
 
 | Condition | Meaning | What to do |
 |---|---|---|
-| `hardening-disabled` | `coordination_hardening` is not set on this node. | Add the `[task_handling]` block of Step 2 and restart. |
-| `hardening-profile-invalid` | The flag is on but `enable_task_delete_barrier` or `synchronous_injection` is not `true`. | Set the block exactly as in Step 2 and restart. |
+| `hardening-disabled` | `coordination_hardening` is not set on this node. | Add the `[task_handling]` block of Step 3 and restart. |
+| `hardening-profile-invalid` | The flag is on but `enable_task_delete_barrier` or `synchronous_injection` is not `true`. | Set the block exactly as in Step 3 and restart. |
 | `hardening-config-contradiction` | The flag value could not be parsed and the node fell back to the default behavior. | Fix the value and restart. |
 | `schema-present` | The hardening tables are missing. The server does not finish starting. | Run the script of Step 1; the node then completes its startup on its own. |
 | `timing-validation` | The heartbeat settings contradict each other. | Make `heart_beat_interval` and `heart_beat_max_retry` identical on every node and restart. |
@@ -173,7 +194,7 @@ Conditions that clear by themselves. Alert only if one lasts longer than 4 x W:
 | Condition | Meaning | What to do |
 |---|---|---|
 | `non-proven-lease-state` | The node is between lease states: starting, or recovering from a stall or a freeze. | Wait 4 x W. If it stays, look for a `GATE` condition beside it and treat that one. |
-| `seeding-parity` | The startup cross check is retrying. | Wait 4 x W, then contact WSO2 Support with the log. |
+| `seeding-parity` | The boot pass found task entries with no claim row, named in `detail`. On a first activation these are leftovers of tasks deployed on no node (Step 2); every node reports the same names and no coordinated task runs until they are gone. | Delete the named entries if their artifact is deployed nowhere, or deploy the artifact. The boot pass retries on its own within about one W, no restart needed. Contact WSO2 Support if the named tasks are deployed on a live node and the condition stays. |
 | `unadvertised-member` (leader only) | A live member has not armed the feature and is excluded from placement. | Expected during the rolling activation. Otherwise check that node's readiness. |
 | `standby-holds-coordinatorship` | A node not cleared for work holds the leader role for a moment. | Wait. |
 | `deployed-but-rowless` | A deployed task has no database row; the repair runs by itself. | Wait one scheduler cycle. |
@@ -208,6 +229,7 @@ After a freeze, on one node or on all nodes at once, recovery is automatic and n
 ## Behavior notes
 
 - **Startup registration deadlock.** When a node joins while the leader is handing tasks to it, the two database writes can deadlock. The registration is retried up to three times with a short pause, logging one `WARN ... serialization (deadlock) victim on attempt N of 3` per lost attempt, and the node proves itself within a second or two. If all three attempts lose, which has been seen only on SQL Server under a slow database path, the node reports `boot-pass-incomplete` and one restart of that node resolves it. Nothing is duplicated: the other nodes keep every task.
+- **Task entries after activation.** Every entry an armed node creates gets its claim row in the same registration, and an undeploy done with the server running removes the entry through the delete barrier. An artifact removed while a node is stopped leaves an entry that keeps its claim row: the node still starts, and the entry is reported as `orphan-task-row` for cleanup with `task-retire`. The `seeding-parity` gate can only return if a node ran with the feature off against the same database, if the task table was restored or copied without the claim table, or if the claim table was edited by hand.
 - **Rolling restarts.** Placement concentrates on the node that stayed up and does not rebalance by itself. An uneven split is normal.
 - **Standalone servers.** On a server that does not use RDBMS coordination the feature does nothing and the readiness endpoint reports `hardening-disabled`.
 
