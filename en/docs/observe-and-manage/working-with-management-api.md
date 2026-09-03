@@ -1335,6 +1335,149 @@ The management API has multiple resources to provide information regarding the d
 	??? note "Coordination database outage"
 		If the coordination database is unavailable, the database-backed views degrade explicitly with `"coordinationDbAvailable": false` and a message — they never return a false `"healthy": true`. The `?scope=local` view is unaffected and keeps answering in this state.
 
+### GET COORDINATION READINESS
+
+-	**Resource**: `/coordination-readiness`
+
+	**Description**: Reports whether this node is ready to run coordinated tasks under [coordination hardening]({{base_path}}/install-and-setup/setup/feature-configs/configuring-coordination-hardening). The answer is node-local: query every node. `"green": true` with an empty `conditions` list means the node is armed and healthy. Each condition carries its `name`, its `clazz` (`GATE` blocks coordinated work until the cause is removed, `CONTINUOUS` is a state that may clear by itself), a human readable `detail` and the time it was raised. On a node that runs with the feature off, the single condition `hardening-disabled` is reported. The resource always responds with HTTP 200, so parse the body.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/coordination-readiness" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "node": "node",
+	        "green": true,
+	        "conditions": []
+	    }
+	    ```
+    === "Response (not armed)"          
+	    ```bash  
+	    {
+	        "node": "node",
+	        "green": false,
+	        "conditions": [
+	            {
+	                "sinceEpochMillis": 1788430437416,
+	                "name": "hardening-disabled",
+	                "detail": "coordination hardening disabled, stock task handling",
+	                "clazz": "GATE"
+	            }
+	        ]
+	    }
+	    ```
+
+-	**Resource**: `/coordination-readiness?view=liveness`
+
+	**Description**: The liveness probe view. `leaseState` is the node's boot lease state (`PROVEN` when it may schedule), `live` tells whether coordinated scheduling is actually running on this node, `schedulerCycle` reports the age of the last completed scheduler cycle against its grace period, and `terminalLeaseState.terminal` is `true` when the node has stopped coordinated work permanently and needs a restart. A node can be green and still report `"live": false` during a coordination database stall; `live` turns false only after one advertised heartbeat window of grace. Suitable as a Kubernetes liveness probe when combined with the readiness view.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/coordination-readiness?view=liveness" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "node": "node",
+	        "renewalAgeMillis": 3437,
+	        "schedulerCycle": {
+	            "lastCompletedAgeMillis": 1470,
+	            "gracePeriodMillis": 15000,
+	            "schedulerRunning": true,
+	            "graceExpired": false
+	        },
+	        "leaseState": "PROVEN",
+	        "advertisedWindowMillis": 15000,
+	        "live": true,
+	        "terminalLeaseState": {
+	            "gracePeriodMillis": 15000,
+	            "sinceEpochMillis": null,
+	            "terminal": false,
+	            "graceExpired": false
+	        }
+	    }
+	    ```
+
+-	**Resource**: `/coordination-readiness?view=counters`
+
+	**Description**: The refused-fire counters of this node: one entry per task and reason (`LOST_RACE`, `EPOCH_MISMATCH`, `LAPSED` or `EXCEPTION`) with the count, the time of the first refusal and whether the episode is still `open`. Refusals around restarts and failovers are the claim check working; a counter that stays open for one task for longer than 4 x W is worth investigating.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X GET "https://localhost:9164/management/coordination-readiness?view=counters" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "node": "node",
+	        "counters": [
+	            {
+	                "reason": "LOST_RACE",
+	                "count": 1,
+	                "taskName": "SampleScheduledTask",
+	                "firstAtEpochMillis": 1788432023993,
+	                "open": false
+	            }
+	        ]
+	    }
+	    ```
+
+### RECONFIGURE TASK
+
+-	**Resource**: `/task-reconfigure?task={taskName}&expectedIncarnation={n}&expectedFp={fingerprint}`
+
+	**Description**: Applies a changed schedule of a coordinated task to the state recorded under [coordination hardening]({{base_path}}/install-and-setup/setup/feature-configs/configuring-coordination-hardening), for the case where the task's artifact was replaced offline or the task is parked on a `fingerprint-conflict` readiness condition. The caller passes the incarnation and the bound schedule fingerprint it expects, which are the `INCARNATION` and `SCHEDULE_FP` columns of the task's `COORDINATED_TASK_CLAIM` row and are also printed in the `detail` of the parked condition. The handling node computes the new fingerprint from its own deployed artifact; an optional `targetFp` parameter, when supplied, must equal that computed value or the request is refused. This resource requires **admin** credentials and responds with HTTP 503 while the feature is disabled.
+
+	The response `status` is `RECONFIGURED` (a new incarnation was recorded), `ALREADY_APPLIED` (the recorded state already matches) or `REOPENED` (a completed one-shot task was reopened under a new incarnation). A mismatch between the expected and the recorded values, an attempt to change the trigger family, or a retire in progress for the task is refused with HTTP 409 and an `error` code (`state-conflict`, `no-change`, `trigger-family-immutable`, `retire-in-progress`, `guard-orphan`).
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X POST "https://localhost:9164/management/task-reconfigure?task=SampleScheduledTask&expectedIncarnation=1&expectedFp=v1:sha256:3f2a...9c1e" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "task": "SampleScheduledTask",
+	        "status": "RECONFIGURED",
+	        "incarnation": 2,
+	        "oldFp": "v1:sha256:3f2a...9c1e",
+	        "newFp": "v1:sha256:8b71...d402"
+	    }
+	    ```
+
+### RETIRE TASK
+
+-	**Resource**: `/task-retire?task={taskName}&expectedIncarnation={n}&operationId={uuid}`
+
+	**Description**: Starts an operator-initiated delete wave that removes the recorded claim state of a coordinated task, for the case where a task has been undeployed from every node but its row remains (the `orphan-task-row` readiness condition) or where a task has to be retired before it is redeployed under a new name after a `trigger-family-conflict`. `operationId` is a lowercase UUID chosen by the caller and reused on every retry of the same operation: it becomes the durable identity of the wave, so a repeated call reports the progress of the same wave instead of starting another. This resource requires **admin** credentials and responds with HTTP 503 while the feature is disabled.
+
+	The response `status` is `RETIRING` while live nodes are still acknowledging the wave, `RETIRED` once every live node has acknowledged and the row is gone, or `RETIRE_REFUSED` with the `dissenter` node when a live node still has the artifact deployed. A call while some cluster member has not armed the feature is refused with HTTP 409 and the `error` code `unadvertised-members`.
+
+	**Example**:
+
+    === "Request"
+	    ```bash  
+	    curl -X POST "https://localhost:9164/management/task-retire?task=SampleScheduledTask&expectedIncarnation=2&operationId=6d1d8f0e-4b0c-4b1a-9a6e-2f7d1c3e5a90" -H "accept: application/json" -H "Authorization: Bearer TOKEN" -k
+	    ```
+    === "Response"          
+	    ```bash  
+	    {
+	        "task": "SampleScheduledTask",
+	        "status": "RETIRING",
+	        "operationId": "6d1d8f0e-4b0c-4b1a-9a6e-2f7d1c3e5a90"
+	    }
+	    ```
+
 ### GET MESSAGE STORES
 
 -	**Resource**: `/message-stores`

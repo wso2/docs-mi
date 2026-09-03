@@ -171,6 +171,7 @@ nav:
           - Time Stamp Conversion for RDBMS: install-and-setup/setup/feature-configs/configuring-timestamp-conversion-for-rdbms.md
           - Coordinated Task Delete Barrier: install-and-setup/setup/feature-configs/configuring-task-delete-barrier.md
           - Coordinated Task Monitoring: install-and-setup/setup/feature-configs/configuring-task-monitoring.md
+          - Coordination Hardening for At-Most-Once Task Execution: install-and-setup/setup/feature-configs/configuring-coordination-hardening.md
           - RDBMS Coordination Configuration: install-and-setup/setup/feature-configs/configuring-rdbms-coordination.md
       - Deploy:
           - "Deploy the WSO2 Integrator: MI":
