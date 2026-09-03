@@ -1373,7 +1373,14 @@ The management API has multiple resources to provide information regarding the d
 
 -	**Resource**: `/coordination-readiness?view=liveness`
 
-	**Description**: The liveness probe view. `leaseState` is the node's boot lease state (`PROVEN` when it may schedule), `live` tells whether coordinated scheduling is actually running on this node, `schedulerCycle` reports the age of the last completed scheduler cycle against its grace period, and `terminalLeaseState.terminal` is `true` when the node has stopped coordinated work permanently and needs a restart. A node can be green and still report `"live": false` during a coordination database stall; `live` turns false only after one advertised heartbeat window of grace. Suitable as a Kubernetes liveness probe when combined with the readiness view.
+	**Description**: The liveness probe view. `leaseState` is the node's boot lease state (`PROVEN` when it may schedule), `live` tells whether coordinated scheduling is actually running on this node, `schedulerCycle` reports the age of the last completed scheduler cycle against its grace period, and `terminalLeaseState.terminal` is `true` when the node has stopped coordinated work permanently and needs a restart. A node can be green and still report `"live": false` during a coordination database stall; `live` turns false only after one advertised heartbeat window of grace. The resource returns HTTP 200 whatever the outcome, so a native Kubernetes `httpGet` liveness probe cannot use it: use an `exec` probe that parses the body, or treat the view as a monitoring signal. An `exec` probe that restarts the container only when a restart is the documented remedy, that is when `terminalLeaseState.terminal` is `true`, can be as small as:
+
+	```bash
+	TOKEN=$(curl -sk -m 5 -u admin:admin https://localhost:9164/management/login | sed -n 's/.*"AccessToken":"\([^"]*\)".*/\1/p')
+	[ -z "$TOKEN" ] && exit 0
+	curl -sk -m 5 -H "Authorization: Bearer $TOKEN" "https://localhost:9164/management/coordination-readiness?view=liveness" | grep -q '"terminal":true' && exit 1
+	exit 0
+	```
 
 	**Example**:
 
