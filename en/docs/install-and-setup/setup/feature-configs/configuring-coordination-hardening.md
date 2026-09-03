@@ -18,7 +18,7 @@ When coordination hardening is enabled on every node:
 - **Quorum with `task_server_count`.** When the round robin resolver is configured with `task_server_count`, coordinated tasks pause while fewer nodes than that count are live, and resume within seconds of the missing node proving itself. Without `task_server_count` the surviving node takes the tasks over within about one W.
 
 !!! Note "The timing rule"
-    Every window in this page is expressed as `W = heart_beat_interval x heart_beat_max_retry` of the [RDBMS coordination parameters]({{base_path}}/install-and-setup/setup/feature-configs/configuring-rdbms-coordination). With the defaults, W = 5000 ms x 3 = 15 s, the watchdog threshold is 0.75 x W = 11.25 s and the usual alert window is 4 x W = 60 s. If you change the heartbeat settings, recompute W. Keep W longer than the longest JVM pause you expect on the node.
+    Every window in this page is expressed as `W = heart_beat_interval x heart_beat_max_retry` of the [RDBMS coordination parameters]({{base_path}}/install-and-setup/setup/feature-configs/configuring-rdbms-coordination). With the defaults, W = 5000 ms x 3 = 15 s, the watchdog threshold is 0.75 x W = 11.25 s and the usual alert window is 4 x W = 60 s. If you change the heartbeat settings, recompute W. Size W so that 0.75 x W is longer than the longest JVM pause you expect on the node. A pause between 0.75 x W and W lapses the lease, which recovers by itself once the JVM resumes, and a pause longer than W also makes the cluster evict the node, exactly as it does without the feature.
 
 ## Before you begin
 
@@ -54,19 +54,19 @@ The boot pass of an armed node accepts the cluster only when every entry in `COO
 Run the same check the product runs, against the coordination database:
 
 ```sql
-SELECT t.TASK_NAME, t.DESTINED_NODE_ID, t.TASK_STATE
+SELECT t.TASK_NAME, t.DESTINED_NODE_ID, t.TASK_STATE, c.STATUS, c.SCHEDULE_FP
   FROM COORDINATED_TASK_TABLE t
   LEFT JOIN COORDINATED_TASK_CLAIM c ON t.TASK_NAME = c.TASK_NAME
- WHERE c.TASK_NAME IS NULL;
+ WHERE c.TASK_NAME IS NULL OR c.STATUS <> 'OPEN' OR c.SCHEDULE_FP IS NULL OR c.TRIGGER_FAMILY IS NULL;
 ```
 
-Before the first activation the query lists every entry, because no claim rows exist yet. Compare the names against the scheduled triggers and message processors deployed on every node (`repository/deployment/server/carbonapps` and `synapse-configs/default/tasks`). Delete only the entries whose artifact is deployed on no node:
+This is the exact check the boot pass runs. An entry is listed when it has no claim row, when its claim is not `OPEN`, or when the claim is not yet bound to a schedule fingerprint and trigger family. Before the first activation the query lists every entry, because no claim rows exist yet. Compare the names against the scheduled triggers and message processors deployed on every node (`repository/deployment/server/carbonapps` and `synapse-configs/default/tasks`). Delete only the entries whose artifact is deployed on no node:
 
 ```sql
 DELETE FROM COORDINATED_TASK_TABLE WHERE TASK_NAME IN ('<task name>', '<task name>');
 ```
 
-Do not truncate the table: the entries of deployed tasks carry their recorded state. If an entry is missed, the readiness output of every node names it under `seeding-parity` and the same delete applies while the nodes keep running; the boot pass retries on its own and no restart is needed. After activation the query returns no rows on a healthy cluster, and an artifact removed while a node is stopped keeps its claim row, so it no longer blocks the boot pass (see `orphan-task-row` below).
+Do not truncate the table: the entries of deployed tasks carry their recorded state. If an entry is missed, the readiness output of every node names it under `seeding-parity` and the same delete applies while the nodes keep running; the boot pass retries on its own and no restart is needed. After activation the query returns no rows on a healthy cluster. An entry listed with a claim that is not `OPEN` is resolved through the operator endpoints, a reopen with `task-reconfigure` or a `task-retire`, never by SQL. An artifact removed while a node is stopped keeps its claim row, so it no longer blocks the boot pass (see `orphan-task-row` below).
 
 ## Step 3 - Enable the feature on every node
 
@@ -136,7 +136,7 @@ SELECT COUNT(*) FROM TASK_DUPLICATION_EVENT WHERE CLEARED_AT IS NULL;
 SELECT COUNT(*) FROM COORDINATED_TASK_TABLE WHERE DESTINED_NODE_ID IS NULL OR DESTINED_NODE_ID = '';
 ```
 
-The first two must be 0 (the second beyond 2 x W), the third must be 0 while all nodes are live.
+The first count must be 0. The second counts every open episode, including the transient ones that clear by themselves, so alert on it only when it stays above 0 for longer than 2 x W and apply that age rule in the monitoring system. The third must be 0 while all nodes are live.
 
 ### Log lines to alert on
 
@@ -173,7 +173,7 @@ Match on the quoted substrings in `wso2carbon.log` on every node. The wording is
 
 The `clazz` of a condition tells you its shape. `GATE` means the node refuses coordinated work until the cause is removed. `CONTINUOUS` means the node is reporting a state that may clear by itself. Whatever the condition, first check that the other nodes are green and `task-status` shows every task running somewhere: if so, the tasks are safe and you have time. The `detail` text names the task, the setting or the peer involved.
 
-Conditions that need one restart of that node, after fixing the named cause:
+Conditions that need an operator action on that node. Each row says whether a restart follows, and where it does, restart only after fixing the named cause:
 
 | Condition | Meaning | What to do |
 |---|---|---|
@@ -184,7 +184,7 @@ Conditions that need one restart of that node, after fixing the named cause:
 | `timing-validation` | The heartbeat settings contradict each other. | Make `heart_beat_interval` and `heart_beat_max_retry` identical on every node and restart. |
 | `config-fence-correctness-convergence` | This node's coordination settings differ from a live peer; `detail` lists the keys. | Align the settings with the peer and restart this node. |
 | `boot-pass-incomplete` | At startup one or more tasks, named in `detail`, failed to register. The node refuses to fire coordinated tasks rather than run a partial set. Other nodes keep running every task. | If the named task's artifact is broken, fix it. If the log shows three `serialization (deadlock) victim` lines for the task before the failure, nothing is broken: restart this node once. |
-| `fingerprint-conflict` | A redeployed task's schedule differs from the recorded one. | Deploy the same artifact version on every node, then restart this node to clear the flag. |
+| `fingerprint-conflict` | A redeployed task's schedule differs from the recorded one, typically after an artifact was replaced while the node was stopped. The task is parked on this node until resolved. | If the change was unintentional, deploy the same artifact version on every node and restart this node to clear the flag. If the schedule change is intended, either redeploy the artifact with the server running, undeploy then deploy, so the delete barrier retires the old record and the new definition registers cleanly, or call `POST /management/task-reconfigure` with the expected incarnation and the recorded fingerprint printed in `detail`. |
 | `trigger-family-conflict` | A task changed its trigger type, from cron to interval or back, which is not allowed. | Undeploy the task everywhere, retire it with `POST /management/task-retire`, and redeploy it under a new name. |
 | `orphan-task-row` | A live task sits over a retired or closed claim record. | Use `task-reconfigure` or `task-retire` as described in the Management API reference, then restart. |
 | `fingerprint-bind-completeness`, `guard-orphan`, `durable-finalizing-wave`, `anti-join-invariant`, `config-fence-byte-length` | Internal consistency problems, usually from out of band database edits. | Do not edit the database. Collect the logs and the readiness output and contact WSO2 Support. |
