@@ -301,7 +301,7 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         </tr>
         <tr>
             <td>maxWaitTime</td>
-            <td>Maximum number of idle connections in the pool.</td>
+            <td>Maximum time, in milliseconds, to wait for a connection from the pool to become available.</td>
             <td>Optional</td>
         </tr>
         <tr>
@@ -321,13 +321,11 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
         </tr>
     </table>
 
-    > **Performance Tuning Tip**: For better throughput, configure the parameter as follows in the configuration:
+    > **Performance Tuning Tip**: Connection pooling is disabled by default (`poolingEnabled` is `false`), and this is the recommended setting for most producer scenarios. When pooling is disabled, the connector creates a single Kafka producer per named connection and shares it across all requests. The Kafka producer is thread-safe and is designed to be shared, so one shared producer is generally faster than several pooled ones.
     >
-    > ```
-    > <maxPoolSize>20</maxPoolSize>
-    > ```
+    > To improve producer throughput, tune the Kafka producer parameters on the connection, such as `acks`, `batchSize`, `lingerTime`, `compressionType`, and `bufferMemory`, instead of the connection pool parameters.
     >
-    > If you do not specify the maxPoolSizeparameter in the configuration, a Kafka connection is created for each message request.
+    > **Migrating from Kafka connector 2.x**: The `maxPoolSize` parameter was removed in Kafka connector 3.x and later versions and replaced by `poolingEnabled` together with the pool parameters listed above. `maxActiveConnections` is the equivalent of the former `maxPoolSize`. If `maxPoolSize` is included in a `<kafkaTransport.init>` configuration, it is ignored.
 
     **Sample configuration**
 

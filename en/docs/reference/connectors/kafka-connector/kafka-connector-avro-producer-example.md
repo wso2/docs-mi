@@ -116,7 +116,6 @@ Sample Connection configuration when the Confluent Schema Registry is secured wi
             <schemaRegistryUrl>http://localhost:8081</schemaRegistryUrl>
             <basicAuthCredentialsSource>USER_INFO</basicAuthCredentialsSource>
             <basicAuthUserInfo>admin:admi</basicAuthUserInfo>
-            <maxPoolSize>100</maxPoolSize>
             <poolingEnabled>false</poolingEnabled>
         </kafkaTransport.init>
     </localEntry>
