@@ -20,7 +20,7 @@ An `inSequence` or `endpoint` or both of these would decide how the message woul
             <respond/>
         </inSequence>
     </target>
-    <publishWSDL uri="file:/path/to/sample_proxy_1.wsdl"/>
+    <publishWSDL uri="file:/path/to/sample_proxy_3.wsdl"/>
 </proxy>
 ```
 
@@ -32,8 +32,8 @@ Create the artifacts:
 3. [Create the proxy service]({{base_path}}/develop/creating-artifacts/creating-a-proxy-service) with the configurations given above.
 
     !!! Tip
-        Download the wsdl file (`sample_proxy_1.wsdl`) from [sample_proxy_1.wsdl](https://github.com/wso2-docs/WSO2_EI/blob/master/samples-protocol-switching/sample_proxy_1.wsdl).
-        The wsdl uri in the proxy service needs to be updated with the path to this `sample_proxy_1.wsdl` file.
+        Download the WSDL file [sample_proxy_3.wsdl]({{base_path}}/assets/attachments/wsdl/sample_proxy_3.wsdl).
+        The WSDL URI in the proxy service needs to be updated with the path to this `sample_proxy_3.wsdl` file.
 
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
