@@ -3472,6 +3472,26 @@ The following operations allow you to work with the File Connector. Click an ope
         </tr>
         <tr>
             <td>
+                Include File Names
+            </td>
+            <td>
+                includeFileNames
+            </td>
+            <td>
+                Boolean
+            </td>
+            <td>
+                 If set to true, the names of the extracted files are returned in the response under <code>zipFileContent</code>. Available from File Connector <b>v6.0.6</b> and above.
+            </td>
+            <td>
+                false
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Time Between Size Check
             </td>
             <td>
@@ -3518,9 +3538,25 @@ The following operations allow you to work with the File Connector. Click an ope
 
     **Response** 
 
+    By default (when `includeFileNames` is not set or is `false`):
+
     ```json
     {
         "success": true
+    }
+    ```
+
+    When `includeFileNames` is set to `true`:
+
+    ```json
+    {
+        "success": true,
+        "zipFileContent": [
+            "test1.txt",
+            "test2.txt",
+            "docs/a1.txt",
+            "docs/archive/c1.txt"
+        ]
     }
     ```
 
@@ -4420,6 +4456,26 @@ The following operations allow you to work with the File Connector. Click an ope
                 Yes
             </td>
         </tr>
+        <tr>
+            <td>
+                File Name Encoding
+            </td>
+            <td>
+                fileNameEncoding
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                 The character encoding to interpret the file names inside the ZIP archive. Available from File Connector <b>v6.0.6</b> and above.
+            </td>
+            <td>
+                UTF-8
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
     
     **Sample configuration**
@@ -4444,18 +4500,14 @@ The following operations allow you to work with the File Connector. Click an ope
 
     ```json
     {
-           "success": true,
-           "zipFileContent": [
-               "test1.txt",
-               "test2.txt",
-               "hasitha/a1.txt",
-               "hasitha/a2.txt",
-               "hasitha/b/b2.txt",
-               "hasitha/b/b1.txt",
-               "hasitha/b/c/test1.txt",
-               "hasitha/b/c/c1.txt"
-           ]
-       }
+        "success": true,
+        "zipFileContent": [
+            "test1.txt",
+            "test2.txt",
+            "docs/a1.txt",
+            "docs/archive/c1.txt"
+        ]
+    }
     ```
 
     **On Error** 
