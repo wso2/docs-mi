@@ -355,6 +355,10 @@ All resources inherit this binding unless overridden at the [resource level](#re
 
     <a href="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/binds-to-inbound-endpoint-api-level.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-artifacts/create-rest-api/binds-to-inbound-endpoint-api-level.png" alt="Binds to an Inbound Endpoint: API Level" width="80%"></a>
 
+!!! Note
+    You can define multiple Inbound Endpoints for a single API to bind it to more than one Inbound Endpoint.
+
+
 7. Click **Save Changes**.
 
 ### Resource-level binds-to
