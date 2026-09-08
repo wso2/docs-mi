@@ -257,9 +257,9 @@ See [deployment synchronization]({{base_path}}/install-and-setup/setup/deploymen
 ## Registry synchronization (sharing)
 
 !!! Note
-    Registry sharing is only required if you have Message Processors or inbound endpoints in your deployment.
+    Registry sharing is required if you dynamically change the state of a Message Processor, Inbound Endpoint, or Scheduled trigger (Task) using the Management API or Integration Control Plane, or if any other artifact state or data needs to be consistent across all nodes in the cluster.
 
-The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor/inbound endpoint artifact. This ensures that the same state is maintained for Message Processor/inbound endpoint in all the WSO2 Integrator: MI nodes of the cluster.
+The shared registry maintains the state (<b>active</b>/<b>inactive</b>) of the Message Processor, Inbound Endpoint, or Scheduled trigger (Task) artifacts. This ensures that the same state is maintained across all WSO2 Integrator: MI nodes of the cluster.
 
 1.  Follow the instructions on [configuring the file-based registry]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) for a two-node deployment of the WSO2 Integrator: MI.
 2.  The `<MI_HOME>/registry` folder of each node in the cluster should be shared with each other. You can follow the same instructions as for [deployment synchronization]({{base_path}}/install-and-setup/setup/deployment/deployment-synchronization).
