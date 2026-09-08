@@ -347,7 +347,7 @@ All resources inherit this binding unless overridden at the [resource level](#re
 
 3. On the **Service Designer**, click the **Edit** icon to edit the API.
 
-4. In the **Edit API** pane, navigate to the **Binds to** section.
+4. In the **Edit API** page, navigate to the **Binds to** section.
 
 5. Click **+ Add Inbound Endpoint**.
 
