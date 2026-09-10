@@ -67,7 +67,7 @@ The WSO2 Integrator: MI runtime is tested with the following operating systems:
 | Operating System         | Versions |
 |--------------------------|----------|
 | Windows                  | 2025     |
-| Ubuntu                   | 24.04    |
+| Ubuntu                   | 26.04    |
 | Red Hat Enterprise Linux | 9.7, 10  |
 | Rocky Linux              | 10       |
 | MacOS                    | 26.3     |
