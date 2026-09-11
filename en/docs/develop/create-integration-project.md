@@ -2,6 +2,8 @@
 
 An integration project in WSO2 Integrator: MI is a structured collection of artifacts designed to facilitate seamless communication and data exchange between diverse systems, applications, and services.
 
+## Creating a Project
+
 Follow the below steps to create an integration project using the WSO2 Integrator: MI for VS Code extension (MI for VS Code).
 
 1. Launch Visual Studio Code with the MI for VS Code extension installed.
@@ -13,41 +15,25 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 
     <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
 
-    This will open the **Design View**.
+    This opens the **WSO2 Integrator: Integrations** panel.
 
-3. Next, create a new integration project. You have three options to create a new project:
+3. Click **Get Started** to open the **Welcome** page.
 
-    - **Option 1:** Using the Design View:
+    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/get-started.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-get-started.png" alt="Get Started" width="80%"></a>
 
-        Click **Create New Project** on **Design View**.
-    
-        <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-design-view.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-design-view.png" alt="Create project using design view" width="80%"></a>
-    
-    - **Option 2:** Using the WSO2 Integrator: MI Project Explorer: 
+4. Click **Create** under **Create New Project**.
 
-        Click **Create New Project** on the **WSO2 Integrator: MI Project Explorer** pane.
-        
-        <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-mi-project-explorer.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-mi-project-explorer.png" alt="Create project using MI project explorer" width="80%"></a>
+    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/welcome-to-mi-create-new-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project.png" alt="Welcome to MI page" width="80%"></a>
 
-    - **Option 3:** Using the Command Palette: 
+5. In the **Project Creation Form**, enter a suitable name for the integration project under **Project Name**.
 
-        1. Open the VS Code Command Palette by selecting **View** > **Command Palette** from the menu, or by using the shortcut `Command`+`Shift`+`P` on macOS or `Ctrl`+`Shift`+`P` on Windows.
+6. Ensure the relevant product version is selected as the **WSO2 Integrator: MI runtime version**.
 
-        2. Select **MI: Create New Project**.
-
-            <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-command-palette.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-using-command-palette.png" alt="Create project using command palette" width="80%"></a>
-
-      Next, the **Project Creation Form** will be opened.
-
-4. In the **Project Creation Form**, enter a suitable name for the integration project under **Project Name**.
-
-5. Ensure `4.7.0` is selected as the **WSO2 Integrator: MI runtime version**.
-
-6. Provide a location for the integration project under **Project Directory**.
+7. Provide a location for the integration project under **Project Directory**.
 
     <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/new-project-details.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/new-project-details.png" alt="New Project Details" width="70%"></a>
 
-7. Click **Create**.
+8. Click **Create**.
 
     Once you click **Create**, the **Add Artifact** pane will be opened.
 
@@ -82,3 +68,47 @@ Follow the below steps to create an integration project using the WSO2 Integrato
 Now you can start creating your integration by developing artifacts. See the [Integration Artifacts Overview]({{base_path}}/develop/creating-artifacts/creating-artifacts-overview) documentation to learn about the integration artifacts.
 
 Additionally, you can enhance your experience by incorporating AI-powered assistance with [WSO2 Integrator Copilot]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview).
+
+## Creating Multiple Projects in a Workspace
+
+You are not limited to a single integration project per VS Code window. You can create additional integration projects alongside an already open project, so that you can view and work with them together in the **WSO2 Integrator: MI Project Explorer**.
+
+To create another project in your current workspace:
+
+1. Click the **+** icon at the top of the **WSO2 Integrator: MI Project Explorer** pane.
+
+    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-new-project-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-new-project-icon.png" alt="Create New Project icon" width="80%"></a>
+
+    This will open the same **Welcome** page shown in step 4 of [Creating a Project](#creating-a-project) above.
+
+2. Follow steps 4 to 8 under [Creating a Project](#creating-a-project) to complete the **Project Creation Form** for the new project.
+
+Once created, the new project will be added alongside the existing one, and both will be listed together in the **WSO2 Integrator: MI Project Explorer**, allowing you to manage multiple integration projects side by side.
+
+!!! info
+    If you want to bundle several related integration modules together under a single project instead of maintaining them as separate projects in a workspace, consider creating a [consolidated project](#creating-a-consolidated-project) instead. You can also convert an existing workspace into a consolidated project directly, without recreating your projects.
+
+## Creating a Consolidated Project
+
+A **consolidated project** bundles multiple integration modules into a single multi-module integration project, instead of creating each module as a separate, independent project. This is useful when you have several related integration modules that you want to organize, build, and version together under one parent project, rather than managing them as individual projects added to a workspace.
+
+To create a consolidated project, follow the same steps as [creating a  project](#creating-a-project) above, and on the **Project Creation Form**:
+
+1. Expand **Advanced Options**, and then expand **Project Configurations**.
+2. Select the **Consolidated Project** checkbox.
+3. Click on **Add Module** to add a module to the consolidated project and provide a name for it. Repeat this step for each module you want to include.
+4. Click **Create Project**.
+
+<a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-consolidated-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-consolidated-project.png" alt="Create a consolidated project" width="80%"></a>
+
+!!! note "Converting a workspace to a consolidated project"
+    If you already have multiple integration projects added to the same VS Code workspace, you do not need to recreate them to get a consolidated project. You can merge the existing projects in the workspace into a single consolidated project instead:
+
+    1. Open the **Workspace Overview** page. It lists all the projects currently added to the workspace, under **Projects**.
+    2. Expand the **Advanced** section at the bottom of the page.
+    3. Click **Convert to Consolidated** next to **Convert to Consolidated Project**.
+
+        <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/convert-to-consolidated.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/convert-to-consolidated.png" alt="Convert a workspace to a consolidated project" width="90%"></a>
+
+    This will merge all the projects listed in the workspace into a consolidated project, with each existing project becoming a module of it, so that they share build and deployment options.
+
