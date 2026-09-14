@@ -23,7 +23,7 @@ WSO2 Integration Studio provides a comprehensive development experience for buil
 
 Follow the steps given below.
 
-1.  Go to the [API Manager Tooling web page](https://wso2.com/api-management/tooling/), and download WSO2 Integration Studio.
+1.  Go to the [WSO2 Integration Studio page](https://wso2.com/micro-integrator/integration-studio/), and download WSO2 Integration Studio.
 
     !!! Note
         * If you are a MacOS user, be sure to add it to the **Applications** directory.
