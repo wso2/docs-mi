@@ -2,6 +2,8 @@
 
 If you have an already created Integration project, you can open it using the Visual Studio Code. 
 
+## Opening a Project
+
 Follow the steps below to open your existing integration project:
 
 1. Launch Visual Studio Code with the WSO2 Integrator: MI extension installed.
@@ -9,15 +11,21 @@ Follow the steps below to open your existing integration project:
     !!! info
         Follow the [Install WSO2 Integrator: MI for VS Code]({{base_path}}/develop/mi-for-vscode/install-wso2-mi-for-vscode) documentation for a complete installation guide.
 
-2. Navigate to **WSO2 Integrator: MI Project Explorer**.
+2. Click on the WSO2 Integrator: MI icon on the **Activity Bar** of the VS Code editor.
 
-3. Select **Open MI Project**.  
+    <a href="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/mi-for-vscode/mi-vscode-extension.png" alt="Mi VS Code Extension" width="80%"></a>
 
-4. Select the folder containing your integration project.
+    This opens the **WSO2 Integrator: Integrations** panel.
 
-5. Click **Open MI Project**.
+3. Click **Get Started** to open the **Welcome** page.
 
-    <a href="{{base_path}}/assets/img/develop/open-project/open-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/open-project/open-project.png" alt="Open MI Project"></a>
+    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/get-started.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-project-get-started.png" alt="Get Started" width="80%"></a>
+
+4. Click **Open** under **Open Project**.
+
+    <a href="{{base_path}}/assets/img/develop/open-project/open-project.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/open-project/open-project.png" alt="Open Project" width="80%"></a>
+
+5. Select the folder containing your integration project.
 
     !!! Note
 
@@ -54,3 +62,25 @@ Follow the steps below to open your existing integration project:
         <a href="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/importing-projects/migrate-workspace.png" alt="Migrate workspace"></a>         
 
 You will see that the integration artifacts are imported into **WSO2 Integrator: MI Project Explorer**, and the project files are imported into **Explorer**.
+
+!!! info
+    If the folder you open is a [consolidated project]({{base_path}}/develop/create-integration-project/#creating-a-consolidated-project), all of its modules are opened together, and each module is listed in the **WSO2 Integrator: MI Project Explorer**.
+
+## Opening Multiple Projects in a Workspace
+
+You are not limited to opening a single integration project at a time. You can open additional existing integration projects alongside an already open project, so that you can view and work with them together in the **WSO2 Integrator: MI Project Explorer**.
+
+To open another project in your current workspace:
+
+1. Click the **+** icon at the top of the **WSO2 Integrator: MI Project Explorer** pane.
+
+    <a href="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-new-project-icon.png" class="glightbox"><img src="{{base_path}}/assets/img/develop/create-projects/create-integration-project/create-new-project-icon.png" alt="Create New Project icon" width="80%"></a>
+
+    This opens the same **Welcome** page shown in step 3 of [Opening a Project](#opening-a-project) above.
+
+2. Follow steps 4 to 5 under [Opening a Project](#opening-a-project) to open the new project.
+
+Once opened, the project will be added alongside the existing one, and both will be listed together in the **WSO2 Integrator: MI Project Explorer**.
+
+!!! tip
+     You can create a [consolidated project]({{base_path}}/develop/create-integration-project/#creating-a-consolidated-project) if you want to manage several related integration projects together as a single project.
