@@ -103,14 +103,14 @@ In order to use the Microsoft Azure Storage connector, you need to download the 
  - [azure-core-1.41.0.jar](https://mvnrepository.com/artifact/com.azure/azure-core/1.41.0)
  - [msal4j-1.13.8.jar](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j/1.13.8)
  - [content-type-2.2.jar](https://mvnrepository.com/artifact/com.nimbusds/content-type/2.2)
- - [netty-resolver-dns-4.1.95.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-resolver-dns/4.1.95.Final)
+ - [netty-resolver-dns-4.1.136.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-resolver-dns/4.1.136.Final)
  - [reactive-streams-1.0.4.jar](https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams/1.0.4)
- - [reactor-netty-http-1.1.9.jar](https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty-http/1.1.9)
+ - [reactor-netty-http-1.2.18.jar](https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty-http/1.2.18)
  - [jackson-dataformat-xml-2.13.5.jar](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.13.5)
  - [oauth2-oidc-sdk-10.7.1.jar](https://mvnrepository.com/artifact/com.nimbusds/oauth2-oidc-sdk)
  - [reactor-core-3.4.30.jar](https://mvnrepository.com/artifact/io.projectreactor/reactor-core/3.4.30)
  - [stax2-api-4.2.1.jar](https://mvnrepository.com/artifact/org.codehaus.woodstox/stax2-api/4.2.1)
- - [reactor-netty-core-1.1.9.jar](https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty-core/1.1.9)
+ - [reactor-netty-core-1.2.18.jar](https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty-core/1.2.18)
  - [woodstox-core-6.4.0.jar](https://mvnrepository.com/artifact/com.fasterxml.woodstox/woodstox-core/6.4.0)
 
 !!! Note
