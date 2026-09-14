@@ -73,7 +73,7 @@ The following properties are required when [creating a JDBC Message Store]({{bas
 The syntax of the JDBC message store can be different depending on whether you connect to the database using a connection pool, or using a datasource. Given below are the connection pool properties:
 
 !!! Tip
-    You can specify JDBC driver- or database vendor-specific settings in the `store.jdbc.connection.url` (often as URL parameters such as query parameters). This can include network-related settings, such as connection and socket timeouts, which may need to be fine-tuned based on your environment. For supported parameters and recommended values, see the documentation for your JDBC driver or database vendor.
+    You can specify JDBC driver- or database vendor-specific settings as query parameters in the `store.jdbc.connection.url`. This includes network-related settings, such as connection and socket timeouts, which may need to be fine-tuned based on your environment. For the supported parameters and recommended values, see the documentation for your JDBC driver or database vendor.
 
 <table>
   <tr>
