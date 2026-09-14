@@ -124,3 +124,52 @@ The following properties are used for detecting and removing the connections tha
 !!! Info
     -   When it comes to web applications, users are free to experiment and package their own pooling framework such BoneCP.
     -   If you are using an Oracle database, you may sometimes come across an error (ORA-04031) indicating that you have not allocated enough memory for the shared pool of connections. To overcome this, you can allocate more memory to the shared pool by adjusting the following parameters in the <ORACLE_HOME>/dbs/init<SID>.ora file of your Oracle database: SHARED_POOL_RESERVED_SIZE, SHARED_POOL_SIZE and LARGE_POOL_SIZE.
+
+## Configuring JDBC connection-establishment timeouts
+
+The pool properties above bound how long a request waits for a connection from the pool, but not the time taken to establish the initial connection to the database. If the target database is unreachable at the network level, the server can hang while connecting to it, without logging an error.
+
+!!! Warning
+    The parameters below are JDBC driver/database vendor-specific settings, not Micro Integrator `pool_options.*` properties. Set them via the datasource `url`, or via `pool_options.connectionProperties`, which is forwarded as-is to the JDBC driver.
+
+### Oracle
+
+```toml
+[[datasource]]
+id = "sample_datasource"
+url = "jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=10)(RETRY_COUNT=0)(ADDRESS_LIST=(ADDRESS=(HOST=<host>)(PORT=<port>)(PROTOCOL=TCP)))(CONNECT_DATA=(SERVICE_NAME=<service>)))"
+```
+
+To also bound query execution once connected, add `oracle.jdbc.ReadTimeout` (milliseconds):
+
+```toml
+pool_options.connectionProperties = "oracle.jdbc.ReadTimeout=10000"
+```
+
+### Microsoft SQL Server
+
+```toml
+[[datasource]]
+id = "sample_datasource"
+url = "jdbc:sqlserver://<host>:1433;databaseName=<db>;loginTimeout=10;socketTimeout=10000"
+```
+
+Or via `connectionProperties`:
+
+```toml
+pool_options.connectionProperties = "loginTimeout=10;socketTimeout=10000"
+```
+
+### MySQL
+
+```toml
+[[datasource]]
+id = "sample_datasource"
+url = "jdbc:mysql://<host>:3306/<db>?connectTimeout=10000&socketTimeout=10000"
+```
+
+Or via `connectionProperties`:
+
+```toml
+pool_options.connectionProperties = "connectTimeout=10000;socketTimeout=10000"
+```
