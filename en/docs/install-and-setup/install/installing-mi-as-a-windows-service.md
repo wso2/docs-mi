@@ -20,7 +20,7 @@ Follow the instructions given below to run the WSO2 Integrator: MI as a Windows 
 YASJW uses the configurations defined in the `<YAJSW_HOME>/conf/wrapper.conf` file to wrap Java applications. Replace the contents of this file with the configurations that are relevant to the WSO2 Integrator: MI instance that you want to run as a service. Use the **wrapper.conf** file available in `<MI_HOME>/bin/yajsw` folder to get the relevant configurations.
 
 !!! success "Verified"
-    WSO2 Integrator: MI 4.7.0 has been tested with YAJSW current latest version 13.18, which is compatible with JDK 21 and JDK 25.
+    WSO2 Integrator: MI 4.7.0 has been tested with [YAJSW](https://sourceforge.net/projects/yajsw/files/yajsw/) current latest version 13.18, which is compatible with JDK 21 and JDK 25.
 
 !!! tip
     You may encounter the following issue when starting Windows Services when the file "java" or a "dll" used by Java cannot be found by YAJSW. 
