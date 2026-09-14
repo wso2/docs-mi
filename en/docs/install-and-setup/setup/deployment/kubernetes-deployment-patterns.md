@@ -63,7 +63,7 @@ You can still deploy these stateful artifacts in multiple replicas as long as co
 
 !!! Tip
     - See [Coordination configurations]({{base_path}}/install-and-setup/setup/deployment/configuring-helm-charts/#coordination-configurations) for instructions on configuring coordination across multiple WSO2 Integrator: MI instances using the Helm charts.
-    - If you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API or Integration Control Plane, you must share the registry across WSO2 Integrator: MI instances to persist the state when new nodes join the cluster. Refer to the [Registry synchronization](#registry-synchronization) for Kubernetes-specific instructions. Registry synchronization is an optional setup and is not required for basic coordination.
+    - If you dynamically change the state of a Message Processor, Inbound Endpoint, or Scheduled trigger (Task) using the Management API or Integration Control Plane, you must share the registry across WSO2 Integrator: MI instances to persist the state when new nodes join the cluster. Refer to the [Registry synchronization](#registry-synchronization) for Kubernetes-specific instructions. Registry synchronization is an optional setup and is not required for basic coordination. See [Registry synchronization]({{base_path}}/install-and-setup/setup/deployment/deploying-wso2-mi/#registry-synchronization-sharing) for more information.
 
 <img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s_coordination.png">
 
@@ -80,7 +80,7 @@ If the MI instance currently executing a particular artifact becomes unavailable
 
 ### Registry synchronization
 
-Registry sharing is required if your deployment includes Message Processors, Inbound Endpoints, or any other artifact state or data that needs to be consistent across all nodes in the cluster. 
+Registry sharing is required if you dynamically change the state of a Message Processor, Inbound Endpoint, or Scheduled trigger (Task) using the Management API or Integration Control Plane, or if any other artifact state or data needs to be consistent across all nodes in the cluster.
 
 In a Kubernetes deployment, since pods are ephemeral and do not share a local file system by default, the `<MI_HOME>/registry` directory must be backed by a shared, persistent volume that is accessible by all replicas simultaneously.
 
