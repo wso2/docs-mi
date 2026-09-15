@@ -10,7 +10,7 @@ The feature is **disabled by default**. It is available in WSO2 Integrator: MI 4
 
 When coordination hardening is enabled on every node:
 
-- **Claim before fire.** Each scheduled occurrence of a coordinated task is claimed once, cluster wide, in the `COORDINATED_TASK_CLAIM` table before the task runs. A second node that reaches the same occurrence is refused and logs `Coordinated fire vetoed` with a reason (`LOST_RACE`, `EPOCH_MISMATCH` or `LAPSED`). A refused fire is the protection working, not a failure.
+- **Claim before fire.** Each scheduled occurrence of a coordinated task is claimed once, cluster-wide, in the `COORDINATED_TASK_CLAIM` table before the task runs. A second node that reaches the same occurrence is refused and logs `Coordinated fire vetoed` with a reason (`LOST_RACE`, `EPOCH_MISMATCH` or `LAPSED`). A refused fire is the protection working, not a failure.
 - **Boot lease.** A node advertises itself in the `NODE_ADVERTISEMENT` table when it starts and only begins coordinated scheduling once its lease is `PROVEN`. Until then it holds its tasks instead of running them alongside another node.
 - **Pause Watchdog.** If the JVM freezes for longer than 0.75 x W (see the timing rule below), the node treats its lease as lapsed and stops firing. When the JVM resumes, the node re-proves its lease, its running tasks are handed back to the scheduler and they resume without a restart.
 - **Synchronous injection.** Message injector tasks complete their sequence mediation on the Quartz worker thread that fired the task, instead of handing the message to the mediation thread pool, so a claim covers the whole execution of the task and not only its start.
@@ -116,17 +116,17 @@ INFO {MessageInjector} - Global synchronous injection is enabled. Message-inject
 
 ## Monitor the cluster
 
-Two rules apply to every endpoint below: they return HTTP 200 even when the node is degraded, so parse the body and never the status code, and there is no cluster wide endpoint, so poll **every node** and combine the answers in your monitoring system. Replace `9164` with each node's management port (9164 plus the node's port offset).
+Two rules apply to every endpoint below. They return HTTP 200 even when the node is degraded, so parse the body and never the status code. And scope is not the same for all of them, so read the **Scope** column before you wire up monitoring. A **node** endpoint answers only for the node you asked, so poll every node and combine the answers. A **cluster** endpoint reads the shared coordination database, so any one node answers for the whole cluster. The one exception inside `task-status` is `?scope=local`, which deliberately bypasses the database and reports only that node's in-memory set, so it is a node endpoint and is the view to use when the coordination database is unreachable. Replace `9164` with each node's management port (9164 plus the node's port offset).
 
 ### The endpoints to poll
 
-| Endpoint | What to check | Alert when |
-|---|---|---|
-| `GET /management/coordination-readiness` | `green` and `conditions[].name` | `green` is `false` on any node for longer than 4 x W. A short red right after a start or a failover is normal. |
-| `GET /management/coordination-readiness?view=liveness` | `leaseState` (want `PROVEN`), `live` (want `true`), `schedulerCycle.graceExpired` (want `false`), `terminalLeaseState.terminal` (want `false`) | `terminal` is `true` (page now), or `live` is `false` for longer than 4 x W. A node can be green and still not live during a database stall; this view shows it. |
-| `GET /management/task-status` | every coordinated task listed under some node | a task missing from every node for longer than 4 x W while all nodes are live. An uneven split after a rolling restart is normal; placement does not rebalance by itself. |
-| `GET /management/task-status?view=duplicates` and `?view=history` | `healthy` and the `severity` of past episodes | any episode with severity `SUSTAINED`, or an open episode older than 2 x W. `TRANSIENT` episodes of a few seconds around restarts and failovers are normal and clear by themselves. |
-| `GET /management/coordination-readiness?view=counters` | refused fires per task and reason | a counter that stays `open` for one task for longer than 4 x W. |
+| Endpoint | Scope | What to check | Alert when |
+|---|---|---|---|
+| `GET /management/coordination-readiness` | node | `green` and `conditions[].name` | `green` is `false` on any node for longer than 4 x W. A short red right after a start or a failover is normal. |
+| `GET /management/coordination-readiness?view=liveness` | node | `leaseState` (want `PROVEN`), `live` (want `true`), `schedulerCycle.graceExpired` (want `false`), `terminalLeaseState.terminal` (want `false`) | `terminal` is `true` (page now), or `live` is `false` for longer than 4 x W. A node can be green and still not live during a database stall; this view shows it. |
+| `GET /management/task-status` | cluster | every coordinated task listed under some node | a task missing from every node for longer than 4 x W while all nodes are live. An uneven split after a rolling restart is normal; placement does not rebalance by itself. |
+| `GET /management/task-status?view=duplicates` and `?view=history` | cluster | `healthy` and the `severity` of past episodes | any episode with severity `SUSTAINED`, or an open episode older than 2 x W. `TRANSIENT` episodes of a few seconds around restarts and failovers are normal and clear by themselves. |
+| `GET /management/coordination-readiness?view=counters` | node | refused fires per task and reason | a counter that stays `open` for one task for longer than 4 x W. |
 
 The same duplicate check is available to a database monitor:
 
