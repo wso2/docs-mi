@@ -284,12 +284,6 @@ nav:
           - Swagger Documents: develop/advanced-development/using-swagger-for-apis.md
           - Extend Role-based Data Filtering: develop/advanced-development/extend-role-based-filtering-for-ds.md
           - Dynamic User Authentication: develop/advanced-development/dynamic-user-authentication.md
-      - WSO2 Integration Studio:
-          - Quick Tour - WSO2 Integration Studio: develop/wso2-integration-studio.md
-          - Install WSO2 Integration Studio: develop/installing-wso2-integration-studio.md
-          - Work with WSO2 Integration Studio: develop/working-with-wso2-integration-studio.md
-          - Troubleshooting WSO2 Integration Studio: develop/troubleshooting-wso2-integration-studio.md
-          - "Use the Embedded WSO2 Integrator: MI": develop/using-embedded-micro-integrator.md
   - Learn:
       - Overview: learn/learn-overview.md
       - How to Send a Simple Message to a Service: learn/integration-tutorials/sending-a-simple-message-to-a-service.md
@@ -1281,6 +1275,11 @@ plugins:
               'reference/connectors/amazons3-connector/amazons3-connector-reference.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/amazons3-connector/3.x/amazons3-connector-reference'
               'reference/synapse-properties/inbound-endpoints/polling-inbound-endpoints/file-inbound-endpoint-properties.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/file-inbound/file-inbound-overview'
               'reference/connectors/salesforce-connectors/sf-rest-connector-config.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/salesforce-connectors/3.x/sf-rest-connector-config'
+              'develop/wso2-integration-studio.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
+              'develop/installing-wso2-integration-studio.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
+              'develop/working-with-wso2-integration-studio.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
+              'develop/troubleshooting-wso2-integration-studio.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
+              'develop/using-embedded-micro-integrator.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
   # Extra
 extra_css:
   - assets/lib/highlightjs/styles/custom-highlight-styles.css
