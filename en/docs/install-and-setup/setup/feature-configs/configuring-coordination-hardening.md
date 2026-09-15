@@ -4,7 +4,7 @@ In a clustered WSO2 Integrator: MI deployment that uses [RDBMS-based coordinatio
 
 **Coordination hardening** closes those windows. When it is enabled, a node claims every task execution in the coordination database before it runs it, a node only schedules coordinated tasks after it has proven that it holds a live boot lease, a watchdog detects JVM freezes and stops the node from firing until it has re-proven itself, and every node reports its readiness through the Management API with named conditions that tell you what to do.
 
-The feature is **disabled by default**. It is available in WSO2 Integrator: MI 4.6.0 from update level 11 onwards and builds on the [coordinated task delete barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier) and [coordinated task monitoring]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-monitoring).
+The feature is **disabled by default**. It is available in WSO2 Integrator: MI 4.6.0 from update level 12 onwards and builds on the [coordinated task delete barrier]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-delete-barrier) and [coordinated task monitoring]({{base_path}}/install-and-setup/setup/feature-configs/configuring-task-monitoring).
 
 ## What this feature does
 
