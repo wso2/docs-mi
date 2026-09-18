@@ -363,7 +363,7 @@ You will get the response message from the StockQuoteProxy service:
 </soapenv:Envelope>
 ```
 
-Now, check the **Console** tab of WSO2 Integration Studio and you will see the following message:
+Now, check the server logs, and you will see the following message:
 
 ```bash
 INFO - LogMediator Message = "You have successfully invoked the StockQuoteProxy"
