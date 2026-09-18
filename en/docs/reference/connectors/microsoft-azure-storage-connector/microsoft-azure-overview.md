@@ -25,7 +25,7 @@ For older versions, see the details in the connector store.
 !!! tip "What's New in 2.x?"
     - Use Azure Blob Storage SDK v12.23.0.
 
-    - New UI model in the Integration Studio.
+    - New UI model in the MI for VS Code extension.
 
     - Support Client credentials authentication.
 

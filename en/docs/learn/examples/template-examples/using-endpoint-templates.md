@@ -128,8 +128,8 @@ Create the artifacts:
 4. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
 ### Invoke the API
-1. Using REST client:
-Invoke this REST API using the HTTP client in WSO2 Integration Studio.
+1. Using try-it functionality in the MI for VS Code extension:
+Invoke this REST API using the inbuilt try-it functionality in the MI for VS Code extension.
 See that the response from the backend is logged on the console.
 
 2. Using CURL:

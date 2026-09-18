@@ -74,7 +74,7 @@ Create the artifacts:
 4. See the instructions on [creating an inbound endpoint]({{base_path}}/develop/creating-artifacts/creating-an-inbound-endpoint) to define the inbound endpoint given above.
 
     !!! Tip
-        Be sure to add an empty namespace for the keystore and truststore elements (`xmlns=""`) in the inbound endpoint as shown above. This is necessary when you run this example in the embedded WSO2 Integrator: MI of WSO2 Integration Studio.
+        Be sure to add an empty namespace for the keystore and truststore elements (`xmlns=""`) in the inbound endpoint as shown above.
         
 5. [Deploy the artifacts]({{base_path}}/develop/deploy-artifacts) in your WSO2 Integrator: MI.
 
