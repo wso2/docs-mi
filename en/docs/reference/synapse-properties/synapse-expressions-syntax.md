@@ -300,7 +300,7 @@ replace(payload.value, "old", "new")</code></pre></td>
 <td><pre><code>split("a,b,c", ",")
 split(payload.value, ";")
 split(payload.value, "[.]")</code></pre></td>
-<td>Splits the string into an array using the specified delimiter. The delimiter is interpreted as a Java regular expression. For example, use `[.]` to split a string using a literal period (`.`) as the delimiter.</td>
+<td>Splits the string into an array using the specified delimiter. The delimiter is interpreted as a Java regular expression. For example, use <code>[.]</code> to split a string using a literal period (<code>.</code>) as the delimiter.</td>
 </tr>
 <tr class="odd">
 <td><pre><code>charAt</code></pre></td>
