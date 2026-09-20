@@ -33,6 +33,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
     2. Find the target environment card and click **Add Runtime**.
     3. Click **Generate Secret**.
     4. Select the **MI** tab and copy the generated `deployment.toml` configuration.
+    5. Set the `project` and `integration` values in the copied configuration to the logical grouping values that represent your deployment. These values are used to organize the runtime in ICP under the corresponding project and integration.
 
     **Option B - Project / Component level**
 
@@ -63,11 +64,11 @@ Follow the steps given below to configure the MI servers to publish data to the 
 
     | Field | Required | Default | Description |
     |-------|----------|---------|-------------|
-    | `enabled` | yes | — | Must be `true` to activate ICP connectivity |
+    | `enabled` | yes | `true` | Set to `false` to disable ICP connectivity |
     | `environment` | yes | — | Environment **handle** (must match an ICP environment) |
     | `project` | yes | — | Project handle in ICP |
-    | `integration` | yes | — | Integration handle in ICP |
-    | `runtime` | no | auto-generated UUID | Display name for this runtime instance. A unique identifier is auto-generated at connection time. |
+    | `integration` | yes | — | Component handle in ICP |
+    | `runtime` | no | - | Unique identifier for this runtime instance. If not provided, a unique identifier is generated at connection time. |
     | `secret` | yes | — | Secret from step 1 (`<key-id>.<key-material>`) |
     | `icp_url` | no | `https://localhost:9445` | ICP runtime listener endpoint |
 
@@ -76,6 +77,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
     | Field | Default | Description |
     |-------|---------|-------------|
     | `heartbeat_interval` | `10` | Seconds between heartbeats |
+    | `ssl_verify` | `true` | Enforce TLS certificate verification |
     | `jwt_issuer` | `icp-runtime-jwt-issuer` | JWT issuer claim |
     | `jwt_audience` | `icp-server` | JWT audience claim |
     | `jwt_expiry_seconds` | `3600` | JWT token lifetime |
