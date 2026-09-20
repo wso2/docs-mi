@@ -451,14 +451,9 @@ This section provides a list of security guidelines for configuring the network
 </tr>
 <tr class="even">
 <td>
-<p><strong>Note:</strong>This security guideline is applicable to the MI runtime.</p>
-<p>Block the <code>/services</code> and <code>/carbon</code> contexts from the DMZ</p></td>
-<td><p>Access to the &quot;/services&quot; and &quot;/carbon&quot; contexts should be blocked from the DMZ level (i.e., from the proxy server, load balancer and/or firewall).</p>
-<ul>
-<li>The &quot;/services&quot; context is used in WSO2 products to expose admin services. These admin services are used for performing administrative operations using SOAP requests.</li>
-<li>The &quot;/carbon&quot; context is used in WSO2 products to expose the management console (administration console) of the product. The management console is a user interface for performing some of the administrative operations of a product.</li>
-<li>In addition to the &quot;/services&quot; and &quot;/carbon&quot; contexts, be sure to expose only the required applications in your product to users beyond the DMZ level in your network.</li>
-</ul>
+<p>Block the <code>/management</code> context from the DMZ</p></td>
+<td><p>Access to the &quot;/management&quot; context should be blocked from the DMZ level (i.e., from the proxy server, load balancer and/or firewall).</p>
+<p>The &quot;/management&quot; context is used to expose the <a href="{{base_path}}/observe-and-manage/working-with-management-api/">Management API</a>, which is the internal REST API is used to perform administrative operations on the server instance. This context is not meant for external clients and should not be exposed beyond the DMZ level.</p>
 <p><strong>Note:</strong> </p>
 <p>It is recommended to use an allowlisting approach when allowing access to resources in your product from the DMZ level.</p>
 
