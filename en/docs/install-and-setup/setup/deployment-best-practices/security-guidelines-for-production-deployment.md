@@ -457,11 +457,11 @@ This section provides a list of security guidelines for configuring the network
 </tr>
 <tr class="even">
 <td>
-<p>Block the <code>/management</code> context from the DMZ</p></td>
-<td><p>Access to the &quot;/management&quot; context should be blocked from the DMZ level (i.e., from the proxy server, load balancer and/or firewall).</p>
-<p>The &quot;/management&quot; context is used to expose the <a href="{{base_path}}/observe-and-manage/working-with-management-api/">Management API</a>, which is the internal REST API is used to perform administrative operations on the server instance. This context is not meant for external clients and should not be exposed beyond the DMZ level.</p>
+<p>Block the <code>/management</code> context at the DMZ boundary</p></td>
+<td><p>Access to the &quot;/management&quot; context should be blocked at the DMZ boundary (i.e., at the proxy server, load balancer and/or firewall).</p>
+<p>The &quot;/management&quot; context is used to expose the <a href="{{base_path}}/observe-and-manage/working-with-management-api/">Management API</a>, which is the internal REST API used to perform administrative operations on the server instance. This context is not meant for external clients and should not be exposed beyond the DMZ boundary.</p>
 <p><strong>Note:</strong> </p>
-<p>It is recommended to use an allowlisting approach when allowing access to resources in your product from the DMZ level.</p>
+<p>It is recommended to use an allowlisting approach when allowing access to resources in your product at the DMZ boundary.</p>
 
 </td>
 </tr>
