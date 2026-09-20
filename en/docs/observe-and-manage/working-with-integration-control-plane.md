@@ -4,6 +4,102 @@ The WSO2 Integration Control Plane (ICP) monitors the MI runtimes in a deploymen
 
 The ICP server communicates with the management APIs of each WSO2 Integrator: MI runtimes of an integration to get and manipulate data.
 
+## Use the Integration Control Plane
+
+Follow the steps given below to get started with the WSO2 Integration Control Plane.
+
+### Step 1 - Download the Integration Control Plane
+
+Download the binary distribution of the product, and then follow the instructions to start the WSO2 Integrator: MI and the ICP server.
+
+-   [Install the WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installing-mi).
+-   [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane).
+
+### Step 2 - Configure the MI servers
+
+Follow the steps given below to configure the MI servers to publish data to the ICP server.
+
+1.  Generate a secret in the ICP console.
+
+    Sign in to the ICP console and generate a secret to authenticate the MI runtime. You can generate the secret at the organization level or for an existing project and component.
+
+    If you want to register an MI runtime before creating or assigning it to a specific component, use the organization-level flow. If the project and component already exist in ICP, use the project/component-level flow.
+
+    **Option A - Organization level**
+
+    Use this option when you want to register a runtime before assigning it to a specific component, or when the component does not exist in ICP yet.
+
+    1. Navigate to **Runtimes** in the sidebar.
+    2. Find the target environment card and click **Add Runtime**.
+    3. Click **Generate Secret**.
+    4. Select the **MI** tab and copy the generated `deployment.toml` configuration.
+
+    **Option B - Project / Component level**
+
+    Use this option when the component already exists in ICP.
+
+    1. Navigate to **Projects → \<project\> → Components → \<component\> → Runtimes**.
+    2. Find the target environment card and click **Add Runtime**.
+    3. Click **Generate Secret**.
+    4. Copy the generated `deployment.toml` configuration.
+
+    !!! note
+        The secret is displayed only once. Copy it before closing the dialog.
+
+2.  To connect the MI runtimes with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each runtime instance.
+
+    ```toml
+    [icp_config]
+    enabled     = true
+    environment = "dev"
+    project     = "my-project"
+    integration = "my-integration"
+    runtime     = "mi-node-1"
+    secret      = "<generated secret>"
+    icp_url     = "https://<icp-host>:9445"
+    ```
+
+    #### Field Reference
+
+    | Field | Required | Default | Description |
+    |-------|----------|---------|-------------|
+    | `enabled` | yes | — | Must be `true` to activate ICP connectivity |
+    | `environment` | yes | — | Environment **handle** (must match an ICP environment) |
+    | `project` | yes | — | Project handle in ICP |
+    | `integration` | yes | — | Integration handle in ICP |
+    | `runtime` | no | auto-generated UUID | Display name for this runtime instance. A unique identifier is auto-generated at connection time. |
+    | `secret` | yes | — | Secret from step 1 (`<key-id>.<key-material>`) |
+    | `icp_url` | no | `https://localhost:9445` | ICP runtime listener endpoint |
+
+    #### Optional Fields
+
+    | Field | Default | Description |
+    |-------|---------|-------------|
+    | `heartbeat_interval` | `10` | Seconds between heartbeats |
+    | `jwt_issuer` | `icp-runtime-jwt-issuer` | JWT issuer claim |
+    | `jwt_audience` | `icp-server` | JWT audience claim |
+    | `jwt_expiry_seconds` | `3600` | JWT token lifetime |
+    | `jwt_clock_skew_tolerance_ms` | `60000` | Clock skew tolerance in milliseconds |
+
+### Step 3 - Start the MI Server
+
+```bash
+# Linux / macOS
+./bin/micro-integrator.sh
+
+# Windows
+.\bin\micro-integrator.bat
+```
+
+On successful connection you will see:
+
+```text
+INFO {ICPHeartBeatComponent} - Starting ICP heartbeat service. Interval: 10s
+INFO {ICPHeartBeatComponent} - Full heartbeat acknowledged by ICP.
+```
+
+The runtime now appears under **Runtimes** in the ICP console with status **RUNNING**.
+
 ## Navigate to Artifacts
 
 After signing in, you land on the **All Projects** page under the Default Organization.
@@ -94,76 +190,3 @@ You can use the ICP server to perform the following administration tasks related
 -   <b>Observe logs and metrics for all connected MI runtimes</b>
 
     ICP provides centralized observability for MI runtimes. Application logs and per-request analytics are collected via Fluent Bit, stored in OpenSearch, and displayed in the ICP Console.
-
-## Use the Integration Control Plane
-
-Follow the steps given below to get started with the WSO2 Integration Control Plane.
-
-### Step 1 - Download the Integration Control Plane
-
-Download the binary distribution of the product, and then follow the instructions to start the WSO2 Integrator: MI and the ICP server.
-
--   [Install the WSO2 Integrator: MI]({{base_path}}/install-and-setup/install/installing-mi).
--   [Install the Integration Control Plane]({{base_path}}/install-and-setup/install/installing-integration-control-plane).
-
-### Step 2 - Configure the MI servers
-
-Follow the steps given below to configure the MI servers to publish data to the ICP server.
-
-1.  Generate a secret in the ICP console.
-
-    Sign in to the ICP console and generate a secret to authenticate the MI runtime. You can do this at organization level or Project/Integration level.
-
-2.  To connect the MI runtimes with the ICP server, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each runtime instance.
-
-    ```toml
-    [icp_config]
-    enabled     = true
-    environment = "dev"
-    project     = "my-project"
-    integration = "my-integration"
-    runtime     = "mi-node-1"
-    secret      = "<generated secret>"
-    icp_url     = "https://<icp-host>:9445"
-    ```
-
-    #### Field Reference
-
-    | Field | Required | Default | Description |
-    |-------|----------|---------|-------------|
-    | `enabled` | yes | — | Must be `true` to activate ICP connectivity |
-    | `environment` | yes | — | Environment **handle** (must match an ICP environment) |
-    | `project` | yes | — | Project handle in ICP |
-    | `integration` | yes | — | Integration handle in ICP |
-    | `runtime` | no | auto-generated UUID | Display name for this runtime instance. A unique identifier is auto-generated at connection time. |
-    | `secret` | yes | — | Secret from step 1 (`<key-id>.<key-material>`) |
-    | `icp_url` | no | `https://localhost:9445` | ICP runtime listener endpoint |
-
-    #### Optional Fields
-
-    | Field | Default | Description |
-    |-------|---------|-------------|
-    | `heartbeat_interval` | `10` | Seconds between heartbeats |
-    | `jwt_issuer` | `icp-runtime-jwt-issuer` | JWT issuer claim |
-    | `jwt_audience` | `icp-server` | JWT audience claim |
-    | `jwt_expiry_seconds` | `3600` | JWT token lifetime |
-    | `jwt_clock_skew_tolerance_ms` | `60000` | Clock skew tolerance in milliseconds |
-
-### Step 3 - Start the MI Server
-
-```bash
-# Linux / macOS
-./bin/micro-integrator.sh
-
-# Windows
-.\bin\micro-integrator.bat
-```
-
-On successful connection you will see:
-
-```text
-INFO {ICPHeartBeatComponent} - Starting ICP heartbeat service. Interval: 10s
-INFO {ICPHeartBeatComponent} - Full heartbeat acknowledged by ICP.
-```
-
-The runtime now appears under **Runtimes** in the ICP console with status **RUNNING**.
