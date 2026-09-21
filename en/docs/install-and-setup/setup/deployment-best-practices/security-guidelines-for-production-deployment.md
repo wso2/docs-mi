@@ -457,16 +457,16 @@ This section provides a list of security guidelines for configuring the network
 </tr>
 <tr class="even">
 <td>
-<p><strong>Note:</strong> This security guideline is applicable to the MI runtime.</p>
-<p>Block the <code>/services</code> and <code>/carbon</code> contexts from the DMZ</p></td>
-<td><p>Access to the &quot;/services&quot; and &quot;/carbon&quot; contexts should be blocked from the DMZ level (i.e., from the proxy server, load balancer and/or firewall).</p>
+<p>Block the <code>/management</code> context at the DMZ boundary</p></td>
+<td><p>Access to the &quot;/management&quot; context should be blocked at the DMZ boundary (i.e., at the proxy server, load balancer and/or firewall).</p>
+<p>The &quot;/management&quot; context is used to expose the <a href="{{base_path}}/observe-and-manage/working-with-management-api/">Management API</a>, which is the internal REST API used to perform administrative operations on the server instance. This context is not meant for external clients and should not be exposed beyond the DMZ boundary.</p>
 <ul>
-<li>The &quot;/services&quot; context is used in WSO2 products to expose admin services. These admin services are used for performing administrative operations using SOAP requests.</li>
-<li>The &quot;/carbon&quot; context is used in WSO2 products to expose the management console (administration console) of the product. The management console is a user interface for performing some of the administrative operations of a product.</li>
-<li>In addition to the &quot;/services&quot; and &quot;/carbon&quot; contexts, be sure to expose only the required applications in your product to users beyond the DMZ level in your network.</li>
+<li>The Management API is exposed on its own dedicated ports (by default, <code>9201</code> for HTTP and <code>9164</code> for HTTPS). Restrict access to these ports at the DMZ boundary. For more information, see <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/">Default Product Ports</a>.</li>
+<li>If the <a href="{{base_path}}/observe-and-manage/working-with-integration-control-plane/">Integration Control Plane (ICP)</a> and/or the <a href="{{base_path}}/observe-and-manage/managing-integrations-with-micli/">MI CLI</a> are used to manage the server, make sure they can still reach the Management API from within the trusted network.</li>
+<li>For more information on securing the Management API, see <a href="{{base_path}}/install-and-setup/setup/security/securing-management-api/">Securing the Management API</a>.</li>
 </ul>
 <p><strong>Note:</strong> </p>
-<p>It is recommended to use an allowlisting approach when allowing access to resources in your product from the DMZ level.</p>
+<p>It is recommended to use an allowlisting approach when allowing access to resources in your product at the DMZ boundary.</p>
 
 </td>
 </tr>
