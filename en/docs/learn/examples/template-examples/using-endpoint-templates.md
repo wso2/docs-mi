@@ -129,7 +129,7 @@ Create the artifacts:
 
 ### Invoke the API
 1. Using try-it functionality in the WSO2 Integrator: MI VS Code Extension:
-Invoke this REST API using the inbuilt try-it functionality in the MI for VS Code extension.
+Invoke this REST API using the inbuilt try-it functionality in the WSO2 Integrator: MI VS Code Extension.
 See that the response from the backend is logged on the console.
 
 2. Using CURL:
