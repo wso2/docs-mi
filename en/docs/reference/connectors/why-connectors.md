@@ -38,7 +38,7 @@ A connector is not a connection. A connection is a configuration that is used to
 
 MI VS Code Extension is the tooling or IDE developers use to code their integration logic. Integration connectors can be easily imported and immediately used in the MI VS Code Extension. When the connector UI model is provided in the connector, all custom operations and their properties will be rendered in the VS Code extension automatically. Any integration logic developer can use it with the extension so that the connector developer does not need to worry about it as long as development rules are met. 
 
-<img src="{{base_path}}/assets/img/integrate/connectors/why-connectors4.png" title="Integration Studio Connectors" width="600" alt="Integration Studio Connectors"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/why-connectors4.png" title="MI Connectors" width="600" alt="MI Connectors"/>
 
 Operations of the WSO2 connector that you import are listed on the right-side panel. Developers can click and select connector operations to construct the integration logic. Input parameters to the operations can be provided as static values or expressions using the operation add form that appears when the connector operation is clicked. 
 

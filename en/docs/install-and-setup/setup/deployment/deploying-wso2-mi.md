@@ -311,7 +311,7 @@ You could observe the following member removal log in other servers when one nod
 
 ##  Testing task coordination
 
-Create a simple Scheduled trigger using WSO2 Integration Studio and deploy it in the two WSO2 Integrator: MI servers. See the instructions on [creating a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
+Create a simple Scheduled trigger using WSO2 Integrator: MI VS Code Extension and deploy it in the two WSO2 Integrator: MI servers. See the instructions on [creating a Scheduled trigger]({{base_path}}/develop/creating-artifacts/creating-scheduled-task).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
