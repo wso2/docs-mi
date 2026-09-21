@@ -4,54 +4,48 @@
 
 The following features and improvements were introduced with **WSO2 Integrator: MI 4.7.0**.
 
-??? note "JDK 25 Support"
-    With JDK 25 support, WSO2 Integrator: MI stays aligned with the latest Java platform releases, offering a future-ready and fully validated runtime environment.
+??? note "Priority based Composite Application Development"
+    With priority-based CApp deployment, WSO2 Integrator: MI provides greater control over deployment order, ensuring critical components are deployed first for a more predictable and reliable startup experience.
 
-??? note "Post-Quantum Secure Runtime"
-    Strengthens runtime security with post-quantum-ready cryptography, safeguards your integrations against emerging quantum threats, ensuring long-term data protection and cryptographic resilience.
+??? note "ELK analytics support for data services"
+    WSO2 Integrator: MI enables Data Services activity and performance data to be integrated with the Elastic Stack, providing centralized monitoring, visualization, and analysis.
 
-??? note "Bouncy Castle FIPS Crypto Provider Support"
-    Run MI with the Bouncy Castle FIPS crypto provider to meet stricter cryptographic requirements in regulated environments. This improves compliance readiness and enables deployments that rely on FIPS-capable crypto modules.
+??? note "Configuration and Secret Management Improvements"
+    - Simplify cloud-native deployments by reducing application-level configuration managed through deployment.toml
+    - Introduce AWS Secrets Manager support
 
-??? note "OAuth 2.0 (JWT) Authentication for REST APIs"
-    Secure REST APIs with an OAuth 2.0 (JWT) authentication handler for token-based access control, adding a zero-trust layer to API access.
+??? note "Native support for Brotli encoded requests"
+    WSO2 Integrator: MI now natively supports Brotli (br) encoded HTTP requests, enabling efficient handling of compressed payloads without requiring additional configuration or custom processing.
 
-??? note "Management API Enhancements"
-    - Enable/disable/trigger scheduled tasks at runtime
-    - Enable/disable statistics at runtime
+??? note "Improved operational visibility into clustered deployments"
+    Gain greater visibility into scheduled tasks across clustered deployments, including task inventory, CApp ownership, execution state, scheduling details, and active node ownership.
 
-??? note "Enhanced Logging with Mediator ID"
-    Include mediator IDs in runtime logs for faster troubleshooting and clearer correlation between log entries and mediation flow components. This makes debugging easier, especially in complex integration flows.
+??? note "Dataservices editor improvements"
+    Accelerate Data Services development with in-editor try-out support and an enhanced Data Service Call Mediator.
 
-??? note "Observability Features/Improvements"
-    - Support Prometheus API 1.x
-    - Support publishing observability data to Moesif
-    - OpenTelemetry-based observability in Data Services
-    - OpenTelemetry support for traces and logs
-    - OpenTelemetry span filtering support for mediators
-    - Show connector/module operations as a single span in traces
+??? note "Enhanced dependency management"
+    Simplify project dependency management with a streamlined, selection-based experience for adding connectors, dependent projects, and external libraries.
 
-??? note "VS Code Extension Features/Improvements"
-    - Remote debugging
-    - Unit test coverage for Synapse artifacts
+??? note "Editor workspace overview"
+    Manage multiple CApps in a single workspace with a centralized view of projects and configurations. Easily build, run, package, and deploy projects from one place.
 
 ??? note "AI Features"
-    - MCP tool support for agents in the AI connector
-    - Agent memory trim and summarization support
-    - Conversational WSO2 Integrator Copilot — Ask, Edit, and Plan modes with in-workspace file edits, checkpoints, plan approval, attachments, and more. See [WSO2 Integrator Copilot]({{base_path}}/develop/mi-for-vscode/wso2-integrator-copilot/overview).
+    - Custom AI instructions support
+    - Integrate skills framework support
 
 ??? note "Connector Enhancements"
-    - AMQP 1.0 protocol support
-    - gRPC connector with import support
-    - MI connector generation from Ballerina connectors
+    - Solace Connector and Inbound Endpoint support
+    - PGP connector support
+    - Azure Service Bus Connector and Inbound Endpoint support
+    - Streaming large files to S3 bucket support
 
 ## Fixed issues
 
-- [WSO2 Integrator: MI Issues](https://github.com/wso2/product-micro-integrator/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2025-10-28..2026-03-27)
-- [MI for VS Code Issues](https://github.com/wso2/mi-vscode/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2025-10-28..2026-03-27)
+- [WSO2 Integrator: MI Issues](https://github.com/wso2/product-integrator-mi/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2026-03-27..2026-10-15)
+- [WSO2 Integrator: MI VS Code Extension Issues](https://github.com/wso2/mi-vscode/issues?q=is%3Aissue%20is%3Aclosed%20closed%3A2026-03-27..2026-10-15)
 
 ## Known issues
 
-- [WSO2 Integrator: MI Issues](https://github.com/wso2/micro-integrator/issues?q=is%3Aissue+is%3Aopen)
-- [MI for VS Code Issues](https://github.com/wso2/mi-vscode/issues?q=is%3Aissue+is%3Aopen)
+- [WSO2 Integrator: MI Issues](https://github.com/wso2/product-integrator-mi/issues?q=is%3Aissue+is%3Aopen)
+- [WSO2 Integrator: MI VS Code Extension Issues](https://github.com/wso2/mi-vscode/issues?q=is%3Aissue+is%3Aopen)
 

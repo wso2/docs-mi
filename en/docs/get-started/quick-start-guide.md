@@ -194,7 +194,7 @@ Click the **Build and Run** icon located in the top right corner of VS Code.
 
 ## Step 5 - Test the integration service
 
-Now, let's test the integration service. For that, you can use the inbuilt try-it functionality in the MI for VS Code extension.
+Now, let's test the integration service. For that, you can use the inbuilt try-it functionality in the WSO2 Integrator: MI VS Code Extension.
 
 When you run the integration artifact as in [Step 4](#step-4-run-the-integration-artifacts), the **Runtime Services** interface is opened up. You can see all the available services.
 
