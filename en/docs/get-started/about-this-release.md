@@ -32,6 +32,7 @@ The following features and improvements were introduced with **WSO2 Integrator: 
 ??? note "AI Features"
     - Custom AI instructions support
     - Integrate skills framework support
+    - Expose WSO2 Integrator: MI as an MCP Serve
 
 ??? note "Connector Enhancements"
     - Solace Connector and Inbound Endpoint support
