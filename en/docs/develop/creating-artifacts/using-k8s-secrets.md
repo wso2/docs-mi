@@ -74,7 +74,7 @@ Given below is a sample synapse configuration with an environment variable looku
 
 Once the secrets are added to the environment, you need to enable <b>secure vault</b> in the environment. In a <b>Kubernetes environment</b> you don't need to manually run the Cipher tool. Follow the steps given below.
 
-1. Open your Integration Project in MI for VS Code extension, which contains all the integration artifacts and the Kubernetes Exporter.
+1. Open your Integration Project in WSO2 Integrator: MI VS Code Extension, which contains all the integration artifacts and the Kubernetes Exporter.
 2. Open the `pom.xml` of the Kubernetes Exporter module and select the <b>Enable Cipher Tool</b> check box as show below.
 
     <img src="{{base_path}}/assets/img/integrate/k8s_deployment/enable-cipher-tool-in-k8s.png">

@@ -42,7 +42,7 @@ The messaging flow is as shown below.
 
 ![]({{base_path}}/assets/img/integrate/broker-configs/azure-service-bus.jpg)
 
-To set up the messaging flow in MI for VS Code extension, create synapse artifacts to create a consumer and a producer. 
+To set up the messaging flow in WSO2 Integrator: MI VS Code Extension, create synapse artifacts to create a consumer and a producer. 
 
 **Azure Service Bus Producer**
 
