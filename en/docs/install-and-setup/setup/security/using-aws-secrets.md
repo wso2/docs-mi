@@ -271,11 +271,16 @@ You can refer to AWS secrets from your integration artifacts using the **vault l
     <variable name="password" expression="${wso2-vault('mysql-password')}"/>
     ```
 
-If you are using the legacy synapse expression syntax, the same alias applies:
+If you are using the older XPath-based expression syntax, the alias is the same as above for the mode you configured:
 
-```xml
-<property name="password" expression="wso2:vault-lookup('vault:aws:mysql-password')"/>
-```
+=== "Novel (multiple repositories)"
+    ```xml
+    <property name="password" expression="wso2:vault-lookup('vault:aws:mysql-password')"/>
+    ```
+=== "Legacy (single repository)"
+    ```xml
+    <property name="password" expression="wso2:vault-lookup('mysql-password')"/>
+    ```
 
 In a **data service**, the datasource password uses the vault lookup function enclosed in curly braces:
 
@@ -306,6 +311,9 @@ The same delimiter applies in synapse configurations:
 ```xml
 <variable name="password" expression="${wso2-vault('vault:aws:mysql-password#9d21179b-cd37-4174-a65a-7d1cea075dcd')}"/>
 ```
+
+!!! Note
+    Only a version **ID** can be used after the `#` delimiter. Staging labels such as `AWSPREVIOUS` are not supported.
 
 ## Retrieving the keystore passwords from AWS Secrets Manager
 
