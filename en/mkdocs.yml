@@ -132,6 +132,7 @@ nav:
               - Use Secrets:
                   - Encrypt Secrets Using WSO2 Secure Vault: install-and-setup/setup/security/encrypting-plain-text.md
                   - Use Hashicorp Secrets: install-and-setup/setup/security/using-hashicorp-secrets.md
+                  - Use AWS Secrets Manager Secrets: install-and-setup/setup/security/using-aws-secrets.md
                   - Use Symmetric Encryption: install-and-setup/setup/security/single-key-encryption.md
               - Secure the Management API: install-and-setup/setup/security/securing-management-api.md
           - Message Brokers:
