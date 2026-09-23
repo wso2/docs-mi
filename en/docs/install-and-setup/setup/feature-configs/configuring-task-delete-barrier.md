@@ -25,7 +25,9 @@ If you are upgrading an existing cluster from a previous MI version, the four ba
 
 ## Confirm the feature is active
 
-From WSO2 Integrator: MI 4.7.0 the server no longer logs a startup line for this setting, so confirm the feature through its effects. First check that the four barrier tables exist in the coordination database. Then hot-undeploy a coordinated task: the leader node logs a `Leader flow finalized delete barrier` line and worker nodes log `Barrier acknowledgement` lines. Seeing both confirms the feature is working end-to-end.
+From update level 12 of WSO2 Integrator: MI 4.6.0 the server no longer logs a startup line for this setting, so confirm the feature through its effects. First check that the four barrier tables exist in the coordination database. Then hot-undeploy a coordinated task: the leader node logs a `Leader flow finalized delete barrier` line and worker nodes log `Barrier acknowledgement` lines. Seeing both confirms the feature is working end-to-end.
+
+[Coordination hardening](configuring-coordination-hardening.md) builds on this feature: a node with `coordination_hardening = true` refuses to arm unless `enable_task_delete_barrier` is also `true`.
 
 ## Disable the feature
 

@@ -204,7 +204,7 @@ Conditions that clear by themselves. Alert only if one lasts longer than 4 x W:
 
 ### Terminal standby
 
-`terminalLeaseState.terminal` is `true` in the liveness view and the log shows `Boot lease TERMINAL`. The node has stopped coordinated work for good, which happens when two processes share one `node_id` or when another process took over the node's advertisement while this node was frozen past W. In both cases fix the cause if there is one and restart the terminal node once. The other nodes keep running every task in the meantime.
+`terminalLeaseState.terminal` is `true` in the liveness view and the log shows `Boot lease TERMINAL`. The node has stopped coordinated work for good, which happens when two processes share one `node_id` or when another process took over the node's advertisement while this node was frozen past W. In both cases fix the cause if there is one and restart the terminal node once. Without `task_server_count` the other nodes keep running every task in the meantime. With `task_server_count` the terminal node's share of the tasks waits until it is restarted, so treat it as urgent on such clusters.
 
 ### Expected timings
 
@@ -222,7 +222,7 @@ After a freeze, on one node or on all nodes at once, recovery is automatic and n
 
 1. `coordination-readiness` on every node. All green: look at the log alerts only.
 2. One node red: use the condition tables above. Tasks are safe while the other nodes are green.
-3. `?view=duplicates` reports `"healthy": false`, or a `SUSTAINED` line: collect the logs of both nodes and the duplicates history, and contact WSO2 Support.
+3. `?view=duplicates` reports `"healthy": false`: check `?view=history`. An episode that closes as `TRANSIENT` within seconds of a restart or a failover is normal. For a `SUSTAINED` episode, a `SUSTAINED` log line, or an episode still open after 2 x W, collect the logs of both nodes and the duplicates history, and contact WSO2 Support.
 4. `terminal` is `true`: one restart of that node.
 5. Everything red at once: the coordination database. Check its reachability and latency before touching any node.
 
