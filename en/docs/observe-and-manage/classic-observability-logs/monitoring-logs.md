@@ -190,12 +190,23 @@ In the WSO2 Integrator: MI, access logs are generated for the **PassThrough tran
 !!! note
     See [HTTP Access Logs]({{base_path}}/observe-and-manage/classic-observability-logs/configuring-log4j2-properties/#http-access-logs) for instructions on how to configure access logging.
 
-```xml
-[10/Nov/2020:08:52:35.604 +0530] "GET /healthcare/querydoctor/surgery HTTP/1.1" - - "-" "curl/7.64.1"
-[10/Nov/2020:08:52:35.610 +0530] "GET /healthcare/surgery HTTP/1.1" - - "-" "Synapse-PT-HttpComponents-NIO"
-[10/Nov/2020:08:52:35.610 +0530] "- - " 200 - "-" "-"
-[10/Nov/2020:08:52:35.604 +0530] "- - " 200 - "-" "-"
-```
+=== "Access Log V1 (default)"
+    In V1 mode, the request and response are recorded on **two separate log lines**.
+
+    ```
+    [10/Nov/2020:08:52:35.604 +0530] "GET /healthcare/querydoctor/surgery HTTP/1.1" - - "-" "curl/7.64.1"
+    [10/Nov/2020:08:52:35.610 +0530] "GET /healthcare/surgery HTTP/1.1" - - "-" "Synapse-PT-HttpComponents-NIO"
+    [10/Nov/2020:08:52:35.610 +0530] "- - " 200 - "-" "-"
+    [10/Nov/2020:08:52:35.604 +0530] "- - " 200 - "-" "-"
+    ```
+
+=== "Access Log V2 (WSO2 Integrator: MI 4.6.0.13+)"
+    In V2 mode (enabled with `access_log_v2=true`), each HTTP request-response pair is recorded as a **single log entry**. V2 also supports `%D` (processing time in ms) and `%X` (correlation ID) pattern elements.
+
+    ```
+    [10/Nov/2020:08:52:35.604 +0530] "GET /healthcare/querydoctor/surgery HTTP/1.1" 200 - "-" "curl/7.64.1" 6 abc-1234-xyz
+    [10/Nov/2020:08:52:35.610 +0530] "GET /healthcare/surgery HTTP/1.1" 200 - "-" "Synapse-PT-HttpComponents-NIO" 4 abc-1234-xyz
+    ```
 
 ## Monitor Patch Logs 
 
