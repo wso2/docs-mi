@@ -25,13 +25,9 @@ If you are upgrading an existing cluster from a previous MI version, the four ba
 
 ## Confirm the feature is active
 
-After the cluster starts, look for this line in the `wso2carbon.log` on each node:
+From update level 12 of WSO2 Integrator: MI 4.6.0 the server no longer logs a startup line for this setting, so confirm the feature through its effects. First check that the four barrier tables exist in the coordination database. Then hot-undeploy a coordinated task: the leader node logs a `Leader flow finalized delete barrier` line and worker nodes log `Barrier acknowledgement` lines. Seeing both confirms the feature is working end-to-end.
 
-```text
-INFO {ScheduledTaskManager} - Clustered task delete barrier flow is enabled. Configure [task_handling.enable_task_delete_barrier] to control it.
-```
-
-When a coordinated task is hot-undeployed, the leader node logs a `Leader flow finalized delete barrier` line, and worker nodes log `Barrier acknowledgement` lines. Seeing both confirms the feature is working end-to-end.
+[Coordination hardening](configuring-coordination-hardening.md) builds on this feature: a node with `coordination_hardening = true` refuses to arm unless `enable_task_delete_barrier` is also `true`.
 
 ## Disable the feature
 
