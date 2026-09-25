@@ -106,7 +106,7 @@ In order to use the Microsoft Azure Storage connector, you need to download the 
  - [netty-resolver-dns-4.1.136.Final.jar](https://mvnrepository.com/artifact/io.netty/netty-resolver-dns/4.1.136.Final)
  - [reactive-streams-1.0.4.jar](https://mvnrepository.com/artifact/org.reactivestreams/reactive-streams/1.0.4)
  - [reactor-netty-http-1.2.18.jar](https://mvnrepository.com/artifact/io.projectreactor.netty/reactor-netty-http/1.2.18)
- - [jackson-dataformat-xml-2.13.5.jar](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.13.5)
+ - [jackson-dataformat-xml-2.21.5.jar](https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.21.5) (or any other version compatible with the Jackson jars in the MI runtime)
  - [oauth2-oidc-sdk-10.7.1.jar](https://mvnrepository.com/artifact/com.nimbusds/oauth2-oidc-sdk)
  - [reactor-core-3.4.30.jar](https://mvnrepository.com/artifact/io.projectreactor/reactor-core/3.4.30)
  - [stax2-api-4.2.1.jar](https://mvnrepository.com/artifact/org.codehaus.woodstox/stax2-api/4.2.1)
