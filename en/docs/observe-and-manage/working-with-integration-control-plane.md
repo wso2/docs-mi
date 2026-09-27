@@ -149,6 +149,49 @@ Follow the steps given below to configure the MI servers to publish data to the 
     | `jwt_expiry_seconds` | `3600` | JWT token lifetime |
     | `jwt_clock_skew_tolerance_ms` | `60000` | Clock skew tolerance in milliseconds |
 
+    #### How the MI runtime advertises its management API
+
+    !!! Note
+        This section describes how WSO2 Integrator: MI communicates with **ICP 2.x**.
+
+    Traffic between the two servers flows in both directions, and the two directions have different requirements:
+
+    -   **Runtime → ICP.** The runtime posts heartbeats to `icp_url`. Artifact metadata travels inside the heartbeat, so browsing artifacts and viewing runtime status work as long as heartbeats reach the ICP server.
+    -   **ICP → runtime.** Management operations — such as enabling and disabling artifacts, toggling tracing and statistics, triggering tasks, updating loggers, and downloading logs — are carried out by the ICP server calling into that runtime's management API.
+
+    For the second direction, the runtime includes a management hostname and port in every heartbeat, and the ICP server calls that address. The runtime derives them as follows.
+
+    **Hostname**
+
+    1.  The `hostname` value from the `[server]` section of `deployment.toml`, if set.
+    2.  Otherwise, the IP address of the runtime's default network interface.
+
+    **Port**
+
+    The internal HTTPS API port — `9164` by default, or `9154` plus `[server] offset` when an offset is configured.
+
+    !!! Warning
+        The `deployment.toml` shipped with WSO2 Integrator: MI sets `hostname = "localhost"` under `[server]`. Left unchanged, the runtime advertises `https://localhost:9164`, which the ICP server can reach **only if it runs on the same host as the runtime**. In any other topology, set `[server] hostname` to an address at which the ICP server can reach this runtime:
+
+        ```toml
+        [server]
+        hostname = "mi-node-1.example.com"
+        ```
+
+    Note that an unreachable management address does not make the runtime look broken. Heartbeats continue to succeed, so the runtime still appears under **Runtimes** with status **RUNNING** and its artifacts are still listed. Only management operations fail.
+
+    !!! Tip "Recommended deployment"
+        Deploy the ICP server in the **same network as the MI runtimes**, so that it can reach each runtime directly at the runtime's own address. This is the simplest setup, and because the ICP server addresses each runtime individually, management operations reliably reach the runtime they were meant for.
+
+    !!! Warning "Reaching runtimes through a load balancer or a Kubernetes Service"
+        The ICP server reaches a runtime at the address that runtime advertised. If several runtimes of the same integration advertise the **same** address — because `[server] hostname` points at a load balancer, a Kubernetes Service, or an Ingress that fronts more than one replica — the ICP server can no longer direct a request to a particular runtime. The load balancer decides which replica serves each request.
+
+        Browsing artifacts and viewing runtime status are unaffected, because that data arrives in each runtime's own heartbeat. Management operations are affected: a request intended for one runtime may be served by another.
+
+        Because all runtimes of an integration are configured with the same `secret`, a misdirected request still authenticates successfully on the replica that receives it. The operation therefore appears to succeed while taking effect on the wrong runtime, instead of failing with an error.
+
+        Give each runtime a `[server] hostname` that resolves to it alone — a distinct hostname per runtime, a per-pod Ingress rule, or the stable pod DNS names of a StatefulSet fronted by a headless Service.
+
 ### Step 3 - Start the MI Server
 
 ```bash
