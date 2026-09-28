@@ -40,7 +40,7 @@ Install the native library so it is on the JVM's **`java.library.path`**. Placin
 In the instructions below, `<NATIVE_LIB_DIR>` is the directory where you extracted the downloaded native library. Pick **one** option per OS.
 
 !!! note
-    The native library architecture (for example, arm64 vs x86_64) must match the JVM's architecture. After installing it, **fully restart** the Micro Integrator — native libraries load only once at JVM startup.
+    The native library architecture (for example, arm64 vs x86_64) must match the JVM's architecture. After installing it, **fully restart** the Micro Integrator so JCo can initialize with the installed library.
 
 #### Linux — `libsapjco3.so`
 
