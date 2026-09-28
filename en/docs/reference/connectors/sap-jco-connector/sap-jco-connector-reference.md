@@ -146,7 +146,7 @@ The SAP JCo connection represents an SAP JCo client used to call RFC-enabled fun
             <td>No</td>
         </tr>
         <tr>
-            <td>returnType</td>
+            <td>returnTypeDataType</td>
             <td>The data type of the operation response. Accepted values: <code>RfcRecord</code>, <code>xml</code>, <code>json</code>. The default value is <code>RfcRecord</code>.</td>
             <td>No</td>
         </tr>

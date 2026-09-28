@@ -22,8 +22,6 @@ The connector is built from the [Ballerina SAP JCo module](https://github.com/ba
 
 * **[Set up the SAP JCo Connector]({{base_path}}/reference/connectors/sap-jco-connector/sap-jco-connector-configuration/)**: This documentation explains how to obtain the SAP middleware libraries, install the native SAP JCo library, and configure a connection to an SAP system.
 
-* **[SAP JCo Connector Example]({{base_path}}/reference/connectors/sap-jco-connector/sap-jco-connector-example/)**: This example explains how to use the SAP JCo Connector to call an RFC-enabled function module and to send an IDoc to an SAP system.
-
 * **[SAP JCo Connector Reference]({{base_path}}/reference/connectors/sap-jco-connector/sap-jco-connector-reference/)**: This documentation provides a reference guide for the SAP JCo Connector operations.
 
 ## How to contribute

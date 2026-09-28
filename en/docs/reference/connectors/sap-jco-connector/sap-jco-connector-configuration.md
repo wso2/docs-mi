@@ -35,18 +35,12 @@ Copy `sapjco3.jar` and `sapidoc3.jar` into the `<MI_HOME>/lib` directory.
 
 ### Step 2: Install the native library
 
-SAP JCo ships in two parts that are resolved by two different mechanisms:
+Install the native library so it is on the JVM's **`java.library.path`**. Placing it in `<MI_HOME>/lib` is **not** sufficient.
 
-- `sapjco3.jar` — Java classes, resolved via the **classpath** (Step 1 above).
-- `libsapjco3.so` / `sapjco3.dll` / `libsapjco3.dylib` — the **native** library, resolved via the JVM's **`java.library.path`**, *not* the classpath.
+In the instructions below, `<NATIVE_LIB_DIR>` is the directory where you extracted the downloaded native library. Pick **one** option per OS.
 
-Placing the native library in `<MI_HOME>/lib` is **not** sufficient — that folder is on the classpath but not on `java.library.path`. If the native library is missing from `java.library.path`, initialization fails with:
-
-```
-java.lang.UnsatisfiedLinkError: no sapjco3 in java.library.path: ...
-```
-
-In the instructions below, `<NATIVE_LIB_DIR>` is the directory where you extracted the downloaded native library. The native library architecture (for example, arm64 vs x86_64) must match the JVM's architecture. Pick **one** option per OS, then **fully restart** the Micro Integrator — native libraries load only once at JVM startup.
+!!! note
+    The native library architecture (for example, arm64 vs x86_64) must match the JVM's architecture. After installing it, **fully restart** the Micro Integrator — native libraries load only once at JVM startup.
 
 #### Linux — `libsapjco3.so`
 
