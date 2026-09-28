@@ -18,7 +18,7 @@ Be sure to choose the deployment synchronization method that suits your producti
 You can use a common shared file system such as Network File System (NFS) or any other shared file system as the content synchronization mechanism. You need to mount the `<MI_HOME>/repository/deployment/server` folder of the two nodes to the shared file system to share all the artifacts between both nodes. 
 
 !!! Note
-    Using an NFS mount is recommended. SMB/CIFS shares cache file and directory metadata aggressively, so one node can observe stale results while another node is deploying or undeploying artifacts. The same applies to the [registry folder]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) if you share it across nodes.
+    Using an NFS mount is recommended, with the `hard` mount option. Avoid using SMB/CIFS shares as they cache file and directory metadata aggressively, so one node can observe stale results while another node is deploying or undeploying artifacts. The same applies to the [registry folder]({{base_path}}/install-and-setup/setup/deployment/file-based-registry) if you share it across nodes.
 
 ### Using Remote Synchronization (Rsync)
 
