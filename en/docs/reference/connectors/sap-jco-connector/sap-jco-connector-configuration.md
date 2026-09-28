@@ -12,7 +12,7 @@ To use the SAP JCo connector, you must first obtain the proprietary SAP middlewa
 
 ## Obtain the SAP middleware libraries
 
-The SAP JCo (`sapjco3.jar`) and SAP IDoc (`sapidoc3.jar`) libraries are proprietary software owned by SAP SE. They **cannot be distributed publicly** and are therefore **not** bundled with this connector. You must obtain them yourself from the [SAP Support Portal](https://support.sap.com/en/product/connectors/jco.html).
+The SAP JCo (`sapjco3.jar`) and SAP IDoc (`sapidoc3.jar`) libraries are proprietary software owned by SAP SE.  You must obtain them yourself from the [SAP Support Portal](https://support.sap.com/en/product/connectors/jco.html).
 
 | File | Version |
 |------|---------|
@@ -31,7 +31,7 @@ Download the SAP JCo package for your operating system. In addition to the JAR f
 
 ### Step 1: Add the JAR files to the classpath
 
-Copy `sapjco3.jar` and `sapidoc3.jar` into the `<MI_HOME>/lib` directory. This folder is on the Micro Integrator classpath, so the SAP JCo Java classes are picked up automatically.
+Copy `sapjco3.jar` and `sapidoc3.jar` into the `<MI_HOME>/lib` directory. 
 
 ### Step 2: Install the native library
 
