@@ -510,11 +510,12 @@ Access Log V2 also introduces two additional pattern elements that are only avai
 |---------|-------------|
 | `%D`    | Request processing time in milliseconds — the total time taken to process the request and send the response. |
 | `%X`    | Correlation ID — the correlation ID associated with the request, useful for tracing a request across multiple services. |
+| `%w`    | Response content length inferred from the `Content-Length` header, excluding HTTP headers. Available from WSO2 Integrator: MI 4.6.0.16 onwards. |
 
 **Example pattern using V2-specific elements:**
 
 ```properties
-access_log_pattern=%h %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i" %D %X
+access_log_pattern=%h %u %t "%r" %s %b %w "%{Referer}i" "%{User-Agent}i" %D %X
 ```
 
 #### Supported log pattern formats
@@ -537,7 +538,7 @@ access_log_pattern=%h %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i" %D %X
 </tr>
 <tr class="odd">
 <td><pre><code>%b</code></pre></td>
-<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if zero</p></td>
+<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if zero. In Access Log V2, this represents the request content length. To log the response content length, use the `%w` parameter.</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%B</code></pre></td>
@@ -630,6 +631,10 @@ access_log_pattern=%h %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i" %D %X
 <tr class="even">
 <td><pre><code>%X</code></pre></td>
 <td><p>Correlation ID associated with the request (Access Log V2 only)</p></td>
+</tr>
+<tr class="odd">
+<td><pre><code>%w</code></pre></td>
+<td><p>Response content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if the <code>Content-Length</code> header is not available (Access Log V2 only). Available from WSO2 Integrator: MI 4.6.0.16 onwards.</p></td>
 </tr>
 </tbody>
 </table>
