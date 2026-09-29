@@ -510,6 +510,7 @@ Access Log V2 also introduces two additional pattern elements that are only avai
 |---------|-------------|
 | `%D`    | Request processing time in milliseconds — the total time taken to process the request and send the response. |
 | `%X`    | Correlation ID — the correlation ID associated with the request, useful for tracing a request across multiple services. |
+| `%w`    | Response content length inferred from the `Content-Length` header, excluding HTTP headers. Available from WSO2 Integrator: MI 4.5.0.35 onwards. |
 
 **Example pattern using V2-specific elements:**
 
@@ -630,6 +631,10 @@ access_log_pattern=%h %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i" %D %X
 <tr class="even">
 <td><pre><code>%X</code></pre></td>
 <td><p>Correlation ID associated with the request (Access Log V2 only)</p></td>
+</tr>
+<tr class="odd">
+<td><pre><code>%w</code></pre></td>
+<td><p>Response content length inferred from the <code>Content-Length</code> header, excluding HTTP headers (Access Log V2 only). Available from WSO2 Integrator: MI 4.5.0.35 onwards.</p></td>
 </tr>
 </tbody>
 </table>
