@@ -31,6 +31,26 @@ To use the Redis connector, add the <redis.init> element in your configuration b
              <td>Yes</td>
         </tr>
         <tr>
+            <td>maxIdleConnections</td>
+            <td>The maximum number of idle connections to keep in the pool.</td>
+            <td>Optional. The default equals to the maxConnections.</td>
+        </tr>
+        <tr>
+            <td>maxWaitTime</td>
+            <td>The maximum time (in milliseconds) a thread waits for a connection from the pool when the pool is exhausted.</td>
+            <td>Optional. If not set, the thread waits indefinitely.</td>
+        </tr>
+        <tr>
+            <td>evictionCheckInterval</td>
+            <td>The time (in milliseconds) between runs of the idle connection evictor.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>minEvictionTime</td>
+            <td>The minimum time (in milliseconds) a connection may sit idle in the pool before it is eligible for eviction.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>redisTimeout</td>
             <td>The server TTL (Time to Live) in milliseconds.</td>
             <td>Optional. The default is 2000ms. </td>
