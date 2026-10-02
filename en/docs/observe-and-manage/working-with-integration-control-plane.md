@@ -144,4 +144,4 @@ You can use the ICP server to perform the following administration tasks related
 
 -   <b>Observe logs and metrics for all connected MI runtimes</b>
 
-    ICP provides centralized observability for MI runtimes. Application logs and per-request analytics are collected via Fluent Bit, stored in OpenSearch, and displayed in the ICP Console.
+    ICP provides centralized observability for MI runtimes through Moesif or OpenSearch. Application logs and per-request analytics are collected by Fluent Bit and displayed in the ICP Console.

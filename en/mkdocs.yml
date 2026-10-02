@@ -103,7 +103,10 @@ nav:
               - Run the Integration Control Plane: install-and-setup/install/running-the-integration-control-plane.md
               - Run the Integration Control Plane as a Windows Service: install-and-setup/install/running-the-integration-control-plane-as-windows-service.md
               - Connect an Integration Runtime to ICP: install-and-setup/install/connecting-an-integration-to-icp.md
-              - Add Centralized Observability in the ICP: install-and-setup/install/adding-observability-for-icp.md
+              - Add Centralized Observability in the ICP:
+                  - Overview: install-and-setup/install/adding-observability-for-icp.md
+                  - Moesif: install-and-setup/install/adding-observability-for-icp/moesif.md
+                  - OpenSearch: install-and-setup/install/adding-observability-for-icp/opensearch.md
           - Installation Options: install-and-setup/install/installation-options.md
       - Migrate: install-and-setup/upgrading-wso2-mi.md
       - Setup:
@@ -1431,4 +1434,3 @@ extra:
   #base_path: http://localhost:8000/en/latest
   base_path: https://mi.docs.wso2.com/en/4.7.0
   envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
-
