@@ -49,7 +49,7 @@ credentialsDbPassword = "changeme"
 
 When using H2 (the default), no database configuration is needed.
 
-### Observability Settings (OpenSearch)
+### Observability settings
 
 To enable centralized logs and metrics, refer to [Add Centralized Observability in the Integration Control Plane]({{base_path}}/install-and-setup/install/adding-observability-for-icp).
 
