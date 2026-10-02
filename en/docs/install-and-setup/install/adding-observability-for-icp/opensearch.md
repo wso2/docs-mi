@@ -267,7 +267,7 @@ MI's default log4j2 `[%d]` pattern produces timestamps like `2026-04-29 12:01:22
 [PARSER]
     Name        mi_log_parser
     Format      regex
-    Regex       ^(?:TID:\s*)?\[(?<time>[^\]]+)\]\s+(?<level>\w+)\s+\{(?<class>[^}]+)\}\s+(?:\[\s*Deployed From Artifact Container:\s*(?<artifact_container>[^\]]+?)\s*\])?\s*-\s+(?<message>.*?)(?:\s+\[icp\.runtimeId=(?<icp_runtimeId>[^\]]+)\])?\s*$
+    Regex       (?m)^(?:TID:\s*)?\[(?<time>[^\]]+)\]\s+(?<level>\w+)\s+\{(?<class>[^}]+)\}\s+(?:\[\s*Deployed From Artifact Container:\s*(?<artifact_container>[^\]]+?)\s*\])?\s*-\s+(?<message>.*?)(?:\s+\[icp\.runtimeId=(?<icp_runtimeId>[^\]]+)\])?\s*\z
     Time_Key    time
     Time_Format %Y-%m-%d %H:%M:%S,%L
     Time_Keep   On

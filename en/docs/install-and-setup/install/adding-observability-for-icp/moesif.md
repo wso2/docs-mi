@@ -141,7 +141,7 @@ The logs bundle also handles one runtime. Run a separate logs sidecar for each M
 
 ## Step 4: Load the canvases in ICP
 
-After data starts flowing, create a **Management API Key** in the same Moesif application. Give it the **access_tokens: create** and **events: read** scopes.
+After data starts flowing, create a **Management API Key** in the same Moesif application. Give it the **create:access_tokens** and **read:events** scopes.
 
 1. Open either the integration's **Metrics** or **Logs** page and expand **Step 03: Load the dashboard**.
 2. Paste the key into **Management API Key**, then click **Link canvas**.
