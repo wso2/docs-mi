@@ -43,7 +43,7 @@ The parameters available to configure the ForEach mediator are as follows.
                </li>
                <li>
                   <strong>Variable</strong>
-                  : <code>${var.myCollection}</code>
+                  : <code>${vars.myCollection}</code>
                </li>
             </ul>
          </td>
@@ -209,7 +209,7 @@ The parameters available to configure the ForEach mediator are as follows.
 ### Example 2 - Iterating over a JSON array derived from a variable
 
 ```xml
-<foreach collection="${var.list}" parallel-execution="true" update-original="true" continue-without-aggregation="false">
+<foreach collection="${vars.list}" parallel-execution="true" update-original="true" continue-without-aggregation="false">
     <sequence>
         <log category="INFO">
             <message>Processing message : ${payload}</message>

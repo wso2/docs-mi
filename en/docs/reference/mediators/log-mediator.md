@@ -100,7 +100,7 @@ In this example, we define a message template using [Synapse Expressions]({{base
 
 ```xml
 <log category="INFO">
-   <message>Processing user details : ${payload.user} with Purchase data : ${var.purchaseDetails}</message>
+   <message>Processing user details : ${payload.user} with Purchase data : ${vars.purchaseDetails}</message>
 </log>
 ```
 
@@ -130,8 +130,8 @@ In this example, we define parameters in addition to the message.
 
 ```xml 
 <log category="INFO">
-   <message>Processing user details : ${payload.user} with Purchase data : ${var.purchaseDetails}</message>
-   <property name="endpoint" expression="${var.endpointName}"/>
+   <message>Processing user details : ${payload.user} with Purchase data : ${vars.purchaseDetails}</message>
+   <property name="endpoint" expression="${vars.endpointName}"/>
 </log>
 ```
 A sample log output:
