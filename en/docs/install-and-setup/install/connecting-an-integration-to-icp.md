@@ -76,6 +76,9 @@ secret = "<generated secret>"
 | `jwt_clock_skew_tolerance_ms` | no | `60000` | Clock skew tolerance in milliseconds |
 | `ssl_verify` | no | `true` | Enforce TLS certificate verification (non-production) |
 | `icp_url` | no | `https://localhost:9445` | ICP runtime listener endpoint. Set this to an address reachable from MI when ICP runs on another host or uses a different runtime listener port. |
+| `management_url` | no | MI hostname and internal HTTPS port | MI management API URL advertised to ICP. ICP calls this URL to manage the runtime, so it must be reachable from ICP. Not needed when ICP uses the [heartbeat tunnel](#connect-mi-behind-a-load-balancer). |
+| `require_signed_commands` | no | `true` | Reject management requests from the heartbeat tunnel that ICP has not signed. Keep the default. |
+| `command_result_cache_size_mb` | no | `8` | Maximum size, in MB, of the cached results of heartbeat tunnel requests, kept so that a redelivered request is not run twice |
 
 
 ## 3. Start the MI instance
@@ -136,6 +139,29 @@ runtime = "mi-node-1"
 runtime = "mi-node-2"
 ```
 
+## Connect MI behind a load balancer
+
+By default, ICP manages an MI runtime by calling its management API at the address MI advertises (`management_url`, or the MI hostname and internal HTTPS port). When ICP cannot reach that address, for example when MI nodes run behind a load balancer, enable the heartbeat tunnel. ICP then sends management requests in its responses to the runtime's heartbeats, and MI returns the results over its own connection to ICP. No route from ICP to MI is needed.
+
+!!! Note
+    The heartbeat tunnel requires WSO2 Integrator: MI 4.7.0 or later. Earlier versions ignore tunneled requests, so the management views in the ICP console never load.
+
+To enable the heartbeat tunnel, add the following key to `<ICP_HOME>/conf/deployment.toml` before the first `[section]` header, and restart ICP:
+
+```toml
+miTunnelEnabled = true
+```
+
+On startup, ICP logs:
+
+```text
+MI management reaches runtimes over the heartbeat tunnel (miTunnelEnabled = true)
+```
+
+No change is required in the MI configuration. The setting applies to all MI runtimes connected to the ICP server.
+
+With the heartbeat tunnel, ICP receives each answer after the runtime's next heartbeat, so management views and changes in the console take about one `heartbeat_interval` (10 seconds by default) to complete.
+
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
@@ -143,6 +169,7 @@ runtime = "mi-node-2"
 | `Full heartbeat rejected` | Wrong or revoked secret | Generate a new secret in the console |
 | `Runtime shows but status is not RUNNING` | Heartbeats stopped | Check the MI process is alive and network is reachable |
 | `PKIX path building failed` | Self-signed ICP certificate | Set `ssl_verify = false` (non-production) or provide the CA via `cert` |
+| Runtime is **RUNNING**, but management views in the console fail or never load | ICP cannot reach the MI management API, or the heartbeat tunnel is enabled with an MI version earlier than 4.7.0 | Set `management_url` to an address reachable from ICP, or [enable the heartbeat tunnel](#connect-mi-behind-a-load-balancer) with MI 4.7.0 or later |
 
 ## Next step
 
