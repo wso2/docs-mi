@@ -4,6 +4,18 @@ The built-in user store keeps user credentials — password hashes, salts, and p
 
 By default both databases use the embedded H2 engine, writing to `<ICP_HOME>/bin/database/`. For production, switch the credentials database to PostgreSQL, MySQL, or MSSQL.
 
+!!! note "ICP 1.2.0"
+    ICP 1.2.0 has no separate credentials database — this page describes the
+    ICP 2.0.0 built-in user store. By default, ICP 1.2.0 authenticates users
+    from a flat file baked into `conf/user-mgt.xml` (the `admin` / `admin`
+    account seeded there), with no database involved.
+
+    To back user management with an external RDBMS instead, switch
+    `conf/user-mgt.xml` to the JDBC user store
+    (`org.wso2.dashboard.security.user.core.jdbc.JDBCUserStoreManager`) and
+    initialize the schema using the script for your database under
+    `dbscripts/` — for example `dbscripts/mysql/mysql_user.sql` or
+    `dbscripts/postgres/postgresql_user.sql`.
 
 ## Default Setup (H2)
 
