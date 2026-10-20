@@ -17,11 +17,6 @@
 -->
 
 {% extends "base.html" %}
-{% block extrahead %}
-<meta name="robots" content="noindex, nofollow">
-{% endblock %}
-
-
 {% block styles %}
   {{ super() }}
   <link rel="stylesheet" href="{{ 'assets/css/redoc.css' | url }}">
@@ -35,8 +30,5 @@
   {% else %}
     {# page provided its own ReDoc script/init; avoid double-including #}
   {% endif %}
-{% endblock %}
-{% block announce %}
-This documentation is a work in progress.
 {% endblock %}
 
