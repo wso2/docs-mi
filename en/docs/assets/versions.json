@@ -1,7 +1,8 @@
 {
-  "4.6.0": "main",
-  "current": "4.6.0",
+  "4.7.0": "main",
+  "current": "4.7.0",
   "list": [
+    "4.7.0",
     "4.6.0",
     "4.5.0",
     "4.4.0",
@@ -9,9 +10,13 @@
     "4.2.0"
    ],
   "all": {
-    "4.6.0":{
+    "4.7.0":{
       "doc": "latest",
       "notes": "latest/get-started/about-this-release"
+    },
+    "4.6.0":{
+      "doc": "https://mi.docs.wso2.com/en/4.6.0/",
+      "notes": "https://mi.docs.wso2.com/en/4.6.0/get-started/about-this-release/"
     },
     "4.5.0":{
       "doc": "https://mi.docs.wso2.com/en/4.5.0/",
