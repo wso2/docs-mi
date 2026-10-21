@@ -382,7 +382,10 @@ See the instructions on [Use Wire Logs]({{base_path}}/develop/using-wire-logs) t
 
 ### HTTP Access Logs
 
-Access logs related to service/API invocations are enabled by default in the WSO2 Integrator: MI. Access logs for the PassThrough transport will record the request and the response on **two** separate log lines.
+Access logs related to service/API invocations are enabled by default in the WSO2 Integrator: MI. Access logs for the PassThrough transport will record the request and the response on **two** separate log lines.
+
+!!! note "Access Log V2"
+    You can enable **Access Log V2** mode, which logs each HTTP request-response pair as a **single** access log entry. See [Access Log V2](#access-log-v2) for more information.
 
 By default, access logs are printed to the `http_access.log` file (stored in the `<MI_HOME>/repository/logs` folder). If required, you can use the log4j2 configurations to print the access logs to other destinations.
 
@@ -478,7 +481,39 @@ You can customize the format of this access log by changing the following proper
     </table>
 
 3.  Restart the server.
-4.  Invoke a proxy service or REST API that is deployed in the WSO2 Integrator: MI. The access log file for the service/API will be created in the `<MI_HOME>/repository/logs` directory. The default name of the log file is `http_access.log`.
+4.  Invoke a proxy service or REST API that is deployed in the WSO2 Integrator: MI. The access log file for the service/API will be created in the `<MI_HOME>/repository/logs` directory. The default name of the log file is `http_access.log`.
+
+#### Access Log V2
+
+By default, the PassThrough transport writes **two** separate log lines per request — one for the inbound request and one for the outbound response. Access Log V2 consolidates these into a **single log entry** per HTTP request-response pair, making logs easier to correlate and parse.
+
+To enable Access Log V2, add the following properties to the `<MI_HOME>/conf/access-log.properties` file:
+
+| Property | Description | Default |
+|----------|-------------|---------|
+| `access_log_v2` | Enables Access Log V2 mode. Set to `true` to log each HTTP request-response pair as a single entry. | `false` |
+| `access_log_v2_queue_size` | Size of the internal `LinkedBlockingQueue` that holds request-response pairs until they are written to the log. Increase this value if requests are being dropped under high load. | `2000` |
+
+**Example:**
+
+```properties
+access_log_v2=true
+access_log_v2_queue_size=2000
+```
+
+Access Log V2 also introduces additional pattern elements that are only available in V2 mode:
+
+| Pattern | Description |
+|---------|-------------|
+| `%D`    | Request processing time in milliseconds — the total time taken to process the request and send the response. |
+| `%X`    | Correlation ID — the correlation ID associated with the request, useful for tracing a request across multiple services. |
+| `%w`    | Response content length inferred from the `Content-Length` header, excluding HTTP headers. |
+
+**Example pattern using V2-specific elements:**
+
+```properties
+access_log_pattern=%h %u %t "%r" %s %b %w "%{Referer}i" "%{User-Agent}i" %D %X
+```
 
 #### Supported log pattern formats
 
@@ -500,7 +535,7 @@ You can customize the format of this access log by changing the following proper
 </tr>
 <tr class="odd">
 <td><pre><code>%b</code></pre></td>
-<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if zero</p></td>
+<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if zero. In Access Log V2, this represents the request content length. To log the response content length, use the `%w` parameter.</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%B</code></pre></td>
@@ -585,6 +620,18 @@ You can customize the format of this access log by changing the following proper
 <tr class="even">
 <td><pre><code>%Z</code></pre></td>
 <td><p>Server Header</p></td>
+</tr>
+<tr class="odd">
+<td><pre><code>%D</code></pre></td>
+<td><p>Request processing time in milliseconds (Access Log V2 only)</p></td>
+</tr>
+<tr class="even">
+<td><pre><code>%X</code></pre></td>
+<td><p>Correlation ID associated with the request (Access Log V2 only)</p></td>
+</tr>
+<tr class="odd">
+<td><pre><code>%w</code></pre></td>
+<td><p>Response content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if the <code>Content-Length</code> header is not available (Access Log V2 only).</p></td>
 </tr>
 </tbody>
 </table>
