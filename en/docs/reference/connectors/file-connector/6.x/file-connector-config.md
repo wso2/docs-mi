@@ -4635,10 +4635,6 @@ The following operations allow you to work with the File Connector. Click an ope
                     <li><code>Overwrite</code>: The existing target file is replaced with the merged content.</li>
                     <li><code>Append</code>: The merged content is added after the existing content of the target file.</li>
                 </ul>
-                <div class="admonition note">
-                    <p class="admonition-title">Note</p>
-                    <p>Prior to file connector version 6.0.8, the target file is opened in append mode even when <code>Overwrite</code> is used, which fails on file systems that do not support appending. From version 6.0.8, append mode is used only when appending to an existing target file.</p>
-                </div>
             </td>
             <td>
                 Overwrite
