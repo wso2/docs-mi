@@ -3250,6 +3250,11 @@ The following operations allow you to work with the File Connector version 4. Cl
 ??? note "mergeFiles"
     Merge the contents of multiple files in a folder to a single file.
 
+    The source files are merged in the order of their file names (case-sensitive string order). For example, to merge a CSV header file followed by data chunks, name them `header.csv`, `part-001.csv`, `part-002.csv`, and so on. Use zero-padded numbers, as `part-10.csv` is ordered before `part-2.csv`.
+
+    !!! note
+        Ordering source files by name is available in file connector version 4.0.46 or later. Earlier versions merge the files in the order returned by the file system, which is not guaranteed.
+
     <table>
         <tr>
             <th>Parameter Name</th>
@@ -3290,7 +3295,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                The path to the source folder containing the files that should be merged.
+                The path to the source folder containing the files that should be merged. The files are merged in the order of their names.
             </td>
             <td>
                 -
@@ -3310,7 +3315,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                Path to the folder that holds the merged file.
+                The path to the merged file. If the file does not exist, it is created.
             </td>
             <td>
                 -
@@ -3330,7 +3335,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                The pattern that should be used for selecting the source files that should be merged.</br>
+                The regular expression that the source file names should match to be merged.</br>
                 <b>Example</b>: <code>[a-zA-Z][a-zA-Z]*.(txt|xml|jar)</code>.
             </td>
             <td>
@@ -3351,8 +3356,16 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                If the file already exists, this parameter will determine whether the existing file should be overwritten or appended during the merge.</br>
-                Possible values are Ovewrite or Append.
+                If the target file already exists, this parameter determines whether the existing file should be overwritten or appended during the merge.</br>
+                Possible values are <code>Overwrite</code> or <code>Append</code>.
+                <ul>
+                    <li><code>Overwrite</code>: The existing target file is replaced with the merged content.</li>
+                    <li><code>Append</code>: The merged content is added after the existing content of the target file.</li>
+                </ul>
+                <div class="admonition note">
+                    <p class="admonition-title">Note</p>
+                    <p>Prior to file connector version 4.0.46, the target file is opened in append mode even when <code>Overwrite</code> is used, which fails on file systems that do not support appending (for example, SFTP on some WSO2 Integrator: MI versions). From version 4.0.46, append mode is used only when appending to an existing target file.</p>
+                </div>
             </td>
             <td>
                 Overwrite
