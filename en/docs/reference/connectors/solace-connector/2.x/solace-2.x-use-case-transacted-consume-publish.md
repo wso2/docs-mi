@@ -21,18 +21,33 @@ With solace.transacted true each worker owns one transacted session with a synch
     <call blocking="false">
         <endpoint key="OrderBackend"/>
     </call>
-    <solace.publishMessage configKey="SOLACE_CONN">
-        <destinationType>QUEUE</destinationType>
-        <destinationName>Q.out</destinationName>
-        <deliveryMode>PERSISTENT</deliveryMode>
-        <messageType>TEXT</messageType>
-        <responseVariable>published</responseVariable>
-    </solace.publishMessage>
-    <solace.acknowledgeMessage>
-        <responseVariable>ackResult</responseVariable>
-    </solace.acknowledgeMessage>
+    <filter source="get-property('axis2', 'HTTP_SC')" regex="2\d\d">
+        <then>
+            <solace.publishMessage configKey="SOLACE_CONN">
+                <destinationType>QUEUE</destinationType>
+                <destinationName>Q.out</destinationName>
+                <deliveryMode>PERSISTENT</deliveryMode>
+                <messageType>TEXT</messageType>
+                <responseVariable>published</responseVariable>
+                <overwriteBody>false</overwriteBody>
+            </solace.publishMessage>
+            <solace.acknowledgeMessage>
+                <responseVariable>ackResult</responseVariable>
+                <overwriteBody>false</overwriteBody>
+            </solace.acknowledgeMessage>
+        </then>
+        <else>
+            <solace.nackMessage>
+                <outcomeType>FAILED</outcomeType>
+                <responseVariable>nackResult</responseVariable>
+                <overwriteBody>false</overwriteBody>
+            </solace.nackMessage>
+        </else>
+    </filter>
 </sequence>
 ```
+
+Only a 2xx answer from the backend publishes and commits. Any other answer nacks FAILED, which rolls the transaction back.
 
 ## The three settings the queue needs
 
@@ -52,7 +67,7 @@ Measured on 20 October 2026 with five messages, a redelivery cutoff of 3 and the
 | poll, beginTransaction, commit and rollback fault with INBOUND\_TRANSACTION 700113 | the worker owns the transaction and decides from the settlement |
 | sendRequest faults with REQUEST\_IN\_TRANSACTION 700114 | a transacted publish is invisible to the responder until the commit, so the reply could never arrive before it |
 | a connector owned transaction must not span a non blocking call | the transaction id lives in the message's axis2 scope, the commit after the call finds no transaction, and a publish after the call goes out untransacted |
-| maxRedeliveries is ignored, the queue's cutoff applies | the broker counts the redeliveries, and the redelivery back off runs before each rollback with the broker's delivery count as the attempt number |
+| maxRedeliveries is ignored, the queue's cutoff applies | the broker counts the redeliveries, and the redelivery back off runs before each rollback with the broker's delivery count as the attempt number. The count is there only when the queue has delivery count enabled. Without it every rollback waits the initial delay |
 | a publish that runs inline on the worker thread has no ackTimeout | the caller is the worker, which cannot time itself out |
 
 On an exclusive queue only one of the transacted flows is active, so the concurrency there is one. When the result of a commit is unknown after a connection failure, the worker rebuilds its session, flow and producer, and the message may be redelivered or gone, so the mode is at least once.

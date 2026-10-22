@@ -35,10 +35,12 @@ At the end of this guide both 2.0.0 artifacts are in your project, the server ha
 
 ## Verify
 
-The log shows the connector's connection initialised with its pool size and the inbound endpoint's first generation started with the queue name. The management API lists the endpoint with status connected or active.
+The log shows the inbound endpoint's first generation started with the queue name. The connector's connection logs that it is initialised, with its pool size, on the first operation that uses it, not at deploy. The management API lists the endpoint with status connected or active. The API needs a token from its login resource.
 
 ```bash
-curl -k -u admin:admin 'https://localhost:9164/management/inbound-endpoints'
+TOKEN=$(curl -sk -u admin:admin https://localhost:9164/management/login \
+  | sed -n 's/.*"AccessToken"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')
+curl -sk -H "Authorization: Bearer $TOKEN" 'https://localhost:9164/management/inbound-endpoints'
 ```
 
 A missing client library shows as a class not found error for a com.solacesystems class at deploy time: check the lib folder and restart.

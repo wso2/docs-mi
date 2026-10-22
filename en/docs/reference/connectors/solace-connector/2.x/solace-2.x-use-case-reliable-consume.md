@@ -49,12 +49,14 @@ The sequence. The call to the backend is non blocking, which is the case that 1.
         <then>
             <solace.acknowledgeMessage>
                 <responseVariable>ackResult</responseVariable>
+                <overwriteBody>false</overwriteBody>
             </solace.acknowledgeMessage>
         </then>
         <else>
             <solace.nackMessage>
                 <outcomeType>FAILED</outcomeType>
                 <responseVariable>nackResult</responseVariable>
+                <overwriteBody>false</overwriteBody>
             </solace.nackMessage>
         </else>
     </filter>
@@ -69,6 +71,7 @@ The fault sequence. An exception in the mediation ends here, and the message is 
     <solace.nackMessage>
         <outcomeType>FAILED</outcomeType>
         <responseVariable>nackResult</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </solace.nackMessage>
 </sequence>
 ```
@@ -83,7 +86,8 @@ The settlement operations need no connection. They act on the message the inboun
 | nackMessage FAILED | the message is retried in place on the same worker after a delay that starts at 1 second and doubles up to 60 seconds. The message stays on the worker, so the queue's order is kept and the broker's redelivery count does not move. After maxRedeliveries attempts it is settled REJECTED. With maxRedeliveries 0 it is settled FAILED at once and the broker's own redelivery applies. |
 | nackMessage REJECTED | the message is settled REJECTED, and the broker moves it to the queue's dead message queue when the message is eligible for it |
 | no decision within settlementTimeout | the endpoint applies failureOutcome, FAILED by default |
-| an empty or unparseable payload | settled REJECTED instead of being retried forever, so an eligible message is kept in the dead message queue for inspection |
+| an empty payload | settled REJECTED at once instead of being retried forever, so an eligible message is kept in the dead message queue for inspection |
+| a JSON payload that does not parse | passed to the sequence as it is. It fails only where the sequence reads it, and then takes the fault sequence and its retries |
 
 A rejected message reaches the dead message queue only when the message is eligible for it. The publisher marks it eligible, for example with the REST header `Solace-DMQ-Eligible: true`, or with dmqEligible true on publishMessage. On a broker that respects the flag, a rejected message that is not eligible is discarded, and the endpoint logs one WARN for it. Newer brokers can override the flag through the queue's Respect DMQ Eligible setting and the Message VPN, so check the effective policy of your broker, see [Setting dead message queues](https://docs.solace.com/Messaging/Guaranteed-Msg/Setting-Dead-Msg-Queues.htm). Without a dead message queue the broker discards a rejected message.
 
@@ -100,7 +104,7 @@ A rejected message reaches the dead message queue only when the message is eligi
 
 ## The log lines
 
-A retry logs `message <id>: attempt 1 failed; retry in 1000 ms`, and the last one logs `exhausted 3 in-place retries; rejecting (DMQ when eligible)`. At deploy time the endpoint logs a WARN for a manual acknowledgement sequence that contains no settlement operation, because such a sequence would wait for settlementTimeout on every message.
+A retry logs `message <id> attempt 1 failed; retry in 1000 ms`, and the last one logs `exhausted 3 in-place retries; rejecting (DMQ when eligible)`. At deploy time the endpoint logs a WARN for a manual acknowledgement sequence that contains no settlement operation, because such a sequence would wait for settlementTimeout on every message.
 
 ## The health words
 

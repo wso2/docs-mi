@@ -20,7 +20,7 @@ At the end of this guide the time a sequence has to settle a message is set once
 
 ## Verify
 
-Deploy a sequence that never settles, a Log mediator only, on an endpoint with autoAck false. The deploy time WARN says the sequence contains no settlement operation. Publish one message: after the configured time the log shows the timeout decision and the counters show decided.TIMEOUT 1, then the failureOutcome applies, FAILED by default, which retries the message. The time between the publish and the retry is the value you set.
+Deploy a sequence that never settles, a Log mediator only, on an endpoint with autoAck false, with a fault sequence that does not settle either. The deploy time WARN says that no settlement operation was found in the sequence, its fault sequence or the sequences they reference. A fault sequence that nacks counts as a settlement operation, and then there is no WARN. Publish one message: after the configured time the log shows the timeout decision and the counters show decided.TIMEOUT 1, then the failureOutcome applies, FAILED by default, which retries the message. The time between the publish and the retry is the value you set.
 
 ## Undo
 

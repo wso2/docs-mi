@@ -16,6 +16,8 @@ At the end of this guide two nodes share a coordination database, the task layer
     driver = "com.mysql.cj.jdbc.Driver"
     ```
 
+    Put the JDBC driver of the database in the lib folder of both nodes, and create the tables once with `dbscripts/mysql/mysql_cluster.sql` of the server. On MySQL create the database with the utf8mb3 character set. With utf8mb4 the script fails with key too long.
+
 3. Keep coordination at its default of true on the inbound endpoint, or set it so.
 
     ```xml

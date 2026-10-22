@@ -21,6 +21,7 @@ At the end of this guide an API call takes one message from a queue, works on it
                     <pollTimeout>3000</pollTimeout>
                     <ackMode>CLIENT</ackMode>
                     <responseVariable>polled</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </solace.poll>
                 <filter source="${vars.polled.attributes.timedOut}" regex="false">
                     <then>
@@ -37,6 +38,7 @@ At the end of this guide an API call takes one message from a queue, works on it
                                 <solace.acknowledgeMessage>
                                     <target>POLL</target>
                                     <responseVariable>ackResult</responseVariable>
+                                    <overwriteBody>false</overwriteBody>
                                 </solace.acknowledgeMessage>
                                 <payloadFactory media-type="json" template-type="default">
                                     <format>{"received": true, "timedOut": false, "message": ${vars.polled.payload}}</format>
@@ -47,6 +49,7 @@ At the end of this guide an API call takes one message from a queue, works on it
                                     <outcomeType>FAILED</outcomeType>
                                     <target>POLL</target>
                                     <responseVariable>nackResult</responseVariable>
+                                    <overwriteBody>false</overwriteBody>
                                 </solace.nackMessage>
                                 <payloadFactory media-type="json" template-type="default">
                                     <format>{"received": true, "timedOut": false, "processed": false}</format>
@@ -74,7 +77,7 @@ At the end of this guide an API call takes one message from a queue, works on it
 
 ## Verify
 
-The first call returns the first message inside {"received": true, "timedOut": false, "message": ...}, the backend received that message, and Q.orders holds one message. A backend answer other than 200 nacks the message FAILED, so the broker redelivers it to a later poll. The log shows the poll session connected and the flow bound. Comment out the acknowledgement, redeploy and call again: the second message is returned, and after 10 seconds the log shows `polled message <id> was not settled within pollAckTimeout 10000 ms; settling FAILED` and the message is back on the queue with the redelivered flag. Call the API with the queue empty: it returns {"received": false, "timedOut": true} after 3 seconds and holds no flow longer than pollFlowIdleTimeout.
+The first call returns the first message inside {"received": true, "timedOut": false, "message": ...}, the backend received that message, and Q.orders holds one message. A backend answer other than 200 nacks the message FAILED, so the broker redelivers it to a later poll, and the caller gets the not processed answer with the backend's HTTP status. The log shows the connection initialised on the first call, and the broker's client list shows the poll session `orders-node1-SOLACE_CONN-poll`. Comment out the acknowledgement, redeploy and call again: the second message is returned, and after 10 seconds the log shows `polled message <id> was not settled within pollAckTimeout 10000 ms; settling FAILED` and the message is back on the queue with the redelivered flag. Call the API with the queue empty: it returns {"received": false, "timedOut": true} after 3 seconds and holds no flow longer than pollFlowIdleTimeout.
 
 ## Undo
 

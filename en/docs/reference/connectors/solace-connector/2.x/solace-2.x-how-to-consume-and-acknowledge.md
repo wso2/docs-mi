@@ -24,12 +24,14 @@ At the end of this guide a message consumed from a queue is acknowledged only af
             <then>
                 <solace.acknowledgeMessage>
                     <responseVariable>ackResult</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </solace.acknowledgeMessage>
             </then>
             <else>
                 <solace.nackMessage>
                     <outcomeType>FAILED</outcomeType>
                     <responseVariable>nackResult</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </solace.nackMessage>
             </else>
         </filter>
@@ -39,6 +41,7 @@ At the end of this guide a message consumed from a queue is acknowledged only af
         <solace.nackMessage>
             <outcomeType>FAILED</outcomeType>
             <responseVariable>nackResult</responseVariable>
+            <overwriteBody>false</overwriteBody>
         </solace.nackMessage>
     </sequence>
     ```

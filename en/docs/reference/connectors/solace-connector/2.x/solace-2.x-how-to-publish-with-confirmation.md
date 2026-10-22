@@ -36,6 +36,7 @@ At the end of this guide an API publishes a persistent message and answers the H
                     <messageType>TEXT</messageType>
                     <ackTimeout>10000</ackTimeout>
                     <responseVariable>published</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </solace.publishMessage>
                 <payloadFactory media-type="json"><format>{"ackStatus": "${vars.published.attributes.ackStatus}"}</format></payloadFactory>
                 <respond/>
@@ -58,7 +59,7 @@ At the end of this guide an API publishes a persistent message and answers the H
 
 ## Verify
 
-The response is ackStatus ACK and the message is on Q.orders. The log of the first call shows the connector's connection initialised and `session orders-node1-SOLACE_CONN-1 connected (generation 1)`.
+The response is ackStatus ACK and the message is on Q.orders. The log of the first call shows the connector's connection initialised and `session SOLACE_CONN-1 connected (generation 1)`. The broker's client list shows that session as `orders-node1-SOLACE_CONN-1`.
 
 Shut down the queue's ingress on the broker and call again: the fault sequence answers 502 with the error 700122 and the message `NACK: subcode 31, Queue Shutdown`. Pause the broker container, or block its port, and call again: after 10 seconds the fault sequence answers with 700119 DEADLINE. The next call after the broker is back logs `rebuilt (generation 2)` and succeeds.
 

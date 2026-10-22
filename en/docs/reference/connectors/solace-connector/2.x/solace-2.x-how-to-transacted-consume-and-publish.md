@@ -11,16 +11,29 @@ At the end of this guide a message consumed from Q.in and the message the sequen
     ```xml
     <sequence name="orderTxSeq" xmlns="http://ws.apache.org/ns/synapse">
         <call blocking="false"><endpoint key="OrderBackend"/></call>
-        <solace.publishMessage configKey="SOLACE_CONN">
-            <destinationType>QUEUE</destinationType>
-            <destinationName>Q.out</destinationName>
-            <deliveryMode>PERSISTENT</deliveryMode>
-            <messageType>TEXT</messageType>
-            <responseVariable>published</responseVariable>
-        </solace.publishMessage>
-        <solace.acknowledgeMessage>
-            <responseVariable>ackResult</responseVariable>
-        </solace.acknowledgeMessage>
+        <filter source="get-property('axis2', 'HTTP_SC')" regex="2\d\d">
+            <then>
+                <solace.publishMessage configKey="SOLACE_CONN">
+                    <destinationType>QUEUE</destinationType>
+                    <destinationName>Q.out</destinationName>
+                    <deliveryMode>PERSISTENT</deliveryMode>
+                    <messageType>TEXT</messageType>
+                    <responseVariable>published</responseVariable>
+                    <overwriteBody>false</overwriteBody>
+                </solace.publishMessage>
+                <solace.acknowledgeMessage>
+                    <responseVariable>ackResult</responseVariable>
+                    <overwriteBody>false</overwriteBody>
+                </solace.acknowledgeMessage>
+            </then>
+            <else>
+                <solace.nackMessage>
+                    <outcomeType>FAILED</outcomeType>
+                    <responseVariable>nackResult</responseVariable>
+                    <overwriteBody>false</overwriteBody>
+                </solace.nackMessage>
+            </else>
+        </filter>
     </sequence>
     ```
 
@@ -38,7 +51,7 @@ At the end of this guide a message consumed from Q.in and the message the sequen
 
 ## Verify
 
-At start the endpoint logs the WARN that names the three queue settings, and the Solace client logs the INFO line about MaxDeliveredUnackedMessagesPerFlow at bind, which confirms the third setting is in place. After the publish, Q.out holds one message and Q.in is empty. The message appeared on Q.out only when the commit completed. Stop the backend and publish again: the fault sequence's nack rolls the transaction back, Q.out gets nothing, and the broker redelivers the message with the redelivery back off until the queue's cutoff moves it to the dead message queue. Publish a message that the sequence rejects: the same, since REJECTED is a rollback in this mode.
+At start the endpoint logs the WARN that names the three queue settings, and the Solace client logs the INFO line about MaxDeliveredUnackedMessagesPerFlow at bind, which confirms the third setting is in place. After the publish, Q.out holds one message and Q.in is empty. The message appeared on Q.out only when the commit completed. Stop the backend and publish again: the fault sequence's nack rolls the transaction back, Q.out gets nothing, and the broker redelivers the message with the redelivery back off until the queue's cutoff moves it to the dead message queue. A backend answer other than 2xx rolls back the same way, through the nack in the sequence. The back off grows with the broker's delivery count only when the queue has delivery count enabled. Without it every rollback waits the initial delay. Publish a message that the sequence rejects: the same, since REJECTED is a rollback in this mode.
 
 ## Undo
 

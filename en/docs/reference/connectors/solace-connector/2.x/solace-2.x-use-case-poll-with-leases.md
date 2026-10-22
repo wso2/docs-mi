@@ -24,6 +24,7 @@ poll receives one message from a queue on the connection's poll session, where o
     <pollTimeout>3000</pollTimeout>
     <ackMode>CLIENT</ackMode>
     <responseVariable>polled</responseVariable>
+    <overwriteBody>false</overwriteBody>
 </solace.poll>
 <filter source="${vars.polled.attributes.timedOut}" regex="false">
     <then>
@@ -40,6 +41,7 @@ poll receives one message from a queue on the connection's poll session, where o
                 <solace.acknowledgeMessage>
                     <target>POLL</target>
                     <responseVariable>ackResult</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </solace.acknowledgeMessage>
                 <payloadFactory media-type="json" template-type="default">
                     <format>{"received": true, "timedOut": false, "message": ${vars.polled.payload}}</format>
@@ -50,6 +52,7 @@ poll receives one message from a queue on the connection's poll session, where o
                     <outcomeType>FAILED</outcomeType>
                     <target>POLL</target>
                     <responseVariable>nackResult</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </solace.nackMessage>
                 <payloadFactory media-type="json" template-type="default">
                     <format>{"received": true, "timedOut": false, "processed": false}</format>
@@ -66,7 +69,7 @@ poll receives one message from a queue on the connection's poll session, where o
 <respond/>
 ```
 
-The response of poll carries the message body as the payload and its metadata as attributes, with timedOut true when the queue was empty for pollTimeout. poll does not put the message on the body. The sequence passes vars.polled.payload to the backend, here through the HTTP connection of the quick start, acknowledges only a 200 answer, and builds its own answer for the caller, including the one for an empty queue. A poll inside a sequence of the inbound endpoint keeps the two messages apart: target POLL settles the polled one, target INBOUND, the default, settles the inbound endpoint's one.
+The response of poll carries the message body as the payload and its metadata as attributes, with timedOut true when the queue was empty for pollTimeout. poll does not put the message on the body. The sequence passes vars.polled.payload to the backend, here through the HTTP connection of the quick start, acknowledges only a 200 answer, and builds its own answer for the caller, including the one for an empty queue. The answer for a message that was not processed keeps the backend's HTTP status. A poll inside a sequence of the inbound endpoint keeps the two messages apart: target POLL settles the polled one, target INBOUND, the default, settles the inbound endpoint's one.
 
 ## The parameters that matter
 

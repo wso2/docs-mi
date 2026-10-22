@@ -66,7 +66,7 @@ At the end of this guide you read the status, the three health axes and the coun
 
 2. Read the status: active, standby, connected, recovering, failed or stopped. Read the health block: lifecycle, generation, connectivity as a whole and per resource, activity as a whole and per flow, and the counters.
 3. In ICP open the server, then Inbound Endpoints, then the endpoint. The status column shows the same word, and the detail shows the health block.
-4. Watch it change. Pause the broker container for a minute: the status reads recovering and connectivity reads reconnecting while the lifecycle stays running. Unpause: active again, the generation unchanged. Delete and recreate the queue: recovering, then active with the generation increased by one.
+4. Watch it change. Pause the broker container for a minute: the status reads recovering and connectivity reads reconnecting while the lifecycle stays running. Unpause: active again, the generation unchanged. Delete and recreate the queue: recovering, then active with a higher generation. Every connection attempt of the recovery takes the next number, so a queue that was gone for 11 seconds on the bench came back as generation 6.
 
 ## Verify
 

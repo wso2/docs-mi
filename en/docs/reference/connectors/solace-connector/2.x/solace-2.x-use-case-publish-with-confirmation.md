@@ -38,6 +38,7 @@ The operation.
     <ackTimeout>10000</ackTimeout>
     <continueOnAckFailure>false</continueOnAckFailure>
     <responseVariable>published</responseVariable>
+    <overwriteBody>false</overwriteBody>
 </solace.publishMessage>
 ```
 

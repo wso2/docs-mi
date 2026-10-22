@@ -29,6 +29,8 @@ The requester, inside an API resource.
 
 overwriteBody true puts the reply on the body, so respond returns it to the HTTP client. Without it the reply stays in vars.reply and the client gets its own request back.
 
+sendRequest publishes the current body as the request. Call the API with a body, or build the request first with a payload factory as guide 9 does. An empty request is rejected by the responder as an empty message.
+
 The responder, the sequence of an inbound endpoint on Q.requests with autoAck false. The reply is published before the request is acknowledged.
 
 ```xml
@@ -39,9 +41,11 @@ The responder, the sequence of an inbound endpoint on Q.requests with autoAck fa
         <deliveryMode>PERSISTENT</deliveryMode>
         <messageType>TEXT</messageType>
         <responseVariable>replied</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </solace.sendReply>
     <solace.acknowledgeMessage>
         <responseVariable>ackResult</responseVariable>
+        <overwriteBody>false</overwriteBody>
     </solace.acknowledgeMessage>
 </sequence>
 ```

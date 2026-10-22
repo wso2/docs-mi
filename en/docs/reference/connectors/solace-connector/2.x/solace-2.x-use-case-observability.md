@@ -48,7 +48,7 @@ Health never triggers a recovery. It reports.
 | start | `starting generation <n>`, then the started line with the queue |
 | client reconnect | `session reconnecting`, `session reconnected` |
 | recovery | `generation <n> is recovering`, `connection attempt <n> failed; next attempt in <ms> ms` |
-| retry | `message <id>: attempt <n> failed; retry in <ms> ms`, `exhausted <n> in-place retries; rejecting (DMQ when eligible)` |
+| retry | `message <id> attempt <n> failed; retry in <ms> ms`, `exhausted <n> in-place retries; rejecting (DMQ when eligible)` |
 | flow loss | `parked messages discarded`, with the count |
 | deploy time WARNs | a manual acknowledgement sequence with no settlement operation, a strict client name two nodes will share, a transacted endpoint naming the three queue settings |
 | connector session | `session <name> connected (generation 1)`, `session <name> rebuilt (generation <n>)`, `session <name> reconnecting`, `session <name> DOWN` |

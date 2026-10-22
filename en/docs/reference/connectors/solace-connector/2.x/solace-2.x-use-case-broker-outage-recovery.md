@@ -29,11 +29,11 @@ The connector keeps its own work bounded during an outage too. A pooled session 
 
 ## The log lines
 
-During a client reconnect: `session reconnecting` and `session reconnected`. During a recovery: `generation 1 is recovering`, then `connection attempt 1 failed; next attempt in 1000 ms` for each attempt, then `starting generation 2`. Every attempt carries its generation number, so the log of an outage reads as one story.
+During a client reconnect: `session reconnecting` and `session reconnected`. During a recovery: `generation 1 is recovering`, then `connection attempt 1 failed; next attempt in 1000 ms` for each attempt, then `generation <n> started` when an attempt succeeds. Every attempt takes the next generation number, so the log of an outage reads as one story. On the bench a queue that was gone for 11 seconds took four failed attempts, and the endpoint came back as generation 6.
 
 ## The health words
 
-The status moves from active to recovering and back to active. During a client reconnect the lifecycle stays running and the connectivity reads reconnecting. During a recovery the lifecycle reads recovering. The generation number in the health block increases with every recovery.
+The status moves from active to recovering and back to active. During a client reconnect the lifecycle stays running and the connectivity reads reconnecting. During a recovery the lifecycle reads recovering. The generation number in the health block increases with every connection attempt of a recovery, not by one per recovery.
 
 The words as the server returned them on the bench, cut to the three axes, in the instant an endpoint drained its generation before a recovery and, for comparison, while it consumed.
 

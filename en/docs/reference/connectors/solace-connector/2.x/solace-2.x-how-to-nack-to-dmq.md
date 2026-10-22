@@ -12,20 +12,35 @@ At the end of this guide a message the sequence judges invalid is rejected to th
         <filter source="${payload.seats}" regex="^[1-9]$">
             <then>
                 <call blocking="false"><endpoint key="OrderBackend"/></call>
-                <solace.acknowledgeMessage>
-                    <responseVariable>ackResult</responseVariable>
-                </solace.acknowledgeMessage>
+                <filter source="get-property('axis2', 'HTTP_SC')" regex="2\d\d">
+                    <then>
+                        <solace.acknowledgeMessage>
+                            <responseVariable>ackResult</responseVariable>
+                            <overwriteBody>false</overwriteBody>
+                        </solace.acknowledgeMessage>
+                    </then>
+                    <else>
+                        <solace.nackMessage>
+                            <outcomeType>FAILED</outcomeType>
+                            <responseVariable>nackResult</responseVariable>
+                            <overwriteBody>false</overwriteBody>
+                        </solace.nackMessage>
+                    </else>
+                </filter>
             </then>
             <else>
                 <log category="WARN"><message>order rejected: seats out of range</message></log>
                 <solace.nackMessage>
                     <outcomeType>REJECTED</outcomeType>
                     <responseVariable>nackResult</responseVariable>
+                    <overwriteBody>false</overwriteBody>
                 </solace.nackMessage>
             </else>
         </filter>
     </sequence>
     ```
+
+    A valid order is acknowledged only for a 2xx answer from the backend, as in guide 2. Any other answer nacks it FAILED, so it is retried.
 
 3. Keep the fault sequence on FAILED, so an exception during the backend call is retried, and set solace.maxRedeliveries on the inbound endpoint to the number of attempts before the message is dead lettered.
 4. Deploy and publish one invalid order, seats 12, and one valid order with the backend stopped. Publish both DMQ eligible, for example with the REST header `Solace-DMQ-Eligible: true`.
@@ -34,7 +49,7 @@ At the end of this guide a message the sequence judges invalid is rejected to th
 
 The invalid order is in Q.orders.dmq at once, the counters show decided.REJECTED 1 and settled.rejected 1. The valid order with the backend stopped is retried with the back off and reaches the dead message queue after the attempts, with decided.FAILED equal to the attempts and settled.rejected 2. The response of nackMessage carries settled true and mode DEFERRED, which means the decision reached the inbound endpoint. The counters say what reached the broker.
 
-A message with an empty or unparseable payload is settled REJECTED without a decision, so an eligible message is kept in the dead message queue for inspection.
+A message with an empty payload is settled REJECTED without a decision, so an eligible message is kept in the dead message queue for inspection. A JSON payload that does not parse is not rejected by the endpoint. It reaches the sequence as it is and fails only where the sequence reads it.
 
 ## Undo
 

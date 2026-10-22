@@ -11,7 +11,7 @@ At the end of this guide an HTTP call into one integration is answered by a seco
     <api name="GetSeats" context="/seats" xmlns="http://ws.apache.org/ns/synapse">
         <resource methods="GET" uri-template="/{flight}" faultSequence="seatsFaultSeq">
             <inSequence>
-                <payloadFactory media-type="json"><format>{"flight": "${params.uriParams.flight}"}</format></payloadFactory>
+                <payloadFactory media-type="json"><format>{"flight": "${params.pathParams.flight}"}</format></payloadFactory>
                 <solace.sendRequest configKey="SOLACE_CONN">
                     <destinationType>QUEUE</destinationType>
                     <destinationName>Q.requests</destinationName>
@@ -39,9 +39,11 @@ At the end of this guide an HTTP call into one integration is answered by a seco
             <deliveryMode>PERSISTENT</deliveryMode>
             <messageType>TEXT</messageType>
             <responseVariable>replied</responseVariable>
+            <overwriteBody>false</overwriteBody>
         </solace.sendReply>
         <solace.acknowledgeMessage>
             <responseVariable>ackResult</responseVariable>
+            <overwriteBody>false</overwriteBody>
         </solace.acknowledgeMessage>
     </sequence>
     ```
@@ -54,7 +56,7 @@ At the end of this guide an HTTP call into one integration is answered by a seco
 
 ## Verify
 
-The reply comes back within the responder's time. During the call the broker shows a temporary queue owned by the requester's rr session, and none after the reply. The requester's log shows `session orders-node1-SOLACE_CONN-rr connected (generation 1)` on the first call. Stop the responder and call again: the call faults after 5 seconds with the request timeout, and the temporary queue is gone. Start the responder: the request that was left on Q.requests is consumed, its reply goes to a queue that no longer exists, sendReply faults with Queue Not Found, and the responder's fault sequence decides what to do with the request.
+The reply comes back within the responder's time. During the call the broker shows a temporary queue owned by the requester's rr session, and none after the reply. From the first call the broker's client list shows the requester's request reply session, `orders-node1-SOLACE_CONN-rr`. The log does not name that session at INFO. Stop the responder and call again: the call faults after 5 seconds with REQUEST\_REPLY\_ERROR 700104, the request timeout, and the temporary queue is gone. Start the responder: the request that was left on Q.requests is consumed, its reply goes to a queue that no longer exists, sendReply faults with Queue Not Found, and the responder's fault sequence decides what to do with the request.
 
 ## Undo
 

@@ -272,7 +272,7 @@ Stop the backend and publish again. The call fails before an answer, so the faul
     [2026-10-21 09:25:37,019] ERROR {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 exhausted 3 in-place retries; rejecting (DMQ when eligible)
     ```
 
-The health block then reads received 2, retried 3, decided.ACK 1, decided.FAILED 4, applied.REJECTED 1 and settled.rejected 1, and on the broker Q.orders is empty while Q.orders.dmq holds the message, depth 0 and depth 1 on this run. Start the backend and wait for the suspension to lift, 30 seconds from the failure. A message published before that fails the same way and ends in the dead message queue too, as the third message of this run did. Then publish once more: the transport marks the endpoint active again and the message is acknowledged after the answer.
+The health block then reads received 2, retried 3, decided.ACK 1, decided.FAILED 4, applied.REJECTED 1 and settled.rejected 1, and on the broker Q.orders is empty while Q.orders.dmq holds the message, depth 0 and depth 1 on this run. Start the backend and wait for the suspension to lift, 30 seconds from the failure. A message whose retries all fall inside the suspension fails the same way and ends in the dead message queue too, as the third message of this run did. The retries take 1, 2 and 4 seconds, so a message published in the last seconds before the lift can reach the backend on a retry and is acknowledged. Then publish once more: the transport marks the endpoint active again and the message is acknowledged after the answer.
 
 ??? note "The log of message 4, as logged"
 

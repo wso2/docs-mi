@@ -20,7 +20,7 @@ At the end of this guide two nodes bind the same exclusive queue, the broker kee
 
 ## Verify
 
-After the deploy both nodes log their bind. One logs `flow ACTIVE` and shows status active in its management API. The other logs `flow INACTIVE` and shows standby. The broker's client list shows two clients, orders, node1, OrderListener and orders, node2, OrderListener, and the queue shows two flows with one active.
+After the deploy both nodes log their bind. One logs `flow ACTIVE` and shows status active in its management API. The other logs only its started line and shows connected with activity unknown, because the broker sends no indication to a flow that binds as standby. A node logs `flow INACTIVE` and shows standby when its active flow loses the queue to another node. The broker's client list shows two clients, orders, node1, OrderListener and orders, node2, OrderListener, and the queue shows two flows with one active.
 
 After the kill the standby node logs `flow ACTIVE` within the broker's detection of the lost session, its status becomes active, and the messages that were in flight on the dead node are redelivered to it. The test campaign measured a consumption gap of 0.369 seconds for this hand over and no lost message.
 
