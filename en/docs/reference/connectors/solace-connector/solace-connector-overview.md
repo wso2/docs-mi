@@ -16,7 +16,7 @@ To **consume** messages from a Solace broker and drive a mediation sequence, use
 !!! info "Protocol"
     The connector and inbound endpoint are built on the Solace **JCSMP** API and communicate with the broker over **SMF** (Solace Message Format), the broker's native protocol exposed on the SMF ports (`tcp://…:55555` / `tcps://…:55443`). This gives access to Solace-specific capabilities such as local transactions and negative acknowledgements. To reach a Solace broker over **JMS**, **AMQP**, or **MQTT** instead, use the corresponding WSO2 Integrator: MI transport rather than this connector.
 
-Go to the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-solace">WSO2 Connector Store</a> to download the Solace connector.
+Go to the WSO2 Connector Store to download the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-solace">Solace connector</a> and the <a target="_blank" href="https://store.wso2.com/connector/mi-inbound-solace">Solace inbound endpoint</a>.
 
 ## Compatibility
 

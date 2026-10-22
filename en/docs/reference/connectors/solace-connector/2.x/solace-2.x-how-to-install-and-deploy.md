@@ -28,6 +28,8 @@ At the end of this guide both 2.0.0 artifacts are in your project, the server ha
     </dependency>
     ```
 
+    Both 2.0.0 artifacts are also in the WSO2 Connector Store, the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-solace">Solace connector</a> and the <a target="_blank" href="https://store.wso2.com/connector/mi-inbound-solace">Solace inbound endpoint</a>.
+
 3. Create a connection for the connector, a local entry with the broker, the VPN and the credentials, as in [use case 7]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-publish-with-confirmation/). Create an inbound endpoint as in the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/).
 4. Build the CAR and deploy it: copy it into the carbonapps folder of the server, or run the project from the extension.
 

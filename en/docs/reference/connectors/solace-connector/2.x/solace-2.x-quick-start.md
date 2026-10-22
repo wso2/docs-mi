@@ -26,7 +26,7 @@ HTTPServer(("localhost", 8099), Handler).serve_forever()
 
 ## Step 1, the project and the two dependencies
 
-Create an integration project and add both artifacts to its pom, from the connector store or from your Maven repository.
+Create an integration project and add both artifacts to its pom, from the WSO2 Connector Store or from your Maven repository. The store entries are the <a target="_blank" href="https://store.wso2.com/connector/mi-connector-solace">Solace connector</a> and the <a target="_blank" href="https://store.wso2.com/connector/mi-inbound-solace">Solace inbound endpoint</a>.
 
 ```xml
 <dependency>
