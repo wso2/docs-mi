@@ -25,9 +25,9 @@ All figures are messages per second on one node, from the throughput measurement
 | publish direct from an API, 32 callers, 8 pooled sessions |  | none | 5200 |  |
 | request reply from an API, 32 callers |  | the responder on the bench | 202 |  |
 
-The endpoint adds little to the backend's own time. With a 500 ms backend the slowest one message in a hundred took 513 ms from receive to acknowledgement, and 520 ms with 100 KB messages. With a 20 ms backend it took 27 ms at one and eight workers, 47 ms at 32 and 44 ms at 128, where the test backend and the host were the limit.
+The endpoint adds little to the backend's own time. In the steady runs with a 500 ms backend, the 99th percentile of the time from the receipt of a message to the settlement call was at most 513 ms, and 520 ms with 100 KB messages. With a 20 ms backend the same percentile was 27 ms at one and eight workers, 47 ms at 32 and 44 ms at 128, where the test backend and the host were the limit.
 
-CPU and memory stay small. Consuming against the 500 ms backend used 0.05 of a core at one worker, 0.11 at eight, 0.24 at 32 and 0.77 at 128. Live memory stayed at about 110 MB through the whole night of runs, the thread count did not grow, and the endpoint was idle again within a tenth of a second after each load stopped.
+CPU and memory stay small. Consuming against the 500 ms backend used 0.05 of a core at one worker, 0.11 at eight, 0.24 at 32 and 0.77 at 128. The retained heap after a forced collection stayed between 104 and 125 MB and did not grow during a run, and the thread count did not grow. After each steady run stopped, the endpoint's counters of work in progress were back at zero after 72 to 98 ms, and the broker's queue was empty after 156 to 206 ms. With 100 KB messages the queue took longer: in one run the counters read zero after 82 ms and the queue was empty after 754 ms.
 
 Eight workers gave eight times the throughput of one worker against the 500 ms backend, 7.98 times measured.
 
@@ -47,9 +47,9 @@ Every run was one minute of warmup and five minutes of measurement, repeated, th
 
 We also checked what the probe that records this latency costs. With eight workers at a steady 12.65 messages per second, a run without the probe used the same CPU in every thread group as the runs with it, within a thousandth of a core. We checked this at that load only, so it does not show that the probe is free at every load.
 
-The bench was one node of WSO2 Integrator: MI 4.6.0 on JDK 21, a Solace PubSub+ software broker in a container on the same host, a mock HTTP backend with a set delay, and 1 KB JSON messages unless stated. Everything shared one host's CPU, so the figures are a floor for a deployment where they do not.
+The bench was one node of WSO2 Integrator: MI 4.6.0 on JDK 21, a Solace PubSub+ software broker in a container on the same host, a mock HTTP backend with a set delay, and 1 KB JSON messages unless stated. Everything shared one host. The figures are observations for this hardware, this broker, these payloads and these loads. A deployment with the broker and the backend on other hosts adds network time and broker storage time, so it can be slower or faster. Measure your own.
 
-The run had to pass four checks, and did: eight workers complete at least six times what one worker completes against the 500 ms backend, a transaction commits within 50 ms of the sequence finishing, the steady runs show no growth and return to idle, and the slowest message stays within the backend time plus half a second.
+The run had to pass four checks, and did. Eight workers complete at least six times what one worker completes against the 500 ms backend. In transacted mode, the 99th percentile of the delay from the sequence's decision to the start of the commit stays under 50 ms. This is a scheduling delay and does not include the broker's commit time. The steady runs show no growth and return to idle. At the steady load, the 99th percentile of the time from the receipt to the settlement call stays within the backend time plus half a second.
 
 ## Compared with ActiveMQ on the same bench
 
@@ -64,14 +64,14 @@ Publishing with a broker confirmation is where Solace 2.0.0 stands out.
 | acknowledge on receipt, one worker, 500 ms backend, time to reach the backend at the median | 18 ms | Solace 1.x | 20 ms |
 | the same, CPU | 0.04 of a core | Solace 1.x | 0.07 of a core |
 
-These figures come from one bench host with both brokers as shipped.
+These figures come from one bench host with both brokers as shipped. They compare the two integration configurations named in each row, as tested. They are not a ranking of the brokers.
 
 ## Tuning
 
 | You want | Set | Why |
 | --- | --- | --- |
 | more throughput on a slow backend | solace.concurrentConsumers up, with enough HTTP connections | throughput is about workers divided by backend time until something else limits it |
-| a cap on messages taken from the broker but not yet acknowledged | solace.subAckWindowSize | the window plus the workers plus a small overshoot is what the broker sees unacknowledged |
+| fewer messages taken from the broker but not yet acknowledged | solace.subAckWindowSize, and the queue's max delivered unacknowledged messages per flow | the window is the pending high water mark, not a hard limit. The broker also counts the messages in the workers, the ones still in transit after a stop and any retained deliveries, and its own per flow limit caps the total |
 | strict order | solace.concurrentConsumers 1 | the retry in place keeps the order |
 | many small publishes from many callers | maxActiveConnections up | one pooled session serves one publish at a time |
 | request reply at high concurrency | maxConcurrentRequests within the broker's free endpoints and flows | each request holds a temporary queue and a flow on the broker |

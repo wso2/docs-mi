@@ -16,7 +16,7 @@ The Solace client adds its own context threads to each unit, measured by name in
 
 | Shape | On the broker |
 | --- | --- |
-| every queue consumed with manual acknowledgement | a dead message queue and a maximum redelivery count, for REJECTED and for the broker's own redelivery |
+| every queue consumed with manual acknowledgement | a dead message queue and a maximum redelivery count, for REJECTED and for the broker's own redelivery, and messages published DMQ eligible, or a queue and Message VPN whose policy keeps rejected messages |
 | a transacted queue | the two above, and max delivered unacknowledged messages per flow set to 1, on transacted queues only, since at 1 it limits a non transacted flow to one message |
 | a queue that collects a topic | reject message to sender on discard set to always, or a publish to the topic is lost without a trace when the queue's ingress is shut down |
 | the client username | a connection limit of at least the pool size plus two per connector connection plus one per inbound endpoint |

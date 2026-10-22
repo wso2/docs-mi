@@ -15,11 +15,13 @@ At the end of this guide an API publishes a persistent message and answers the H
             <vpnName>default</vpnName>
             <authenticationScheme>BASIC</authenticationScheme>
             <username>integration</username>
-            <password>wso2:vault-lookup('solace.password')</password>
+            <password>{wso2:vault-lookup('solace.password')}</password>
             <clientName>orders</clientName>
         </solace.init>
     </localEntry>
     ```
+
+    The password is a Secure Vault lookup. The alias solace.password must exist in the vault before the deploy, see [Encrypting secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/). The braces are part of the value. Without them the server sends the lookup text as the password.
 
 2. Create the API.
 

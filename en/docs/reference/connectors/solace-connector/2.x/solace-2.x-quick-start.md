@@ -138,15 +138,19 @@ The acknowledgement comes after the backend answered, which is the point of 2.0.
 </inboundEndpoint>
 ```
 
+The password on this page is the plain password of a lab broker. Outside a lab keep it in Secure Vault and write `{wso2:vault-lookup('solace.password')}` as the value, as the other pages do.
+
 ## Step 5, deploy
 
 Build the CAR and deploy it, or run the project from VS Code. The log shows three lines: the start of the generation with the settings it resolved, the flow becoming active on the queue, and the started line that names the queue and the outcomes the broker supports. These are the lines as the server wrote them when this page was run.
 
-```
-[2026-10-21 09:20:42,821]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] starting generation 1 (node id malakag from hostname, settlementTimeout 180000 ms from default, concurrentConsumers 1, window 255/1, coordination true)
-[2026-10-21 09:20:43,360]  INFO {org.wso2.carbon.inbound.solace.SolaceFlowEventHandler} - SolaceListener [OrderListener] flow ACTIVE (now consuming on the endpoint, generation 1): Type: 'FLOW_ACTIVE', Info: 'Flow becomes active', ResponseCode: '0', Exception: 'null'
-[2026-10-21 09:20:43,361]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] generation 1 started: queue Q.orders, outcomes FAILED,REJECTED
-```
+??? note "The three start lines, as logged"
+
+    ```
+    [2026-10-21 09:20:42,821]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] starting generation 1 (node id malakag from hostname, settlementTimeout 180000 ms from default, concurrentConsumers 1, window 255/1, coordination true)
+    [2026-10-21 09:20:43,360]  INFO {org.wso2.carbon.inbound.solace.SolaceFlowEventHandler} - SolaceListener [OrderListener] flow ACTIVE (now consuming on the endpoint, generation 1): Type: 'FLOW_ACTIVE', Info: 'Flow becomes active', ResponseCode: '0', Exception: 'null'
+    [2026-10-21 09:20:43,361]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] generation 1 started: queue Q.orders, outcomes FAILED,REJECTED
+    ```
 
 ## Step 6, publish a message
 
@@ -160,11 +164,13 @@ curl -u integration:integration -H 'Content-Type: application/json' \
 
 The log shows the order received line and nothing else for the message: the acknowledgement is silent when it succeeds. Once per generation the first message also logs a WARN that the queue has delivery count disabled, so the solace.deliveryCount property is left out. The mock logs the POST. The queue is empty afterwards. As captured on this run:
 
-```
-[2026-10-21 09:24:10,162]  WARN {org.wso2.carbon.inbound.solace.SolaceInjectHandler} - Delivery count is not supported on this broker endpoint; the 'solace.deliveryCount' property will be omitted.
-[2026-10-21 09:24:10,184]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 1
-127.0.0.1 - - [21/Oct/2026 09:24:10] "POST /orders HTTP/1.1" 200 -
-```
+??? note "The log of the message, as logged"
+
+    ```
+    [2026-10-21 09:24:10,162]  WARN {org.wso2.carbon.inbound.solace.SolaceInjectHandler} - Delivery count is not supported on this broker endpoint; the 'solace.deliveryCount' property will be omitted.
+    [2026-10-21 09:24:10,184]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 1
+    127.0.0.1 - - [21/Oct/2026 09:24:10] "POST /orders HTTP/1.1" 200 -
+    ```
 
 ## Step 7, read the health
 
@@ -177,67 +183,69 @@ curl -sk -H "Authorization: Bearer $TOKEN" \
 
 The answer is the endpoint with its configuration, its parameters and a health block. This is the answer as the server returned it when this page was run, right after the deploy, with the configuration string and the parameter list cut short here. Below the latest U2 update level the status is the task state.
 
-```json
-{
-  "sequence": "orderProcessSeq",
-  "tracing": "disabled",
-  "stats": "disabled",
-  "configuration": "<inboundEndpoint xmlns=\"http://ws.apache.org/ns/synapse\" name=\"OrderListener\" ...",
-  "name": "OrderListener",
-  "health": {
-    "retried": 0,
-    "retainedUnsettled": 0,
-    "freePermits": 1,
-    "lastErrorAt": 0,
-    "connectivity.session": "connected",
-    "activity": "active",
-    "rolledBackByBroker": 0,
-    "settled.ack": 0,
-    "pending": 0,
-    "connectivity.flow-1": "connected",
-    "applied.REJECTED": 0,
-    "dropped": 0,
-    "settleFailed": 0,
-    "settled.rejected": 0,
-    "settled.failed": 0,
-    "unknown": 0,
-    "closeRejected": 0,
-    "lifecycle": "running",
-    "leftByDrain": 0,
-    "handlerFailed": 0,
-    "connectivity": "connected",
-    "rejectedSubmit": 0,
-    "rolledBack": 0,
-    "decided.INJECTION_REJECTED": 0,
-    "abandoned": 0,
-    "decided.DRAIN": 0,
-    "generation": 1,
-    "activity.flow-1": "active",
-    "applied.FAILED": 0,
-    "committed": 0,
-    "degradedOutcomes": 0,
-    "applied.NONE": 0,
-    "inFlight": 0,
-    "received": 0,
-    "decided.OTHER": 0,
-    "decided.AUTOACK": 0,
-    "decided.FAILED": 0,
-    "redelivered": 0,
-    "applied.ACK": 0,
-    "pendingMax": 0,
-    "decided.TIMEOUT": 0,
-    "decided.ACK": 0,
-    "decided.REJECTED": 0,
-    "status": "active"
-  },
-  "error": "orderFaultSeq",
-  "parameters": [
-    {"name": "inbound.behavior", "value": "eventBased"},
-    ...
-  ],
-  "status": "active"
-}
-```
+??? note "The full answer of the management API"
+
+    ```json
+    {
+      "sequence": "orderProcessSeq",
+      "tracing": "disabled",
+      "stats": "disabled",
+      "configuration": "<inboundEndpoint xmlns=\"http://ws.apache.org/ns/synapse\" name=\"OrderListener\" ...",
+      "name": "OrderListener",
+      "health": {
+        "retried": 0,
+        "retainedUnsettled": 0,
+        "freePermits": 1,
+        "lastErrorAt": 0,
+        "connectivity.session": "connected",
+        "activity": "active",
+        "rolledBackByBroker": 0,
+        "settled.ack": 0,
+        "pending": 0,
+        "connectivity.flow-1": "connected",
+        "applied.REJECTED": 0,
+        "dropped": 0,
+        "settleFailed": 0,
+        "settled.rejected": 0,
+        "settled.failed": 0,
+        "unknown": 0,
+        "closeRejected": 0,
+        "lifecycle": "running",
+        "leftByDrain": 0,
+        "handlerFailed": 0,
+        "connectivity": "connected",
+        "rejectedSubmit": 0,
+        "rolledBack": 0,
+        "decided.INJECTION_REJECTED": 0,
+        "abandoned": 0,
+        "decided.DRAIN": 0,
+        "generation": 1,
+        "activity.flow-1": "active",
+        "applied.FAILED": 0,
+        "committed": 0,
+        "degradedOutcomes": 0,
+        "applied.NONE": 0,
+        "inFlight": 0,
+        "received": 0,
+        "decided.OTHER": 0,
+        "decided.AUTOACK": 0,
+        "decided.FAILED": 0,
+        "redelivered": 0,
+        "applied.ACK": 0,
+        "pendingMax": 0,
+        "decided.TIMEOUT": 0,
+        "decided.ACK": 0,
+        "decided.REJECTED": 0,
+        "status": "active"
+      },
+      "error": "orderFaultSeq",
+      "parameters": [
+        {"name": "inbound.behavior", "value": "eventBased"},
+        ...
+      ],
+      "status": "active"
+    }
+    ```
 
 The status is active, because the queue is exclusive and the broker reported this flow as its active consumer. The lifecycle is running, the session and the flow are connected, and the generation is 1. After the message of step 6 the counters read received 1, decided.ACK 1, applied.ACK 1, settled.ack 1 and inFlight 0, as they did on this run. On the test bench, after the 1000 messages of one test, they read received 1000, decided.ACK 1000, applied.ACK 1000, settled.ack 1000 and inFlight 0.
 
@@ -245,29 +253,33 @@ The status is active, because the queue is exclusive and the broker reported thi
 
 Stop the backend and publish again. The call fails before an answer, so the fault sequence logs the failure and nacks FAILED. The message is retried in place three times with a growing delay, then rejected to the dead message queue. The HTTP transport also suspends the backend's endpoint for 30 seconds after the connection failure, so the three retries find it suspended and fail at once. These are the lines as the server wrote them for one message on this run, with maxRedeliveries 3.
 
-```
-[2026-10-21 09:25:29,927]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
-[2026-10-21 09:25:29,950]  WARN {org.apache.synapse.transport.passthru.ConnectCallback} - Connection refused or failed for : localhost/127.0.0.1:8099
-[2026-10-21 09:25:29,981]  WARN {org.apache.synapse.endpoints.EndpointContext} - Suspending endpoint : OrderBackend_INTERNAL_ENDPOINT_REFERENCE with address {uri.var.base}{+uri.var.path}{+uri.var.query} - current suspend duration is : 30000ms - Next retry after : Wed Oct 21 09:25:59 IST 2026
-[2026-10-21 09:25:29,982]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Error connecting to the back end, solaceMessageId = 2
-[2026-10-21 09:25:29,989]  WARN {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 attempt 1 failed; retry in 1000 ms
-[2026-10-21 09:25:30,993]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
-[2026-10-21 09:25:30,998]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Currently, HTTP endpoint : [ Name : OrderBackend_INTERNAL_ENDPOINT_REFERENCE ] [ State : SUSPENDED ], solaceMessageId = 2
-[2026-10-21 09:25:31,001]  WARN {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 attempt 2 failed; retry in 2000 ms
-[2026-10-21 09:25:33,003]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
-[2026-10-21 09:25:33,008]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Currently, HTTP endpoint : [ Name : OrderBackend_INTERNAL_ENDPOINT_REFERENCE ] [ State : SUSPENDED ], solaceMessageId = 2
-[2026-10-21 09:25:33,010]  WARN {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 attempt 3 failed; retry in 4000 ms
-[2026-10-21 09:25:37,012]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
-[2026-10-21 09:25:37,017]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Currently, HTTP endpoint : [ Name : OrderBackend_INTERNAL_ENDPOINT_REFERENCE ] [ State : SUSPENDED ], solaceMessageId = 2
-[2026-10-21 09:25:37,019] ERROR {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 exhausted 3 in-place retries; rejecting (DMQ when eligible)
-```
+??? note "The log of the failing message, as logged"
+
+    ```
+    [2026-10-21 09:25:29,927]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
+    [2026-10-21 09:25:29,950]  WARN {org.apache.synapse.transport.passthru.ConnectCallback} - Connection refused or failed for : localhost/127.0.0.1:8099
+    [2026-10-21 09:25:29,981]  WARN {org.apache.synapse.endpoints.EndpointContext} - Suspending endpoint : OrderBackend_INTERNAL_ENDPOINT_REFERENCE with address {uri.var.base}{+uri.var.path}{+uri.var.query} - current suspend duration is : 30000ms - Next retry after : Wed Oct 21 09:25:59 IST 2026
+    [2026-10-21 09:25:29,982]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Error connecting to the back end, solaceMessageId = 2
+    [2026-10-21 09:25:29,989]  WARN {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 attempt 1 failed; retry in 1000 ms
+    [2026-10-21 09:25:30,993]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
+    [2026-10-21 09:25:30,998]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Currently, HTTP endpoint : [ Name : OrderBackend_INTERNAL_ENDPOINT_REFERENCE ] [ State : SUSPENDED ], solaceMessageId = 2
+    [2026-10-21 09:25:31,001]  WARN {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 attempt 2 failed; retry in 2000 ms
+    [2026-10-21 09:25:33,003]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
+    [2026-10-21 09:25:33,008]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Currently, HTTP endpoint : [ Name : OrderBackend_INTERNAL_ENDPOINT_REFERENCE ] [ State : SUSPENDED ], solaceMessageId = 2
+    [2026-10-21 09:25:33,010]  WARN {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 attempt 3 failed; retry in 4000 ms
+    [2026-10-21 09:25:37,012]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 2
+    [2026-10-21 09:25:37,017]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = failed, errorMessage = Currently, HTTP endpoint : [ Name : OrderBackend_INTERNAL_ENDPOINT_REFERENCE ] [ State : SUSPENDED ], solaceMessageId = 2
+    [2026-10-21 09:25:37,019] ERROR {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 exhausted 3 in-place retries; rejecting (DMQ when eligible)
+    ```
 
 The health block then reads received 2, retried 3, decided.ACK 1, decided.FAILED 4, applied.REJECTED 1 and settled.rejected 1, and on the broker Q.orders is empty while Q.orders.dmq holds the message, depth 0 and depth 1 on this run. Start the backend and wait for the suspension to lift, 30 seconds from the failure. A message published before that fails the same way and ends in the dead message queue too, as the third message of this run did. Then publish once more: the transport marks the endpoint active again and the message is acknowledged after the answer.
 
-```
-[2026-10-21 09:26:46,825]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 4
-[2026-10-21 09:26:46,837]  INFO {org.apache.synapse.endpoints.EndpointContext} - Endpoint : OrderBackend_INTERNAL_ENDPOINT_REFERENCE with address {uri.var.base}{+uri.var.path}{+uri.var.query} currently SUSPENDED will now be marked active since it processed its last message
-```
+??? note "The log of message 4, as logged"
+
+    ```
+    [2026-10-21 09:26:46,825]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - order = received, solaceMessageId = 4
+    [2026-10-21 09:26:46,837]  INFO {org.apache.synapse.endpoints.EndpointContext} - Endpoint : OrderBackend_INTERNAL_ENDPOINT_REFERENCE with address {uri.var.base}{+uri.var.path}{+uri.var.query} currently SUSPENDED will now be marked active since it processed its last message
+    ```
 
 After the whole page the health block of this run read received 4, retried 6, decided.ACK 2, applied.ACK 2, settled.ack 2, decided.FAILED 8, applied.REJECTED 2, settled.rejected 2 and inFlight 0, with Q.orders empty and two messages in Q.orders.dmq.
 
@@ -275,8 +287,10 @@ After the whole page the health block of this run read received 4, retried 6, de
 
 Undeploy the CAR, or set suspend to true on the inbound endpoint. The endpoint drains for up to 30 seconds, closes its generation and the flow is gone from the broker. On this run the generation closed in 8 ms. Delete the two queues on the broker when you are done.
 
-```
-[2026-10-21 09:27:27,359]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] pausing: draining generation 1 for up to 30000 ms
-[2026-10-21 09:27:27,365]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] paused; generation 1 is closing on the closer thread
-[2026-10-21 09:27:27,378]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] generation 1 closed in 8 ms
-```
+??? note "The drain lines, as logged"
+
+    ```
+    [2026-10-21 09:27:27,359]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] pausing: draining generation 1 for up to 30000 ms
+    [2026-10-21 09:27:27,365]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] paused; generation 1 is closing on the closer thread
+    [2026-10-21 09:27:27,378]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] generation 1 closed in 8 ms
+    ```

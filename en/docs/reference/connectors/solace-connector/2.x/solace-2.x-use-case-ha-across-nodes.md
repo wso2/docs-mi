@@ -10,11 +10,14 @@ Two nodes run the same endpoint in one of two modes. With coordination true, the
 | --- | --- | --- |
 | who decides | the task layer of WSO2 Integrator: MI, through the coordination database | the broker |
 | what binds | one node, the one the task is scheduled on | every node binds its own flow |
-| failover time | the coordination detection, heartbeat interval times max retries, 15 s with the defaults, plus the connect and bind | the broker's detection of the lost session, the standby flow is already bound |
+| task failover | the task layer detects the lost node after the heartbeat interval times the max retries, 15 s with the defaults, then schedules the task on another node, which connects and binds | none, every node has its flow bound |
+| consumption resumes | when the new node's flow is active. On an exclusive queue the broker must first release the old node's flow, so a node that froze can hold the queue longer than the task detection | when the broker detects the lost session and activates a standby flow |
 | exclusive queue | one consumer | one active flow, the rest standby, shown in the health block |
 | non exclusive queue | one consumer | every node consumes, the order across nodes is not kept |
 | Direct topic | one node | every node receives every message, unless sharedSubscriptionGroup splits the stream |
-| health status | active on the scheduled node | active on the consuming node, standby on the others, connected when the broker reports no active flow indication |
+| health status | on the node that runs the task: active or standby when the broker indicates the flow state, connected when it does not. The other node shows stopped | active on the consuming node, standby on the others, connected when the broker does not indicate the flow state |
+
+Task reassignment and resumed consumption are two different times. With coordination true the heartbeat formula is the time the task layer needs to see a node as lost. Scheduling, the connect and the bind add to it, and on an exclusive queue the new node consumes only when the broker gives its flow the queue. On our bench consumption resumed 16 to 19 s after a node was killed. When a node was frozen for 60 s instead, the task moved after 16.3 s but consumption resumed only after 60.7 s, because the broker kept the frozen node's flow active. These are measured cases, not a bound for a frozen node or a network partition.
 
 ## The artifacts
 

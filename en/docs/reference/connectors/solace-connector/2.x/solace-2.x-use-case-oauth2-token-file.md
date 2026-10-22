@@ -15,8 +15,10 @@ The identity provider issues a token. A sidecar or an operator writes it to a fi
 <parameter name="solace.authenticationScheme">OAUTH2</parameter>
 <parameter name="solace.oauth2TokenFile">/secrets/solace/token</parameter>
 <parameter name="solace.sslTrustStorePath">/secrets/solace/truststore.jks</parameter>
-<parameter name="solace.sslTrustStorePassword">wso2:vault-lookup('solace.truststore')</parameter>
+<parameter name="solace.sslTrustStorePassword">{wso2:vault-lookup('solace.truststore')}</parameter>
 ```
+
+The trust store password is a Secure Vault lookup. The alias solace.truststore must exist in the vault before the deploy, see [Encrypting secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/). The braces are part of the value. Without them the server uses the lookup text as the password.
 
 For a connector connection the parameters are authenticationScheme and oauth2TokenFile in the connection, with the same meaning.
 

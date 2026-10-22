@@ -48,7 +48,7 @@ Guaranteed messaging.
 | Parameter | Default | Meaning |
 | --- | --- | --- |
 | solace.autoAck | true | acknowledged when the injection returns, at most once. Set false to settle from the sequence |
-| solace.failureOutcome | FAILED | the outcome when no settlement arrives within solace.settlementTimeout: FAILED retries in place, REJECTED routes to the dead message queue, NONE leaves the message unsettled and counts it |
+| solace.failureOutcome | FAILED | the outcome when no settlement arrives within solace.settlementTimeout: FAILED retries in place, REJECTED routes an eligible message to the dead message queue, NONE leaves the message unsettled and counts it |
 | solace.subAckWindowSize | 255 | the transport window, 1 to 255, the high mark of the flow control |
 | solace.settlementTimeout | 180000 | the time the sequence has to settle, in ms. When absent, the deployment.toml key applies, then the default |
 | solace.concurrentConsumers | 1 | the workers, and the bound on delivery attempts in progress |
@@ -57,7 +57,7 @@ Guaranteed messaging.
 | solace.requireSettlementOutcomes | AUTO | AUTO requests the outcomes the broker reports and retains a message that needs a missing one. TRUE fails the bind as 1.x did |
 | solace.transacted | false | one local transaction per message, committed on ACK. Refused with autoAck true and on topics |
 | solace.drainTimeout | 30000 | the upper limit of a pause, a resume and an undeploy, at least 3000. The last 2000 ms settle the messages in flight |
-| solace.drainOutcome | NONE | messages still in flight when the drain reaches its settle budget: NONE leaves them to the broker, REJECTED routes them to the dead message queue |
+| solace.drainOutcome | NONE | messages still in flight when the drain reaches its settle budget: NONE leaves them to the broker, REJECTED routes the eligible ones to the dead message queue |
 | solace.queuePermission | empty | the permission set on a queue the endpoint provisions |
 
 Connection retry and recovery.

@@ -27,17 +27,46 @@ poll receives one message from a queue on the connection's poll session, where o
 </solace.poll>
 <filter source="${vars.polled.attributes.timedOut}" regex="false">
     <then>
-        <call blocking="false"><endpoint key="OrderBackend"/></call>
-        <solace.acknowledgeMessage>
-            <target>POLL</target>
-            <responseVariable>ackResult</responseVariable>
-        </solace.acknowledgeMessage>
+        <http.post configKey="OrderBackend">
+            <relativePath>/orders</relativePath>
+            <headers>[]</headers>
+            <requestBodyType>JSON</requestBodyType>
+            <requestBodyJson>{${vars.polled.payload}}</requestBodyJson>
+            <responseVariable>backend</responseVariable>
+            <overwriteBody>false</overwriteBody>
+        </http.post>
+        <filter xpath="${vars.backend.attributes.statusCode == 200}">
+            <then>
+                <solace.acknowledgeMessage>
+                    <target>POLL</target>
+                    <responseVariable>ackResult</responseVariable>
+                </solace.acknowledgeMessage>
+                <payloadFactory media-type="json" template-type="default">
+                    <format>{"received": true, "timedOut": false, "message": ${vars.polled.payload}}</format>
+                </payloadFactory>
+            </then>
+            <else>
+                <solace.nackMessage>
+                    <outcomeType>FAILED</outcomeType>
+                    <target>POLL</target>
+                    <responseVariable>nackResult</responseVariable>
+                </solace.nackMessage>
+                <payloadFactory media-type="json" template-type="default">
+                    <format>{"received": true, "timedOut": false, "processed": false}</format>
+                </payloadFactory>
+            </else>
+        </filter>
     </then>
+    <else>
+        <payloadFactory media-type="json" template-type="default">
+            <format>{"received": false, "timedOut": true}</format>
+        </payloadFactory>
+    </else>
 </filter>
 <respond/>
 ```
 
-The response of poll carries the message body as the payload and its metadata as attributes, with timedOut true when the queue was empty for pollTimeout. A poll inside a sequence of the inbound endpoint keeps the two messages apart: target POLL settles the polled one, target INBOUND, the default, settles the inbound endpoint's one.
+The response of poll carries the message body as the payload and its metadata as attributes, with timedOut true when the queue was empty for pollTimeout. poll does not put the message on the body. The sequence passes vars.polled.payload to the backend, here through the HTTP connection of the quick start, acknowledges only a 200 answer, and builds its own answer for the caller, including the one for an empty queue. A poll inside a sequence of the inbound endpoint keeps the two messages apart: target POLL settles the polled one, target INBOUND, the default, settles the inbound endpoint's one.
 
 ## The parameters that matter
 

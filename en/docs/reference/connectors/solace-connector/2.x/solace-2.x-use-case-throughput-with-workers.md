@@ -1,6 +1,6 @@
 # Throughput with workers
 
-One endpoint handles several messages at a time, keeps the number of unsettled messages bounded, and never stalls another endpoint on the node. The number of workers is the one parameter to set.
+One endpoint handles several messages at a time, holds back the broker with flow control when its workers are busy, and never stalls another endpoint on the node. The number of workers is the one parameter to set.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-workers.png" title="The dispatcher hands messages to N workers, parks the rest, and stops the flow at the high mark" width="800" alt="The dispatcher hands messages to N workers, parks the rest, and stops the flow at the high mark"/>
 
@@ -19,11 +19,13 @@ A worker is a parked thread while it waits, so tens of workers cost little CPU. 
 | Parameter | Default | Use |
 | --- | --- | --- |
 | solace.concurrentConsumers | 1 | the number of workers, and the bound on deliveries in progress |
-| solace.subAckWindowSize | 255 | the transport window, 1 to 255. It is the high mark of the flow control and, with N, the bound on messages the broker has delivered but not seen settled |
+| solace.subAckWindowSize | 255 | the transport window, 1 to 255. It is also the pending high water mark of the flow control. It is not a hard limit on pending messages |
 | the HTTP transport |  | must allow N calls in flight at once |
 | the queue's max delivered unacknowledged messages per flow | broker default | at least the window, so the broker does not throttle below the client's window |
 
-When the pending queue reaches the window, the dispatcher stops the flow. It starts the flow again when the pending queue falls to the low mark, the smaller of N and the window minus one. The workers then still have parked messages to take while the broker sends more. The pending queue is bounded by what the broker had already pushed, the window plus a small overshoot.
+When the pending queue reaches the window, the high water mark, the dispatcher stops the flow. It starts the flow again when the pending queue falls to the low mark, the smaller of N and the window minus one. The workers then still have parked messages to take while the broker sends more. Messages that the Solace client had already received still arrive after the stop, so the pending queue can pass the window. How far depends on the workload. One bench run peaked at 409 pending messages with a window of 255.
+
+The broker counts more than the pending queue. Its count of delivered and unacknowledged messages for the flow also holds the messages in the workers, and the deliveries an endpoint retains on purpose: with failureOutcome NONE, or after a settlement that failed, a message stays delivered and unsettled after its worker moved on, counted as retainedUnsettled. The queue's max delivered unacknowledged messages per flow limits all of them together. Size the window, N and that broker limit together.
 
 ```xml
 <parameter name="solace.concurrentConsumers">8</parameter>
@@ -40,7 +42,7 @@ The flow control logs one line when it stops the flow at the high mark and one w
 
 ## The health words
 
-The counters pending, pendingMax and inFlight show the flow control at work: inFlight stays at most N, pending stays under the window, and pendingMax records the overshoot of the workload.
+The counters pending, pendingMax and inFlight show the flow control at work. inFlight stays at most N. pending rises to about the window and can pass it by the messages already on their way. pendingMax is the peak pending count the endpoint has seen, not the overshoot alone. retainedUnsettled counts the deliveries kept unsettled on purpose.
 
 ## Measured
 

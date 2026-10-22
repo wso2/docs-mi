@@ -1,8 +1,8 @@
 # Reliable consume with an HTTP backend
 
-A message consumed from a queue is acknowledged after the HTTP backend answered, retried when the backend fails, and moved to the dead message queue when the retries are exhausted. Nothing is lost between the consume and the answer, and nothing is acknowledged silently.
+A message consumed from a queue is acknowledged after the HTTP backend accepted it, retried when the backend fails, and rejected to the dead message queue when the retries are exhausted. Nothing is lost between the consume and the answer, and nothing is acknowledged silently.
 
-<img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-reliable-consume.png" title="Consume from Q.orders, call the backend, then acknowledge or reject from the sequence" width="800" alt="Consume from Q.orders, call the backend, then acknowledge or reject from the sequence"/>
+<img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-reliable-consume.png" title="Consume from Q.orders, call the backend, acknowledge a 2xx answer, retry other answers and failures, reject invalid input" width="800" alt="Consume from Q.orders, call the backend, acknowledge a 2xx answer, retry other answers and failures, reject invalid input"/>
 
 ## The shape
 
@@ -24,7 +24,7 @@ The inbound endpoint. Set autoAck to false, choose the failure policy, and keep 
         <parameter name="solace.vpnName">default</parameter>
         <parameter name="solace.authenticationScheme">BASIC</parameter>
         <parameter name="solace.username">integration</parameter>
-        <parameter name="solace.password">wso2:vault-lookup('solace.password')</parameter>
+        <parameter name="solace.password">{wso2:vault-lookup('solace.password')}</parameter>
         <parameter name="solace.destinationType">QUEUE</parameter>
         <parameter name="solace.destinationName">Q.orders</parameter>
         <parameter name="solace.autoAck">false</parameter>
@@ -36,14 +36,16 @@ The inbound endpoint. Set autoAck to false, choose the failure policy, and keep 
 </inboundEndpoint>
 ```
 
-The sequence. The call to the backend is non blocking, which is the case that 1.x got wrong. The acknowledgement comes after the response.
+The password is a Secure Vault lookup. The alias solace.password must exist in the vault before the deploy, see [Encrypting secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/). The braces are part of the value. Without them the server sends the lookup text as the password.
+
+The sequence. The call to the backend is non blocking, which is the case that 1.x got wrong. The acknowledgement comes after the response, and only for an accepted answer. The filter reads the HTTP status of the answer from the HTTP_SC property, and a 2xx status acknowledges. Any other status nacks FAILED, so the message is retried in place and settled REJECTED when maxRedeliveries is exhausted. A call that fails before an answer, a refused connection or a timeout, ends in the fault sequence, which nacks FAILED as well.
 
 ```xml
 <sequence name="orderProcessSeq" xmlns="http://ws.apache.org/ns/synapse">
     <call blocking="false">
         <endpoint key="OrderBackend"/>
     </call>
-    <filter source="${vars.statusCode}" regex="2..">
+    <filter source="get-property('axis2', 'HTTP_SC')" regex="2\d\d">
         <then>
             <solace.acknowledgeMessage>
                 <responseVariable>ackResult</responseVariable>
@@ -79,11 +81,11 @@ The settlement operations need no connection. They act on the message the inboun
 | --- | --- |
 | acknowledgeMessage | the message is acknowledged on the broker and removed from the queue |
 | nackMessage FAILED | the message is retried in place on the same worker after a delay that starts at 1 second and doubles up to 60 seconds. The message stays on the worker, so the queue's order is kept and the broker's redelivery count does not move. After maxRedeliveries attempts it is settled REJECTED. With maxRedeliveries 0 it is settled FAILED at once and the broker's own redelivery applies. |
-| nackMessage REJECTED | the message is settled REJECTED and the broker moves it to the queue's dead message queue |
+| nackMessage REJECTED | the message is settled REJECTED, and the broker moves it to the queue's dead message queue when the message is eligible for it |
 | no decision within settlementTimeout | the endpoint applies failureOutcome, FAILED by default |
-| an empty or unparseable payload | settled REJECTED, so the message is kept for inspection instead of being retried forever |
+| an empty or unparseable payload | settled REJECTED instead of being retried forever, so an eligible message is kept in the dead message queue for inspection |
 
-REJECTED needs a dead message queue on the queue, configured on the broker. Without one the broker discards the message.
+A rejected message reaches the dead message queue only when the message is eligible for it. The publisher marks it eligible, for example with the REST header `Solace-DMQ-Eligible: true`, or with dmqEligible true on publishMessage. On a broker that respects the flag, a rejected message that is not eligible is discarded, and the endpoint logs one WARN for it. Newer brokers can override the flag through the queue's Respect DMQ Eligible setting and the Message VPN, so check the effective policy of your broker, see [Setting dead message queues](https://docs.solace.com/Messaging/Guaranteed-Msg/Setting-Dead-Msg-Queues.htm). Without a dead message queue the broker discards a rejected message.
 
 ## The parameters that matter
 

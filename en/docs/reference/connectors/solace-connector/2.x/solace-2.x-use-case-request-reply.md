@@ -22,9 +22,12 @@ The requester, inside an API resource.
     <waitForAck>true</waitForAck>
     <ackTimeout>10000</ackTimeout>
     <responseVariable>reply</responseVariable>
+    <overwriteBody>true</overwriteBody>
 </solace.sendRequest>
 <respond/>
 ```
+
+overwriteBody true puts the reply on the body, so respond returns it to the HTTP client. Without it the reply stays in vars.reply and the client gets its own request back.
 
 The responder, the sequence of an inbound endpoint on Q.requests with autoAck false. The reply is published before the request is acknowledged.
 

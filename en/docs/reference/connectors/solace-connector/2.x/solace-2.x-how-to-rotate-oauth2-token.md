@@ -19,8 +19,10 @@ At the end of this guide an inbound endpoint authenticates with an OAuth2 token 
     <parameter name="solace.authenticationScheme">OAUTH2</parameter>
     <parameter name="solace.oauth2TokenFile">/secrets/solace/token</parameter>
     <parameter name="solace.sslTrustStorePath">/secrets/solace/truststore.jks</parameter>
-    <parameter name="solace.sslTrustStorePassword">wso2:vault-lookup('solace.truststore')</parameter>
+    <parameter name="solace.sslTrustStorePassword">{wso2:vault-lookup('solace.truststore')}</parameter>
     ```
+
+    The trust store password is a Secure Vault lookup. The alias solace.truststore must exist in the vault before the deploy, see [Encrypting secrets]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/). The braces are part of the value. Without them the server uses the lookup text as the password.
 
 4. Deploy. Then rotate: write the new token with the same two commands. Nothing else.
 

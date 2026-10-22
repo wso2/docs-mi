@@ -18,5 +18,5 @@ Set solace.concurrentConsumers to 1 and keep the failure policy at FAILED with i
 | --- | --- |
 | solace.maxRedeliveries 0 | the message is settled FAILED at once and the broker redelivers it, behind the messages already in the window |
 | solace.concurrentConsumers above 1 | the order is per worker |
-| REJECTED | the message leaves the queue for the dead message queue, the order of the rest holds |
+| REJECTED | the message leaves the queue, for the dead message queue when it is eligible, and the order of the rest holds |
 | a continuation of an earlier attempt | a sequence that timed out and was retried can still run its first attempt's continuation later, which is the at least once contract, not a reorder of the queue |
