@@ -237,15 +237,16 @@ You can download the ZIP file and extract the contents to get the project code.
     ```
 2.  You should receive a response with the `order_id` of the newly created order.
 
-??? "Sample Response"
-```json
-{
-"generatedKeys": [
-{ "GENERATED_KEY": 1 }
-],
-"affectedRows": 1,
-}
-```
+    ??? "Sample Response"
+        ```json
+        {
+            "generatedKeys": [
+                { "GENERATED_KEY": 1 }
+            ],
+            "affectedRows": 1
+        }
+        ```
+
 3.  Check your database to verify that the order has been created and the product stock has been updated.
 4.  You can also check the `Orders` and `OrderItems` tables to see the inserted records.
 
