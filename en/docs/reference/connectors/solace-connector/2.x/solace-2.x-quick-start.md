@@ -247,7 +247,7 @@ The answer is the endpoint with its configuration, its parameters and a health b
     }
     ```
 
-The status is active, because the queue is exclusive and the broker reported this flow as its active consumer. The lifecycle is running, the session and the flow are connected, and the generation is 1. After the message of step 6 the counters read received 1, decided.ACK 1, applied.ACK 1, settled.ack 1 and inFlight 0, as they did on this run. On the test bench, after the 1000 messages of one test, they read received 1000, decided.ACK 1000, applied.ACK 1000, settled.ack 1000 and inFlight 0.
+Read it from the top. status active: the endpoint consumes, because the broker made this flow the active consumer of the exclusive queue. lifecycle running, connectivity connected and generation 1: the first connection is up and nothing failed. Then the counters. After the message of step 6 they read received 1, decided.ACK 1, settled.ack 1 and inFlight 0. The message reached the sequence, the sequence acknowledged it, and the acknowledgement reached the broker. The other counters stay at 0 while all goes well. The [observability page]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-observability/) walks through the readings you see when something goes wrong.
 
 ## Step 8, make it fail
 
@@ -272,7 +272,7 @@ Stop the backend and publish again. The call fails before an answer, so the faul
     [2026-10-21 09:25:37,019] ERROR {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderListener] message 2 exhausted 3 in-place retries; rejecting (DMQ when eligible)
     ```
 
-The health block then reads received 2, retried 3, decided.ACK 1, decided.FAILED 4, applied.REJECTED 1 and settled.rejected 1, and on the broker Q.orders is empty while Q.orders.dmq holds the message, depth 0 and depth 1 on this run. Start the backend and wait for the suspension to lift, 30 seconds from the failure. A message whose retries all fall inside the suspension fails the same way and ends in the dead message queue too, as the third message of this run did. The retries take 1, 2 and 4 seconds, so a message published in the last seconds before the lift can reach the backend on a retry and is acknowledged. Then publish once more: the transport marks the endpoint active again and the message is acknowledged after the answer.
+The health block then reads received 2, retried 3, decided.ACK 1, decided.FAILED 4, applied.REJECTED 1 and settled.rejected 1. decided counts attempts and applied counts messages: the second message failed four times, the first attempt and three retries, and was rejected once. On the broker Q.orders is empty while Q.orders.dmq holds the message, depth 0 and depth 1 on this run. Start the backend and wait for the suspension to lift, 30 seconds from the failure. A message whose retries all fall inside the suspension fails the same way and ends in the dead message queue too, as the third message of this run did. The retries take 1, 2 and 4 seconds, so a message published in the last seconds before the lift can reach the backend on a retry and is acknowledged. Then publish once more: the transport marks the endpoint active again and the message is acknowledged after the answer.
 
 ??? note "The log of message 4, as logged"
 
