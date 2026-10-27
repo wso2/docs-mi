@@ -21,7 +21,7 @@ The Salesforce connector allows you to work with records in Salesforce. You can 
 
 The **Salesforce REST Connector** uses the [Salesforce REST API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm) to interact with Salesforce. This connector is more useful when sending JSON requests. The Salesforce REST Connector allows you to work with records in Salesforce, a web-based service that allows organizations to manage Customer Relationship Management (CRM) data. You can use the Salesforce connector to create, query, retrieve, update, and delete records in your organization's Salesforce data.
 
-* **[Salesforce Access Token Generation]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation)**: This section includes how to obtain the OAuth2 tokens from Salesforce REST API.
+* **[Salesforce Access Token Generation]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation)**: This section includes how to obtain the OAuth2 tokens from Salesforce REST API, and how to set up the OAuth 2.0 JWT bearer flow.
 
 * **[Salesforce Rest API Connector Example]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-example/)**: This example explains how to use the Salesforce client to connect with the Salesforce instance and perform the **create** and **retrieve** operations.
 
@@ -31,6 +31,7 @@ The following table lists compatibility information for Salesforce REST Connecto
 
 | Connector version | Supported Salesforce REST API version | Supported WSO2 product versions |
 | ------------- | ------------- | ------------- |
+| [2.1.0](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/v2.1.0) | v32.0 | MI 4.3.0 |
 | [2.0.0](https://github.com/wso2-extensions/esb-connector-salesforcerest/tree/v2.0.0) | v32.0 | MI 4.3.0, APIM 4.0.0, EI 7.1.0, EI 7.0.x, EI 6.6.0, EI 6.5.0 |
 
 ### Salesforce Bulk connector

@@ -16,6 +16,10 @@ required to handle access token expiry in this case.
 
 There also option to use basic authentication with username and password.
 
+In connector version 2.1.x, you can also use the OAuth 2.0 JWT bearer flow, which Salesforce recommends for
+server-to-server integrations. The connector signs a short-lived JWT with your private key and exchanges it for an
+access token, which it reuses and renews automatically. No client secret or user password is needed.
+
 To use the Salesforce REST connector, add the `<salesforcerest.init>` element in your configuration before carrying out any other Salesforce REST operations. 
 
 ??? note "salesforcerest.init"
@@ -226,6 +230,122 @@ To use the Salesforce REST connector, add the `<salesforcerest.init>` element in
         "apiUrl":"https://(your_instance).salesforce.com",
         "blocking" : "false"
     }
+    ```
+
+??? note "salesforcerest.init for the OAuth 2.0 JWT bearer flow"
+    The salesforcerest.init operation initializes the connector to interact with the Salesforce REST API using the OAuth 2.0 JWT bearer flow (connector version 2.1.x). To set up Salesforce for this flow, see [Set up the JWT bearer flow]({{base_path}}/reference/connectors/salesforce-connectors/sf-access-token-generation/#set-up-the-jwt-bearer-flow). See the [related API documentation](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_jwt_flow.htm) for more information.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Sample Value</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>The name of the connection.</td>
+            <td>Yes</td>
+            <td>SALESFORCE_JWT</td>
+        </tr>
+        <tr>
+            <td>authType</td>
+            <td>Set to <code>JWT</code>.</td>
+            <td>Yes</td>
+            <td>JWT</td>
+        </tr>
+        <tr>
+            <td>apiVersion</td>
+            <td>The version of the Salesforce API.</td>
+            <td>Yes</td>
+            <td>v32.0</td>
+        </tr>
+        <tr>
+            <td>clientId</td>
+            <td>The consumer key of the connected app or external client app.</td>
+            <td>Yes</td>
+            <td>XXXXXXXXXXXX (Replace with your client ID)</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>The pre-authorized Salesforce user that the connector acts as.</td>
+            <td>Yes</td>
+            <td>integration@example.com</td>
+        </tr>
+        <tr>
+            <td>tokenEndpointHostname</td>
+            <td>The login URL, https with only a host (not the full token URL): <code>https://login.salesforce.com</code> (default), <code>https://test.salesforce.com</code> for sandboxes, or your My Domain URL.</td>
+            <td>No</td>
+            <td>https://login.salesforce.com</td>
+        </tr>
+        <tr>
+            <td>keyStorePath</td>
+            <td>Location of the keystore or PEM file that holds the private key of the certificate uploaded to the connected app or external client app (RSA, at least 2048 bits). Relative paths are resolved against the MI home.</td>
+            <td>Yes</td>
+            <td>repository/resources/security/salesforce-jwt.p12</td>
+        </tr>
+        <tr>
+            <td>keyStoreType</td>
+            <td><code>PKCS12</code>, <code>JKS</code>, or <code>PEM</code>. If omitted, it is inferred from the file extension (<code>.jks</code>: JKS, <code>.pem</code> or <code>.key</code>: PEM, otherwise PKCS12).</td>
+            <td>No</td>
+            <td>PKCS12</td>
+        </tr>
+        <tr>
+            <td>keyStorePassword</td>
+            <td>The keystore password. Use Secure Vault.</td>
+            <td>For JKS and PKCS12</td>
+            <td>{wso2:vault-lookup('sf_jwt_keystore_password')}</td>
+        </tr>
+        <tr>
+            <td>keyAlias</td>
+            <td>The alias of the signing key. Optional if the keystore holds a single key.</td>
+            <td>No</td>
+            <td>sfjwt</td>
+        </tr>
+        <tr>
+            <td>keyPassword</td>
+            <td>The password of the private key, if it differs from the keystore password, or of an encrypted PEM key. Use Secure Vault.</td>
+            <td>No</td>
+            <td>{wso2:vault-lookup('sf_jwt_key_password')}</td>
+        </tr>
+        <tr>
+            <td>apiUrl</td>
+            <td>The URL for the API calls. If omitted, the instance URL returned with the access token is used. Set it only to send the calls through another URL, such as a proxy.</td>
+            <td>No</td>
+            <td>https://(your_instance).salesforce.com</td>
+        </tr>
+        <tr>
+            <td>audience</td>
+            <td>The <code>aud</code> claim of the JWT. If omitted, <code>https://test.salesforce.com</code> for sandbox and scratch org login URLs, otherwise <code>https://login.salesforce.com</code>. Set it only if Salesforce expects another value.</td>
+            <td>No</td>
+            <td>https://login.salesforce.com</td>
+        </tr>
+        <tr>
+            <td>blocking</td>
+            <td>Indicates whether the connector needs to perform blocking invocations to Salesforce.</td>
+            <td>No</td>
+            <td>false</td>
+        </tr>
+    </table>
+
+    Store the passwords with [Secure Vault]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/) and refer to them with `{wso2:vault-lookup('alias')}`. Do not set `password`, `refreshToken`, or `accessToken` with this flow; the connector rejects them with `SF_JWT_CONFIG`.
+
+    A PEM file must contain a PKCS#8 RSA key (`BEGIN PRIVATE KEY`, or `BEGIN ENCRYPTED PRIVATE KEY` with `keyPassword`). Convert a PKCS#1 key (`BEGIN RSA PRIVATE KEY`) with `openssl pkcs8 -topk8 -in key.pem -out key-pkcs8.pem`.
+
+    On failure, the fault sequence runs with `ERROR_CODE` set to `SF_JWT_CONFIG` (invalid configuration or key) or `SF_JWT_TOKEN` (Salesforce rejected the request or could not be reached), and `ERROR_MESSAGE` explains the cause.
+
+    **Sample configuration**
+
+    ```xml
+    <salesforcerest.init>
+        <name>SALESFORCE_JWT</name>
+        <authType>JWT</authType>
+        <apiVersion>v32.0</apiVersion>
+        <clientId>XXXXXXXXXXXX</clientId>
+        <username>integration@example.com</username>
+        <keyStorePath>repository/resources/security/salesforce-jwt.p12</keyStorePath>
+        <keyStorePassword>{wso2:vault-lookup('sf_jwt_keystore_password')}</keyStorePassword>
+        <keyAlias>sfjwt</keyAlias>
+    </salesforcerest.init>
     ```
 
 ---

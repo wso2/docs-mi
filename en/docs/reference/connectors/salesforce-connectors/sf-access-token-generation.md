@@ -82,3 +82,21 @@ First, we will create a Salesforce App (Connected App) and obtain the OAuth 2 to
     * client_secret<br>
     
     <img src="https://apim.docs.wso2.com/en/4.1.0/assets/img/integrate/connectors/postman-connected-app.png" title="Postman connected app"/>
+
+## Set up the JWT bearer flow
+
+With the OAuth 2.0 JWT bearer flow (Salesforce REST connector version 2.1.x), the connector obtains access tokens itself using a private key, so you do not need to generate tokens as described above.
+
+1. Create an RSA key (at least 2048 bits) and a certificate for it, for example in a PKCS12 keystore (see [Create New Keystores]({{base_path}}/install-and-setup/setup/security/creating-keystores/)). Keep the keystore on the Micro Integrator, store its password with [Secure Vault]({{base_path}}/install-and-setup/setup/security/encrypting-plain-text/), and export the certificate to upload to Salesforce in the next step.
+
+2. In Salesforce, configure your connected app or external client app for the JWT bearer flow. See the Salesforce documentation on the [OAuth 2.0 JWT bearer flow](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_jwt_flow.htm) for details. The app needs:
+
+    * OAuth enabled, with JWT bearer authentication (digital signatures) using the uploaded certificate.
+    * The `api` and `refresh_token, offline_access` OAuth scopes.
+    * Access limited to admin-approved (pre-authorized) users, with the integration user's profile or permission set pre-authorized.
+
+3. Make sure the integration user's profile or permission set has the **API Enabled** permission.
+
+4. Note down the **Consumer Key**. Use it as `clientId` in the [JWT bearer configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-rest-connector-config/#initialize-the-connector).
+
+If the token request fails (for example with `invalid_grant` or `invalid_client`), check that the user is pre-authorized for the app and has the **API Enabled** permission, that the uploaded certificate matches the key and has not expired, and that `tokenEndpointHostname` is `https://test.salesforce.com` (or the sandbox My Domain URL) for a sandbox user.
