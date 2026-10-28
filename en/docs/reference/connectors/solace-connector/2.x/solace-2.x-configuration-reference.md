@@ -193,7 +193,7 @@ PAYLOAD_ERROR: publishMessage: the HTTP request body was not received completely
 
 Every 700124 in this section comes before any broker call. For sendRequest it concerns the request. A sendRequest that fails on its reply has already sent the request, see [Fault 700124 by operation](#fault-700124-by-operation).
 
-userProperties is a JSON array of objects, for example `[{"fileName":"x.txt"},{"tenant":"team1"}]`. Every key of every object is a user property. A string stays a string, an integer becomes a long, a decimal a double and a boolean a boolean. Anything else faults PAYLOAD\_ERROR 700124 and nothing is sent: input that is not a JSON array of objects, a null, a nested object or array, or a number too large for a long or a double.
+userProperties is a JSON array of objects. Every key of every object is a user property, so several properties go in one object or in several objects. `[{"fileName":"x.txt","tenant":"team1"}]` and `[{"fileName":"x.txt"},{"tenant":"team1"}]` give the same two properties. A string stays a string, an integer becomes a long, a decimal a double and a boolean a boolean. Anything else faults PAYLOAD\_ERROR 700124 and nothing is sent: input that is not a JSON array of objects, a null, a nested object or array, or a number too large for a long or a double. So one key holds one value. To send a list, put it in one string or under separate keys. When a key appears more than once, the last value is sent.
 
 ## Results of poll, sendRequest and browse
 
