@@ -146,8 +146,6 @@ nackMessage: outcomeType (FAILED or REJECTED), target, responseVariable, overwri
 
 beginTransaction: transactionTimeoutMillis. commit and rollback take no parameter and wait up to 30 seconds for the completion.
 
-requestCachedMessages: cacheName, topicPattern, cacheMaxMessages, cacheMaxAgeSeconds, cacheRequestTimeout, liveDataAction, responseVariable, overwriteBody, unchanged from 1.x.
-
 An operation parameter with an explicit invalid value faults INVALID\_CONFIG 700103 before any broker call. For example deliveryMode PERSISTANT gives `INVALID_CONFIG: deliveryMode must be PERSISTENT, NON_PERSISTENT or DIRECT, got 'PERSISTANT'`. An absent parameter keeps its default.
 
 ## How a body is sent
@@ -156,6 +154,8 @@ An operation parameter with an explicit invalid value faults INVALID\_CONFIG 700
     Applies to the connector and the inbound endpoint 2.0.1 and later.
 
 publishMessage, sendRequest and sendReply send the body of the message context. The connector writes it the way the HTTP transport writes a body. The platform's message formatter for the body's content type writes the bytes and names the content type. That content type goes on the Solace message, with one charset parameter at most.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-publish-path.png" title="The formatter of the content type writes the bytes, messageType chooses the Solace message class, and the content type goes on the message. messageType does not convert the body" width="800" alt="The formatter of the content type writes the bytes, messageType chooses the Solace message class, and the content type goes on the message. messageType does not convert the body"/>
 
 messageType chooses the Solace message class.
 
@@ -199,6 +199,8 @@ userProperties is a JSON array of objects, for example `[{"fileName":"x.txt"},{"
     Applies to the connector and the inbound endpoint 2.0.1 and later.
 
 poll, sendRequest and browse read messages from the broker. Each one writes its result into the variable that its responseVariable parameter names. The examples on this page use polled for poll, reply for sendRequest and browsed for browse. These are the names set in responseVariable, so use the names your own operations set.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-read-result.png" title="With overwriteBody false the variable holds the payload and the attributes. With overwriteBody true the message becomes the body and the variable holds the attributes. browse returns an array of summaries" width="800" alt="With overwriteBody false the variable holds the payload and the attributes. With overwriteBody true the message becomes the body and the variable holds the attributes. browse returns an array of summaries"/>
 
 ### Payload and attributes
 
@@ -357,6 +359,8 @@ A binary payload is base64 text and payloadEncoding is base64. A message whose b
     Applies to the connector and the inbound endpoint 2.0.1 and later.
 
 The connector does not guess JSON or XML from the body. Without a declared type or the contentType parameter, a TextMessage is text and a BytesMessage is binary. A TextMessage whose text looks like JSON is still text.
+
+<img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-content-type.png" title="The content type of a received message is the contentType parameter, else the type declared on the message, else the default of the message class. The body is never inspected" width="800" alt="The content type of a received message is the contentType parameter, else the type declared on the message, else the default of the message class. The body is never inspected"/>
 
 There are two ways to read such a body as JSON or XML.
 

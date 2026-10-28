@@ -5,6 +5,8 @@ An HTTP client asks one integration for a file. That integration sends a request
 !!! info
     Applies to the connector and the inbound endpoint 2.0.1 and later.
 
+<img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-file-transfer.png" title="The requester sends the file path with sendRequest. The responder reads the file as binary and replies with BYTES and the file name. The requester writes the reply to a file and returns it" width="800" alt="The requester sends the file path with sendRequest. The responder reads the file as binary and replies with BYTES and the file name. The requester writes the reply to a file and returns it"/>
+
 ## The shape
 
 The requester is an API. It calls sendRequest with a short JSON body and the user property filePath, the path of the wanted file. With overwriteBody true the reply becomes the body, as native binary. The File connector writes that body to a file named by the reply's user property fileName, read as `${vars.reply.attributes.userProp_fileName}`. Then respond returns the same bytes to the client.
