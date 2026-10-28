@@ -193,7 +193,11 @@ PAYLOAD_ERROR: publishMessage: the HTTP request body was not received completely
 
 Every 700124 in this section comes before any broker call. For sendRequest it concerns the request. A sendRequest that fails on its reply has already sent the request, see [Fault 700124 by operation](#fault-700124-by-operation).
 
-userProperties is a JSON array of objects. Every key of every object is a user property, so several properties go in one object or in several objects. `[{"fileName":"x.txt","tenant":"team1"}]` and `[{"fileName":"x.txt"},{"tenant":"team1"}]` give the same two properties. A string stays a string, an integer becomes a long, a decimal a double and a boolean a boolean. Anything else faults PAYLOAD\_ERROR 700124 and nothing is sent: input that is not a JSON array of objects, a null, a nested object or array, or a number too large for a long or a double. So one key holds one value. To send a list, put it in one string or under separate keys. When a key appears more than once, the last value is sent.
+userProperties is a JSON array of objects. Every key of every object is a user property, so several properties go in one object or in several objects. `[{"fileName":"x.txt","tenant":"team1"}]` and `[{"fileName":"x.txt"},{"tenant":"team1"}]` give the same two properties.
+
+A string stays a string, an integer becomes a long, a decimal a double and a boolean a boolean. Anything else faults PAYLOAD\_ERROR 700124 and nothing is sent. That is input that is not a JSON array of objects, a null, a nested object or array, or a number too large for a long or a double.
+
+One key holds one value. To send a list, put it in one string or under separate keys. When a key appears more than once, the last value is sent. `[{"tenant":"team1"},{"tenant":"team2"}]` sends tenant with the value team2.
 
 ## Results of poll, sendRequest and browse
 
@@ -390,7 +394,7 @@ The parameter wins over the type the message declares. A value without a charset
 
 ### With overwriteBody false
 
-The result goes only into the variable. The body of the message context stays as it was. A publishMessage, sendRequest or sendReply after it sends that body, not the message you read. To send on the message you read, read it with overwriteBody true.
+The result goes only into the variable. The body of the message context stays as it was. A publishMessage, sendRequest or sendReply after it sends that body, not the message you read. To send on a message you read with poll or sendRequest, read it with overwriteBody true. browse puts its array of summaries on the body, not a message.
 
 ### With overwriteBody true
 

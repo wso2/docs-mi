@@ -47,7 +47,7 @@ At the end of this guide a message the sequence judges invalid is rejected to th
 
 ## Verify
 
-The invalid order is in Q.orders.dmq at once, the counters show decided.REJECTED 1 and settled.rejected 1. The valid order with the backend stopped is retried with the back off and reaches the dead message queue after the attempts, with decided.FAILED equal to the attempts and settled.rejected 2. The response of nackMessage carries settled true and mode DEFERRED, which means the decision reached the inbound endpoint. The counters say what reached the broker.
+The invalid order is in Q.orders.dmq at once, the counters show decided.REJECTED 1 and settled.rejected 1. The valid order with the backend stopped is retried with the back off and reaches the dead message queue after the attempts, with decided.FAILED equal to the attempts and settled.rejected 2. The response of nackMessage carries settled true and mode DEFERRED, which means the decision reached the inbound endpoint. The settled counters say which settlements the client library took. The broker shows where each message is.
 
 A message with an empty payload is settled REJECTED without a decision, so an eligible message is kept in the dead message queue for inspection. A JSON payload that does not parse is not rejected by the endpoint. It reaches the sequence as it is and fails only where the sequence reads it.
 

@@ -249,7 +249,7 @@ The answer is the endpoint with its configuration, its parameters and a health b
     }
     ```
 
-Read it from the top. status active: the endpoint consumes, because the broker made this flow the active consumer of the exclusive queue. lifecycle running, connectivity connected and generation 1: the first connection is up and nothing failed. Then the counters. After the message of step 6 they read received 1, decided.ACK 1, settled.ack 1 and inFlight 0. The message reached the sequence, the sequence acknowledged it, and the acknowledgement reached the broker. The other counters stay at 0 while all goes well. The [observability page]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-observability/) walks through the readings you see when something goes wrong.
+Read it from the top. status active: the endpoint consumes, because the broker made this flow the active consumer of the exclusive queue. lifecycle running, connectivity connected and generation 1: the first connection is up and nothing failed. Then the counters. After the message of step 6 they read received 1, decided.ACK 1, settled.ack 1 and inFlight 0. The message reached the sequence, the sequence acknowledged it, and the client library took the acknowledgement. The other counters stay at 0 while all goes well. The [observability page]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-observability/) walks through the readings you see when something goes wrong.
 
 ## Step 8, make it fail
 

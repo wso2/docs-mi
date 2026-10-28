@@ -72,7 +72,7 @@ This is the answer after the quick start, as the test bench returned it. The con
 }
 ```
 
-How to read it. The endpoint is consuming: status active, lifecycle running, everything connected, generation 1. Four messages came in. Three were acknowledged and reached the broker as acknowledged, settled.ack 3. One failed on every attempt and was rejected to the dead message queue, settled.rejected 1. One more failed three times before the backend came back and then went through. Together that is 7 failed attempts and 6 retries. Nothing is waiting, inFlight 0 and pending 0, and every key in the last three groups is 0, as it should be.
+How to read it. The endpoint is consuming: status active, lifecycle running, everything connected, generation 1. Four messages came in. Three were acknowledged, settled.ack 3. One failed on every attempt and was rejected to the dead message queue, settled.rejected 1. One more failed three times before the backend came back and then went through. Together that is 7 failed attempts and 6 retries. Nothing is waiting, inFlight 0 and pending 0, and every key in the last three groups is 0, as it should be.
 
 | Status | What it means | What to do |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ Each reading is a health block from the test bench, cut to the keys that matter.
 
 `received 1000, decided.ACK 1000, settled.ack 1000, inFlight 0, pending 0`
 
-Every message reached the sequence, the sequence acknowledged it, and the acknowledgement reached the broker. Nothing is waiting. This is the normal reading.
+Every message reached the sequence, the sequence acknowledged it, and the client library took the acknowledgement while the session was connected. Nothing is waiting. This is the normal reading.
 
 ### The backend failed and one message went to the dead message queue
 
@@ -119,7 +119,7 @@ The loss was final for the client, so the endpoint closed its connection and bui
 
 ### A message waits and then comes back
 
-`decided.TIMEOUT 1, inFlight 1` for the whole settlementTimeout
+`inFlight 1` for the whole settlementTimeout, then `decided.TIMEOUT 1`
 
 The sequence ended without acknowledgeMessage or nackMessage, so the message waited for the settlement timeout and was then retried. Look for the deploy time WARN that names the sequence, and add the missing settlement on that path.
 
@@ -145,7 +145,7 @@ The sequence ended without acknowledgeMessage or nackMessage, so the message wai
 | --- | --- | --- |
 | words | status, lifecycle, connectivity, activity, and the same per session and per flow | the state of the endpoint, of its connection, and the broker's active flow indication |
 | generation | generation | the last connection attempt that reached running. It goes up by one per attempt |
-| messages | received, decided.\*, applied.\*, settled.\*, retried, redelivered | what came in, what was decided per attempt, what was done per message, and what reached the broker |
+| messages | received, decided.\*, applied.\*, settled.\*, retried, redelivered | what came in, what was decided per attempt, what was done per message, and which settlements the client library took |
 | load | inFlight, pending, pendingMax, freePermits | messages on a worker, messages waiting for one, the highest wait, the free workers |
 | left to the broker or lost | retainedUnsettled, settleFailed, dropped, leftByDrain, abandoned, rejectedSubmit | messages the broker delivers again, except dropped on a Direct topic |
 | defects and limits | handlerFailed, closeRejected, degradedOutcomes | 0 in normal running. degradedOutcomes counts the outcomes the broker does not support |

@@ -57,7 +57,7 @@ mvn dependency:copy -Dartifact=org.apache.servicemix.bundles:org.apache.servicem
 If you prefer to run the broker locally, start the PubSub+ Standard Edition container:
 
 ```bash
-docker run -d -p 8080:8080 -p 55555:55555 -p 55443:55443 \
+docker run -d -p 8080:8080 -p 55555:55555 -p 55443:55443 -p 9000:9000 \
   --shm-size=1g \
   --env username_admin_globalaccesslevel=admin \
   --env username_admin_password=admin \
@@ -72,6 +72,8 @@ This starts a broker with:
 | **Message VPN**      | `default` |
 | **Username**         | `default` |
 | **Password**         | `default` |
+
+Port 9000 is the REST messaging port of the default Message VPN. The 2.x quick start and guides publish their test messages to it with curl. They connect as the client username integration. Create it in PubSub+ Manager under Access Control, or change the examples to a client username you have.
 
 The browser-based **PubSub+ Manager** administration console is available at `http://localhost:8080` (log in with `admin` / `admin`). Use it to create queues, inspect messages, and configure cache instances.
 
