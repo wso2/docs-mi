@@ -104,7 +104,7 @@ Keep the **Host URL**, **Message VPN**, **Username**, and **Password** noted abo
 
 | Version | Connector | Inbound endpoint | Supported product versions |
 | ------- | --------- | ---------------- | -------------------------- |
-| 2.x     | 2.0.0     | 2.0.0            | WSO2 Integrator: MI 4.6.0 and above |
+| 2.x     | 2.0.1     | 2.0.1            | WSO2 Integrator: MI 4.6.0 and above |
 | 1.x     | 1.0.1     | 1.0.2            | WSO2 Integrator: MI 4.6.0 and above |
 
 The 2.x artifacts use the same broker, Message VPN, client username and JARs as 1.x. Three broker settings matter more with 2.x.
