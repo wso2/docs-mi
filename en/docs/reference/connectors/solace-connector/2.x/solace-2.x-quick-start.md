@@ -32,13 +32,13 @@ Create an integration project and add both artifacts to its pom, from the WSO2 C
 <dependency>
     <groupId>org.wso2.integration.inbound</groupId>
     <artifactId>mi-inbound-solace</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <type>zip</type>
 </dependency>
 <dependency>
     <groupId>org.wso2.integration.connector</groupId>
     <artifactId>mi-connector-solace</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <type>zip</type>
 </dependency>
 <dependency>
@@ -149,7 +149,7 @@ Build the CAR and deploy it, or run the project from VS Code. The log shows thre
 ??? note "The three start lines, as logged"
 
     ```
-    [2026-10-21 09:20:42,821]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] starting generation 1 (node id malakag from hostname, settlementTimeout 180000 ms from default, concurrentConsumers 1, window 255/1, coordination true)
+    [2026-10-21 09:20:42,821]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] starting generation 1 (node id node1 from hostname, settlementTimeout 180000 ms from default, concurrentConsumers 1, window 255/1, coordination true)
     [2026-10-21 09:20:43,360]  INFO {org.wso2.carbon.inbound.solace.SolaceFlowEventHandler} - SolaceListener [OrderListener] flow ACTIVE (now consuming on the endpoint, generation 1): Type: 'FLOW_ACTIVE', Info: 'Flow becomes active', ResponseCode: '0', Exception: 'null'
     [2026-10-21 09:20:43,361]  INFO {org.wso2.carbon.inbound.solace.SolaceEventListener} - SolaceListener [OrderListener] generation 1 started: queue Q.orders, outcomes FAILED,REJECTED
     ```
