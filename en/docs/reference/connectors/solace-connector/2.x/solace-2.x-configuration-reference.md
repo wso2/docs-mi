@@ -477,7 +477,6 @@ PAYLOAD\_ERROR 700124 means that a body, its charset or the user properties coul
 | poll with ackMode CLIENT | nothing | the lease is still held. The fault sequence can settle the message with acknowledgeMessage or nackMessage and target POLL. Without a settlement the lease ends after pollAckTimeout, the message is settled FAILED and the broker redelivers it. Until then another CLIENT poll in the same message context faults POLL\_UNSETTLED |
 | poll inside a connector owned transaction | nothing | the message belongs to the open transaction. rollback returns it to the queue and commit removes it |
 | browse | nothing | no operation fault. The item carries payloadErrorCode 700124, the message stays on the queue, and the browse goes on |
-| requestCachedMessages | the cache request | the operation faults and returns none of the cached messages |
 
 A sendRequest fault does not say whether the request or the reply failed. Some messages can only come from the request, for example `the message body is binary (application/octet-stream) and messageType TEXT carries text, use messageType BYTES` or an error in userProperties. When the side is not clear, assume that the request was sent.
 
