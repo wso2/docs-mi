@@ -159,6 +159,8 @@ publishMessage, sendRequest and sendReply send the body of the message context. 
 
 messageType chooses the Solace message class.
 
+The user properties of a received message are not copied to the outgoing message. The outgoing message carries only the user properties of its userProperties parameter. To forward one, read it from the result, for example `${vars.polled.attributes.userProp_fileName}`, or from solace.userProp.fileName on the inbound endpoint, and pass it in userProperties, as the [file transfer use case]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-file-transfer-request-reply/) does with fileName.
+
 | messageType | The Solace message |
 | --- | --- |
 | TEXT, the default | a TextMessage with the characters of the body |
@@ -385,6 +387,10 @@ Here is the same JSON document, sent as a TextMessage without a declared type, p
 ```
 
 The parameter wins over the type the message declares. A value without a charset takes the charset the message declares, else UTF-8. An empty value means no parameter. A value that is not a media type, or that names a charset Java does not know, faults INVALID\_CONFIG 700103 before any broker call. browse applies the parameter to every item, but keeps a JSON text item as summary text.
+
+### With overwriteBody false
+
+The result goes only into the variable. The body of the message context stays as it was. A publishMessage, sendRequest or sendReply after it sends that body, not the message you read. To send on the message you read, read it with overwriteBody true.
 
 ### With overwriteBody true
 
