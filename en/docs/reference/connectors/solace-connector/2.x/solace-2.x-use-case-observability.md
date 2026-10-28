@@ -172,7 +172,7 @@ The sequence ended without acknowledgeMessage or nackMessage, so the message wai
 | CONNECTION\_ERROR | 700101 | refused, no session could be had |
 | PUBLISH\_ERROR | 700102 | safe, before the send |
 | INVALID\_CONFIG | 700103 | refused |
-| REQUEST\_REPLY\_ERROR, POLL\_ERROR | 700104, 700105 | the operation's own failure |
+| REQUEST\_REPLY\_ERROR, POLL\_ERROR | 700104, 700108 | the operation's own failure |
 | TRANSACTION\_ACTIVE | 700111 | a pooled session with an open transaction cannot be rebuilt |
 | TRANSACTION\_COMPLETED | 700112 | a command reached a transaction that had ended |
 | INBOUND\_TRANSACTION | 700113 | an operation not allowed inside an inbound owned transaction |
@@ -185,3 +185,6 @@ The sequence ended without acknowledgeMessage or nackMessage, so the message wai
 | UNKNOWN | 700121 | uncertain, an exception inside or after the send |
 | NACK | 700122 | refused by the broker, with the subcode and the phrase |
 | ROLLED\_BACK | 700123 | the broker rolled the transaction back |
+| PAYLOAD\_ERROR | 700124 | the body could not be read, built or written, or its charset or user properties are wrong. A send sent nothing. A poll with ackMode AUTO has already taken the message off the queue, with CLIENT the message stays on the queue. When the parser's message contains the name of a platform parser exception, the platform reports 601000 instead |
+| TRANSACTION\_CONNECTION\_MISMATCH | 700125 | an operation on another connection inside a connector owned transaction |
+| TRANSACTION\_MESSAGE\_LIMIT | 700126 | a second consuming poll in one connector owned transaction |

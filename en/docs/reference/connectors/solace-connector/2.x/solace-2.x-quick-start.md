@@ -112,7 +112,7 @@ The inbound endpoint carries its own Solace connection parameters, and the conne
 </sequence>
 ```
 
-The acknowledgement comes after the backend answered, which is the point of 2.0.0. An answer other than 200 nacks the message FAILED, and a call that fails before an answer ends in the fault sequence, which nacks it FAILED as well. A FAILED message is retried in place. These two sequences, the local entry and the inbound endpoint below are the shapes the test campaigns ran, with the names changed.
+The acknowledgement comes after the backend answered, which is the point of 2.x. An answer other than 200 nacks the message FAILED, and a call that fails before an answer ends in the fault sequence, which nacks it FAILED as well. A FAILED message is retried in place. These two sequences, the local entry and the inbound endpoint below are the shapes the test campaigns ran, with the names changed.
 
 ## Step 4, the inbound endpoint
 
@@ -137,6 +137,8 @@ The acknowledgement comes after the backend answered, which is the point of 2.0.
     </parameters>
 </inboundEndpoint>
 ```
+
+solace.contentType application/json makes the endpoint read every message as JSON, so the sequence can pass `${payload}` to the backend. Without it the endpoint reads each message with the type the producer declared, and a message without a declared type as text or binary. When the connector reads a message itself, with poll, sendRequest or browse, the result has a payload and attributes, see [Results of poll, sendRequest and browse]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#results-of-poll-sendrequest-and-browse).
 
 The password on this page is the plain password of a lab broker. Outside a lab keep it in Secure Vault and write `{wso2:vault-lookup('solace.password')}` as the value, as the other pages do.
 

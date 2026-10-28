@@ -27,7 +27,7 @@ At the end of this guide an HTTP call into one integration is answered by a seco
     </api>
     ```
 
-    overwriteBody true puts the reply on the body, so respond returns the reply to the HTTP client. Without it the reply stays in vars.reply and the client gets its own request back.
+    overwriteBody true puts the reply on the body, so respond returns the reply to the HTTP client. Without it the reply stays in vars.reply and the client gets its own request back. vars.reply keeps the reply's attributes either way, see [Results of poll, sendRequest and browse]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#results-of-poll-sendrequest-and-browse).
 
 3. In the responder project create a connection and an inbound endpoint on Q.requests with autoAck false, whose sequence replies and then acknowledges.
 

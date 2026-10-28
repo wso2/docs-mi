@@ -27,7 +27,7 @@ The requester, inside an API resource.
 <respond/>
 ```
 
-overwriteBody true puts the reply on the body, so respond returns it to the HTTP client. Without it the reply stays in vars.reply and the client gets its own request back.
+overwriteBody true puts the reply on the body, so respond returns it to the HTTP client. Without it the reply stays in vars.reply and the client gets its own request back. Either way vars.reply keeps the reply's attributes: its ids, its content type and each user property as userProp\_&lt;key&gt;, for example `${vars.reply.attributes.userProp_fileName}`. The full shape is in [Results of poll, sendRequest and browse]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#results-of-poll-sendrequest-and-browse).
 
 sendRequest publishes the current body as the request. Call the API with a body, or build the request first with a payload factory as guide 9 does. An empty request is rejected by the responder as an empty message.
 
@@ -64,13 +64,15 @@ The JMS transport of WSO2 Integrator: MI has a [dual channel page]({{base_path}}
 | inside a transaction |  | sendRequest is refused with REQUEST\_IN\_TRANSACTION 700114 |
 | resources left behind | the reply queue | none when the cleanup succeeds, the test counted the temporary queues back to zero |
 
+A file sent back as the reply, with its name in a user property, is [use case 12]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-file-transfer-request-reply/).
+
 The reply publication and the request's settlement are two operations, so a failure between them can redeliver the request and produce a second reply. A fixed reply queue with a correlation id is the asynchronous shape: publishMessage with the reply to parameters set, and an inbound endpoint on the reply queue. That shape needs its own correlation and does not resume the waiting HTTP caller.
 
 ## The parameters that matter
 
 | Parameter | Default | Use |
 | --- | --- | --- |
-| requestTimeout | 5000 | the wait for the reply, in ms |
+| requestTimeout | 30000 | the wait for the reply, in ms |
 | maxConcurrentRequests | 100 | the requests in flight on the connection. A call beyond it waits up to requestTimeout and faults REQUEST\_CONCURRENCY\_EXCEEDED 700117 |
 | waitForAck, ackTimeout | true, 10000 | the publish of the request, as for publishMessage |
 | pubAckWindowSize | 1 | keep the default |

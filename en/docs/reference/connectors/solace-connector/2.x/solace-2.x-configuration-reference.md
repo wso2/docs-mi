@@ -39,9 +39,11 @@ Consumer.
 
 | Parameter | Default | Meaning |
 | --- | --- | --- |
-| solace.contentType | detected | overrides the content type |
-| solace.binaryPayloadAsBase64 | false | base64 for binary payloads |
+| solace.contentType | empty | the content type the body is read with. It wins over the type the message declares. Empty uses the declared type, else the default of the message class. The body is never inspected. A value without a charset takes the charset the message declares, else UTF-8 |
+| solace.binaryPayloadAsBase64 | false | the legacy form. true puts every BytesMessage body into the message as base64 text with application/octet-stream, and the sequence decodes it. false builds a binary body, and a BytesMessage of a text type is decoded with its charset |
 | solace.selector |  | a SQL 92 selector on headers and user properties, queues and durable topic endpoints |
+
+How the endpoint turns a message into a body is in [The body the inbound endpoint builds](#the-body-the-inbound-endpoint-builds).
 
 Guaranteed messaging.
 
@@ -103,7 +105,7 @@ It applies to every Solace inbound endpoint without its own solace.settlementTim
 
 ## Connector connection
 
-The 1.x parameters keep their meaning: name, host, vpnName, username, password, apiProvidedUsername, clientName, connectionTimeout, readTimeout, compressionLevel, the generate flags, connectRetries, connectRetriesPerHost, reconnectRetries, reconnectRetryWait, the ssl parameters, authenticationScheme, oauth2AccessToken, oauth2IssuerIdentifier, oidcIdToken, pubAckWindowSize. One of them changes how it is applied: connectRetries and connectRetriesPerHost now count the physical connect attempts a session makes across its recovery, and each attempt connects once inside the client library, so a broker outage never piles up connect attempts behind callers that timed out. The parameters below are new in 2.0.0.
+The 1.x parameters keep their meaning: name, host, vpnName, username, password, apiProvidedUsername, clientName, connectionTimeout, readTimeout, compressionLevel, the generate flags, connectRetries, connectRetriesPerHost, reconnectRetries, reconnectRetryWait, the ssl parameters, authenticationScheme, oauth2AccessToken, oauth2IssuerIdentifier, oidcIdToken, pubAckWindowSize. One of them changes how it is applied: connectRetries and connectRetriesPerHost now count the physical connect attempts a session makes across its recovery, and each attempt connects once inside the client library, so a broker outage never piles up connect attempts behind callers that timed out. The parameters below are new in 2.x.
 
 | Parameter | Default | Meaning |
 | --- | --- | --- |
@@ -128,15 +130,17 @@ The broker's per client username connection limit must allow maxActiveConnection
 
 publishMessage: destinationType, destinationName, deliveryMode (DIRECT for topics only, PERSISTENT, NON\_PERSISTENT), messageType, correlationId, priority, timeToLive, applicationMessageId, applicationMessageType, senderId, replyToDestinationType, replyToDestinationName, userProperties, dmqEligible, elidingEligible, expiration, waitForAck (true for PERSISTENT and NON\_PERSISTENT), ackTimeout (10000, the deadline for connect, send and the acknowledgement), continueOnAckFailure (false), responseVariable, overwriteBody. The response carries ackStatus, ACK, NACK, NOT\_REQUESTED or NOT\_APPLICABLE, and outcome UNKNOWN when the deadline cut the operation after the send.
 
-sendRequest: destinationType, destinationName, deliveryMode, messageType, requestTimeout, correlationId, priority, timeToLive, applicationMessageId, applicationMessageType, senderId, userProperties, dmqEligible, elidingEligible, expiration, waitForAck (true), ackTimeout (10000), responseVariable, overwriteBody. Refused inside any transaction with REQUEST\_IN\_TRANSACTION.
+sendRequest: destinationType, destinationName, deliveryMode, messageType, requestTimeout (30000), correlationId, priority, timeToLive, applicationMessageId, applicationMessageType, senderId, userProperties, dmqEligible, elidingEligible, expiration, waitForAck (true), ackTimeout (10000), contentType (the type the reply is read with), responseVariable, overwriteBody. Refused inside any transaction with REQUEST\_IN\_TRANSACTION.
 
-sendReply: target (INBOUND, the default, or POLL), deliveryMode, messageType, correlationId, priority, timeToLive, applicationMessageId, applicationMessageType, senderId, userProperties, dmqEligible, elidingEligible, expiration, waitForAck (true), ackTimeout (10000), responseVariable, overwriteBody. Replies to the message the inbound endpoint delivered or to the polled message.
+sendReply: target (INBOUND, the default, or POLL), deliveryMode, messageType, correlationId, priority, timeToLive, applicationMessageId, applicationMessageType, senderId, userProperties, dmqEligible, elidingEligible, expiration, waitForAck (true), ackTimeout (10000), responseVariable, overwriteBody. Replies to the message the inbound endpoint delivered or to the polled message. The reply carries the correlation id of the request. An explicit correlationId is used only when the request has no correlation id. Without an explicit applicationMessageId the reply carries the request's.
 
-poll: queueName, pollTimeout (the wait, including the wait for the flow's owner thread), ackMode (AUTO, or CLIENT to stash the message with a lease), selector, responseVariable, overwriteBody. Inside a connector owned transaction the message is held until the commit or the rollback.
+poll: queueName, pollTimeout (5000, the wait, including the wait for the flow's owner thread), ackMode (AUTO, or CLIENT to stash the message with a lease), selector, contentType (the type the message is read with), responseVariable, overwriteBody. Inside a connector owned transaction the message is held until the commit or the rollback.
 
-browse: queueName, maxMessages, browseTimeout, selector, responseVariable, overwriteBody.
+browse: queueName, maxMessages (10), browseTimeout (2000), selector, contentType (the type every message is read with), responseVariable, overwriteBody.
 
-acknowledgeMessage: target (INBOUND or POLL), responseVariable, overwriteBody. The response carries mode, DEFERRED when the decision was handed to the inbound endpoint 2.0.0, DIRECT when settled on the broker for an inbound endpoint 1.x or a polled message. It also carries settled, and reason ALREADY\_DECIDED, LATE or STALE\_DELIVERY when the call lost.
+poll, sendRequest and browse write their result in the shape of [Results of poll, sendRequest and browse](#results-of-poll-sendrequest-and-browse).
+
+acknowledgeMessage: target (INBOUND or POLL), responseVariable, overwriteBody. The response carries mode, DEFERRED when the decision was handed to the inbound endpoint 2.x, DIRECT when settled on the broker for an inbound endpoint 1.x or a polled message. It also carries settled, and reason ALREADY\_DECIDED, LATE or STALE\_DELIVERY when the call lost.
 
 nackMessage: outcomeType (FAILED or REJECTED), target, responseVariable, overwriteBody, with the same response.
 
@@ -144,6 +148,337 @@ beginTransaction: transactionTimeoutMillis. commit and rollback take no paramete
 
 requestCachedMessages: cacheName, topicPattern, cacheMaxMessages, cacheMaxAgeSeconds, cacheRequestTimeout, liveDataAction, responseVariable, overwriteBody, unchanged from 1.x.
 
+An operation parameter with an explicit invalid value faults INVALID\_CONFIG 700103 before any broker call. For example deliveryMode PERSISTANT gives `INVALID_CONFIG: deliveryMode must be PERSISTENT, NON_PERSISTENT or DIRECT, got 'PERSISTANT'`. An absent parameter keeps its default.
+
+## How a body is sent
+
+publishMessage, sendRequest and sendReply send the body of the message context. The connector writes it the way the HTTP transport writes a body. The platform's message formatter for the body's content type writes the bytes and names the content type. That content type goes on the Solace message, with one charset parameter at most.
+
+messageType chooses the Solace message class.
+
+| messageType | The Solace message |
+| --- | --- |
+| TEXT, the default | a TextMessage with the characters of the body |
+| BYTES | a BytesMessage with the bytes the formatter wrote, unchanged |
+| XML | an XMLContentMessage with the characters of the body |
+
+JSON has no message class of its own. Send it as TEXT or BYTES. A binary body with TEXT or XML faults PAYLOAD\_ERROR 700124 and nothing is sent.
+
+```
+PAYLOAD_ERROR: publishMessage: the message body is binary (application/octet-stream) and messageType TEXT carries text, use messageType BYTES
+```
+
+An HTTP request with no Content-Type header is sent as bytes with application/octet-stream, so publish it with BYTES.
+
+The text, XML and JSON formatters write UTF-8. When the charset of the message context is another one, the connector converts the text to it. A request sent as `text/plain; charset=ISO-8859-1` goes out as `text/plain; charset=ISO-8859-1`, with the same characters. A character that the charset cannot encode faults PAYLOAD\_ERROR 700124 and nothing is sent. Binary and multipart bytes are never converted.
+
+A formatter registered for a custom content type writes its bytes with the charset of the message context, with no conversion. For such a type the strict charset handling depends on that formatter. It must report its own encoding failures and describe its own bytes.
+
+A URL encoded or multipart form is written by the platform's form formatter, as it would go out over HTTP, with the same properties.
+
+With WRITE\_XML\_DECLARATION set, the XML declaration the connector writes always names the charset of the message, UTF-8 included.
+
+The body stays on the message context after the send. A second publish, an HTTP call or a File connector write after it sends the same bytes.
+
+The connector does not publish from an HTTP request whose body transfer failed. publishMessage, sendRequest and sendReply then fault PAYLOAD\_ERROR 700124 and send nothing. The one exception is a body the connector installed itself with overwriteBody. So a fault sequence that builds its own message after such a failure gets the same fault.
+
+```
+PAYLOAD_ERROR: publishMessage: the HTTP request body was not received completely, nothing is sent
+```
+
+userProperties is a JSON array of objects, for example `[{"fileName":"x.txt"},{"tenant":"team1"}]`. Every key of every object is a user property. A string stays a string, an integer becomes a long, a decimal a double and a boolean a boolean. Anything else faults PAYLOAD\_ERROR 700124 and nothing is sent: input that is not a JSON array of objects, a null, a nested object or array, or a number too large for a long or a double.
+
+## Results of poll, sendRequest and browse
+
+poll, sendRequest and browse read messages from the broker. Each one writes its result into the variable that its responseVariable parameter names. The examples on this page use polled for poll, reply for sendRequest and browsed for browse. These are the names set in responseVariable, so use the names your own operations set.
+
+### Payload and attributes
+
+A result has two parts. payload is the body of the message. attributes describe the message: its ids, its delivery fields, its content type and its user properties.
+
+This is the result of a poll as a test run returned it. The message was a text message with two user properties.
+
+```json
+{
+  "attributes": {
+    "destination": "Q.orders",
+    "received": true,
+    "timedOut": false,
+    "ackMode": "AUTO",
+    "messageId": "1",
+    "deliveryMode": "PERSISTENT",
+    "priority": 4,
+    "redelivered": false,
+    "dmqEligible": false,
+    "elidingEligible": false,
+    "contentType": "text/plain; charset=UTF-8",
+    "userProp_fileName": "x.txt",
+    "userProp_tenant": "team1"
+  },
+  "payload": "props"
+}
+```
+
+The sequence reads the body as `${vars.polled.payload}` and the file name as `${vars.polled.attributes.userProp_fileName}`.
+
+This is the result of a sendRequest. The responder replied with a JSON body and three user properties.
+
+```json
+{
+  "attributes": {
+    "destination": "Q.requests",
+    "destinationType": "QUEUE",
+    "messageId": "10964114",
+    "correlationId": "req-5e8de98e-83d7-415c-9971-39d7d78e1e66",
+    "applicationMessageId": "app-1",
+    "deliveryMode": "NON_PERSISTENT",
+    "priority": 4,
+    "redelivered": false,
+    "dmqEligible": false,
+    "elidingEligible": false,
+    "contentType": "application/json; charset=UTF-8",
+    "userProp_attempt": 3,
+    "userProp_fileName": "x.txt",
+    "userProp_ok": true
+  },
+  "payload": {"ask": 1}
+}
+```
+
+destination and destinationType are the request's. Every other attribute describes the reply. The reply declared application/json, so the payload is the parsed object. `${vars.reply.attributes.userProp_fileName}` gives x.txt.
+
+A poll that finds no message within pollTimeout returns the attributes destination, received false, timedOut true and, outside a transaction, ackMode, and the payload `{"received": false, "timedOut": true, "destination": "Q.orders"}`.
+
+### Every attribute
+
+The first table holds the attributes of the operation. The second holds the attributes of the message, the same on poll, on sendRequest and on each browse item. A key whose value is not there is left out. It is never null.
+
+| Key | Type | Operation | When it is absent |
+| --- | --- | --- | --- |
+| destination | string | poll: the queue polled. sendRequest: the destination of the request. browse: the queue browsed, and on each item the destination of that message | never |
+| received | boolean | poll | never |
+| timedOut | boolean | poll | never |
+| ackMode | string, AUTO or CLIENT | poll | on a poll inside a connector owned transaction |
+| leaseDeadline | number, epoch milliseconds | poll | unless ackMode is CLIENT and a message was received |
+| destinationType | string, QUEUE or TOPIC | sendRequest | never |
+| messageCount | number | browse | never |
+
+| Key | Type | When it is absent |
+| --- | --- | --- |
+| messageId | string | when the message has none |
+| correlationId | string | when the message has none |
+| applicationMessageId | string | when the message has none |
+| applicationMessageType | string | when the message has none |
+| senderId | string | when the message has none |
+| deliveryMode | string, PERSISTENT, NON\_PERSISTENT or DIRECT | when the message has none |
+| priority | number | never |
+| redelivered | boolean | never |
+| dmqEligible | boolean | never |
+| elidingEligible | boolean | never |
+| expiration | number, epoch milliseconds | when it is 0 |
+| timeToLive | number, milliseconds | when it is 0 |
+| senderTimestamp | number, epoch milliseconds | when the sender set none |
+| receiveTimestamp | number, epoch milliseconds | when it is 0 |
+| sequenceNumber | number | when the message has none |
+| replyToName | string | when the message has no reply to destination |
+| replyToType | string, QUEUE or TOPIC | when the message has no reply to destination |
+| contentType | string, the type the payload was read with | on a browse item whose payload could not be read |
+| payloadEncoding | string, base64 | unless the payload is binary |
+| payloadErrorCode | number | everywhere except on a browse item whose payload could not be read |
+| payloadErrorMessage | string | everywhere except on a browse item whose payload could not be read |
+| userProp\_&lt;key&gt; | string, number or boolean | one key per user property, none when the message has no user properties |
+
+A poll that times out has no message attributes.
+
+### User properties
+
+Each user property is an attribute named userProp\_ followed by its key. In the expressions below polled, reply and browsed are the names set in each operation's responseVariable.
+
+| Operation | Expression |
+| --- | --- |
+| poll | `${vars.polled.attributes.userProp_fileName}` |
+| sendRequest | `${vars.reply.attributes.userProp_fileName}` |
+| poll, a key with a dot | `${vars.polled.attributes['userProp_file.name']}` |
+| browse, the first item | `${vars.browsed.payload[0].userProp_fileName}` |
+
+A key with a dot or another punctuation mark needs the bracket form.
+
+A user property keeps the type the producer gave it: a string, a number or a boolean. A bytes value becomes base64 text. A nested map becomes JSON object text and a nested stream JSON array text.
+
+Every user property carries the prefix, so a user property never replaces an attribute of the connector. A user property named contentType arrives as userProp\_contentType, next to the connector's own contentType.
+
+The inbound endpoint gives the same user properties as message context properties named solace.userProp.&lt;key&gt;, see [Message properties set by the inbound endpoint](#message-properties-set-by-the-inbound-endpoint).
+
+### Text, JSON, XML and binary payloads
+
+The connector reads a message by its class and its content type. The content type is the contentType parameter of the operation, else the type the message declares, else the default of the message class.
+
+| Message class | Default content type |
+| --- | --- |
+| TextMessage | text/plain |
+| BytesMessage | application/octet-stream |
+| XMLContentMessage | application/xml |
+| MapMessage, StreamMessage | application/json, and the contentType parameter does not apply |
+
+The content type decides the payload.
+
+| Read as | payload | payloadEncoding |
+| --- | --- | --- |
+| a JSON type, application/json or a type that ends in +json | the parsed value: an object, an array, a number, true, false or null | absent |
+| an XML type, application/xml, text/xml or a type that ends in +xml | the XML text as a JSON string | absent |
+| any other text type, text/plain for example | the text as a JSON string | absent |
+| any other type | the bytes as base64 text | base64 |
+| a MapMessage | its JSON object | absent |
+| a StreamMessage | its JSON array | absent |
+
+A BytesMessage read as a text type is decoded with the charset of its content type, UTF-8 when it names none. Bytes that are not valid in that charset fault PAYLOAD\_ERROR 700124. The connector never puts in a replacement character. A body read as JSON that does not parse faults PAYLOAD\_ERROR 700124 too.
+
+```
+PAYLOAD_ERROR: poll: the body read as application/json is not valid JSON
+```
+
+A poll with ackMode AUTO has already taken such a message off the queue. With ackMode CLIENT the message stays on the queue.
+
+A TextMessage or an XMLContentMessage read as a type that is not text is binary. Its bytes are the UTF-8 encoding of its text.
+
+A binary payload is base64 text and payloadEncoding is base64. A message whose body is the three bytes 00 01 FF gives the payload `AAH/`, with payloadEncoding base64 and contentType application/octet-stream. Decode it with base64 when you need the bytes. With overwriteBody true the body gets the native binary instead.
+
+### The content type rule
+
+The connector does not guess JSON or XML from the body. Without a declared type or the contentType parameter, a TextMessage is text and a BytesMessage is binary. A TextMessage whose text looks like JSON is still text.
+
+There are two ways to read such a body as JSON or XML.
+
+1. The producer declares the content type on the message.
+2. poll, sendRequest and browse set the contentType parameter. On sendRequest it applies to the reply only.
+
+Here is the same JSON document, sent as a TextMessage without a declared type, polled without and with the parameter.
+
+| contentType parameter | attributes.contentType | payload |
+| --- | --- | --- |
+| absent | text/plain | `"{\"fileName\":\"x.txt\",\"size\":264,\"ok\":true,\"tags\":[\"a\",\"b\"],\"nested\":{\"k\":\"v\"}}"`, a string |
+| application/json | application/json | `{"fileName":"x.txt","size":264,"ok":true,"tags":["a","b"],"nested":{"k":"v"}}`, an object |
+
+```xml
+<solace.poll configKey="SOLACE_CONN">
+    <queueName>Q.orders</queueName>
+    <pollTimeout>3000</pollTimeout>
+    <contentType>application/json</contentType>
+    <responseVariable>polled</responseVariable>
+    <overwriteBody>false</overwriteBody>
+</solace.poll>
+```
+
+The parameter wins over the type the message declares. A value without a charset takes the charset the message declares, else UTF-8. An empty value means no parameter. A value that is not a media type, or that names a charset Java does not know, faults INVALID\_CONFIG 700103 before any broker call. browse applies the parameter to every item, but keeps a JSON text item as summary text.
+
+### With overwriteBody true
+
+poll and sendRequest put the message itself on the body. The builder that the platform registers for the content type builds it, as a transport builds a request. A JSON message becomes a JSON body, an XML message an XML body, a text message a text body and a binary message the native binary body. The variable keeps the attributes, and its payload is null.
+
+1. Text is built as UTF-8. A message declared `text/plain; charset=ISO-8859-1` keeps that type in attributes.contentType, and the body becomes `text/plain; charset=UTF-8` with the same characters.
+2. A binary body keeps the type it was read with. A message declared application/pdf goes back over HTTP as application/pdf with the same bytes.
+3. A respond, an HTTP call, a File connector write or a publish with messageType BYTES after it sends the bytes unchanged.
+4. The new body replaces the old one completely. The processing instructions of an earlier XML document do not stay.
+5. A poll that times out puts its payload, `{"received": false, "timedOut": true, "destination": "Q.orders"}`, on the body.
+
+browse with overwriteBody true writes its array of summaries onto the body as JSON. The variable keeps destination and messageCount.
+
+A body polled with overwriteBody has a known limit, see [Known limits](#known-limits).
+
+### Browse summaries
+
+browse does not take messages off the queue. It returns a summary of each message in queue order. Nothing is acknowledged or removed.
+
+A summary has the attributes of the message, contentType, payloadEncoding for a binary item, and payload.
+
+1. A text, JSON or XML item has its text as payload, a JSON string. A JSON item stays text even when it is declared application/json. poll would parse it.
+2. A binary item has base64 text, with payloadEncoding base64.
+3. A MapMessage item is its JSON object, and a StreamMessage item is its JSON array, as on poll.
+4. An item whose payload cannot be read carries payloadErrorCode and payloadErrorMessage, and no payload and no contentType. It keeps its message id and its other attributes. The browse goes on with the next item.
+
+A connection or browser failure still fails the whole browse.
+
+This is a browse of a queue with a binary message and an ISO-8859-1 text message, as a test run returned it. The base64 text is cut short here.
+
+```json
+{
+  "attributes": {
+    "messageCount": 2,
+    "destination": "Q.orders"
+  },
+  "payload": [
+    {
+      "destination": "Q.orders",
+      "messageId": "10964037",
+      "deliveryMode": "PERSISTENT",
+      "priority": 4,
+      "redelivered": false,
+      "dmqEligible": true,
+      "elidingEligible": false,
+      "contentType": "application/octet-stream",
+      "payloadEncoding": "base64",
+      "payload": "iVBORw0KGgoAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8w..."
+    },
+    {
+      "destination": "Q.orders",
+      "messageId": "10964038",
+      "deliveryMode": "PERSISTENT",
+      "priority": 4,
+      "redelivered": false,
+      "dmqEligible": true,
+      "elidingEligible": false,
+      "contentType": "text/plain; charset=ISO-8859-1",
+      "payload": "café über straße\n"
+    }
+  ]
+}
+```
+
+This is the second item of a browse of three, where the middle message was declared UTF-8 and its bytes were not valid UTF-8. The first and the third item came back as usual.
+
+```json
+{
+  "destination": "Q.orders",
+  "messageId": "10964040",
+  "deliveryMode": "PERSISTENT",
+  "priority": 4,
+  "redelivered": false,
+  "dmqEligible": true,
+  "elidingEligible": false,
+  "payloadErrorCode": 700124,
+  "payloadErrorMessage": "browse: the body is not valid UTF-8 text"
+}
+```
+
+Read the file name of the first item as `${vars.browsed.payload[0].userProp_fileName}` and the number of items as `${vars.browsed.attributes.messageCount}`.
+
+## Known limits
+
+1. A body polled with overwriteBody is parsed in full by the next connector operation that has a responseVariable. So a broken document fails there, even if the sequence never reads it.
+2. A body that does not build faults PAYLOAD\_ERROR 700124. There is one exception. When the parser's message contains the name of a platform parser exception, for example because the document has an element named JsonSyntaxException, the platform reports the code 601000 instead. The payload is still rejected and nothing is sent.
+3. An explicit correlationId on sendReply is used only when the request has no correlation id. When the request has one, the reply carries the request's correlation id.
+
 ## Message properties set by the inbound endpoint
 
-The 1.x properties stay: solace.messageId, solace.destination, solace.deliveryMode, solace.receiveTimestamp, solace.sequenceNumber, solace.expiration, solace.discardIndication, solace.deliveryCount, solace.priority, solace.correlationId, solace.replyTo, solace.senderId, solace.senderTimestamp, solace.applicationMessageId, solace.applicationMessageType, solace.timeToLive, solace.httpContentType, solace.httpContentEncoding, solace.cos, solace.dmqEligible, solace.elidingEligible, and solace.userProp.&lt;key&gt; for each user property. New or changed in 2.0.0: solace.deliveryAttempt, the number of the in place attempt, 1 on the first injection. solace.redelivered, true when the broker's flag is set and from the second in place attempt, now on Direct topics too. solace.inbound.settlement, the settlement handle, never set or removed by a sequence. In transacted mode solace.inbound.tx and solace.inbound.tx.producer, used by the connector operations.
+The 1.x properties stay: solace.messageId, solace.destination, solace.deliveryMode, solace.receiveTimestamp, solace.sequenceNumber, solace.expiration, solace.discardIndication, solace.deliveryCount, solace.priority, solace.correlationId, solace.replyTo, solace.senderId, solace.senderTimestamp, solace.applicationMessageId, solace.applicationMessageType, solace.timeToLive, solace.httpContentType, solace.httpContentEncoding, solace.cos, solace.dmqEligible, solace.elidingEligible, and solace.userProp.&lt;key&gt; for each user property. New or changed in 2.x: solace.deliveryAttempt, the number of the in place attempt, 1 on the first injection. solace.redelivered, true when the broker's flag is set and from the second in place attempt, now on Direct topics too. solace.inbound.settlement, the settlement handle, never set or removed by a sequence. In transacted mode solace.inbound.tx and solace.inbound.tx.producer, used by the connector operations.
+
+solace.userProp.&lt;key&gt; holds each user property as text. A string, a number or a boolean is its text form. A bytes value is base64 text. Any other value keeps the text form it had in 1.x. Read one with `get-property('solace.userProp.fileName')`.
+
+## The body the inbound endpoint builds
+
+The inbound endpoint builds the body with the builder that the platform registers for the content type, the way a transport builds a request. The content type is solace.contentType, else the type the message declares, else the default of the message class: text/plain for a TextMessage, application/octet-stream for a BytesMessage, application/xml for an XMLContentMessage and application/json for a MapMessage or a StreamMessage. The body is never inspected to choose. A TextMessage that looks like JSON is text.
+
+1. Text reaches the sequence as UTF-8. A message declared `text/plain; charset=ISO-8859-1` gives the sequence `text/plain; charset=UTF-8` with the same characters.
+2. A binary message gives the platform's binary body. An HTTP call or a File connector write sends its bytes unchanged.
+3. A form, URL encoded or multipart, is kept as bytes with its declared type. No field is parsed.
+4. A body that does not build never reaches the sequence. The endpoint logs `could not be converted into a message context; rejecting` and settles the message without mediation. With autoAck false it is rejected, so it goes to the dead message queue when it is eligible. With autoAck true it is acknowledged. A transacted endpoint rolls the transaction back.
+5. An empty message, with headers and no body, never reaches the sequence either. The endpoint logs `Received empty Solace message, no mediation context built` and settles it the same way.
+6. solace.binaryPayloadAsBase64 true keeps the legacy form. Every BytesMessage body becomes base64 text with application/octet-stream, and the sequence decodes it.
+
+With the logger org.wso2.carbon.inbound.solace at DEBUG, the endpoint names the builder of every message.
+
+```
+DEBUG {org.wso2.carbon.inbound.solace.SolaceUtils} - Solace message of content type application/json is built by org.wso2.micro.integrator.core.json.JsonStreamBuilder with message type application/json
+```
+
+[Consume JSON, XML, text and binary messages]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-consume-json-xml-text-binary/) shows what a sequence sees for each kind of message.

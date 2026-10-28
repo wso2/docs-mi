@@ -113,7 +113,7 @@ The 2.x artifacts use the same broker, Message VPN, client username and JARs as 
 2. The connection limit of the client username must allow the pool size plus two per connector connection, plus one per inbound endpoint.
 3. OAuth2 needs a TLS listener. The Solace client refuses OAuth2 on a plain tcp connection.
 
-The [Quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/) uses this environment with one queue, Q.orders, and its dead message queue, Q.orders.dmq. [What is new in 2.0.0]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-what-is-new/) lists the changes from 1.x.
+The [Quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/) uses this environment with one queue, Q.orders, and its dead message queue, Q.orders.dmq. [What is new in 2.x]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-what-is-new/) lists the changes from 1.x.
 
 ## What's next
 

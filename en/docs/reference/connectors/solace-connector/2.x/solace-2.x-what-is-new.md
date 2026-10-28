@@ -1,14 +1,14 @@
-# Solace 2.0.0: what is new
+# Solace 2.x: what is new
 
-Solace 2.0.0 is a new version of the Solace inbound endpoint and the Solace connector for WSO2 Integrator: MI. It changes when a consumed message is acknowledged, how many messages one endpoint handles at a time, how an endpoint recovers from a broker failure, and what the management API shows about it. The two artifacts are released together and are upgraded together.
+Solace 2.x is the new version of the Solace inbound endpoint and the Solace connector for WSO2 Integrator: MI. It changes when a consumed message is acknowledged, how many messages one endpoint handles at a time, how an endpoint recovers from a broker failure, how a body and its content type travel, and what the management API shows about it. The two artifacts are released together and are upgraded together.
 
 ## When a message is acknowledged
 
 <img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-what-is-new.png" title="In 1.x the message was acknowledged when the sequence returned. In 2.0.0 it is acknowledged when the sequence decides." width="800" alt="In 1.x the message was acknowledged when the sequence returned. In 2.0.0 it is acknowledged when the sequence decides."/>
 
-## 1.x against 2.0.0
+## 1.x against 2.x
 
-| Topic | 1.x | 2.0.0 |
+| Topic | 1.x | 2.x |
 | --- | --- | --- |
 | Manual acknowledgement | acknowledged when the sequence returned, before the backend answered | the worker waits for the decision of acknowledgeMessage or nackMessage, up to settlementTimeout |
 | Default failure outcome | NONE, the message stayed unacknowledged | FAILED, retried in place with a back off, then REJECTED after maxRedeliveries |
@@ -26,10 +26,11 @@ Solace 2.0.0 is a new version of the Solace inbound endpoint and the Solace conn
 | OAuth2 | a static token | a token file read at every connect and reconnect |
 | Health | the task state | status, lifecycle, connectivity, activity and counters in the management API |
 | Credentials | copied into the message context | kept inside the connection |
+| Content types | JSON or XML guessed from the first character of a message without a declared type | improved content type handling on the platform's builders and formatters, by the declared type, with no guess. SOAP is a later item |
 
 ## Versions and the server level
 
-The inbound endpoint 2.0.0 requires the connector 2.0.0. It refuses to start while a 1.x connector is deployed and logs an error that names the required version. The connector 2.0.0 works with the inbound endpoint 1.x, so the connector can be upgraded first.
+The inbound endpoint 2.x requires a 2.x connector. It refuses to start while a 1.x connector is deployed and logs an error that names the required version. The connector 2.x works with the inbound endpoint 1.x, so the connector can be upgraded first.
 
 Both artifacts run on WSO2 Integrator: MI 4.6.0. The health block in the management API and the server side retry of a failed first start come with the latest U2 update level of WSO2 Integrator: MI 4.6.0. On an older update level the endpoint runs the same, a failed first start is not retried by the server, and the management API shows the task state.
 
@@ -44,4 +45,4 @@ Two paths reach a Solace PubSub+ broker from WSO2 products, and they do differen
 
 ## Where to go next
 
-In fifteen minutes the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/) shows the basic pattern. It consumes one queue, calls an HTTP backend and acknowledges the message after the call. The [use case pages]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-cases/) show one integration shape each with its parameters, its log lines and its health words. The [migration page]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-migration-from-1.x/) lists what changes for a 1.x project.
+In fifteen minutes the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/) shows the basic pattern. It consumes one queue, calls an HTTP backend and acknowledges the message after the call. The [use case pages]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-cases/) show one integration shape each with its parameters, its log lines and its health words. The [migration page]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-migration-from-1.x/) lists what changes for a 1.x project. The [configuration reference]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#results-of-poll-sendrequest-and-browse) shows what poll, sendRequest and browse return.

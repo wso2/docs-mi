@@ -15,5 +15,6 @@ Each use case page shows one integration shape: the picture, the artifacts with 
 | [9 Poll with leases]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-poll-with-leases/) | a message handed to an API call with a lease, settled from the sequence |
 | [10 OAuth2 with a rotating token file]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-oauth2-token-file/) | token rotation without a restart |
 | [11 Observability]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-observability/) | status, health axes, counters, the log line index and the fault codes |
+| [12 File transfer with request reply]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-file-transfer-request-reply/) | a file read by one integration and written by another, the bytes unchanged, the file name in a user property |
 
 Every page ends with the same four parts: the parameters that matter, the log lines, the health words, and the measured result.
