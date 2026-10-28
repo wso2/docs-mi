@@ -20,7 +20,7 @@ Each guide is one task with numbered steps, the exact artifact XML, the command 
 | 14 | [Upgrade a 1.x project to 2.x]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-upgrade-from-1.x/) |
 | 15 | [Run the performance measurement on your own cluster]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-run-performance-measurement/) |
 | 16 | [Consume JSON, XML, text and binary messages and see what the sequence gets]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-consume-json-xml-text-binary/) |
-| 17 | [Publish binary and text bodies unchanged from HTTP and from the File connector]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-binary-and-text/) |
+| 17 | [Publish binary and text bodies from HTTP and from the File connector]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-binary-and-text/) |
 | 18 | [Transform a message read by the inbound endpoint or by poll and publish it]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-transform-and-publish/) |
 
 The guides assume the [environment page]({{base_path}}/reference/connectors/solace-connector/solace-connector-config/) was followed: a broker you can reach, a client username, and the Solace client in the server's lib folder.

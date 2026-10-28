@@ -4,42 +4,32 @@ At the end of this guide a message read by the inbound endpoint, or by poll, is 
 
 The rule is the same everywhere. publishMessage sends the body of the message context, written by the platform's formatter for the body's content type. So the body that the sequence holds at the publish is the body that goes out.
 
+!!! info
+    Applies to the connector and the inbound endpoint 2.0.1 and later.
+
 ## Steps
 
 1. Create the connection SOLACE\_CONN as in [guide 8]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-with-confirmation/). On the broker create Q.orders and Q.orders.out.
-2. To relay a consumed message as it is, give the inbound endpoint a sequence that publishes the body it received, BYTES for a binary body and TEXT for the rest, and then acknowledges.
+2. To relay a consumed message as it is, give the inbound endpoint a sequence that publishes the body it received with BYTES, and then acknowledges. BYTES sends the body as its formatter writes it, so it fits every body: a binary body keeps its bytes, and a text, JSON or XML body from the inbound endpoint goes out as UTF-8 bytes with its content type. TEXT is for consumers that need a TextMessage. With TEXT a binary body, a PNG, a ZIP file or a multipart form for example, faults PAYLOAD\_ERROR 700124 and nothing is sent.
 
     ```xml
     <sequence name="relaySeq" xmlns="http://ws.apache.org/ns/synapse">
-        <property name="ct" expression="get-property('axis2', 'ContentType')"/>
-        <filter xpath="contains(get-property('ct'), 'octet-stream') or contains(get-property('ct'), 'application/binary') or contains(get-property('ct'), 'pdf')">
-            <then>
-                <solace.publishMessage configKey="SOLACE_CONN">
-                    <destinationType>QUEUE</destinationType>
-                    <destinationName>Q.orders.out</destinationName>
-                    <deliveryMode>PERSISTENT</deliveryMode>
-                    <messageType>BYTES</messageType>
-                    <responseVariable>relayed</responseVariable>
-                    <overwriteBody>false</overwriteBody>
-                </solace.publishMessage>
-            </then>
-            <else>
-                <solace.publishMessage configKey="SOLACE_CONN">
-                    <destinationType>QUEUE</destinationType>
-                    <destinationName>Q.orders.out</destinationName>
-                    <deliveryMode>PERSISTENT</deliveryMode>
-                    <messageType>TEXT</messageType>
-                    <responseVariable>relayed</responseVariable>
-                    <overwriteBody>false</overwriteBody>
-                </solace.publishMessage>
-            </else>
-        </filter>
+        <solace.publishMessage configKey="SOLACE_CONN">
+            <destinationType>QUEUE</destinationType>
+            <destinationName>Q.orders.out</destinationName>
+            <deliveryMode>PERSISTENT</deliveryMode>
+            <messageType>BYTES</messageType>
+            <responseVariable>relayed</responseVariable>
+            <overwriteBody>false</overwriteBody>
+        </solace.publishMessage>
         <solace.acknowledgeMessage>
             <responseVariable>acked</responseVariable>
             <overwriteBody>false</overwriteBody>
         </solace.acknowledgeMessage>
     </sequence>
     ```
+
+    A consumer that needs a TextMessage for the text bodies gets them with TEXT. Choose by the body, not by a list of content types. A binary body is the platform's element binary in the namespace http://ws.apache.org/commons/ns/payload, as the log of guide 16 shows. The bench relay published the binary bodies with BYTES and the others with TEXT, and the rows of the Verify table say which one each message used.
 
     The inbound endpoint is the one of [guide 16]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-consume-json-xml-text-binary/) with relaySeq as its sequence.
 
@@ -78,7 +68,7 @@ The rule is the same everywhere. publishMessage sends the body of the message co
     </solace.publishMessage>
     ```
 
-4. To publish a message read by poll, poll it with overwriteBody true. The message becomes the body, and a publish with BYTES sends its bytes with the type it was read with.
+4. To publish a message read by poll, poll it with overwriteBody true. The message becomes the body. For a binary message a publish with BYTES then sends its bytes unchanged, with the type it was read with.
 
     ```xml
     <solace.poll configKey="SOLACE_CONN">
@@ -98,7 +88,7 @@ The rule is the same everywhere. publishMessage sends the body of the message co
     </solace.publishMessage>
     ```
 
-    For a JSON, XML or text message use TEXT instead. Check `${vars.polled.attributes.timedOut}` first when the queue can be empty, as the [poll guide]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-poll-with-leases/) does.
+    A JSON, XML or text message is written again by its formatter. Publish it with BYTES for its UTF-8 bytes, or with TEXT for a consumer that needs a TextMessage. Check `${vars.polled.attributes.timedOut}` first when the queue can be empty, as the [poll guide]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-poll-with-leases/) does.
 
 ## Verify
 
@@ -106,10 +96,10 @@ Read the messages on Q.orders.out with your consumer, or with a browse. These ar
 
 | What was published | The message on Q.orders.out |
 | --- | --- |
-| a binary message relayed by the inbound endpoint, BYTES | a BytesMessage, application/octet-stream, the same bytes |
-| an ISO-8859-1 text message relayed by the inbound endpoint, TEXT | a TextMessage, `text/plain; charset=UTF-8`, the same characters café über straße |
-| an XML message relayed, TEXT | a TextMessage, `application/xml; charset=UTF-8`, `<order><id>42</id><note>ü</note></order>` |
-| a JSON message relayed, TEXT | a TextMessage, `application/json; charset=UTF-8`, the same JSON |
+| a binary message relayed by the inbound endpoint with BYTES | a BytesMessage, application/octet-stream, the same bytes |
+| an ISO-8859-1 text message relayed by the inbound endpoint with TEXT | a TextMessage, `text/plain; charset=UTF-8`, the same characters café über straße |
+| an XML message relayed with TEXT | a TextMessage, `application/xml; charset=UTF-8`, `<order><id>42</id><note>ü</note></order>` |
+| a JSON message relayed with TEXT | a TextMessage, `application/json; charset=UTF-8`, the same JSON |
 | a JSON payloadFactory body, TEXT | a TextMessage, `application/json; charset=UTF-8`, `{"a":1,"b":[1,2],"c":"pf"}` |
 | an XML payloadFactory body, TEXT | a TextMessage, `application/xml; charset=UTF-8`, `<order><id>42</id><note>pf</note></order>` |
 | a text payloadFactory body, TEXT | a TextMessage, `text/plain; charset=UTF-8`, `hello from pf` |

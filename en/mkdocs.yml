@@ -961,7 +961,7 @@ nav:
                   - 14. Upgrade a 1.x Project to 2.x: reference/connectors/solace-connector/2.x/solace-2.x-how-to-upgrade-from-1.x.md
                   - 15. Run the Performance Measurement: reference/connectors/solace-connector/2.x/solace-2.x-how-to-run-performance-measurement.md
                   - 16. Consume JSON, XML, Text and Binary Messages: reference/connectors/solace-connector/2.x/solace-2.x-how-to-consume-json-xml-text-binary.md
-                  - 17. Publish Binary and Text Bodies Unchanged: reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-binary-and-text.md
+                  - 17. Publish Binary and Text Bodies: reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-binary-and-text.md
                   - 18. Transform a Message and Publish It: reference/connectors/solace-connector/2.x/solace-2.x-how-to-transform-and-publish.md
                 - Performance: reference/connectors/solace-connector/2.x/solace-2.x-performance.md
                 - Configuration Reference: reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference.md

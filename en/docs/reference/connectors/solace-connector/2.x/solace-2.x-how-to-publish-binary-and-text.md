@@ -1,16 +1,19 @@
-# Publish binary and text bodies unchanged
+# Publish binary and text bodies
 
-At the end of this guide an API publishes the body of an HTTP request and the content of a file to a queue, and the message on the broker carries the same bytes or the same characters, with the content type of the body.
+At the end of this guide an API publishes the body of an HTTP request and the content of a file to a queue, with the content type of the body. A binary body arrives with the same bytes. A text body arrives with the same characters, and JSON or XML with the same structure, because the formatter writes the document again.
 
 The connector writes the body the way the HTTP transport writes it. The platform's formatter for the body's content type writes the bytes and names the content type, and messageType chooses the Solace message class.
 
 | messageType | The Solace message | Use it for |
 | --- | --- | --- |
-| BYTES | a BytesMessage with the bytes, unchanged | files, images, PDF documents, any binary body, and text that must keep its bytes |
+| BYTES | a BytesMessage with the bytes the formatter wrote | files, images, PDF documents and any other binary body, and text that a consumer reads as bytes |
 | TEXT, the default | a TextMessage with the characters | JSON, XML and text that a consumer reads as text |
 | XML | an XMLContentMessage with the characters | consumers that expect that message class |
 
 A binary body with TEXT or XML is refused before the send. JSON has no message class of its own, send it as TEXT or BYTES.
+
+!!! info
+    Applies to the connector and the inbound endpoint 2.0.1 and later.
 
 ## Steps
 
@@ -113,13 +116,13 @@ The bench also published a file of 102400 bytes, an empty file and a file with a
 ## Charsets
 
 1. TEXT carries characters. The content type of the message names the charset of the request, so an ISO-8859-1 request goes out as `text/plain; charset=ISO-8859-1` with the same characters.
-2. BYTES carries the bytes the formatter wrote. A request sent as `text/plain; charset=ISO-8859-1` and published with BYTES keeps its ISO-8859-1 bytes. The bench compared them with the file by hash.
+2. BYTES carries the bytes the formatter wrote. A request sent as `text/plain; charset=ISO-8859-1` and published with BYTES keeps its ISO-8859-1 bytes. The bench compared them with the file by hash. For JSON and XML the formatter writes the document again from its parsed form, so the characters and the structure stay but the bytes can differ from the request.
 3. A character that the charset of the message context cannot encode faults PAYLOAD\_ERROR 700124 and nothing is sent. On the bench a JSON body with é published with the charset US-ASCII faulted this way. With ISO-8859-1 the same body went out as `application/json; charset=ISO-8859-1`.
 4. Binary bytes are never converted.
 
 ## The body after the publish
 
-The body stays on the message context. A second publish, an HTTP call or a File connector write after the publish sends the same bytes. The bench published an XML body and a binary body twice, then sent each to an HTTP endpoint and to a file, and every copy had the same length as the original.
+The body stays on the message context. A second publish, an HTTP call or a File connector write after the publish sends the same body again. A binary body goes out with the same bytes. A text, JSON or XML body is written again by its formatter, so its characters and its structure stay. The bench published an XML body and a binary body twice, then sent each to an HTTP endpoint and to a file, and every copy had the same length as the original.
 
 ## Undo
 

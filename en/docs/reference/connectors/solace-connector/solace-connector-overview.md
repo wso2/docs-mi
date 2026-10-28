@@ -22,7 +22,7 @@ Go to the WSO2 Connector Store to download the <a target="_blank" href="https://
 
 | Version | Connector | Inbound endpoint | Supported product versions |
 | ------- | --------- | ---------------- | -------------------------- |
-| 2.x     | 2.0.0 (Latest) | 2.0.0 (Latest) | WSO2 Integrator: MI 4.6.0 and above |
+| 2.x     | 2.0.1 (Latest) | 2.0.1 (Latest) | WSO2 Integrator: MI 4.6.0 and above |
 | 1.x     | 1.0.1     | 1.0.2            | WSO2 Integrator: MI 4.6.0 and above |
 
 The inbound endpoint 2.x requires a 2.x connector. The connector 2.x works with the inbound endpoint 1.x, so the connector can be upgraded first. The health block in the management API comes with the latest U2 update level of WSO2 Integrator: MI 4.6.0.

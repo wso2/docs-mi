@@ -4,6 +4,9 @@ At the end of this guide an inbound endpoint consumes a JSON, an XML, a text and
 
 The rule behind it is short. The endpoint builds the body with the platform's builder for the content type. The content type is solace.contentType, else the type the message declares, else the default of the message class. The body is never inspected to choose, so a text message that looks like JSON stays text.
 
+!!! info
+    Applies to the connector and the inbound endpoint 2.0.1 and later.
+
 ## Steps
 
 1. On the broker create the queue Q.orders, as in the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/).
@@ -153,9 +156,14 @@ On the test bench the same undeclared JSON TextMessage then gave ct `application
 
 ## When a body does not build
 
-A message declared application/json whose text is not JSON never reaches the sequence. The endpoint logs that it could not convert the message and settles it without mediation. With autoAck false it is rejected, so it goes to the dead message queue when it is eligible. An empty message is settled the same way, with the line `Received empty Solace message, no mediation context built`.
+The platform builds JSON and XML lazily, so where a broken document fails depends on where it breaks.
 
-??? note "A message declared application/json that is not JSON, as logged"
+1. JSON that the builder rejects at its start, and an XML document whose root is malformed, fail at the build. Such a message never reaches the sequence. The endpoint logs that it could not convert the message and settles it without mediation. With autoAck false it is rejected, so it goes to the dead message queue when it is eligible.
+2. A JSON or XML document damaged after its start reaches the sequence. It fails where mediation first reads the body. The settlement then follows the usual rules: with autoAck false the fault sequence decides, and a sequence that acknowledges without reading the body acknowledges a document it did not validate. A sequence that needs a valid payload parses and validates it explicitly.
+
+An empty message is settled like the first case, with the line `Received empty Solace message, no mediation context built`. The [migration page]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-migration-from-1.x/#malformed-json-and-xml) explains the same rules.
+
+??? note "A message declared application/json whose text is not JSON from its start, as logged"
 
     ```
     [2026-10-28 16:30:32,149] DEBUG {org.wso2.carbon.inbound.solace.SolaceUtils} - Solace message of content type application/json is built by org.wso2.micro.integrator.core.json.JsonStreamBuilder with message type application/json
@@ -163,7 +171,7 @@ A message declared application/json whose text is not JSON never reaches the seq
     [2026-10-28 16:30:32,151] ERROR {org.wso2.carbon.inbound.solace.DeliveryProcessor} - SolaceListener [OrderViewer] message 6 could not be converted into a message context; rejecting org.apache.axis2.AxisFault
     ```
 
-The management API counts such a message under decided.INJECTION\_REJECTED and applied.REJECTED. The full rules are in [The body the inbound endpoint builds]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#the-body-the-inbound-endpoint-builds).
+The text of that message was `not json`. The management API counts such a message under decided.INJECTION\_REJECTED and applied.REJECTED. The full rules are in [The body the inbound endpoint builds]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#the-body-the-inbound-endpoint-builds).
 
 ## Undo
 

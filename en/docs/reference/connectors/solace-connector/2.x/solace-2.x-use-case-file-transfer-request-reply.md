@@ -1,6 +1,9 @@
 # File transfer with request reply
 
-An HTTP client asks one integration for a file. That integration sends a request through a Solace queue to a second integration, which reads the file and sends it back as the reply. The first integration writes the file to its own disk and returns it to the client. The file bytes travel unchanged, and the file name travels as a user property.
+An HTTP client asks one integration for a file. That integration sends a request through a Solace queue to a second integration, which reads the file and sends it back as the reply. The first integration writes the file to its own disk and returns it to the client. The file travels as opaque binary, so its bytes arrive unchanged, and the file name travels as a user property.
+
+!!! info
+    Applies to the connector and the inbound endpoint 2.0.1 and later.
 
 ## The shape
 
