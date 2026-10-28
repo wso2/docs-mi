@@ -57,7 +57,8 @@ mvn dependency:copy -Dartifact=org.apache.servicemix.bundles:org.apache.servicem
 If you prefer to run the broker locally, start the PubSub+ Standard Edition container:
 
 ```bash
-docker run -d -p 8080:8080 -p 55555:55555 -p 55443:55443 -p 9000:9000 \
+docker run -d -p 8080:8080 -p 55555:55555 -p 55443:55443 \
+  -p 9000:9000 \
   --shm-size=1g \
   --env username_admin_globalaccesslevel=admin \
   --env username_admin_password=admin \
