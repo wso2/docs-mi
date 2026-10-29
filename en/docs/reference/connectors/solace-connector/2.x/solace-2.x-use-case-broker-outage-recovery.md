@@ -12,7 +12,7 @@ An endpoint survives a broker outage without any operator action. The client rec
 
 A pause or an undeploy during any of this drains the work in flight within drainTimeout and leaves parked messages to the broker. A Direct topic subscription is reapplied after a reconnect.
 
-An endpoint deployed while the broker is down fails its first start. WSO2 Integrator: MI 4.7.0 retries that first start with a back off until it succeeds. On WSO2 Integrator: MI 4.6.0, apply the latest U2 update level for this server retry. On an older 4.6.0 update level the endpoint stays failed until a redeploy, as in 1.x.
+An endpoint deployed while the broker is down fails its first start. On the latest U2 update level of WSO2 Integrator: MI 4.6.0 and 4.7.0 the server retries that first start with a back off until it succeeds. On an older update level the endpoint stays failed until a redeploy, as in 1.x.
 
 The connector keeps its own work bounded during an outage too. A pooled session that cannot connect is tried again by the next call, with at most one attempt per session at a time. The connection holds at most twice maxActiveConnections pooled physical sessions, counting those still connecting or being closed, also when the pool replaces its session holders. A call beyond that waits within its own deadline and then faults EXPIRED with nothing sent, so a long outage never piles up connect attempts or closes. When the broker is back the next call connects.
 

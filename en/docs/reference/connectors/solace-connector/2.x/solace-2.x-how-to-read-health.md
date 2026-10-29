@@ -81,7 +81,7 @@ During normal consumption the counters move together: received, decided.ACK, app
 | disconnected | connectivity | before the first bind of a generation, or after a refusal at start |
 | unknown | activity | no active flow indication yet, or none on this broker |
 
-WSO2 Integrator: MI 4.7.0 includes the health block. On WSO2 Integrator: MI 4.6.0, apply the latest U2 update level. Older 4.6.0 update levels show the task state only.
+Below the latest U2 update level of WSO2 Integrator: MI 4.6.0 or 4.7.0 the endpoint shows the task state only.
 
 ## Undo
 

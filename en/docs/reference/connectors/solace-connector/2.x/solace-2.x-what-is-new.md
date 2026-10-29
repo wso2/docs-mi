@@ -32,7 +32,7 @@ Solace 2.x is the new version of the Solace inbound endpoint and the Solace conn
 
 The inbound endpoint 2.x requires a 2.x connector. It refuses to start while a 1.x connector is deployed and logs an error that names the required version. The connector 2.x works with the inbound endpoint 1.x, so the connector can be upgraded first.
 
-Both artifacts run on WSO2 Integrator: MI 4.6.0 and above. WSO2 Integrator: MI 4.7.0 includes the health block in the management API and the server side retry of a failed first start. On WSO2 Integrator: MI 4.6.0, apply the latest U2 update level for these features. On an older 4.6.0 update level a failed first start is not retried by the server, and the management API shows the task state.
+Both artifacts run on WSO2 Integrator: MI 4.6.0 and above. The health block in the management API and the server side retry of a failed first start come with the latest U2 update level of WSO2 Integrator: MI 4.6.0 and 4.7.0. On an older update level a failed first start is not retried by the server, and the management API shows the task state.
 
 The Solace client library is not bundled. Install sol-jcsmp 10.30.1 and jzlib 1.1.3\_2 in the lib folder of the server once, as for 1.x.
 

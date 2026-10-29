@@ -6,7 +6,7 @@ The health block of an endpoint answers three questions: is it consuming, if not
 
 ## The status word
 
-GET https://host:9164/management/inbound-endpoints?inboundEndpointName=OrderListener, with the login token of the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/), returns the endpoint with its status and a health block. ICP shows the same under Inbound Endpoints. WSO2 Integrator: MI 4.7.0 includes this health reporting. On WSO2 Integrator: MI 4.6.0, apply the latest U2 update level. Older 4.6.0 update levels show the task state only.
+GET https://host:9164/management/inbound-endpoints?inboundEndpointName=OrderListener, with the login token of the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/), returns the endpoint with its status and a health block. ICP shows the same under Inbound Endpoints. Below the latest U2 update level of WSO2 Integrator: MI 4.6.0 or 4.7.0 the status is the task state.
 
 This is the answer after the quick start, as the test bench returned it. The configuration and the parameters are cut, and the health keys are grouped for reading. The server returns them in no fixed order.
 

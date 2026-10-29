@@ -183,7 +183,7 @@ curl -sk -H "Authorization: Bearer $TOKEN" \
   'https://localhost:9164/management/inbound-endpoints?inboundEndpointName=OrderListener'
 ```
 
-The answer is the endpoint with its configuration, its parameters and a health block. This sample was captured on WSO2 Integrator: MI 4.6.0 with the health update, right after the deploy, with the configuration string and the parameter list cut short here. WSO2 Integrator: MI 4.7.0 includes this health reporting. Older 4.6.0 update levels show the task state only.
+The answer is the endpoint with its configuration, its parameters and a health block. This sample was captured on WSO2 Integrator: MI 4.6.0 at the latest U2 update level, right after the deploy, with the configuration string and the parameter list cut short here. Below the latest U2 update level the status is the task state.
 
 ??? note "The full answer of the management API"
 
