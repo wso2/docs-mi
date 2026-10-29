@@ -4,7 +4,7 @@ At the end of this guide the time a sequence has to settle a message is set once
 
 ## Steps
 
-1. Work out the value. The settlement timeout must exceed the longest timeout in the sequence plus the 15 second sweep of the timeout handler, so that the fault sequence decides before the inbound endpoint does. With an HTTP endpoint timeout of 120 seconds the value is at least 135 seconds. On a default server the passthrough socket timeout is 180 seconds, so a sequence whose backend can hang sets the HTTP endpoint's timeout below 165 seconds, or raises this value above 180.
+1. Work out the value. The settlement timeout must exceed the longest timeout in the sequence plus the 15 second sweep of the timeout handler, so that the fault sequence decides before the inbound endpoint does. With an HTTP endpoint timeout of 120 seconds the value is above 135 seconds, for example the 150 seconds below. On a default server the passthrough socket timeout is 180 seconds, so a sequence whose backend can hang sets the HTTP endpoint's timeout below 165 seconds, or raises this value above 180.
 2. Set the server wide value in deployment.toml and restart.
 
     ```toml

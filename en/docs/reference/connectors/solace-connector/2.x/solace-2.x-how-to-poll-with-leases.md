@@ -81,4 +81,4 @@ The first call returns the first message inside {"received": true, "timedOut": f
 
 ## Undo
 
-Set ackMode back to AUTO, or remove the target POLL acknowledgement and the lease parameter. Remove the API.
+Remove the API, and remove pollAckTimeout from the connection so that a lease is 180 seconds again, the default. An API that keeps poll without leases sets ackMode back to AUTO and drops the acknowledgement and the nack, because ackMode CLIENT leases every message even without pollAckTimeout.

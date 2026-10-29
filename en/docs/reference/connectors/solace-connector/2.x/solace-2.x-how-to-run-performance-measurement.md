@@ -8,7 +8,7 @@ At the end of this guide you have measured the throughput of one endpoint on you
 2. Deploy the endpoint of [use case 1]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-case-reliable-consume/) against the test queue with the workers and the window you want to measure, and the HTTP transport sized for them.
 3. Run the maximum measurement first: pre spool 120 seconds worth of messages on the queue and feed at 1.5 times the completed rate you saw, so the queue never empties. Record the completed rate. The latency does not apply here.
 4. Run the steady measurement: feed at 80 percent of the maximum you measured, 60 seconds of warmup, then 300 seconds of measurement. Record the completed messages per second at the backend, the latency from the send time in the payload to the backend's receive time at p50, p95 and p99, the server's CPU, the thread count, and the health counters pending, inFlight and pendingMax sampled every second.
-5. Repeat each run three times. Two runs whose completed rate differs by more than 10 percent get a fourth, and the median is the figure.
+5. Repeat each steady run three times and each maximum run at least twice, as for the performance page. When two runs differ by more than 10 percent in completed rate, add one more run, and the median is the figure.
 6. After the load stops, record how long the pending work, the retained heap after a forced collection, and the thread count take to return to the idle values.
 
 ## Verify

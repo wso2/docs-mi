@@ -1,6 +1,6 @@
 # Broker outage and recovery
 
-An endpoint survives a broker outage without any operator action. The client reconnects on its own without giving up, what the client gives up on the endpoint recovers with a new generation, and an endpoint deployed while the broker is down comes up when the broker returns.
+An endpoint survives a broker outage without any operator action. The client reconnects on its own without giving up, what the client gives up on the endpoint recovers with a new generation, and on the latest U2 update level an endpoint deployed while the broker is down comes up when the broker returns.
 
 <img src="{{base_path}}/assets/img/integrate/connectors/solace/2.x/solace-2x-recovery.png" title="Generation 1 runs, the broker is lost, the client reconnects, the endpoint recovers, generation 2 runs" width="800" alt="Generation 1 runs, the broker is lost, the client reconnects, the endpoint recovers, generation 2 runs"/>
 

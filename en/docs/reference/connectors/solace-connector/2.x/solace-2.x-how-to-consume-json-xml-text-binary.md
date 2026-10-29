@@ -73,9 +73,10 @@ The rule behind it is short. The endpoint builds the body with the platform's bu
     logger.SolaceInbound.level = DEBUG
     ```
 
-5. Deploy the CAR. Publish four messages through the broker's REST messaging port, each with its content type.
+5. Deploy the CAR. Publish four messages through the broker's REST messaging port, each with its content type. The binary one is any file, here 264 random bytes in sample.bin.
 
     ```bash
+    head -c 264 /dev/urandom > sample.bin
     curl -u integration:integration -H 'Solace-Delivery-Mode: Persistent' -H 'Content-Type: application/json' \
       -X POST http://localhost:9000/QUEUE/Q.orders \
       -d '{"fileName":"x.txt","size":264,"ok":true,"tags":["a","b"],"nested":{"k":"v"}}'

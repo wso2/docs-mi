@@ -5,7 +5,7 @@ At the end of this guide an HTTP call into one integration is answered by a seco
 ## Steps
 
 1. On the broker create Q.requests. The requester's client profile must allow as many egress flows as requests in flight, and the broker must have that many free non durable endpoints.
-2. In the requester project create the connection as in [guide 8]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-with-confirmation/) and the API.
+2. In the requester project create the connection as in [guide 8]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-with-confirmation/), the API and its fault sequence.
 
     ```xml
     <api name="GetSeats" context="/seats" xmlns="http://ws.apache.org/ns/synapse">
@@ -25,6 +25,12 @@ At the end of this guide an HTTP call into one integration is answered by a seco
             </inSequence>
         </resource>
     </api>
+
+    <sequence name="seatsFaultSeq" xmlns="http://ws.apache.org/ns/synapse">
+        <payloadFactory media-type="json"><format>{"error": "${properties.synapse.ERROR_CODE}", "message": "${properties.synapse.ERROR_MESSAGE}"}</format></payloadFactory>
+        <property name="HTTP_SC" value="502" scope="axis2"/>
+        <respond/>
+    </sequence>
     ```
 
     overwriteBody true puts the reply on the body, so respond returns the reply to the HTTP client. Without it the reply stays in vars.reply and the client gets its own request back. vars.reply keeps the reply's attributes either way, see [Results of poll, sendRequest and browse]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#results-of-poll-sendrequest-and-browse).
@@ -56,7 +62,7 @@ At the end of this guide an HTTP call into one integration is answered by a seco
 
 ## Verify
 
-The reply comes back within the responder's time. During the call the broker shows a temporary queue owned by the requester's rr session, and none after the reply. From the first call the broker's client list shows the requester's request reply session, `orders-node1-SOLACE_CONN-rr`. The log does not name that session at INFO. Stop the responder and call again: the call faults after 5 seconds with REQUEST\_REPLY\_ERROR 700104, the request timeout, and the temporary queue is gone. Start the responder: the request that was left on Q.requests is consumed, its reply goes to a queue that no longer exists, sendReply faults with Queue Not Found, and the responder's fault sequence decides what to do with the request.
+The reply comes back within the responder's time. During the call the broker shows a temporary queue owned by the requester's rr session, and none after the reply. From the first call the broker's client list shows the requester's request reply session, `orders-node1-SOLACE_CONN-rr`. The log does not name that session at INFO. Stop the responder and call again: the call faults after 5 seconds with REQUEST\_REPLY\_ERROR 700104, the request timeout, and seatsFaultSeq answers 502 with the error 700104. The temporary queue is gone. Start the responder: the request that was left on Q.requests is consumed, its reply goes to a queue that no longer exists, sendReply faults with Queue Not Found, and the responder's fault sequence decides what to do with the request.
 
 ## Undo
 
