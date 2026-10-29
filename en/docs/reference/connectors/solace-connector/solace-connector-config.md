@@ -58,6 +58,7 @@ If you prefer to run the broker locally, start the PubSub+ Standard Edition cont
 
 ```bash
 docker run -d -p 8080:8080 -p 55555:55555 -p 55443:55443 \
+  -p 9000:9000 \
   --shm-size=1g \
   --env username_admin_globalaccesslevel=admin \
   --env username_admin_password=admin \
@@ -72,6 +73,8 @@ This starts a broker with:
 | **Message VPN**      | `default` |
 | **Username**         | `default` |
 | **Password**         | `default` |
+
+Port 9000 is the REST messaging port of the default Message VPN. The 2.x quick start and guides publish their test messages to it with curl. They connect as the client username integration. Create it in PubSub+ Manager under Access Control, or change the examples to a client username you have.
 
 The browser-based **PubSub+ Manager** administration console is available at `http://localhost:8080` (log in with `admin` / `admin`). Use it to create queues, inspect messages, and configure cache instances.
 
@@ -99,6 +102,21 @@ Keep the **Host URL**, **Message VPN**, **Username**, and **Password** noted abo
 
 !!! note "Other authentication schemes"
     The connector also supports **CLIENT_CERTIFICATE** (mutual TLS, where the broker derives the username from the client certificate's Common Name) and **OAUTH2** (an access token and/or OIDC ID token). These require additional broker-side configuration and are out of scope for this guide. See the [Connector Reference]({{base_path}}/reference/connectors/solace-connector/1.x/solace-connector-1.x-reference/) for the full list of authentication parameters.
+
+## Solace 2.x
+
+| Version | Connector | Inbound endpoint | Supported product versions |
+| ------- | --------- | ---------------- | -------------------------- |
+| 2.x     | 2.0.1     | 2.0.1            | WSO2 Integrator: MI 4.6.0 and above |
+| 1.x     | 1.0.1     | 1.0.2            | WSO2 Integrator: MI 4.6.0 and above |
+
+The 2.x artifacts use the same broker, Message VPN, client username and JARs as 1.x. Three broker settings matter more with 2.x.
+
+1. A queue consumed with manual acknowledgement needs a dead message queue and a maximum redelivery count. REJECTED moves a message to the dead message queue, and without one the broker discards it.
+2. The connection limit of the client username must allow the pool size plus two per connector connection, plus one per inbound endpoint.
+3. OAuth2 needs a TLS listener. The Solace client refuses OAuth2 on a plain tcp connection.
+
+The [Quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/) uses this environment with one queue, Q.orders, and its dead message queue, Q.orders.dmq. [What is new in 2.x]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-what-is-new/) lists the changes from 1.x.
 
 ## What's next
 
