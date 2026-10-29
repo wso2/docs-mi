@@ -927,7 +927,7 @@ nav:
               - Solace Connector Overview: reference/connectors/solace-connector/solace-connector-overview.md
               - Set up the Solace Environment: reference/connectors/solace-connector/solace-connector-config.md
               - 2.x:
-                - What is New in 2.0.0: reference/connectors/solace-connector/2.x/solace-2.x-what-is-new.md
+                - What is New in 2.x: reference/connectors/solace-connector/2.x/solace-2.x-what-is-new.md
                 - Quick Start: reference/connectors/solace-connector/2.x/solace-2.x-quick-start.md
                 - Use Cases:
                   - Use Cases Overview: reference/connectors/solace-connector/2.x/solace-2.x-use-cases.md
@@ -942,6 +942,7 @@ nav:
                   - 9. Poll with Leases: reference/connectors/solace-connector/2.x/solace-2.x-use-case-poll-with-leases.md
                   - 10. OAuth2 with a Rotating Token File: reference/connectors/solace-connector/2.x/solace-2.x-use-case-oauth2-token-file.md
                   - 11. Observability: reference/connectors/solace-connector/2.x/solace-2.x-use-case-observability.md
+                  - 12. File Transfer with Request Reply: reference/connectors/solace-connector/2.x/solace-2.x-use-case-file-transfer-request-reply.md
                 - How to Guides:
                   - How to Guides Overview: reference/connectors/solace-connector/2.x/solace-2.x-how-to-guides.md
                   - 1. Install Both Artifacts and Deploy a CAR: reference/connectors/solace-connector/2.x/solace-2.x-how-to-install-and-deploy.md
@@ -957,8 +958,11 @@ nav:
                   - 11. Rotate an OAuth2 Token File: reference/connectors/solace-connector/2.x/solace-2.x-how-to-rotate-oauth2-token.md
                   - 12. Read Health and Counters: reference/connectors/solace-connector/2.x/solace-2.x-how-to-read-health.md
                   - 13. Tune the Settlement Timeout: reference/connectors/solace-connector/2.x/solace-2.x-how-to-tune-settlement-timeout.md
-                  - 14. Upgrade a 1.x Project to 2.0.0: reference/connectors/solace-connector/2.x/solace-2.x-how-to-upgrade-from-1.x.md
+                  - 14. Upgrade a 1.x Project to 2.x: reference/connectors/solace-connector/2.x/solace-2.x-how-to-upgrade-from-1.x.md
                   - 15. Run the Performance Measurement: reference/connectors/solace-connector/2.x/solace-2.x-how-to-run-performance-measurement.md
+                  - 16. Consume JSON, XML, Text and Binary Messages: reference/connectors/solace-connector/2.x/solace-2.x-how-to-consume-json-xml-text-binary.md
+                  - 17. Publish Binary and Text Bodies: reference/connectors/solace-connector/2.x/solace-2.x-how-to-publish-binary-and-text.md
+                  - 18. Transform a Message and Publish It: reference/connectors/solace-connector/2.x/solace-2.x-how-to-transform-and-publish.md
                 - Performance: reference/connectors/solace-connector/2.x/solace-2.x-performance.md
                 - Configuration Reference: reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference.md
                 - Operations Guide: reference/connectors/solace-connector/2.x/solace-2.x-operations-guide.md

@@ -22,26 +22,26 @@ Go to the WSO2 Connector Store to download the <a target="_blank" href="https://
 
 | Version | Connector | Inbound endpoint | Supported product versions |
 | ------- | --------- | ---------------- | -------------------------- |
-| 2.x     | 2.0.0 (Latest) | 2.0.0 (Latest) | WSO2 Integrator: MI 4.6.0 and above |
+| 2.x     | 2.0.1 (Latest) | 2.0.1 (Latest) | WSO2 Integrator: MI 4.6.0 and above |
 | 1.x     | 1.0.1     | 1.0.2            | WSO2 Integrator: MI 4.6.0 and above |
 
-The inbound endpoint 2.0.0 requires the connector 2.0.0. The connector 2.0.0 works with the inbound endpoint 1.x, so the connector can be upgraded first. The health block in the management API comes with the latest U2 update level of WSO2 Integrator: MI 4.6.0.
+The inbound endpoint 2.x requires a 2.x connector. The connector 2.x works with the inbound endpoint 1.x, so the connector can be upgraded first. The health block in the management API comes with the latest U2 update level of WSO2 Integrator: MI 4.6.0.
 
 ## Solace 2.x documentation
 
-Solace 2.0.0 changes when a consumed message is acknowledged, how many messages one endpoint handles at a time, how an endpoint recovers from a broker failure, and what the management API shows about it. The connector and the inbound endpoint are released together and are upgraded together, so one page set covers both.
+Solace 2.x changes when a consumed message is acknowledged, how many messages one endpoint handles at a time, how an endpoint recovers from a broker failure, how a body and its content type travel, and what the management API shows about it. The connector and the inbound endpoint are released together and are upgraded together, so one page set covers both.
 
 | Page | What it covers |
 | ---- | -------------- |
 | [Set up the Solace Environment]({{base_path}}/reference/connectors/solace-connector/solace-connector-config/) | the broker, the Message VPN, the client username and the Solace client library, for both versions |
-| [What is new in 2.0.0]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-what-is-new/) | the changes from 1.x, the version lock and the server level |
+| [What is new in 2.x]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-what-is-new/) | the changes from 1.x, the version lock and the server level |
 | [Quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/) | consume a queue, call an HTTP backend and acknowledge after the answer, in fifteen minutes |
 | [Use cases]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-use-cases/) | one integration shape per page, with its parameters, its log lines and its health words |
 | [How to guides]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-how-to-guides/) | one task per guide, with the steps, how to verify and how to undo |
 | [Performance]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-performance/) | throughput, latency and CPU measured on one node |
-| [Configuration reference]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/) | every parameter of the inbound endpoint and the connector, with its default |
+| [Configuration reference]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/) | every parameter of the inbound endpoint and the connector, with its default, and the results of poll, sendRequest and browse |
 | [Operations guide]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-operations-guide/) | sizing, the broker settings, the failure modes and the log lines to grep |
-| [Migration from 1.x]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-migration-from-1.x/) | the order of the upgrade, the breaking changes and the limits of 2.0.0 |
+| [Migration from 1.x]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-migration-from-1.x/) | the order of the upgrade, the breaking changes and the limits of 2.x |
 | [Troubleshooting]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-troubleshooting/) | the symptom, the log line, the cause and the action |
 
 ## Solace Connector 1.x documentation

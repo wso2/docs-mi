@@ -10,7 +10,7 @@ At the end of this guide an API call takes one message from a queue, works on it
     <pollAckTimeout>10000</pollAckTimeout>
     ```
 
-2. Create the API. It calls the backend through the HTTP connection OrderBackend of the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/). poll keeps the message in vars.polled and does not put it on the body, so the API passes vars.polled.payload to the backend and builds its own answer.
+2. Create the API. It calls the backend through the HTTP connection OrderBackend of the [quick start]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-quick-start/). poll keeps the message in vars.polled and does not put it on the body, so the API passes vars.polled.payload to the backend and builds its own answer. vars.polled.payload is the parsed JSON when the message declares application/json, see [Results of poll, sendRequest and browse]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#results-of-poll-sendrequest-and-browse).
 
     ```xml
     <api name="NextOrder" context="/next" xmlns="http://ws.apache.org/ns/synapse">

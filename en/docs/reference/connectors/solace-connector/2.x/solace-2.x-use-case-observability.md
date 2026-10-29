@@ -72,7 +72,7 @@ This is the answer after the quick start, as the test bench returned it. The con
 }
 ```
 
-How to read it. The endpoint is consuming: status active, lifecycle running, everything connected, generation 1. Four messages came in. Three were acknowledged and reached the broker as acknowledged, settled.ack 3. One failed on every attempt and was rejected to the dead message queue, settled.rejected 1. One more failed three times before the backend came back and then went through. Together that is 7 failed attempts and 6 retries. Nothing is waiting, inFlight 0 and pending 0, and every key in the last three groups is 0, as it should be.
+How to read it. The endpoint is consuming: status active, lifecycle running, everything connected, generation 1. Four messages came in. Three were acknowledged, settled.ack 3. One failed on every attempt and was rejected to the dead message queue, settled.rejected 1. One more failed three times before the backend came back and then went through. Together that is 7 failed attempts and 6 retries. Nothing is waiting, inFlight 0 and pending 0, and every key in the last three groups is 0, as it should be.
 
 | Status | What it means | What to do |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ Each reading is a health block from the test bench, cut to the keys that matter.
 
 `received 1000, decided.ACK 1000, settled.ack 1000, inFlight 0, pending 0`
 
-Every message reached the sequence, the sequence acknowledged it, and the acknowledgement reached the broker. Nothing is waiting. This is the normal reading.
+Every message reached the sequence, the sequence acknowledged it, and the client library took the acknowledgement while the session was connected. Nothing is waiting. This is the normal reading.
 
 ### The backend failed and one message went to the dead message queue
 
@@ -119,7 +119,7 @@ The loss was final for the client, so the endpoint closed its connection and bui
 
 ### A message waits and then comes back
 
-`decided.TIMEOUT 1, inFlight 1` for the whole settlementTimeout
+`inFlight 1` for the whole settlementTimeout, then `decided.TIMEOUT 1`
 
 The sequence ended without acknowledgeMessage or nackMessage, so the message waited for the settlement timeout and was then retried. Look for the deploy time WARN that names the sequence, and add the missing settlement on that path.
 
@@ -145,7 +145,7 @@ The sequence ended without acknowledgeMessage or nackMessage, so the message wai
 | --- | --- | --- |
 | words | status, lifecycle, connectivity, activity, and the same per session and per flow | the state of the endpoint, of its connection, and the broker's active flow indication |
 | generation | generation | the last connection attempt that reached running. It goes up by one per attempt |
-| messages | received, decided.\*, applied.\*, settled.\*, retried, redelivered | what came in, what was decided per attempt, what was done per message, and what reached the broker |
+| messages | received, decided.\*, applied.\*, settled.\*, retried, redelivered | what came in, what was decided per attempt, what was done per message, and which settlements the client library took |
 | load | inFlight, pending, pendingMax, freePermits | messages on a worker, messages waiting for one, the highest wait, the free workers |
 | left to the broker or lost | retainedUnsettled, settleFailed, dropped, leftByDrain, abandoned, rejectedSubmit | messages the broker delivers again, except dropped on a Direct topic |
 | defects and limits | handlerFailed, closeRejected, degradedOutcomes | 0 in normal running. degradedOutcomes counts the outcomes the broker does not support |
@@ -172,7 +172,7 @@ The sequence ended without acknowledgeMessage or nackMessage, so the message wai
 | CONNECTION\_ERROR | 700101 | refused, no session could be had |
 | PUBLISH\_ERROR | 700102 | safe, before the send |
 | INVALID\_CONFIG | 700103 | refused |
-| REQUEST\_REPLY\_ERROR, POLL\_ERROR | 700104, 700105 | the operation's own failure |
+| REQUEST\_REPLY\_ERROR, POLL\_ERROR | 700104, 700108 | the operation's own failure |
 | TRANSACTION\_ACTIVE | 700111 | a pooled session with an open transaction cannot be rebuilt |
 | TRANSACTION\_COMPLETED | 700112 | a command reached a transaction that had ended |
 | INBOUND\_TRANSACTION | 700113 | an operation not allowed inside an inbound owned transaction |
@@ -185,3 +185,6 @@ The sequence ended without acknowledgeMessage or nackMessage, so the message wai
 | UNKNOWN | 700121 | uncertain, an exception inside or after the send |
 | NACK | 700122 | refused by the broker, with the subcode and the phrase |
 | ROLLED\_BACK | 700123 | the broker rolled the transaction back |
+| PAYLOAD\_ERROR | 700124 | the body could not be read, built or written, or its charset or user properties are wrong. publishMessage, sendReply and the request side of sendRequest fault before any broker call, so nothing was sent. A sendRequest that faults on its reply has already sent the request, so a retry is not safe by itself. A poll with ackMode AUTO has already taken the message off the queue, with CLIENT the lease is still held. Every case is in [Fault 700124 by operation]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-configuration-reference/#fault-700124-by-operation). When the parser's message contains the name of a platform parser exception, the platform reports 601000 instead |
+| TRANSACTION\_CONNECTION\_MISMATCH | 700125 | an operation on another connection inside a connector owned transaction |
+| TRANSACTION\_MESSAGE\_LIMIT | 700126 | a second consuming poll in one connector owned transaction |

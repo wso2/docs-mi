@@ -42,14 +42,14 @@ At the end of this guide a message the sequence judges invalid is rejected to th
 
     A valid order is acknowledged only for a 2xx answer from the backend, as in guide 2. Any other answer nacks it FAILED, so it is retried.
 
-3. Keep the fault sequence on FAILED, so an exception during the backend call is retried, and set solace.maxRedeliveries on the inbound endpoint to the number of attempts before the message is dead lettered.
+3. Keep the fault sequence on FAILED, so an exception during the backend call is retried. Set solace.maxRedeliveries on the inbound endpoint to the number of retries. A value of 3 allows the first attempt and three retries. If all four fail, the endpoint rejects the message.
 4. Deploy and publish one invalid order, seats 12, and one valid order with the backend stopped. Publish both DMQ eligible, for example with the REST header `Solace-DMQ-Eligible: true`.
 
 ## Verify
 
-The invalid order is in Q.orders.dmq at once, the counters show decided.REJECTED 1 and settled.rejected 1. The valid order with the backend stopped is retried with the back off and reaches the dead message queue after the attempts, with decided.FAILED equal to the attempts and settled.rejected 2. The response of nackMessage carries settled true and mode DEFERRED, which means the decision reached the inbound endpoint. The counters say what reached the broker.
+The invalid order is in Q.orders.dmq at once, the counters show decided.REJECTED 1 and settled.rejected 1. The valid order with the backend stopped is retried with the back off and reaches the dead message queue after the attempts, with decided.FAILED equal to the attempts and settled.rejected 2. The response of nackMessage carries settled true and mode DEFERRED, which means the decision reached the inbound endpoint. The settled counters say which settlements the client library took. The broker shows where each message is.
 
-A message with an empty payload is settled REJECTED without a decision, so an eligible message is kept in the dead message queue for inspection. A JSON payload that does not parse is not rejected by the endpoint. It reaches the sequence as it is and fails only where the sequence reads it.
+This guide's endpoint has autoAck false and is not transacted. On it, a message that does not build never reaches the sequence. The endpoint rejects it without a decision, so an eligible message is kept in the dead message queue for inspection. This happens to a message with an empty payload, to JSON that the builder rejects at its start and to an XML document whose root is malformed. A JSON or XML document damaged after its start builds lazily and reaches the sequence. It can fail where the sequence first reads it, and then the fault sequence decides how to settle it. See [Malformed JSON and XML]({{base_path}}/reference/connectors/solace-connector/2.x/solace-2.x-migration-from-1.x/#malformed-json-and-xml).
 
 ## Undo
 
