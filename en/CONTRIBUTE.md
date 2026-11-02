@@ -16,7 +16,7 @@ We appreciate your help and contributions!
 
 If you are unsure whether you have found a bug, please consider searching existing issues in GitHub and asking in dev@wso2.com or on [Stack Overflow](https://stackoverflow.com/tags/wso2).
 
-> IMPORTANT: Sensitive security-related issues should be reported to [security@wso2.com](security@wso2.com). See the [security policy](https://wso2.com/security) for details.
+> IMPORTANT: Sensitive security-related issues should be reported to [security@wso2.com](mailto:security@wso2.com). See the [security policy](https://wso2.com/security) for details.
 
 To file non-security issues:
 
