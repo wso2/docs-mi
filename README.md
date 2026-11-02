@@ -48,9 +48,9 @@ The WSO2 Integrator: MI documentation provides comprehensive guides, tutorials, 
 
   - `docs-mi/en/docs/assets` : Contains all the resources (images/attachments/videos) used throughout the documentation
 
-  - `docs-mi/en/docs/mkdocs.yaml` : The configuration file used by MkDocs, a static site generator that's geared towards project documentation. It defines the structure, theme, plugins, and other settings for building and deploying the documentation site.
+  - `docs-mi/en/mkdocs.yml` : The configuration file used by MkDocs, a static site generator that's geared towards project documentation. It defines the structure, theme, plugins, and other settings for building and deploying the documentation site.
 
-    > **Tip** : You have to update `nav` section in `mkdocs.yaml` for new pages you add.
+    > **Tip** : You have to update `nav` section in `mkdocs.yml` for new pages you add.
 
     ```yml
     nav:
@@ -61,7 +61,7 @@ The WSO2 Integrator: MI documentation provides comprehensive guides, tutorials, 
           - Quick Start Guide: get-started/quick-start-guide.md
     ```
 
-  - `docs-mi/en/docs/requirements.txt` : This file lists all the Python dependencies required to build and run the documentation site locally. These dependencies include MkDocs and its plugins, which are essential for generating and serving the static site.
+  - `docs-mi/en/requirements.txt` : This file lists all the Python dependencies required to build and run the documentation site locally. These dependencies include MkDocs and its plugins, which are essential for generating and serving the static site.
 
 ## How to contribute
 
