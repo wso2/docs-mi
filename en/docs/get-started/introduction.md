@@ -1,6 +1,6 @@
 # Introduction
 
-**WSO2 Integrator: MI**, the Micro Integrator (MI) profile of WSO2 Integrator is a 100% open-source integration solution to streamline your digital transformation journey. It offers a powerful configuration-driven approach, allowing developers to build integration solutions with a user-friendly low-code graphical designing experience. Its AI-assisted development experience enables developers to leverage intelligent features to enhance integrations and accelerate development. It also supports a variety of integration architecture styles, including microservices, cloud-native, and centralized ESB-style architectures.
+**WSO2 Integrator: MI**, the Micro Integrator (MI) profile of WSO2 Integrator, is a 100% open-source integration solution to streamline your digital transformation journey. It offers a powerful configuration-driven approach, allowing developers to build integration solutions with a user-friendly low-code graphical designing experience. Its AI-assisted development experience enables developers to leverage intelligent features to enhance integrations and accelerate development. It also supports a variety of integration architecture styles, including microservices, cloud-native, and centralized ESB-style architectures.
 
 ## Address every integration challenge with ease
 
@@ -41,10 +41,10 @@ When deployed in a centralized ESB-style, the platform supports message routing,
 ## Connectors and Templates
 
 ### Extensive repository of pre-configured connectors
-WSO2 Integrator: MI facilitates swift connectivity to a broad spectrum of systems, encompassing payments, CRM, ERP, social networks, and core services with a large repository of enterprise-ready connectors. This included connectors for widely adopted systems, including SAP, Salesforce, IBM WebSphere MQ, Oracle AQ, MSMQ, and more.
+WSO2 Integrator: MI facilitates swift connectivity to a broad spectrum of systems, encompassing payments, CRM, ERP, social networks, and core services with a large repository of enterprise-ready connectors. This includes connectors for widely adopted systems, including SAP, Salesforce, IBM WebSphere MQ, Oracle AQ, MSMQ, and more.
 
 ### Seamless custom connector development
-WSO2 Integrator: MI also supports the ability to create custom connectors. Utilizing software development kits (SDKs) and Web APIs, you can build new  connectors that possess the capacity to interface with any system, regardless of its underlying technology.
+WSO2 Integrator: MI also supports the ability to create custom connectors. Utilizing software development kits (SDKs) and Web APIs, you can build new connectors that possess the capacity to interface with any system, regardless of its underlying technology.
 
 ### Enhancing efficiency and conformity
 A catalog of pre-defined integration templates empowers you to quickly initiate new projects across established patterns. These templates are fully adaptable, ensuring they can be tailored to your precise requirements. Additionally, you have the flexibility to create and reuse your own templates and patterns, enabling a tailored approach that suits your unique needs.
