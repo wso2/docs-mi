@@ -46,7 +46,7 @@ WSO2 Integrator: MI facilitates swift connectivity to a broad spectrum of system
 ### Seamless custom connector development
 WSO2 Integrator: MI also supports the ability to create custom connectors. Utilizing software development kits (SDKs) and Web APIs, you can build new connectors that possess the capacity to interface with any system, regardless of its underlying technology.
 
-### Enhancing efficiency and consistency
+### Enhancing efficiency and conformity
 A catalog of pre-defined integration templates empowers you to quickly initiate new projects across established patterns. These templates are fully adaptable, ensuring they can be tailored to your precise requirements. Additionally, you have the flexibility to create and reuse your own templates and patterns, enabling a tailored approach that suits your unique needs.
 
 ## Powerful data transformation and data integration
