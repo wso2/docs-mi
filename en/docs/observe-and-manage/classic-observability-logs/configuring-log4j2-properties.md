@@ -510,7 +510,7 @@ Access Log V2 also introduces two additional pattern elements that are only avai
 |---------|-------------|
 | `%D`    | Request processing time in milliseconds — the total time taken to process the request and send the response. |
 | `%X`    | Correlation ID — the correlation ID associated with the request, useful for tracing a request across multiple services. |
-| `%w`    | Response content length inferred from the `Content-Length` header, excluding HTTP headers. Available from WSO2 Integrator: MI 4.5.0.35 onwards. |
+| `%w`    | Response body size in bytes, excluding HTTP headers. Inferred from the `Content-Length` header. If the response has no `Content-Length` header (for example, a chunked response), the size is calculated by counting the response body bytes. Available from WSO2 Integrator: MI 4.5.0.35 onwards. Calculating the size for responses without a `Content-Length` header is available from WSO2 Integrator: MI 4.5.0.41 onwards. |
 
 **Example pattern using V2-specific elements:**
 
@@ -538,7 +538,7 @@ access_log_pattern=%h %u %t "%r" %s %b %w "%{Referer}i" "%{User-Agent}i" %D %X
 </tr>
 <tr class="odd">
 <td><pre><code>%b</code></pre></td>
-<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if zero. In Access Log V2, this represents the request content length. To log the response content length, use the `%w` parameter.</p></td>
+<td><p>Content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if zero. In Access Log V2, this represents the request body size; if the request has no <code>Content-Length</code> header (for example, a chunked request), the size is calculated by counting the request body bytes. To log the response body size, use the <code>%w</code> parameter. Calculating the size for requests without a <code>Content-Length</code> header is available from WSO2 Integrator: MI 4.5.0.41 onwards.</p></td>
 </tr>
 <tr class="even">
 <td><pre><code>%B</code></pre></td>
@@ -634,7 +634,7 @@ access_log_pattern=%h %u %t "%r" %s %b %w "%{Referer}i" "%{User-Agent}i" %D %X
 </tr>
 <tr class="odd">
 <td><pre><code>%w</code></pre></td>
-<td><p>Response content length inferred from the <code>Content-Length</code> header, excluding HTTP headers, or '-' if the <code>Content-Length</code> header is not available (Access Log V2 only). Available from WSO2 Integrator: MI 4.5.0.35 onwards.</p></td>
+<td><p>Response body size inferred from the <code>Content-Length</code> header, excluding HTTP headers. If the response has no <code>Content-Length</code> header (for example, a chunked response), the size is calculated by counting the response body bytes, or '-' is logged if the response has no body (Access Log V2 only). Available from WSO2 Integrator: MI 4.5.0.35 onwards. Calculating the size for responses without a <code>Content-Length</code> header is available from WSO2 Integrator: MI 4.5.0.41 onwards.</p></td>
 </tr>
 </tbody>
 </table>
