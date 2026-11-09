@@ -40,26 +40,25 @@ Subsequent PRs will not require CLA acceptance.
 
 If for some (unlikely) reason at any time CLA changes, you will get presented with the new CLA text on your first PR after the change.
 
-## Generating the documentation for viewing in your local machine
-
 #### Prerequisites
 
-- Install python
-- Install pip
-- Install mkdocs
+- Install Python 3 and pip.
+- From the repository root, install the documentation dependencies:
+
     ```bash
-    $ pip install mkdocs
+    python3 -m pip install -r en/requirements.txt
     ```
-- Install pymdown-extensions
-    ```bash
-    $ pip install pymdown-extensions
-    ```
+
 #### Generating website content
 
-Navigate to `docs` directory and run the following command.
+From the repository root, navigate to the `en` directory, which contains
+`mkdocs.yml`, and start the local documentation server:
 
 ```bash
-mkdocs serve
+cd en
+python3 -m mkdocs serve
 ```
 
 This will render the source code and generate website content.
+
+Open http://localhost:8000 in your browser to preview the documentation.
