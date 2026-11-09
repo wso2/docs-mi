@@ -872,16 +872,7 @@ nav:
               - Redis Overview: reference/connectors/redis-connector/redis-connector-overview.md
               - Set up the Environment: reference/connectors/redis-connector/redis-connector-configuration.md
               - Redis Example: reference/connectors/redis-connector/redis-connector-example.md
-              - 2.7.x:
-                  - Redis Connector Reference: reference/connectors/redis-connector/2.7.x/redis-connector-reference.md
-              - 2.4.x:
-                  - Redis Connector Reference: reference/connectors/redis-connector/2.4.x/redis-connector-reference.md
-              - 2.2.x:
-                  - Redis Connector Reference: reference/connectors/redis-connector/2.2.x/redis-connector-reference.md
-              - 2.1.x:
-                  - Redis Connector Reference: reference/connectors/redis-connector/2.1.x/redis-connector-reference.md
-              - 1.0.1:
-                  - Redis Connector Reference: reference/connectors/redis-connector/1.0.1/redis-connector-reference.md
+              - Redis Connector Reference: reference/connectors/redis-connector/redis-connector-reference.md
           - Salesforce Connectors:
               - Salesforce Overview: reference/connectors/salesforce-connectors/sf-overview.md
               - Salesforce Access Token Generation: reference/connectors/salesforce-connectors/sf-access-token-generation.md
@@ -1331,6 +1322,11 @@ plugins:
               'develop/working-with-wso2-integration-studio.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
               'develop/troubleshooting-wso2-integration-studio.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
               'develop/using-embedded-micro-integrator.md': 'https://mi.docs.wso2.com/en/4.7.0/develop/mi-for-vscode/mi-for-vscode-overview'
+              'reference/connectors/redis-connector/2.7.x/redis-connector-reference.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/redis-connector/redis-connector-reference/'
+              'reference/connectors/redis-connector/2.4.x/redis-connector-reference.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/redis-connector/redis-connector-reference/'
+              'reference/connectors/redis-connector/2.2.x/redis-connector-reference.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/redis-connector/redis-connector-reference/'
+              'reference/connectors/redis-connector/2.1.x/redis-connector-reference.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/redis-connector/redis-connector-reference/'
+              'reference/connectors/redis-connector/1.0.1/redis-connector-reference.md': 'https://mi.docs.wso2.com/en/4.7.0/reference/connectors/redis-connector/redis-connector-reference/'
   # Extra
 extra_css:
   - assets/lib/highlightjs/styles/custom-highlight-styles.css

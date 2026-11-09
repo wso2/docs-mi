@@ -53,7 +53,7 @@ CONNECTORS = [
     "reference/connectors/mongodb-connector/3.x/mongodb-connector-config.md",
     "reference/connectors/redis-connector/redis-connector-overview.md",
     "reference/connectors/redis-connector/redis-connector-example.md",
-    "reference/connectors/redis-connector/2.7.x/redis-connector-reference.md",
+    "reference/connectors/redis-connector/redis-connector-reference.md",
     "reference/connectors/salesforce-connectors/sf-overview.md",
     "reference/connectors/salesforce-connectors/3.x/sf-rest-connector-config.md",
     "reference/connectors/salesforce-connectors/3.x/sf-rest-connector-example.md",
