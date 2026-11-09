@@ -16,7 +16,7 @@ We appreciate your help and contributions!
 
 If you are unsure whether you have found a bug, please consider searching existing issues in GitHub and asking in dev@wso2.com or on [Stack Overflow](https://stackoverflow.com/tags/wso2).
 
-> IMPORTANT: Sensitive security-related issues should be reported to [security@wso2.com](security@wso2.com). See the [security policy](https://wso2.com/security) for details.
+> IMPORTANT: Sensitive security-related issues should be reported to [security@wso2.com](mailto:security@wso2.com). See the [security policy](https://wso2.com/security) for details.
 
 To file non-security issues:
 
@@ -58,5 +58,7 @@ From the repository root, navigate to the `en` directory, which contains
 cd en
 python3 -m mkdocs serve
 ```
+
+This will render the source code and generate website content.
 
 Open http://localhost:8000 in your browser to preview the documentation.
