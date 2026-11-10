@@ -86,7 +86,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 ### General mediator usage
 
 - Add a proper description to each mediator to clarify its purpose and usage within the integration flow.
-- Prefer the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) over the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) for storing intermediate values during message processing. The [Variable Mediator]({{base_path}}/reference/mediators/variable-mediator/) is optimized for temporary data storage and reuse within the integration flow, reducing redundant computations and improving performance.
+- Prefer the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) over the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) for a simpler and more streamlined development experience when storing intermediate values during message processing.
 - Reserve the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) for controlling message flow, such as setting properties that influence routing, error handling, or other flow-specific logic.
 - Use clear, descriptive variable names to enhance the readability and maintainability of your integration logic.
 - If you want to repeatedly use the same mediation sequence, define it as a [Sequence]({{base_path}}/reference/mediation-sequences/#named-sequences). You can then invoke this reusable sequence from your main sequence, multiple proxy services, or REST APIs. Use the [Call Sequence mediator]({{base_path}}/reference/mediators/sequence-mediator/) to call the saved sequence, or select it as the [InSequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) or [FaultSequence]({{base_path}}/reference/mediation-sequences/#fault-sequences) when configuring a proxy service or REST API. This approach promotes modularity, reduces duplication, and simplifies maintenance across your integration flows.
@@ -114,7 +114,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### HTTP Connector
 
-- Prefer using the HTTP connector for outbound HTTP calls instead of combining endpoints with Call or Send mediators. The HTTP connector provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. This reduces complexity, and ensures better alignment with WSO2 MI best practices.
+- Prefer using the HTTP connector for outbound HTTP calls in non-blocking mode instead of combining endpoints with Call or Send mediators. The HTTP connector provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. 
 - Always use the latest version of the HTTP connector to take advantage of new features.
 
 <!-- TODO: Add Scatter Gather Mediator best practices -->
@@ -174,16 +174,17 @@ This guide provides best practices for designing, developing, deploying, and mai
 - **Security & Penetration Testing**: Conduct penetration tests on the production setup before go-live. Coordinate with stakeholders to schedule and execute these tests.
 - **User Acceptance Testing (UAT)**: Run UAT rounds against documented requirements to ensure the solution meets customer acceptance criteria and business needs.
 - **Test Documentation**: Document all functional and performance test results in detail. For each test, create a report that includes the steps followed, sample data or requests used, and the outcome (pass/fail, observations, and any issues found).
-    - **Functional Test Results**: Maintain a dedicated document for functional test results. Include test case descriptions, expected outcomes, actual outcomes, and any deviations or bugs identified during testing.
+- **Functional Test Results**: Maintain a dedicated document for functional test results. Include test case descriptions, expected outcomes, actual outcomes, and any deviations or bugs identified during testing.
 
-        | Test Case ID      | *Enter Function Name*|
-        |------------------|-----------------|
-        | Description       | *Enter Description*   |
-        | Test Steps        | *Enter Test Steps*    |
-        | Expected Results  | *Enter Expected Results* |
-        | Actual Results    | *Enter Actual Results*   |
-        | Status            | *Enter Status (Pass/Fail)* |
-        | Comments          | *Enter Comments*        |
+
+    | Test Case ID      | *Enter Function Name*|
+    |------------------|-----------------|
+    | Description       | *Enter Description*   |
+    | Test Steps        | *Enter Test Steps*    |
+    | Expected Results  | *Enter Expected Results* |
+    | Actual Results    | *Enter Actual Results*   |
+    | Status            | *Enter Status (Pass/Fail)* |
+    | Comments          | *Enter Comments*        |
 
 
 
@@ -225,9 +226,9 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 - Use [WSO2 Secret Vault](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/security/encrypting-plain-text/) to securely store and manage sensitive information such as API keys, passwords, and certificates in your integration solutions. This approach ensures that secrets are encrypted at rest and only decrypted at runtime, reducing the risk of unauthorized access and enhancing overall security compliance.
 
-## Migration Best Practices
+## Update existing configurations with new mediators
 
-If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), your existing configurations and mediators will continue to work in newer MI versions. Migration is optional, only perform it if you want to take advantage of usability and maintainability improvements. If your current mediators meet your requirements and you are satisfied with their behavior, you may continue using them without changes.
+If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), your existing configurations and mediators will continue to work in newer MI versions. Changing implementation is optional, only perform it if you want to take advantage of usability and maintainability improvements. If your current mediators meet your requirements and you are satisfied with their behavior, you may continue using them without changes.
 
 For future implementations, adopt the newer mediators and connectors (for example, HTTP Connector, new ForEach, Scatter‑Gather, and the new PayloadFactory) to benefit from improved usability and maintainability.
 
@@ -291,8 +292,8 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </api>
             ```
 
-- [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer recommended.
-- Use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to invoke external HTTP services instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/). The HTTP Connector provides richer configuration options, and better maintainability. Reserve [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/) for non-HTTP protocols (such as VFS, RabbitMQ, JMS etc.) or legacy scenarios where connectors are not applicable.
+- [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer required.
+- Use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to invoke external HTTP services in non-blocking mode instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/). The HTTP Connector provides richer configuration options, and better maintainability. Reserve [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/) for blocking HTTP calls or non-HTTP protocols (such as VFS, RabbitMQ, JMS etc.) or legacy scenarios where connectors are not applicable.
 
     ??? "Call Endpoint to HTTP Connector Migration"
 
@@ -370,7 +371,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </localEntry>
             ```
 
-- Use the new [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) for all scenarios previously handled by the Iterate Mediator or older ForEach. It supports parallel execution, enables external service calls, and offers more flexible configuration.
+- Preferably use the new [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) for all scenarios previously handled by the Iterate Mediator or older ForEach. It supports parallel execution, enables external service calls, and offers more flexible configuration.
 
     ??? "Iterate to ForEach Migration"
         Map Iterate mediator attributes to new ForEach mediator equivalents as follows:
@@ -556,7 +557,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </foreach>
             ```
 
-- Use the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/) instead of the [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator/) and the [Aggregate Mediator]({{base_path}}/reference/mediators/aggregate-mediator/), which are no longer recommended.
+- For improved usability and a simplified development experience, prefer the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/) over the combination of the [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator/) and the [Aggregate Mediator]({{base_path}}/reference/mediators/aggregate-mediator/).
 
     ??? "Clone & Aggregate to Scatter Gather Migration Sample"
 
@@ -715,7 +716,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             <respond/>
             ```
 
-- Use the new [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) which has been enhanced with templating support.
+- Use the templating support available in the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/).
 
     ??? "Payload Factory Migration"
 
@@ -748,7 +749,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </payloadFactory>
             ```
 
-- Use the new [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) which has been enhanced with templating support.
+- Use the templating support available in the [Log Mediator]({{base_path}}/reference/mediators/log-mediator/).
 
     ??? "Log Mediator Migration"
 
