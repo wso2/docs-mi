@@ -292,7 +292,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </api>
             ```
 
-- [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer required.
+- [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer required. Move the logic from the out sequence to the in sequence and remove the Loopback Mediator from your existing configurations.
 - Use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to invoke external HTTP services in non-blocking mode instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/). The HTTP Connector provides flexible configuration options, and better maintainability. Reserve [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/) for blocking HTTP calls, non-HTTP protocols (such as VFS, RabbitMQ, JMS etc.) or legacy scenarios where connectors are not applicable.
 
     ??? "Call Endpoint to HTTP Connector Migration"
