@@ -76,17 +76,17 @@ This guide provides best practices for designing, developing, deploying, and mai
 - Apply versioning to APIs to manage changes, communicate updates, and ensure backward compatibility. Document version changes and deprecations clearly.
 - Design and implement a [Fault Sequence]({{base_path}}/reference/mediation-sequences/#fault-sequences) for each API to handle errors consistently and provide clear feedback to consumers. Ensure error responses include relevant details such as error codes, messages, and correlation IDs for easier troubleshooting.
 - Structure APIs to be intuitive and easy to consume. Define resources and operations following RESTful conventions, and use meaningful HTTP methods and status codes.
-- When migrating from older WSO2 MI versions, move logic from the [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to align with current best practices and improve maintainability.
+- Implement the logic that handles the response in the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) instead of the [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences).
 
 !!!Note
-    Migrating logic from the [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) is recommended for consistency and future-proofing your integration flows.
+    Existing APIs that use an [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) continue to work, so you do not need to change them. If you want to move the logic to the In Sequence, see [Using New Mediators in Existing Integrations](#using-new-mediators-in-existing-integrations).
 
 ## Mediators & Connectors Best Practices
 
 ### General mediator usage
 
 - Add a proper description to each mediator to clarify its purpose and usage within the integration flow.
-- Prefer the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) over the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) for storing intermediate values during message processing. The [Variable Mediator]({{base_path}}/reference/mediators/variable-mediator/) is optimized for temporary data storage and reuse within the integration flow, reducing redundant computations and improving performance.
+- Prefer the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) over the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) for storing intermediate values during message mediation, as it provides a simpler and more streamlined development experience.
 - Reserve the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) for controlling message flow, such as setting properties that influence routing, error handling, or other flow-specific logic.
 - Use clear, descriptive variable names to enhance the readability and maintainability of your integration logic.
 - If you want to repeatedly use the same mediation sequence, define it as a [Sequence]({{base_path}}/reference/mediation-sequences/#named-sequences). You can then invoke this reusable sequence from your main sequence, multiple proxy services, or REST APIs. Use the [Call Sequence mediator]({{base_path}}/reference/mediators/sequence-mediator/) to call the saved sequence, or select it as the [InSequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) or [FaultSequence]({{base_path}}/reference/mediation-sequences/#fault-sequences) when configuring a proxy service or REST API. This approach promotes modularity, reduces duplication, and simplifies maintenance across your integration flows.
@@ -98,24 +98,24 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Log mediator
 
-- Use Log mediators as checkpoints in message flows to track and debug integration logic. In development, set the log category to `DEBUG` and configure the global log level for `org.apache.synapse.mediators.builtin.LogMediator` accordingly. Include relevant payload information, request metadata (e.g., user ID, timestamp), and unique identifiers (e.g., correlation IDs) to aid in troubleshooting and tracing requests across services.
-- In production, restrict Log mediators to Fault sequences to avoid excessive logging and performance overhead. Always log key error details such as `ERROR_CODE` and use correlation IDs to link related log entries. Place Log mediators within Fault sequences to ensure error information is captured in `wso2carbon.log`. Set the global log level to `INFO` to enable essential troubleshooting without exposing sensitive or verbose information.
+- Use [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) as checkpoints in message flows to track and debug integration logic. In development, set the log category to `DEBUG` and configure the global log level for `org.apache.synapse.mediators.builtin.LogMediator` accordingly. Include relevant payload information, request metadata (e.g., user ID, timestamp), and unique identifiers (e.g., correlation IDs) to aid in troubleshooting and tracing requests across services.
+- In production, restrict [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) to Fault sequences to avoid excessive logging and performance overhead. Always log key error details such as `ERROR_CODE` and use correlation IDs to link related log entries. Place [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) within Fault sequences to ensure error information is captured in `wso2carbon.log`. Set the global log level to `INFO` to enable essential troubleshooting without exposing sensitive or verbose information.
 - Avoid logging sensitive information, such as user credentials or personal data, to protect privacy and comply with data protection regulations. Use descriptive messages and implement structured logging to capture key attributes and context information in a consistent format. Regularly review and adjust log levels to balance visibility and performance.
 - Configure log masking to protect sensitive information in your logs. Follow the [masking sensitive information in logs]({{base_path}}/administer/logging-and-monitoring/logging/masking-sensitive-information-in-logs/) guide to set up appropriate log masking settings and ensure compliance with security and privacy requirements.
 
 ### Custom mediator / Ballerina module
 
-- Avoid writing a Class mediator or custom Ballerina module if the required functionality can be achieved using the built-in mediators and connectors of WSO2 Integrator: MI. This reduces maintenance overhead and leverages native features.
+- Avoid writing a [Class mediator]({{base_path}}/reference/mediators/class-mediator/) or custom [Ballerina module]({{base_path}}/develop/customizations/ballerina-module/overview/) if the required functionality can be achieved using the built-in mediators and connectors of WSO2 Integrator: MI. This reduces maintenance overhead and leverages native features.
     - Review the [Mediator Catalog]({{base_path}}/reference/mediators/about-mediators/) and [Connectors]({{base_path}}/reference/connectors/connectors-overview/) to understand the capabilities of built-in mediators and connectors. This helps ensure you leverage existing features and avoid unnecessary custom development.
-- If you must implement a Class mediator or a custom Ballerina module, ensure you understand its performance implications and monitor for potential memory leaks or resource issues.
+- If you must implement a [Class mediator]({{base_path}}/reference/mediators/class-mediator/) or a custom [Ballerina module]({{base_path}}/develop/customizations/ballerina-module/overview/), ensure you understand its performance implications and monitor for potential memory leaks or resource issues.
 - Use meaningful and properly structured Java package names for Class mediators, and follow Ballerina module naming conventions for custom modules to maintain clarity and organization.
 - Follow standard Java and Ballerina naming conventions and code best practices when developing Class mediators or Ballerina modules to ensure maintainability and readability.
 - Document the purpose, usage, and configuration of your custom mediator or Ballerina module to help other developers understand and use them effectively.
 
 ### HTTP Connector
 
-- Prefer using the HTTP connector for outbound HTTP calls instead of combining endpoints with Call or Send mediators. The HTTP connector provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. This reduces complexity, and ensures better alignment with WSO2 MI best practices.
-- Always use the latest version of the HTTP connector to take advantage of new features.
+- Prefer using the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for a simpler and more streamlined developer experience when making non-blocking outbound HTTP calls instead of using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) with endpoints.
+- Always use the latest version of the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to take advantage of new features.
 
 <!-- TODO: Add Scatter Gather Mediator best practices -->
 <!-- ### Scatter Gather Mediator -->
@@ -124,15 +124,15 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Foreach mediator
 
-- Whenever possible, enable the `Execute Parallel` property in the ForEach mediator to process iterations concurrently. This can significantly improve performance, especially when handling large datasets or making multiple outbound calls. Ensure that your integration logic is thread-safe and that parallel execution does not introduce race conditions or resource contention.
-- Enable the `Continue without aggregation` property in the ForEach mediator to optimize performance. This setting allows the mediator to proceed without waiting for responses from outbound calls made during each iteration, reducing latency and improving throughput in scenarios where response aggregation is not required.
+- Whenever possible, enable the `Execute Parallel` property in the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) to process iterations concurrently. This can significantly improve performance, especially when handling large datasets or making multiple outbound calls. Ensure that your integration logic is thread-safe and that parallel execution does not introduce race conditions or resource contention.
+- Enable the `Continue without aggregation` property in the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/)r to optimize performance. This setting allows the mediator to proceed without waiting for responses from outbound calls made during each iteration, reducing latency and improving throughput in scenarios where response aggregation is not required.
 
 
 ### Message transformation
 
 - **PayloadFactory Mediator**: Use when you need to reconstruct the entire message payload into a simple, fixed format. Ideal for scenarios where only a few parameters are extracted from the original message and the output structure is predictable.
 
-- **For-Each + PayloadFactory Mediator**: Use this combination when the original message contains repetitive segments that need to be transformed individually. The For-Each mediator iterates over each segment, and the PayloadFactory mediator constructs the new format for each segment, similar to the For-Each function in XSLT.
+- **For-Each + PayloadFactory Mediator**: Use this combination when the original message contains repetitive segments that need to be transformed individually. The [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) iterates over each segment, and the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) constructs the new format for each segment, similar to the For-Each function in XSLT.
 
 - **Data Mapper Mediator**: Use when you need to change the structure of data in a message or convert one data format to another.
 
@@ -150,9 +150,9 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Expression & data handling
 
-- Prefer the [Synapse Expression Language]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) for all JSON data manipulation and transformation tasks. It offers enhanced flexibility, and broader feature support compared to legacy `XPath` and `JSONPath` expressions.
+- Use the [Synapse Expression Language]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) for all JSON data manipulation and transformation tasks. It offers enhanced flexibility, and broader feature support compared to legacy `XPath` and `JSONPath` expressions.
 - Use legacy expressions only when maintaining existing integrations that depend on them, or if a required feature is unavailable in the Synapse Expression Language.
-- Regularly review and refactor older integrations to migrate to Synapse Expression Language where feasible, ensuring consistency and maintainability across your projects.
+- Existing integrations that use legacy expressions continue to work. If you are already updating such an integration, you can consider moving it to the Synapse Expression Language for consistency across your projects.
 - Document any use of legacy expressions, noting the reason for their inclusion and any limitations, to aid future maintenance and upgrades.
 
 <!-- TODO: Add error handling best practices -->
@@ -225,15 +225,18 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 - Use [WSO2 Secret Vault](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/security/encrypting-plain-text/) to securely store and manage sensitive information such as API keys, passwords, and certificates in your integration solutions. This approach ensures that secrets are encrypted at rest and only decrypted at runtime, reducing the risk of unauthorized access and enhancing overall security compliance.
 
-## Migration Best Practices
+## Using New Mediators in Existing Integrations
 
-If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), your existing configurations and mediators will continue to work in newer MI versions. Migration is optional, only perform it if you want to take advantage of usability and maintainability improvements. If your current mediators meet your requirements and you are satisfied with their behavior, you may continue using them without changes.
+!!! note "No changes are required for existing integrations"
+    Integrations built with earlier versions of WSO2 Integrator: MI (prior to 4.4.0) continue to work in newer versions. The mediators and configurations used in earlier MI versions are still supported, so you do not need to change an integration that is working as expected.
 
-For future implementations, adopt the newer mediators and connectors (for example, HTTP Connector, new ForEach, Scatter‑Gather, and the new PayloadFactory) to benefit from improved usability and maintainability.
+Newer versions of WSO2 Integrator: MI provide mediators and connectors that offer a simpler and more streamlined development experience, such as the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/), the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) with new syntax, the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/), and templating support in the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) and [Log Mediator]({{base_path}}/reference/mediators/log-mediator/). Consider using them when you build new integrations.
 
-- The [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) in APIs and Proxies are not created by MI VS Code extension by default from version 4.4.0 onwards. Implement the necessary logic in the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) to handle outgoing messages.
+Updating an existing integration to use them is optional. If you want to get the same benefits in an existing integration, for example, when you are already making changes to it, use the following guidelines. Each guideline includes a sample that shows a legacy configuration and an equivalent configuration using the newer mediators. Test the updated integration thoroughly before you deploy it.
 
-    ??? "OutSequence Migration Sample"
+- From version 4.4.0 onwards, the MI for VS Code extension does not create an [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) by default in APIs and proxy services. Instead, implement the logic that handles the response in the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences). Existing APIs and proxy services that use an Out Sequence continue to work.
+
+    ??? "Sample: Handling the response in the In Sequence"
 
         === "Legacy Configuration"
             ```xml
@@ -291,15 +294,15 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </api>
             ```
 
-- [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/) is no longer recommended.
-- Use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to invoke external HTTP services instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/). The HTTP Connector provides richer configuration options, and better maintainability. Reserve [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) / [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) / [CallOut Mediator]({{base_path}}/reference/mediators/callout-mediator/) for non-HTTP protocols (such as VFS, RabbitMQ, JMS etc.) or legacy scenarios where connectors are not applicable.
+- When you handle the response in the In Sequence, you do not need the [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/), which moves a message from the In Sequence to the Out Sequence.
+- To invoke external HTTP services in a non-blocking manner, you can use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) with an endpoint. The HTTP Connector provides a simpler and more streamlined development experience. Continue to use the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) in blocking mode or the [Callout Mediator]({{base_path}}/reference/mediators/callout-mediator/) for blocking HTTP calls, and the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) for non-HTTP protocols (such as VFS, RabbitMQ, and JMS) or scenarios where a connector is not applicable.
 
-    ??? "Call Endpoint to HTTP Connector Migration"
+    ??? "Sample: Using the HTTP Connector instead of the Call or Send mediator with an endpoint"
 
         - The [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) exposes built‑in configuration options that replace many values previously set using the Property mediator.
         - Set these options on the connector operation itself (for example: headers, noKeepAlive etc.), since applying them via Property mediators for HTTP connector is not supported.
 
-        See the example migration below.
+        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
 
         === "Legacy Configuration"
 
@@ -370,9 +373,9 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </localEntry>
             ```
 
-- Use the new [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) for all scenarios previously handled by the Iterate Mediator or older ForEach. It supports parallel execution, enables external service calls, and offers more flexible configuration.
+- You can use the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) in place of the Iterate Mediator. It supports parallel execution, enables external service calls, and offers more flexible configuration.
 
-    ??? "Iterate to ForEach Migration"
+    ??? "Sample: Using the ForEach mediator instead of the Iterate mediator"
         Map Iterate mediator attributes to new ForEach mediator equivalents as follows:
         <table>
             <thead>
@@ -416,7 +419,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </tbody>
         </table>
 
-        See the example migration below.
+        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
 
         === "Legacy Configuration"
 
@@ -481,7 +484,13 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </localEntry>
             ```
 
-    ??? "Legacy Foreach to New Foreach Migration"
+- The [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) has a new configuration that you can use instead of the earlier ForEach configuration. With the new configuration, you can:
+    - Select the collection to iterate over using a [Synapse expression]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) (collection) instead of a JSONPath or XPath expression.
+    - Process iterations in parallel (parallel-execution).
+    - Call external services within the iteration.
+    - Choose whether to update the original message with the result of the iterations (update-original).
+
+    ??? "Sample: Using the new ForEach mediator instead of the earlier ForEach mediator"
 
         <table>
             <thead>
@@ -520,7 +529,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </tbody>
         </table>
 
-        See the example migration below.
+        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
 
         === "Legacy Configuration"
 
@@ -556,9 +565,9 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </foreach>
             ```
 
-- Use the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/) instead of the [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator/) and the [Aggregate Mediator]({{base_path}}/reference/mediators/aggregate-mediator/), which are no longer recommended.
+- You can use the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/) in place of the combination of the [Clone Mediator]({{base_path}}/reference/mediators/clone-mediator/) and the [Aggregate Mediator]({{base_path}}/reference/mediators/aggregate-mediator/) to send a message to multiple targets and aggregate the responses using a single mediator.
 
-    ??? "Clone & Aggregate to Scatter Gather Migration Sample"
+    ??? "Sample: Using the Scatter Gather mediator instead of the Clone and Aggregate mediators"
 
         The Scatter Gather mediator replaces the need for separate Clone and Aggregate mediators.
 
@@ -635,7 +644,7 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             </tbody>
         </table>
 
-        See the example migration below.
+        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
 
         === "Legacy Configuration"
 
@@ -715,13 +724,13 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             <respond/>
             ```
 
-- Use the new [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) which has been enhanced with templating support.
+- You can use the templating support in the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) to build payloads with inline expressions.
 
-    ??? "Payload Factory Migration"
+    ??? "Sample: Using templating in the PayloadFactory mediator"
 
-        The new PayloadFactory mediator supports inline templating. You can insert [Synapse expressions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) directly in the format string (for example, `${payload.id}`) and remove the `<args>` block and `$1/$2` placeholders. This simplifies templates, improves readability, and avoids the need to define separate `args` entries when converting legacy payloads to the new templating style.
+        The PayloadFactory mediator supports inline templating. You can insert [Synapse expressions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) directly in the format string (for example, `${props.synapse.id}`) instead of using the `<args>` block and the `$1`, `$2` placeholders. This simplifies templates and improves readability.
 
-        See the example migration below.
+        The following sample shows a legacy configuration and an equivalent configuration that uses templating.
 
         === "Legacy Configuration"
 
@@ -742,19 +751,19 @@ For future implementations, adopt the newer mediators and connectors (for exampl
             ```xml
             <payloadFactory media-type="json" template-type="default">
                 <format>{
-                    "id": "${payload.id}",
-                    "count":"${payload.count}"
+                    "id": "${props.synapse.id}",
+                    "count": "${props.synapse.count}"
                     }</format>
             </payloadFactory>
             ```
 
-- Use the new [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) which has been enhanced with templating support.
+- You can use the templating support in the [Log Mediator]({{base_path}}/reference/mediators/log-mediator/) to define log messages with inline expressions.
 
-    ??? "Log Mediator Migration"
+    ??? "Sample: Using templating in the Log mediator"
 
-        The `level` attribute is removed from the new log mediator. Set <code>logFullPayload="true"</code> to achieve the same behavior as <code>level="full"</code>.
+        The new Log mediator configuration does not use the `level` attribute. Instead, use the `logMessageID` and `logFullPayload` attributes to select the details to log. For example, set <code>logFullPayload="true"</code> to log the full payload, as <code>level="full"</code> did. You can define the log message as a template in the `<message>` element by inserting [Synapse expressions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) directly in it.
 
-        See the example migration below.
+        The following sample shows a legacy configuration and an equivalent configuration that uses templating.
 
         === "Legacy Configuration"
 
@@ -767,6 +776,6 @@ For future implementations, adopt the newer mediators and connectors (for exampl
 
             ```xml
             <log category="INFO" logMessageID="true" logFullPayload="false">
-                <property name="Name" expression="$ctx:name"/>
+                <message>Name: ${props.synapse.name}</message>
             </log>
             ```
