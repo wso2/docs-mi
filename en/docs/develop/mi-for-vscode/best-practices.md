@@ -114,8 +114,8 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### HTTP Connector
 
-- Prefer using the HTTP connector for outbound HTTP calls in non-blocking mode instead of combining endpoints with Call or Send mediators. The HTTP connector provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. 
-- Always use the latest version of the HTTP connector to take advantage of new features.
+- Prefer using the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for outbound HTTP calls in non-blocking mode instead of combining endpoints with [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/). The [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. 
+- Always use the latest version of the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to take advantage of new features.
 
 <!-- TODO: Add Scatter Gather Mediator best practices -->
 <!-- ### Scatter Gather Mediator -->
@@ -124,15 +124,15 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Foreach mediator
 
-- Whenever possible, enable the `Execute Parallel` property in the ForEach mediator to process iterations concurrently. This can significantly improve performance, especially when handling large datasets or making multiple outbound calls. Ensure that your integration logic is thread-safe and that parallel execution does not introduce race conditions or resource contention.
-- Enable the `Continue without aggregation` property in the ForEach mediator to optimize performance. This setting allows the mediator to proceed without waiting for responses from outbound calls made during each iteration, reducing latency and improving throughput in scenarios where response aggregation is not required.
+- Whenever possible, enable the `Execute Parallel` property in the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/)  to process iterations concurrently. This can significantly improve performance, especially when handling large datasets or making multiple outbound calls. Ensure that your integration logic is thread-safe and that parallel execution does not introduce race conditions or resource contention.
+- Enable the `Continue without aggregation` property in the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/)  to optimize performance. This setting allows the mediator to proceed without waiting for responses from outbound calls made during each iteration, reducing latency and improving throughput in scenarios where response aggregation is not required.
 
 
 ### Message transformation
 
 - **PayloadFactory Mediator**: Use when you need to reconstruct the entire message payload into a simple, fixed format. Ideal for scenarios where only a few parameters are extracted from the original message and the output structure is predictable.
 
-- **For-Each + PayloadFactory Mediator**: Use this combination when the original message contains repetitive segments that need to be transformed individually. The For-Each mediator iterates over each segment, and the PayloadFactory mediator constructs the new format for each segment, similar to the For-Each function in XSLT.
+- **For-Each + PayloadFactory Mediator**: Use this combination when the original message contains repetitive segments that need to be transformed individually. The [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) iterates over each segment, and the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) constructs the new format for each segment, similar to the For-Each function in XSLT.
 
 - **Data Mapper Mediator**: Use when you need to change the structure of data in a message or convert one data format to another.
 
