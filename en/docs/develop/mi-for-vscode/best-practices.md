@@ -124,7 +124,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### Foreach mediator
 
-- Whenever possible, enable the `Execute Parallel` property in the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/)  to process iterations concurrently. This can significantly improve performance, especially when handling large datasets or making multiple outbound calls. Ensure that your integration logic is thread-safe and that parallel execution does not introduce race conditions or resource contention.
+- Whenever possible, enable the `Execute Parallel` property in the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) to process iterations concurrently. This can significantly improve performance, especially when handling large datasets or making multiple outbound calls. Ensure that your integration logic is thread-safe and that parallel execution does not introduce race conditions or resource contention.
 - Enable the `Continue without aggregation` property in the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) to optimize performance. This setting allows the mediator to proceed without waiting for responses from outbound calls made during each iteration, reducing latency and improving throughput in scenarios where response aggregation is not required.
 
 
