@@ -177,14 +177,14 @@ This guide provides best practices for designing, developing, deploying, and mai
     - **Functional Test Results**: Maintain a dedicated document for functional test results. Include test case descriptions, expected outcomes, actual outcomes, and any deviations or bugs identified during testing.
 
 
-    | Test Case ID      | *Enter Function Name*|
-    |------------------|-----------------|
-    | Description       | *Enter Description*   |
-    | Test Steps        | *Enter Test Steps*    |
-    | Expected Results  | *Enter Expected Results* |
-    | Actual Results    | *Enter Actual Results*   |
-    | Status            | *Enter Status (Pass/Fail)* |
-    | Comments          | *Enter Comments*        |
+        | Test Case ID      | *Enter Function Name*|
+        |------------------|-----------------|
+        | Description       | *Enter Description*   |
+        | Test Steps        | *Enter Test Steps*    |
+        | Expected Results  | *Enter Expected Results* |
+        | Actual Results    | *Enter Actual Results*   |
+        | Status            | *Enter Status (Pass/Fail)* |
+        | Comments          | *Enter Comments*        |
 
 
 
