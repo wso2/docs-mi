@@ -36,7 +36,7 @@ as the request payload. The response you receive replaces the current message bo
 
 Use the Call Mediator with `blocking="true"` for scenarios that require blocking HTTP calls, such as:
 
-* Inbound endpoints with manual offset commits.
+* Inbound endpoints with manual offset commits (e.g., Kafka). For reliable commits, this requires **sequential processing** in addition to a blocking Call Mediator. As noted in the [Kafka inbound endpoint guidance](../connectors/kafka-connector/kafka-inbound-endpoint-config.md), parallel processing can commit an offset after a processing failure, causing a message to be skipped.
 * Transactional flows or flows requiring rollback handling.
 
 ### DELETE requests with a body
