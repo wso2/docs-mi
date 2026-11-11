@@ -228,7 +228,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ## Update existing configurations with new mediators
 
-If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), your existing configurations and mediators will continue to work in newer MI versions. Changing implementation is optional, only perform it if you want to take advantage of usability and maintainability improvements. If your current mediators meet your requirements and you are satisfied with their behavior, you may continue using them without changes.
+If you are migrating from an older version of WSO2 Integrator: MI (&lt;4.4.0), your existing configurations and mediators will continue to work in newer MI versions. Updating your implementations is optional, only perform it if you want to take advantage of usability and maintainability improvements. If your current mediators meet your requirements, you may continue using them without changes.
 
 For future implementations, adopt the newer mediators and connectors (for example, HTTP Connector, new ForEach, Scatter‑Gather, and the new PayloadFactory) to benefit from improved usability and maintainability.
 
