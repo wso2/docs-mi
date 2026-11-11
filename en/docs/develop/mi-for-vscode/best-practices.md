@@ -114,7 +114,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### HTTP Connector
 
-- Prefer using the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for outbound HTTP calls in non-blocking mode instead of combining endpoints with [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/). The [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. 
+- Prefer using the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for non-blocking outbound HTTP calls instead of using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) with endpoints. The [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) provides a more streamlined, configurable, and maintainable approach, supporting advanced features such as connection, retries, and custom headers. 
 - Always use the latest version of the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to take advantage of new features.
 
 <!-- TODO: Add Scatter Gather Mediator best practices -->
