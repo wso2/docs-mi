@@ -174,7 +174,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 - **Security & Penetration Testing**: Conduct penetration tests on the production setup before go-live. Coordinate with stakeholders to schedule and execute these tests.
 - **User Acceptance Testing (UAT)**: Run UAT rounds against documented requirements to ensure the solution meets customer acceptance criteria and business needs.
 - **Test Documentation**: Document all functional and performance test results in detail. For each test, create a report that includes the steps followed, sample data or requests used, and the outcome (pass/fail, observations, and any issues found).
-- **Functional Test Results**: Maintain a dedicated document for functional test results. Include test case descriptions, expected outcomes, actual outcomes, and any deviations or bugs identified during testing.
+    - **Functional Test Results**: Maintain a dedicated document for functional test results. Include test case descriptions, expected outcomes, actual outcomes, and any deviations or bugs identified during testing.
 
 
     | Test Case ID      | *Enter Function Name*|
