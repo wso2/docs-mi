@@ -228,7 +228,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 ## Using New Mediators in Existing Integrations
 
 !!! note "No changes are required for existing integrations"
-    Integrations built with earlier versions of WSO2 Integrator: MI (prior to 4.4.0) continue to work in newer versions. The mediators and configurations used in earlier MI versions are still supported, so you do not need to change an integration that is working as expected.
+    Integrations built with earlier versions of WSO2 Integrator: MI (prior to 4.4.0) continue to work in newer versions. Existing mediators and configurations remain supported, so you do not need to modify integrations that are working as expected.
 
 Newer versions of WSO2 Integrator: MI provide mediators and connectors that offer a simpler and more streamlined development experience, such as the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/), the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) with new syntax, the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/), the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) and templating support in the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) and [Log Mediator]({{base_path}}/reference/mediators/log-mediator/). Consider using them when you build new integrations.
 
