@@ -302,7 +302,7 @@ Updating an existing integration to use them is optional. If you want to get the
         - The [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) exposes built‑in configuration options that replace many values previously set using the Property mediator.
         - Set these options on the connector operation itself (for example: headers, noKeepAlive etc.), since applying them via Property mediators for HTTP connector is not supported.
 
-        "The following sample shows how the same integration can be written with the new mediators."
+        The following sample shows how the same integration can be written with the new mediators.
 
         === "Existing Configuration"
 
