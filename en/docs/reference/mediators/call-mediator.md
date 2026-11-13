@@ -40,6 +40,7 @@ as the request payload. The response you receive replaces the current message bo
     * **Current API** → `POST` request using Call Mediator (blocking)
     * **Internal Proxy API** → `DELETE` request using Call Mediator (non-blocking)
     * **Backend** → Processes the request
+    * **Response Handling** → Since the `DELETE` is non-blocking, the backend response does not reach the Internal Proxy API sequence. The Internal Proxy API must use a Respond mediator to explicitly return a custom success or failure payload to complete the blocking `POST` call from the Current API.
 
 ## Enabling mutual SSL in the blocking mode
 
