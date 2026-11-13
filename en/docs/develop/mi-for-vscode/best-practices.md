@@ -514,7 +514,7 @@ Updating an existing integration to use them is optional. If you want to get the
                 <tr>
                     <td>N/A</td>
                     <td><code>parallel-execution="false|true"</code></td>
-                    <td>Set <code>parallel-execution="false"</code> when updaing from an existing sequential processing configuration.</td>
+                    <td>Set <code>parallel-execution="false"</code> when updating from an existing sequential processing configuration.</td>
                 </tr>
                 <tr>
                     <td>N/A</td>
@@ -589,7 +589,7 @@ Updating an existing integration to use them is optional. If you want to get the
                 <tr>
                     <td><code>sequential="true|false"</code></td>
                     <td><code>parallel-execution="true|false"</code></td>
-                    <td>Set <code>parallel-execution="false"</code> when updaing from an existing sequential processing configuration.</td>
+                    <td>Set <code>parallel-execution="false"</code> when updating from an existing sequential processing configuration.</td>
                 </tr>
                 <tr>
                     <td><code>continueParent="true|false"</code></td>
