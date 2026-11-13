@@ -2,9 +2,6 @@
 
 The Property mediator is used to define configuration settings that control how an integration behaves. These properties manage transport settings, security configurations, or mediator-specific parameters that influence message processing. The Property mediator allows you to set or remove these properties, ensuring they are available within the mediation flow.
 
-!!! Note
-    With the introduction of the [**Variable mediator**]({{base_path}}/reference/mediators/variable-mediator/) in WSO2 MI 4.4.0 onwards, it is now recommended to use the **Property mediator** only for managing configuration-related properties within a mediation flow. To store data for future use, the [**Variable mediator**]({{base_path}}/reference/mediators/variable-mediator/) should be used instead.
-
 ## Syntax
 
 ```xml
