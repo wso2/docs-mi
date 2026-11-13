@@ -1,7 +1,7 @@
 # Iterate Mediator
 
 !!! Note  
-        From WSO2 MI 4.4.0 onwards, you can use the [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) instead of the **Iterate mediator**. The [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) includes all the functionality of the Iterate mediator and eliminates the need to use the **Aggregate mediator** to merge flows. It provides a more streamlined and efficient way to process individual elements in a message payload. It is recommended to use the [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) for new implementations.
+        From WSO2 MI 4.4.0 onwards, you can use the [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) instead of the **Iterate mediator**. The [**ForEach mediator**]({{base_path}}/reference/mediators/foreach-mediator/) includes all the functionality of the Iterate mediator and eliminates the need to use the **Aggregate mediator** to merge flows. It provides a simpler developer experience when processing individual elements in a message payload.
 
 The Iterate Mediator implements the [Splitter enterprise integration pattern]({{base_path}}/learn/enterprise-integration-patterns/message-routing/splitter/) and splits the message into several different messages derived from the parent message.
 
