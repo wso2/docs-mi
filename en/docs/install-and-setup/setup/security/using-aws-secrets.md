@@ -32,7 +32,7 @@ The extension can be configured in two ways:
 
 ## Before you begin
 
--   Create the required secrets in AWS Secrets Manager. The **secret name** you use in AWS is the alias you will refer to from the WSO2 Integrator: MI.
+-   Create the required secrets in AWS Secrets Manager. The **secret name** you use in AWS is the alias you will refer to from the WSO2 Integrator: MI (preceded by the [secret name prefix](#using-a-secret-name-prefix-for-multiple-environments), if you set one).
 
     !!! Note
         The extension retrieves the secret string as it is stored. Store the value as a **plaintext** secret (not a key/value JSON secret) so that the retrieved value is the secret itself.
@@ -42,10 +42,10 @@ The extension can be configured in two ways:
 
 ## Step 1: Install the extension
 
-Download the [org.wso2.carbon.securevault.aws-1.1.1.jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/org.wso2.carbon.securevault.aws/1.1.1/org.wso2.carbon.securevault.aws-1.1.1.jar) file and copy it to the `dropins` folder of your WSO2 Integrator: MI distribution (`<MI_HOME>/dropins`).
+Download the [org.wso2.carbon.securevault.aws-1.1.2.jar](https://maven.wso2.org/nexus/content/groups/wso2-public/org/wso2/carbon/org.wso2.carbon.securevault.aws/1.1.2/org.wso2.carbon.securevault.aws-1.1.2.jar) file and copy it to the `dropins` folder of your WSO2 Integrator: MI distribution (`<MI_HOME>/dropins`).
 
 !!! Note
-    Use version **1.1.1** or later with the WSO2 Integrator: MI. Earlier versions depend on Carbon Kernel classes that are not shipped with the MI runtime.
+    Use version **1.1.1** or later with the WSO2 Integrator: MI. Earlier versions depend on Carbon Kernel classes that are not shipped with the MI runtime. The [secret name prefix](#using-a-secret-name-prefix-for-multiple-environments) is available from version **1.1.2** onwards.
 
     The AWS SDK classes required by the extension are bundled inside this JAR, so no additional libraries are needed.
 
@@ -134,6 +134,16 @@ Open the `secret-conf.properties` file (stored in the `<MI_HOME>/conf/security` 
             Specify <code>true</code> or <code>false</code>.</br></br>
             If set to <code>true</code>, the secrets stored in AWS Secrets Manager (except the root passwords) must be encrypted beforehand using the <a href="{{base_path}}/install-and-setup/setup/security/encrypting-plain-text">Cipher Tool</a>, and the encrypted value is what you store in AWS.</br></br>
             This must be <code>false</code> when the novel mode is used.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            secretNamePrefix
+        </td>
+        <td>
+            Optional. A prefix that is prepended to every secret name before it is looked up in AWS Secrets Manager.</br></br>
+            For example, <code>dev/</code>.</br></br>
+            See <a href="#using-a-secret-name-prefix-for-multiple-environments">Using a secret name prefix for multiple environments</a> for details.
         </td>
     </tr>
 </table>
@@ -314,6 +324,30 @@ The same delimiter applies in synapse configurations:
 
 !!! Note
     Only a version **ID** can be used after the `#` delimiter. Staging labels such as `AWSPREVIOUS` are not supported.
+
+## Using a secret name prefix for multiple environments
+
+When the same integration artifacts are deployed to several environments (for example, development and production), you can keep the same aliases everywhere and let each environment resolve them to its own secrets. To do this, set the `secretNamePrefix` property in the `secret-conf.properties` file (stored in the `<MI_HOME>/conf/security` folder) of each environment. The prefix is prepended to every secret name before it is looked up in AWS Secrets Manager.
+
+=== "Novel (multiple repositories)"
+    ```properties
+    secretProviders.vault.repositories.aws.properties.secretNamePrefix=dev/
+    ```
+
+=== "Legacy (single repository)"
+    ```properties
+    secretRepositories.vault.properties.secretNamePrefix=dev/
+    ```
+
+For example, with the prefix `dev/`, the reference `$secret{vault:aws:admin-password}` retrieves the secret named `dev/admin-password`. With the prefix `prod/` on another server, the same reference retrieves `prod/admin-password`.
+
+Note the following when using a prefix:
+
+-   The prefix is used exactly as given, apart from trimming surrounding whitespace. No separator is added, so include it (for example, `/` or `-`) in the value.
+-   If a [version ID](#retrieving-a-specific-version-of-a-secret) is given in the alias, the prefix is applied to the secret name only. For example, `admin-password#<VERSION_ID>` retrieves version `<VERSION_ID>` of `dev/admin-password`.
+-   Every alias is prefixed, including aliases given as full secret ARNs. Therefore, ARN aliases cannot be used while a prefix is set.
+-   The prefix is not applied to the [keystore passwords](#retrieving-the-keystore-passwords-from-aws-secrets-manager) retrieved from AWS Secrets Manager, as their aliases are already configured per environment in the `secret-conf.properties` file.
+-   If the property is not set or is empty, secret names are used as they are.
 
 ## Retrieving the keystore passwords from AWS Secrets Manager
 
