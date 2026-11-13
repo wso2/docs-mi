@@ -32,20 +32,14 @@ Endpoint is only supported in non-blocking mode.
 By default, when you use the Call mediator, the current message body in the mediation is sent out 
 as the request payload. The response you receive replaces the current message body.
 
-## Blocking HTTP call scenarios
 
-Use the Call Mediator with `blocking="true"` for scenarios that require blocking HTTP calls, such as:
+!!! Warning "DELETE requests with a body"
 
-* Inbound endpoints with manual offset commits (e.g., Kafka). For reliable commits, this requires **sequential processing** in addition to a blocking Call Mediator. As noted in the [Kafka inbound endpoint guidance](../connectors/kafka-connector/kafka-inbound-endpoint-config.md), parallel processing can commit an offset after a processing failure, causing a message to be skipped.
-* Transactional flows or flows requiring rollback handling.
+    There is a known limitation when sending `DELETE` requests with a body using the Call Mediator in blocking mode. As a workaround, use an intermediate API to perform the `DELETE` request in non-blocking mode:
 
-### DELETE requests with a body
-
-There is a known limitation when sending `DELETE` requests with a body using the Call Mediator in blocking mode. As a workaround, use an intermediate API to perform the `DELETE` request in non-blocking mode:
-
-* **Current API** → `POST` request using Call Mediator (blocking)
-* **Internal Proxy API** → `DELETE` request using Call Mediator (non-blocking)
-* **Backend** → Processes the request
+    * **Current API** → `POST` request using Call Mediator (blocking)
+    * **Internal Proxy API** → `DELETE` request using Call Mediator (non-blocking)
+    * **Backend** → Processes the request
 
 ## Enabling mutual SSL in the blocking mode
 
