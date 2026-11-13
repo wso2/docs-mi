@@ -127,7 +127,7 @@ The Payload mediator supports [FreeMarker Templates](https://freemarker.apache.o
 <payloadFactory media-type="json" template-type="freemarker">
     <format><![CDATA[{
         "name": "${payload.customer_name}"
-        "customer_id" : "${var.customer_id}",
+        "customer_id" : "${vars.customer_id}",
         "axis2 property": "${axis2.REST_URL_POSTFIX}",
         "trp property": "${trp.Host}"
         }]]>
@@ -150,10 +150,10 @@ The following root variables are available when you format a FreeMarker payload:
   </tr>
   <tr>
     <th>
-      <code>var</code>
+      <code>vars</code>
     </th>
     <td>
-      You can use the var variable to access variables. For example, if you have a variable named <code>customer_id</code>, you can get the variable in the FreeMarker template by using <code>var.customer_id</code>.
+      You can use the vars variable to access variables. For example, if you have a variable named <code>customer_id</code>, you can get the variable in the FreeMarker template by using <code>vars.customer_id</code>.
     </td>
   </tr>
   <tr>
@@ -204,7 +204,7 @@ See the [Freemarker examples](#examples-using-the-freemarker-template) for detai
                 <format>
                     <m:getQuote xmlns:m="http://services.samples">
                         <m:request>
-                            <m:symbol>${var.symbol}</m:symbol>
+                            <m:symbol>${vars.symbol}</m:symbol>
                         </m:request>
                     </m:getQuote>
                 </format>
@@ -479,7 +479,7 @@ Mediator in a proxy service as shown in the example below.
                         <soapenv:Body>
                             <ser:getQuote>
                                 <ser:request>
-                                    <xsd:symbol>${var.request.symbol}</xsd:symbol>
+                                    <xsd:symbol>${vars.request.symbol}</xsd:symbol>
                                 </ser:request>
                             </ser:getQuote>
                         </soapenv:Body>
@@ -1031,12 +1031,12 @@ See the instructions on how to [build and run](#build-and-run) this example.
     
 ### Accessing variables and properties
 
-This example shows how to access variables and properties using the following variables: <code>var</code>, <code>ctx</code>, <code>axis2</code>, and <code>trp</code>.
+This example shows how to access variables and properties using the following variables: <code>vars</code>, <code>ctx</code>, <code>axis2</code>, and <code>trp</code>.
 
 -   FreeMarker Tamplate
     ```json
     {
-    "variable" : "${var.user_id}",
+    "variable" : "${vars.user_id}",
     "ctx property" : "${ctx.user_name}",
     "axis2 property": "${axis2.REST_URL_POSTFIX}",
     "trp property": "${trp.Host}"
@@ -1061,7 +1061,7 @@ This example shows how to access variables and properties using the following va
     <property name="user_name" scope="default" type="STRING" value="john"/>
     <payloadFactory media-type="json" template-type="freemarker">
         <format><![CDATA[{
-            "variable" : "${var.user_id}",
+            "variable" : "${vars.user_id}",
             "ctx property" : "${ctx.user_name}",
             "axis2 property": "${axis2.REST_URL_POSTFIX}",
             "trp property": "${trp.Host}"
