@@ -14,6 +14,9 @@ tags:
 HTTP (Hypertext Transfer Protocol) is a foundational protocol used for transferring data enabling communication between clients and servers.
 
 The HTTP Connector enables communication with APIs by supporting operations for HTTP methods such as GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS. It facilitates sending requests over both HTTP and HTTPS protocols.
+!!! Note
+    The HTTP Connector operates exclusively in non-blocking mode and does not support blocking execution. For scenarios requiring blocking HTTP calls, such as inbound endpoints with manual offset commits, transactional flows, or flows requiring rollback handling, use the [Call Mediator]({{base_path}}/reference/mediators/call-mediator.md) with `blocking="true"`.
+
 
 To see the HTTP Connector, navigate to the [connector store](https://store.wso2.com) and search for "http".
 
