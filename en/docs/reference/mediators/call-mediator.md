@@ -37,10 +37,7 @@ as the request payload. The response you receive replaces the current message bo
 
     There is a known limitation when sending `DELETE` requests with a body using the Call Mediator in blocking mode. As a workaround, use an intermediate API to perform the `DELETE` request in non-blocking mode:
 
-    * **Current API** → `POST` request using Call Mediator (blocking)
-    * **Internal Proxy API** → `DELETE` request using Call Mediator (non-blocking)
-    * **Backend** → Processes the request
-    * **Response Handling** → Since the `DELETE` is non-blocking, the backend response does not reach the Internal Proxy API sequence. The Internal Proxy API must use a Respond mediator to explicitly return a custom success or failure payload to complete the blocking `POST` call from the Current API.
+    **Current API** → `POST` (Call mediator, blocking) → **Proxy API** → `DELETE` (Call mediator, non-blocking) → **Backend**
 
 ## Enabling mutual SSL in the blocking mode
 
