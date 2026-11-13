@@ -1,7 +1,7 @@
 # How to Use an HTTP Endpoint
 
 !!! Note  
-    Starting from WSO2 MI 4.4.0, a new [**HTTP Connector**]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) is available for invoking HTTP backends. While **HTTP endpoints** can still be used, the HTTP connector provides a simpler and more streamlined developer experience for handling HTTP requests.
+    Starting from WSO2 MI 4.4.0, a new [**HTTP Connector**]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) is available for invoking HTTP backends. While **HTTP endpoints** can still be used, the HTTP connector provides a simpler developer experience for handling HTTP requests.
 
 See the examples given below on how to effectively use the HTTP endpoint.
 

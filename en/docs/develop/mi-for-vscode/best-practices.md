@@ -86,7 +86,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 ### General mediator usage
 
 - Add a proper description to each mediator to clarify its purpose and usage within the integration flow.
-- Prefer the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) over the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) for storing intermediate values during message mediation, as it provides a simpler and more streamlined development experience.
+- Prefer the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) over the [Property mediator]({{base_path}}/reference/mediators/property-mediator/) for storing intermediate values during message mediation, as it provides a simpler development experience.
 - Reserve the [Property Mediator]({{base_path}}/reference/mediators/property-mediator/) for controlling message flow, such as setting properties that influence routing, error handling, or other flow-specific logic.
 - Use clear, descriptive variable names to enhance the readability and maintainability of your integration logic.
 - If you want to repeatedly use the same mediation sequence, define it as a [Sequence]({{base_path}}/reference/mediation-sequences/#named-sequences). You can then invoke this reusable sequence from your main sequence, multiple proxy services, or REST APIs. Use the [Call Sequence mediator]({{base_path}}/reference/mediators/sequence-mediator/) to call the saved sequence, or select it as the [InSequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) or [FaultSequence]({{base_path}}/reference/mediation-sequences/#fault-sequences) when configuring a proxy service or REST API. This approach promotes modularity, reduces duplication, and simplifies maintenance across your integration flows.
@@ -114,7 +114,7 @@ This guide provides best practices for designing, developing, deploying, and mai
 
 ### HTTP Connector
 
-- Prefer using the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for a simpler and more streamlined developer experience when making non-blocking outbound HTTP calls instead of using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) with endpoints.
+- Prefer using the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) for a simpler developer experience when making non-blocking outbound HTTP calls instead of using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) with endpoints.
 - Always use the latest version of the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) to take advantage of new features.
 
 <!-- TODO: Add Scatter Gather Mediator best practices -->
@@ -230,15 +230,15 @@ This guide provides best practices for designing, developing, deploying, and mai
 !!! note "No changes are required for existing integrations"
     Integrations built with earlier versions of WSO2 Integrator: MI (prior to 4.4.0) continue to work in newer versions. Existing mediators and configurations remain supported, so you do not need to modify integrations that are working as expected.
 
-Newer versions of WSO2 Integrator: MI provide mediators and connectors that offer a simpler and more streamlined development experience, such as the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/), the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) with new syntax, the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/), the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) and templating support in the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) and [Log Mediator]({{base_path}}/reference/mediators/log-mediator/). Consider using them when you build new integrations.
+Newer versions of WSO2 Integrator: MI provide mediators and connectors that offer a simpler development experience, such as the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/), the [ForEach Mediator]({{base_path}}/reference/mediators/foreach-mediator/) with new syntax, the [Scatter Gather Mediator]({{base_path}}/reference/mediators/scatter-gather-mediator/), the [Variable mediator]({{base_path}}/reference/mediators/variable-mediator/) and templating support in the [PayloadFactory Mediator]({{base_path}}/reference/mediators/payloadfactory-mediator/) and [Log Mediator]({{base_path}}/reference/mediators/log-mediator/). Consider using them when you build new integrations.
 
-Updating an existing integration to use them is optional. If you want to get the same benefits in an existing integration, for example, when you are already making changes to it, use the following guidelines. Each guideline includes a sample that shows a legacy configuration and an equivalent configuration using the newer mediators. Test the updated integration thoroughly before you deploy it.
+Updating an existing integration to use them is optional. If you want to get the same benefits in an existing integration, for example, when you are already making changes to it, use the following guidelines. Each guideline includes a sample that shows how an existing configuration can be updated using the newer mediators. Test the updated integration thoroughly before you deploy it.
 
 - From version 4.4.0 onwards, the MI for VS Code extension does not create an [Out Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences) by default in APIs and proxy services. Instead, implement the logic that handles the response in the [In Sequence]({{base_path}}/reference/mediation-sequences/#inout-sequences). Existing APIs and proxy services that use an Out Sequence continue to work.
 
     ??? "Sample: Handling the response in the In Sequence"
 
-        === "Legacy Configuration"
+        === "Existing Configuration"
             ```xml
             <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
                 <resource methods="GET" uri-template="/?city={city}">
@@ -262,7 +262,7 @@ Updating an existing integration to use them is optional. If you want to get the
             </api>
             ```
 
-        === "New Configuration"
+        === "Updated Configuration"
             ```xml
             <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
                 <resource methods="GET" uri-template="/?city={city}">
@@ -295,16 +295,16 @@ Updating an existing integration to use them is optional. If you want to get the
             ```
 
 - When you handle the response in the In Sequence, you do not need the [Loopback Mediator]({{base_path}}/reference/mediators/loopback-mediator/), which moves a message from the In Sequence to the Out Sequence.
-- To invoke external HTTP services in a non-blocking manner, you can use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) with an endpoint. The HTTP Connector provides a simpler and more streamlined development experience. For blocking HTTP calls, continue using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) in blocking mode or the [Callout Mediator]({{base_path}}/reference/mediators/callout-mediator/). For non-HTTP protocols such as VFS, RabbitMQ, and JMS, or scenarios where a connector is not applicable, continue using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/).
+- To invoke external HTTP services in a non-blocking manner, you can use the [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) instead of the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) or [Send Mediator]({{base_path}}/reference/mediators/send-mediator/) with an endpoint. The HTTP Connector provides a simpler development experience. For blocking HTTP calls, continue using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/) in blocking mode or the [Callout Mediator]({{base_path}}/reference/mediators/callout-mediator/). For non-HTTP protocols such as VFS, RabbitMQ, and JMS, or scenarios where a connector is not applicable, continue using the [Call Mediator]({{base_path}}/reference/mediators/call-mediator/).
 
     ??? "Sample: Using the HTTP Connector instead of the Call or Send mediator with an endpoint"
 
         - The [HTTP Connector]({{base_path}}/reference/connectors/http-connector/http-connector-overview/) exposes built‑in configuration options that replace many values previously set using the Property mediator.
         - Set these options on the connector operation itself (for example: headers, noKeepAlive etc.), since applying them via Property mediators for HTTP connector is not supported.
 
-        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
+        "The following sample shows how the same integration can be written with the new mediators."
 
-        === "Legacy Configuration"
+        === "Existing Configuration"
 
             ```xml
             <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
@@ -334,7 +334,7 @@ Updating an existing integration to use them is optional. If you want to get the
             </endpoint>
             ```
 
-        === "New Configuration"
+        === "Updated Configuration"
 
             ```xml
             <api context="/weather" name="WeatherAPI" xmlns="http://ws.apache.org/ns/synapse">
@@ -419,9 +419,9 @@ Updating an existing integration to use them is optional. If you want to get the
             </tbody>
         </table>
 
-        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
+        The following sample shows how the same integration can be written with the new mediators.
 
-        === "Legacy Configuration"
+        === "Existing Configuration"
 
             ```xml
             <iterate expression="json-eval($.)">
@@ -449,7 +449,7 @@ Updating an existing integration to use them is optional. If you want to get the
             </endpoint>
             ```
         
-        === "New Configuration"
+        === "Updated Configuration"
 
             ```xml
             <foreach collection="${payload}" parallel-execution="false" update-original="true" continue-without-aggregation="false">
@@ -495,7 +495,7 @@ Updating an existing integration to use them is optional. If you want to get the
         <table>
             <thead>
                 <tr>
-                    <th>Legacy attribute / element</th>
+                    <th>Existing attribute / element</th>
                     <th>New attribute / element</th>
                     <th>Notes</th>
                 </tr>
@@ -514,24 +514,24 @@ Updating an existing integration to use them is optional. If you want to get the
                 <tr>
                     <td>N/A</td>
                     <td><code>parallel-execution="false|true"</code></td>
-                    <td>Set <code>parallel-execution="false"</code> when migrating from legacy sequential processing.</td>
+                    <td>Set <code>parallel-execution="false"</code> when updaing from an existing sequential processing configuration.</td>
                 </tr>
                 <tr>
                     <td>N/A</td>
                     <td><code>continue-without-aggregation="false|true"</code></td>
-                    <td>Set <code>continue-without-aggregation="true"</code> to maintain legacy behavior.</td>
+                    <td>Set <code>continue-without-aggregation="true"</code> to maintain the existing behavior.</td>
                 </tr>
                 <tr>
                     <td>N/A</td>
                     <td><code>update-original="true|false"</code></td>
-                    <td>Set <code>update-original="false"</code> to maintain legacy behavior.</td>
+                    <td>Set <code>update-original="false"</code> to maintain the existing behavior.</td>
                 </tr>
             </tbody>
         </table>
 
-        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
+        The following sample shows how the same integration can be written with the new mediators.
 
-        === "Legacy Configuration"
+        === "Existing Configuration"
 
             ```xml
             <foreach expression="json-eval($.)">
@@ -550,7 +550,7 @@ Updating an existing integration to use them is optional. If you want to get the
             </foreach>
             ```
 
-        === "New Configuration"
+        === "Updated Configuration"
 
             ```xml
             <foreach collection="${payload}" parallel-execution="false" update-original="false" continue-without-aggregation="true">
@@ -575,7 +575,7 @@ Updating an existing integration to use them is optional. If you want to get the
         <table>
             <thead>
                 <tr>
-                    <th>Legacy Clone mediator attribute</th>
+                    <th>Clone mediator attribute</th>
                     <th>Scatter Gather mediator attribute</th>
                     <th>Notes</th>
                 </tr>
@@ -589,7 +589,7 @@ Updating an existing integration to use them is optional. If you want to get the
                 <tr>
                     <td><code>sequential="true|false"</code></td>
                     <td><code>parallel-execution="true|false"</code></td>
-                    <td>Set <code>parallel-execution="false"</code> when migrating from legacy sequential processing.</td>
+                    <td>Set <code>parallel-execution="false"</code> when updaing from an existing sequential processing configuration.</td>
                 </tr>
                 <tr>
                     <td><code>continueParent="true|false"</code></td>
@@ -603,7 +603,7 @@ Updating an existing integration to use them is optional. If you want to get the
         <table>
             <thead>
                 <tr>
-                    <th>Legacy Aggregate mediator attribute</th>
+                    <th>Aggregate mediator attribute</th>
                     <th>Scatter Gather mediator attribute</th>
                     <th>Notes</th>
                 </tr>
@@ -644,9 +644,9 @@ Updating an existing integration to use them is optional. If you want to get the
             </tbody>
         </table>
 
-        The following sample shows a legacy configuration and an equivalent configuration using the newer mediators.
+        The following sample shows how the same integration can be written with the new mediators.
 
-        === "Legacy Configuration"
+        === "Existing Configuration"
 
             ```xml
             <clone>
@@ -688,7 +688,7 @@ Updating an existing integration to use them is optional. If you want to get the
             </aggregate>
             ```
 
-        === "New Configuration"
+        === "Updated Configuration"
 
             ```xml
             <scatter-gather parallel-execution="false" target="Body" result-content-type="JSON">
@@ -730,9 +730,9 @@ Updating an existing integration to use them is optional. If you want to get the
 
         The PayloadFactory mediator supports inline templating. You can insert [Synapse expressions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) directly in the format string (for example, `${props.synapse.id}`) instead of using the `<args>` block and the `$1`, `$2` placeholders. This simplifies templates and improves readability.
 
-        The following sample shows a legacy configuration and an equivalent configuration that uses templating.
+        The following sample shows how the same integration can be written with the templated support.
 
-        === "Legacy Configuration"
+        === "Existing Configuration"
 
             ```xml
             <payloadFactory media-type="json" template-type="default">
@@ -746,7 +746,7 @@ Updating an existing integration to use them is optional. If you want to get the
                 </args>
             </payloadFactory>
             ```
-        === "New Configuration"
+        === "Updated Configuration"
 
             ```xml
             <payloadFactory media-type="json" template-type="default">
@@ -763,16 +763,16 @@ Updating an existing integration to use them is optional. If you want to get the
 
         The new Log mediator configuration does not use the `level` attribute. Instead, use the `logMessageID` and `logFullPayload` attributes to select the details to log. For example, set <code>logFullPayload="true"</code> to log the full payload, as <code>level="full"</code> did. You can define the log message as a template in the `<message>` element by inserting [Synapse expressions]({{base_path}}/reference/synapse-properties/synapse-expressions-syntax/) directly in it.
 
-        The following sample shows a legacy configuration and an equivalent configuration that uses templating.
+        The following sample shows how the same integration can be written with the templated support.
 
-        === "Legacy Configuration"
+        === "Existing Configuration"
 
             ```xml
             <log category="INFO" level="simple">
                 <property name="Name" expression="$ctx:name"/>
             </log>
             ```
-        === "New Configuration"
+        === "Updated Configuration"
 
             ```xml
             <log category="INFO" logMessageID="true" logFullPayload="false">
