@@ -1,8 +1,13 @@
+---
+search:
+  boost: 2
+---
+
 # Redis Connector Reference
 
 To use the Redis connector, add the <redis.init> element in your configuration before carrying out any other Redis operations. 
 
-??? note "redis.init"
+??? note "redis.init - Standalone mode" 
     The redis.init operation initializes the connector to interact with Redis.
     <table>
         <tr>
@@ -21,9 +26,44 @@ To use the Redis connector, add the <redis.init> element in your configuration b
             <td>Yes</td>
         </tr>
         <tr>
+             <td>maxConnections</td>
+             <td>The maximum number of connections that are supported by the pool (which should be less than the max client connection limit of Redis)</td>
+             <td>Yes</td>
+        </tr>
+        <tr>
+            <td>maxIdleConnections</td>
+            <td>The maximum number of idle connections to keep in the pool.</td>
+            <td>Optional. The default equals to the maxConnections.</td>
+        </tr>
+        <tr>
+            <td>maxWaitTime</td>
+            <td>The maximum time (in milliseconds) a thread waits for a connection from the pool when the pool is exhausted.</td>
+            <td>Optional. If not set, the thread waits indefinitely.</td>
+        </tr>
+        <tr>
+            <td>evictionCheckInterval</td>
+            <td>The time (in milliseconds) between runs of the idle connection evictor.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>minEvictionTime</td>
+            <td>The minimum time (in milliseconds) a connection may sit idle in the pool before it is eligible for eviction.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>redisTimeout</td>
             <td>The server TTL (Time to Live) in milliseconds.</td>
-            <td>Yes</td>
+            <td>Optional. The default is 2000ms. </td>
+        </tr>
+        <tr>
+            <td>redisConnectionTimeout</td>
+            <td>The connection TTL (Time to live) in milliseconds.</td>
+            <td>Optional. The default equals to the redisTimeout. </td>
+        </tr>
+        <tr>
+            <td>redisConnectionPoolId</td>
+            <td>We are keeping separate pools for each artifact by using ARTIFACT_NAME as a unique name. If and only if the user wants to add 2 or more connectors to a single artifact (say 2 connectors per one API) then the user has to differentiate the Redis connectors within that artifact with-param.</td>
+            <td>Optional</td>
         </tr>
     </table>
 
@@ -33,9 +73,211 @@ To use the Redis connector, add the <redis.init> element in your configuration b
         <redisHost>{$ctx:redisHost}</redisHost>
         <redisPort>{$ctx:redisPort}</redisPort>
         <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
+        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
     </redis.init>
     ```
 
+    If you are connecting using a cache key, use the following init configuration.
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>cacheKey</td>
+            <td>Key of the cache (password).</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
+            <td>useSsl</td>
+            <td>A flag to switch between SSL and non-SSL.</td>
+            <td>Optional. Default is false.</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+    ```xml
+    <redis.init>
+        <redisHost>{$ctx:redisHost}</redisHost>
+        <redisPort>{$ctx:redisPort}</redisPort>
+        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
+        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+        <cacheKey>{$ctx:cacheKey}</cacheKey>
+        <useSsl>{$ctx:useSsl}</useSsl>
+    </redis.init>
+    ```
+
+    If you prefer to use the connectionURI over above configuration, use the following init configuration.
+
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>redisConnectionURI</td>
+            <td>The Redis connection URI in the form of redis://[user:password@]host[:port]/[database] or rediss://[user:password@]host[:port]/[database] to connect over TLS/SSL</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>redisTimeout</td>
+            <td>The server TTL (Time to Live) in milliseconds.</td>
+            <td>Optional. The default is 2000ms. </td>
+        </tr>
+        <tr>
+            <td>redisConnectionTimeout</td>
+            <td>The connection TTL (Time to live) in milliseconds.</td>
+            <td>Optional. The default equals to the redisTimeout. </td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+    ```xml
+    <redis.init>
+        <redisConnectionURI>{$ctx:redisConnectionURI}</redisConnectionURI>
+        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
+        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+    </redis.init>
+    ```
+
+??? note "redis.init - Cluster mode"
+    The redis.init operation initializes the connector to interact with Redis cluster.
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>isJmxEnabled</td>
+            <td>A flag to enable JMX if required (Default is false).</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>redisClusterEnabled</td>
+            <td>A flag to enable the redis cluster mode (Default is false).</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>clusterNodes</td>
+            <td>Comma separated list of the cluster nodes as Node1_hostname:Port,Node2_hostname:Port, etc. Example: 127.0.0.1:40001,127.0.0.1:40002</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>redisTimeout</td>
+            <td>The server TTL (Time to Live) in milliseconds.</td>
+            <td>Optional. The default is 2000ms. </td>
+        </tr>
+        <tr>
+            <td>redisConnectionTimeout</td>
+            <td>The connection TTL (Time to live) in milliseconds.</td>
+            <td>Optional. The default equals to the redisTimeout. </td>
+        </tr>
+        <tr>
+            <td>maxAttempts</td>
+            <td>The number of retries.</td>
+            <td>Optional. The default is 5. </td>
+        </tr>
+        <tr>
+            <td>clientName</td>
+            <td>Name of the client.</td>
+            <td>Optional. Default is empty</td>
+        </tr>
+        <tr>
+            <td>cacheKey</td>
+            <td>Key of the cache (password).</td>
+            <td>Optional. </td>
+        </tr>
+        <tr>
+            <td>useSsl</td>
+            <td>A flag to switch between SSL and non-SSL.</td>
+            <td>Optional. Default is false.</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+    ```xml
+    <redis.init>
+        <redisHost>{$ctx:redisHost}</redisHost>
+        <redisPort>{$ctx:redisPort}</redisPort>
+        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
+        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+        <maxAttempts>5</maxAttempts>   
+        <clientName>WSO2EI</clientName>
+    </redis.init>
+    ```
+
+    If you are connecting using a cache key, use the following init configuration.
+
+    **Sample configuration**
+    ```xml
+    <redis.init>
+        <redisHost>{$ctx:redisHost}</redisHost>
+        <redisPort>{$ctx:redisPort}</redisPort>
+        <redisTimeout>{$ctx:redisTimeout}</redisTimeout>
+        <redisConnectionTimeout>{$ctx:redisConnectionTimeout}</redisConnectionTimeout>
+        <maxAttempts>5</maxAttempts>   
+        <clientName>WSO2EI</clientName>
+        <cacheKey>{$ctx:cacheKey}</cacheKey>
+        <useSsl>{$ctx:useSsl}</useSsl>
+    </redis.init>
+    ```
+
+??? note "redis.init - sentinel mode"
+    The redis.init operation initializes the connector to interact with the Redis cluster.
+    Sentinel password configuration is available from version 2.5.0 
+    <table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+        </tr>
+        <tr>
+            <td>sentinelEnabled</td>
+            <td>A flag to enable the sentinel cluster mode (this is false by default).</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sentinels</td>
+            <td>Comma separated list of the sentinel nodes in the following format: Node1_hostname:Port,Node2_hostname:Port, etc. For example: 172.18.0.4:26379,172.18.0.5:26379</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td>sentinelSoTimeout</td>
+            <td>The server TTL (Time to Live) in milliseconds.</td>
+            <td>Optional. The default is 2000ms. </td>
+        </tr>
+        <tr>
+            <td>sentinelConnectionTimeout</td>
+            <td>The connection TTL (Time to live) in milliseconds.</td>
+            <td>Optional. The default equals to the redisTimeout. </td>
+        </tr>
+        <tr>
+            <td>sentinelPassword</td>
+            <td>The password of the sentinel node (if configured only)</td>
+            <td>Optional</td>
+        </tr>
+    </table>
+
+    **Sample configuration**
+    ```xml
+    <redis.init>
+        <sentinelUser>{$ctx:sentinelUser}</sentinelUser>
+        <sentinelPassword>{$ctx:sentinelPassword}</sentinelPassword>
+        <masterName>{$ctx:masterName}</masterName>
+        <masterUser>{$ctx:masterName}</masterUser>
+        <masterPassword>{$ctx:masterPassword}</masterPassword>
+        <sentinelEnabled>true</sentinelEnabled>
+        <dbNumber>0</dbNumber>
+        <sentinels>172.18.0.4:26379,172.18.0.5:26379,172.18.0.6:26379</sentinels>
+        <sentinelClientName>{$ctx:sentinelClientName}</sentinelClientName>
+        <sentinelConnectionTimeout>{$ctx:sentinelConnectionTimeout}</sentinelConnectionTimeout>
+        <sentinelSoTimeout>{$ctx:sentinelSoTimeout}</sentinelSoTimeout>
+    </redis.init>
+    ```
 ---
 
 ### Connection Commands
