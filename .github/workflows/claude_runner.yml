@@ -129,15 +129,19 @@ jobs:
           echo "REPOSITORY=$REPOSITORY" >> $GITHUB_ENV
           echo "LATEST_VERSION=$LATEST_VERSION" >> $GITHUB_ENV
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.8'
+          python-version: '3.12'
           
       - name: Install documentation dependencies
         run: |
         
           cd $GITHUB_WORKSPACE/en
+
+          # Ensure compatibility with older Markdown versions
+          pip3 install "setuptools<82"
+
           if [ -f requirements.txt ]; then
             pip3 install -r requirements.txt
             echo "✓ Installed dependencies from requirements.txt"
