@@ -29,6 +29,13 @@ Endpoint is only supported in non-blocking mode.
 By default, when you use the Call mediator, the current message body in the mediation is sent out 
 as the request payload. The response you receive replaces the current message body.
 
+
+!!! Warning "DELETE requests with a body"
+
+    There is a known limitation when sending `DELETE` requests with a body using the Call Mediator in blocking mode. As a workaround, use an intermediate API to perform the `DELETE` request in non-blocking mode:
+
+    **Current API** → `POST` (Call mediator, blocking) → **Proxy API** → `DELETE` (Call mediator, non-blocking) → **Backend**
+
 ## Enabling mutual SSL in the blocking mode
 
 When using the Call mediator in **blocking mode** (blocking=true), enable the mediator to handle mutual SSL by adding the following JVM settings to the `MI_HOME/bin/micro-integrator.sh` file:
