@@ -982,7 +982,7 @@ The following is the configuration for the address endpoint. Note that you can a
         <enableAddressing [version="final|submission"] [separateListener="true|false"]/>?
 
         <timeout>
-                <duration>timeout duration in seconds</duration>
+                <duration>timeout duration in milliseconds</duration>
                 <responseAction>discard|fault|never</responseAction>
         </timeout>?
 
