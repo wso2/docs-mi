@@ -140,6 +140,11 @@ To use the Kafka connector, add the `<kafkaTransport.init>` element in your conf
             <td>Optional</td>
         </tr>
         <tr>
+            <td>deliveryTimeout</td>
+            <td>An upper bound, in milliseconds, on the time to report success or failure after a call to send() returns. This limits the total time that a record will be delayed prior to sending, the time to await acknowledgement from the broker (if expected), and the time allowed for retriable send failures. The value should be equal to or larger than the sum of <code>requestTimeout</code> and <code>lingerTime</code>. If not set, the Kafka client default (120000 ms) is used. This parameter is available from Kafka connector version 3.3.12 onwards.</td>
+            <td>Optional</td>
+        </tr>
+        <tr>
             <td>saslJaasConfig</td>
             <td>JAAS login context parameters for SASL connections in the format used by JAAS configuration files.</td>
             <td>Optional</td>
