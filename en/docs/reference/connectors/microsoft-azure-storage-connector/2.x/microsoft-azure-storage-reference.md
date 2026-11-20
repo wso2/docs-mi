@@ -37,6 +37,20 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
             <td>Type of the protocol(HTTP/HTTPS) to connect.</td>
             <td>No</td>
         </tr>
+        <tr>
+            <td>maxIdleTime</td>
+            <td>Maximum time (in milliseconds) a pooled connection can remain idle before it is closed.
+            <br>
+            **Note**: This parameter is available only with Microsoft Azure Storage connector v2.0.2 and above.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>maxLifeTime</td>
+            <td>Maximum time (in milliseconds) a pooled connection can remain open before it is closed.
+            <br>
+            **Note**: This parameter is available only with Microsoft Azure Storage connector v2.0.2 and above.</td>
+            <td>No</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -46,6 +60,8 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         <accountName>{$ctx:accountName}</accountName>
         <accountKey>{$ctx:accountKey}</accountKey>
         <defaultEndpointsProtocol>{$ctx:defaultEndpointsProtocol}</defaultEndpointsProtocol>
+        <maxIdleTime>{$ctx:maxIdleTime}</maxIdleTime>
+        <maxLifeTime>{$ctx:maxLifeTime}</maxLifeTime>
     </msazurestorage.init>
     ```
     
@@ -81,6 +97,20 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
             <td>The tenant ID of the application.</td>
             <td>Yes</td>
         </tr>
+        <tr>
+            <td>maxIdleTime</td>
+            <td>Maximum time (in milliseconds) a pooled connection can remain idle before it is closed.
+            <br>
+            **Note**: This parameter is available only with Microsoft Azure Storage connector v2.0.2 and above.</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>maxLifeTime</td>
+            <td>Maximum time (in milliseconds) a pooled connection can remain open before it is closed.
+            <br>
+            **Note**: This parameter is available only with Microsoft Azure Storage connector v2.0.2 and above.</td>
+            <td>No</td>
+        </tr>
     </table>
 
     **Sample configuration**
@@ -91,6 +121,8 @@ To use the Microsoft Azure Storage connector, add the element in your configurat
         <clientId>{$ctx:clientId}</clientId>
         <clientSecret>{$ctx:clientSecret}</clientSecret>
         <tenantId>{$ctx:tenantId}</tenantId>
+        <maxIdleTime>{$ctx:maxIdleTime}</maxIdleTime>
+        <maxLifeTime>{$ctx:maxLifeTime}</maxLifeTime>
     </msazurestorage.init>
     ```
     
