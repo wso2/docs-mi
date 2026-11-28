@@ -796,13 +796,15 @@ The following operations allows you to send messages to RabbitMQ queues or excha
      </rabbitmq.publishMessage>
     ```
     
-     The following properties will be set to a new variable upon receiving a successful acknowledgment (Accept) from the RabbitMQ broker.
-     ```json
-     {
-            "success": "true"
-            "msgid: "urn:uuid:a40ec122-e3eb-4915-aafe-5686f90871eb"
-     }
-     ```
+    Upon receiving a successful acknowledgment (Accept) from the RabbitMQ broker, the following payload is stored in `${vars.rabbitmq_publishMessage_1.payload}` for the configuration above.
+    ```json
+    {
+        "success": "true",
+        "messageId": "urn:uuid:a40ec122-e3eb-4915-aafe-5686f90871eb"
+    }
+    ```
+
+    The `success` value is the string `"true"`. The `messageId` comes from the message context and varies between messages; the value above is illustrative.
     
 ??? note "Send RPC Request"
     The sendRpc operation allows you to send an RPC request to the RabbitMQ broker. This is a synchronous operation that waits for the response from the broker before proceeding. This is the operation that initiates the dual-channel scenario.
